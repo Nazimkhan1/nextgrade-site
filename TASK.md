@@ -31,6 +31,29 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 ---
 
+## Resume here (14 Nov 2026): work in progress
+
+### A. Christmas game at `christmas.nextgrade.in` (user asked for this first)
+"Santa ke Gift Pakdo 🎁" — catch-the-gifts game, live well before 20 Dec.
+- Folder: `~/www/christmas-game` (git init done, **only icons made so far**: `icons/icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `apple-touch-icon.png`). No game code yet.
+- Plan, agreed with the user:
+  - Single `index.html` (plain HTML/CSS/JS + canvas, like Hisab Kitab) + `manifest.json` + `sw.js` (offline, installable) + `CNAME` = `christmas.nextgrade.in`
+  - Santa's sleigh 🛷 at the bottom, moved by finger / mouse / arrow keys; catch 🎁 +10, ⭐ +25, 🍬 +5; avoid 🪨 coal −15; 45-second round, speed rises; snowfall background; mute toggle
+  - Start screen: optional name. End screen: score, best score (localStorage on that phone only), "Challenge bhejo" → WhatsApp text "<name> ne <score> points banaye, kya aap hara sakte ho?" + link `?from=<name>&score=<n>`; opening that link shows the challenge on top. Name only in the link (shown with textContent, max 30 chars), nothing stored on a server.
+  - Below the game: how to play, a short Christmas note + link to https://nextgrade.in/festivals/christmas/, links to nextgrade.in Privacy/Terms
+  - AdSense tag in `<head>` (same publisher); no ad over the game area
+- Hosting steps: new public repo `Nazimkhan1/christmas` → Pages from `main` root, custom domain `christmas.nextgrade.in`, Enforce HTTPS. **User adds in Cloudflare:** `christmas` CNAME → `nazimkhan1.github.io`, DNS only. Then add it to `src/apps.mjs` here, rebuild, push.
+
+### B. All-year wishes + name share link (content written, not wired yet)
+- `src/wishes.mjs` is written: Good Morning, Birthday, Anniversary, Jumma Mubarak (intro, write-up, 8–10 Hindi + 4–5 English wishes, FAQ each). **`build.mjs` does not use it yet.**
+- To do: `/wishes/` index + `/wishes/<slug>/` pages; a "Wishes" nav link; home section "Roz ki shubhkamnayein"; add them to the Wish Card Maker list; sitemap.
+- Name share feature for wish **and** festival pages: `?from=Rahul` shows "Rahul ki taraf se aapko <greeting>" at the top (textContent only); an "Apna wish banao" box (your name → new link → WhatsApp share `https://wa.me/?text=...`). Put the JS in `src/assets/site.js`.
+
+### C. Guru Nanak Jayanti guide (Kartik Purnima, coming soon)
+- Add to `src/festivals.mjs`: Guru Nanak Dev ji's Prakash Parv / Gurpurab; born 1469 at Rai Bhoi di Talwandi (now Nankana Sahib, Pakistan); Akhand Path (48-hour reading of Guru Granth Sahib), Prabhat Pheri, Nagar Kirtan led by the Panj Pyare, langar. Date: Kartik Purnima only (no fixed date).
+
+---
+
 ## Next: content to build (from MY-PLANS, in priority order)
 
 ### 1. All-year wishes (daily traffic) under `/wishes/`
