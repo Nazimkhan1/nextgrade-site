@@ -8,7 +8,7 @@
  * Interface text for all languages is in src/i18n/ui.mjs.
  * Static files in src/assets and src/static are copied as they are.
  */
-import { cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { festivals } from './src/festivals.mjs';
 import { apps } from './src/apps.mjs';
@@ -21,6 +21,10 @@ import { ui } from './src/i18n/ui.mjs';
 const SITE = 'https://nextgrade.in';
 const NAME = 'NextGrade';
 const ADSENSE = 'ca-pub-4135041725422483';
+// Cloudflare Web Analytics (cookieless, no personal data). Paste the site token from
+// Cloudflare dashboard → Analytics & Logs → Web Analytics → nextgrade.in → "Manage site" JS snippet.
+// Empty = off. When set, the beacon is added to every HTML page in docs/ (site pages, games, wishes).
+const CF_BEACON = process.env.CF_BEACON || '';
 const CONTACT = 'contact@nextgrade.in';
 const OUT = 'docs';
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -705,6 +709,8 @@ policyPage(
 <p>We use Google AdSense to show ads. Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to this site and/or other sites on the Internet.</p>
 <p>You may opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" rel="nofollow">Google Ads Settings</a>. You can also opt out of some third-party vendors' use of cookies for personalised advertising at <a href="https://www.aboutads.info/choices/" rel="nofollow">www.aboutads.info</a>. Learn more about <a href="https://policies.google.com/technologies/partner-sites" rel="nofollow">how Google uses information from sites that use its services</a>.</p>
 <p>Where required by law (for example for visitors in the EEA, UK or Switzerland), Google will show a consent message before using cookies for ads.</p>
+<h2>Visitor statistics</h2>
+<p>To understand which pages are useful, we use Cloudflare Web Analytics. It does not use cookies or local storage, does not track you across websites and does not collect personal information — it only counts page views, the country, the type of device and browser, and page load speed, in aggregate. See <a href="https://www.cloudflare.com/web-analytics/" rel="nofollow">Cloudflare Web Analytics</a>.</p>
 <h2>Children</h2>
 <p>This website is meant for a general audience and is not directed at children under 13. We do not knowingly collect personal information from children.</p>
 <h2>Links to other sites</h2>
@@ -772,5 +778,18 @@ writeFileSync(join(OUT, '.nojekyll'), '');
 
 cpSync('src/assets', join(OUT, 'assets'), { recursive: true });
 cpSync('src/static', OUT, { recursive: true });
+
+// Cloudflare Web Analytics beacon on every page (only when a token is set)
+if (CF_BEACON) {
+  const tag = `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${CF_BEACON}"}'></script>`;
+  const walk = (dir) => readdirSync(dir, { withFileTypes: true }).forEach((d) => {
+    const f = join(dir, d.name);
+    if (d.isDirectory()) { walk(f); return; }
+    if (!d.name.endsWith('.html')) return;
+    const html = readFileSync(f, 'utf8');
+    if (!html.includes('cloudflareinsights.com') && html.includes('</head>')) writeFileSync(f, html.replace('</head>', `${tag}\n</head>`));
+  });
+  walk(OUT);
+}
 
 console.log(`Built ${allUrls.length} pages in ${LANGS.map((l) => l.code).join(', ')} into ${OUT}/`);
