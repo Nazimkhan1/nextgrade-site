@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Santa ke Gift Pakdo 🎁 — Christmas Game | NextGrade</title>
+<meta name="description" content="Free Christmas game in English and Hindi: catch Santa's falling gifts, dodge the coal and challenge friends on WhatsApp. मुफ़्त क्रिसमस गेम — तोहफ़े पकड़ो, कोयले से बचो। Installs on your phone, no sign-up.">
+<link rel="canonical" href="https://nextgrade.in/games/christmas/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Santa ke Gift Pakdo 🎁 — Christmas Game">
+<meta property="og:description" content="तोहफ़े पकड़ो, कोयले से बचो, और दोस्तों को चैलेंज करो!">
+<meta property="og:url" content="https://nextgrade.in/games/christmas/">
+<meta property="og:image" content="https://nextgrade.in/games/christmas/icons/icon-512.png">
+<meta name="theme-color" content="#0b3d2e">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Santa ke Gift Pakdo","url":"https://nextgrade.in/games/christmas/","genre":"Casual","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --green: #0b3d2e; --green2: #11604a; --red: #c1121f; --gold: #ffd43b; --ink: #f8f9fa; --muted: #c9d6cf; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #17694f, var(--green) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, var(--red), #e8590c); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.35); background: #0a2a20; touch-action: none; user-select: none; -webkit-user-select: none; }
+canvas { display: block; width: 100%; height: min(70vh, 620px); }
+.hud { position: absolute; top: 10px; left: 10px; right: 10px; display: flex; justify-content: space-between; pointer-events: none; font-weight: 800; font-size: 18px; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(5, 25, 18, 0.72); padding: 16px; }
+.panel { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); backdrop-filter: blur(6px); border-radius: 18px; padding: 20px; width: min(420px, 100%); text-align: center; }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 26px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: var(--muted); }
+.big { font-family: "Baloo 2", sans-serif; font-size: 56px; font-weight: 800; color: var(--gold); line-height: 1; margin: 8px 0; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 11px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 10px 0; }
+input::placeholder { color: #9fb3aa; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; }
+.btn-red { background: var(--red); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: center; font-size: 14px; color: var(--ink); margin: 8px 0 4px; }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://nextgrade.in/">🎄 NextGrade<small>Christmas Game</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title">Santa ke Gift Pakdo 🎁</h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="game" aria-label="Christmas gift catching game"></canvas>
+    <div class="hud" aria-hidden="true"><span id="hudScore">⭐ 0</span><span id="hudTime">⏱ 45</span></div>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2>🎅 Merry Christmas!</h2>
+        <div class="legend"><span>🎁 +10</span><span>⭐ +25</span><span>🍬 +5</span><span>🪨 −15</span></div>
+        <p data-i18n="controls"></p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <button class="btn btn-red" id="play" type="button" data-i18n="play"></button>
+        <p id="bestLine"></p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big" id="finalScore">0</div>
+        <p id="endNote"></p>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-red" id="again" type="button" data-i18n="again"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card"><ol id="howList"></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p><span data-i18n="readMore"></span> <a href="https://nextgrade.in/festivals/christmas/" data-i18n="guideLink"></a> · <span data-i18n="makeCard"></span> <a href="https://nextgrade.in/wish-card/?f=christmas">Wish Card Maker</a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a><a href="https://nextgrade.in/apps/">Apps</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const ROUND = 45;
+  const SITE = 'https://nextgrade.in/games/christmas/';
+  const ITEMS = [
+    { e: '🎁', pts: 10, w: 60 },
+    { e: '⭐', pts: 25, w: 9 },
+    { e: '🍬', pts: 5, w: 14 },
+    { e: '🪨', pts: -15, w: 17 },
+  ];
+  const TOTAL_W = ITEMS.reduce((s, i) => s + i.w, 0);
+
+  // ---- text in both languages
+  const T = {
+    hinglish: {
+      title: 'Santa ke Gift Pakdo 🎁',
+      sub: 'Santa ki sleigh chalao, girte hue gifts pakdo aur koyle se bacho. 45 second — jitne zyada points, utna maza!',
+      controls: 'Ungli ya mouse se sleigh ko left-right chalao. Keyboard pe ← → bhi chalte hain.',
+      namePh: 'Aapka naam (challenge bhejne ke liye)',
+      play: '▶ Khelo',
+      resume: '▶ Phir se shuru karo',
+      best: (n) => `Aapka best score: ${n}`,
+      challenge: (name, n) => `🎯 ${name} ne ${n} points banaye hain — kya aap unhe hara sakte ho?`,
+      record: 'Naya record! 🏆', great: 'Kamaal kar diya! 🎉', good: 'Shabaash! 🎄',
+      beat: (name, n) => `Aapne ${name} (${n}) ko hara diya! 🥳`,
+      notBeat: (name, n) => `${name} ka score ${n} hai — ek baar aur?`,
+      bestNote: (n) => `Best score: ${n}`,
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareOther: '📤 Aur kahin share karo', again: '🔁 Phir se khelo', copied: '✅ Link copy ho gaya', copyPrompt: 'Ye link copy karo',
+      shareText: (name, n, url) => `🎄 ${name ? name + ' ne' : 'Maine'} "Santa ke Gift Pakdo" mein ${n} points banaye! Kya aap hara sakte ho? 🎁\n${url}`,
+      howTitle: 'Kaise khelein',
+      how: ['<b>▶ Khelo</b> dabao. Upar se gifts, stars, candy aur koyla girenge.', 'Santa ki sleigh 🛷 ko ungli se khiskao (computer pe mouse ya ← → keys).', '🎁 gift +10, ⭐ star +25, 🍬 candy +5. 🪨 koyla pakda to −15!', 'Har kuch second mein cheezein tez girti hain. 45 second baad game khatam.', 'Apna score WhatsApp pe bhejo — dost usi link se khel ke aapko harane ki koshish karenge.'],
+      aboutTitle: 'Christmas ke baare mein',
+      aboutText: 'Christmas har saal 25 December ko Jesus Christ (Yeshu) ke janm ki khushi mein manaya jaata hai. Gharon mein Christmas tree sajta hai, carols gaaye jaate hain aur bachche Santa Claus ke gifts ka intezaar karte hain. Santa Claus ki kahani Saint Nicholas se judi maani jaati hai, jo bachchon aur zarooratmandon ko chupchaap tohfe dete the. Is game mein bhi aapko Santa ke gifts bachane hain!',
+      readMore: 'Christmas ki poori kahani, parampara aur wishes padhein:', guideLink: 'nextgrade.in pe Christmas guide', makeCard: 'Apne naam ka Christmas card banao:',
+      privacyTitle: 'Aapki privacy',
+      privacyText: 'Ye game poori tarah aapke phone/browser mein chalta hai. Aapka naam sirf us link mein rehta hai jo aap share karte ho, aur best score sirf isi device pe save hota hai. Hum koi account, phone number ya personal jaankari nahi lete.',
+    },
+    hi: {
+      title: 'Santa ke Gift Pakdo 🎁',
+      sub: 'सांता की स्लेज को चलाओ, गिरते तोहफ़े पकड़ो और कोयले से बचो। 45 सेकंड, जितने ज़्यादा पॉइंट उतना मज़ा!',
+      controls: 'उंगली या माउस से स्लेज को दाएँ-बाएँ चलाओ। कीबोर्ड पर ← → भी चलते हैं।',
+      namePh: 'आपका नाम (चैलेंज भेजने के लिए)',
+      play: '▶ खेलो',
+      resume: '▶ फिर से शुरू करो',
+      best: (n) => `आपका बेस्ट स्कोर: ${n}`,
+      challenge: (name, n) => `🎯 ${name} ने ${n} पॉइंट बनाए हैं — क्या आप उन्हें हरा सकते हो?`,
+      record: 'नया रिकॉर्ड! 🏆', great: 'कमाल कर दिया! 🎉', good: 'शाबाश! 🎄',
+      beat: (name, n) => `आपने ${name} (${n}) को हरा दिया! 🥳`,
+      notBeat: (name, n) => `${name} का स्कोर ${n} है — एक बार और?`,
+      bestNote: (n) => `बेस्ट स्कोर: ${n}`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareOther: '📤 और कहीं शेयर करो', again: '🔁 फिर से खेलो', copied: '✅ लिंक कॉपी हो गया', copyPrompt: 'यह लिंक कॉपी करें',
+      shareText: (name, n, url) => `🎄 ${name ? name + ' ने' : 'मैंने'} "Santa ke Gift Pakdo" में ${n} पॉइंट बनाए! क्या आप हरा सकते हो? 🎁\n${url}`,
+      howTitle: 'कैसे खेलें',
+      how: ['<b>▶ खेलो</b> दबाओ। ऊपर से तोहफ़े, सितारे, कैंडी और कोयला गिरेंगे।', 'सांता की स्लेज 🛷 को उंगली से खिसकाओ (कंप्यूटर पर माउस या ← → कीज़)।', '🎁 तोहफ़ा +10, ⭐ सितारा +25, 🍬 कैंडी +5। 🪨 कोयला पकड़ा तो −15!', 'हर कुछ सेकंड में चीज़ें तेज़ गिरती हैं। 45 सेकंड बाद गेम खत्म।', 'अपना स्कोर WhatsApp पर भेजो — दोस्त उसी लिंक से खेलकर आपको हराने की कोशिश करेंगे।'],
+      aboutTitle: 'क्रिसमस के बारे में',
+      aboutText: 'क्रिसमस हर साल 25 दिसंबर को ईसा मसीह (यीशु) के जन्म की खुशी में मनाया जाता है। घरों में क्रिसमस ट्री सजता है, कैरल गाए जाते हैं और बच्चे सांता क्लॉज़ के तोहफ़ों का इंतज़ार करते हैं। सांता क्लॉज़ की कहानी संत निकोलस से जुड़ी मानी जाती है, जो बच्चों और ज़रूरतमंदों को चुपचाप तोहफ़े देने के लिए जाने जाते थे। इस गेम में भी आपको सांता के तोहफ़े बचाने हैं!',
+      readMore: 'क्रिसमस की पूरी कहानी, परंपराएँ और शुभकामनाएँ पढ़ें:', guideLink: 'nextgrade.in पर क्रिसमस गाइड', makeCard: 'अपने नाम का क्रिसमस कार्ड बनाएं:',
+      privacyTitle: 'आपकी प्राइवेसी',
+      privacyText: 'यह गेम पूरी तरह आपके फ़ोन/ब्राउज़र में चलता है। आपका नाम सिर्फ़ उस लिंक में रहता है जो आप शेयर करते हैं, और आपका बेस्ट स्कोर सिर्फ़ इसी डिवाइस पर सेव होता है। हम कोई अकाउंट, फ़ोन नंबर या निजी जानकारी नहीं लेते।',
+    },
+    en: {
+      title: 'Catch Santa\'s Gifts 🎁',
+      sub: 'Steer Santa\'s sleigh, catch the falling gifts and dodge the coal. 45 seconds — score as much as you can!',
+      controls: 'Drag with your finger or mouse to move the sleigh. Arrow keys ← → work too.',
+      namePh: 'Your name (for the challenge link)',
+      play: '▶ Play',
+      resume: '▶ Resume — start again',
+      best: (n) => `Your best score: ${n}`,
+      challenge: (name, n) => `🎯 ${name} scored ${n} points — can you beat that?`,
+      record: 'New record! 🏆', great: 'Amazing! 🎉', good: 'Well done! 🎄',
+      beat: (name, n) => `You beat ${name} (${n})! 🥳`,
+      notBeat: (name, n) => `${name} scored ${n} — one more try?`,
+      bestNote: (n) => `Best score: ${n}`,
+      shareWa: '📲 Challenge on WhatsApp', shareOther: '📤 Share elsewhere', again: '🔁 Play again', copied: '✅ Link copied', copyPrompt: 'Copy this link',
+      shareText: (name, n, url) => `🎄 ${name || 'I'} scored ${n} points in "Catch Santa's Gifts"! Can you beat it? 🎁\n${url}`,
+      howTitle: 'How to play',
+      how: ['Tap <b>▶ Play</b>. Gifts, stars, candy and coal start falling from the sky.', 'Move Santa\'s sleigh 🛷 with your finger (mouse or ← → keys on a computer).', '🎁 gift +10, ⭐ star +25, 🍬 candy +5. Catch 🪨 coal and lose 15!', 'Things fall faster every few seconds. The game ends after 45 seconds.', 'Send your score on WhatsApp — friends play from the same link and try to beat you.'],
+      aboutTitle: 'About Christmas',
+      aboutText: 'Christmas is celebrated every year on 25 December to mark the birth of Jesus Christ. Homes put up a Christmas tree, people sing carols, and children wait for Santa Claus and his presents. The Santa Claus story is linked to Saint Nicholas, who was known for quietly giving gifts to children and people in need. In this game, you help Santa save his gifts!',
+      readMore: 'Read the full story, traditions and wishes:', guideLink: 'Christmas guide on nextgrade.in', makeCard: 'Make a Christmas card with your name:',
+      privacyTitle: 'Your privacy',
+      privacyText: 'This game runs entirely in your phone\'s browser. Your name only travels inside the link you choose to share, and your best score is saved on this device only. We don\'t ask for an account, phone number or any personal details.',
+    },
+    bn: {
+      title: 'সান্তার উপহার ধরো 🎁',
+      sub: 'সান্তার স্লেজ চালাও, পড়ন্ত উপহার ধরো আর কয়লা থেকে বাঁচো। ৪৫ সেকেন্ড — যত বেশি পয়েন্ট, তত মজা!',
+      controls: 'আঙুল বা মাউস দিয়ে স্লেজটা ডানে-বাঁয়ে সরাও। কিবোর্ডে ← → কি-ও কাজ করে।',
+      namePh: 'তোমার নাম (চ্যালেঞ্জ পাঠানোর জন্য)',
+      play: '▶ খেলো',
+      resume: '▶ আবার শুরু করো',
+      best: (n) => `তোমার সেরা স্কোর: ${n}`,
+      challenge: (name, n) => `🎯 ${name} ${n} পয়েন্ট পেয়েছে — তুমি কি হারাতে পারবে?`,
+      record: 'নতুন রেকর্ড! 🏆', great: 'দারুণ খেলেছ! 🎉', good: 'শাবাশ! 🎄',
+      beat: (name, n) => `তুমি ${name}-কে (${n}) হারিয়ে দিয়েছ! 🥳`,
+      notBeat: (name, n) => `${name}-এর স্কোর ${n} — আরেকবার চেষ্টা করবে?`,
+      bestNote: (n) => `সেরা স্কোর: ${n}`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: '📤 অন্য কোথাও শেয়ার করো', again: '🔁 আবার খেলো', copied: '✅ লিংক কপি হয়েছে', copyPrompt: 'এই লিংকটা কপি করো',
+      shareText: (name, n, url) => `🎄 ${name ? name : 'আমি'} "সান্তার উপহার ধরো" খেলায় ${n} পয়েন্ট পেয়েছি! তুমি কি হারাতে পারবে? 🎁\n${url}`,
+      howTitle: 'কীভাবে খেলবে',
+      how: ['<b>▶ খেলো</b> চাপো। ওপর থেকে উপহার, তারা, ক্যান্ডি আর কয়লা পড়বে।', 'সান্তার স্লেজ 🛷 আঙুল দিয়ে সরাও (কম্পিউটারে মাউস বা ← → কি)।', '🎁 উপহার +১০, ⭐ তারা +২৫, 🍬 ক্যান্ডি +৫। 🪨 কয়লা ধরলে −১৫!', 'কয়েক সেকেন্ড পরপর জিনিস আরও জোরে পড়ে। ৪৫ সেকেন্ড পরে খেলা শেষ।', 'তোমার স্কোর WhatsApp-এ পাঠাও — বন্ধুরা একই লিংক থেকে খেলে তোমাকে হারানোর চেষ্টা করবে।'],
+      aboutTitle: 'বড়দিন (ক্রিসমাস) সম্পর্কে',
+      aboutText: 'প্রতি বছর ২৫ ডিসেম্বর যিশুখ্রিস্টের জন্মদিন উপলক্ষে বড়দিন বা ক্রিসমাস পালন করা হয়। ঘরে ঘরে ক্রিসমাস ট্রি সাজানো হয়, ক্যারল গাওয়া হয় আর ছোটরা সান্তা ক্লজের উপহারের অপেক্ষায় থাকে। সান্তা ক্লজের গল্প সেন্ট নিকোলাসের সঙ্গে জড়িত বলে মনে করা হয়, যিনি চুপিচুপি শিশু ও অভাবী মানুষদের উপহার দিতেন। কলকাতার পার্ক স্ট্রিটের বড়দিনের আলোকসজ্জাও খুব বিখ্যাত। এই খেলায় তোমাকেও সান্তার উপহার বাঁচাতে হবে!',
+      readMore: 'বড়দিনের পুরো গল্প, রীতি আর শুভেচ্ছা পড়ো:', guideLink: 'nextgrade.in-এ ক্রিসমাস গাইড', makeCard: 'নিজের নামে ক্রিসমাস কার্ড বানাও:',
+      privacyTitle: 'তোমার গোপনীয়তা',
+      privacyText: 'এই খেলাটি পুরোপুরি তোমার ফোন/ব্রাউজারে চলে। তোমার নাম শুধু সেই লিংকেই থাকে যেটা তুমি শেয়ার করো, আর সেরা স্কোর শুধু এই ডিভাইসেই সেভ হয়। আমরা কোনো অ্যাকাউন্ট, ফোন নম্বর বা ব্যক্তিগত তথ্য নিই না।',
+    },
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const urlLang = params.get('lang');
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const saved = store.get('xmas-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(saved) ? saved : deviceLang();
+  const t = (k) => T[lang][k];
+
+  const canvas = $('game');
+  const ctx = canvas.getContext('2d');
+  const stage = $('stage');
+
+  // ---- challenge link (?from=Name&score=123); shown as plain text only
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(9999, parseInt(params.get('score'), 10) || 0));
+  const best = () => parseInt(store.get('xmas-best'), 10) || 0;
+  let score = 0, lastEnd = null;
+
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Christmas Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+    if (lastEnd) showEnd(lastEnd.prev);
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('xmas-lang', lang); applyLang(); });
+
+  $('name').value = store.get('xmas-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---- sound (tiny WebAudio beeps)
+  let muted = store.get('xmas-muted') === '1';
+  let audio = null;
+  const setMuteIcon = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setMuteIcon();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('xmas-muted', muted ? '1' : '0'); setMuteIcon(); });
+  const beep = (freq, dur, type) => {
+    if (muted) return;
+    try {
+      audio = audio || new (window.AudioContext || window.webkitAudioContext)();
+      const o = audio.createOscillator();
+      const g = audio.createGain();
+      o.type = type || 'sine';
+      o.frequency.value = freq;
+      g.gain.setValueAtTime(0.12, audio.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime + dur);
+      o.connect(g).connect(audio.destination);
+      o.start();
+      o.stop(audio.currentTime + dur);
+    } catch (e) { /* no audio */ }
+  };
+
+  // ---- canvas size (sharp on phones)
+  let W = 0, H = 0, DPR = 1;
+  const player = { x: 0, y: 0, w: 76, target: null };
+  const resize = () => {
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    const r = canvas.getBoundingClientRect();
+    W = r.width; H = r.height;
+    canvas.width = Math.round(W * DPR);
+    canvas.height = Math.round(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    player.y = H - 46;
+    player.x = Math.min(Math.max(player.x || W / 2, 30), W - 30);
+  };
+
+  // ---- state
+  let items = [], pops = [], flakes = [];
+  let timeLeft = ROUND, running = false, lastT = 0, spawnAcc = 0, shake = 0;
+  const keys = { left: false, right: false };
+
+  const makeFlakes = () => {
+    flakes = Array.from({ length: 70 }, () => ({ x: Math.random() * W, y: Math.random() * H, r: 1 + Math.random() * 2.5, v: 15 + Math.random() * 35, d: Math.random() * Math.PI * 2 }));
+  };
+
+  const pick = () => {
+    let n = Math.random() * TOTAL_W;
+    return ITEMS.find((i) => (n -= i.w) < 0) || ITEMS[0];
+  };
+
+  const spawn = (speedUp) => {
+    const kind = pick();
+    items.push({ ...kind, x: 24 + Math.random() * (W - 48), y: -30, v: (140 + Math.random() * 90) * speedUp, rot: Math.random() * 0.6 - 0.3 });
+  };
+
+  // ---- input
+  const toLocalX = (clientX) => clientX - canvas.getBoundingClientRect().left;
+  stage.addEventListener('pointerdown', (e) => { if (running) player.target = toLocalX(e.clientX); });
+  stage.addEventListener('pointermove', (e) => { if (running && (e.pointerType === 'mouse' || e.buttons || e.pressure)) player.target = toLocalX(e.clientX); });
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') keys.left = true;
+    if (e.key === 'ArrowRight') keys.right = true;
+  });
+  window.addEventListener('keyup', (e) => {
+    if (e.key === 'ArrowLeft') keys.left = false;
+    if (e.key === 'ArrowRight') keys.right = false;
+  });
+
+  // ---- drawing
+  const drawBackground = (dt) => {
+    const g = ctx.createLinearGradient(0, 0, 0, H);
+    g.addColorStop(0, '#0d3b2f');
+    g.addColorStop(1, '#0a2a20');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = 'rgba(255,255,255,0.9)';
+    ctx.beginPath();
+    ctx.moveTo(0, H - 18);
+    for (let x = 0; x <= W; x += 40) ctx.quadraticCurveTo(x + 20, H - 26, x + 40, H - 18);
+    ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.8)';
+    flakes.forEach((f) => {
+      f.y += f.v * dt; f.d += dt; f.x += Math.sin(f.d) * 10 * dt;
+      if (f.y > H) { f.y = -5; f.x = Math.random() * W; }
+      ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2); ctx.fill();
+    });
+  };
+
+  const emoji = (e, x, y, size, rot) => {
+    ctx.save();
+    ctx.translate(x, y);
+    if (rot) ctx.rotate(rot);
+    ctx.font = `${size}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(e, 0, 0);
+    ctx.restore();
+  };
+
+  const draw = (dt) => {
+    ctx.save();
+    if (shake > 0) ctx.translate((Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake);
+    drawBackground(dt);
+    items.forEach((it) => emoji(it.e, it.x, it.y, 36, it.rot));
+    emoji('🎅', player.x - 18, player.y - 10, 34);
+    emoji('🛷', player.x + 6, player.y + 6, 50);
+    pops.forEach((p) => {
+      ctx.globalAlpha = Math.max(0, p.life);
+      ctx.fillStyle = p.pts > 0 ? '#ffd43b' : '#ff6b6b';
+      ctx.font = '800 22px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(p.pts > 0 ? `+${p.pts}` : `${p.pts}`, p.x, p.y);
+      ctx.globalAlpha = 1;
+    });
+    ctx.restore();
+  };
+
+  // ---- loop
+  const tick = (now) => {
+    const dt = Math.min(0.05, (now - (lastT || now)) / 1000);
+    lastT = now;
+    if (running) {
+      timeLeft -= dt;
+      const elapsed = ROUND - timeLeft;
+      const speedUp = 1 + elapsed / 30;
+      spawnAcc += dt;
+      const every = Math.max(0.28, 0.75 - elapsed * 0.012);
+      while (spawnAcc > every) { spawnAcc -= every; spawn(speedUp); }
+
+      const speed = 520;
+      if (keys.left) player.target = player.x - speed * dt * 3;
+      if (keys.right) player.target = player.x + speed * dt * 3;
+      if (player.target !== null) {
+        const dx = player.target - player.x;
+        player.x += Math.sign(dx) * Math.min(Math.abs(dx), speed * 1.6 * dt);
+      }
+      player.x = Math.min(Math.max(player.x, 34), W - 34);
+
+      items.forEach((it) => { it.y += it.v * dt; });
+      items = items.filter((it) => {
+        const caught = it.y > player.y - 30 && it.y < player.y + 20 && Math.abs(it.x - player.x) < player.w / 2 + 6;
+        if (caught) {
+          score = Math.max(0, score + it.pts);
+          pops.push({ x: it.x, y: it.y - 10, pts: it.pts, life: 1 });
+          if (it.pts < 0) { shake = 10; beep(140, 0.25, 'square'); if (navigator.vibrate) navigator.vibrate(80); }
+          else beep(it.pts >= 25 ? 1040 : 760, 0.12, 'triangle');
+          return false;
+        }
+        return it.y < H + 40;
+      });
+      pops.forEach((p) => { p.y -= 40 * dt; p.life -= dt * 1.4; });
+      pops = pops.filter((p) => p.life > 0);
+      shake = Math.max(0, shake - 40 * dt);
+
+      $('hudScore').textContent = `⭐ ${score}`;
+      $('hudTime').textContent = `⏱ ${Math.max(0, Math.ceil(timeLeft))}`;
+      if (timeLeft <= 0) end();
+    }
+    draw(dt);
+    requestAnimationFrame(tick);
+  };
+
+  // ---- game flow
+  const start = () => {
+    store.set('xmas-name', cleanName($('name').value));
+    items = []; pops = []; score = 0; timeLeft = ROUND; spawnAcc = 0; shake = 0; lastEnd = null;
+    player.x = W / 2; player.target = null;
+    $('startScreen').classList.add('hidden');
+    $('endScreen').classList.add('hidden');
+    $('shareOther').textContent = t('shareOther');
+    running = true;
+    beep(660, 0.1);
+  };
+
+  const showEnd = (prev) => {
+    $('finalScore').textContent = score;
+    $('endTitle').textContent = score > prev && prev > 0 ? t('record') : score >= 300 ? t('great') : t('good');
+    $('endNote').textContent = fromName && fromScore ? (score > fromScore ? t('beat')(fromName, fromScore) : t('notBeat')(fromName, fromScore)) : t('bestNote')(Math.max(score, prev));
+  };
+
+  const end = () => {
+    running = false;
+    const prev = best();
+    if (score > prev) store.set('xmas-best', String(score));
+    lastEnd = { prev };
+    showEnd(prev);
+    $('endScreen').classList.remove('hidden');
+    $('bestLine').textContent = t('best')(best());
+    beep(523, 0.15); setTimeout(() => beep(784, 0.25), 150);
+  };
+
+  const shareText = () => {
+    const name = cleanName($('name').value);
+    const u = new URL(SITE);
+    if (name) u.searchParams.set('from', name);
+    u.searchParams.set('score', String(score));
+    u.searchParams.set('lang', lang);
+    return t('shareText')(name, score, u.toString());
+  };
+
+  $('play').addEventListener('click', start);
+  $('again').addEventListener('click', start);
+  $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
+  $('shareWa').addEventListener('click', () => {
+    window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener');
+  });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => window.prompt(t('copyPrompt'), text));
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && running) { running = false; $('startScreen').classList.remove('hidden'); $('play').textContent = t('resume'); }
+  });
+  window.addEventListener('resize', () => { resize(); makeFlakes(); });
+
+  applyLang();
+  resize();
+  makeFlakes();
+  requestAnimationFrame(tick);
+
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>

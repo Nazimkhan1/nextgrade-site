@@ -8,6 +8,7 @@ import { dirname, join } from 'node:path';
 import { festivals } from './src/festivals.mjs';
 import { apps } from './src/apps.mjs';
 import { wishes } from './src/wishes.mjs';
+import { games } from './src/games.mjs';
 
 const SITE = 'https://nextgrade.in';
 const NAME = 'NextGrade';
@@ -24,6 +25,7 @@ const NAV = [
   ['/', 'Home'],
   ['/wishes/', 'Wishes'],
   ['/festivals/', 'Festivals'],
+  ['/games/', 'Games'],
   ['/wish-card/', 'Wish Card'],
   ['/apps/', 'Apps'],
   ['/about/', 'About'],
@@ -112,6 +114,13 @@ const wishCard = (w) => `<a class="card" href="/wishes/${w.slug}/">
 
 const wishItems = (list) => list.map((w) => `<li><span>${esc(w)}</span><button class="copy" type="button" data-copy="${esc(w)}">Copy</button></li>`).join('');
 
+const gameCard = (g) => `<a class="card" href="/games/${g.slug}/">
+<span class="emoji" aria-hidden="true">${g.emoji}</span>
+<span class="tag">${esc(g.tag)} game</span>
+<h3>${esc(g.name)}</h3>
+<p>${esc(g.desc)}</p>
+</a>`;
+
 /** "<name> ki taraf se aapko …" banner, filled by site.js from ?from= (as plain text). */
 const fromBanner = (greet, emoji) => `<p class="from-banner" hidden data-greet="${esc(greet)}" data-emoji="${esc(emoji)}"></p>`;
 
@@ -149,6 +158,10 @@ write(
 <section>
 <h2>आने वाले त्योहार</h2>
 <div class="grid">${upcoming().slice(0, 6).map(festivalCard).join('')}</div>
+</section>
+<section>
+<h2>गेम्स</h2>
+<div class="grid">${games.map(gameCard).join('')}</div>
 </section>
 <section>
 <h2>मुफ़्त ऐप्स और टूल्स</h2>
@@ -346,6 +359,26 @@ writeFileSync(
   `window.NG_FESTIVALS = ${JSON.stringify([...wishes, ...festivals].map((f) => ({ slug: f.slug, emoji: f.emoji, nameHi: f.nameHi, nameEn: f.nameEn, colors: f.colors, wishes: [...f.wishesHi, ...f.wishesEn] })))};\n`,
 );
 
+// ---- Games index (each game itself is a static page in src/static/games/<slug>/)
+write(
+  '/games/',
+  page({
+    path: '/games/',
+    title: `त्योहारों के मुफ़्त गेम्स — Free Festival Games | ${NAME}`,
+    description: 'त्योहारों पर बने छोटे, मुफ़्त ब्राउज़र गेम्स — फ़ोन पर खेलें, इंस्टॉल करें और दोस्तों को WhatsApp पर स्कोर का चैलेंज भेजें। कोई साइन-अप नहीं।',
+    jsonLd: [breadcrumbLd([['Home', '/'], ['Games', '/games/']])],
+    body: `<div class="wrap article">
+<p class="crumbs"><a href="/">Home</a> › Games</p>
+<h1>🎮 त्योहारों के गेम्स</h1>
+<p class="lead">हर त्योहार पर एक छोटा, मज़ेदार गेम — फ़ोन पर सीधे खेलें, स्कोर बनाएं और WhatsApp पर दोस्तों को चैलेंज भेजें। गेम आपके फ़ोन में ही चलते हैं; हम कोई अकाउंट या निजी जानकारी नहीं लेते।</p>
+<div class="grid">${games.map(gameCard).join('')}</div>
+<h2>जल्द आ रहे हैं</h2>
+<p>नए साल पर आतिशबाज़ी, दिवाली पर दीये जलाओ, होली के रंग और ईद पर ईदी गेम। 🎆🪔🎨🌙</p>
+<p class="note">Free festival games in Hindi, Hinglish, English and Bengali. Play in your browser, install on your phone and challenge friends on WhatsApp.</p>
+</div>`,
+  }),
+);
+
 // ---- Apps
 write(
   '/apps/',
@@ -461,7 +494,7 @@ write(
 );
 
 // ---- Machine files
-const urls = ['/', '/wishes/', ...wishes.map((w) => `/wishes/${w.slug}/`), '/festivals/', ...festivals.map((f) => `/festivals/${f.slug}/`), '/wish-card/', '/apps/', '/about/', '/contact/', '/privacy-policy/', '/terms/', '/disclaimer/'];
+const urls = ['/', '/games/', ...games.map((g) => `/games/${g.slug}/`), '/wishes/', ...wishes.map((w) => `/wishes/${w.slug}/`), '/festivals/', ...festivals.map((f) => `/festivals/${f.slug}/`), '/wish-card/', '/apps/', '/about/', '/contact/', '/privacy-policy/', '/terms/', '/disclaimer/'];
 writeFileSync(
   join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${TODAY}</lastmod></url>`).join('\n')}\n</urlset>\n`,
