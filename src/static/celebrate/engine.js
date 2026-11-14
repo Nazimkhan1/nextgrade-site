@@ -110,7 +110,7 @@
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(sayText());
     u.lang = VOICE[lang]; const v = pickVoice(VOICE[lang]); if (v) u.voice = v;
-    u.rate = 0.88;
+    u.rate = 0.8;
     u.onstart = () => { speaking = true; setListenBtn(); };
     u.onend = u.onerror = () => { speaking = false; setListenBtn(); };
     speechSynthesis.speak(u);

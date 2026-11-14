@@ -23,49 +23,94 @@
   $('nightToggle').addEventListener('click', () => setNight(!document.body.classList.contains('night')));
 
   // ---- read aloud
-  const text = () => [document.querySelector('h1'), ...document.querySelectorAll('#storyText p'), document.querySelector('.seekh')].map((el) => el.textContent.trim()).join('. \n');
-  const pickVoice = () => {
-    const voices = synth ? synth.getVoices() : [];
-    const want = D.speech.toLowerCase();
-    const base = want.split('-')[0];
-    return voices.find((v) => v.lang.toLowerCase() === want) || voices.find((v) => v.lang.toLowerCase().startsWith(base)) || null;
+  // Chrome's online voices (e.g. "Google हिन्दी") stop silently on long text and break on pause/resume,
+  // so the story is read sentence by sentence; pause = stop after remembering where we were.
+  const chunks = () => {
+    const parts = [document.querySelector('h1'), ...document.querySelectorAll('#storyText p'), document.querySelector('.seekh')]
+      .filter(Boolean).map((el) => el.textContent.trim()).filter(Boolean);
+    const out = [];
+    parts.forEach((p) => (p.match(/[^।.!?]+[।.!?]*["'”’]?\s*/g) || [p]).forEach((sent) => {
+      const t = sent.trim();
+      if (!t) return;
+      const last = out[out.length - 1];
+      if (last && last.length + t.length < 160) out[out.length - 1] = `${last} ${t}`; else out.push(t);
+    }));
+    return out;
   };
+  const voicesFor = () => {
+    const voices = synth ? synth.getVoices() : [];
+    const want = D.speech.toLowerCase().replace('_', '-');
+    const base = want.split('-')[0];
+    const match = voices.filter((v) => { const l = v.lang.toLowerCase().replace('_', '-'); return l === want || l.startsWith(`${base}-`) || l === base; });
+    // on-device voices first (they handle long text and pause well), then online ones
+    return match.sort((x, y) => (y.localService === true) - (x.localService === true) || (y.lang.toLowerCase().replace('_', '-') === want) - (x.lang.toLowerCase().replace('_', '-') === want));
+  };
+  const waitVoices = () => new Promise((res) => {
+    if (!synth || synth.getVoices().length) { res(); return; }
+    const done = () => { synth.removeEventListener('voiceschanged', done); res(); };
+    synth.addEventListener('voiceschanged', done);
+    setTimeout(done, 1500);
+  });
   let state = 'idle'; // idle | speaking | paused
+  let list = [], idx = 0, vi = 0, run = 0;
   const show = () => {
     listen.textContent = state === 'speaking' ? D.pause : state === 'paused' ? D.resume : D.listen;
     stop.hidden = state === 'idle';
   };
-  const speak = () => {
-    const voice = pickVoice();
-    if (!synth || (!voice && !D.speech.startsWith('en'))) { status.textContent = D.noVoice; return; }
-    synth.cancel();
-    const u = new SpeechSynthesisUtterance(text());
+  const say = (myRun) => {
+    if (myRun !== run || state !== 'speaking') return;
+    if (idx >= list.length) { state = 'idle'; idx = 0; show(); return; }
+    const vs = voicesFor();
+    const voice = vs[vi] || null;
+    const u = new SpeechSynthesisUtterance(list[idx]);
     u.lang = voice ? voice.lang : D.speech;
     if (voice) u.voice = voice;
-    u.rate = 0.88;
+    u.rate = 0.78;
     u.pitch = 1.05;
-    u.onend = () => { state = 'idle'; show(); };
-    u.onerror = () => { state = 'idle'; show(); };
+    let started = false;
+    u.onstart = () => { started = true; };
+    u.onend = () => { if (myRun !== run) return; idx += 1; setTimeout(() => say(myRun), 280); }; // short breath between sentences
+    u.onerror = (e) => {
+      if (myRun !== run || e.error === 'interrupted' || e.error === 'canceled') return;
+      // this voice failed: try the next matching voice for the same sentence
+      if (vi + 1 < vs.length) { vi += 1; say(myRun); return; }
+      if (!started) status.textContent = D.noVoice;
+      state = 'idle'; show();
+    };
     synth.speak(u);
-    state = 'speaking';
-    status.textContent = '';
-    show();
+  };
+  const begin = () => {
+    run += 1;
+    synth.cancel();
+    state = 'speaking'; status.textContent = ''; show();
+    const myRun = run;
+    setTimeout(() => say(myRun), 60); // Chrome drops an utterance queued right after cancel()
+  };
+  const speak = () => {
+    if (!synth) { status.textContent = D.noVoice; return; }
+    state = 'speaking'; show();
+    waitVoices().then(() => {
+      if (!voicesFor().length && !D.speech.startsWith('en')) { state = 'idle'; show(); status.textContent = D.noVoice; return; }
+      list = chunks(); idx = 0; vi = 0;
+      begin();
+    });
   };
   listen.addEventListener('click', () => {
-    if (state === 'speaking') { synth.pause(); state = 'paused'; }
-    else if (state === 'paused') { synth.resume(); state = 'speaking'; }
-    else { speak(); return; }
-    show();
+    if (state === 'speaking') { run += 1; synth.cancel(); state = 'paused'; show(); return; }
+    if (state === 'paused') { begin(); return; }
+    speak();
   });
-  stop.addEventListener('click', () => { if (synth) synth.cancel(); state = 'idle'; show(); });
-  if (synth && synth.onvoiceschanged !== undefined) synth.onvoiceschanged = () => {};
+  stop.addEventListener('click', () => { run += 1; if (synth) synth.cancel(); state = 'idle'; idx = 0; show(); });
   window.addEventListener('pagehide', () => { if (synth) synth.cancel(); });
+  // Chrome stops speaking after ~15 s in a background tab; keep it simple and stop when hidden
+  document.addEventListener('visibilitychange', () => { if (document.hidden && state === 'speaking') { run += 1; synth.cancel(); state = 'paused'; show(); } });
 
   // ---- sleep timer: stop the voice and darken the screen
   let timer = null;
   const sleep = () => {
+    run += 1;
     if (synth) synth.cancel();
-    state = 'idle'; show();
+    state = 'idle'; idx = 0; show();
     const veil = document.createElement('div');
     veil.className = 'sleep-veil';
     veil.innerHTML = '<div><p class="gn"></p><p class="gns"></p></div>';
