@@ -139,3 +139,6 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 - ❌ No copied text, no copyrighted TV/cartoon/song/logo content
 - ✅ Respect every faith; use the correct greeting for each festival
 - ✅ Lunar-calendar festivals: give the month and tithi, not a fixed date; tell readers to check the local panchang
+
+## Sound rule (user, 14 Nov)
+- Sound is ALWAYS optional on wish pages: nothing plays by itself. Voice reading only on the "🗣️ Suno" button; Shaadi band-baaja only on "🥁 Band-baaja suno" (off by default). Jumma: no music/ambient at all.

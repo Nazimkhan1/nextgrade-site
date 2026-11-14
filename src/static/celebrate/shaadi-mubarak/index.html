@@ -75,7 +75,6 @@ footer a { color: var(--muted); margin-right: 12px; }
     <a class="brand" id="home" href="https://nextgrade.in/">💍 NextGrade<small>Shaadi Mubarak</small></a>
     <div class="tools">
       <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
-      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
     </div>
   </header>
 
@@ -95,8 +94,9 @@ footer a { color: var(--muted); margin-right: 12px; }
     </div>
   </div>
   <div class="controls">
+    <button class="btn btn-main" type="button" id="mute" aria-pressed="false">🥁</button>
     <button class="btn btn-ghost" type="button" id="replay"></button>
-    <a class="btn btn-main" href="#make" id="makeOwn"></a>
+    <a class="btn btn-ghost" href="#make" id="makeOwn"></a>
   </div>
 
   <div class="ad" aria-hidden="true"></div>
@@ -138,7 +138,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       title: 'Shaadi Mubarak!', gate: (f) => (f ? `${f} ki taraf se aapke liye ek khaas paigaam hai!` : 'Aapke liye ek khaas paigaam hai!'), tap: '👆 Tap karke kholo',
       from: (f) => `— ${f} ki taraf se 💐`, defaultTo: 'Mere Dost',
       msgs: ['Nayi zindagi ki nayi shuruaat bahut-bahut mubarak! Aapki jodi hamesha salaamat rahe aur ghar khushiyon se bhara rahe.', 'Do dil, ek safar — Allah/Bhagwan aapki jodi ko har khushi de. Shaadi ki dher saari badhaai!', 'Band baaja, baaraat aur dher saara pyaar — dost, teri shaadi ki bahut-bahut mubarakbaad! Party pakki! 🎉'],
-      replay: '🔁 Phir se dekho', makeOwn: '✨ Apna wish banao',
+      replay: '🔁 Phir se dekho', makeOwn: '✨ Apna wish banao', soundOn: '🔊 Baaja band karo', soundOff: '🥁 Band-baaja suno',
       makeH: '✨ Apne dost ke liye banao', makeP: 'Naam likho, message chuno aur link WhatsApp pe bhejo. Dost kholega to fireworks, band-baaja aur uska naam dikhega. Naam sirf link mein rehta hai, kahin save nahi hota.',
       toLabel: 'Dost ka naam (jiski shaadi hai)', partnerLabel: 'Jeevansaathi ka naam (optional)', fromLabel: 'Aapka naam', msgLabel: 'Message', toPh: 'Jaise: Rahul', partnerPh: 'Jaise: Priya', fromPh: 'Jaise: Amit',
       sendWa: '📲 WhatsApp pe bhejo', preview: '👀 Pehle dekho', copyLink: '🔗 Link copy', copied: '✅ Link copy ho gaya', needName: 'Pehle dost ka naam likho',
@@ -152,7 +152,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       title: 'शादी मुबारक!', gate: (f) => (f ? `${f} की तरफ़ से आपके लिए एक ख़ास पैग़ाम है!` : 'आपके लिए एक ख़ास पैग़ाम है!'), tap: '👆 टैप करके खोलो',
       from: (f) => `— ${f} की तरफ़ से 💐`, defaultTo: 'मेरे दोस्त',
       msgs: ['नई ज़िंदगी की नई शुरुआत बहुत-बहुत मुबारक! आपकी जोड़ी हमेशा सलामत रहे और घर खुशियों से भरा रहे।', 'दो दिल, एक सफ़र — ऊपर वाला आपकी जोड़ी को हर खुशी दे। शादी की ढेर सारी बधाई!', 'बैंड बाजा, बारात और ढेर सारा प्यार — दोस्त, तेरी शादी की बहुत-बहुत मुबारकबाद! पार्टी पक्की! 🎉'],
-      replay: '🔁 फिर से देखो', makeOwn: '✨ अपना विश बनाओ',
+      replay: '🔁 फिर से देखो', makeOwn: '✨ अपना विश बनाओ', soundOn: '🔊 बाजा बंद करो', soundOff: '🥁 बैंड-बाजा सुनो',
       makeH: '✨ अपने दोस्त के लिए बनाओ', makeP: 'नाम लिखो, संदेश चुनो और लिंक WhatsApp पर भेजो। दोस्त खोलेगा तो आतिशबाज़ी, बैंड-बाजा और उसका नाम दिखेगा। नाम सिर्फ़ लिंक में रहता है, कहीं सेव नहीं होता।',
       toLabel: 'दोस्त का नाम (जिसकी शादी है)', partnerLabel: 'जीवनसाथी का नाम (वैकल्पिक)', fromLabel: 'आपका नाम', msgLabel: 'संदेश', toPh: 'जैसे: राहुल', partnerPh: 'जैसे: प्रिया', fromPh: 'जैसे: अमित',
       sendWa: '📲 WhatsApp पर भेजो', preview: '👀 पहले देखो', copyLink: '🔗 लिंक कॉपी', copied: '✅ लिंक कॉपी हो गया', needName: 'पहले दोस्त का नाम लिखो',
@@ -166,7 +166,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       title: 'Happy Wedding!', gate: (f) => (f ? `${f} has sent you a special message!` : 'A special message for you!'), tap: '👆 Tap to open',
       from: (f) => `— with love from ${f} 💐`, defaultTo: 'My Friend',
       msgs: ['Congratulations on the beginning of your new life together! May you always stay together and may your home be full of happiness.', 'Two hearts, one journey — may God bless you both with every joy. Many congratulations on your wedding!', 'Band, baaraat and loads of love — congratulations on your wedding, my friend! The party is on! 🎉'],
-      replay: '🔁 Watch again', makeOwn: '✨ Make your own',
+      replay: '🔁 Watch again', makeOwn: '✨ Make your own', soundOn: '🔊 Stop the band', soundOff: '🥁 Play band-baaja',
       makeH: '✨ Make one for your friend', makeP: 'Type the names, pick a message and send the link on WhatsApp. When your friend opens it, they see fireworks, a band-baaja tune and their own name. Names stay only in the link — nothing is saved.',
       toLabel: 'Friend\'s name (the one getting married)', partnerLabel: 'Partner\'s name (optional)', fromLabel: 'Your name', msgLabel: 'Message', toPh: 'e.g. Rahul', partnerPh: 'e.g. Priya', fromPh: 'e.g. Amit',
       sendWa: '📲 Send on WhatsApp', preview: '👀 Preview', copyLink: '🔗 Copy link', copied: '✅ Link copied', needName: 'Type your friend\'s name first',
@@ -180,7 +180,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       title: 'শুভ বিবাহ!', gate: (f) => (f ? `${f}-এর পক্ষ থেকে তোমার জন্য একটা বিশেষ বার্তা!` : 'তোমার জন্য একটা বিশেষ বার্তা!'), tap: '👆 ট্যাপ করে খোলো',
       from: (f) => `— ${f}-এর পক্ষ থেকে 💐`, defaultTo: 'আমার বন্ধু',
       msgs: ['নতুন জীবনের নতুন শুরুর অনেক অনেক শুভেচ্ছা! তোমাদের জুটি চিরকাল অটুট থাকুক আর ঘর আনন্দে ভরে উঠুক।', 'দুটি মন, একটি পথ — ঈশ্বর তোমাদের জুটিকে সব সুখ দিন। বিয়ের অনেক শুভেচ্ছা!', 'ব্যান্ড, বরযাত্রী আর অনেক ভালোবাসা — বন্ধু, তোর বিয়ের অনেক অনেক শুভেচ্ছা! ভোজ কিন্তু পাক্কা! 🎉'],
-      replay: '🔁 আবার দেখো', makeOwn: '✨ নিজের উইশ বানাও',
+      replay: '🔁 আবার দেখো', makeOwn: '✨ নিজের উইশ বানাও', soundOn: '🔊 বাজনা বন্ধ করো', soundOff: '🥁 বাজনা শোনো',
       makeH: '✨ বন্ধুর জন্য বানাও', makeP: 'নাম লেখো, বার্তা বাছো আর লিংক WhatsApp-এ পাঠাও। বন্ধু খুললেই দেখবে আতশবাজি, বাজনা আর নিজের নাম। নাম শুধু লিংকেই থাকে, কোথাও সেভ হয় না।',
       toLabel: 'বন্ধুর নাম (যার বিয়ে)', partnerLabel: 'জীবনসঙ্গীর নাম (ঐচ্ছিক)', fromLabel: 'তোমার নাম', msgLabel: 'বার্তা', toPh: 'যেমন: রাহুল', partnerPh: 'যেমন: প্রিয়া', fromPh: 'যেমন: অমিত',
       sendWa: '📲 WhatsApp-এ পাঠাও', preview: '👀 আগে দেখো', copyLink: '🔗 লিংক কপি', copied: '✅ লিংক কপি হয়েছে', needName: 'আগে বন্ধুর নাম লেখো',
@@ -233,16 +233,16 @@ footer a { color: var(--muted); margin-right: 12px; }
     sel.value = keep || '0';
     const p = PREFIX[lang];
     $('home').href = `https://nextgrade.in${p}/`; $('moreWishes').href = `https://nextgrade.in${p}/wishes/`; $('cardLink').href = `https://nextgrade.in${p}/wish-card/`;
-    render();
+    render(); setMute();
   };
   $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('sm-lang', lang); applyLang(); });
   $('year').textContent = new Date().getFullYear();
   $('fromName').value = store.get('sm-from') || '';
 
   // ---- sound: an original dhol beat + a shehnai-like tune made in the browser (no recordings)
-  let muted = store.get('sm-muted') === '1';
+  let muted = store.get('sm-muted') !== '0';
   let audio = null, master = null, musicTimer = null;
-  const setMute = () => { $('mute').textContent = muted ? '🔇' : '🔊'; if (master) master.gain.value = muted ? 0 : 0.9; };
+  const setMute = () => { $('mute').textContent = muted ? t('soundOff') : t('soundOn'); $('mute').setAttribute('aria-pressed', muted ? 'false' : 'true'); if (master) master.gain.value = muted ? 0 : 0.9; };
   setMute();
   $('mute').addEventListener('click', () => { muted = !muted; store.set('sm-muted', muted ? '1' : '0'); setMute(); });
   const ctxA = () => {

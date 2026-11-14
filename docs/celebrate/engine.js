@@ -174,13 +174,12 @@
     $('message').classList.add('hidden'); void $('message').offsetWidth; $('message').classList.remove('hidden');
     S.playing = true; S.startAt = performance.now();
     if (C.scene.start) C.scene.start(S);
-    speak();
     if (navigator.vibrate) navigator.vibrate(40);
   };
   $('gate').addEventListener('click', play);
   $('gate').addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') play(); });
   $('replay').addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); play(); });
-  $('listen').addEventListener('click', () => { if (speaking) { stopSpeak(); return; } if ($('gate').classList.contains('hidden')) speak(); else play(); });
+  $('listen').addEventListener('click', () => { if (speaking) { stopSpeak(); return; } if (!$('gate').classList.contains('hidden')) play(); speak(); });
   window.addEventListener('pagehide', stopSpeak);
   document.addEventListener('visibilitychange', () => { if (document.hidden) stopSpeak(); });
 

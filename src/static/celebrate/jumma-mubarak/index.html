@@ -292,7 +292,7 @@ footer a { color: var(--muted); margin-right: 12px; }
     speechSynthesis.speak(u);
   };
   if (canSpeak) speechSynthesis.getVoices();
-  $('listen').addEventListener('click', () => { if (speaking) { stopSpeak(); return; } if ($('gate').classList.contains('hidden')) speak(); else play(); });
+  $('listen').addEventListener('click', () => { if (speaking) { stopSpeak(); return; } if (!$('gate').classList.contains('hidden')) play(); speak(); });
   window.addEventListener('pagehide', stopSpeak);
   document.addEventListener('visibilitychange', () => { if (document.hidden) stopSpeak(); });
 
@@ -384,7 +384,6 @@ footer a { color: var(--muted); margin-right: 12px; }
     $('gate').classList.add('hidden');
     $('message').classList.add('hidden'); void $('message').offsetWidth; $('message').classList.remove('hidden');
     playing = true; startAt = performance.now();
-    speak();
     if (navigator.vibrate) navigator.vibrate(40);
   };
   $('gate').addEventListener('click', play);
