@@ -69,8 +69,8 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 ---
 
-## Planned (user idea, 14 Nov): animated "Shaadi Mubarak" wish — ON HOLD until the agreed points are done
-- Draft ready (not published): `drafts/shaadi-mubarak/index.html` → when resuming, move to `src/static/celebrate/shaadi-mubarak/`, add a card on Home + Wishes, sitemap.
+## [x] Animated "Shaadi Mubarak" wish — LIVE 14 Nov at /celebrate/shaadi-mubarak/
+- Source `src/static/celebrate/shaadi-mubarak/index.html` (standalone, copied as-is). Card on Home + Wishes (`shaadiCard` in build.mjs), in sitemap.
 - What it does: link with `?to=&with=&from=&m=&lang=`; opens on a 💌 envelope "X ki taraf se khaas paigaam" → tap → fireworks, ground crackers, falling flowers, an ORIGINAL dhol + shehnai-like tune made with WebAudio (no film songs — copyright), names + message; "Apna wish banao" form → WhatsApp. 4 languages. Names only in the link.
 - Same pattern can later cover: birthday, anniversary, Eid, Diwali animated wishes.
 

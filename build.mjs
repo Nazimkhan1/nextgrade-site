@@ -224,6 +224,18 @@ const storyCard = (L) => (st) => {
 </a>`;
 };
 
+const SHAADI = {
+  hi: ['शादी मुबारक — आतिशबाज़ी वाला विश', 'दोस्त का नाम डालो — आतिशबाज़ी, बैंड-बाजा और फूलों की बारिश के साथ WhatsApp पर भेजो।'],
+  en: ['Shaadi Mubarak — animated wish', 'Add your friend\'s name — fireworks, a band-baaja tune and falling flowers. Send it on WhatsApp.'],
+  hinglish: ['Shaadi Mubarak — fireworks wala wish', 'Dost ka naam daalo — fireworks, band-baaja aur phoolon ki baarish ke saath WhatsApp pe bhejo.'],
+  bn: ['শুভ বিবাহ — আতশবাজির উইশ', 'বন্ধুর নাম দাও — আতশবাজি, বাজনা আর ফুলের বৃষ্টি সহ WhatsApp-এ পাঠাও।'],
+};
+const shaadiCard = (L) => `<a class="card" href="/celebrate/shaadi-mubarak/?lang=${L.code}">
+<span class="emoji" aria-hidden="true">💍</span>
+<h3>${esc(SHAADI[L.code][0])}</h3>
+<p>${esc(SHAADI[L.code][1])}</p>
+</a>`;
+
 const islamicCard = (L) => `<a class="card" href="${P(L, '/islamic-calendar/')}">
 <span class="emoji" aria-hidden="true">📅</span>
 <h3>${esc(islamic.text[L.code].h1.replace('🌙 ', ''))}</h3>
@@ -284,7 +296,7 @@ LANGS.forEach((L) => {
 <div class="btns"><a class="btn btn-primary" href="${P(L, '/wish-card/')}">${esc(T.home.btnCard)}</a><a class="btn btn-ghost" href="${P(L, '/festivals/')}">${esc(T.home.btnFestivals)}</a></div>
 </section>
 <section><h2>${esc(T.stories.h1)}</h2><div class="grid">${stories.slice(0, 3).map(storyCard(L)).join('')}</div><p><a href="${P(L, '/kahani/')}">${esc(T.stories.all)} →</a></p></section>
-<section><h2>${esc(T.home.secWishes)}</h2><div class="grid">${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div></section>
+<section><h2>${esc(T.home.secWishes)}</h2><div class="grid">${shaadiCard(L)}${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div></section>
 <section><h2>${esc(T.home.secUpcoming)}</h2><div class="grid">${upcoming().slice(0, 6).map(festivalCard(L)).join('')}</div></section>
 <section><h2>${esc(T.home.secGames)}</h2><div class="grid">${games.map(gameCard(L)).join('')}</div></section>
 <section><h2>${esc(T.home.secApps)}</h2><div class="grid">${apps.map(appCard(L)).join('')}</div></section>
@@ -366,7 +378,7 @@ ${faqBlock(x.faq)}
 <p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(T.nav.wishes)}</p>
 <h1>${esc(T.wishIndex.h1)}</h1>
 <p class="lead">${esc(T.wishIndex.lead)}</p>
-<div class="grid">${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div>
+<div class="grid">${shaadiCard(L)}${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div>
 <h2>${esc(T.wishIndex.festH)}</h2>
 <p>${T.wishIndex.festP(P(L, '/festivals/'))}</p>
 </div>`,
@@ -686,7 +698,7 @@ write(
 
 // ---- Machine files
 const gameUrls = games.map((g) => `/games/${g.slug}/`);
-const allUrls = [...urls, ...gameUrls];
+const allUrls = [...urls, ...gameUrls, '/celebrate/shaadi-mubarak/'];
 writeFileSync(
   join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${allUrls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${TODAY}</lastmod></url>`).join('\n')}\n</urlset>\n`,
