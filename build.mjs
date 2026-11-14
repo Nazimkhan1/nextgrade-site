@@ -24,7 +24,7 @@ const ADSENSE = 'ca-pub-4135041725422483';
 // Cloudflare Web Analytics (cookieless, no personal data). Paste the site token from
 // Cloudflare dashboard → Analytics & Logs → Web Analytics → nextgrade.in → "Manage site" JS snippet.
 // Empty = off. When set, the beacon is added to every HTML page in docs/ (site pages, games, wishes).
-const CF_BEACON = process.env.CF_BEACON || '';
+const CF_BEACON = process.env.CF_BEACON || '3c79c0e96af3466f826210eb91f124a0';
 const CONTACT = 'contact@nextgrade.in';
 const OUT = 'docs';
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -781,7 +781,7 @@ cpSync('src/static', OUT, { recursive: true });
 
 // Cloudflare Web Analytics beacon on every page (only when a token is set)
 if (CF_BEACON) {
-  const tag = `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${CF_BEACON}"}'></script>`;
+  const tag = `<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "${CF_BEACON}"}'></script><!-- End Cloudflare Web Analytics -->`;
   const walk = (dir) => readdirSync(dir, { withFileTypes: true }).forEach((d) => {
     const f = join(dir, d.name);
     if (d.isDirectory()) { walk(f); return; }

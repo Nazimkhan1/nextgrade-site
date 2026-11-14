@@ -58,7 +58,7 @@ Site: **~162 pages**, all in 4 languages. Everything below is live (pushed to ma
 | ~10 Feb | 🎨 Holi animated wish + colours game | Holi (check 2027 date) |
 | anytime | 🧒 Bachpan "Yaad hai?" cards, 90s quiz, old games; more stories (Vikram-Betaal, dadi-nani, Jataka) | — |
 | anytime | Anniversary / Good Night / Congratulations animated wishes; move Shaadi & Jumma onto the engine | — |
-| when user gives token | Cloudflare Web Analytics — code READY (14 Nov): set `CF_BEACON` const in build.mjs (or `CF_BEACON=… node build.mjs`), build, push; beacon goes on all pages; privacy policy already mentions it | — |
+| ✅ done 14 Nov | Cloudflare Web Analytics LIVE: token in `CF_BEACON` (build.mjs), beacon injected into every HTML page at build; Cloudflare site set to "Enable with JS Snippet installation" (proxy is off, so automatic injection can't work). Dashboard: Cloudflare → Observability → Analytics → Web analytics → nextgrade.in | — |
 - Waiting on user: confirm Hindi read-aloud works after Chrome relaunch; resubmit sitemap in Search Console; AdSense review result (2–4 weeks from 14 Nov).
 
 ---
