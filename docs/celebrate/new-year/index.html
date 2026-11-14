@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy New Year 🎆 — Animated New Year Wish with Name | NextGrade</title>
+<meta name="description" content="Send an animated Happy New Year wish with your friend's name: fireworks over a glowing city skyline, confetti and the new year in gold — read aloud and shared on WhatsApp. Free, in Hinglish, Hindi, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/celebrate/new-year/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="🎆 Happy New Year! Aapke liye ek khaas paigaam hai">
+<meta property="og:description" content="Tap karke kholo — shehar ke upar aatishbaazi, confetti aur aapke naam ki naye saal ki badhaai.">
+<meta property="og:url" content="https://nextgrade.in/celebrate/new-year/">
+<meta name="theme-color" content="#140a2e">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/celebrate/engine.css?v=2">
+<style>
+:root { --bg: #0a0620; --bg2: #3b1d6e; --gate1: #4c2a8a; --showbg: #0a0620; --gold: #ffd43b; --muted: #d8d0f0; --btn1: #f59f00; --btn2: #7048e8; }
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+// The year being welcomed: from July onwards it is next year; in January–June it is this year.
+const NY = (() => { const d = new Date(); return d.getMonth() >= 6 ? d.getFullYear() + 1 : d.getFullYear(); })();
+const NYbn = String(NY).replace(/\d/g, (x) => '০১২৩৪৫৬৭৮৯'[x]);
+window.CELEBRATE = {
+  base: 'https://nextgrade.in/celebrate/new-year/',
+  key: 'ny',
+  gateEmoji: '🎆',
+  top: { text: `✨ ${NY} ✨`, lang: 'en' },
+  T: {
+    hinglish: {
+      title: 'Happy New Year', gate: (f) => (f ? `${f} ne aapke liye naye saal ka tohfa bheja hai!` : 'Aapke liye naye saal ka tohfa aaya hai!'),
+      hello: (to) => `Happy New Year, ${to}`, from: (f) => `— ${f} ki taraf se 🎉`, defaultTo: 'dost',
+      msgs: [
+        `Naya saal ${NY} aapke liye nayi khushiyaan, nayi umeedein aur dher saari kaamyaabi le kar aaye. Happy New Year! 🎆`,
+        `Purani yaadein saath rakho, purane gham peeche chhodo — ${NY} aapka ab tak ka sabse achha saal ho!`,
+        `Jaise aasmaan mein aatishbaazi chamakti hai, waise hi ${NY} mein aapki zindagi bhi chamakti rahe. Naye saal ki dher saari badhaai!`,
+        `Achhi sehat, pyaar karne wale log aur poore hote sapne — ${NY} mein aapko ye sab mile. Happy New Year!`,
+      ],
+      listen: '🗣️ Message suno',
+      makeH: '🎆 Apnon ko New Year wish bhejo', makeP: 'Naam likho, message chuno ya apne shabdon mein likho, aur link WhatsApp pe bhejo. Kholne wale ko shehar ke upar aatishbaazi, confetti aur uske naam ki naye saal ki badhaai dikhegi.',
+      toLabel: 'Kisko bhejna hai (naam)', fromLabel: 'Aapka naam', toPh: 'Jaise: Riya, Sameer bhai', fromPh: 'Jaise: Aman', customPh: 'Jaise: Is saal aapke saare sapne poore hon…',
+      share: (to, f, url) => `🎆 Happy New Year ${to}! ${f ? f + ' ne ' : ''}aapke liye naye saal ka ek khaas tohfa bheja hai 🎉 Kholo 👉 ${url}`,
+      aboutH: 'Naye saal ke baare mein',
+      about: [
+        '1 January ko duniya bhar mein naya saal manaya jaata hai — yeh Gregorian calendar ka pehla din hai. 31 December ki raat 12 baje ghadi ke saath countdown hota hai, aatishbaazi hoti hai aur log ek doosre ko gale lag kar badhaai dete hain.',
+        'Bharat mein kai aur naye saal bhi manaye jaate hain — jaise Gudi Padwa, Ugadi, Baisakhi, Poila Baisakh, Puthandu aur Vishu. Har ek ki apni rasmein aur apna swaad hai.',
+        'Naye saal ki kuch achhi aadatein:',
+      ],
+      list: ['Ek chhota sa resolution lo — jo sach mein nibha sako', 'Purane dosto ko call karo', 'Pichhle saal ki 3 achhi baatein likho', 'Parivaar ke saath naye saal ki pehli subah bitao'],
+      aboutNote: 'Aatishbaazi Pop game bhi khelo — neeche link hai.',
+      links: [['Naye saal ki poori jaankari', '/festivals/new-year/'], ['🎆 Aatishbaazi Pop game', '/games/new-year/'], ['Aur wishes', '/wishes/']],
+    },
+    hi: {
+      title: 'नया साल मुबारक', gate: (f) => (f ? `${f} ने आपके लिए नए साल का तोहफ़ा भेजा है!` : 'आपके लिए नए साल का तोहफ़ा आया है!'),
+      hello: (to) => `नया साल मुबारक, ${to}`, from: (f) => `— ${f} की तरफ़ से 🎉`, defaultTo: 'दोस्त',
+      msgs: [
+        `नया साल ${NY} आपके लिए नई ख़ुशियाँ, नई उम्मीदें और ढेर सारी कामयाबी लेकर आए। नववर्ष की शुभकामनाएँ! 🎆`,
+        `पुरानी यादें साथ रखो, पुराने ग़म पीछे छोड़ो — ${NY} आपका अब तक का सबसे अच्छा साल हो!`,
+        `जैसे आसमान में आतिशबाज़ी चमकती है, वैसे ही ${NY} में आपकी ज़िंदगी भी चमकती रहे। नए साल की ढेर सारी बधाई!`,
+        `अच्छी सेहत, प्यार करने वाले लोग और पूरे होते सपने — ${NY} में आपको यह सब मिले। हैप्पी न्यू ईयर!`,
+      ],
+      listen: '🗣️ संदेश सुनो',
+      makeH: '🎆 अपनों को नए साल की बधाई भेजो', makeP: 'नाम लिखो, संदेश चुनो या अपने शब्दों में लिखो, और लिंक WhatsApp पर भेजो। खोलने वाले को शहर के ऊपर आतिशबाज़ी, कंफ़ेटी और उसके नाम की नए साल की बधाई दिखेगी।',
+      toLabel: 'किसको भेजना है (नाम)', fromLabel: 'आपका नाम', toPh: 'जैसे: रिया, समीर भाई', fromPh: 'जैसे: अमन', customPh: 'जैसे: इस साल आपके सारे सपने पूरे हों…',
+      share: (to, f, url) => `🎆 नया साल मुबारक ${to}! ${f ? f + ' ने ' : ''}आपके लिए नए साल का एक ख़ास तोहफ़ा भेजा है 🎉 खोलो 👉 ${url}`,
+      aboutH: 'नए साल के बारे में',
+      about: [
+        '1 जनवरी को दुनिया भर में नया साल मनाया जाता है — यह ग्रेगोरियन कैलेंडर का पहला दिन है। 31 दिसंबर की रात 12 बजे घड़ी के साथ काउंटडाउन होता है, आतिशबाज़ी होती है और लोग एक-दूसरे को गले लगाकर बधाई देते हैं।',
+        'भारत में और भी कई नए साल मनाए जाते हैं — जैसे गुड़ी पड़वा, उगादी, बैसाखी, पोइला बैशाख, पुथांडु और विशु। हर एक की अपनी रस्में और अपना स्वाद है।',
+        'नए साल की कुछ अच्छी आदतें:',
+      ],
+      list: ['एक छोटा-सा संकल्प लो — जो सच में निभा सको', 'पुराने दोस्तों को फ़ोन करो', 'पिछले साल की 3 अच्छी बातें लिखो', 'नए साल की पहली सुबह परिवार के साथ बिताओ'],
+      aboutNote: 'आतिशबाज़ी पॉप गेम भी खेलो — नीचे लिंक है।',
+      links: [['नए साल की पूरी जानकारी', '/festivals/new-year/'], ['🎆 आतिशबाज़ी पॉप गेम', '/games/new-year/'], ['और शुभकामनाएँ', '/wishes/']],
+    },
+    en: {
+      title: 'Happy New Year', gate: (f) => (f ? `${f} has sent you a New Year gift!` : 'A New Year gift has arrived for you!'),
+      hello: (to) => `Happy New Year, ${to}`, from: (f) => `— with love from ${f} 🎉`, defaultTo: 'friend',
+      msgs: [
+        `May ${NY} bring you new joys, new hopes and lots of success. Happy New Year! 🎆`,
+        `Keep the old memories, leave the old worries behind — may ${NY} be your best year yet!`,
+        `Just like fireworks light up the sky, may your life sparkle all through ${NY}. Happy New Year!`,
+        `Good health, people who love you and dreams coming true — wishing you all of it in ${NY}. Happy New Year!`,
+      ],
+      listen: '🗣️ Listen',
+      makeH: '🎆 Send a New Year wish to your loved ones', makeP: 'Type a name, pick a message or write your own, and send the link on WhatsApp. They will see fireworks over a city skyline, confetti and a New Year greeting with their name.',
+      toLabel: 'Who is it for (name)', fromLabel: 'Your name', toPh: 'e.g. Riya, Sameer', fromPh: 'e.g. Aman', customPh: 'e.g. May all your dreams come true this year…',
+      share: (to, f, url) => `🎆 Happy New Year ${to}! ${f ? f + ' has' : 'Someone has'} sent you a special New Year gift 🎉 Open 👉 ${url}`,
+      aboutH: 'About the New Year',
+      about: [
+        'The New Year is celebrated around the world on 1 January, the first day of the Gregorian calendar. At midnight on 31 December people count down with the clock, light fireworks and hug each other with good wishes.',
+        'India also celebrates many other new years — Gudi Padwa, Ugadi, Baisakhi, Poila Baisakh, Puthandu and Vishu — each with its own customs and food.',
+        'A few good New Year habits:',
+      ],
+      list: ['Make one small resolution you can really keep', 'Call an old friend', 'Write down 3 good things from last year', 'Spend the first morning of the year with family'],
+      aboutNote: 'Also play the Fireworks Pop game — link below.',
+      links: [['All about the New Year', '/festivals/new-year/'], ['🎆 Fireworks Pop game', '/games/new-year/'], ['More wishes', '/wishes/']],
+    },
+    bn: {
+      title: 'শুভ নববর্ষ', gate: (f) => (f ? `${f} তোমার জন্য নতুন বছরের উপহার পাঠিয়েছে!` : 'তোমার জন্য নতুন বছরের উপহার এসেছে!'),
+      hello: (to) => `হ্যাপি নিউ ইয়ার, ${to}`, from: (f) => `— ${f}-এর পক্ষ থেকে 🎉`, defaultTo: 'বন্ধু',
+      msgs: [
+        `নতুন বছর ${NYbn} তোমার জন্য নিয়ে আসুক নতুন আনন্দ, নতুন আশা আর অনেক সাফল্য। হ্যাপি নিউ ইয়ার! 🎆`,
+        `পুরোনো স্মৃতি সঙ্গে রাখো, পুরোনো দুঃখ পেছনে ফেলো — ${NYbn} হোক তোমার সেরা বছর!`,
+        `আকাশে আতশবাজি যেমন ঝলমল করে, তেমনই ${NYbn}-এ তোমার জীবনও ঝলমল করুক। নতুন বছরের অনেক শুভেচ্ছা!`,
+        `ভালো স্বাস্থ্য, ভালোবাসার মানুষ আর পূরণ হওয়া স্বপ্ন — ${NYbn}-এ তোমার সব হোক। হ্যাপি নিউ ইয়ার!`,
+      ],
+      listen: '🗣️ বার্তা শোনো',
+      makeH: '🎆 প্রিয়জনকে নতুন বছরের শুভেচ্ছা পাঠাও', makeP: 'নাম লেখো, বার্তা বাছো বা নিজের ভাষায় লেখো, আর লিংক WhatsApp-এ পাঠাও। যে খুলবে সে দেখবে শহরের আকাশে আতশবাজি, কনফেটি আর তার নামে নতুন বছরের শুভেচ্ছা।',
+      toLabel: 'কাকে পাঠাবে (নাম)', fromLabel: 'তোমার নাম', toPh: 'যেমন: রিয়া, সমীর দা', fromPh: 'যেমন: অমন', customPh: 'যেমন: এ বছর তোমার সব স্বপ্ন পূরণ হোক…',
+      share: (to, f, url) => `🎆 হ্যাপি নিউ ইয়ার ${to}! ${f ? f + ' ' : ''}তোমার জন্য নতুন বছরের একটা বিশেষ উপহার পাঠিয়েছে 🎉 খোলো 👉 ${url}`,
+      aboutH: 'ইংরেজি নববর্ষ সম্পর্কে',
+      about: [
+        '১ জানুয়ারি সারা পৃথিবীতে ইংরেজি নববর্ষ পালিত হয় — এটি গ্রেগরিয়ান ক্যালেন্ডারের প্রথম দিন। ৩১ ডিসেম্বর রাত বারোটায় কাউন্টডাউন, আতশবাজি আর শুভেচ্ছা বিনিময় হয়। কলকাতায় পার্ক স্ট্রিটের ভিড় তো দেখার মতো।',
+        'বাঙালির নিজের নববর্ষ পয়লা বৈশাখ — হালখাতা, নতুন জামা আর মিষ্টিমুখ দিয়ে। ভারতে আরও আছে গুড়ি পাড়ওয়া, উগাদি, বৈশাখী, পুথান্ডু আর বিষু।',
+        'নতুন বছরের কিছু ভালো অভ্যাস:',
+      ],
+      list: ['একটা ছোট্ট সংকল্প নাও — যেটা সত্যি রাখতে পারবে', 'পুরোনো বন্ধুকে ফোন করো', 'গত বছরের ৩টে ভালো কথা লিখে রাখো', 'বছরের প্রথম সকালটা পরিবারের সঙ্গে কাটাও'],
+      aboutNote: 'আতশবাজি পপ গেমটাও খেলো — নিচে লিংক আছে।',
+      links: [['নববর্ষের পুরো কথা', '/festivals/new-year/'], ['🎆 আতশবাজি পপ গেম', '/games/new-year/'], ['আরও শুভেচ্ছা', '/wishes/']],
+    },
+  },
+  scene: (() => {
+    let stars = [], buildings = [], rockets = [], sparks = [], confetti = [], acc = 0;
+    const COLORS = ['#ffd43b', '#ff6b6b', '#74c0fc', '#b197fc', '#69db7c', '#f783ac', '#ffa94d', '#ffffff'];
+    const pick = (a) => a[Math.floor(Math.random() * a.length)];
+    const resize = (S) => {
+      stars = Array.from({ length: Math.round(S.W * S.H / 3000) }, () => ({ x: Math.random() * S.W, y: Math.random() * S.H * 0.6, r: Math.random() * 1.2 + 0.3, p: Math.random() * 6 }));
+      buildings = []; let x = -10;
+      while (x < S.W + 10) {
+        const w = 26 + Math.random() * 44, h = S.H * (0.08 + Math.random() * 0.2);
+        const wins = [];
+        for (let wy = 8; wy < h - 8; wy += 11) for (let wx = 5; wx < w - 7; wx += 9) if (Math.random() < 0.55) wins.push([wx, wy, Math.random()]);
+        buildings.push({ x, w, h, wins, spire: Math.random() < 0.18 });
+        x += w + 2 + Math.random() * 6;
+      }
+    };
+    const launch = (S, big) => rockets.push({ x: S.W * (0.12 + Math.random() * 0.76), y: S.H, vy: -(S.H * (0.9 + Math.random() * 0.35)), ty: S.H * (0.08 + Math.random() * 0.3), c: pick(COLORS), c2: pick(COLORS), kind: big ? 'peony' : pick(['peony', 'ring', 'willow', 'crackle', 'double']) });
+    const burst = (r) => {
+      const n = r.kind === 'ring' ? 48 : r.kind === 'willow' ? 70 : 80;
+      for (let i = 0; i < n; i += 1) {
+        const a = (Math.PI * 2 * i) / n + Math.random() * 0.05;
+        const sp = r.kind === 'ring' ? 150 : 40 + Math.random() * 150;
+        const willow = r.kind === 'willow';
+        sparks.push({ x: r.x, y: r.y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp, life: willow ? 2.4 : 1.5, c: willow ? '#ffd8a8' : r.kind === 'double' && i % 2 ? r.c2 : r.c, g: willow ? 35 : 70, drag: willow ? 0.985 : 0.975, tw: r.kind === 'crackle' });
+      }
+    };
+    const start = (S) => { [0, 1, 2, 3, 4].forEach((i) => setTimeout(() => launch(S, true), i * 160)); confetti = Array.from({ length: Math.round(S.W / 4) }, () => ({ x: Math.random() * S.W, y: -Math.random() * S.H * 0.6, vy: 50 + Math.random() * 70, r: Math.random() * 6, vr: (Math.random() - 0.5) * 8, c: pick(COLORS), w: 4 + Math.random() * 4, p: Math.random() * 6 })); };
+    const draw = (ctx, S, now, dt) => {
+      const sky = ctx.createLinearGradient(0, 0, 0, S.H);
+      sky.addColorStop(0, '#05031a'); sky.addColorStop(0.55, '#1a0f45'); sky.addColorStop(1, '#3b1d6e');
+      ctx.fillStyle = sky; ctx.fillRect(0, 0, S.W, S.H);
+      stars.forEach((st) => { ctx.globalAlpha = 0.3 + 0.7 * Math.abs(Math.sin(now / 1200 + st.p)); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2); ctx.fill(); });
+      ctx.globalAlpha = 1;
+      // fireworks
+      if (S.playing) { acc += dt; if (acc > 0.75) { acc = 0; launch(S); if (Math.random() < 0.35) launch(S); } }
+      rockets.forEach((r) => {
+        r.y += r.vy * dt; r.vy *= 0.985;
+        ctx.fillStyle = '#ffe8cc'; ctx.beginPath(); ctx.arc(r.x, r.y, 2.2, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = 'rgba(255, 200, 120, 0.4)'; ctx.fillRect(r.x - 1, r.y, 2, 14);
+        if (r.y <= r.ty || r.vy > -60) { r.done = true; burst(r); }
+      });
+      rockets = rockets.filter((r) => !r.done);
+      ctx.globalCompositeOperation = 'lighter';
+      sparks.forEach((p) => {
+        p.vx *= p.drag; p.vy = p.vy * p.drag + p.g * dt; p.x += p.vx * dt; p.y += p.vy * dt; p.life -= dt * 0.7;
+        const a = Math.max(0, Math.min(1, p.life)) * (p.tw ? (Math.sin(now / 30 + p.x) > 0 ? 1 : 0.2) : 0.9);
+        ctx.globalAlpha = a; ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, Math.PI * 2); ctx.fill();
+      });
+      ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+      sparks = sparks.filter((p) => p.life > 0);
+      // city skyline with windows lighting up
+      const base = S.H;
+      buildings.forEach((b, bi) => {
+        ctx.fillStyle = bi % 2 ? '#0d0826' : '#120b33';
+        ctx.fillRect(b.x, base - b.h, b.w, b.h);
+        if (b.spire) { ctx.beginPath(); ctx.moveTo(b.x + b.w / 2 - 3, base - b.h); ctx.lineTo(b.x + b.w / 2, base - b.h - 26); ctx.lineTo(b.x + b.w / 2 + 3, base - b.h); ctx.fill(); ctx.fillStyle = Math.floor(now / 700) % 2 ? '#ff6b6b' : '#5c1a1a'; ctx.beginPath(); ctx.arc(b.x + b.w / 2, base - b.h - 27, 2, 0, Math.PI * 2); ctx.fill(); }
+        b.wins.forEach(([wx, wy, t]) => { ctx.fillStyle = S.light > t ? (t > 0.85 ? '#a5d8ff' : '#ffd8a8') : 'rgba(255, 216, 168, 0.08)'; ctx.fillRect(b.x + wx, base - b.h + wy, 4, 5); });
+      });
+      // confetti after opening
+      confetti.forEach((c) => {
+        c.y += c.vy * dt; c.x += Math.sin(now / 500 + c.p) * 30 * dt; c.r += c.vr * dt;
+        if (c.y > S.H + 10) { c.y = -10; c.x = Math.random() * S.W; }
+        ctx.save(); ctx.translate(c.x, c.y); ctx.rotate(c.r); ctx.fillStyle = c.c; ctx.fillRect(-c.w / 2, -2, c.w, 4 * Math.abs(Math.cos(now / 200 + c.p)) + 1); ctx.restore();
+      });
+    };
+    return { resize, draw, start };
+  })(),
+};
+</script>
+<script src="/celebrate/engine.js?v=3"></script>
+</body>
+</html>
