@@ -226,6 +226,11 @@ const storyCard = (L) => (st) => {
 
 // Animated name wishes (standalone pages in src/static/celebrate/<slug>/). [title, card text, button text]
 const CELEBRATE = [
+  { slug: 'good-morning', emoji: '☀️', wish: 'good-morning',
+    hi: ['सुप्रभात — उगते सूरज वाला विश', 'उगता सूरज, उड़ते पंछी और खिलते फूल — अपनों के नाम का सुबह का पैग़ाम, आवाज़ के साथ। रोज़ नया संदेश।', '☀️ नाम के साथ एनिमेटेड सुप्रभात भेजो'],
+    en: ['Good Morning — sunrise wish with name', 'The sun rising, birds and blooming flowers — a morning message with their name, read aloud. A fresh one every day.', '☀️ Send an animated Good Morning with a name'],
+    hinglish: ['Good Morning — ugte sooraj wala wish', 'Ugta sooraj, udte panchhi aur khilte phool — apnon ke naam ka subah ka paigaam, awaaz ke saath. Roz naya message.', '☀️ Naam ke saath animated Good Morning bhejo'],
+    bn: ['সুপ্রভাত — সূর্যোদয়ের উইশ', 'সূর্যোদয়, উড়ন্ত পাখি আর ফুটন্ত ফুল — প্রিয়জনের নামে সকালের বার্তা, পড়ে শোনানো সহ। রোজ নতুন বার্তা।', '☀️ নাম দিয়ে অ্যানিমেটেড সুপ্রভাত পাঠাও'] },
   { slug: 'gurpurab', emoji: '🙏', festival: 'guru-nanak-jayanti',
     hi: ['गुरपुरब की बधाई — नाम वाला एनिमेटेड विश', 'रोशन गुरुद्वारा, पूरा चाँद और दीये — अपनों के नाम की बधाई आवाज़ के साथ WhatsApp पर भेजो।', '🙏 नाम के साथ एनिमेटेड गुरपुरब बधाई भेजो'],
     en: ['Happy Gurpurab — animated wish with name', 'A lit Gurdwara, the full moon and diyas — send a greeting with their name, read aloud, on WhatsApp.', '🙏 Send an animated Gurpurab wish with a name'],

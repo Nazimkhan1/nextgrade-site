@@ -35,7 +35,7 @@
   let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(store.get(K('lang'))) ? store.get(K('lang')) : deviceLang();
   const t = (k) => (C.T[lang][k] !== undefined ? C.T[lang][k] : U[lang][k]);
   const maxM = C.T.en.msgs.length - 1;
-  let wish = { to: clean(params.get('to')), partner: clean(params.get('with')), from: clean(params.get('from')), d: clean(params.get('d'), 200), m: Math.max(0, Math.min(maxM, parseInt(params.get('m'), 10) || 0)) };
+  let wish = { to: clean(params.get('to')), partner: clean(params.get('with')), from: clean(params.get('from')), d: clean(params.get('d'), 200), m: params.has('m') ? Math.max(0, Math.min(maxM, parseInt(params.get('m'), 10) || 0)) : C.dailyDefault ? Math.floor(Date.now() / 864e5) % (maxM + 1) : 0 };
 
   // ---- page
   const top = C.top ? `<div class="top-line" lang="${C.top.lang}"${C.top.dir ? ` dir="${C.top.dir}"` : ''}>${esc(C.top.text)}</div>` : '';

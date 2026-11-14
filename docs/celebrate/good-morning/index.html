@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Good Morning ☀️ — Animated Good Morning Wish with Name (Sunrise) | NextGrade</title>
+<meta name="description" content="Send a beautiful animated Good Morning wish with a name: the sun rising over the hills, birds, clouds and blooming sunflowers, a fresh message every day, read aloud. Share it on WhatsApp — free, in Hinglish, Hindi, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/celebrate/good-morning/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="☀️ Good Morning! Aapke liye aaj ki pehli muskaan 🌼">
+<meta property="og:description" content="Tap karke kholo — ugta sooraj, udte panchhi, khilte phool aur aapke naam ka subah ka paigaam.">
+<meta property="og:url" content="https://nextgrade.in/celebrate/good-morning/">
+<meta name="theme-color" content="#ff9f43">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/celebrate/engine.css?v=2">
+<style>
+:root { --bg: #2b1a3d; --bg2: #e8590c; --gate1: #ff922b; --showbg: #1b2a4a; --gold: #fff3bf; --muted: #ffe8cc; --btn1: #ff922b; --btn2: #f06595; }
+.gate { background: radial-gradient(circle at 50% 38%, #ffd43b, #ff922b 40%, #c2255c 100%); }
+.gate p { text-shadow: 0 2px 10px rgba(120, 30, 0, 0.5); }
+.message h1 { font-size: clamp(40px, 11vw, 66px); color: #fff; text-shadow: 0 2px 0 #f08c00, 0 4px 0 #e8590c, 0 8px 22px rgba(160, 50, 0, 0.55); }
+.message .names { color: #fff; text-shadow: 0 2px 12px rgba(150, 50, 0, 0.8); }
+.message .text { background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.35); color: #fff; text-shadow: 0 1px 6px rgba(80, 20, 0, 0.7); }
+.message .from { color: #fff; text-shadow: 0 2px 10px rgba(120, 40, 0, 0.8); }
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+(() => {
+  const day = (names) => names[new Date().getDay()];
+  const DAYS = {
+    hinglish: ['Shubh Ravivaar', 'Shubh Somvaar', 'Shubh Mangalvaar', 'Shubh Budhvaar', 'Shubh Guruvaar', 'Shubh Shukravaar', 'Shubh Shanivaar'],
+    hi: ['शुभ रविवार', 'शुभ सोमवार', 'शुभ मंगलवार', 'शुभ बुधवार', 'शुभ गुरुवार', 'शुभ शुक्रवार', 'शुभ शनिवार'],
+    en: ['Happy Sunday', 'Happy Monday', 'Happy Tuesday', 'Happy Wednesday', 'Happy Thursday', 'Happy Friday', 'Happy Saturday'],
+    bn: ['শুভ রবিবার', 'শুভ সোমবার', 'শুভ মঙ্গলবার', 'শুভ বুধবার', 'শুভ বৃহস্পতিবার', 'শুভ শুক্রবার', 'শুভ শনিবার'],
+  };
+  window.CELEBRATE = {
+    base: 'https://nextgrade.in/celebrate/good-morning/',
+    key: 'gm',
+    gateEmoji: '☀️',
+    dailyDefault: true,
+    T: {
+      hinglish: {
+        title: 'Good Morning', gate: (f) => (f ? `${f} ne aapke liye subah ki pehli muskaan bheji hai!` : 'Aapke liye subah ka ek pyaara paigaam!'),
+        hello: (to) => `${to} — ${day(DAYS.hinglish)}! 🌼`, from: (f) => `— ${f} ki taraf se ☀️`, defaultTo: 'Mere Dost',
+        msgs: [
+          'Nayi subah, naya mauka! Aaj ka din aapke liye muskaan, sehat aur dher saari khushiyaan laaye.',
+          'Sooraj har roz yaad dilaata hai ki andhera kitna bhi ho, roshni zaroor aati hai. Uthiye aur chamakiye!',
+          'Ek cup chai, ek pyaari muskaan aur ek achchha vichaar — din ki shuruaat ke liye bas itna kaafi hai.',
+          'Kal ki fikr chhodo, aaj ko jee bhar ke jiyo. Aapka din shubh aur mangalmay ho!',
+          'Chhote-chhote kadam bhi manzil tak le jaate hain. Aaj ek kadam apne sapne ki taraf zaroor badhaiye.',
+          'Aapki muskaan kisi ka din bana sakti hai — aaj use baantna mat bhooliye. Suprabhaat!',
+          'Thoda paani, thodi kasrat, thodi hansi — sehatmand din ki yahi recipe hai. Good Morning!',
+        ],
+        listen: '🗣️ Suno',
+        makeH: '☀️ Apnon ki subah sundar banao', makeP: 'Naam likho, message chuno ya apne shabdon mein likho, aur link WhatsApp pe bhejo. Kholne wale ko ugta sooraj, udte panchhi, khilte phool aur uske naam ka paigaam dikhega — awaaz ke saath. Har roz naya message apne aap aata hai.',
+        toLabel: 'Kisko bhejna hai (naam)', fromLabel: 'Aapka naam', toPh: 'Jaise: Mummy, Riya, Office group', fromPh: 'Jaise: Rahul', customPh: 'Jaise: Aaj ka din aapke liye bahut khaas ho…',
+        share: (to, f, url) => `☀️ Good Morning ${to}! ${f ? f + ' ne ' : ''}aapke liye subah ka ek pyaara paigaam bheja hai 🌼 Kholo 👉 ${url}`,
+        aboutH: 'Achhi subah ki 5 aadatein',
+        about: ['Din kaisa jaayega, ye aksar subah ke pehle ghante se tay hota hai. Ye chhoti aadatein koi bhi shuru kar sakta hai:'],
+        list: ['Uthte hi ek-do glass paani piyo', '5-10 minute stretching ya halki walk karo', 'Subah ki halki dhoop mein thodi der baitho', 'Pehle 20 minute phone se door raho', 'Aaj ke liye ek chhota sa kaam tay karo — aur kisi apne ko Good Morning bhejo'],
+        aboutNote: 'Koi bimaari ho to kasrat shuru karne se pehle doctor se salaah zaroor lein.',
+        links: [['Good Morning ke aur messages', '/wishes/good-morning/'], ['Bachchon ki kahaniyan', '/kahani/']],
+      },
+      hi: {
+        title: 'सुप्रभात', gate: (f) => (f ? `${f} ने आपके लिए सुबह की पहली मुस्कान भेजी है!` : 'आपके लिए सुबह का एक प्यारा पैग़ाम!'),
+        hello: (to) => `${to} — ${day(DAYS.hi)}! 🌼`, from: (f) => `— ${f} की तरफ़ से ☀️`, defaultTo: 'मेरे दोस्त',
+        msgs: [
+          'नई सुबह, नया मौका! आज का दिन आपके लिए मुस्कान, सेहत और ढेर सारी खुशियाँ लाए।',
+          'सूरज हर रोज़ याद दिलाता है कि अँधेरा कितना भी हो, रोशनी ज़रूर आती है। उठिए और चमकिए!',
+          'एक कप चाय, एक प्यारी मुस्कान और एक अच्छा विचार — दिन की शुरुआत के लिए बस इतना काफ़ी है।',
+          'कल की फ़िक्र छोड़ो, आज को जी भर के जियो। आपका दिन शुभ और मंगलमय हो!',
+          'छोटे-छोटे कदम भी मंज़िल तक ले जाते हैं। आज एक कदम अपने सपने की ओर ज़रूर बढ़ाइए।',
+          'आपकी मुस्कान किसी का दिन बना सकती है — आज उसे बाँटना मत भूलिए। सुप्रभात!',
+          'थोड़ा पानी, थोड़ी कसरत, थोड़ी हँसी — सेहतमंद दिन की यही रेसिपी है। सुप्रभात!',
+        ],
+        listen: '🗣️ सुनो',
+        makeH: '☀️ अपनों की सुबह सुंदर बनाओ', makeP: 'नाम लिखो, संदेश चुनो या अपने शब्दों में लिखो, और लिंक WhatsApp पर भेजो। खोलने वाले को उगता सूरज, उड़ते पंछी, खिलते फूल और उसके नाम का पैग़ाम दिखेगा — आवाज़ के साथ। हर रोज़ नया संदेश अपने आप आता है।',
+        toLabel: 'किसको भेजना है (नाम)', fromLabel: 'आपका नाम', toPh: 'जैसे: मम्मी, रिया, ऑफ़िस ग्रुप', fromPh: 'जैसे: राहुल', customPh: 'जैसे: आज का दिन आपके लिए बहुत ख़ास हो…',
+        share: (to, f, url) => `☀️ सुप्रभात ${to}! ${f ? f + ' ने ' : ''}आपके लिए सुबह का एक प्यारा पैग़ाम भेजा है 🌼 खोलो 👉 ${url}`,
+        aboutH: 'अच्छी सुबह की 5 आदतें',
+        about: ['दिन कैसा जाएगा, यह अक्सर सुबह के पहले घंटे से तय होता है। ये छोटी आदतें कोई भी शुरू कर सकता है:'],
+        list: ['उठते ही एक-दो गिलास पानी पियो', '5-10 मिनट स्ट्रेचिंग या हल्की सैर करो', 'सुबह की हल्की धूप में थोड़ी देर बैठो', 'पहले 20 मिनट फ़ोन से दूर रहो', 'आज के लिए एक छोटा-सा काम तय करो — और किसी अपने को सुप्रभात भेजो'],
+        aboutNote: 'कोई बीमारी हो तो कसरत शुरू करने से पहले डॉक्टर से सलाह ज़रूर लें।',
+        links: [['सुप्रभात के और संदेश', '/wishes/good-morning/'], ['बच्चों की कहानियाँ', '/kahani/']],
+      },
+      en: {
+        title: 'Good Morning', gate: (f) => (f ? `${f} has sent you the first smile of the day!` : 'A lovely morning message for you!'),
+        hello: (to) => `${to} — ${day(DAYS.en)}! 🌼`, from: (f) => `— with love from ${f} ☀️`, defaultTo: 'Dear Friend',
+        msgs: [
+          'A new morning, a new chance! May today bring you smiles, good health and lots of happiness.',
+          'Every sunrise reminds us that however dark it gets, the light always comes. Rise and shine!',
+          'A cup of tea, a warm smile and one good thought — that is all you need to start the day.',
+          'Leave tomorrow\'s worries for tomorrow and live today to the full. Have a wonderful day!',
+          'Small steps still reach the goal. Take one step towards your dream today.',
+          'Your smile can make someone\'s day — don\'t forget to share it today. Good morning!',
+          'A little water, a little exercise, a little laughter — that is the recipe for a healthy day. Good morning!',
+        ],
+        listen: '🗣️ Listen',
+        makeH: '☀️ Make someone\'s morning beautiful', makeP: 'Type a name, pick a message or write your own, and send the link on WhatsApp. They will see the sun rising, birds, blooming flowers and a message with their name — read aloud. A fresh message comes up every day.',
+        toLabel: 'Who is it for (name)', fromLabel: 'Your name', toPh: 'e.g. Mom, Riya, Office group', fromPh: 'e.g. Rahul', customPh: 'e.g. Wishing you a really special day…',
+        share: (to, f, url) => `☀️ Good Morning ${to}! ${f ? f + ' has' : 'Someone has'} sent you a lovely morning message 🌼 Open 👉 ${url}`,
+        aboutH: '5 habits for a good morning',
+        about: ['How the day goes often depends on the first hour of the morning. Anyone can start these small habits:'],
+        list: ['Drink a glass or two of water when you wake up', 'Stretch or take a light walk for 5-10 minutes', 'Sit in the soft morning sunlight for a while', 'Stay away from your phone for the first 20 minutes', 'Pick one small task for today — and send someone you love a good morning'],
+        aboutNote: 'If you have a health condition, check with a doctor before starting exercise.',
+        links: [['More good morning messages', '/wishes/good-morning/'], ['Bedtime stories', '/kahani/']],
+      },
+      bn: {
+        title: 'সুপ্রভাত', gate: (f) => (f ? `${f} তোমার জন্য সকালের প্রথম হাসি পাঠিয়েছে!` : 'তোমার জন্য সকালের একটা মিষ্টি বার্তা!'),
+        hello: (to) => `${to} — ${day(DAYS.bn)}! 🌼`, from: (f) => `— ${f}-এর পক্ষ থেকে ☀️`, defaultTo: 'প্রিয় বন্ধু',
+        msgs: [
+          'নতুন সকাল, নতুন সুযোগ! আজকের দিন তোমার জন্য হাসি, সুস্থতা আর অনেক আনন্দ নিয়ে আসুক।',
+          'সূর্য রোজ মনে করিয়ে দেয়, অন্ধকার যত গভীরই হোক, আলো আসবেই। ওঠো আর ঝলমল করো!',
+          'এক কাপ চা, একটা মিষ্টি হাসি আর একটা ভালো ভাবনা — দিন শুরু করতে এটুকুই যথেষ্ট।',
+          'কালকের চিন্তা ছাড়ো, আজকে প্রাণভরে বাঁচো। তোমার দিন শুভ হোক!',
+          'ছোট ছোট পা-ও লক্ষ্যে পৌঁছে দেয়। আজ স্বপ্নের দিকে একটা পা অবশ্যই বাড়াও।',
+          'তোমার হাসি কারও দিন সুন্দর করে দিতে পারে — আজ সেটা ভাগ করে নিতে ভুলো না। সুপ্রভাত!',
+          'একটু জল, একটু ব্যায়াম, একটু হাসি — সুস্থ দিনের এটাই রেসিপি। সুপ্রভাত!',
+        ],
+        listen: '🗣️ শোনো',
+        makeH: '☀️ প্রিয়জনের সকাল সুন্দর করো', makeP: 'নাম লেখো, বার্তা বাছো বা নিজের ভাষায় লেখো, আর লিংক WhatsApp-এ পাঠাও। যে খুলবে সে দেখবে সূর্যোদয়, উড়ন্ত পাখি, ফুটন্ত ফুল আর তার নামে বার্তা — পড়ে শোনানো সহ। রোজ নতুন বার্তা নিজে থেকেই আসে।',
+        toLabel: 'কাকে পাঠাবে (নাম)', fromLabel: 'তোমার নাম', toPh: 'যেমন: মা, রিয়া, অফিস গ্রুপ', fromPh: 'যেমন: রাহুল', customPh: 'যেমন: আজকের দিনটা তোমার খুব বিশেষ হোক…',
+        share: (to, f, url) => `☀️ সুপ্রভাত ${to}! ${f ? f + ' ' : ''}তোমার জন্য সকালের একটা মিষ্টি বার্তা পাঠিয়েছে 🌼 খোলো 👉 ${url}`,
+        aboutH: 'ভালো সকালের ৫টি অভ্যাস',
+        about: ['দিন কেমন যাবে, তা অনেকটাই ঠিক হয় সকালের প্রথম ঘণ্টায়। এই ছোট অভ্যাসগুলো যে কেউ শুরু করতে পারে:'],
+        list: ['ঘুম থেকে উঠেই এক-দু গ্লাস জল খাও', '৫-১০ মিনিট স্ট্রেচিং বা হালকা হাঁটা', 'সকালের নরম রোদে কিছুক্ষণ বসো', 'প্রথম ২০ মিনিট ফোন থেকে দূরে থাকো', 'আজকের জন্য একটা ছোট কাজ ঠিক করো — আর কোনো প্রিয়জনকে সুপ্রভাত পাঠাও'],
+        aboutNote: 'কোনো অসুখ থাকলে ব্যায়াম শুরুর আগে ডাক্তারের পরামর্শ নিও।',
+        links: [['সুপ্রভাতের আরও বার্তা', '/wishes/good-morning/'], ['ছোটদের গল্প', '/kahani/']],
+      },
+    },
+    scene: (() => {
+      let stars = [], clouds = [], birds = [], flowers = [], sparkles = [], hills = [], birdAcc = 0;
+      const mix = (a, b, k) => a.map((v, i) => Math.round(v + (b[i] - v) * k));
+      const rgb = (c) => `rgb(${c[0]},${c[1]},${c[2]})`;
+      const ease = (x) => 1 - (1 - x) ** 3;
+      let sp = 0, t0 = 0;
+      const resize = (S) => {
+        stars = Array.from({ length: Math.round(S.W * S.H / 3000) }, () => ({ x: Math.random() * S.W, y: Math.random() * S.H * 0.6, r: Math.random() * 1.2 + 0.3, p: Math.random() * 6 }));
+        clouds = Array.from({ length: 5 }, (_, i) => ({ x: Math.random() * S.W, y: S.H * (i < 2 ? 0.03 + 0.04 * i : 0.53 + 0.04 * (i - 2)) + Math.random() * 10, s: 0.6 + Math.random() * 0.7, v: 6 + Math.random() * 10 }));
+        const n = Math.max(5, Math.round(S.W / 70));
+        flowers = Array.from({ length: n }, (_, i) => ({ x: (i + 0.3 + Math.random() * 0.4) * (S.W / n), h: 50 + Math.random() * 60, d: 0.15 + Math.random() * 0.45, s: 0.8 + Math.random() * 0.5, p: Math.random() * 6 }));
+        hills = [
+          { base: 0.7, amp: 26, f: 0.006, ph: 1, night: [22, 34, 66], day: [134, 190, 120] },
+          { base: 0.78, amp: 20, f: 0.009, ph: 3, night: [16, 28, 52], day: [82, 160, 80] },
+          { base: 0.87, amp: 14, f: 0.012, ph: 5, night: [10, 20, 38], day: [52, 128, 58] },
+        ];
+      };
+      const start = () => { t0 = performance.now(); birds = []; };
+      const hillY = (h, S, x) => S.H * h.base - Math.sin(x * h.f + h.ph) * h.amp - Math.sin(x * h.f * 2.3 + h.ph * 2) * h.amp * 0.4;
+      const cloud = (ctx, x, y, s, a) => {
+        ctx.fillStyle = `rgba(255,255,255,${a})`;
+        [[0, 0, 22], [22, -10, 26], [48, 0, 20], [24, 8, 22]].forEach(([dx, dy, r]) => { ctx.beginPath(); ctx.arc(x + dx * s, y + dy * s, r * s, 0, Math.PI * 2); ctx.fill(); });
+      };
+      const draw = (ctx, S, now, dt) => {
+        sp = S.playing ? ease(Math.min(1, (now - t0) / 6000)) : 0.04;
+        // sky: night → dawn → morning
+        const top = sp < 0.5 ? mix([10, 18, 48], [120, 90, 160], sp * 2) : mix([120, 90, 160], [90, 180, 255], (sp - 0.5) * 2);
+        const mid = sp < 0.5 ? mix([24, 32, 80], [255, 140, 110], sp * 2) : mix([255, 140, 110], [170, 220, 255], (sp - 0.5) * 2);
+        const low = sp < 0.5 ? mix([40, 40, 90], [255, 200, 120], sp * 2) : mix([255, 200, 120], [255, 236, 190], (sp - 0.5) * 2);
+        const g = ctx.createLinearGradient(0, 0, 0, S.H);
+        g.addColorStop(0, rgb(top)); g.addColorStop(0.55, rgb(mid)); g.addColorStop(0.8, rgb(low));
+        ctx.fillStyle = g; ctx.fillRect(0, 0, S.W, S.H);
+        // stars fade away
+        if (sp < 0.6) stars.forEach((st) => { ctx.globalAlpha = (1 - sp / 0.6) * (0.4 + 0.6 * Math.abs(Math.sin(now / 1000 + st.p))); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2); ctx.fill(); });
+        ctx.globalAlpha = 1;
+        // the sun with slowly turning rays
+        const sx = S.W * 0.5, sy = S.H * (0.86 - 0.24 * sp), sr = Math.min(S.W, S.H) * 0.085;
+        const glow = ctx.createRadialGradient(sx, sy, sr * 0.4, sx, sy, sr * 5);
+        glow.addColorStop(0, `rgba(255, 220, 120, ${0.25 + 0.45 * sp})`); glow.addColorStop(1, 'rgba(255, 220, 120, 0)');
+        ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(sx, sy, sr * 5, 0, Math.PI * 2); ctx.fill();
+        ctx.save(); ctx.translate(sx, sy); ctx.rotate(now / 9000);
+        ctx.fillStyle = `rgba(255, 236, 160, ${0.12 + 0.18 * sp})`;
+        for (let i = 0; i < 14; i += 1) { ctx.rotate((Math.PI * 2) / 14); ctx.beginPath(); ctx.moveTo(-sr * 0.25, 0); ctx.lineTo(sr * 0.25, 0); ctx.lineTo(0, -sr * (3.2 + 0.6 * Math.sin(now / 700 + i))); ctx.closePath(); ctx.fill(); }
+        ctx.restore();
+        const sg = ctx.createRadialGradient(sx - sr * 0.3, sy - sr * 0.3, sr * 0.1, sx, sy, sr);
+        sg.addColorStop(0, '#fffbe6'); sg.addColorStop(0.6, '#ffd43b'); sg.addColorStop(1, '#ff922b');
+        ctx.fillStyle = sg; ctx.beginPath(); ctx.arc(sx, sy, sr, 0, Math.PI * 2); ctx.fill();
+        // clouds drift
+        clouds.forEach((c) => { c.x += c.v * dt; if (c.x > S.W + 80) c.x = -120; cloud(ctx, c.x, c.y, c.s, 0.25 + 0.6 * sp); });
+        // hills
+        hills.forEach((h) => {
+          ctx.fillStyle = rgb(mix(h.night, h.day, sp)); ctx.beginPath(); ctx.moveTo(0, S.H);
+          for (let x = 0; x <= S.W + 8; x += 8) ctx.lineTo(x, hillY(h, S, x));
+          ctx.lineTo(S.W, S.H); ctx.closePath(); ctx.fill();
+        });
+        // birds fly across once the sun is up
+        if (S.playing && sp > 0.35) { birdAcc += dt; if (birdAcc > 1.6) { birdAcc = 0; const y = S.H * (0.12 + Math.random() * 0.3); const k = 2 + Math.floor(Math.random() * 3); for (let i = 0; i < k; i += 1) birds.push({ x: -20 - i * 22, y: y + i * 9 * (i % 2 ? 1 : -1), v: 55 + Math.random() * 15, p: Math.random() * 6, s: 0.8 + Math.random() * 0.4 }); } }
+        ctx.strokeStyle = 'rgba(40, 30, 60, 0.85)'; ctx.lineWidth = 2; ctx.lineCap = 'round';
+        birds.forEach((b) => { b.x += b.v * dt; const f = Math.sin(now / 120 + b.p) * 5 * b.s; ctx.beginPath(); ctx.moveTo(b.x - 9 * b.s, b.y - f); ctx.quadraticCurveTo(b.x - 4 * b.s, b.y - 2, b.x, b.y); ctx.quadraticCurveTo(b.x + 4 * b.s, b.y - 2, b.x + 9 * b.s, b.y - f); ctx.stroke(); });
+        birds = birds.filter((b) => b.x < S.W + 30);
+        // sunflowers grow and bloom
+        flowers.forEach((fl) => {
+          const k = Math.max(0, Math.min(1, (sp - fl.d) / 0.45)); if (k <= 0) return;
+          const baseY = S.H - 4, sway = Math.sin(now / 900 + fl.p) * 4, hy = baseY - fl.h * fl.s * Math.min(1, k * 1.6);
+          ctx.strokeStyle = '#2b8a3e'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(fl.x, baseY); ctx.quadraticCurveTo(fl.x + sway, (baseY + hy) / 2, fl.x + sway, hy); ctx.stroke();
+          ctx.fillStyle = '#37b24d'; ctx.beginPath(); ctx.ellipse(fl.x + 7, baseY - fl.h * fl.s * 0.35, 9, 4, -0.5, 0, Math.PI * 2); ctx.fill();
+          const open = Math.max(0, (k - 0.4) / 0.6), r = 13 * fl.s;
+          if (open > 0) {
+            ctx.save(); ctx.translate(fl.x + sway, hy); ctx.rotate(now / 6000 + fl.p);
+            ctx.fillStyle = '#fcc419';
+            for (let i = 0; i < 12; i += 1) { ctx.rotate((Math.PI * 2) / 12); ctx.beginPath(); ctx.ellipse(0, -r * open, 4.2 * fl.s, r * 0.75 * open, 0, 0, Math.PI * 2); ctx.fill(); }
+            ctx.restore();
+          }
+          ctx.fillStyle = '#7c4a1e'; ctx.beginPath(); ctx.arc(fl.x + sway, hy, 6.5 * fl.s, 0, Math.PI * 2); ctx.fill();
+        });
+        // morning sparkle in the air
+        if (S.playing && sp > 0.5 && Math.random() < 0.3) sparkles.push({ x: Math.random() * S.W, y: S.H * (0.55 + Math.random() * 0.4), life: 1 });
+        sparkles.forEach((p) => { p.life -= dt * 0.9; p.y -= 8 * dt; ctx.globalAlpha = Math.max(0, p.life); ctx.fillStyle = '#fff9db'; ctx.beginPath(); ctx.arc(p.x, p.y, 1.6, 0, Math.PI * 2); ctx.fill(); });
+        ctx.globalAlpha = 1;
+        sparkles = sparkles.filter((p) => p.life > 0);
+      };
+      return { resize, draw, start };
+    })(),
+  };
+})();
+</script>
+<script src="/celebrate/engine.js?v=2"></script>
+</body>
+</html>
