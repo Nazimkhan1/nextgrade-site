@@ -33,7 +33,8 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 ## Decided 14 Nov 2026
 - **Folders, not subdomains:** new games, wishes, kahaniyan etc. go into this repo as `nextgrade.in/<folder>/` (e.g. `/games/christmas/`). Subdomains only for apps that keep user data in the browser or use Google login (Hisab Kitab), so ad scripts on nextgrade.in never share storage with that data.
-- [ ] Move the Christmas game from `christmas.nextgrade.in` to `nextgrade.in/games/christmas/`; keep `christmas.nextgrade.in` as a redirect (links already shared).
+- [x] Christmas game moved to **https://nextgrade.in/games/christmas/** (source `src/static/games/christmas/`: own index.html, sw.js scope `/games/christmas/`, manifest, icons; bump `CACHE` in its sw.js after edits). New `/games/` page + "Games" nav + home section, list in `src/games.mjs`. `christmas.nextgrade.in` (repo `Nazimkhan1/christmas`) is now only a redirect keeping `?from=&score=&lang=`; its sw.js clears old caches. Best scores saved under the old address don't carry over (fine).
+- How to add a game now: put it in `src/static/games/<slug>/`, add an entry to `src/games.mjs`, `node build.mjs`, push. No DNS, no new repo.
 
 ## Done 14 Nov 2026
 - [x] Christmas game live code: repo `Nazimkhan1/christmas` (`~/www/christmas-game`), Pages + CNAME `christmas.nextgrade.in`; user added the Cloudflare CNAME. Listed first on Home/Apps.
