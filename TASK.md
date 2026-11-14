@@ -24,12 +24,16 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
   - `sitemap.xml`, `robots.txt`, `ads.txt`, `CNAME`
 
 **User to do (in this order)**
-1. [ ] Cloudflare → Email → **Email Routing**: `contact@nextgrade.in` → your Gmail. Say yes when it asks to replace the Mailgun MX records; the ERP is gone.
-2. [ ] **Google Search Console**: add property **Domain** `nextgrade.in`, add its TXT record in Cloudflare, Verify. Then **Sitemaps** → `sitemap.xml`.
-3. [ ] **AdSense**: Sites → `nextgrade.in` → verify with ads.txt → **Request review**. Best done after the next 10–15 pages are live (see below).
+1. [x] Email Routing (14 Nov): `contact@nextgrade.in` → the user's Gmail, Active. Mailgun MX + SPF removed; Cloudflare MX route1-3 + SPF `include:_spf.mx.cloudflare.net`.
+2. [x] Google Search Console (14 Nov): Domain property `nextgrade.in` verified (TXT `google-site-verification=…` in Cloudflare — never delete it). Sitemap submitted: Success, 27 pages.
+3. [x] AdSense (14 Nov): site `nextgrade.in` verified with the code snippet, **review requested** ("Getting ready"). Payments info already done. Wait 2–4 weeks; keep the site up, never remove the AdSense code / ads.txt. Auto ads stay off until approval.
 4. [ ] Never click your own ads, and don't ask anyone else to.
 
 ---
+
+## Decided 14 Nov 2026
+- **Folders, not subdomains:** new games, wishes, kahaniyan etc. go into this repo as `nextgrade.in/<folder>/` (e.g. `/games/christmas/`). Subdomains only for apps that keep user data in the browser or use Google login (Hisab Kitab), so ad scripts on nextgrade.in never share storage with that data.
+- [ ] Move the Christmas game from `christmas.nextgrade.in` to `nextgrade.in/games/christmas/`; keep `christmas.nextgrade.in` as a redirect (links already shared).
 
 ## Done 14 Nov 2026
 - [x] Christmas game live code: repo `Nazimkhan1/christmas` (`~/www/christmas-game`), Pages + CNAME `christmas.nextgrade.in`; user added the Cloudflare CNAME. Listed first on Home/Apps.
