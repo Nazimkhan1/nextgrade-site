@@ -174,6 +174,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   </footer>
 </div>
 
+<script src="/assets/voice.js"></script>
 <script>
 (() => {
   const SITE = 'https://nextgrade.in/games/morning-exercise/';
@@ -343,17 +344,14 @@ footer a { color: var(--muted); margin-right: 12px; }
   let voiceOn = store.get('me-voice') !== '0';
 
   // ---- voice coach (on by default in games, toggle to switch off; speaks only after the Start tap)
-  const canSpeak = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+  const canSpeak = !!(window.NGVoice && NGVoice.ok);
+  let vctl = null;
   const say = (text) => {
     if (!voiceOn || !canSpeak) return;
-    speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text.replace(/[\p{Extended_Pictographic}\u{FE0F}‍]/gu, ''));
-    u.lang = VOICE[lang]; const c = VOICE[lang].toLowerCase();
-    const v = speechSynthesis.getVoices().find((x) => x.lang.replace('_', '-').toLowerCase() === c) || speechSynthesis.getVoices().find((x) => x.lang.toLowerCase().startsWith(c.split('-')[0]));
-    if (v) u.voice = v; u.rate = 0.95;
-    speechSynthesis.speak(u);
+    if (vctl) vctl.stop();
+    vctl = NGVoice.play([text], { lang: VOICE[lang], rate: 0.95, gap: 0 });
   };
-  if (canSpeak) speechSynthesis.getVoices(); else $('voice').classList.add('hidden');
+  if (!canSpeak) $('voice').classList.add('hidden');
 
   // ---- start screen
   const renderStart = () => {
@@ -391,7 +389,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   };
   $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('me-lang', lang); applyLang(); });
   [$('lvEasy'), $('lvNormal')].forEach((b) => b.addEventListener('click', () => { level = b.dataset.level; store.set('me-level', level); renderStart(); }));
-  $('voice').addEventListener('click', () => { voiceOn = !voiceOn; store.set('me-voice', voiceOn ? '1' : '0'); renderStart(); if (voiceOn) say(t('getReady')); else if (canSpeak) speechSynthesis.cancel(); });
+  $('voice').addEventListener('click', () => { voiceOn = !voiceOn; store.set('me-voice', voiceOn ? '1' : '0'); renderStart(); if (voiceOn) say(t('getReady')); else if (canSpeak) NGVoice.stopAll(); });
   $('year').textContent = new Date().getFullYear();
   $('myName').value = store.get('me-name') || '';
 
@@ -541,10 +539,10 @@ footer a { color: var(--muted); margin-right: 12px; }
   const stopWork = () => { cur = null; cancelAnimationFrame(raf); if (wake) { wake.release().catch(() => {}); wake = null; } };
   $('go').addEventListener('click', begin);
   $('again').addEventListener('click', begin);
-  $('pause').addEventListener('click', () => { paused = !paused; $('pause').textContent = paused ? t('resume') : t('pause'); if (paused && canSpeak) speechSynthesis.cancel(); });
+  $('pause').addEventListener('click', () => { paused = !paused; $('pause').textContent = paused ? t('resume') : t('pause'); if (paused && canSpeak) NGVoice.stopAll(); });
   $('skip').addEventListener('click', () => { if (cur) nextStep(); });
-  $('quit').addEventListener('click', () => { stopWork(); if (canSpeak) speechSynthesis.cancel(); $('work').classList.add('hidden'); $('start').classList.remove('hidden'); renderStart(); });
-  document.addEventListener('visibilitychange', () => { if (document.hidden && cur) { paused = true; $('pause').textContent = t('resume'); if (canSpeak) speechSynthesis.cancel(); } });
+  $('quit').addEventListener('click', () => { stopWork(); if (canSpeak) NGVoice.stopAll(); $('work').classList.add('hidden'); $('start').classList.remove('hidden'); renderStart(); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden && cur) { paused = true; $('pause').textContent = t('resume'); if (canSpeak) NGVoice.stopAll(); } });
 
   // ---- finish
   let streakNow = 0;

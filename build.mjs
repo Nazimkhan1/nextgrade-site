@@ -541,7 +541,7 @@ ${faqBlock(x.faq)}
         title: `${x.title} — ${S.h1.replace('🌙 ', '')} | NextGrade`,
         description: `${firstSentence(x.paras[0])} ${x.seekh}`,
         jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.stories, '/kahani/'], [x.title, path]]), { ...articleLd(L, x.title, path), '@type': 'Article', genre: st.source.en, timeRequired: `PT${st.minutes}M` }],
-        scripts: ['/assets/story.js'],
+        scripts: ['/assets/voice.js', '/assets/story.js'],
         body: `<article class="wrap narrow article story-page" data-speech="${SPEECH[L.code]}" data-pause="${esc(S.pause)}" data-resume="${esc(S.resume)}" data-listen="${esc(S.listen)}" data-night="${esc(S.night)}" data-day="${esc(S.day)}" data-no-voice="${esc(S.noVoice)}" data-goodnight="${esc(S.goodnight)}" data-goodnight-sub="${esc(S.goodnightSub)}">
 <p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/kahani/')}">${esc(T.nav.stories)}</a> › ${esc(x.title)}</p>
 <p class="tag">${esc(st.source[L.code])} · ${esc(S.minutes(st.minutes))}</p>

@@ -95,27 +95,17 @@
   const $ = (id) => document.getElementById(id);
 
   // ---- reading aloud
-  const canSpeak = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
-  let speaking = false;
+  // speech goes through NGVoice (/assets/voice.js): every matching voice is tried until one is actually heard
+  const canSpeak = !!(window.NGVoice && NGVoice.ok);
+  let speaking = false, vctl = null;
   const setListenBtn = () => { const b = $('listen'); if (!canSpeak) { b.classList.add('hidden'); return; } b.textContent = speaking ? t('stop') : t('listen'); };
-  const pickVoice = (code) => {
-    const vs = speechSynthesis.getVoices(); const c = code.toLowerCase(); const base = c.split('-')[0];
-    return vs.find((v) => v.lang.replace('_', '-').toLowerCase() === c) || vs.find((v) => v.lang.toLowerCase().startsWith(base)) || null;
-  };
-  const sayText = () => [$('title').textContent, $('names').textContent, $('text').textContent, wish.from ? $('from').textContent.replace(/^—\s*/, '') : '']
-    .filter(Boolean).join('. ').replace(/[\p{Extended_Pictographic}\u{FE0F}‍]/gu, '').replace(/\s+/g, ' ').trim();
-  const stopSpeak = () => { if (!canSpeak) return; speechSynthesis.cancel(); speaking = false; setListenBtn(); };
+  const sayParts = () => [$('title').textContent, $('names').textContent, $('text').textContent, wish.from ? $('from').textContent.replace(/^—\s*/, '') : ''].filter(Boolean);
+  const stopSpeak = () => { if (vctl) vctl.stop(); speaking = false; setListenBtn(); };
   const speak = () => {
     if (!canSpeak) return;
-    speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(sayText());
-    u.lang = VOICE[lang]; const v = pickVoice(VOICE[lang]); if (v) u.voice = v;
-    u.rate = 0.8;
-    u.onstart = () => { speaking = true; setListenBtn(); };
-    u.onend = u.onerror = () => { speaking = false; setListenBtn(); };
-    speechSynthesis.speak(u);
+    if (vctl) vctl.stop();
+    vctl = NGVoice.play(sayParts(), { lang: VOICE[lang], rate: 0.8, gap: 200, onState: (st) => { speaking = st === 'speaking'; setListenBtn(); }, onFail: () => { speaking = false; setListenBtn(); } });
   };
-  if (canSpeak) speechSynthesis.getVoices();
 
   // ---- text
   const shownTo = () => (wish.partner ? `${wish.to || t('defaultTo')} & ${wish.partner}` : wish.to || t('defaultTo'));

@@ -183,6 +183,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   </footer>
 </div>
 
+<script src="/assets/voice.js"></script>
 <script>
 (() => {
   const SITE = 'https://nextgrade.in/games/zumba/';
@@ -368,18 +369,14 @@ footer a { color: var(--muted); margin-right: 12px; }
   let muted = store.get('zb-muted') === '1';
 
   // ---- voice coach (on by default in games; speaks only after the Start tap)
-  const canSpeak = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+  const canSpeak = !!(window.NGVoice && NGVoice.ok);
+  let vctl = null;
   const say = (text) => {
     if (!voiceOn || !canSpeak) return;
-    speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text.replace(/[\p{Extended_Pictographic}\u{FE0F}‍]/gu, ''));
-    u.lang = VOICE[lang]; const c = VOICE[lang].toLowerCase();
-    const vs = speechSynthesis.getVoices();
-    const v = vs.find((x) => x.lang.replace('_', '-').toLowerCase() === c && x.localService) || vs.find((x) => x.lang.replace('_', '-').toLowerCase() === c) || vs.find((x) => x.lang.toLowerCase().startsWith(c.split('-')[0]));
-    if (v) u.voice = v; u.rate = 0.95;
-    speechSynthesis.speak(u);
+    if (vctl) vctl.stop();
+    vctl = NGVoice.play([text], { lang: VOICE[lang], rate: 0.95, gap: 0 });
   };
-  if (canSpeak) speechSynthesis.getVoices(); else $('voice').classList.add('hidden');
+  if (!canSpeak) $('voice').classList.add('hidden');
 
   // ---- music: our own upbeat dance loop (dembow-style beat, bass and a little melody), made live with WebAudio
   let actx = null, master = null, musicOn = false, nextNote = 0, step16 = 0, schedTimer = 0, noiseBuf = null;
@@ -462,7 +459,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   };
   $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('zb-lang', lang); applyLang(); });
   [$('lvEasy'), $('lvNormal')].forEach((b) => b.addEventListener('click', () => { level = b.dataset.level; store.set('zb-level', level); renderStart(); }));
-  $('voice').addEventListener('click', () => { voiceOn = !voiceOn; store.set('zb-voice', voiceOn ? '1' : '0'); renderStart(); if (voiceOn) say(t('getReady')); else if (canSpeak) speechSynthesis.cancel(); });
+  $('voice').addEventListener('click', () => { voiceOn = !voiceOn; store.set('zb-voice', voiceOn ? '1' : '0'); renderStart(); if (voiceOn) say(t('getReady')); else if (canSpeak) NGVoice.stopAll(); });
   $('year').textContent = new Date().getFullYear();
   $('myName').value = store.get('zb-name') || '';
 
@@ -677,10 +674,10 @@ footer a { color: var(--muted); margin-right: 12px; }
   const stopWork = () => { cur = null; cancelAnimationFrame(raf); stopMusic(); if (wake) { wake.release().catch(() => {}); wake = null; } };
   $('go').addEventListener('click', begin);
   $('again').addEventListener('click', begin);
-  $('pause').addEventListener('click', () => { paused = !paused; $('pause').textContent = paused ? t('resume') : t('pause'); if (paused) { stopMusic(); if (canSpeak) speechSynthesis.cancel(); } else startMusic(); });
+  $('pause').addEventListener('click', () => { paused = !paused; $('pause').textContent = paused ? t('resume') : t('pause'); if (paused) { stopMusic(); if (canSpeak) NGVoice.stopAll(); } else startMusic(); });
   $('skip').addEventListener('click', () => { if (cur) nextStep(); });
-  $('quit').addEventListener('click', () => { stopWork(); if (canSpeak) speechSynthesis.cancel(); $('work').classList.add('hidden'); $('start').classList.remove('hidden'); renderStart(); pRaf = requestAnimationFrame(previewLoop); });
-  document.addEventListener('visibilitychange', () => { if (document.hidden && cur) { paused = true; stopMusic(); $('pause').textContent = t('resume'); if (canSpeak) speechSynthesis.cancel(); } });
+  $('quit').addEventListener('click', () => { stopWork(); if (canSpeak) NGVoice.stopAll(); $('work').classList.add('hidden'); $('start').classList.remove('hidden'); renderStart(); pRaf = requestAnimationFrame(previewLoop); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden && cur) { paused = true; stopMusic(); $('pause').textContent = t('resume'); if (canSpeak) NGVoice.stopAll(); } });
 
   // ---- before / after picture on the finish screen
   const drawBA = () => {
