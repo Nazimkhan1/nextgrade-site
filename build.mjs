@@ -7,6 +7,7 @@ import { cpSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { festivals } from './src/festivals.mjs';
 import { apps } from './src/apps.mjs';
+import { wishes } from './src/wishes.mjs';
 
 const SITE = 'https://nextgrade.in';
 const NAME = 'NextGrade';
@@ -21,6 +22,7 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 
 const NAV = [
   ['/', 'Home'],
+  ['/wishes/', 'Wishes'],
   ['/festivals/', 'Festivals'],
   ['/wish-card/', 'Wish Card'],
   ['/apps/', 'Apps'],
@@ -102,6 +104,24 @@ const appCard = (a) => `<a class="card" href="${a.url}">
 <p>${esc(a.desc)}</p>
 </a>`;
 
+const wishCard = (w) => `<a class="card" href="/wishes/${w.slug}/">
+<span class="emoji" aria-hidden="true">${w.emoji}</span>
+<h3>${esc(w.nameHi)} · ${esc(w.nameEn)}</h3>
+<p>${esc(w.introHi.split('।')[0])}।</p>
+</a>`;
+
+const wishItems = (list) => list.map((w) => `<li><span>${esc(w)}</span><button class="copy" type="button" data-copy="${esc(w)}">Copy</button></li>`).join('');
+
+/** "<name> ki taraf se aapko …" banner, filled by site.js from ?from= (as plain text). */
+const fromBanner = (greet, emoji) => `<p class="from-banner" hidden data-greet="${esc(greet)}" data-emoji="${esc(emoji)}"></p>`;
+
+/** "Apna wish banao": your name → a link with ?from=<name> → WhatsApp. Nothing is stored. */
+const shareBox = (path, title, wish) => `<div class="share-box" data-path="${esc(path)}" data-wish="${esc(wish)}">
+<h2>✨ अपना विश बनाएं</h2>
+<p>अपना नाम लिखें — हम आपके नाम वाला लिंक बना देंगे। जिसे भेजेंगे, उसे पेज पर सबसे ऊपर दिखेगा: "<b>आपका नाम</b> की तरफ़ से आपको ${esc(title)}"। नाम सिर्फ़ लिंक में रहता है, कहीं सेव नहीं होता।</p>
+<div class="share-row"><input class="share-name" maxlength="30" placeholder="आपका नाम, जैसे: Rahul" aria-label="आपका नाम"><button class="btn btn-wa share-wa" type="button">📲 WhatsApp पर भेजें</button><button class="btn btn-ghost share-copy" type="button">🔗 लिंक कॉपी</button></div>
+</div>`;
+
 /** Festivals from the current month on, wrapping round the year. */
 const upcoming = () => {
   const m = new Date().getMonth() + 1;
@@ -121,6 +141,10 @@ write(
 <h1>त्योहारों की बातें, शुभकामनाएँ और काम के छोटे ऐप्स</h1>
 <p>हर त्योहार की कहानी, महत्व और मनाने का तरीका — आसान हिंदी में, साथ में अंग्रेज़ी सार। अपनों को भेजने के लिए तैयार शुभकामनाएँ और एक क्लिक में बनने वाला शुभकामना कार्ड।</p>
 <div class="btns"><a class="btn btn-primary" href="/wish-card/">💌 Wish Card बनाएं</a><a class="btn btn-ghost" href="/festivals/">सभी त्योहार देखें</a></div>
+</section>
+<section>
+<h2>रोज़ की शुभकामनाएँ</h2>
+<div class="grid">${wishes.map(wishCard).join('')}</div>
 </section>
 <section>
 <h2>आने वाले त्योहार</h2>
@@ -160,9 +184,7 @@ write(
 // ---- Festival pages
 festivals.forEach((f, i) => {
   const path = `/festivals/${f.slug}/`;
-  const others = festivals.filter((x) => x.slug !== f.slug).slice(0, 0);
   const next = [festivals[(i + 1) % festivals.length], festivals[(i + 2) % festivals.length], festivals[(i + 3) % festivals.length]];
-  const wishItems = (list) => list.map((w) => `<li><span>${esc(w)}</span><button class="copy" type="button" data-copy="${esc(w)}">Copy</button></li>`).join('');
   write(
     path,
     page({
@@ -190,6 +212,7 @@ festivals.forEach((f, i) => {
       ],
       body: `<article class="wrap narrow article">
 <p class="crumbs"><a href="/">Home</a> › <a href="/festivals/">Festivals</a> › ${esc(f.nameEn)}</p>
+${fromBanner(`${f.nameHi} की ढेर सारी शुभकामनाएँ`, f.emoji)}
 <h1>${f.emoji} ${esc(f.nameHi)} <span style="color:var(--muted);font-weight:600">· ${esc(f.nameEn)}</span></h1>
 <p class="lead">${esc(f.introHi)}</p>
 <div class="facts">
@@ -202,6 +225,7 @@ ${f.sections.map((s) => `<h2>${esc(s.h)}</h2>\n${s.p.map((p) => `<p>${esc(p)}</p
 <ul class="wish-list">${wishItems(f.wishesHi)}</ul>
 <h2>${esc(f.nameEn)} wishes in English</h2>
 <ul class="wish-list">${wishItems(f.wishesEn)}</ul>
+${shareBox(path, `${f.nameHi} की शुभकामनाएँ`, f.wishesHi[0])}
 <div class="cta"><p>अपने नाम के साथ ${esc(f.nameHi)} का सुंदर कार्ड बनाएं और WhatsApp पर भेजें।</p><a class="btn btn-primary" href="/wish-card/?f=${f.slug}">💌 कार्ड बनाएं</a></div>
 <h2>In English</h2>
 ${f.enSummary.map((p) => `<p>${esc(p)}</p>`).join('\n')}
@@ -212,7 +236,66 @@ ${f.enSummary.map((p) => `<p>${esc(p)}</p>`).join('\n')}
 </article>`,
     }),
   );
-  return others;
+});
+
+// ---- Wishes index
+write(
+  '/wishes/',
+  page({
+    path: '/wishes/',
+    title: `रोज़ की शुभकामनाएँ — Good Morning, Birthday, Anniversary, Jumma Mubarak | ${NAME}`,
+    description: 'गुड मॉर्निंग, जन्मदिन, शादी की सालगिरह और जुम्मा मुबारक की हिंदी-अंग्रेज़ी शुभकामनाएँ — कॉपी करें या अपने नाम के लिंक के साथ WhatsApp पर भेजें।',
+    jsonLd: [breadcrumbLd([['Home', '/'], ['Wishes', '/wishes/']])],
+    body: `<div class="wrap article">
+<p class="crumbs"><a href="/">Home</a> › Wishes</p>
+<h1>रोज़ की शुभकामनाएँ</h1>
+<p class="lead">वो मौके जो हर दिन या हर हफ़्ते आते हैं — सुबह की शुभकामना, जन्मदिन, सालगिरह और जुमा। हर पेज पर तैयार संदेश हैं, और आप अपने नाम वाला लिंक बनाकर भेज सकते हैं।</p>
+<div class="grid">${wishes.map(wishCard).join('')}</div>
+<h2>त्योहारों की शुभकामनाएँ</h2>
+<p>हर त्योहार के पेज पर उसकी कहानी के साथ शुभकामनाएँ भी हैं — <a href="/festivals/">सभी त्योहार देखें</a>।</p>
+</div>`,
+  }),
+);
+
+// ---- Wish pages
+wishes.forEach((w) => {
+  const path = `/wishes/${w.slug}/`;
+  const more = wishes.filter((x) => x.slug !== w.slug);
+  write(
+    path,
+    page({
+      path,
+      title: `${w.nameHi} शुभकामनाएँ (${w.nameEn} Wishes) — हिंदी और English | ${NAME}`,
+      description: `${w.nameHi} के लिए सादे और दिल से लिखे हिंदी-अंग्रेज़ी संदेश। कॉपी करें या अपने नाम का लिंक बनाकर WhatsApp पर भेजें।`,
+      jsonLd: [
+        breadcrumbLd([['Home', '/'], ['Wishes', '/wishes/'], [w.nameEn, path]]),
+        { '@context': 'https://schema.org', '@type': 'Article', headline: `${w.nameHi} (${w.nameEn}) Wishes`, inLanguage: 'hi', datePublished: TODAY, dateModified: TODAY, author: { '@type': 'Organization', name: NAME }, publisher: { '@type': 'Organization', name: NAME }, mainEntityOfPage: `${SITE}${path}` },
+        { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: w.faq.map((q) => ({ '@type': 'Question', name: q.q, acceptedAnswer: { '@type': 'Answer', text: q.a } })) },
+      ],
+      body: `<article class="wrap narrow article">
+<p class="crumbs"><a href="/">Home</a> › <a href="/wishes/">Wishes</a> › ${esc(w.nameEn)}</p>
+${fromBanner(w.greetHi, w.emoji)}
+<h1>${w.emoji} ${esc(w.nameHi)} <span style="color:var(--muted);font-weight:600">· ${esc(w.nameEn)}</span></h1>
+<p class="lead">${esc(w.introHi)}</p>
+<h2>${esc(w.nameHi)} के संदेश (हिंदी)</h2>
+<ul class="wish-list">${wishItems(w.wishesHi)}</ul>
+<div class="ad" aria-hidden="true"></div>
+<h2>${esc(w.nameEn)} wishes in English</h2>
+<ul class="wish-list">${wishItems(w.wishesEn)}</ul>
+${shareBox(path, w.greetHi, w.wishesHi[0])}
+<div class="cta"><p>${esc(w.nameHi)} का सुंदर कार्ड बनाकर गैलरी में सेव करें या भेजें।</p><a class="btn btn-primary" href="/wish-card/?f=${w.slug}">💌 कार्ड बनाएं</a></div>
+<h2>${esc(w.nameHi)} के बारे में</h2>
+${w.aboutHi.map((p) => `<p>${esc(p)}</p>`).join('\n')}
+<h2>In English</h2>
+<p>${esc(w.aboutEn)}</p>
+<h2>अक्सर पूछे जाने वाले सवाल</h2>
+<div class="faq">${w.faq.map((q) => `<details><summary>${esc(q.q)}</summary><p>${esc(q.a)}</p></details>`).join('')}</div>
+<h2>और शुभकामनाएँ</h2>
+<div class="grid">${more.map(wishCard).join('')}</div>
+</article>`,
+    }),
+  );
+
 });
 
 // ---- Wish card maker
@@ -233,7 +316,7 @@ write(
 <p class="lead">त्योहार चुनें, नाम लिखें और कुछ ही सेकंड में अपना शुभकामना कार्ड बनाएं। कार्ड आपके फ़ोन/कंप्यूटर पर ही बनता है — आपका नाम या संदेश कहीं सेव या भेजा नहीं जाता।</p>
 <div class="maker">
 <form id="maker" onsubmit="return false">
-<div class="field"><label for="festival">त्योहार</label><select id="festival"></select></div>
+<div class="field"><label for="festival">मौका / त्योहार</label><select id="festival"></select></div>
 <div class="field"><label for="to">किसके लिए (नाम)</label><input id="to" maxlength="40" placeholder="जैसे: मम्मी-पापा, Rahul"></div>
 <div class="field"><label for="from">आपका नाम</label><input id="from" maxlength="40" placeholder="जैसे: Nazim"></div>
 <div class="field"><label for="wish">संदेश</label><select id="wish"></select></div>
@@ -260,7 +343,7 @@ write(
 mkdirSync(join(OUT, 'assets'), { recursive: true });
 writeFileSync(
   join(OUT, 'assets', 'festivals.js'),
-  `window.NG_FESTIVALS = ${JSON.stringify(festivals.map((f) => ({ slug: f.slug, emoji: f.emoji, nameHi: f.nameHi, nameEn: f.nameEn, colors: f.colors, wishes: [...f.wishesHi, ...f.wishesEn] })))};\n`,
+  `window.NG_FESTIVALS = ${JSON.stringify([...wishes, ...festivals].map((f) => ({ slug: f.slug, emoji: f.emoji, nameHi: f.nameHi, nameEn: f.nameEn, colors: f.colors, wishes: [...f.wishesHi, ...f.wishesEn] })))};\n`,
 );
 
 // ---- Apps
@@ -378,7 +461,7 @@ write(
 );
 
 // ---- Machine files
-const urls = ['/', '/festivals/', ...festivals.map((f) => `/festivals/${f.slug}/`), '/wish-card/', '/apps/', '/about/', '/contact/', '/privacy-policy/', '/terms/', '/disclaimer/'];
+const urls = ['/', '/wishes/', ...wishes.map((w) => `/wishes/${w.slug}/`), '/festivals/', ...festivals.map((f) => `/festivals/${f.slug}/`), '/wish-card/', '/apps/', '/about/', '/contact/', '/privacy-policy/', '/terms/', '/disclaimer/'];
 writeFileSync(
   join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${TODAY}</lastmod></url>`).join('\n')}\n</urlset>\n`,

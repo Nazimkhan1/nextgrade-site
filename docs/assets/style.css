@@ -112,3 +112,11 @@ a.card:hover { border-color: var(--brand); }
 .site-foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
 .site-foot nav { display: flex; flex-wrap: wrap; gap: 14px; }
 .site-foot a { color: var(--muted); }
+
+/* Name share: banner from ?from= and the "Apna wish banao" box */
+.from-banner { background: linear-gradient(90deg, var(--brand), #f76707); color: #fff; font-weight: 800; font-size: 20px; line-height: 1.4; border-radius: var(--radius); padding: 14px 18px; margin: 12px 0 4px; }
+.share-box { background: var(--surface); border: 2px dashed var(--brand); border-radius: var(--radius); padding: 18px; margin: 28px 0; }
+.share-box h2 { margin-top: 0; }
+.share-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.share-row input { flex: 1 1 200px; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--text); }
+.btn-wa { background: #25d366; color: #073b1d; }

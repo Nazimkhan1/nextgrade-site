@@ -4,6 +4,15 @@
  */
 const apps = [
   {
+    slug: 'christmas',
+    name: 'Santa ke Gift Pakdo',
+    url: 'https://christmas.nextgrade.in/',
+    emoji: '🎅',
+    tag: 'Christmas game',
+    desc: 'सांता की स्लेज चलाओ, गिरते तोहफ़े पकड़ो, कोयले से बचो — और दोस्तों को WhatsApp पर स्कोर का चैलेंज भेजो।',
+    descEn: 'Catch Santa\'s gifts, dodge the coal and challenge friends on WhatsApp.',
+  },
+  {
     slug: 'hisab',
     name: 'Hisab Kitab',
     url: 'https://hisab.nextgrade.in/',

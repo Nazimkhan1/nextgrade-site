@@ -31,7 +31,13 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 ---
 
-## Resume here (14 Nov 2026): work in progress
+## Done 14 Nov 2026
+- [x] Christmas game live code: repo `Nazimkhan1/christmas` (`~/www/christmas-game`), Pages + CNAME `christmas.nextgrade.in`; user added the Cloudflare CNAME. Listed first on Home/Apps.
+- [x] All-year wishes live: `/wishes/` + Good Morning, Birthday, Anniversary, Jumma Mubarak (also in the Wish Card Maker); "Wishes" in the nav; home section "रोज़ की शुभकामनाएँ".
+- [x] Name share on every wish and festival page: `?from=<name>` banner + "अपना विश बनाएं" box (WhatsApp / copy link) in `src/assets/site.js`.
+- [x] Guru Nanak Jayanti guide added (13 festivals now). Site: 27 pages.
+
+## Older notes (14 Nov morning plan, now done)
 
 ### A. Christmas game at `christmas.nextgrade.in` (user asked for this first)
 "Santa ke Gift Pakdo 🎁" — catch-the-gifts game, live well before 20 Dec.
