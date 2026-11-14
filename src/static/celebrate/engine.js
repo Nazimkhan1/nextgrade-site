@@ -88,10 +88,7 @@
   <p class="note" id="aboutNote"></p>
   <p id="links"></p>
 </section>
-<footer>
-  © ${new Date().getFullYear()} NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
-  <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a>
-</footer>`;
+`;
   const $ = (id) => document.getElementById(id);
 
   // ---- reading aloud
