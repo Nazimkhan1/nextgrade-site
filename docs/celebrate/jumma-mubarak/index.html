@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jumma Mubarak 🕌 — Animated Friday Wish with Name | NextGrade</title>
+<meta name="description" content="Send an animated Jumma Mubarak wish with your friend's name: a glowing masjid, crescent moon, stars, swinging lanterns and a beautiful dua. Share it on WhatsApp every Friday — free, in Hinglish, Hindi, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/celebrate/jumma-mubarak/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="🕌 Jumma Mubarak! Aapke liye ek dua bheji gayi hai 🤲">
+<meta property="og:description" content="Tap karke kholo — chaand, taare, roshan masjid aur aapke naam ki dua.">
+<meta property="og:url" content="https://nextgrade.in/celebrate/jumma-mubarak/">
+<meta name="theme-color" content="#06303a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&family=Amiri:wght@700&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<style>
+:root { --bg: #031c22; --ink: #f4fff9; --muted: #c5e3d9; --gold: #ffd76a; --card: rgba(255,255,255,0.07); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1100px 600px at 50% -10%, #0b5a5a, var(--bg) 65%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 8px; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.langsel { background: var(--card); border: 1px solid rgba(255,255,255,0.2); color: var(--ink); border-radius: 10px; padding: 6px 8px; font: inherit; font-size: 15px; }
+.langsel option { color: #111; }
+.show { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.45); background: #021116; user-select: none; -webkit-user-select: none; }
+canvas { display: block; width: 100%; height: min(78vh, 680px); }
+.message { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; padding: max(16%, 92px) 22px 24px; pointer-events: none; }
+.message .arabic { font-family: "Amiri", serif; font-size: clamp(30px, 8vw, 46px); color: var(--gold); line-height: 1.3; text-shadow: 0 0 18px rgba(255,215,106,0.55); animation: glow 1.6s ease both; }
+.message h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(32px, 8.5vw, 56px); line-height: 1.05; margin: 2px 0 0; color: #fff; text-shadow: 0 3px 18px rgba(0,0,0,0.7); animation: rise 1.2s 0.4s ease both; }
+.message .names { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(20px, 5.5vw, 30px); font-weight: 800; margin: 8px 0 6px; color: var(--gold); text-shadow: 0 3px 14px rgba(0,0,0,0.8); animation: rise 1.2s 0.8s ease both; }
+.message .text { max-width: 500px; font-size: clamp(15px, 4vw, 19px); color: #eafff6; text-shadow: 0 2px 10px rgba(0,0,0,0.9); animation: rise 1.4s 1.2s ease both; background: rgba(2,17,22,0.35); border-radius: 14px; padding: 8px 12px; }
+.message .from { margin-top: 10px; font-weight: 700; color: var(--gold); font-size: 17px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); animation: rise 1.4s 1.6s ease both; }
+:lang(bn) .message h1, :lang(bn) .message .names, :lang(bn) h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes glow { from { opacity: 0; filter: blur(6px); } to { opacity: 1; filter: none; } }
+.gate { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px; background: radial-gradient(circle at 50% 40%, #0e6b63, #031c22); cursor: pointer; padding: 20px; }
+.gate .env { font-size: 92px; animation: bob 1.8s ease-in-out infinite; }
+.gate p { margin: 0; font-size: 20px; font-weight: 700; }
+.gate small { color: var(--muted); font-size: 15px; }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.controls { display: flex; gap: 8px; justify-content: center; margin: 12px 0; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 16px; cursor: pointer; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #12b886, #f59f00); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.35); }
+.maker { background: var(--card); border: 1px solid rgba(255,255,255,0.15); border-radius: 18px; padding: 18px; margin: 22px 0; }
+.maker h2, section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 8px; font-size: 24px; }
+.field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+.field label { font-weight: 700; font-size: 15px; }
+.field input, .field select { font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); width: 100%; }
+.field select option { color: #111; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
+.row .btn { flex: 1 1 160px; }
+.note { color: var(--muted); font-size: 14px; }
+section { margin: 26px 0; }
+section ul { padding-left: 20px; }
+section li { margin-bottom: 8px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.15); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🕌 NextGrade<small>Jumma Mubarak</small></a>
+    <select class="langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+  </header>
+
+  <div class="show">
+    <canvas id="sky" aria-hidden="true"></canvas>
+    <div class="message hidden" id="message" aria-live="polite">
+      <div class="arabic" lang="ar" dir="rtl">جمعة مباركة</div>
+      <h1 id="title"></h1>
+      <div class="names" id="names"></div>
+      <div class="text" id="text"></div>
+      <div class="from" id="from"></div>
+    </div>
+    <div class="gate" id="gate" role="button" tabindex="0">
+      <div class="env">🕌</div>
+      <p id="gateTitle"></p>
+      <small id="gateTap"></small>
+    </div>
+  </div>
+  <div class="controls">
+    <button class="btn btn-ghost" type="button" id="replay"></button>
+    <a class="btn btn-main" href="#make" id="makeOwn"></a>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <div class="maker" id="make">
+    <h2 id="makeH"></h2>
+    <p class="note" id="makeP"></p>
+    <div class="field"><label for="toName" id="toLabel"></label><input id="toName" maxlength="30"></div>
+    <div class="field"><label for="fromName" id="fromLabel"></label><input id="fromName" maxlength="30"></div>
+    <div class="field"><label for="msg" id="msgLabel"></label><select id="msg"></select></div>
+    <div class="row">
+      <button class="btn btn-wa" type="button" id="sendWa"></button>
+      <button class="btn btn-ghost" type="button" id="preview"></button>
+      <button class="btn btn-ghost" type="button" id="copyLink"></button>
+    </div>
+    <p class="note" id="makeStatus" role="status"></p>
+  </div>
+
+  <section>
+    <h2 id="aboutH"></h2>
+    <p id="aboutP"></p>
+    <ul id="sunnah"></ul>
+    <p class="note" id="aboutNote"></p>
+    <p><a id="moreWishes" href="https://nextgrade.in/wishes/jumma-mubarak/"></a> · <a id="calLink" href="https://nextgrade.in/islamic-calendar/"></a></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const BASE = 'https://nextgrade.in/celebrate/jumma-mubarak/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const T = {
+    hinglish: {
+      title: 'Jumma Mubarak', gate: (f) => (f ? `${f} ne aapke liye Jumme ki dua bheji hai!` : 'Aapke liye Jumme ki dua aayi hai!'), tap: '👆 Tap karke kholo',
+      hello: (to) => `Assalamu Alaikum, ${to}`, from: (f) => `— ${f} ki taraf se 🤲`, defaultTo: 'Mere Azeez',
+      msgs: [
+        'Allah aapke Jumme ko barkaton se bhar de, aapki har jaaiz dua qubool kare aur aapko aur aapke ghar waalon ko hamesha salaamat rakhe. Aameen.',
+        'Is mubarak din Allah aapke gunaah maaf kare, dil ko sukoon aur rozi mein barkat de. Hamein bhi apni duaon mein yaad rakhiyega.',
+        'Jumme ka noor aapki zindagi roshan kare, har mushkil aasaan ho aur har qadam pe Allah ka saath mile. Jumma Mubarak!',
+        'Durood padhiye, Surah Kahf padhiye aur dua mein sabko yaad rakhiye — Allah aapka har Jumma khushiyon se bhar de.',
+        'Hafte ka sabse behtareen din mubarak ho! Allah aapki sehat, imaan aur ghar ki khushiyon ki hifaazat kare. Aameen.',
+      ],
+      replay: '🔁 Phir se dekho', makeOwn: '🤲 Apni dua bhejo',
+      makeH: '🤲 Apne apnon ko Jumma Mubarak bhejo', makeP: 'Naam likho, dua chuno aur link WhatsApp pe bhejo. Jo kholega usko roshan masjid, chaand-taare aur uske naam ki dua dikhegi. Har Jumme bhej sakte ho. Naam sirf link mein rehta hai, kahin save nahi hota.',
+      toLabel: 'Kisko bhejna hai (naam)', fromLabel: 'Aapka naam', msgLabel: 'Dua', toPh: 'Jaise: Ammi, Salman bhai', fromPh: 'Jaise: Ayaan',
+      sendWa: '📲 WhatsApp pe bhejo', preview: '👀 Pehle dekho', copyLink: '🔗 Link copy', copied: '✅ Link copy ho gaya', needName: 'Pehle naam likho',
+      share: (to, f, url) => `🕌 Jumma Mubarak ${to}! ${f ? f + ' ne ' : ''}aapke liye ek dua bheji hai 🤲 Kholo 👉 ${url}`,
+      aboutH: 'Jumma kyun khaas hai?',
+      aboutP: 'Hadees (Sahih Muslim) mein aata hai ki jin dino mein sooraj nikalta hai unmein sabse behtar din Jumma hai. Is din Jumme ki namaaz (Salat-ul-Jumuah) jamaat ke saath ada ki jaati hai. Bahut se Musalmaan Jumme ko ye amal karte hain:',
+      sunnah: ['Ghusl karna, saaf kapde pehenna aur khushboo lagana', 'Jaldi masjid jaana aur khutba dhyaan se sunna', 'Surah Al-Kahf padhna', 'Paigambar ﷺ pe zyada se zyada durood bhejna', 'Asr aur Maghrib ke beech dua karna — is din ek ghadi aisi hai jisme dua qubool hoti hai'],
+      aboutNote: 'Amal ke baare mein mukammal jaankari ke liye apni masjid ke imaam ya kisi aalim se poochhein.',
+      moreWishes: 'Jumma Mubarak ke aur messages', calLink: 'Aaj ki Islami tareekh',
+    },
+    hi: {
+      title: 'जुम्मा मुबारक', gate: (f) => (f ? `${f} ने आपके लिए जुमे की दुआ भेजी है!` : 'आपके लिए जुमे की दुआ आई है!'), tap: '👆 टैप करके खोलो',
+      hello: (to) => `अस्सलामु अलैकुम, ${to}`, from: (f) => `— ${f} की तरफ़ से 🤲`, defaultTo: 'मेरे अज़ीज़',
+      msgs: [
+        'अल्लाह आपके जुमे को बरकतों से भर दे, आपकी हर जायज़ दुआ क़ुबूल करे और आपको और आपके घर वालों को हमेशा सलामत रखे। आमीन।',
+        'इस मुबारक दिन अल्लाह आपके गुनाह माफ़ करे, दिल को सुकून और रोज़ी में बरकत दे। हमें भी अपनी दुआओं में याद रखिएगा।',
+        'जुमे का नूर आपकी ज़िंदगी रोशन करे, हर मुश्किल आसान हो और हर क़दम पर अल्लाह का साथ मिले। जुम्मा मुबारक!',
+        'दुरूद पढ़िए, सूरह कहफ़ पढ़िए और दुआ में सबको याद रखिए — अल्लाह आपका हर जुमा खुशियों से भर दे।',
+        'हफ़्ते का सबसे बेहतरीन दिन मुबारक हो! अल्लाह आपकी सेहत, ईमान और घर की खुशियों की हिफ़ाज़त करे। आमीन।',
+      ],
+      replay: '🔁 फिर से देखो', makeOwn: '🤲 अपनी दुआ भेजो',
+      makeH: '🤲 अपनों को जुम्मा मुबारक भेजो', makeP: 'नाम लिखो, दुआ चुनो और लिंक WhatsApp पर भेजो। जो खोलेगा उसे रोशन मस्जिद, चाँद-तारे और उसके नाम की दुआ दिखेगी। हर जुमे भेज सकते हो। नाम सिर्फ़ लिंक में रहता है, कहीं सेव नहीं होता।',
+      toLabel: 'किसको भेजना है (नाम)', fromLabel: 'आपका नाम', msgLabel: 'दुआ', toPh: 'जैसे: अम्मी, सलमान भाई', fromPh: 'जैसे: अयान',
+      sendWa: '📲 WhatsApp पर भेजो', preview: '👀 पहले देखो', copyLink: '🔗 लिंक कॉपी', copied: '✅ लिंक कॉपी हो गया', needName: 'पहले नाम लिखो',
+      share: (to, f, url) => `🕌 जुम्मा मुबारक ${to}! ${f ? f + ' ने ' : ''}आपके लिए एक दुआ भेजी है 🤲 खोलो 👉 ${url}`,
+      aboutH: 'जुमा क्यों ख़ास है?',
+      aboutP: 'हदीस (सहीह मुस्लिम) में आता है कि जिन दिनों में सूरज निकलता है उनमें सबसे बेहतर दिन जुमा है। इस दिन जुमे की नमाज़ जमात के साथ अदा की जाती है। बहुत से मुसलमान जुमे को ये अमल करते हैं:',
+      sunnah: ['ग़ुस्ल करना, साफ़ कपड़े पहनना और ख़ुशबू लगाना', 'जल्दी मस्जिद जाना और ख़ुतबा ध्यान से सुनना', 'सूरह अल-कहफ़ पढ़ना', 'पैग़ंबर ﷺ पर ज़्यादा से ज़्यादा दुरूद भेजना', 'अस्र और मग़रिब के बीच दुआ करना — इस दिन एक घड़ी ऐसी है जिसमें दुआ क़ुबूल होती है'],
+      aboutNote: 'अमल के बारे में पूरी जानकारी के लिए अपनी मस्जिद के इमाम या किसी आलिम से पूछें।',
+      moreWishes: 'जुम्मा मुबारक के और संदेश', calLink: 'आज की इस्लामी तारीख़',
+    },
+    en: {
+      title: 'Jumma Mubarak', gate: (f) => (f ? `${f} has sent you a Friday dua!` : 'A Friday dua has come for you!'), tap: '👆 Tap to open',
+      hello: (to) => `Assalamu Alaikum, ${to}`, from: (f) => `— with duas from ${f} 🤲`, defaultTo: 'Dear Friend',
+      msgs: [
+        'May Allah fill your Friday with blessings, accept all your duas and keep you and your family safe always. Ameen.',
+        'On this blessed day, may Allah forgive our sins, give your heart peace and put barakah in your rizq. Remember us in your duas.',
+        'May the light of Jumu\'ah brighten your life, make every difficulty easy and keep Allah\'s help with you at every step. Jumma Mubarak!',
+        'Send durood, read Surah Al-Kahf and remember everyone in your duas — may Allah fill every Friday of yours with happiness.',
+        'Blessings on the best day of the week! May Allah protect your health, your iman and the happiness of your home. Ameen.',
+      ],
+      replay: '🔁 Watch again', makeOwn: '🤲 Send your own dua',
+      makeH: '🤲 Send Jumma Mubarak to your loved ones', makeP: 'Type a name, pick a dua and send the link on WhatsApp. They will see a glowing masjid, the moon and stars, and a dua with their name. Send it every Friday. The name stays only in the link — nothing is saved.',
+      toLabel: 'Who is it for (name)', fromLabel: 'Your name', msgLabel: 'Dua', toPh: 'e.g. Ammi, Salman bhai', fromPh: 'e.g. Ayaan',
+      sendWa: '📲 Send on WhatsApp', preview: '👀 Preview', copyLink: '🔗 Copy link', copied: '✅ Link copied', needName: 'Type a name first',
+      share: (to, f, url) => `🕌 Jumma Mubarak ${to}! ${f ? f + ' has' : 'Someone has'} sent you a dua 🤲 Open 👉 ${url}`,
+      aboutH: 'Why is Friday special?',
+      aboutP: 'A hadith in Sahih Muslim says the best day on which the sun rises is Friday. On this day the Friday prayer (Salat al-Jumu\'ah) is offered in congregation. Many Muslims do these things on Friday:',
+      sunnah: ['Take a bath (ghusl), wear clean clothes and use fragrance', 'Go to the masjid early and listen to the khutbah attentively', 'Read Surah Al-Kahf', 'Send plenty of durood on the Prophet ﷺ', 'Make dua between Asr and Maghrib — there is an hour on Friday when duas are accepted'],
+      aboutNote: 'For full guidance on these practices, ask the imam of your masjid or a scholar.',
+      moreWishes: 'More Jumma Mubarak messages', calLink: 'Today\'s Islamic date',
+    },
+    bn: {
+      title: 'জুম্মা মুবারক', gate: (f) => (f ? `${f} তোমার জন্য জুম্মার দোয়া পাঠিয়েছে!` : 'তোমার জন্য জুম্মার দোয়া এসেছে!'), tap: '👆 ট্যাপ করে খোলো',
+      hello: (to) => `আসসালামু আলাইকুম, ${to}`, from: (f) => `— ${f}-এর পক্ষ থেকে 🤲`, defaultTo: 'প্রিয়জন',
+      msgs: [
+        'আল্লাহ আপনার জুম্মাকে বরকতে ভরিয়ে দিন, আপনার সব নেক দোয়া কবুল করুন আর আপনাকে ও আপনার পরিবারকে সবসময় নিরাপদে রাখুন। আমিন।',
+        'এই বরকতময় দিনে আল্লাহ আমাদের গুনাহ মাফ করুন, আপনার মনে শান্তি আর রিজিকে বরকত দিন। দোয়ায় আমাদেরও মনে রাখবেন।',
+        'জুম্মার নূর আপনার জীবন আলোকিত করুক, সব কষ্ট সহজ হোক আর প্রতিটি পদক্ষেপে আল্লাহর সাহায্য থাকুক। জুম্মা মুবারক!',
+        'দরুদ পড়ুন, সূরা কাহফ পড়ুন আর দোয়ায় সবাইকে মনে রাখুন — আল্লাহ আপনার প্রতিটি জুম্মা আনন্দে ভরিয়ে দিন।',
+        'সপ্তাহের সবচেয়ে উত্তম দিনের শুভেচ্ছা! আল্লাহ আপনার সুস্থতা, ঈমান আর ঘরের সুখ রক্ষা করুন। আমিন।',
+      ],
+      replay: '🔁 আবার দেখো', makeOwn: '🤲 নিজের দোয়া পাঠাও',
+      makeH: '🤲 প্রিয়জনকে জুম্মা মুবারক পাঠাও', makeP: 'নাম লেখো, দোয়া বাছো আর লিংক WhatsApp-এ পাঠাও। যে খুলবে সে দেখবে আলোকিত মসজিদ, চাঁদ-তারা আর তার নামে দোয়া। প্রতি জুম্মায় পাঠাতে পারো। নাম শুধু লিংকেই থাকে, কোথাও সেভ হয় না।',
+      toLabel: 'কাকে পাঠাবে (নাম)', fromLabel: 'তোমার নাম', msgLabel: 'দোয়া', toPh: 'যেমন: আম্মু, সালমান ভাই', fromPh: 'যেমন: আয়ান',
+      sendWa: '📲 WhatsApp-এ পাঠাও', preview: '👀 আগে দেখো', copyLink: '🔗 লিংক কপি', copied: '✅ লিংক কপি হয়েছে', needName: 'আগে নাম লেখো',
+      share: (to, f, url) => `🕌 জুম্মা মুবারক ${to}! ${f ? f + ' ' : ''}তোমার জন্য একটা দোয়া পাঠিয়েছে 🤲 খোলো 👉 ${url}`,
+      aboutH: 'জুম্মা কেন বিশেষ?',
+      aboutP: 'সহিহ মুসলিমের হাদিসে আছে, যেসব দিনে সূর্য ওঠে তার মধ্যে সবচেয়ে উত্তম দিন জুম্মা। এই দিনে জামাতে জুম্মার নামাজ আদায় করা হয়। অনেক মুসলমান জুম্মার দিন এই আমলগুলো করেন:',
+      sunnah: ['গোসল করা, পরিষ্কার কাপড় পরা আর সুগন্ধি লাগানো', 'আগে আগে মসজিদে যাওয়া আর মন দিয়ে খুতবা শোনা', 'সূরা আল-কাহফ পড়া', 'নবীজি ﷺ-এর ওপর বেশি বেশি দরুদ পড়া', 'আসর আর মাগরিবের মাঝে দোয়া করা — এই দিনে এমন একটা সময় আছে যখন দোয়া কবুল হয়'],
+      aboutNote: 'আমল সম্পর্কে পুরো জানতে নিজের মসজিদের ইমাম বা কোনো আলেমকে জিজ্ঞেস করো।',
+      moreWishes: 'জুম্মা মুবারকের আরও বার্তা', calLink: 'আজকের ইসলামি তারিখ',
+    },
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const urlLang = params.get('lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(store.get('jm-lang')) ? store.get('jm-lang') : deviceLang();
+  const t = (k) => T[lang][k];
+  const clean = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  let wish = { to: clean(params.get('to')), from: clean(params.get('from')), m: Math.max(0, Math.min(4, parseInt(params.get('m'), 10) || 0)) };
+
+  const render = () => {
+    $('title').textContent = t('title');
+    $('names').textContent = t('hello')(wish.to || t('defaultTo'));
+    $('text').textContent = t('msgs')[wish.m];
+    $('from').textContent = wish.from ? t('from')(wish.from) : '';
+  };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    $('lang').value = lang;
+    $('gateTitle').textContent = t('gate')(wish.from);
+    $('gateTap').textContent = t('tap');
+    ['replay', 'makeOwn', 'makeH', 'makeP', 'toLabel', 'fromLabel', 'msgLabel', 'sendWa', 'preview', 'copyLink', 'aboutH', 'aboutP', 'aboutNote', 'moreWishes', 'calLink'].forEach((id) => { $(id).textContent = t(id); });
+    $('toName').placeholder = t('toPh'); $('fromName').placeholder = t('fromPh');
+    const ul = $('sunnah'); ul.innerHTML = '';
+    t('sunnah').forEach((s) => { const li = document.createElement('li'); li.textContent = s; ul.appendChild(li); });
+    const sel = $('msg'); const keep = sel.value;
+    sel.innerHTML = '';
+    t('msgs').forEach((m, i) => sel.add(new Option(m.length > 60 ? `${m.slice(0, 60)}…` : m, String(i))));
+    sel.value = keep || '0';
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`; $('moreWishes').href = `https://nextgrade.in${p}/wishes/jumma-mubarak/`; $('calLink').href = `https://nextgrade.in${p}/islamic-calendar/`;
+    render();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('jm-lang', lang); applyLang(); });
+  $('year').textContent = new Date().getFullYear();
+  $('fromName').value = store.get('jm-from') || '';
+
+  // ---- scene: night sky, crescent, stars, a masjid with glowing windows, swinging lanterns, rising light
+  const canvas = $('sky'); const ctx = canvas.getContext('2d');
+  let W = 0, H = 0, stars = [], motes = [], shooting = null, playing = false, startAt = 0, last = 0, moteAcc = 0;
+  const resize = () => {
+    const DPR = Math.min(window.devicePixelRatio || 1, 2); const r = canvas.getBoundingClientRect();
+    W = r.width; H = r.height; canvas.width = Math.round(W * DPR); canvas.height = Math.round(H * DPR); ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    stars = Array.from({ length: Math.round(W * H / 2600) }, () => ({ x: Math.random() * W, y: Math.random() * H * 0.62, r: Math.random() * 1.4 + 0.3, p: Math.random() * 6 }));
+  };
+  let moonC = null, moonR = 0;
+  const moonImg = (r) => {
+    if (moonC && moonR === r) return moonC;
+    moonR = r; moonC = document.createElement('canvas'); const k = 4; moonC.width = moonC.height = Math.ceil(r * 2 * k);
+    const m = moonC.getContext('2d'); m.scale(k, k);
+    m.fillStyle = '#ffe9a8'; m.beginPath(); m.arc(r, r, r, 0, Math.PI * 2); m.fill();
+    m.globalCompositeOperation = 'destination-out'; m.beginPath(); m.arc(r * 1.45, r * 0.8, r * 0.88, 0, Math.PI * 2); m.fill();
+    return moonC;
+  };
+  const dome = (cx, baseY, w, h) => {
+    ctx.beginPath(); ctx.moveTo(cx - w / 2, baseY);
+    ctx.bezierCurveTo(cx - w / 2, baseY - h * 0.75, cx - w * 0.12, baseY - h * 0.9, cx, baseY - h);
+    ctx.bezierCurveTo(cx + w * 0.12, baseY - h * 0.9, cx + w / 2, baseY - h * 0.75, cx + w / 2, baseY);
+    ctx.closePath(); ctx.fill();
+  };
+  const finial = (cx, y, s) => { ctx.fillRect(cx - 1, y - s * 1.6, 2, s * 1.6); ctx.beginPath(); ctx.arc(cx, y - s * 2, s * 0.55, 0, Math.PI * 2); ctx.fill(); };
+  const arch = (x, y, w, h) => { ctx.beginPath(); ctx.moveTo(x, y + h); ctx.lineTo(x, y + w / 2); ctx.arc(x + w / 2, y + w / 2, w / 2, Math.PI, 0); ctx.lineTo(x + w, y + h); ctx.closePath(); ctx.fill(); };
+  const masjid = (light) => {
+    const base = H; const s = Math.min(W, 640) / 640; const cx = W / 2;
+    const bodyW = 360 * s, bodyH = 120 * s, bodyTop = base - bodyH;
+    ctx.fillStyle = '#04161c';
+    ctx.fillRect(cx - bodyW / 2, bodyTop, bodyW, bodyH);
+    dome(cx, bodyTop + 4, 170 * s, 130 * s); finial(cx, bodyTop + 4 - 130 * s, 9 * s);
+    dome(cx - 120 * s, bodyTop + 4, 70 * s, 55 * s); finial(cx - 120 * s, bodyTop + 4 - 55 * s, 5 * s);
+    dome(cx + 120 * s, bodyTop + 4, 70 * s, 55 * s); finial(cx + 120 * s, bodyTop + 4 - 55 * s, 5 * s);
+    [-1, 1].forEach((d) => {
+      const mx = cx + d * (bodyW / 2 + 26 * s), mw = 24 * s, mh = 290 * s;
+      ctx.fillRect(mx - mw / 2, base - mh, mw, mh);
+      ctx.fillRect(mx - mw * 0.8, base - mh * 0.62, mw * 1.6, 6 * s);
+      ctx.fillRect(mx - mw * 0.8, base - mh * 0.9, mw * 1.6, 6 * s);
+      dome(mx, base - mh, mw * 1.1, 30 * s); finial(mx, base - mh - 30 * s, 4 * s);
+    });
+    // glowing windows and the door
+    ctx.fillStyle = `rgba(255, 205, 100, ${0.35 + 0.6 * light})`;
+    ctx.shadowColor = 'rgba(255, 200, 90, 0.9)'; ctx.shadowBlur = 14 * light;
+    for (let i = -3; i <= 3; i += 1) if (i !== 0) arch(cx + i * 44 * s - 9 * s, bodyTop + 30 * s, 18 * s, 40 * s);
+    arch(cx - 22 * s, base - 78 * s, 44 * s, 78 * s);
+    ctx.shadowBlur = 0;
+  };
+  const lantern = (x, len, sw, now, light) => {
+    const a = Math.sin(now / 900 + sw) * 0.12; const ex = x + Math.sin(a) * len, ey = Math.cos(a) * len;
+    ctx.strokeStyle = 'rgba(255, 215, 106, 0.55)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(ex, ey); ctx.stroke();
+    const g = ctx.createRadialGradient(ex, ey + 18, 2, ex, ey + 18, 46);
+    g.addColorStop(0, `rgba(255, 210, 110, ${0.55 * light})`); g.addColorStop(1, 'rgba(255, 210, 110, 0)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(ex, ey + 18, 46, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#c99a2e'; ctx.beginPath(); ctx.moveTo(ex - 6, ey + 2); ctx.lineTo(ex + 6, ey + 2); ctx.lineTo(ex + 11, ey + 10); ctx.lineTo(ex - 11, ey + 10); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = `rgba(255, 226, 150, ${0.5 + 0.5 * light})`; ctx.fillRect(ex - 9, ey + 10, 18, 20);
+    ctx.fillStyle = '#c99a2e'; ctx.beginPath(); ctx.moveTo(ex - 11, ey + 30); ctx.lineTo(ex + 11, ey + 30); ctx.lineTo(ex, ey + 40); ctx.closePath(); ctx.fill();
+  };
+  const frame = (now) => {
+    const dt = Math.min(0.05, (now - (last || now)) / 1000); last = now;
+    const light = playing ? Math.min(1, (now - startAt) / 2500) : 0.25;
+    const sky = ctx.createLinearGradient(0, 0, 0, H);
+    sky.addColorStop(0, '#020c14'); sky.addColorStop(0.55, '#06303a'); sky.addColorStop(1, `rgb(${20 + 40 * light}, ${70 + 30 * light}, ${70})`);
+    ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
+    stars.forEach((st) => { ctx.globalAlpha = 0.35 + 0.65 * Math.abs(Math.sin(now / 1000 + st.p)); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2); ctx.fill(); });
+    ctx.globalAlpha = 1;
+    // crescent moon (drawn once on its own small canvas, so the cut-out stays transparent)
+    const mx = W * 0.87, my = H * 0.075, mr = Math.min(W, H) * 0.05;
+    const mg = ctx.createRadialGradient(mx, my, mr * 0.5, mx, my, mr * 3); mg.addColorStop(0, 'rgba(255, 230, 160, 0.3)'); mg.addColorStop(1, 'rgba(255, 230, 160, 0)');
+    ctx.fillStyle = mg; ctx.beginPath(); ctx.arc(mx, my, mr * 3, 0, Math.PI * 2); ctx.fill();
+    ctx.drawImage(moonImg(mr), mx - mr, my - mr, mr * 2, mr * 2);
+    // shooting star now and then
+    if (playing && !shooting && Math.random() < dt * 0.35) shooting = { x: Math.random() * W * 0.6, y: Math.random() * H * 0.25, life: 1 };
+    if (shooting) { shooting.x += 420 * dt; shooting.y += 160 * dt; shooting.life -= dt * 1.4; ctx.strokeStyle = `rgba(255,255,255,${Math.max(0, shooting.life)})`; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(shooting.x, shooting.y); ctx.lineTo(shooting.x - 60, shooting.y - 23); ctx.stroke(); if (shooting.life <= 0) shooting = null; }
+    masjid(light);
+    [0.07, 0.21, 0.63, 0.76].forEach((p, i) => lantern(W * p, 26 + (i % 2) * 26, i * 1.7, now, light));
+    // rising specks of light
+    if (playing) { moteAcc += dt; if (moteAcc > 0.12) { moteAcc = 0; motes.push({ x: Math.random() * W, y: H + 5, vy: 18 + Math.random() * 30, r: 1 + Math.random() * 2.2, life: 1, p: Math.random() * 6 }); } }
+    ctx.globalCompositeOperation = 'lighter';
+    motes.forEach((m) => { m.y -= m.vy * dt; m.life -= dt * 0.12; ctx.globalAlpha = Math.max(0, m.life) * 0.8; ctx.fillStyle = '#ffdc8a'; ctx.beginPath(); ctx.arc(m.x + Math.sin(now / 700 + m.p) * 8, m.y, m.r, 0, Math.PI * 2); ctx.fill(); });
+    ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+    motes = motes.filter((m) => m.life > 0 && m.y > -10);
+    requestAnimationFrame(frame);
+  };
+
+  const play = () => {
+    $('gate').classList.add('hidden');
+    $('message').classList.add('hidden'); void $('message').offsetWidth; $('message').classList.remove('hidden');
+    playing = true; startAt = performance.now();
+    if (navigator.vibrate) navigator.vibrate(40);
+  };
+  $('gate').addEventListener('click', play);
+  $('gate').addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') play(); });
+  $('replay').addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); play(); });
+
+  const linkFor = () => {
+    const u = new URL(BASE);
+    const to = clean($('toName').value), from = clean($('fromName').value);
+    if (to) u.searchParams.set('to', to);
+    if (from) u.searchParams.set('from', from);
+    u.searchParams.set('m', $('msg').value || '0');
+    u.searchParams.set('lang', lang);
+    return { url: u.toString(), to, from };
+  };
+  const need = () => { if (clean($('toName').value)) return true; $('makeStatus').textContent = t('needName'); $('toName').focus(); return false; };
+  $('sendWa').addEventListener('click', () => { if (!need()) return; store.set('jm-from', clean($('fromName').value)); const l = linkFor(); window.open(`https://wa.me/?text=${encodeURIComponent(t('share')(l.to, l.from, l.url))}`, '_blank', 'noopener'); });
+  $('copyLink').addEventListener('click', () => { if (!need()) return; const l = linkFor(); (navigator.clipboard ? navigator.clipboard.writeText(l.url) : Promise.reject()).then(() => { $('makeStatus').textContent = t('copied'); }).catch(() => window.prompt(t('copyLink'), l.url)); });
+  $('preview').addEventListener('click', () => {
+    if (!need()) return;
+    wish = { to: clean($('toName').value), from: clean($('fromName').value), m: Number($('msg').value) || 0 };
+    render(); window.scrollTo({ top: 0, behavior: 'smooth' }); play();
+  });
+
+  applyLang();
+  resize();
+  window.addEventListener('resize', resize);
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

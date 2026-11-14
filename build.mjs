@@ -236,6 +236,18 @@ const shaadiCard = (L) => `<a class="card" href="/celebrate/shaadi-mubarak/?lang
 <p>${esc(SHAADI[L.code][1])}</p>
 </a>`;
 
+const JUMMA = {
+  hi: ['जुम्मा मुबारक — नाम वाली दुआ', 'रोशन मस्जिद, चाँद-तारे और अपनों के नाम की दुआ — हर जुमे WhatsApp पर भेजो।', '🕌 नाम के साथ एनिमेटेड जुम्मा मुबारक भेजो'],
+  en: ['Jumma Mubarak — animated dua', 'A glowing masjid, the moon and stars, and a dua with their name — send it every Friday on WhatsApp.', '🕌 Send an animated Jumma Mubarak with a name'],
+  hinglish: ['Jumma Mubarak — naam wali dua', 'Roshan masjid, chaand-taare aur apnon ke naam ki dua — har Jumme WhatsApp pe bhejo.', '🕌 Naam ke saath animated Jumma Mubarak bhejo'],
+  bn: ['জুম্মা মুবারক — নামের দোয়া', 'আলোকিত মসজিদ, চাঁদ-তারা আর প্রিয়জনের নামে দোয়া — প্রতি জুম্মায় WhatsApp-এ পাঠাও।', '🕌 নাম দিয়ে অ্যানিমেটেড জুম্মা মুবারক পাঠাও'],
+};
+const jummaCard = (L) => `<a class="card" href="/celebrate/jumma-mubarak/?lang=${L.code}">
+<span class="emoji" aria-hidden="true">🕌</span>
+<h3>${esc(JUMMA[L.code][0])}</h3>
+<p>${esc(JUMMA[L.code][1])}</p>
+</a>`;
+
 const islamicCard = (L) => `<a class="card" href="${P(L, '/islamic-calendar/')}">
 <span class="emoji" aria-hidden="true">📅</span>
 <h3>${esc(islamic.text[L.code].h1.replace('🌙 ', ''))}</h3>
@@ -296,7 +308,7 @@ LANGS.forEach((L) => {
 <div class="btns"><a class="btn btn-primary" href="${P(L, '/wish-card/')}">${esc(T.home.btnCard)}</a><a class="btn btn-ghost" href="${P(L, '/festivals/')}">${esc(T.home.btnFestivals)}</a></div>
 </section>
 <section><h2>${esc(T.stories.h1)}</h2><div class="grid">${stories.slice(0, 3).map(storyCard(L)).join('')}</div><p><a href="${P(L, '/kahani/')}">${esc(T.stories.all)} →</a></p></section>
-<section><h2>${esc(T.home.secWishes)}</h2><div class="grid">${shaadiCard(L)}${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div></section>
+<section><h2>${esc(T.home.secWishes)}</h2><div class="grid">${shaadiCard(L)}${jummaCard(L)}${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div></section>
 <section><h2>${esc(T.home.secUpcoming)}</h2><div class="grid">${upcoming().slice(0, 6).map(festivalCard(L)).join('')}</div></section>
 <section><h2>${esc(T.home.secGames)}</h2><div class="grid">${games.map(gameCard(L)).join('')}</div></section>
 <section><h2>${esc(T.home.secApps)}</h2><div class="grid">${apps.map(appCard(L)).join('')}</div></section>
@@ -378,7 +390,7 @@ ${faqBlock(x.faq)}
 <p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(T.nav.wishes)}</p>
 <h1>${esc(T.wishIndex.h1)}</h1>
 <p class="lead">${esc(T.wishIndex.lead)}</p>
-<div class="grid">${shaadiCard(L)}${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div>
+<div class="grid">${shaadiCard(L)}${jummaCard(L)}${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div>
 <h2>${esc(T.wishIndex.festH)}</h2>
 <p>${T.wishIndex.festP(P(L, '/festivals/'))}</p>
 </div>`,
@@ -404,6 +416,7 @@ ${faqBlock(x.faq)}
 ${fromBanner(L, x.greet, w.emoji)}
 <h1>${w.emoji} ${esc(x.name)} <span style="color:var(--muted);font-weight:600">· ${esc(x.alt)}</span></h1>
 <p class="lead">${esc(x.intro)}</p>
+${w.slug === 'jumma-mubarak' ? `<div class="btns"><a class="btn btn-primary" href="/celebrate/jumma-mubarak/?lang=${L.code}">${esc(JUMMA[L.code][2])}</a></div>` : ''}
 <h2>${esc(W.wishesH(x.name))}</h2>
 <ul class="wish-list">${wishItems(L, x.wishes)}</ul>
 <div class="ad" aria-hidden="true"></div>
@@ -458,7 +471,7 @@ ${faqBlock(x.faq)}
 <div class="table-wrap"><table class="months"><tbody>${islamic.upcoming.map((u) => `<tr><td>${esc(u[L.code])}</td><td><b>${esc(u.date[L.code])}</b></td></tr>`).join('')}</tbody></table></div>
 <p class="note">${esc(I.upcomingNote)}</p>
 <h2>${esc(I.linksH)}</h2>
-<div class="btns"><a class="btn btn-primary" href="${P(L, '/wishes/jumma-mubarak/')}">🕌 ${esc(I.jumma)}</a><a class="btn btn-ghost" href="${P(L, '/wishes/rajab-mubarak/')}">🌙 ${esc(I.rajab)}</a><a class="btn btn-ghost" href="${P(L, '/festivals/eid-ul-fitr/')}">${esc(I.eid)}</a></div>
+<div class="btns"><a class="btn btn-primary" href="/celebrate/jumma-mubarak/?lang=${L.code}">🕌 ${esc(I.jumma)}</a><a class="btn btn-ghost" href="${P(L, '/wishes/rajab-mubarak/')}">🌙 ${esc(I.rajab)}</a><a class="btn btn-ghost" href="${P(L, '/festivals/eid-ul-fitr/')}">${esc(I.eid)}</a></div>
 </article>`,
     }),
   );
@@ -698,7 +711,7 @@ write(
 
 // ---- Machine files
 const gameUrls = games.map((g) => `/games/${g.slug}/`);
-const allUrls = [...urls, ...gameUrls, '/celebrate/shaadi-mubarak/'];
+const allUrls = [...urls, ...gameUrls, '/celebrate/shaadi-mubarak/', '/celebrate/jumma-mubarak/'];
 writeFileSync(
   join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${allUrls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${TODAY}</lastmod></url>`).join('\n')}\n</urlset>\n`,

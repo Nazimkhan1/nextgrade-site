@@ -69,6 +69,9 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 ---
 
+## [x] Animated "Jumma Mubarak" wish — LIVE 14 Nov at /celebrate/jumma-mubarak/
+- Weekly share driver. Masjid silhouette + crescent + lanterns + rising light, names `?to=&from=&m=0-4&lang=`, NO music (respect), Sunnah list (ghusl, Kahf, durood, Asr-Maghrib dua). Card on Home+Wishes, button on /wishes/jumma-mubarak/ and /islamic-calendar/.
+
 ## [x] Animated "Shaadi Mubarak" wish — LIVE 14 Nov at /celebrate/shaadi-mubarak/
 - Source `src/static/celebrate/shaadi-mubarak/index.html` (standalone, copied as-is). Card on Home + Wishes (`shaadiCard` in build.mjs), in sitemap.
 - What it does: link with `?to=&with=&from=&m=&lang=`; opens on a 💌 envelope "X ki taraf se khaas paigaam" → tap → fireworks, ground crackers, falling flowers, an ORIGINAL dhol + shehnai-like tune made with WebAudio (no film songs — copyright), names + message; "Apna wish banao" form → WhatsApp. 4 languages. Names only in the link.
