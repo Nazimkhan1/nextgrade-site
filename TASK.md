@@ -26,7 +26,9 @@ Site: **~162 pages**, all in 4 languages. Everything below is live (pushed to ma
 - [x] Game `/games/morning-exercise/` — **Subah ka 2-Minute Challenge**: 8 moves × **15 s each** (user asked), 2 s rest, Easy/Normal, cartoon coach, streak + badges, optional voice coach, share box under the game (WhatsApp / copy link / native share) + share & copy on the finish screen.
 - Rules from the user today: **sound always optional** (nothing auto-plays); Jumma: no music; animated pages must look attractive.
 
-**Next (date order)** — 🎄 Christmas animated wish → 🎆 New Year animated wish → 🌙 Shab-e-Miraj page (~5 Jan) → 🔥 Lohri / 🪁 Sankranti animated → 🌙 Shab-e-Barat (~23 Jan) → 🇮🇳 Republic Day → Ramzan series, Eidi lifafa + game, Eid animated (Feb–Mar) → 🎂 Birthday animated, Bachpan "Yaad hai?", 10 more stories. Optional: move Shaadi/Jumma onto the engine; Cloudflare Web Analytics (needs user's token).
+- [x] `/celebrate/christmas/` (14 Nov, later) — snowfall, Christmas tree whose lights switch on one by one, glowing star, gifts, snowy houses with roof lights, Santa's sleigh + 2 reindeer crossing the moon every ~7 s. On the engine; card on Home+Wishes, button on the Christmas festival page (4 languages); links to the Christmas game.
+
+**Next (date order)** — 🎆 New Year animated wish → 🌙 Shab-e-Miraj page (~5 Jan) → 🔥 Lohri / 🪁 Sankranti animated → 🌙 Shab-e-Barat (~23 Jan) → 🇮🇳 Republic Day → Ramzan series, Eidi lifafa + game, Eid animated (Feb–Mar) → 🎂 Birthday animated, Bachpan "Yaad hai?", 10 more stories. Optional: move Shaadi/Jumma onto the engine; Cloudflare Web Analytics (needs user's token).
 
 ---
 
@@ -94,7 +96,8 @@ Site: **~162 pages**, all in 4 languages. Everything below is live (pushed to ma
 - [x] Gurpurab `/celebrate/gurpurab/` (24 Nov 2026) on the engine.
 - [x] Good Morning `/celebrate/good-morning/` (sunrise, birds, clouds, sunflowers; weekday greeting; `dailyDefault` = message changes daily).
 - [x] Morning exercise game `/games/morning-exercise/` (14 Nov): 8 moves with our own stick-figure coach (IK pose engine, MOVES table), Easy 3 min / Normal 5 min, rest 5 s, ring timer, cheers/halfway toasts, optional voice coach (off by default), wake lock, streak + 7-day row in localStorage `me-days`, badges 1/3/7/14/21/30, WhatsApp challenge `?from=- Pipeline (date order): morning exercise/motivation game (user asked 14 Nov) → s=`, health disclaimer, PWA (CACHE ng-morning-v1).
-- Pipeline (date order): Christmas animated → New Year animated → Shab-e-Miraj page (~5 Jan) → Lohri/Sankranti animated → Shab-e-Barat (~23 Jan) → Republic Day → Ramzan series, Eidi lifafa+game, Eid animated (Feb–Mar) → Birthday animated, Bachpan cards, more stories. (Shaadi/Jumma are older standalone pages, not on the engine yet.)
+- [x] Christmas `/celebrate/christmas/` (14 Nov) on the engine.
+- Pipeline (date order): New Year animated → Shab-e-Miraj page (~5 Jan) → Lohri/Sankranti animated → Shab-e-Barat (~23 Jan) → Republic Day → Ramzan series, Eidi lifafa+game, Eid animated (Feb–Mar) → Birthday animated, Bachpan cards, more stories. (Shaadi/Jumma are older standalone pages, not on the engine yet.)
 
 ## [x] Animated "Jumma Mubarak" wish — LIVE 14 Nov at /celebrate/jumma-mubarak/
 - Weekly share driver. Masjid silhouette + crescent + lanterns + rising light, names `?to=&from=&m=0-4&lang=`, NO music (user confirmed); NO ambient sound either (user removed it 14 Nov) — only the dua read aloud, custom dua `?d=` (max 200 chars, overrides `m`), dua read aloud with phone voice (speechSynthesis, en-IN/hi-IN/bn-IN) on open + "Dua suno" button, Sunnah list (ghusl, Kahf, durood, Asr-Maghrib dua). Card on Home+Wishes, button on /wishes/jumma-mubarak/ and /islamic-calendar/.

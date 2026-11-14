@@ -226,6 +226,11 @@ const storyCard = (L) => (st) => {
 
 // Animated name wishes (standalone pages in src/static/celebrate/<slug>/). [title, card text, button text]
 const CELEBRATE = [
+  { slug: 'christmas', emoji: '🎄', festival: 'christmas',
+    hi: ['मेरी क्रिसमस — नाम वाला एनिमेटेड विश', 'गिरती बर्फ़, जगमगाता क्रिसमस ट्री और सांता की स्लेज — अपनों के नाम की बधाई आवाज़ के साथ WhatsApp पर भेजो।', '🎄 नाम के साथ एनिमेटेड क्रिसमस विश भेजो'],
+    en: ['Merry Christmas — animated wish with name', 'Falling snow, a glowing Christmas tree and Santa\'s sleigh — send a greeting with their name, read aloud, on WhatsApp.', '🎄 Send an animated Christmas wish with a name'],
+    hinglish: ['Merry Christmas — naam wala animated wish', 'Girti barf, jagmagata Christmas tree aur Santa ki sleigh — apnon ke naam ki badhaai awaaz ke saath WhatsApp pe bhejo.', '🎄 Naam ke saath animated Christmas wish bhejo'],
+    bn: ['মেরি ক্রিসমাস — নামের অ্যানিমেটেড উইশ', 'ঝরে পড়া বরফ, ঝলমলে ক্রিসমাস ট্রি আর সান্তার স্লেজ — প্রিয়জনের নামে শুভেচ্ছা, পড়ে শোনানো সহ WhatsApp-এ পাঠাও।', '🎄 নাম দিয়ে অ্যানিমেটেড বড়দিনের শুভেচ্ছা পাঠাও'] },
   { slug: 'good-morning', emoji: '☀️', wish: 'good-morning',
     hi: ['सुप्रभात — उगते सूरज वाला विश', 'उगता सूरज, उड़ते पंछी और खिलते फूल — अपनों के नाम का सुबह का पैग़ाम, आवाज़ के साथ। रोज़ नया संदेश।', '☀️ नाम के साथ एनिमेटेड सुप्रभात भेजो'],
     en: ['Good Morning — sunrise wish with name', 'The sun rising, birds and blooming flowers — a morning message with their name, read aloud. A fresh one every day.', '☀️ Send an animated Good Morning with a name'],

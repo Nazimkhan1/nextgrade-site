@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Merry Christmas 🎄 — Animated Christmas Wish with Name | NextGrade</title>
+<meta name="description" content="Send an animated Merry Christmas wish with your friend's name: falling snow, a glowing Christmas tree, Santa's sleigh across the moon and gifts — read aloud and shared on WhatsApp. Free, in Hinglish, Hindi, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/celebrate/christmas/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="🎄 Merry Christmas! Aapke liye ek khaas paigaam hai">
+<meta property="og:description" content="Tap karke kholo — girti barf, jagmagata Christmas tree, Santa ki sleigh aur aapke naam ki badhaai.">
+<meta property="og:url" content="https://nextgrade.in/celebrate/christmas/">
+<meta name="theme-color" content="#0b2a3d">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/celebrate/engine.css?v=2">
+<style>
+:root { --bg: #061a28; --bg2: #14524a; --gate1: #1b6b4f; --showbg: #061a28; --gold: #ffd43b; --muted: #cfe3ea; --btn1: #e03131; --btn2: #2b8a3e; }
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+window.CELEBRATE = {
+  base: 'https://nextgrade.in/celebrate/christmas/',
+  key: 'xm',
+  gateEmoji: '🎄',
+  top: { text: '✨ Season\'s Greetings ✨', lang: 'en' },
+  T: {
+    hinglish: {
+      title: 'Merry Christmas', gate: (f) => (f ? `${f} ne aapke liye Christmas ka tohfa bheja hai!` : 'Aapke liye Christmas ka tohfa aaya hai!'),
+      hello: (to) => `Merry Christmas, ${to}`, from: (f) => `— ${f} ki taraf se 🎁`, defaultTo: 'dost',
+      msgs: [
+        'Is Christmas aapka ghar khushiyon, hansi aur pyaar se bhara rahe. Santa aapki har wish poori kare! 🎅',
+        'Christmas tree ki roshni ki tarah aapki zindagi bhi hamesha jagmagaati rahe. Merry Christmas aur Happy New Year!',
+        'Thandi barf, garam cake aur apnon ka saath — aapko Christmas ki dher saari shubhkaamnayein.',
+        'Pyaar baanto, khushiyaan baanto — yahi Christmas ka asli tohfa hai. Aapko aur aapke parivaar ko Merry Christmas!',
+      ],
+      listen: '🗣️ Message suno',
+      makeH: '🎄 Apnon ko Christmas wish bhejo', makeP: 'Naam likho, message chuno ya apne shabdon mein likho, aur link WhatsApp pe bhejo. Kholne wale ko girti barf, jagmagata Christmas tree, Santa ki sleigh aur uske naam ki badhaai dikhegi.',
+      toLabel: 'Kisko bhejna hai (naam)', fromLabel: 'Aapka naam', toPh: 'Jaise: Riya, Joseph bhai', fromPh: 'Jaise: Aman', customPh: 'Jaise: Is saal Santa aapko dher saare gifts de…',
+      share: (to, f, url) => `🎄 Merry Christmas ${to}! ${f ? f + ' ne ' : ''}aapke liye ek khaas Christmas tohfa bheja hai 🎁 Kholo 👉 ${url}`,
+      aboutH: 'Christmas ke baare mein',
+      about: [
+        'Christmas har saal 25 December ko Yeshu Masih (Jesus Christ) ke janm ki khushi mein manaya jaata hai. Bharat mein Goa, Kerala, North-East aur Kolkata ka Park Street iski roshni ke liye mashhoor hain.',
+        '24 December ki raat girjaghar mein Midnight Mass hoti hai. Ghar mein Christmas tree sajaya jaata hai, star lagaya jaata hai, carols gaaye jaate hain aur plum cake banta hai.',
+        'Christmas ki kuch pyaari rasmein:',
+      ],
+      list: ['Christmas tree aur star sajaana', 'Carol singing — ghar-ghar jaakar geet gaana', 'Secret Santa — chupke se ek doosre ko gift dena', 'Plum cake aur mithaai baantna'],
+      aboutNote: 'Santa ke gift pakadne wala game bhi khelo — neeche link hai.',
+      links: [['Christmas ki poori jaankari', '/festivals/christmas/'], ['🎁 Santa ke Gift Pakdo game', '/games/christmas/'], ['Aur wishes', '/wishes/']],
+    },
+    hi: {
+      title: 'मेरी क्रिसमस', gate: (f) => (f ? `${f} ने आपके लिए क्रिसमस का तोहफ़ा भेजा है!` : 'आपके लिए क्रिसमस का तोहफ़ा आया है!'),
+      hello: (to) => `मेरी क्रिसमस, ${to}`, from: (f) => `— ${f} की तरफ़ से 🎁`, defaultTo: 'दोस्त',
+      msgs: [
+        'इस क्रिसमस आपका घर ख़ुशियों, हँसी और प्यार से भरा रहे। सांता आपकी हर विश पूरी करे! 🎅',
+        'क्रिसमस ट्री की रोशनी की तरह आपकी ज़िंदगी भी हमेशा जगमगाती रहे। मेरी क्रिसमस और नया साल मुबारक!',
+        'ठंडी बर्फ़, गरम केक और अपनों का साथ — आपको क्रिसमस की ढेर सारी शुभकामनाएँ।',
+        'प्यार बाँटो, ख़ुशियाँ बाँटो — यही क्रिसमस का असली तोहफ़ा है। आपको और आपके परिवार को मेरी क्रिसमस!',
+      ],
+      listen: '🗣️ संदेश सुनो',
+      makeH: '🎄 अपनों को क्रिसमस विश भेजो', makeP: 'नाम लिखो, संदेश चुनो या अपने शब्दों में लिखो, और लिंक WhatsApp पर भेजो। खोलने वाले को गिरती बर्फ़, जगमगाता क्रिसमस ट्री, सांता की स्लेज और उसके नाम की बधाई दिखेगी।',
+      toLabel: 'किसको भेजना है (नाम)', fromLabel: 'आपका नाम', toPh: 'जैसे: रिया, जोसेफ़ भाई', fromPh: 'जैसे: अमन', customPh: 'जैसे: इस साल सांता आपको ढेर सारे गिफ़्ट दे…',
+      share: (to, f, url) => `🎄 मेरी क्रिसमस ${to}! ${f ? f + ' ने ' : ''}आपके लिए एक ख़ास क्रिसमस तोहफ़ा भेजा है 🎁 खोलो 👉 ${url}`,
+      aboutH: 'क्रिसमस के बारे में',
+      about: [
+        'क्रिसमस हर साल 25 दिसंबर को यीशु मसीह (जीसस क्राइस्ट) के जन्म की ख़ुशी में मनाया जाता है। भारत में गोवा, केरल, पूर्वोत्तर और कोलकाता का पार्क स्ट्रीट इसकी रोशनी के लिए मशहूर हैं।',
+        '24 दिसंबर की रात गिरजाघर में मिडनाइट मास होती है। घर में क्रिसमस ट्री सजाया जाता है, स्टार लगाया जाता है, कैरल गाए जाते हैं और प्लम केक बनता है।',
+        'क्रिसमस की कुछ प्यारी रस्में:',
+      ],
+      list: ['क्रिसमस ट्री और स्टार सजाना', 'कैरल सिंगिंग — घर-घर जाकर गीत गाना', 'सीक्रेट सांता — चुपके से एक-दूसरे को गिफ़्ट देना', 'प्लम केक और मिठाई बाँटना'],
+      aboutNote: 'सांता के गिफ़्ट पकड़ने वाला गेम भी खेलो — नीचे लिंक है।',
+      links: [['क्रिसमस की पूरी जानकारी', '/festivals/christmas/'], ['🎁 सांता के गिफ़्ट पकड़ो गेम', '/games/christmas/'], ['और शुभकामनाएँ', '/wishes/']],
+    },
+    en: {
+      title: 'Merry Christmas', gate: (f) => (f ? `${f} has sent you a Christmas gift!` : 'A Christmas gift has arrived for you!'),
+      hello: (to) => `Merry Christmas, ${to}`, from: (f) => `— with love from ${f} 🎁`, defaultTo: 'friend',
+      msgs: [
+        'May your home be full of joy, laughter and love this Christmas. May Santa make every wish of yours come true! 🎅',
+        'Like the lights on a Christmas tree, may your life always sparkle. Merry Christmas and a Happy New Year!',
+        'Cold snow, warm cake and the people you love — wishing you a very merry Christmas.',
+        'Share love, share joy — that is the real gift of Christmas. Merry Christmas to you and your family!',
+      ],
+      listen: '🗣️ Listen',
+      makeH: '🎄 Send a Christmas wish to your loved ones', makeP: 'Type a name, pick a message or write your own, and send the link on WhatsApp. They will see falling snow, a glowing Christmas tree, Santa\'s sleigh and a greeting with their name.',
+      toLabel: 'Who is it for (name)', fromLabel: 'Your name', toPh: 'e.g. Riya, Joseph', fromPh: 'e.g. Aman', customPh: 'e.g. May Santa bring you lots of gifts this year…',
+      share: (to, f, url) => `🎄 Merry Christmas ${to}! ${f ? f + ' has' : 'Someone has'} sent you a special Christmas gift 🎁 Open 👉 ${url}`,
+      aboutH: 'About Christmas',
+      about: [
+        'Christmas is celebrated every year on 25 December to mark the birth of Jesus Christ. In India, Goa, Kerala, the North-East and Kolkata\'s Park Street are famous for their Christmas lights.',
+        'On the night of 24 December there is Midnight Mass in churches. At home people decorate a Christmas tree, hang a star, sing carols and bake plum cake.',
+        'Some lovely Christmas customs:',
+      ],
+      list: ['Decorating the Christmas tree and star', 'Carol singing from house to house', 'Secret Santa — giving each other gifts in secret', 'Sharing plum cake and sweets'],
+      aboutNote: 'Also play the catch-Santa\'s-gifts game — link below.',
+      links: [['All about Christmas', '/festivals/christmas/'], ['🎁 Catch Santa\'s Gifts game', '/games/christmas/'], ['More wishes', '/wishes/']],
+    },
+    bn: {
+      title: 'মেরি ক্রিসমাস', gate: (f) => (f ? `${f} তোমার জন্য বড়দিনের উপহার পাঠিয়েছে!` : 'তোমার জন্য বড়দিনের উপহার এসেছে!'),
+      hello: (to) => `মেরি ক্রিসমাস, ${to}`, from: (f) => `— ${f}-এর পক্ষ থেকে 🎁`, defaultTo: 'বন্ধু',
+      msgs: [
+        'এই বড়দিনে তোমার ঘর আনন্দ, হাসি আর ভালোবাসায় ভরে থাকুক। সান্তা তোমার সব ইচ্ছে পূরণ করুক! 🎅',
+        'ক্রিসমাস ট্রির আলোর মতো তোমার জীবনও সবসময় ঝলমল করুক। মেরি ক্রিসমাস আর শুভ নববর্ষ!',
+        'ঠান্ডা বরফ, গরম কেক আর প্রিয়জনের সঙ্গ — তোমাকে বড়দিনের অনেক শুভেচ্ছা।',
+        'ভালোবাসা ভাগ করো, আনন্দ ভাগ করো — এটাই বড়দিনের আসল উপহার। তোমাকে ও তোমার পরিবারকে মেরি ক্রিসমাস!',
+      ],
+      listen: '🗣️ বার্তা শোনো',
+      makeH: '🎄 প্রিয়জনকে বড়দিনের শুভেচ্ছা পাঠাও', makeP: 'নাম লেখো, বার্তা বাছো বা নিজের ভাষায় লেখো, আর লিংক WhatsApp-এ পাঠাও। যে খুলবে সে দেখবে ঝরে পড়া বরফ, ঝলমলে ক্রিসমাস ট্রি, সান্তার স্লেজ আর তার নামে শুভেচ্ছা।',
+      toLabel: 'কাকে পাঠাবে (নাম)', fromLabel: 'তোমার নাম', toPh: 'যেমন: রিয়া, জোসেফ দা', fromPh: 'যেমন: অমন', customPh: 'যেমন: এ বছর সান্তা তোমায় অনেক উপহার দিক…',
+      share: (to, f, url) => `🎄 মেরি ক্রিসমাস ${to}! ${f ? f + ' ' : ''}তোমার জন্য একটা বিশেষ বড়দিনের উপহার পাঠিয়েছে 🎁 খোলো 👉 ${url}`,
+      aboutH: 'বড়দিন সম্পর্কে',
+      about: [
+        'প্রতি বছর ২৫ ডিসেম্বর যিশু খ্রিস্টের জন্মদিন হিসেবে বড়দিন পালিত হয়। কলকাতার পার্ক স্ট্রিটের আলোকসজ্জা আর বো ব্যারাকের উৎসব সারা দেশে বিখ্যাত।',
+        '২৪ ডিসেম্বর রাতে গির্জায় মিডনাইট মাস হয়। বাড়িতে ক্রিসমাস ট্রি সাজানো হয়, তারা লাগানো হয়, ক্যারল গাওয়া হয় আর কেক বানানো হয় — নিউ মার্কেটের নাহুমের কেক তো কলকাতার বড়দিনের অংশ।',
+        'বড়দিনের কিছু সুন্দর রীতি:',
+      ],
+      list: ['ক্রিসমাস ট্রি আর তারা সাজানো', 'বাড়ি বাড়ি ঘুরে ক্যারল গাওয়া', 'সিক্রেট সান্তা — লুকিয়ে একে অপরকে উপহার দেওয়া', 'কেক আর মিষ্টি ভাগ করে খাওয়া'],
+      aboutNote: 'সান্তার উপহার ধরার গেমটাও খেলো — নিচে লিংক আছে।',
+      links: [['বড়দিনের পুরো কথা', '/festivals/christmas/'], ['🎁 সান্তার উপহার ধরো গেম', '/games/christmas/'], ['আরও শুভেচ্ছা', '/wishes/']],
+    },
+  },
+  scene: (() => {
+    let stars = [], snow = [], houses = [], sleighX = -1, sleighWait = 0;
+    const BULBS = ['#ff6b6b', '#ffd43b', '#74c0fc', '#69db7c', '#f783ac', '#ffa94d'];
+    const resize = (S) => {
+      stars = Array.from({ length: Math.round(S.W * S.H / 3200) }, () => ({ x: Math.random() * S.W, y: Math.random() * S.H * 0.5, r: Math.random() * 1.2 + 0.3, p: Math.random() * 6 }));
+      snow = Array.from({ length: Math.round(S.W * S.H / 5000) + 40 }, () => ({ x: Math.random() * S.W, y: Math.random() * S.H, r: Math.random() * 2.4 + 0.6, v: 20 + Math.random() * 45, p: Math.random() * 6 }));
+      const n = Math.max(3, Math.round(S.W / 160));
+      houses = Array.from({ length: n }, (_, i) => ({ x: (i + 0.5) * (S.W / n) + (Math.random() - 0.5) * 30, w: 40 + Math.random() * 26, h: 26 + Math.random() * 16 }))
+        .filter((h) => Math.abs(h.x - S.W / 2) > Math.min(S.W, 640) * 0.22);
+      sleighX = -1; sleighWait = 1.5;
+    };
+    const star5 = (ctx, x, y, r, rot) => {
+      ctx.beginPath();
+      for (let i = 0; i < 10; i += 1) { const a = rot + (Math.PI * i) / 5 - Math.PI / 2, rr = i % 2 ? r * 0.45 : r; ctx.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); }
+      ctx.closePath(); ctx.fill();
+    };
+    const tree = (ctx, S, now) => {
+      const s = Math.min(S.W, 640) / 640, cx = S.W / 2, base = S.H - 40, th = Math.min(250 * s, S.H * 0.36), tw = th * 0.72;
+      ctx.fillStyle = '#5c3a1e'; ctx.fillRect(cx - 12 * s, base - 22 * s, 24 * s, 24 * s);
+      // three layers of branches, snow on the edges
+      const layers = [[0, 1], [0.28, 0.78], [0.52, 0.55]];
+      layers.forEach(([off, wf]) => {
+        const y0 = base - 18 * s - off * th, h = th * 0.5, w = tw * wf;
+        ctx.fillStyle = '#1e6b3a'; ctx.beginPath(); ctx.moveTo(cx, y0 - h); ctx.lineTo(cx + w / 2, y0); ctx.lineTo(cx - w / 2, y0); ctx.closePath(); ctx.fill();
+        ctx.fillStyle = '#2b8a3e'; ctx.beginPath(); ctx.moveTo(cx, y0 - h); ctx.lineTo(cx, y0); ctx.lineTo(cx - w / 2, y0); ctx.closePath(); ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,0.9)';
+        for (let k = -2; k <= 2; k += 1) { ctx.beginPath(); ctx.ellipse(cx + k * w / 5.5, y0 - 1, w / 13, 3.5 * s, 0, 0, Math.PI * 2); ctx.fill(); }
+      });
+      // string of lights wrapping around, switching on with S.light
+      const top = base - 18 * s - 0.52 * th - th * 0.5, bot = base - 22 * s;
+      const pts = [];
+      for (let t = 0.08; t < 1; t += 0.012) { const y = top + (bot - top) * t, halfW = (tw / 2) * t * 0.95; pts.push([cx + Math.sin(t * 22) * halfW, y, Math.cos(t * 22) > -0.2]); }
+      pts.forEach(([x, y, front], i) => {
+        if (!front) return;
+        const on = S.light > i / pts.length;
+        const c = BULBS[(i + Math.floor(now / 450)) % BULBS.length];
+        if (on) { ctx.shadowColor = c; ctx.shadowBlur = 8; }
+        ctx.fillStyle = on ? c : 'rgba(255,255,255,0.12)'; ctx.beginPath(); ctx.arc(x, y, 2.6 * Math.max(s, 0.7), 0, Math.PI * 2); ctx.fill();
+        ctx.shadowBlur = 0;
+      });
+      // star on top
+      const sy = top - 6 * s, glow = 0.4 + 0.6 * S.light;
+      const g = ctx.createRadialGradient(cx, sy, 2, cx, sy, 60 * s); g.addColorStop(0, `rgba(255, 224, 102, ${0.55 * glow})`); g.addColorStop(1, 'rgba(255, 224, 102, 0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, sy, 60 * s, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#ffd43b'; star5(ctx, cx, sy, 18 * s * (1 + 0.06 * Math.sin(now / 300)), Math.sin(now / 1500) * 0.1);
+      // gifts under the tree
+      [[-70, 26, 22, '#e03131', '#ffd43b'], [-40, 20, 30, '#1c7ed6', '#fff'], [48, 30, 20, '#ae3ec9', '#ffd43b'], [80, 22, 16, '#f08c00', '#fff']].forEach(([dx, w, h, c, rib]) => {
+        const x = cx + dx * s - (w * s) / 2, y = base - h * s + 4 * s, ww = w * s, hh = h * s;
+        ctx.fillStyle = c; ctx.fillRect(x, y, ww, hh);
+        ctx.fillStyle = rib; ctx.fillRect(x + ww / 2 - 2 * s, y, 4 * s, hh); ctx.fillRect(x, y + hh / 2 - 2 * s, ww, 4 * s);
+        ctx.beginPath(); ctx.ellipse(x + ww / 2 - 5 * s, y - 2 * s, 5 * s, 3 * s, 0.5, 0, Math.PI * 2); ctx.ellipse(x + ww / 2 + 5 * s, y - 2 * s, 5 * s, 3 * s, -0.5, 0, Math.PI * 2); ctx.fill();
+      });
+    };
+    const house = (ctx, h, base, S, now) => {
+      const x = h.x - h.w / 2, y = base - h.h;
+      ctx.fillStyle = '#123247'; ctx.fillRect(x, y, h.w, h.h);
+      ctx.fillStyle = '#0c2333'; ctx.beginPath(); ctx.moveTo(x - 6, y); ctx.lineTo(h.x, y - h.h * 0.7); ctx.lineTo(x + h.w + 6, y); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = '#f1f6fa'; ctx.beginPath(); ctx.moveTo(x - 6, y); ctx.lineTo(h.x, y - h.h * 0.7); ctx.lineTo(x + h.w + 6, y); ctx.lineTo(x + h.w, y + 3); ctx.lineTo(h.x, y - h.h * 0.7 + 5); ctx.lineTo(x, y + 3); ctx.closePath(); ctx.fill();
+      const lit = 0.35 + 0.6 * S.light;
+      ctx.fillStyle = `rgba(255, 200, 100, ${lit})`; ctx.fillRect(x + h.w * 0.18, y + h.h * 0.3, h.w * 0.22, h.h * 0.3); ctx.fillRect(x + h.w * 0.6, y + h.h * 0.3, h.w * 0.22, h.h * 0.3);
+      // little roof lights
+      for (let k = 0; k <= 6; k += 1) { const t = k / 6, bx = x - 6 + (h.w + 12) * t, by = y + 2; ctx.fillStyle = S.light > 0.5 ? BULBS[(k + Math.floor(now / 600)) % BULBS.length] : 'rgba(255,255,255,0.15)'; ctx.beginPath(); ctx.arc(bx, by, 1.6, 0, Math.PI * 2); ctx.fill(); }
+    };
+    const sleigh = (ctx, x, y, s) => {
+      ctx.fillStyle = '#0a1a26';
+      // reindeer (two), a rope, then the sleigh with Santa
+      [0, 34].forEach((d) => {
+        const rx = x + 70 * s + d * s;
+        ctx.beginPath(); ctx.ellipse(rx, y, 11 * s, 5 * s, 0, 0, Math.PI * 2); ctx.fill();
+        ctx.fillRect(rx + 7 * s, y - 10 * s, 3 * s, 9 * s); ctx.beginPath(); ctx.ellipse(rx + 11 * s, y - 11 * s, 4 * s, 3 * s, 0, 0, Math.PI * 2); ctx.fill();
+        ctx.fillRect(rx - 8 * s, y + 3 * s, 2 * s, 8 * s); ctx.fillRect(rx + 6 * s, y + 3 * s, 2 * s, 8 * s);
+        ctx.strokeStyle = '#0a1a26'; ctx.lineWidth = 1.5 * s; ctx.beginPath(); ctx.moveTo(rx + 10 * s, y - 14 * s); ctx.lineTo(rx + 7 * s, y - 20 * s); ctx.moveTo(rx + 12 * s, y - 14 * s); ctx.lineTo(rx + 15 * s, y - 20 * s); ctx.stroke();
+      });
+      ctx.beginPath(); ctx.moveTo(x + 22 * s, y - 2 * s); ctx.lineTo(x + 60 * s, y); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x - 20 * s, y - 14 * s); ctx.lineTo(x + 22 * s, y - 14 * s); ctx.lineTo(x + 18 * s, y + 4 * s); ctx.lineTo(x - 16 * s, y + 4 * s); ctx.closePath(); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(x - 22 * s, y + 9 * s); ctx.lineTo(x + 24 * s, y + 9 * s); ctx.quadraticCurveTo(x + 30 * s, y + 9 * s, x + 28 * s, y + 3 * s); ctx.lineWidth = 2 * s; ctx.stroke();
+      ctx.beginPath(); ctx.arc(x - 4 * s, y - 20 * s, 7 * s, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(x - 10 * s, y - 24 * s); ctx.lineTo(x - 14 * s, y - 36 * s); ctx.lineTo(x + 2 * s, y - 25 * s); ctx.closePath(); ctx.fill();
+      ctx.beginPath(); ctx.arc(x + 12 * s, y - 18 * s, 6 * s, 0, Math.PI * 2); ctx.fill();
+    };
+    const draw = (ctx, S, now, dt) => {
+      const sky = ctx.createLinearGradient(0, 0, 0, S.H);
+      sky.addColorStop(0, '#04111c'); sky.addColorStop(0.6, '#0b2a3d'); sky.addColorStop(1, '#174256');
+      ctx.fillStyle = sky; ctx.fillRect(0, 0, S.W, S.H);
+      stars.forEach((st) => { ctx.globalAlpha = 0.3 + 0.7 * Math.abs(Math.sin(now / 1200 + st.p)); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2); ctx.fill(); });
+      ctx.globalAlpha = 1;
+      // moon
+      const mx = S.W * 0.8, my = S.H * 0.12, mr = Math.min(S.W, S.H) * 0.07;
+      const mg = ctx.createRadialGradient(mx, my, mr * 0.6, mx, my, mr * 3); mg.addColorStop(0, 'rgba(230, 245, 255, 0.3)'); mg.addColorStop(1, 'rgba(230, 245, 255, 0)');
+      ctx.fillStyle = mg; ctx.beginPath(); ctx.arc(mx, my, mr * 3, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#eef6ff'; ctx.beginPath(); ctx.arc(mx, my, mr, 0, Math.PI * 2); ctx.fill();
+      // Santa's sleigh crosses the moon now and then, once the wish is open
+      const s = Math.max(0.6, Math.min(S.W, 640) / 640);
+      if (sleighX < 0) { sleighWait -= dt; if (sleighWait <= 0 && S.playing) sleighX = -140 * s; }
+      if (sleighX >= -140 * s) {
+        sleighX += 120 * dt * s;
+        const sy = my + (sleighX - mx) * -0.12 + Math.sin(now / 400) * 4;
+        sleigh(ctx, sleighX, sy, s);
+        if (sleighX > S.W + 40) { sleighX = -1; sleighWait = 7; }
+      }
+      // snowy hills
+      ctx.fillStyle = '#d9e8f0';
+      ctx.beginPath(); ctx.moveTo(0, S.H - 70); ctx.quadraticCurveTo(S.W * 0.25, S.H - 110, S.W * 0.5, S.H - 70); ctx.quadraticCurveTo(S.W * 0.75, S.H - 40, S.W, S.H - 90); ctx.lineTo(S.W, S.H); ctx.lineTo(0, S.H); ctx.closePath(); ctx.fill();
+      const base = S.H - 40;
+      houses.forEach((h) => house(ctx, h, base, S, now));
+      ctx.fillStyle = '#f1f6fa'; ctx.fillRect(0, base, S.W, 40);
+      tree(ctx, S, now);
+      // falling snow on top of everything
+      ctx.fillStyle = '#fff';
+      snow.forEach((f) => {
+        f.y += f.v * dt; f.x += Math.sin(now / 900 + f.p) * 12 * dt;
+        if (f.y > S.H) { f.y = -4; f.x = Math.random() * S.W; }
+        ctx.globalAlpha = 0.55 + f.r / 6; ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2); ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+    };
+    return { resize, draw };
+  })(),
+};
+</script>
+<script src="/celebrate/engine.js?v=3"></script>
+</body>
+</html>
