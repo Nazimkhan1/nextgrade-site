@@ -123,9 +123,15 @@ ${alternates}
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${url}">
-<meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#d9480f">
+<meta property="og:image" content="https://nextgrade.in/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://nextgrade.in/og-image.jpg">
+<meta name="theme-color" content="#e8590c">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -137,7 +143,7 @@ ${ld}
 </head>
 <body>
 <header class="site-head"><div class="wrap">
-<a class="logo" href="${P(L, '/')}"><span class="logo-mark">N</span>${NAME}</a>
+<a class="logo" href="${P(L, '/')}" aria-label="${NAME}"><img class="logo-mark" src="/favicon.svg" alt="" width="34" height="34"><span>Next<b>Grade</b></span></a>
 <div class="head-right"><nav class="nav" aria-label="Main">${nav}</nav>${switcher}</div>
 </div></header>
 <main>
