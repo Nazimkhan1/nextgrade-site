@@ -224,29 +224,34 @@ const storyCard = (L) => (st) => {
 </a>`;
 };
 
-const SHAADI = {
-  hi: ['शादी मुबारक — आतिशबाज़ी वाला विश', 'दोस्त का नाम डालो — आतिशबाज़ी, बैंड-बाजा और फूलों की बारिश के साथ WhatsApp पर भेजो।'],
-  en: ['Shaadi Mubarak — animated wish', 'Add your friend\'s name — fireworks, a band-baaja tune and falling flowers. Send it on WhatsApp.'],
-  hinglish: ['Shaadi Mubarak — fireworks wala wish', 'Dost ka naam daalo — fireworks, band-baaja aur phoolon ki baarish ke saath WhatsApp pe bhejo.'],
-  bn: ['শুভ বিবাহ — আতশবাজির উইশ', 'বন্ধুর নাম দাও — আতশবাজি, বাজনা আর ফুলের বৃষ্টি সহ WhatsApp-এ পাঠাও।'],
+// Animated name wishes (standalone pages in src/static/celebrate/<slug>/). [title, card text, button text]
+const CELEBRATE = [
+  { slug: 'gurpurab', emoji: '🙏', festival: 'guru-nanak-jayanti',
+    hi: ['गुरपुरब की बधाई — नाम वाला एनिमेटेड विश', 'रोशन गुरुद्वारा, पूरा चाँद और दीये — अपनों के नाम की बधाई आवाज़ के साथ WhatsApp पर भेजो।', '🙏 नाम के साथ एनिमेटेड गुरपुरब बधाई भेजो'],
+    en: ['Happy Gurpurab — animated wish with name', 'A lit Gurdwara, the full moon and diyas — send a greeting with their name, read aloud, on WhatsApp.', '🙏 Send an animated Gurpurab wish with a name'],
+    hinglish: ['Gurpurab ki Badhaai — naam wala animated wish', 'Roshan Gurdwara, poora chaand aur diye — apnon ke naam ki badhaai awaaz ke saath WhatsApp pe bhejo.', '🙏 Naam ke saath animated Gurpurab badhaai bhejo'],
+    bn: ['গুরপরবের শুভেচ্ছা — নামের অ্যানিমেটেড উইশ', 'আলোকিত গুরুদ্বার, পূর্ণিমার চাঁদ আর প্রদীপ — প্রিয়জনের নামে শুভেচ্ছা, পড়ে শোনানো সহ WhatsApp-এ পাঠাও।', '🙏 নাম দিয়ে অ্যানিমেটেড গুরপরবের শুভেচ্ছা পাঠাও'] },
+  { slug: 'shaadi-mubarak', emoji: '💍',
+    hi: ['शादी मुबारक — आतिशबाज़ी वाला विश', 'दोस्त का नाम डालो — आतिशबाज़ी, बैंड-बाजा और फूलों की बारिश के साथ WhatsApp पर भेजो।'],
+    en: ['Shaadi Mubarak — animated wish', 'Add your friend\'s name — fireworks, a band-baaja tune and falling flowers. Send it on WhatsApp.'],
+    hinglish: ['Shaadi Mubarak — fireworks wala wish', 'Dost ka naam daalo — fireworks, band-baaja aur phoolon ki baarish ke saath WhatsApp pe bhejo.'],
+    bn: ['শুভ বিবাহ — আতশবাজির উইশ', 'বন্ধুর নাম দাও — আতশবাজি, বাজনা আর ফুলের বৃষ্টি সহ WhatsApp-এ পাঠাও।'] },
+  { slug: 'jumma-mubarak', emoji: '🕌', wish: 'jumma-mubarak',
+    hi: ['जुम्मा मुबारक — नाम वाली दुआ', 'रोशन मस्जिद, चाँद-तारे और अपनों के नाम की दुआ — हर जुमे WhatsApp पर भेजो।', '🕌 नाम के साथ एनिमेटेड जुम्मा मुबारक भेजो'],
+    en: ['Jumma Mubarak — animated dua', 'A glowing masjid, the moon and stars, and a dua with their name — send it every Friday on WhatsApp.', '🕌 Send an animated Jumma Mubarak with a name'],
+    hinglish: ['Jumma Mubarak — naam wali dua', 'Roshan masjid, chaand-taare aur apnon ke naam ki dua — har Jumme WhatsApp pe bhejo.', '🕌 Naam ke saath animated Jumma Mubarak bhejo'],
+    bn: ['জুম্মা মুবারক — নামের দোয়া', 'আলোকিত মসজিদ, চাঁদ-তারা আর প্রিয়জনের নামে দোয়া — প্রতি জুম্মায় WhatsApp-এ পাঠাও।', '🕌 নাম দিয়ে অ্যানিমেটেড জুম্মা মুবারক পাঠাও'] },
+];
+const celebrateHref = (L, c) => `/celebrate/${c.slug}/?lang=${L.code}`;
+const celebrateCards = (L) => CELEBRATE.map((c) => `<a class="card" href="${celebrateHref(L, c)}">
+<span class="emoji" aria-hidden="true">${c.emoji}</span>
+<h3>${esc(c[L.code][0])}</h3>
+<p>${esc(c[L.code][1])}</p>
+</a>`).join('');
+const celebrateButton = (L, key, slug) => {
+  const c = CELEBRATE.find((x) => x[key] === slug);
+  return c && c[L.code][2] ? `<div class="btns"><a class="btn btn-primary" href="${celebrateHref(L, c)}">${esc(c[L.code][2])}</a></div>` : '';
 };
-const shaadiCard = (L) => `<a class="card" href="/celebrate/shaadi-mubarak/?lang=${L.code}">
-<span class="emoji" aria-hidden="true">💍</span>
-<h3>${esc(SHAADI[L.code][0])}</h3>
-<p>${esc(SHAADI[L.code][1])}</p>
-</a>`;
-
-const JUMMA = {
-  hi: ['जुम्मा मुबारक — नाम वाली दुआ', 'रोशन मस्जिद, चाँद-तारे और अपनों के नाम की दुआ — हर जुमे WhatsApp पर भेजो।', '🕌 नाम के साथ एनिमेटेड जुम्मा मुबारक भेजो'],
-  en: ['Jumma Mubarak — animated dua', 'A glowing masjid, the moon and stars, and a dua with their name — send it every Friday on WhatsApp.', '🕌 Send an animated Jumma Mubarak with a name'],
-  hinglish: ['Jumma Mubarak — naam wali dua', 'Roshan masjid, chaand-taare aur apnon ke naam ki dua — har Jumme WhatsApp pe bhejo.', '🕌 Naam ke saath animated Jumma Mubarak bhejo'],
-  bn: ['জুম্মা মুবারক — নামের দোয়া', 'আলোকিত মসজিদ, চাঁদ-তারা আর প্রিয়জনের নামে দোয়া — প্রতি জুম্মায় WhatsApp-এ পাঠাও।', '🕌 নাম দিয়ে অ্যানিমেটেড জুম্মা মুবারক পাঠাও'],
-};
-const jummaCard = (L) => `<a class="card" href="/celebrate/jumma-mubarak/?lang=${L.code}">
-<span class="emoji" aria-hidden="true">🕌</span>
-<h3>${esc(JUMMA[L.code][0])}</h3>
-<p>${esc(JUMMA[L.code][1])}</p>
-</a>`;
 
 const islamicCard = (L) => `<a class="card" href="${P(L, '/islamic-calendar/')}">
 <span class="emoji" aria-hidden="true">📅</span>
@@ -308,7 +313,7 @@ LANGS.forEach((L) => {
 <div class="btns"><a class="btn btn-primary" href="${P(L, '/wish-card/')}">${esc(T.home.btnCard)}</a><a class="btn btn-ghost" href="${P(L, '/festivals/')}">${esc(T.home.btnFestivals)}</a></div>
 </section>
 <section><h2>${esc(T.stories.h1)}</h2><div class="grid">${stories.slice(0, 3).map(storyCard(L)).join('')}</div><p><a href="${P(L, '/kahani/')}">${esc(T.stories.all)} →</a></p></section>
-<section><h2>${esc(T.home.secWishes)}</h2><div class="grid">${shaadiCard(L)}${jummaCard(L)}${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div></section>
+<section><h2>${esc(T.home.secWishes)}</h2><div class="grid">${celebrateCards(L)}${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div></section>
 <section><h2>${esc(T.home.secUpcoming)}</h2><div class="grid">${upcoming().slice(0, 6).map(festivalCard(L)).join('')}</div></section>
 <section><h2>${esc(T.home.secGames)}</h2><div class="grid">${games.map(gameCard(L)).join('')}</div></section>
 <section><h2>${esc(T.home.secApps)}</h2><div class="grid">${apps.map(appCard(L)).join('')}</div></section>
@@ -355,6 +360,7 @@ LANGS.forEach((L) => {
 ${fromBanner(L, F.greet(x.name), f.emoji)}
 <h1>${f.emoji} ${esc(x.name)} <span style="color:var(--muted);font-weight:600">· ${esc(x.alt)}</span></h1>
 <p class="lead">${esc(x.intro)}</p>
+${celebrateButton(L, 'festival', f.slug)}
 <div class="facts">
 <div class="fact"><b>${esc(F.when)}</b>${esc(x.when)}</div>
 <div class="fact"><b>${esc(F.where)}</b>${esc(x.where)}</div>
@@ -390,7 +396,7 @@ ${faqBlock(x.faq)}
 <p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(T.nav.wishes)}</p>
 <h1>${esc(T.wishIndex.h1)}</h1>
 <p class="lead">${esc(T.wishIndex.lead)}</p>
-<div class="grid">${shaadiCard(L)}${jummaCard(L)}${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div>
+<div class="grid">${celebrateCards(L)}${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div>
 <h2>${esc(T.wishIndex.festH)}</h2>
 <p>${T.wishIndex.festP(P(L, '/festivals/'))}</p>
 </div>`,
@@ -416,7 +422,7 @@ ${faqBlock(x.faq)}
 ${fromBanner(L, x.greet, w.emoji)}
 <h1>${w.emoji} ${esc(x.name)} <span style="color:var(--muted);font-weight:600">· ${esc(x.alt)}</span></h1>
 <p class="lead">${esc(x.intro)}</p>
-${w.slug === 'jumma-mubarak' ? `<div class="btns"><a class="btn btn-primary" href="/celebrate/jumma-mubarak/?lang=${L.code}">${esc(JUMMA[L.code][2])}</a></div>` : ''}
+${celebrateButton(L, 'wish', w.slug)}
 <h2>${esc(W.wishesH(x.name))}</h2>
 <ul class="wish-list">${wishItems(L, x.wishes)}</ul>
 <div class="ad" aria-hidden="true"></div>
@@ -711,7 +717,7 @@ write(
 
 // ---- Machine files
 const gameUrls = games.map((g) => `/games/${g.slug}/`);
-const allUrls = [...urls, ...gameUrls, '/celebrate/shaadi-mubarak/', '/celebrate/jumma-mubarak/'];
+const allUrls = [...urls, ...gameUrls, ...CELEBRATE.map((c) => `/celebrate/${c.slug}/`)];
 writeFileSync(
   join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${allUrls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${TODAY}</lastmod></url>`).join('\n')}\n</urlset>\n`,

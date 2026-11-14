@@ -1,0 +1,52 @@
+/* Shared look for /celebrate/<slug>/ pages. Each page sets its colours in :root. */
+:root { --bg: #031c22; --bg2: #0b5a5a; --gate1: #0e6b63; --ink: #f4fff9; --muted: #c5e3d9; --gold: #ffd76a; --btn1: #12b886; --btn2: #f59f00; --card: rgba(255,255,255,0.07); --showbg: #021116; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1100px 600px at 50% -10%, var(--bg2), var(--bg) 65%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 8px; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.langsel { background: var(--card); border: 1px solid rgba(255,255,255,0.2); color: var(--ink); border-radius: 10px; padding: 6px 8px; font: inherit; font-size: 15px; }
+.langsel option { color: #111; }
+.show { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.45); background: var(--showbg); user-select: none; -webkit-user-select: none; }
+canvas { display: block; width: 100%; height: min(78vh, 680px); }
+.message { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; padding: max(16%, 92px) 22px 24px; pointer-events: none; }
+.top-line { font-size: clamp(24px, 6.5vw, 40px); color: var(--gold); line-height: 1.3; font-weight: 700; text-shadow: 0 0 18px rgba(255,215,106,0.55); animation: glow 1.6s ease both; }
+.top-line:lang(ar) { font-family: "Amiri", serif; }
+.top-line:lang(pa) { font-family: "Noto Sans Gurmukhi", sans-serif; }
+.message h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(30px, 8vw, 54px); line-height: 1.1; margin: 2px 0 0; color: #fff; text-shadow: 0 3px 18px rgba(0,0,0,0.7); animation: rise 1.2s 0.4s ease both; }
+.message .names { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(20px, 5.5vw, 30px); font-weight: 800; margin: 8px 0 6px; color: var(--gold); text-shadow: 0 3px 14px rgba(0,0,0,0.8); animation: rise 1.2s 0.8s ease both; }
+.message .text { max-width: 500px; font-size: clamp(15px, 4vw, 19px); color: #fffaf0; text-shadow: 0 2px 10px rgba(0,0,0,0.9); animation: rise 1.4s 1.2s ease both; background: rgba(0,0,0,0.3); border-radius: 14px; padding: 8px 12px; }
+.message .from { margin-top: 10px; font-weight: 700; color: var(--gold); font-size: 17px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); animation: rise 1.4s 1.6s ease both; }
+:lang(bn) .message h1, :lang(bn) .message .names, :lang(bn) h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes glow { from { opacity: 0; filter: blur(6px); } to { opacity: 1; filter: none; } }
+.gate { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px; background: radial-gradient(circle at 50% 40%, var(--gate1), var(--bg)); cursor: pointer; padding: 20px; }
+.gate .env { font-size: 92px; animation: bob 1.8s ease-in-out infinite; }
+.gate p { margin: 0; font-size: 20px; font-weight: 700; }
+.gate small { color: var(--muted); font-size: 15px; }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.controls { display: flex; gap: 8px; justify-content: center; margin: 12px 0; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 16px; cursor: pointer; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, var(--btn1), var(--btn2)); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.35); }
+.maker { background: var(--card); border: 1px solid rgba(255,255,255,0.15); border-radius: 18px; padding: 18px; margin: 22px 0; }
+.maker h2, section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 8px; font-size: 24px; }
+.field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+.field label { font-weight: 700; font-size: 15px; }
+.field input, .field select, .field textarea { font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); width: 100%; }
+.field textarea { resize: vertical; }
+.field select option { color: #111; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
+.row .btn { flex: 1 1 160px; }
+.note { color: var(--muted); font-size: 14px; }
+section { margin: 26px 0; }
+section ul { padding-left: 20px; }
+section li { margin-bottom: 8px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.15); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+.hidden { display: none !important; }
