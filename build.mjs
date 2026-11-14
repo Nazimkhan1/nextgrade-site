@@ -22,6 +22,8 @@ const ADSENSE = 'ca-pub-4135041725422483';
 const CONTACT = 'contact@nextgrade.in';
 const OUT = 'docs';
 const TODAY = new Date().toISOString().slice(0, 10);
+// Cache-busting: every build gets a new ?v= on CSS/JS, so browsers never mix new HTML with an old stylesheet.
+const V = Date.now().toString(36);
 
 const ALL_LANGS = [
   { code: 'hi', prefix: '', html: 'hi', hreflang: 'hi', game: 'hi' },
@@ -124,7 +126,7 @@ ${alternates}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?${fonts}" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/style.css?v=${V}">
 <meta name="google-adsense-account" content="${ADSENSE}">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE}" crossorigin="anonymous"></script>
 ${ld}
@@ -143,8 +145,8 @@ ${body}
 <a href="${P(L, '/about/')}">${esc(T.about.title)}</a><a href="${P(L, '/contact/')}">${esc(T.contact.title)}</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="/sitemap.xml">Sitemap</a>
 </nav>
 </div></footer>
-<script src="/assets/site.js" defer></script>
-${scripts.map((s) => `<script src="${s}" defer></script>`).join('\n')}
+<script src="/assets/site.js?v=${V}" defer></script>
+${scripts.map((s) => `<script src="${s}?v=${V}" defer></script>`).join('\n')}
 </body>
 </html>
 `;

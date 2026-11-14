@@ -42,7 +42,9 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 - [x] Name share on every wish and festival page: `?from=<name>` banner + "अपना विश बनाएं" box (WhatsApp / copy link) in `src/assets/site.js`.
 - [x] Guru Nanak Jayanti guide added (13 festivals now). Site: 27 pages.
 - [x] Christmas game in 4 languages (Hinglish, हिंदी, English, বাংলা) with a language menu; live at https://christmas.nextgrade.in
-- [ ] **User wants every app/site in English, Hinglish, Hindi and Bengali.** nextgrade.in pages are still Hindi with English summaries/wishes → plan language versions (e.g. `/en/`, `/bn/`, `/hinglish/` with hreflang) or a switch; do this before/with the next content batch.
+- [x] **Whole site in 4 languages (14 Nov):** Hindi at `/`, English `/en/`, Hinglish `/hinglish/`, বাংলা `/bn/` (104 pages). Content: Hindi in `src/festivals.mjs` + `src/wishes.mjs`; others in `src/i18n/<lang>.mjs` (same slugs); all interface text in `src/i18n/ui.mjs`. hreflang + x-default on every page, 🌐 language dropdown in the header, per-language card data `assets/cards.<lang>.js`. Bengali pages add Bengal customs (Dol, Kali Puja, Poush Sankranti, Saraswati Puja, Park Street, Tagore's 1905 Rakhi). Policy pages stay one version (English + Hindi summary).
+- **Adding a festival/wish now = 4 entries** (Hindi file + en/hinglish/bn). A language whose file lacks the slug will crash the build — add all four together.
+- CSS/JS links carry `?v=<build id>` so browsers never mix new HTML with an old stylesheet.
 
 ## Older notes (14 Nov morning plan, now done)
 
