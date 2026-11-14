@@ -232,6 +232,11 @@ const storyCard = (L) => (st) => {
 
 // Animated name wishes (standalone pages in src/static/celebrate/<slug>/). [title, card text, button text]
 const CELEBRATE = [
+  { slug: 'birthday', emoji: '🎂', wish: 'birthday',
+    hi: ['जन्मदिन मुबारक — मोमबत्तियों वाला एनिमेटेड विश', 'गुब्बारे, झंडियाँ और मोमबत्तियों वाला केक जो फूँक से बुझता है — अपनों के नाम की बधाई आवाज़ के साथ WhatsApp पर भेजो।', '🎂 नाम के साथ एनिमेटेड जन्मदिन विश भेजो'],
+    en: ['Happy Birthday — animated wish with candles', 'Balloons, bunting and a cake whose candles blow out — send a greeting with their name, read aloud, on WhatsApp.', '🎂 Send an animated birthday wish with a name'],
+    hinglish: ['Happy Birthday — mombattiyon wala animated wish', 'Gubbare, jhandiyan aur mombattiyon wala cake jo phoonk se bujhta hai — apnon ke naam ki badhaai awaaz ke saath WhatsApp pe bhejo.', '🎂 Naam ke saath animated birthday wish bhejo'],
+    bn: ['শুভ জন্মদিন — মোমবাতির অ্যানিমেটেড উইশ', 'বেলুন, পতাকার মালা আর মোমবাতি দেওয়া কেক যা ফুঁয়ে নিভে যায় — প্রিয়জনের নামে শুভেচ্ছা, পড়ে শোনানো সহ WhatsApp-এ পাঠাও।', '🎂 নাম দিয়ে অ্যানিমেটেড জন্মদিনের উইশ পাঠাও'] },
   { slug: 'chhath-puja', emoji: '🌅', festival: 'chhath-puja',
     hi: ['छठ पूजा की शुभकामनाएँ — नाम वाला एनिमेटेड विश', 'घाट पर सूरज, अर्घ्य देते व्रती, तैरते दीये और कोसी — अपनों के नाम की बधाई आवाज़ के साथ WhatsApp पर भेजो।', '🌅 नाम के साथ एनिमेटेड छठ बधाई भेजो'],
     en: ['Happy Chhath Puja — animated wish with name', 'The sun over the ghat, vratis offering arghya, floating diyas and a kosi — send a greeting with their name, read aloud, on WhatsApp.', '🌅 Send an animated Chhath wish with a name'],

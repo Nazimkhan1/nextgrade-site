@@ -44,7 +44,9 @@ Site: **~162 pages**, all in 4 languages. Everything below is live (pushed to ma
 
 - [x] **Read-aloud fix everywhere (14 Nov):** user's Chrome stayed silent in Hindi (Hinglish/en-IN fine). New shared `src/assets/voice.js` (`NGVoice.play(pieces, {lang, rate, onState, onVoice, onFail})`): sentence by sentence, watchdog per sentence (no start in 2.6 s / ends at once = silent → next voice), order = remembered good voice → on-device → online → lang-only; remembers good/bad voice in localStorage `ng-voice-<lang>` / `ng-voice-bad-<lang>`. Used by stories (status line shows `🔊 <voice>` or the failure report), all engine wishes (engine v5 + voice.js), Jumma, morning-exercise (sw v5) and zumba (sw v2).
 
-**Next (date order)** — 🌙 Shab-e-Miraj page (~5 Jan) → 🔥 Lohri / 🪁 Sankranti animated → 🌙 Shab-e-Barat (~23 Jan) → 🇮🇳 Republic Day → Ramzan series, Eidi lifafa + game, Eid animated (Feb–Mar) → 🎂 Birthday animated, Bachpan "Yaad hai?", more stories (Vikram-Betaal, dadi-nani). Optional: move Shaadi/Jumma onto the engine; Cloudflare Web Analytics (needs user's token).
+- [x] **Birthday animated wish `/celebrate/birthday/` (14 Nov)** — bunting, floating balloons, two-tier cake whose 5 candles blow out ~4 s after opening (smoke) then a confetti burst and new balloons rise; 5 messages × 4 languages; card on Home/Wishes, button on /wishes/birthday/, links to the birthday card maker. No sound except the Listen button.
+
+**Next (date order)** — 🌙 Shab-e-Miraj page (~5 Jan) → 🔥 Lohri / 🪁 Sankranti animated → 🌙 Shab-e-Barat (~23 Jan) → 🇮🇳 Republic Day → Ramzan series, Eidi lifafa + game, Eid animated (Feb–Mar) → Bachpan "Yaad hai?", more stories (Vikram-Betaal, dadi-nani). Optional: move Shaadi/Jumma onto the engine; Cloudflare Web Analytics (needs user's token).
 
 ---
 
