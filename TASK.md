@@ -69,6 +69,11 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 ---
 
+## Planned (user idea, 14 Nov): animated "Shaadi Mubarak" wish — ON HOLD until the agreed points are done
+- Draft ready (not published): `drafts/shaadi-mubarak/index.html` → when resuming, move to `src/static/celebrate/shaadi-mubarak/`, add a card on Home + Wishes, sitemap.
+- What it does: link with `?to=&with=&from=&m=&lang=`; opens on a 💌 envelope "X ki taraf se khaas paigaam" → tap → fireworks, ground crackers, falling flowers, an ORIGINAL dhol + shehnai-like tune made with WebAudio (no film songs — copyright), names + message; "Apna wish banao" form → WhatsApp. 4 languages. Names only in the link.
+- Same pattern can later cover: birthday, anniversary, Eid, Diwali animated wishes.
+
 ## Next: content to build (from MY-PLANS, in priority order)
 
 ### 1. All-year wishes (daily traffic) under `/wishes/`
@@ -91,7 +96,9 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 - [ ] Bedtime stories for kids (searched every night)
 - ⚠️ No copying from books or other websites; modern authors' stories are copyrighted
 
-### 4. Islamic pages (see `MY-PLANS/festival-wishes/ISLAMIC-CALENDAR.md`)
+### 4. Islamic pages (see `MY-PLANS/festival-wishes/ISLAMIC-CALENDAR.md`) — [x] calendar + Rajab live (14 Nov)
+- Done: `/islamic-calendar/` in 4 languages (`src/islamic.mjs` + `assets/islamic.js`): today's Hijri date in the browser (Intl Umm al-Qura; note that India is often a day behind), meaning of this month, table of 12 months (Arabic + meaning + special days), 8 old facts, upcoming dates table (**update each year**), links to Jumma/Rajab/Eid. Card on Home + Wishes. Rajab Mubarak wish page (`wishes.mjs` + en/hinglish/bn).
+- Next: Shab-e-Miraj, Shab-e-Barat wish pages (before ~5 Jan / ~23 Jan), Ramzan series before ~8 Feb, Eidi lifafa + game before Eid (~9-10 Mar).
 - [ ] Rajab, Shab-e-Miraj, Shab-e-Barat, Ramzan series, Eid ul-Adha, Islamic New Year, "Aaj ki Islami tareekh"
 - Write carefully from authentic sources, in a respectful tone. Dates depend on moon sighting.
 

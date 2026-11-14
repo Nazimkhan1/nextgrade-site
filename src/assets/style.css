@@ -157,3 +157,16 @@ body.night .ad { display: none; }
 
 /* The hidden attribute always wins over .btn display rules */
 [hidden] { display: none !important; }
+
+/* Islamic calendar */
+.hijri-today { background: linear-gradient(135deg, #1864ab, #087f5b); color: #fff; border-radius: var(--radius); padding: 20px; margin: 18px 0 10px; text-align: center; }
+.hijri-label { display: block; font-size: 14px; opacity: 0.85; font-weight: 600; }
+.hijri-date { display: block; font-size: clamp(26px, 6vw, 38px); line-height: 1.2; margin: 6px 0; }
+.hijri-greg { display: block; opacity: 0.9; font-size: 15px; }
+.hijri-meaning { margin: 12px 0 0; font-size: 16px; }
+.table-wrap { overflow-x: auto; }
+table.months { width: 100%; border-collapse: collapse; font-size: 15px; background: var(--surface); border-radius: 12px; overflow: hidden; }
+table.months th, table.months td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+table.months th { background: var(--soft); font-size: 13px; }
+table.months td[lang="ar"] { text-align: right; font-size: 18px; white-space: nowrap; }
+.facts-list li { margin-bottom: 10px; }

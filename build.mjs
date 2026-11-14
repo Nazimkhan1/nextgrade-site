@@ -15,6 +15,7 @@ import { apps } from './src/apps.mjs';
 import { wishes } from './src/wishes.mjs';
 import { games } from './src/games.mjs';
 import { stories } from './src/stories.mjs';
+import * as islamic from './src/islamic.mjs';
 import { ui } from './src/i18n/ui.mjs';
 
 const SITE = 'https://nextgrade.in';
@@ -223,6 +224,12 @@ const storyCard = (L) => (st) => {
 </a>`;
 };
 
+const islamicCard = (L) => `<a class="card" href="${P(L, '/islamic-calendar/')}">
+<span class="emoji" aria-hidden="true">📅</span>
+<h3>${esc(islamic.text[L.code].h1.replace('🌙 ', ''))}</h3>
+<p>${esc(firstSentence(islamic.text[L.code].lead))}</p>
+</a>`;
+
 const gameCard = (L) => (g) => {
   const x = lgame(g, L);
   return `<a class="card" href="/games/${g.slug}/?lang=${L.game}">
@@ -277,7 +284,7 @@ LANGS.forEach((L) => {
 <div class="btns"><a class="btn btn-primary" href="${P(L, '/wish-card/')}">${esc(T.home.btnCard)}</a><a class="btn btn-ghost" href="${P(L, '/festivals/')}">${esc(T.home.btnFestivals)}</a></div>
 </section>
 <section><h2>${esc(T.stories.h1)}</h2><div class="grid">${stories.slice(0, 3).map(storyCard(L)).join('')}</div><p><a href="${P(L, '/kahani/')}">${esc(T.stories.all)} →</a></p></section>
-<section><h2>${esc(T.home.secWishes)}</h2><div class="grid">${wishes.map(wishCard(L)).join('')}</div></section>
+<section><h2>${esc(T.home.secWishes)}</h2><div class="grid">${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div></section>
 <section><h2>${esc(T.home.secUpcoming)}</h2><div class="grid">${upcoming().slice(0, 6).map(festivalCard(L)).join('')}</div></section>
 <section><h2>${esc(T.home.secGames)}</h2><div class="grid">${games.map(gameCard(L)).join('')}</div></section>
 <section><h2>${esc(T.home.secApps)}</h2><div class="grid">${apps.map(appCard(L)).join('')}</div></section>
@@ -359,7 +366,7 @@ ${faqBlock(x.faq)}
 <p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(T.nav.wishes)}</p>
 <h1>${esc(T.wishIndex.h1)}</h1>
 <p class="lead">${esc(T.wishIndex.lead)}</p>
-<div class="grid">${wishes.map(wishCard(L)).join('')}</div>
+<div class="grid">${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div>
 <h2>${esc(T.wishIndex.festH)}</h2>
 <p>${T.wishIndex.festP(P(L, '/festivals/'))}</p>
 </div>`,
@@ -403,6 +410,46 @@ ${faqBlock(x.faq)}
       }),
     );
   });
+
+  // Islamic calendar: today's Hijri date (worked out in the browser) + the 12 months, facts and upcoming dates
+  const I = islamic.text[L.code];
+  const monthData = islamic.months.map((m) => ({ name: m[L.code], meaning: m.meaning[L.code] }));
+  write(
+    L,
+    '/islamic-calendar/',
+    page(L, {
+      path: '/islamic-calendar/',
+      title: I.title,
+      description: I.desc,
+      jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [I.h1.replace('🌙 ', ''), '/islamic-calendar/']]), articleLd(L, I.h1.replace('🌙 ', ''), '/islamic-calendar/')],
+      scripts: ['/assets/islamic.js'],
+      body: `<article class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(I.h1.replace('🌙 ', ''))}</p>
+<h1>${esc(I.h1)}</h1>
+<p class="lead">${esc(I.lead)}</p>
+<div class="hijri-today" id="hijriToday" data-months="${esc(JSON.stringify(monthData))}" data-ah="${esc(I.ah)}" data-locale="${L.html === 'hi-Latn' ? 'en-IN' : L.html}">
+<span class="hijri-label">${esc(I.todayLabel)}</span>
+<strong class="hijri-date" id="hijriDate">—</strong>
+<span class="hijri-greg" id="gregDate"></span>
+<p class="hijri-meaning"><b>${esc(I.thisMonth)}:</b> <span id="hijriMeaning"></span></p>
+</div>
+<p class="note">${esc(I.approx)}</p>
+<div class="ad" aria-hidden="true"></div>
+<h2>${esc(I.monthsH)}</h2>
+<div class="table-wrap"><table class="months">
+<thead><tr>${I.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead>
+<tbody>${islamic.months.map((m) => `<tr><td>${m.n}</td><td><b>${esc(m[L.code])}</b></td><td lang="ar" dir="rtl">${m.ar}</td><td>${esc(m.meaning[L.code])}</td><td>${esc(m.days[L.code])}</td></tr>`).join('')}</tbody>
+</table></div>
+<h2>${esc(I.factsH)}</h2>
+<ol class="facts-list">${islamic.facts[L.code].map((f) => `<li>${esc(f)}</li>`).join('')}</ol>
+<h2>${esc(I.upcomingH)}</h2>
+<div class="table-wrap"><table class="months"><tbody>${islamic.upcoming.map((u) => `<tr><td>${esc(u[L.code])}</td><td><b>${esc(u.date[L.code])}</b></td></tr>`).join('')}</tbody></table></div>
+<p class="note">${esc(I.upcomingNote)}</p>
+<h2>${esc(I.linksH)}</h2>
+<div class="btns"><a class="btn btn-primary" href="${P(L, '/wishes/jumma-mubarak/')}">🕌 ${esc(I.jumma)}</a><a class="btn btn-ghost" href="${P(L, '/wishes/rajab-mubarak/')}">🌙 ${esc(I.rajab)}</a><a class="btn btn-ghost" href="${P(L, '/festivals/eid-ul-fitr/')}">${esc(I.eid)}</a></div>
+</article>`,
+    }),
+  );
 
   // Stories index + story pages
   const S = T.stories;

@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shaadi Mubarak 💍 — Animated Wedding Wish with Fireworks | NextGrade</title>
+<meta name="description" content="Make an animated Shaadi Mubarak wish for your friend: their name, fireworks, crackers, a band-baaja tune and falling flowers. Send it on WhatsApp — free, in Hinglish, Hindi, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/celebrate/shaadi-mubarak/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="💍 Shaadi Mubarak! Aapke liye ek khaas paigaam hai 💌">
+<meta property="og:description" content="Tap karke kholo — fireworks, band-baaja aur dher saari shubhkamnayein!">
+<meta property="og:url" content="https://nextgrade.in/celebrate/shaadi-mubarak/">
+<meta name="theme-color" content="#7a0a2a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<style>
+:root { --bg: #3d0516; --ink: #fff8f0; --muted: #f3d9c7; --gold: #ffd43b; --rose: #f06595; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1100px 600px at 50% -10%, #9c1a3f, var(--bg) 65%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.2); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+.show { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.45); background: #12020a; user-select: none; -webkit-user-select: none; }
+canvas { display: block; width: 100%; height: min(78vh, 680px); }
+.message { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; pointer-events: none; }
+.message .ring { font-size: 54px; line-height: 1; margin-bottom: 6px; animation: pop 1s ease both; }
+.message h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(34px, 9vw, 60px); line-height: 1.05; margin: 0; color: var(--gold); text-shadow: 0 3px 18px rgba(0,0,0,0.6); animation: pop 1s 0.2s ease both; }
+.message .names { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(26px, 7vw, 44px); font-weight: 800; margin: 8px 0 6px; text-shadow: 0 3px 14px rgba(0,0,0,0.7); animation: pop 1s 0.45s ease both; }
+.message .text { max-width: 520px; font-size: clamp(16px, 4vw, 20px); color: #fff3e6; text-shadow: 0 2px 10px rgba(0,0,0,0.8); animation: fade 1.2s 0.8s ease both; }
+.message .from { margin-top: 12px; font-weight: 700; color: var(--gold); font-size: 18px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); animation: fade 1.2s 1.1s ease both; }
+:lang(bn) .message h1, :lang(bn) .message .names, :lang(bn) h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+@keyframes pop { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: scale(1); } }
+@keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.gate { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px; background: radial-gradient(circle at 50% 40%, #a51d48, #3d0516); cursor: pointer; padding: 20px; }
+.gate .env { font-size: 96px; animation: bob 1.6s ease-in-out infinite; }
+.gate p { margin: 0; font-size: 20px; font-weight: 700; }
+.gate small { color: var(--muted); font-size: 15px; }
+@keyframes bob { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-10px) rotate(4deg); } }
+.controls { display: flex; gap: 8px; justify-content: center; margin: 12px 0; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 16px; cursor: pointer; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #f06595, #ff922b); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.35); }
+.maker { background: var(--card); border: 1px solid rgba(255,255,255,0.15); border-radius: 18px; padding: 18px; margin: 22px 0; }
+.maker h2, section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 8px; font-size: 24px; }
+.field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+.field label { font-weight: 700; font-size: 15px; }
+.field input, .field select { font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); width: 100%; }
+.field select option { color: #111; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
+.row .btn { flex: 1 1 160px; }
+.note { color: var(--muted); font-size: 14px; }
+section { margin: 26px 0; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.15); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">💍 NextGrade<small>Shaadi Mubarak</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <div class="show" id="show">
+    <canvas id="sky" aria-hidden="true"></canvas>
+    <div class="message hidden" id="message" aria-live="polite">
+      <div class="ring">💍</div>
+      <h1 id="title"></h1>
+      <div class="names" id="names"></div>
+      <div class="text" id="text"></div>
+      <div class="from" id="from"></div>
+    </div>
+    <div class="gate" id="gate" role="button" tabindex="0">
+      <div class="env">💌</div>
+      <p id="gateTitle"></p>
+      <small id="gateTap"></small>
+    </div>
+  </div>
+  <div class="controls">
+    <button class="btn btn-ghost" type="button" id="replay"></button>
+    <a class="btn btn-main" href="#make" id="makeOwn"></a>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <div class="maker" id="make">
+    <h2 id="makeH"></h2>
+    <p class="note" id="makeP"></p>
+    <div class="field"><label for="toName" id="toLabel"></label><input id="toName" maxlength="30"></div>
+    <div class="field"><label for="partnerName" id="partnerLabel"></label><input id="partnerName" maxlength="30"></div>
+    <div class="field"><label for="fromName" id="fromLabel"></label><input id="fromName" maxlength="30"></div>
+    <div class="field"><label for="msg" id="msgLabel"></label><select id="msg"></select></div>
+    <div class="row">
+      <button class="btn btn-wa" type="button" id="sendWa"></button>
+      <button class="btn btn-ghost" type="button" id="preview"></button>
+      <button class="btn btn-ghost" type="button" id="copyLink"></button>
+    </div>
+    <p class="note" id="makeStatus" role="status"></p>
+  </div>
+
+  <section>
+    <h2 id="aboutH"></h2>
+    <p id="aboutP1"></p>
+    <p id="aboutP2"></p>
+    <p><a id="moreWishes" href="https://nextgrade.in/wishes/"></a> · <a id="cardLink" href="https://nextgrade.in/wish-card/"></a></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const BASE = 'https://nextgrade.in/celebrate/shaadi-mubarak/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const T = {
+    hinglish: {
+      title: 'Shaadi Mubarak!', gate: (f) => (f ? `${f} ki taraf se aapke liye ek khaas paigaam hai!` : 'Aapke liye ek khaas paigaam hai!'), tap: '👆 Tap karke kholo',
+      from: (f) => `— ${f} ki taraf se 💐`, defaultTo: 'Mere Dost',
+      msgs: ['Nayi zindagi ki nayi shuruaat bahut-bahut mubarak! Aapki jodi hamesha salaamat rahe aur ghar khushiyon se bhara rahe.', 'Do dil, ek safar — Allah/Bhagwan aapki jodi ko har khushi de. Shaadi ki dher saari badhaai!', 'Band baaja, baaraat aur dher saara pyaar — dost, teri shaadi ki bahut-bahut mubarakbaad! Party pakki! 🎉'],
+      replay: '🔁 Phir se dekho', makeOwn: '✨ Apna wish banao',
+      makeH: '✨ Apne dost ke liye banao', makeP: 'Naam likho, message chuno aur link WhatsApp pe bhejo. Dost kholega to fireworks, band-baaja aur uska naam dikhega. Naam sirf link mein rehta hai, kahin save nahi hota.',
+      toLabel: 'Dost ka naam (jiski shaadi hai)', partnerLabel: 'Jeevansaathi ka naam (optional)', fromLabel: 'Aapka naam', msgLabel: 'Message', toPh: 'Jaise: Rahul', partnerPh: 'Jaise: Priya', fromPh: 'Jaise: Amit',
+      sendWa: '📲 WhatsApp pe bhejo', preview: '👀 Pehle dekho', copyLink: '🔗 Link copy', copied: '✅ Link copy ho gaya', needName: 'Pehle dost ka naam likho',
+      share: (to, f, url) => `💍 ${to} ke liye ${f ? f + ' ki taraf se ' : ''}ek khaas Shaadi Mubarak paigaam! 🎆🥁 Kholo aur dekho 👉 ${url}`,
+      aboutH: 'Shaadi ki shubhkamnayein',
+      aboutP1: 'Bharat mein shaadi sirf do logon ka nahi, do parivaaron ka milan maani jaati hai — mehendi, haldi, sangeet, baaraat aur band-baaje ke saath kai din tak jashn chalta hai. Dost ki shaadi pe ek pyaara sa message us khushi ko aur badha deta hai.',
+      aboutP2: 'Ye wish aapke phone ke browser mein hi chalta hai. Fireworks aur dhun bhi browser khud bajaata hai — koi film ka gaana nahi, koi download nahi.',
+      moreWishes: 'Aur wishes dekho', cardLink: 'Photo wala wish card banao',
+    },
+    hi: {
+      title: 'शादी मुबारक!', gate: (f) => (f ? `${f} की तरफ़ से आपके लिए एक ख़ास पैग़ाम है!` : 'आपके लिए एक ख़ास पैग़ाम है!'), tap: '👆 टैप करके खोलो',
+      from: (f) => `— ${f} की तरफ़ से 💐`, defaultTo: 'मेरे दोस्त',
+      msgs: ['नई ज़िंदगी की नई शुरुआत बहुत-बहुत मुबारक! आपकी जोड़ी हमेशा सलामत रहे और घर खुशियों से भरा रहे।', 'दो दिल, एक सफ़र — ऊपर वाला आपकी जोड़ी को हर खुशी दे। शादी की ढेर सारी बधाई!', 'बैंड बाजा, बारात और ढेर सारा प्यार — दोस्त, तेरी शादी की बहुत-बहुत मुबारकबाद! पार्टी पक्की! 🎉'],
+      replay: '🔁 फिर से देखो', makeOwn: '✨ अपना विश बनाओ',
+      makeH: '✨ अपने दोस्त के लिए बनाओ', makeP: 'नाम लिखो, संदेश चुनो और लिंक WhatsApp पर भेजो। दोस्त खोलेगा तो आतिशबाज़ी, बैंड-बाजा और उसका नाम दिखेगा। नाम सिर्फ़ लिंक में रहता है, कहीं सेव नहीं होता।',
+      toLabel: 'दोस्त का नाम (जिसकी शादी है)', partnerLabel: 'जीवनसाथी का नाम (वैकल्पिक)', fromLabel: 'आपका नाम', msgLabel: 'संदेश', toPh: 'जैसे: राहुल', partnerPh: 'जैसे: प्रिया', fromPh: 'जैसे: अमित',
+      sendWa: '📲 WhatsApp पर भेजो', preview: '👀 पहले देखो', copyLink: '🔗 लिंक कॉपी', copied: '✅ लिंक कॉपी हो गया', needName: 'पहले दोस्त का नाम लिखो',
+      share: (to, f, url) => `💍 ${to} के लिए ${f ? f + ' की तरफ़ से ' : ''}एक ख़ास शादी मुबारक पैग़ाम! 🎆🥁 खोलो और देखो 👉 ${url}`,
+      aboutH: 'शादी की शुभकामनाएँ',
+      aboutP1: 'भारत में शादी सिर्फ़ दो लोगों का नहीं, दो परिवारों का मिलन मानी जाती है — मेहंदी, हल्दी, संगीत, बारात और बैंड-बाजे के साथ कई दिन तक जश्न चलता है। दोस्त की शादी पर एक प्यारा-सा संदेश उस खुशी को और बढ़ा देता है।',
+      aboutP2: 'यह विश आपके फ़ोन के ब्राउज़र में ही चलता है। आतिशबाज़ी और धुन भी ब्राउज़र खुद बजाता है — कोई फ़िल्मी गाना नहीं, कोई डाउनलोड नहीं।',
+      moreWishes: 'और शुभकामनाएँ देखो', cardLink: 'विश कार्ड बनाओ',
+    },
+    en: {
+      title: 'Happy Wedding!', gate: (f) => (f ? `${f} has sent you a special message!` : 'A special message for you!'), tap: '👆 Tap to open',
+      from: (f) => `— with love from ${f} 💐`, defaultTo: 'My Friend',
+      msgs: ['Congratulations on the beginning of your new life together! May you always stay together and may your home be full of happiness.', 'Two hearts, one journey — may God bless you both with every joy. Many congratulations on your wedding!', 'Band, baaraat and loads of love — congratulations on your wedding, my friend! The party is on! 🎉'],
+      replay: '🔁 Watch again', makeOwn: '✨ Make your own',
+      makeH: '✨ Make one for your friend', makeP: 'Type the names, pick a message and send the link on WhatsApp. When your friend opens it, they see fireworks, a band-baaja tune and their own name. Names stay only in the link — nothing is saved.',
+      toLabel: 'Friend\'s name (the one getting married)', partnerLabel: 'Partner\'s name (optional)', fromLabel: 'Your name', msgLabel: 'Message', toPh: 'e.g. Rahul', partnerPh: 'e.g. Priya', fromPh: 'e.g. Amit',
+      sendWa: '📲 Send on WhatsApp', preview: '👀 Preview', copyLink: '🔗 Copy link', copied: '✅ Link copied', needName: 'Type your friend\'s name first',
+      share: (to, f, url) => `💍 A special wedding wish for ${to}${f ? ' from ' + f : ''}! 🎆🥁 Open it 👉 ${url}`,
+      aboutH: 'Wedding wishes',
+      aboutP1: 'In India a wedding is the coming together of two families, not just two people — mehendi, haldi, sangeet, the baaraat and the band go on for days. A warm message on a friend\'s wedding adds to that joy.',
+      aboutP2: 'This wish runs inside your phone\'s browser. The fireworks and the tune are made by the browser itself — no film songs, nothing to download.',
+      moreWishes: 'More wishes', cardLink: 'Make a wish card',
+    },
+    bn: {
+      title: 'শুভ বিবাহ!', gate: (f) => (f ? `${f}-এর পক্ষ থেকে তোমার জন্য একটা বিশেষ বার্তা!` : 'তোমার জন্য একটা বিশেষ বার্তা!'), tap: '👆 ট্যাপ করে খোলো',
+      from: (f) => `— ${f}-এর পক্ষ থেকে 💐`, defaultTo: 'আমার বন্ধু',
+      msgs: ['নতুন জীবনের নতুন শুরুর অনেক অনেক শুভেচ্ছা! তোমাদের জুটি চিরকাল অটুট থাকুক আর ঘর আনন্দে ভরে উঠুক।', 'দুটি মন, একটি পথ — ঈশ্বর তোমাদের জুটিকে সব সুখ দিন। বিয়ের অনেক শুভেচ্ছা!', 'ব্যান্ড, বরযাত্রী আর অনেক ভালোবাসা — বন্ধু, তোর বিয়ের অনেক অনেক শুভেচ্ছা! ভোজ কিন্তু পাক্কা! 🎉'],
+      replay: '🔁 আবার দেখো', makeOwn: '✨ নিজের উইশ বানাও',
+      makeH: '✨ বন্ধুর জন্য বানাও', makeP: 'নাম লেখো, বার্তা বাছো আর লিংক WhatsApp-এ পাঠাও। বন্ধু খুললেই দেখবে আতশবাজি, বাজনা আর নিজের নাম। নাম শুধু লিংকেই থাকে, কোথাও সেভ হয় না।',
+      toLabel: 'বন্ধুর নাম (যার বিয়ে)', partnerLabel: 'জীবনসঙ্গীর নাম (ঐচ্ছিক)', fromLabel: 'তোমার নাম', msgLabel: 'বার্তা', toPh: 'যেমন: রাহুল', partnerPh: 'যেমন: প্রিয়া', fromPh: 'যেমন: অমিত',
+      sendWa: '📲 WhatsApp-এ পাঠাও', preview: '👀 আগে দেখো', copyLink: '🔗 লিংক কপি', copied: '✅ লিংক কপি হয়েছে', needName: 'আগে বন্ধুর নাম লেখো',
+      share: (to, f, url) => `💍 ${to}-এর জন্য ${f ? f + '-এর পক্ষ থেকে ' : ''}একটা বিশেষ বিয়ের শুভেচ্ছা! 🎆🥁 খুলে দেখো 👉 ${url}`,
+      aboutH: 'বিয়ের শুভেচ্ছা',
+      aboutP1: 'ভারতে বিয়ে শুধু দুজন মানুষের নয়, দুটি পরিবারের মিলন — মেহেন্দি, গায়েহলুদ, সংগীত, বরযাত্রী আর বাজনা নিয়ে কয়েক দিন ধরে উৎসব চলে। বন্ধুর বিয়েতে একটা মিষ্টি বার্তা সেই আনন্দ আরও বাড়িয়ে দেয়।',
+      aboutP2: 'এই উইশ তোমার ফোনের ব্রাউজারেই চলে। আতশবাজি আর সুরও ব্রাউজার নিজেই বাজায় — কোনো সিনেমার গান নয়, কিছু ডাউনলোডও নয়।',
+      moreWishes: 'আরও শুভেচ্ছা', cardLink: 'উইশ কার্ড বানাও',
+    },
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const urlLang = params.get('lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(store.get('sm-lang')) ? store.get('sm-lang') : deviceLang();
+  const t = (k) => T[lang][k];
+  const clean = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+
+  // What is shown: from the link, or a demo for someone who just opened the page.
+  let wish = { to: clean(params.get('to')), partner: clean(params.get('with')), from: clean(params.get('from')), m: Math.max(0, Math.min(2, parseInt(params.get('m'), 10) || 0)) };
+
+  const render = () => {
+    $('title').textContent = t('title');
+    $('names').textContent = wish.partner ? `${wish.to || t('defaultTo')} & ${wish.partner}` : wish.to || t('defaultTo');
+    $('text').textContent = t('msgs')[wish.m];
+    $('from').textContent = wish.from ? t('from')(wish.from) : '';
+  };
+
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    $('lang').value = lang;
+    $('gateTitle').textContent = t('gate')(wish.from);
+    $('gateTap').textContent = t('tap');
+    ['replay', 'makeOwn', 'makeH', 'makeP', 'toLabel', 'partnerLabel', 'fromLabel', 'msgLabel', 'sendWa', 'preview', 'copyLink', 'aboutH', 'aboutP1', 'aboutP2', 'moreWishes', 'cardLink'].forEach((id) => { $(id).textContent = t(id); });
+    $('toName').placeholder = t('toPh'); $('partnerName').placeholder = t('partnerPh'); $('fromName').placeholder = t('fromPh');
+    const sel = $('msg'); const keep = sel.value;
+    sel.innerHTML = '';
+    t('msgs').forEach((m, i) => sel.add(new Option(m.length > 60 ? `${m.slice(0, 60)}…` : m, String(i))));
+    sel.value = keep || '0';
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`; $('moreWishes').href = `https://nextgrade.in${p}/wishes/`; $('cardLink').href = `https://nextgrade.in${p}/wish-card/`;
+    render();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('sm-lang', lang); applyLang(); });
+  $('year').textContent = new Date().getFullYear();
+  $('fromName').value = store.get('sm-from') || '';
+
+  // ---- sound: an original dhol beat + a shehnai-like tune made in the browser (no recordings)
+  let muted = store.get('sm-muted') === '1';
+  let audio = null, master = null, musicTimer = null;
+  const setMute = () => { $('mute').textContent = muted ? '🔇' : '🔊'; if (master) master.gain.value = muted ? 0 : 0.9; };
+  setMute();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('sm-muted', muted ? '1' : '0'); setMute(); });
+  const ctxA = () => {
+    try {
+      if (!audio) { audio = new (window.AudioContext || window.webkitAudioContext)(); master = audio.createGain(); master.gain.value = muted ? 0 : 0.9; master.connect(audio.destination); }
+      if (audio.state === 'suspended') audio.resume();
+      return audio;
+    } catch (e) { return null; }
+  };
+  const noise = (a, dur) => {
+    const buf = a.createBuffer(1, Math.floor(a.sampleRate * dur), a.sampleRate);
+    const d = buf.getChannelData(0);
+    for (let i = 0; i < d.length; i += 1) d[i] = Math.random() * 2 - 1;
+    const src = a.createBufferSource(); src.buffer = buf; return src;
+  };
+  const dhol = (a, time, low) => {
+    const o = a.createOscillator(); const g = a.createGain();
+    o.frequency.setValueAtTime(low ? 95 : 190, time); o.frequency.exponentialRampToValueAtTime(low ? 45 : 120, time + 0.18);
+    g.gain.setValueAtTime(low ? 0.9 : 0.45, time); g.gain.exponentialRampToValueAtTime(0.001, time + (low ? 0.35 : 0.15));
+    o.connect(g).connect(master); o.start(time); o.stop(time + 0.4);
+    const n = noise(a, 0.08); const f = a.createBiquadFilter(); const ng = a.createGain();
+    f.type = 'bandpass'; f.frequency.value = low ? 900 : 2600; ng.gain.setValueAtTime(0.25, time); ng.gain.exponentialRampToValueAtTime(0.001, time + 0.08);
+    n.connect(f).connect(ng).connect(master); n.start(time);
+  };
+  const reed = (a, time, freq, dur) => {
+    const o = a.createOscillator(); const o2 = a.createOscillator(); const f = a.createBiquadFilter(); const g = a.createGain(); const vib = a.createOscillator(); const vg = a.createGain();
+    o.type = 'sawtooth'; o2.type = 'square'; o.frequency.value = freq; o2.frequency.value = freq * 1.003;
+    vib.frequency.value = 5.5; vg.gain.value = freq * 0.012; vib.connect(vg); vg.connect(o.frequency); vg.connect(o2.frequency);
+    f.type = 'lowpass'; f.frequency.value = 1800; f.Q.value = 3;
+    g.gain.setValueAtTime(0.0001, time); g.gain.exponentialRampToValueAtTime(0.11, time + 0.04); g.gain.setValueAtTime(0.11, time + dur - 0.06); g.gain.exponentialRampToValueAtTime(0.0001, time + dur);
+    o.connect(f); o2.connect(f); f.connect(g).connect(master);
+    [o, o2, vib].forEach((x) => { x.start(time); x.stop(time + dur + 0.05); });
+  };
+  // Original tune (our own notes): a bright 8-bar phrase in a raga-like scale.
+  const NOTE = (n) => 293.66 * 2 ** (n / 12); // n semitones above D4
+  const TUNE = [[7, 1], [9, 0.5], [11, 0.5], [12, 1], [11, 0.5], [9, 0.5], [7, 1], [4, 1], [5, 0.5], [7, 0.5], [9, 1], [7, 0.5], [5, 0.5], [4, 2], [12, 1], [14, 0.5], [12, 0.5], [11, 1], [9, 1], [7, 0.5], [9, 0.5], [11, 0.5], [9, 0.5], [7, 2], [4, 1], [5, 0.5], [7, 0.5], [9, 1], [11, 1], [12, 3], [-1, 1]];
+  const startMusic = () => {
+    const a = ctxA(); if (!a) return;
+    stopMusic();
+    const beat = 0.3;
+    let t0 = a.currentTime + 0.1;
+    const scheduleBar = () => {
+      // one loop of the tune, with dhol under it
+      let t1 = t0;
+      TUNE.forEach(([n, len]) => { if (n >= 0) reed(a, t1, NOTE(n), len * beat * 1.9); t1 += len * beat * 2; });
+      for (let k = 0, x = t0; x < t1; k += 1, x += beat) dhol(a, x, k % 4 === 0 || k % 4 === 3);
+      t0 = t1;
+      musicTimer = setTimeout(scheduleBar, (t1 - a.currentTime - 1) * 1000);
+    };
+    scheduleBar();
+  };
+  const stopMusic = () => { clearTimeout(musicTimer); musicTimer = null; };
+  const cracker = (a, time) => {
+    const n = noise(a, 0.12); const g = a.createGain(); const f = a.createBiquadFilter();
+    f.type = 'highpass'; f.frequency.value = 600; g.gain.setValueAtTime(0.5, time); g.gain.exponentialRampToValueAtTime(0.001, time + 0.12);
+    n.connect(f).connect(g).connect(master); n.start(time);
+  };
+  const boom = (a) => {
+    const n = noise(a, 0.6); const g = a.createGain(); const f = a.createBiquadFilter();
+    f.type = 'lowpass'; f.frequency.value = 700; g.gain.setValueAtTime(0.6, a.currentTime); g.gain.exponentialRampToValueAtTime(0.001, a.currentTime + 0.6);
+    n.connect(f).connect(g).connect(master); n.start();
+  };
+
+  // ---- visuals: fireworks in the sky, crackers on the ground, falling flowers
+  const canvas = $('sky'); const ctx = canvas.getContext('2d');
+  let W = 0, H = 0;
+  const resize = () => { const DPR = Math.min(window.devicePixelRatio || 1, 2); const r = canvas.getBoundingClientRect(); W = r.width; H = r.height; canvas.width = Math.round(W * DPR); canvas.height = Math.round(H * DPR); ctx.setTransform(DPR, 0, 0, DPR, 0, 0); };
+  const COLORS = ['#ffd43b', '#ff6b6b', '#f783ac', '#74c0fc', '#8ce99a', '#ff922b', '#e599f7', '#ffffff'];
+  const FLOWERS = ['🌸', '🌼', '🌺', '🏵️'];
+  let rockets = [], sparks = [], petals = [], crackles = [], playing = false, last = 0, launchAcc = 0, crackAcc = 0, petalAcc = 0;
+  const launch = () => { const tx = W * (0.15 + Math.random() * 0.7); const ty = H * (0.12 + Math.random() * 0.3); rockets.push({ x: tx + (Math.random() - 0.5) * 60, y: H, tx, ty, sp: 520 + Math.random() * 180, color: COLORS[Math.floor(Math.random() * COLORS.length)] }); };
+  const burst = (x, y, color) => {
+    const n = 70 + Math.floor(Math.random() * 40); const ring = Math.random() < 0.3;
+    for (let i = 0; i < n; i += 1) { const a = (Math.PI * 2 * i) / n; const sp = ring ? 170 : 60 + Math.random() * 160; sparks.push({ x, y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp, life: 1.2 + Math.random() * 0.5, color: Math.random() < 0.15 ? '#ffffff' : color }); }
+    if (audio && !muted) boom(audio);
+  };
+  const frame = (now) => {
+    const dt = Math.min(0.05, (now - (last || now)) / 1000); last = now;
+    ctx.fillStyle = 'rgba(18, 2, 10, 0.28)'; ctx.fillRect(0, 0, W, H);
+    // little strings of lights at the top (a wedding pandal)
+    for (let i = 0; i < 24; i += 1) { const x = (i + 0.5) * (W / 24); const y = 14 + Math.sin(i * 0.9) * 6; ctx.fillStyle = ['#ffd43b', '#ff6b6b', '#8ce99a', '#74c0fc'][(i + Math.floor(now / 400)) % 4]; ctx.beginPath(); ctx.arc(x, y, 3, 0, Math.PI * 2); ctx.fill(); }
+    if (playing) {
+      launchAcc += dt; crackAcc += dt; petalAcc += dt;
+      if (launchAcc > 0.55) { launchAcc = 0; launch(); if (Math.random() < 0.35) launch(); }
+      if (crackAcc > 0.12) { crackAcc = 0; const x = Math.random() * W; for (let i = 0; i < 6; i += 1) crackles.push({ x: x + (Math.random() - 0.5) * 30, y: H - 6 - Math.random() * 18, life: 0.25 + Math.random() * 0.2, color: Math.random() < 0.5 ? '#fff3bf' : '#ffa94d' }); if (audio && !muted && Math.random() < 0.6) cracker(audio, audio.currentTime); }
+      if (petalAcc > 0.2) { petalAcc = 0; petals.push({ x: Math.random() * W, y: -20, vy: 40 + Math.random() * 50, sway: Math.random() * 6, rot: Math.random() * 6, e: FLOWERS[Math.floor(Math.random() * FLOWERS.length)], size: 16 + Math.random() * 14 }); }
+    }
+    rockets.forEach((r) => { const dx = r.tx - r.x, dy = r.ty - r.y, d = Math.hypot(dx, dy); r.x += (dx / d) * r.sp * dt; r.y += (dy / d) * r.sp * dt; ctx.fillStyle = '#ffe8cc'; ctx.beginPath(); ctx.arc(r.x, r.y, 2.5, 0, Math.PI * 2); ctx.fill(); if (d < 12) { burst(r.x, r.y, r.color); r.done = true; } });
+    rockets = rockets.filter((r) => !r.done);
+    ctx.globalCompositeOperation = 'lighter';
+    sparks.forEach((s) => { s.vy += 70 * dt; s.vx *= 0.985; s.vy *= 0.985; s.x += s.vx * dt; s.y += s.vy * dt; s.life -= dt * 0.8; ctx.globalAlpha = Math.max(0, Math.min(1, s.life)); ctx.fillStyle = s.color; ctx.beginPath(); ctx.arc(s.x, s.y, 2.2, 0, Math.PI * 2); ctx.fill(); });
+    crackles.forEach((c) => { c.life -= dt; ctx.globalAlpha = Math.max(0, c.life * 3); ctx.fillStyle = c.color; ctx.beginPath(); ctx.arc(c.x, c.y, 3 + Math.random() * 3, 0, Math.PI * 2); ctx.fill(); });
+    ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+    sparks = sparks.filter((s) => s.life > 0); crackles = crackles.filter((c) => c.life > 0);
+    petals.forEach((p) => { p.y += p.vy * dt; p.rot += dt; ctx.save(); ctx.translate(p.x + Math.sin(p.rot * 1.5 + p.sway) * 14, p.y); ctx.rotate(Math.sin(p.rot) * 0.6); ctx.font = `${p.size}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`; ctx.textAlign = 'center'; ctx.fillText(p.e, 0, 0); ctx.restore(); });
+    petals = petals.filter((p) => p.y < H + 30);
+    requestAnimationFrame(frame);
+  };
+
+  const play = () => {
+    $('gate').classList.add('hidden');
+    $('message').classList.add('hidden'); void $('message').offsetWidth; $('message').classList.remove('hidden');
+    playing = true; ctxA(); startMusic();
+    for (let i = 0; i < 5; i += 1) setTimeout(launch, i * 160);
+    if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
+  };
+  $('gate').addEventListener('click', play);
+  $('gate').addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') play(); });
+  $('replay').addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); play(); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) { stopMusic(); playing = false; } });
+
+  // ---- make your own
+  const linkFor = () => {
+    const u = new URL(BASE);
+    const to = clean($('toName').value), partner = clean($('partnerName').value), from = clean($('fromName').value);
+    if (to) u.searchParams.set('to', to);
+    if (partner) u.searchParams.set('with', partner);
+    if (from) u.searchParams.set('from', from);
+    u.searchParams.set('m', $('msg').value || '0');
+    u.searchParams.set('lang', lang);
+    return { url: u.toString(), to: partner ? `${to} & ${partner}` : to, from };
+  };
+  const need = () => { if (clean($('toName').value)) return true; $('makeStatus').textContent = t('needName'); $('toName').focus(); return false; };
+  $('sendWa').addEventListener('click', () => { if (!need()) return; store.set('sm-from', clean($('fromName').value)); const l = linkFor(); window.open(`https://wa.me/?text=${encodeURIComponent(t('share')(l.to, l.from, l.url))}`, '_blank', 'noopener'); });
+  $('copyLink').addEventListener('click', () => { if (!need()) return; const l = linkFor(); (navigator.clipboard ? navigator.clipboard.writeText(l.url) : Promise.reject()).then(() => { $('makeStatus').textContent = t('copied'); }).catch(() => window.prompt(t('copyLink'), l.url)); });
+  $('preview').addEventListener('click', () => {
+    if (!need()) return;
+    wish = { to: clean($('toName').value), partner: clean($('partnerName').value), from: clean($('fromName').value), m: Number($('msg').value) || 0 };
+    render(); window.scrollTo({ top: 0, behavior: 'smooth' }); play();
+  });
+
+  applyLang();
+  resize();
+  window.addEventListener('resize', resize);
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

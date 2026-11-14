@@ -355,6 +355,28 @@ const wishes = {
       { q: 'Saalgirah aur varshgaanth mein kya farq hai?', a: 'Dono ka matlab ek hi hai — kisi khaas din ka har saal laut kar aana. Aam bolchaal mein shaadi ke liye "saalgirah" zyada kaha jaata hai.' },
     ],
   },
+  'rajab-mubarak': {
+    name: 'Rajab Mubarak',
+    greet: 'Rajab ka mubarak mahina',
+    intro: 'Rajab Islami calendar ka saatvaan mahina hai aur chaar hurmat wale (pavitra) mahinon mein se ek. Rajab ka chaand dikhte hi bahut se log ek-doosre ko "Rajab Mubarak" keh kar duaayein dete hain, kyunki iske baad Shaban aur phir Ramzan aata hai.',
+    about: [
+      'Quran (Surah Tauba 9:36) mein bataaya gaya hai ki Allah ke yahan saal mein baarah mahine hain, jinmein se chaar hurmat wale hain — Muharram, Rajab, Zil-Qad aur Zil-Hijja. In mahinon mein khaas taur pe zulm aur jhagde se bachne aur nek kaam badhaane ki taaleem di gayi hai.',
+      'Bahut se Musalmaan Rajab ki 27vin raat ko Shab-e-Miraj manate hain — woh raat jisme Paigambar ﷺ ke Isra aur Miraj ke safar ka zikr hai. Alag-alag ilaakon aur maslakon mein ise manane ke tareeke alag hain, isliye har ek ki raay ka ehtaraam karo.',
+      'Rajab mein kai log ye dua padhte hain: "Allahumma barik lana fi Rajab wa Shaban wa ballighna Ramadan" — ae Allah, hamare liye Rajab aur Shaban mein barkat de aur hamein Ramzan tak pahuncha. Ulema is riwaayat ki sanad ko kamzor batate hain, phir bhi ye dua ke taur pe aam taur pe padhi jaati hai.',
+    ],
+    wishes: [
+      'Rajab Mubarak! Allah is paak mahine mein aapko aur aapke ghar waalon ko sehat, sukoon aur barkat de.',
+      'Rajab ka chaand mubarak ho! Allah hamein Ramzan tak pahunchaaye aur nek amal ki taufeeq de.',
+      'Hurmat wale is mahine mein Allah aapki har dua qubool kare. Rajab Mubarak!',
+      'Rajab aa gaya, Ramzan kareeb hai — Allah hamare dilon ko neki se bhar de. Aameen. Rajab Mubarak!',
+      'Is mubarak mahine mein hamein bhi apni duaon mein yaad rakhiyega. Rajab Mubarak!',
+    ],
+    faq: [
+      { q: 'Rajab kaun sa mahina hai?', a: 'Rajab Islami (Hijri) calendar ka saatvaan mahina hai, jo Jamadi-ul-Akhir ke baad aur Shaban se pehle aata hai.' },
+      { q: 'Hurmat wale chaar mahine kaun se hain?', a: 'Muharram, Rajab, Zil-Qad aur Zil-Hijja.' },
+      { q: 'Rajab kab shuru hoga?', a: 'Chaand dikhne pe. 2026 mein ye lagbhag 10-11 December ko shuru hone ka andaaza hai — sahi tareekh apni masjid se poochho.' },
+    ],
+  },
   'jumma-mubarak': {
     name: 'Jumma Mubarak',
     greet: 'Jumma Mubarak',

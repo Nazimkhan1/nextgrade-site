@@ -245,6 +245,21 @@ const wishes = {
       { q: 'How do you say Happy Anniversary in Hindi?', a: '"Shaadi ki saalgirah mubarak ho" or "Shaadi ki saalgirah ki hardik shubhkamnayein".' },
     ],
   },
+  'rajab-mubarak': {
+    name: 'Rajab Mubarak',
+    greet: 'a blessed Rajab',
+    intro: 'Rajab is the seventh month of the Islamic calendar and one of the four sacred months. When the Rajab moon is sighted, many people wish each other "Rajab Mubarak", because Sha\'ban and then Ramadan come after it.',
+    about: [
+      'The Quran (Surah At-Tawbah 9:36) says there are twelve months with Allah, four of them sacred — Muharram, Rajab, Dhu al-Qa\'dah and Dhu al-Hijjah. In these months believers are especially taught to avoid wrongdoing and quarrels and to do more good.',
+      'Many Muslims observe the 27th night of Rajab as Shab-e-Miraj — the night linked with the Isra and Mi\'raj journey of the Prophet ﷺ. Practices differ between regions and schools of thought, so respect each other\'s views.',
+      'In Rajab many people recite the dua "Allahumma barik lana fi Rajab wa Sha\'ban wa ballighna Ramadan" — O Allah, bless us in Rajab and Sha\'ban and let us reach Ramadan. Scholars say the chain of this narration is weak, but it is still widely recited as a dua.',
+    ],
+    faq: [
+      { q: 'Which month is Rajab?', a: 'Rajab is the seventh month of the Islamic (Hijri) calendar, after Jumada al-Akhirah and before Sha\'ban.' },
+      { q: 'Which are the four sacred months?', a: 'Muharram, Rajab, Dhu al-Qa\'dah and Dhu al-Hijjah.' },
+      { q: 'When will Rajab begin?', a: 'When the moon is sighted. In 2026 it is expected around 10-11 December — check the exact date with your mosque.' },
+    ],
+  },
   'jumma-mubarak': {
     name: 'Jumma Mubarak',
     greet: 'Jumma Mubarak',
