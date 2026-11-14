@@ -1,0 +1,16 @@
+{
+  "name": "Chhath Ghat — Chhath Puja Game",
+  "short_name": "Chhath Ghat",
+  "description": "Take the holy dip, offer arghya to the rising sun and catch prasad to break the fast. A Chhath Puja game.",
+  "start_url": "/games/chhath/",
+  "scope": "/games/chhath/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#2a1206",
+  "theme_color": "#7a2e0e",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

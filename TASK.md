@@ -39,6 +39,9 @@ Site: **~162 pages**, all in 4 languages. Everything below is live (pushed to ma
 
 - [x] 10 more stories (14 Nov) in `src/stories-more.mjs` (pushed onto `stories` in stories.mjs): Lomdi aur Angoor, Lomdi aur Kauwa, Sheikh Chilli ka Sapna, Shehar mein Kitne Kauwe (Akbar-Birbal), Tenali Raman ki Billi, Bhediya Aaya, Topiwala aur Bandar, Cheenti aur Kabootar, Chatur Khargosh aur Sher (Panchatantra), Bandaron ka Raja aur Pul (Jataka). Third batch in `src/stories-more2.mjs`: Vikram-Betaal (Sabse komal rani), Sher banane wale (Panchatantra), Chidiya ka daana (dadi-nani), Chidiya aur haathi, Birbal ki khichdi, Tenali ka ghoda, Baatooni kachhua, Baap-beta-gadha, Kisaan ka khazaana, Sone ka hiran (Jataka). Now 30 stories × 4 languages; site 244 pages. Read-aloud: sentence-by-sentence, on-device voice first, rate 0.78.
 
+- [x] **Chhath Puja (14 Nov, festival 13–16 Nov 2026)** — guide `/festivals/chhath-puja/` (festivals.mjs + en/hinglish/bn; 4 days, thekua/soop/kosi, FAQ with 2026 dates), animated wish `/celebrate/chhath-puja/` (sunrise before noon = Usha Arghya, sunset after = Sandhya Arghya; vratis raise soops, floating diyas, kosi), game `/games/chhath/` "Chhath Ghat" (5 dips on a timing bar → arghya when the sun is fully up → catch thekua/fruit in the soop 20 s; bells + splashes, sound on with mute; CACHE ng-chhath-v1). Update dates yearly.
+- [ ] **Next up (user asked 14 Nov): home Zumba game for women** like the morning-exercise one; cartoon lady starts fuller and gets fitter as she completes moves/days (keep it positive, no body-shaming words).
+
 **Next (date order)** — 🌙 Shab-e-Miraj page (~5 Jan) → 🔥 Lohri / 🪁 Sankranti animated → 🌙 Shab-e-Barat (~23 Jan) → 🇮🇳 Republic Day → Ramzan series, Eidi lifafa + game, Eid animated (Feb–Mar) → 🎂 Birthday animated, Bachpan "Yaad hai?", more stories (Vikram-Betaal, dadi-nani). Optional: move Shaadi/Jumma onto the engine; Cloudflare Web Analytics (needs user's token).
 
 ---

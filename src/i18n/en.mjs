@@ -170,6 +170,22 @@ const festivals = {
       { q: 'Why is rakhi not tied during Bhadra kaal?', a: 'Bhadra kaal is considered inauspicious for good work in the panchang, so the rakhi is tied after it ends.' },
     ],
   },
+  'chhath-puja': {
+    name: 'Chhath Puja',
+    when: 'Kartik Shukla Chaturthi to Saptami, six days after Diwali (13–16 November in 2026)',
+    where: 'Biggest in Bihar, Jharkhand, eastern Uttar Pradesh and the Terai of Nepal; also in Delhi, Mumbai, Kolkata and abroad',
+    intro: 'Chhath Puja is a four-day festival of worship of Surya Dev (the Sun) and Chhathi Maiya. Devotees (vratis) keep a waterless fast of about 36 hours and, standing in a river or pond, offer arghya first to the setting and then to the rising sun. It is seen as a festival of nature, cleanliness and discipline — no idol and no priest are needed.',
+    sections: [
+      { h: 'The four days', p: ['Day 1 — Nahay-Khay: devotees bathe in a river or pond, clean the house and eat one simple sattvik meal — pumpkin, rice and chana dal.', 'Day 2 — Kharna: after fasting all day, a prasad of jaggery kheer (rasiya) and roti is made in the evening. After eating it, the waterless fast of about 36 hours begins.', 'Day 3 — Sandhya Arghya: in the evening the family carries bamboo soops and daura baskets filled with thekua, fruits and sugarcane to the ghat. Standing in the water, the vratis offer arghya to the setting sun.', 'Day 4 — Usha Arghya: before dawn everyone returns to the ghat and arghya is offered to the rising sun. Then the fast is broken with prasad — this is called parana.'] },
+      { h: 'Thekua, soop and kosi', p: ['Thekua is the special prasad of Chhath — made of wheat flour, jaggery and ghee, pressed on a wooden mould and fried. Bananas, coconuts, sugarcane, water chestnuts, citrus and seasonal fruits are placed with it in the soop.', 'In many homes a kosi is set up on the night of Sandhya Arghya — sugarcane stalks tied into a canopy with clay lamps and prasad beneath it. Traditional Chhath songs such as "Kelwa ke paat par ugelan Suraj Mal" and "Kaanch hi baans ke bahangiya" are sung through the night.'] },
+      { h: 'Why Chhath is special', p: ['In Chhath even the setting sun is worshipped — a reminder to respect every stage of life. Whole neighbourhoods clean the ghats together, and rich and poor stand at the same ghat making the same offering.', 'The fast is very demanding, so elderly people, those who are unwell and pregnant women should fast only with the advice of a doctor and the family elders. Keep children away from deep water at the ghat.'] },
+    ],
+    faq: [
+      { q: 'When is Chhath Puja in 2026?', a: 'Nahay-Khay on 13 November, Kharna on 14 November, Sandhya Arghya on Sunday 15 November and Usha Arghya on Monday 16 November. Check arghya times for your city in a local panchang, as they follow sunset and sunrise.' },
+      { q: 'What is Kharna?', a: 'The second day of Chhath, when the vratis fast all day and eat a prasad of jaggery kheer and roti in the evening. The waterless fast begins after this.' },
+      { q: 'How is thekua made?', a: 'Wheat flour, jaggery syrup, ghee and a little fennel or coconut are kneaded into a stiff dough, pressed on a mould and fried slowly in ghee or oil until golden.' },
+    ],
+  },
   'guru-nanak-jayanti': {
     name: 'Guru Nanak Jayanti',
     when: 'Kartik Purnima (usually November); also called Gurpurab or Prakash Parv',
@@ -278,6 +294,7 @@ const wishes = {
 
 const games = {
   'morning-exercise': { name: 'Morning 2-Minute Challenge', desc: '8 easy moves with a cartoon coach — a timer, a daily 🔥 streak, badges and WhatsApp challenges for friends. Just 2 minutes (15 seconds a move), no camera, no login.' },
+  chhath: { name: 'Chhath Ghat', desc: 'Take the holy dip at dawn, offer arghya to the rising sun at the right moment, then catch thekua, bananas and sugarcane in your soop to break the fast. Three stages, temple bells and splashes, WhatsApp challenge.' },
   'new-year': { name: 'Fireworks Pop', desc: 'Tap the rockets rising into the sky and burst them — at the very top for a Perfect, quickly for combos. With a live countdown to the new year.' },
   christmas: { name: 'Catch Santa\'s Gifts', desc: 'Steer Santa\'s sleigh, catch the falling gifts, dodge the coal and challenge friends on WhatsApp. In Hindi, Hinglish, English and Bengali.' },
 };

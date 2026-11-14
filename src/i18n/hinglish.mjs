@@ -239,6 +239,28 @@ const festivals = {
       { q: 'Bhadra kaal mein rakhi kyun nahi baandhte?', a: 'Panchang mein Bhadra kaal ko shubh kaamon ke liye ashubh maana jaata hai, isliye rakhi Bhadra khatm hone ke baad baandhi jaati hai.' },
     ],
   },
+  'chhath-puja': {
+    name: 'Chhath Puja',
+    when: 'Kartik Shukla Chaturthi se Saptami tak, Diwali ke chhah din baad (2026 mein 13–16 November)',
+    where: 'Bihar, Jharkhand, poorvi UP aur Nepal ke Terai mein sabse bada; Delhi, Mumbai, Kolkata aur videsh mein bhi',
+    intro: 'Chhath Puja Surya Dev aur Chhathi Maiya ki upasana ka chaar din ka mahaparv hai. Isme vrati lagbhag 36 ghante ka nirjala vrat rakh ke nadi ya taalaab mein khade ho kar doobte aur phir ugte suraj ko arghya dete hain. Ye prakriti, saaf-safaai aur anushaasan ka tyohar maana jaata hai — isme na koi murti zaroori hai, na purohit.',
+    sections: [
+      { h: 'Chaar din ki puja', p: ['Pehla din — Nahay-Khay: vrati nadi ya taalaab mein snaan karte hain aur ghar saaf karke saattvik khaana — kaddu-bhaat aur chane ki daal — ek baar khaate hain.', 'Doosra din — Kharna: din bhar upvaas ke baad shaam ko gud ki kheer (rasiya) aur roti ka prasad banta hai. Prasad khaane ke baad se lagbhag 36 ghante ka nirjala vrat shuru hota hai.', 'Teesra din — Sandhya Arghya: shaam ko parivaar thekua, phal aur ganne se saje baans ke soop aur daura le ke ghat pe jaata hai. Vrati paani mein khade ho kar doobte suraj ko arghya dete hain.', 'Chautha din — Usha Arghya: bhor se pehle phir ghat pe pahunch ke ugte suraj ko arghya diya jaata hai. Iske baad prasad kha ke vrat khola jaata hai, jise parana kehte hain.'] },
+      { h: 'Thekua, soop aur kosi', p: ['Thekua Chhath ka sabse khaas prasad hai — gehun ke aate, gud aur ghee se bana, saanche pe daba ke tala hua. Iske saath kela, nariyal, ganna, singhaada, daabh nimbu aur mausami phal soop mein rakhe jaate hain.', 'Kai gharon mein Sandhya Arghya ki raat aangan ya ghat pe kosi bhari jaati hai — ganne ke gatthar se chhatra jaisa bana ke uske neeche mitti ke diye aur prasad rakhe jaate hain. "Kelwa ke paat par ugelan Suraj Mal" aur "Kaanch hi baans ke bahangiya" jaise paaramparik Chhath geet poori raat gaaye jaate hain.'] },
+      { h: 'Chhath kyun khaas hai', p: ['Chhath mein doobte suraj ki bhi puja hoti hai — ye sikhaata hai ki dhalte waqt ka bhi samman karo. Ghaaton ki safaai poora mohalla mil ke karta hai, aur ameer-gareeb sab ek hi ghat pe ek jaisa arghya dete hain.', 'Vrat bahut kathin hota hai, isliye buzurgon, beemaaron aur garbhwati mahilaon ko doctor aur ghar ke badon ki salaah se hi vrat rakhna chahiye. Ghat pe bachchon ko gehre paani se door rakhein.'] },
+    ],
+    wishes: [
+      'Chhathi Maiya aapke ghar-aangan ko sukh, samriddhi aur khushiyon se bhar dein. Chhath Puja ki haardik shubhkamnayein!',
+      'Ugte suraj ki laali aapke jeevan mein nayi roshni laaye. Chhath mahaparv ki dher saari badhaai!',
+      'Thekua ki mithaas, ganne ka ras aur ghat ki raunak — Chhath Puja ki shubhkamnayein! Jai Chhathi Maiya.',
+      'Surya Dev aapko achhi sehat aur lambi umar dein. Aapka vrat safal ho — Chhath Puja mubarak!',
+    ],
+    faq: [
+      { q: 'Chhath Puja 2026 mein kab hai?', a: 'Nahay-Khay 13 November, Kharna 14 November, Sandhya Arghya 15 November (Raviwar) aur Usha Arghya 16 November (Somwar) ko hai. Arghya ka samay apne shehar ke sooryast-sooryoday ke hisaab se local panchang se dekhein.' },
+      { q: 'Kharna kya hota hai?', a: 'Chhath ka doosra din, jab vrati din bhar upvaas ke baad shaam ko gud ki kheer aur roti ka prasad khaate hain. Iske baad se nirjala vrat shuru hota hai.' },
+      { q: 'Thekua kaise banta hai?', a: 'Gehun ka aata, gud ka ghol, ghee aur thodi saunf/nariyal mila ke sakht aata goondhte hain, saanche pe daba ke aakaar dete hain aur dheemi aanch pe ghee ya tel mein sunehra hone tak talte hain.' },
+    ],
+  },
   'guru-nanak-jayanti': {
     name: 'Guru Nanak Jayanti',
     when: 'Kartik Purnima (aam taur pe November); ise Gurpurab ya Prakash Parv bhi kehte hain',
@@ -403,6 +425,7 @@ const wishes = {
 
 const games = {
   'morning-exercise': { name: 'Subah ka 2-Minute Challenge', desc: 'Cartoon coach ke saath 8 aasaan kasratein — timer, roz ki 🔥 streak, badges aur dosto ko WhatsApp pe challenge. Sirf 2 minute (har kasrat 15 second), bina camera, bina login.' },
+  chhath: { name: 'Chhath Ghat', desc: 'Bhor mein nadi mein dupki lagao, ugte suraj ko sahi pal pe arghya do, phir soop mein thekua-kela-ganna pakad ke vrat kholo. Teen stage, ghanti aur paani ki awaaz, WhatsApp challenge.' },
   'new-year': { name: 'Aatishbaazi Pop', desc: 'Neeche se uthte rockets tap karke aasmaan mein phodo — sabse upar phodo to Perfect, jaldi-jaldi phodo to combo. Saath mein naye saal ka live countdown.' },
   christmas: { name: 'Santa ke Gift Pakdo', desc: 'Santa ki sleigh chalao, girte gifts pakdo, koyle se bacho aur doston ko WhatsApp pe score ka challenge bhejo. Hindi, Hinglish, English aur Bangla mein.' },
 };

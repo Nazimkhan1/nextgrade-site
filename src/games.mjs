@@ -5,6 +5,14 @@
  */
 const games = [
   {
+    slug: 'chhath',
+    emoji: '🌅',
+    name: 'छठ घाट',
+    nameEn: 'Chhath Ghat',
+    tag: 'Chhath Puja',
+    desc: 'भोर में नदी में डुबकी लगाओ, उगते सूरज को सही पल पर अर्घ्य दो, फिर सूप में ठेकुआ-केला-गन्ना पकड़कर व्रत खोलो। तीन चरण, घंटी और पानी की आवाज़, WhatsApp पर चैलेंज।',
+  },
+  {
     slug: 'morning-exercise',
     emoji: '💪',
     name: 'सुबह का 2 मिनट चैलेंज',

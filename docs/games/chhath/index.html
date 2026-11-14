@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chhath Ghat 🌅 — Chhath Puja Game | NextGrade</title>
+<meta name="description" content="Free Chhath Puja game in Hindi, Hinglish, English and Bengali: take the holy dip in the river at dawn, offer arghya to the rising sun at the right moment, then catch thekua and fruits in your soop to break the fast. Challenge friends on WhatsApp.">
+<link rel="canonical" href="https://nextgrade.in/games/chhath/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Chhath Ghat 🌅 — Chhath Puja Game">
+<meta property="og:description" content="Dupki lagao, ugte suraj ko arghya do aur prasad se vrat kholo — mera score hara ke dikhao!">
+<meta property="og:url" content="https://nextgrade.in/games/chhath/">
+<meta property="og:image" content="https://nextgrade.in/games/chhath/icons/icon-512.png">
+<meta name="theme-color" content="#7a2e0e">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Chhath Ghat","url":"https://nextgrade.in/games/chhath/","genre":"Casual","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #2a1206; --bg2: #7a2e0e; --gold: #ffd43b; --saffron: #ff922b; --ink: #fff8f0; --muted: #f1d3bd; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #a8401a, var(--bg) 62%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { display: flex; align-items: center; gap: 8px; font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand img { width: 30px; height: 30px; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #e8590c, #f59f00); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.45); background: #1a0b05; touch-action: none; user-select: none; -webkit-user-select: none; }
+canvas { display: block; width: 100%; height: min(70vh, 620px); }
+.hud { position: absolute; top: 10px; left: 10px; right: 10px; display: flex; justify-content: space-between; align-items: flex-start; pointer-events: none; font-weight: 800; font-size: 17px; text-shadow: 0 2px 6px rgba(0,0,0,0.7); }
+.stagebadge { background: rgba(0,0,0,0.35); border-radius: 999px; padding: 2px 12px; font-size: 14px; }
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(30, 10, 3, 0.7); padding: 16px; overflow-y: auto; }
+.panel { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); backdrop-filter: blur(6px); border-radius: 18px; padding: 20px; width: min(430px, 100%); text-align: center; }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 26px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: var(--muted); }
+.steps { text-align: left; margin: 8px 0; padding-left: 22px; color: var(--ink); font-size: 15px; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 56px; font-weight: 800; color: var(--gold); line-height: 1; margin: 8px 0; }
+.stars { font-size: 30px; letter-spacing: 4px; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 11px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 10px 0; }
+input::placeholder { color: #d9b9a3; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; }
+.btn-main { background: linear-gradient(90deg, #ff922b, #e8590c); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/"><img src="/favicon.svg" alt="" width="30" height="30"><span>NextGrade<small>Chhath Puja Game</small></span></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="game" aria-label="Chhath Puja game"></canvas>
+    <div class="hud" aria-hidden="true"><span id="hudScore">⭐ 0</span><span class="stagebadge" id="hudStage"></span><span id="hudInfo"></span></div>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle"></h2>
+        <ol class="steps" id="stepList"></ol>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <button class="btn btn-main" id="play" type="button" data-i18n="play"></button>
+        <p id="bestLine"></p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="stars" id="endStars"></div>
+        <div class="big" id="finalScore">0</div>
+        <p id="endBreak"></p>
+        <p id="endNote"></p>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card"><ol id="howList"></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+    <p><span data-i18n="readMore"></span> <a id="guideLink" href="https://nextgrade.in/festivals/chhath-puja/" data-i18n="guideLink"></a> · <a id="wishLink" href="https://nextgrade.in/celebrate/chhath-puja/" data-i18n="wishLink"></a> · <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const SITE = 'https://nextgrade.in/games/chhath/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const DIPS = 5, PRASAD_TIME = 20;
+
+  const T = {
+    hinglish: {
+      title: 'Chhath Ghat 🌅', sub: 'Bhor mein nadi mein dupki lagao, ugte suraj ko sahi pal pe arghya do, aur soop mein prasad pakad ke vrat kholo. Chhathi Maiya ki jai!',
+      startTitle: '🌅 Chhath Puja ki shubhkamnayein!',
+      steps: ['🌊 <b>Dupki:</b> chalti sui hari jagah pe aaye tab tap karo — 5 dupki.', '☀️ <b>Arghya:</b> suraj poora nikal aaye tab "Arghya do" tap karo.', '🧺 <b>Parana:</b> soop ko khiskao aur thekua, kela, ganna pakdo — 20 second.'],
+      namePh: 'Aapka naam (challenge bhejne ke liye)', play: '▶ Ghat pe chalo', resume: '▶ Phir se shuru karo',
+      best: (n) => `Aapka best score: ${n}`, challenge: (name, n) => `🎯 ${name} ne ${n} points banaye — kya aap hara sakte ho?`,
+      stDip: '🌊 Dupki', stArghya: '☀️ Arghya', stPrasad: '🧺 Parana',
+      dipLeft: (n) => `🌊 ${n} baaki`, tapDip: 'Hari jagah pe tap karo!', perfect: 'Perfect dupki!', good: 'Achhi dupki!', miss: 'Thoda jaldi/der!',
+      waitSun: 'Suraj nikalne ka intezaar…', tapArghya: '🙏 Arghya do — abhi tap karo!', early: 'Abhi suraj poora nahi nikla!', arghyaPerfect: 'Shubh muhurat! Perfect arghya 🙏', arghyaGood: 'Arghya diya 🙏', arghyaLate: 'Thodi der ho gayi',
+      catchHint: 'Soop ko ungli se khiskao!', timeLeft: (n) => `⏱ ${n}`,
+      endTitle: '🙏 Vrat poora hua! Chhathi Maiya ki jai',
+      breakdown: (d, a, p) => `🌊 Dupki ${d} · ☀️ Arghya ${a} · 🧺 Prasad ${p}`,
+      record: 'Naya record! 🏆', beat: (name, n) => `Aapne ${name} (${n}) ko hara diya! 🥳`, notBeat: (name, n) => `${name} ka score ${n} hai — ek baar aur?`, bestNote: (n) => `Best score: ${n}`,
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareOther: '📤 Aur kahin share karo', again: '🔁 Phir se khelo', copied: '✅ Link copy ho gaya', copyPrompt: 'Ye link copy karo',
+      shareText: (name, n, url) => `🌅 Chhath Puja ki dher saari shubhkamnayein! ${name ? name + ' ne' : 'Maine'} "Chhath Ghat" game mein ${n} points banaye — dupki, arghya aur parana. Aap khel ke dikhao! 🙏\n${url}`,
+      howTitle: 'Kaise khelein',
+      how: ['<b>▶ Ghat pe chalo</b> dabao. Bhor ka samay hai, aap nadi mein khade ho.', '<b>Dupki:</b> neeche ek patti pe sui aage-peeche chalti hai. Jab sui beech ki hari jagah pe ho, screen tap karo — Perfect +30, paas mein +15. Har dupki ke baad sui tez hoti hai.', '<b>Arghya:</b> suraj dheere-dheere ugta hai. Jab poora gola paani ke upar aa jaaye aur chamakne lage, tab "Arghya do" tap karo — sahi pal pe +100.', '<b>Parana:</b> upar se thekua, kela, ganna, nariyal aur sunehra thekua girte hain. Soop ko ungli ya arrow key se khiskao aur pakdo. 20 second.', 'Score WhatsApp pe bhejo aur parivaar ko challenge karo.'],
+      aboutTitle: 'Chhath Puja ke baare mein',
+      aboutText: 'Chhath Puja Surya Dev aur Chhathi Maiya ki upasana ka chaar din ka parv hai, jo Diwali ke chhathe din, Kartik Shukla Shashthi ko manaya jaata hai. Bihar, Jharkhand, poorvi Uttar Pradesh aur Nepal ke Terai mein ye sabse bada tyohar hai, aur ab Delhi, Mumbai, Kolkata se le kar videsh tak ghaaton pe manaya jaata hai. 2026 mein: Nahay-Khay 13 Nov, Kharna 14 Nov, Sandhya Arghya 15 Nov aur Usha Arghya 16 Nov.',
+      aboutText2: 'Vrati lagbhag 36 ghante ka nirjala vrat rakhte hain. Sandhya Arghya pe doobte suraj ko aur agli subah ugte suraj ko paani mein khade ho kar soop mein thekua, phal aur ganne ke saath arghya diya jaata hai. Usha Arghya ke baad prasad kha ke vrat khola jaata hai, jise parana kehte hain. Ye game sirf ek chhota sa, izzat bhara khel hai — asli puja ki vidhi apne ghar ke bado se seekhein.',
+      readMore: 'Aur padho:', guideLink: 'Chhath Puja guide', wishLink: 'Naam wala Chhath wish', moreGames: 'Aur games',
+      privacyTitle: 'Aapki privacy', privacyText: 'Ye game poori tarah aapke phone/browser mein chalta hai. Naam sirf us link mein rehta hai jo aap share karte ho, aur best score sirf isi device pe save hota hai. Hum koi account ya personal jaankari nahi lete.',
+    },
+    hi: {
+      title: 'छठ घाट 🌅', sub: 'भोर में नदी में डुबकी लगाओ, उगते सूरज को सही पल पर अर्घ्य दो, और सूप में प्रसाद पकड़कर व्रत खोलो। छठी मइया की जय!',
+      startTitle: '🌅 छठ पूजा की शुभकामनाएँ!',
+      steps: ['🌊 <b>डुबकी:</b> चलती सुई हरी जगह पर आए तब टैप करो — 5 डुबकी।', '☀️ <b>अर्घ्य:</b> सूरज पूरा निकल आए तब "अर्घ्य दो" टैप करो।', '🧺 <b>पारण:</b> सूप को खिसकाओ और ठेकुआ, केला, गन्ना पकड़ो — 20 सेकंड।'],
+      namePh: 'आपका नाम (चैलेंज भेजने के लिए)', play: '▶ घाट पर चलो', resume: '▶ फिर से शुरू करो',
+      best: (n) => `आपका बेस्ट स्कोर: ${n}`, challenge: (name, n) => `🎯 ${name} ने ${n} पॉइंट बनाए — क्या आप हरा सकते हो?`,
+      stDip: '🌊 डुबकी', stArghya: '☀️ अर्घ्य', stPrasad: '🧺 पारण',
+      dipLeft: (n) => `🌊 ${n} बाकी`, tapDip: 'हरी जगह पर टैप करो!', perfect: 'Perfect डुबकी!', good: 'अच्छी डुबकी!', miss: 'थोड़ा जल्दी/देर!',
+      waitSun: 'सूरज निकलने का इंतज़ार…', tapArghya: '🙏 अर्घ्य दो — अभी टैप करो!', early: 'अभी सूरज पूरा नहीं निकला!', arghyaPerfect: 'शुभ मुहूर्त! Perfect अर्घ्य 🙏', arghyaGood: 'अर्घ्य दिया 🙏', arghyaLate: 'थोड़ी देर हो गई',
+      catchHint: 'सूप को उँगली से खिसकाओ!', timeLeft: (n) => `⏱ ${n}`,
+      endTitle: '🙏 व्रत पूरा हुआ! छठी मइया की जय',
+      breakdown: (d, a, p) => `🌊 डुबकी ${d} · ☀️ अर्घ्य ${a} · 🧺 प्रसाद ${p}`,
+      record: 'नया रिकॉर्ड! 🏆', beat: (name, n) => `आपने ${name} (${n}) को हरा दिया! 🥳`, notBeat: (name, n) => `${name} का स्कोर ${n} है — एक बार और?`, bestNote: (n) => `बेस्ट स्कोर: ${n}`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareOther: '📤 और कहीं शेयर करो', again: '🔁 फिर से खेलो', copied: '✅ लिंक कॉपी हो गया', copyPrompt: 'यह लिंक कॉपी करें',
+      shareText: (name, n, url) => `🌅 छठ पूजा की ढेर सारी शुभकामनाएँ! ${name ? name + ' ने' : 'मैंने'} "छठ घाट" गेम में ${n} पॉइंट बनाए — डुबकी, अर्घ्य और पारण। आप खेलकर दिखाओ! 🙏\n${url}`,
+      howTitle: 'कैसे खेलें',
+      how: ['<b>▶ घाट पर चलो</b> दबाओ। भोर का समय है, आप नदी में खड़े हो।', '<b>डुबकी:</b> नीचे एक पट्टी पर सुई आगे-पीछे चलती है। जब सुई बीच की हरी जगह पर हो, स्क्रीन टैप करो — Perfect +30, पास में +15। हर डुबकी के बाद सुई तेज़ होती है।', '<b>अर्घ्य:</b> सूरज धीरे-धीरे उगता है। जब पूरा गोला पानी के ऊपर आ जाए और चमकने लगे, तब "अर्घ्य दो" टैप करो — सही पल पर +100।', '<b>पारण:</b> ऊपर से ठेकुआ, केला, गन्ना, नारियल और सुनहरा ठेकुआ गिरते हैं। सूप को उँगली या ऐरो की से खिसकाओ और पकड़ो। 20 सेकंड।', 'स्कोर WhatsApp पर भेजो और परिवार को चैलेंज करो।'],
+      aboutTitle: 'छठ पूजा के बारे में',
+      aboutText: 'छठ पूजा सूर्य देव और छठी मइया की उपासना का चार दिन का पर्व है, जो दिवाली के छठे दिन, कार्तिक शुक्ल षष्ठी को मनाया जाता है। बिहार, झारखंड, पूर्वी उत्तर प्रदेश और नेपाल के तराई में यह सबसे बड़ा त्योहार है, और अब दिल्ली, मुंबई, कोलकाता से लेकर विदेश तक घाटों पर मनाया जाता है। 2026 में: नहाय-खाय 13 नवंबर, खरना 14 नवंबर, संध्या अर्घ्य 15 नवंबर और उषा अर्घ्य 16 नवंबर।',
+      aboutText2: 'व्रती लगभग 36 घंटे का निर्जला व्रत रखते हैं। संध्या अर्घ्य पर डूबते सूरज को और अगली सुबह उगते सूरज को पानी में खड़े होकर सूप में ठेकुआ, फल और गन्ने के साथ अर्घ्य दिया जाता है। उषा अर्घ्य के बाद प्रसाद खाकर व्रत खोला जाता है, जिसे पारण कहते हैं। यह गेम सिर्फ़ एक छोटा-सा, सम्मान भरा खेल है — असली पूजा की विधि अपने घर के बड़ों से सीखें।',
+      readMore: 'और पढ़ें:', guideLink: 'छठ पूजा गाइड', wishLink: 'नाम वाला छठ विश', moreGames: 'और गेम्स',
+      privacyTitle: 'आपकी प्राइवेसी', privacyText: 'यह गेम पूरी तरह आपके फ़ोन/ब्राउज़र में चलता है। नाम सिर्फ़ उस लिंक में रहता है जो आप शेयर करते हैं, और बेस्ट स्कोर सिर्फ़ इसी डिवाइस पर सेव होता है। हम कोई अकाउंट या निजी जानकारी नहीं लेते।',
+    },
+    en: {
+      title: 'Chhath Ghat 🌅', sub: 'Take the holy dip in the river at dawn, offer arghya to the rising sun at the right moment, and catch prasad in your soop to break the fast. Chhathi Maiya ki jai!',
+      startTitle: '🌅 Happy Chhath Puja!',
+      steps: ['🌊 <b>Dip:</b> tap when the moving needle is in the green zone — 5 dips.', '☀️ <b>Arghya:</b> tap "Offer arghya" when the sun has fully risen.', '🧺 <b>Parana:</b> slide the soop and catch thekua, bananas and sugarcane — 20 seconds.'],
+      namePh: 'Your name (for the challenge link)', play: '▶ Go to the ghat', resume: '▶ Start again',
+      best: (n) => `Your best score: ${n}`, challenge: (name, n) => `🎯 ${name} scored ${n} points — can you beat that?`,
+      stDip: '🌊 Dip', stArghya: '☀️ Arghya', stPrasad: '🧺 Parana',
+      dipLeft: (n) => `🌊 ${n} left`, tapDip: 'Tap in the green zone!', perfect: 'Perfect dip!', good: 'Good dip!', miss: 'A bit early/late!',
+      waitSun: 'Waiting for the sun…', tapArghya: '🙏 Offer arghya — tap now!', early: 'The sun hasn’t fully risen yet!', arghyaPerfect: 'Auspicious moment! Perfect arghya 🙏', arghyaGood: 'Arghya offered 🙏', arghyaLate: 'A little late',
+      catchHint: 'Slide the soop with your finger!', timeLeft: (n) => `⏱ ${n}`,
+      endTitle: '🙏 The fast is complete! Chhathi Maiya ki jai',
+      breakdown: (d, a, p) => `🌊 Dips ${d} · ☀️ Arghya ${a} · 🧺 Prasad ${p}`,
+      record: 'New record! 🏆', beat: (name, n) => `You beat ${name} (${n})! 🥳`, notBeat: (name, n) => `${name} scored ${n} — one more try?`, bestNote: (n) => `Best score: ${n}`,
+      shareWa: '📲 Challenge on WhatsApp', shareOther: '📤 Share elsewhere', again: '🔁 Play again', copied: '✅ Link copied', copyPrompt: 'Copy this link',
+      shareText: (name, n, url) => `🌅 Happy Chhath Puja! ${name || 'I'} scored ${n} points in the "Chhath Ghat" game — dip, arghya and parana. Can you beat it? 🙏\n${url}`,
+      howTitle: 'How to play',
+      how: ['Tap <b>▶ Go to the ghat</b>. It is dawn and you are standing in the river.', '<b>Dip:</b> a needle swings along a bar at the bottom. Tap the screen when it is in the green middle zone — Perfect +30, close +15. The needle speeds up after every dip.', '<b>Arghya:</b> the sun rises slowly. When the whole disc is above the water and starts to glow, tap "Offer arghya" — +100 at the right moment.', '<b>Parana:</b> thekua, bananas, sugarcane, coconuts and golden thekua fall from above. Slide the soop with your finger or the arrow keys to catch them. 20 seconds.', 'Send your score on WhatsApp and challenge your family.'],
+      aboutTitle: 'About Chhath Puja',
+      aboutText: 'Chhath Puja is a four-day festival of worship of Surya Dev (the Sun) and Chhathi Maiya, held on Kartik Shukla Shashthi, the sixth day after Diwali. It is the biggest festival of Bihar, Jharkhand, eastern Uttar Pradesh and the Terai of Nepal, and is now celebrated on ghats from Delhi, Mumbai and Kolkata to cities abroad. In 2026: Nahay-Khay 13 Nov, Kharna 14 Nov, Sandhya Arghya 15 Nov and Usha Arghya 16 Nov.',
+      aboutText2: 'Devotees (vratis) keep a waterless fast of about 36 hours. On Sandhya Arghya they offer arghya to the setting sun, and the next morning to the rising sun, standing in water with a bamboo soop of thekua, fruits and sugarcane. After Usha Arghya the fast is broken with prasad — this is called parana. This game is only a small, respectful bit of fun; learn the real rituals from the elders in your family.',
+      readMore: 'Read more:', guideLink: 'Chhath Puja guide', wishLink: 'Chhath wish with a name', moreGames: 'More games',
+      privacyTitle: 'Your privacy', privacyText: 'This game runs entirely in your phone’s browser. Your name only travels inside the link you share, and your best score is saved on this device only. We don’t ask for an account or any personal details.',
+    },
+    bn: {
+      title: 'ছট ঘাট 🌅', sub: 'ভোরে নদীতে ডুব দাও, উদীয়মান সূর্যকে ঠিক মুহূর্তে অর্ঘ্য দাও, আর কুলোয় প্রসাদ ধরে ব্রত ভাঙো। ছঠি মাইয়া কি জয়!',
+      startTitle: '🌅 ছট পুজোর শুভেচ্ছা!',
+      steps: ['🌊 <b>ডুব:</b> চলন্ত কাঁটা সবুজ জায়গায় এলে ট্যাপ করো — ৫টা ডুব।', '☀️ <b>অর্ঘ্য:</b> সূর্য পুরো উঠে এলে "অর্ঘ্য দাও" ট্যাপ করো।', '🧺 <b>পারণ:</b> কুলো সরিয়ে ঠেকুয়া, কলা, আখ ধরো — ২০ সেকেন্ড।'],
+      namePh: 'তোমার নাম (চ্যালেঞ্জ পাঠানোর জন্য)', play: '▶ ঘাটে চলো', resume: '▶ আবার শুরু করো',
+      best: (n) => `তোমার সেরা স্কোর: ${n}`, challenge: (name, n) => `🎯 ${name} ${n} পয়েন্ট পেয়েছে — তুমি কি হারাতে পারবে?`,
+      stDip: '🌊 ডুব', stArghya: '☀️ অর্ঘ্য', stPrasad: '🧺 পারণ',
+      dipLeft: (n) => `🌊 আর ${n}`, tapDip: 'সবুজ জায়গায় ট্যাপ করো!', perfect: 'Perfect ডুব!', good: 'ভালো ডুব!', miss: 'একটু আগে/পরে!',
+      waitSun: 'সূর্য ওঠার অপেক্ষা…', tapArghya: '🙏 অর্ঘ্য দাও — এখনই ট্যাপ করো!', early: 'সূর্য এখনো পুরো ওঠেনি!', arghyaPerfect: 'শুভ মুহূর্ত! Perfect অর্ঘ্য 🙏', arghyaGood: 'অর্ঘ্য দেওয়া হল 🙏', arghyaLate: 'একটু দেরি হল',
+      catchHint: 'আঙুল দিয়ে কুলো সরাও!', timeLeft: (n) => `⏱ ${n}`,
+      endTitle: '🙏 ব্রত সম্পূর্ণ! ছঠি মাইয়া কি জয়',
+      breakdown: (d, a, p) => `🌊 ডুব ${d} · ☀️ অর্ঘ্য ${a} · 🧺 প্রসাদ ${p}`,
+      record: 'নতুন রেকর্ড! 🏆', beat: (name, n) => `তুমি ${name}-কে (${n}) হারিয়ে দিয়েছ! 🥳`, notBeat: (name, n) => `${name}-এর স্কোর ${n} — আরেকবার?`, bestNote: (n) => `সেরা স্কোর: ${n}`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: '📤 অন্য কোথাও শেয়ার করো', again: '🔁 আবার খেলো', copied: '✅ লিংক কপি হয়েছে', copyPrompt: 'এই লিংকটা কপি করো',
+      shareText: (name, n, url) => `🌅 ছট পুজোর অনেক শুভেচ্ছা! ${name || 'আমি'} "ছট ঘাট" খেলায় ${n} পয়েন্ট পেয়েছি — ডুব, অর্ঘ্য আর পারণ। তুমি খেলে দেখাও! 🙏\n${url}`,
+      howTitle: 'কীভাবে খেলবে',
+      how: ['<b>▶ ঘাটে চলো</b> চাপো। ভোরবেলা, তুমি নদীতে দাঁড়িয়ে আছ।', '<b>ডুব:</b> নিচে একটা পট্টিতে কাঁটা এদিক-ওদিক দোলে। কাঁটা মাঝের সবুজ জায়গায় এলে স্ক্রিনে ট্যাপ করো — Perfect +৩০, কাছাকাছি +১৫। প্রতিটা ডুবের পর কাঁটা জোরে চলে।', '<b>অর্ঘ্য:</b> সূর্য ধীরে ধীরে ওঠে। পুরো গোলাটা জলের ওপরে উঠে ঝলমল করলে "অর্ঘ্য দাও" ট্যাপ করো — ঠিক মুহূর্তে +১০০।', '<b>পারণ:</b> ওপর থেকে ঠেকুয়া, কলা, আখ, নারকেল আর সোনালি ঠেকুয়া পড়ে। আঙুল বা অ্যারো কি দিয়ে কুলো সরিয়ে ধরো। ২০ সেকেন্ড।', 'স্কোর WhatsApp-এ পাঠাও আর পরিবারকে চ্যালেঞ্জ করো।'],
+      aboutTitle: 'ছট পুজো নিয়ে',
+      aboutText: 'ছট পুজো সূর্যদেব আর ছঠি মাইয়ার আরাধনার চার দিনের পরব, যা দীপাবলির ছয় দিন পরে কার্তিক শুক্লা ষষ্ঠীতে পালিত হয়। বিহার, ঝাড়খণ্ড, পূর্ব উত্তরপ্রদেশ আর নেপালের তরাইয়ে এটাই সবচেয়ে বড় উৎসব; কলকাতায় গঙ্গার ঘাটেও হাজার হাজার মানুষ অর্ঘ্য দেন। ২০২৬ সালে: নহায়-খায় ১৩ নভেম্বর, খরনা ১৪ নভেম্বর, সন্ধ্যা অর্ঘ্য ১৫ নভেম্বর আর ঊষা অর্ঘ্য ১৬ নভেম্বর।',
+      aboutText2: 'ব্রতীরা প্রায় ৩৬ ঘণ্টার নির্জলা উপবাস করেন। সন্ধ্যা অর্ঘ্যে অস্তগামী সূর্যকে আর পরদিন ভোরে উদীয়মান সূর্যকে জলে দাঁড়িয়ে বাঁশের কুলোয় ঠেকুয়া, ফল আর আখ দিয়ে অর্ঘ্য দেওয়া হয়। ঊষা অর্ঘ্যের পর প্রসাদ খেয়ে ব্রত ভাঙা হয় — একে পারণ বলে। এই খেলাটা শুধু একটু শ্রদ্ধাভরা মজা; আসল পুজোর নিয়ম বাড়ির বড়দের কাছে শিখে নিও।',
+      readMore: 'আরও পড়ো:', guideLink: 'ছট পুজো গাইড', wishLink: 'নামের ছট উইশ', moreGames: 'আরও গেম',
+      privacyTitle: 'তোমার গোপনীয়তা', privacyText: 'এই খেলাটি পুরোপুরি তোমার ফোন/ব্রাউজারে চলে। নাম শুধু তুমি যে লিংক শেয়ার করো তাতেই থাকে, আর সেরা স্কোর শুধু এই ডিভাইসে সেভ হয়। আমরা কোনো অ্যাকাউন্ট বা ব্যক্তিগত তথ্য নিই না।',
+    },
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const urlLang = params.get('lang');
+  const saved = store.get('ch-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(saved) ? saved : deviceLang();
+  const t = (k) => T[lang][k];
+
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(99999, parseInt(params.get('score'), 10) || 0));
+  const best = () => parseInt(store.get('ch-best'), 10) || 0;
+
+  // ---- game state
+  let stage = 'idle'; // idle | dip | arghya | prasad | done
+  let score = 0, parts = { dip: 0, arghya: 0, prasad: 0 }, lastEnd = null;
+  let dipsLeft = DIPS, needle = 0, needleDir = 1, needleSpeed = 0.9, dipAnim = 0, dipCool = 0;
+  let sunT = 0, arghyaDone = false, arghyaAnim = 0, arghyaCool = 0;
+  let prasadLeft = PRASAD_TIME, soopX = 0.5, items = [], spawnAcc = 0;
+  let pops = [], ripples = [], drops = [], msg = '', msgLife = 0;
+
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Chhath Puja Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('stepList').innerHTML = t('steps').map((li) => `<li>${li}</li>`).join('');
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('guideLink').href = `https://nextgrade.in${p}/festivals/chhath-puja/`;
+    $('wishLink').href = `https://nextgrade.in/celebrate/chhath-puja/?lang=${lang}`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+    if (lastEnd) showEnd(lastEnd.prev);
+    updateHud();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('ch-lang', lang); applyLang(); });
+  $('name').value = store.get('ch-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---- sound (games: on by default, mute button)
+  let muted = store.get('ch-muted') === '1';
+  let audio = null;
+  const setMuteIcon = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setMuteIcon();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('ch-muted', muted ? '1' : '0'); setMuteIcon(); });
+  const ac = () => { try { audio = audio || new (window.AudioContext || window.webkitAudioContext)(); return audio; } catch (e) { return null; } };
+  const tone = (freq, dur, type, vol, delay) => {
+    if (muted) return;
+    const a = ac(); if (!a) return;
+    const t0 = a.currentTime + (delay || 0);
+    const o = a.createOscillator(); const g = a.createGain();
+    o.type = type || 'sine'; o.frequency.value = freq;
+    g.gain.setValueAtTime(0.0001, t0); g.gain.exponentialRampToValueAtTime(vol || 0.12, t0 + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+    o.connect(g).connect(a.destination); o.start(t0); o.stop(t0 + dur + 0.05);
+  };
+  const bell = (delay) => { tone(880, 1.4, 'sine', 0.12, delay); tone(1320, 1.0, 'sine', 0.05, delay); tone(2210, 0.6, 'sine', 0.03, delay); };
+  const splash = (big) => {
+    if (muted) return;
+    const a = ac(); if (!a) return;
+    const len = Math.floor(a.sampleRate * (big ? 0.7 : 0.45));
+    const buf = a.createBuffer(1, len, a.sampleRate);
+    const d = buf.getChannelData(0);
+    for (let i = 0; i < len; i += 1) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2);
+    const src = a.createBufferSource(); const f = a.createBiquadFilter(); const g = a.createGain();
+    f.type = 'lowpass'; f.frequency.value = big ? 1400 : 900; g.gain.value = big ? 0.35 : 0.25;
+    src.buffer = buf; src.connect(f).connect(g).connect(a.destination); src.start();
+  };
+  const blip = (gold) => { tone(gold ? 988 : 660, 0.12, 'triangle', 0.1); if (gold) tone(1319, 0.18, 'triangle', 0.08, 0.08); };
+
+  // ---- canvas
+  const canvas = $('game');
+  const ctx = canvas.getContext('2d');
+  let W = 0, H = 0, horizon = 0;
+  const resize = () => {
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+    const r = canvas.getBoundingClientRect();
+    W = r.width; H = r.height; horizon = H * 0.52;
+    canvas.width = Math.round(W * DPR); canvas.height = Math.round(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  };
+  const say = (text) => { msg = text; msgLife = 1.6; };
+  const pop = (x, y, text, gold) => pops.push({ x, y, text, gold, life: 1 });
+  const add = (k, n) => { parts[k] += n; score += n; };
+
+  // the sun: sunT 0 → below the water, 1 → fully risen; the arghya window is around 0.78–0.95
+  const sunPos = () => {
+    const r = Math.min(W, H) * 0.075;
+    const y = horizon + r * 1.3 - sunT * (r * 2.6 + H * 0.06);
+    return { x: W * 0.5, y, r };
+  };
+
+  // ---- drawing helpers
+  const drawSky = (clock) => {
+    const light = stage === 'idle' ? 0.55 : stage === 'dip' ? 0.15 + 0.2 * (1 - dipsLeft / DIPS) : stage === 'arghya' ? 0.35 + 0.5 * sunT : 1;
+    const g = ctx.createLinearGradient(0, 0, 0, horizon);
+    const top = [Math.round(20 + 60 * light), Math.round(18 + 70 * light), Math.round(60 + 90 * light)];
+    const low = [Math.round(120 + 135 * light), Math.round(60 + 110 * light), Math.round(60 + 30 * light)];
+    g.addColorStop(0, `rgb(${top})`); g.addColorStop(1, `rgb(${low})`);
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, horizon);
+    // fading stars at early dawn
+    if (light < 0.6) {
+      ctx.fillStyle = '#fff';
+      for (let i = 0; i < 40; i += 1) { ctx.globalAlpha = (0.6 - light) * (0.5 + 0.5 * Math.sin(clock * 2 + i)); ctx.fillRect((i * 97) % W, ((i * 53) % (horizon * 0.7)), 1.5, 1.5); }
+      ctx.globalAlpha = 1;
+    }
+    // sun with glow
+    const s = sunPos();
+    const glowR = s.r * (3 + 2 * sunT);
+    const sg = ctx.createRadialGradient(s.x, s.y, s.r * 0.5, s.x, s.y, glowR);
+    sg.addColorStop(0, `rgba(255, 200, 80, ${0.35 + 0.3 * sunT})`); sg.addColorStop(1, 'rgba(255, 140, 40, 0)');
+    ctx.fillStyle = sg; ctx.beginPath(); ctx.arc(s.x, s.y, glowR, 0, Math.PI * 2); ctx.fill();
+    ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, horizon); ctx.clip();
+    const sun = ctx.createRadialGradient(s.x - s.r * 0.3, s.y - s.r * 0.3, s.r * 0.2, s.x, s.y, s.r);
+    sun.addColorStop(0, '#fff3bf'); sun.addColorStop(1, '#ff8c1a');
+    ctx.fillStyle = sun; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill();
+    ctx.restore();
+    // far bank with trees and a temple shape
+    ctx.fillStyle = 'rgba(40, 20, 15, 0.85)';
+    ctx.beginPath(); ctx.moveTo(0, horizon);
+    for (let x = 0; x <= W; x += 18) ctx.lineTo(x, horizon - 6 - 6 * Math.abs(Math.sin(x * 0.07)) - (x % 90 < 18 ? 10 : 0));
+    ctx.lineTo(W, horizon); ctx.closePath(); ctx.fill();
+  };
+
+  const drawWater = (clock) => {
+    const g = ctx.createLinearGradient(0, horizon, 0, H);
+    g.addColorStop(0, stage === 'prasad' ? '#e8a25a' : '#b5653a'); g.addColorStop(1, '#2b1a2e');
+    ctx.fillStyle = g; ctx.fillRect(0, horizon, W, H - horizon);
+    // sun reflection
+    const s = sunPos();
+    if (s.y < horizon + s.r) {
+      ctx.fillStyle = `rgba(255, 200, 90, ${0.25 + 0.35 * sunT})`;
+      for (let i = 0; i < 9; i += 1) { const yy = horizon + 6 + i * 10; const w = (s.r * 1.6) * (1 - i / 11) * (0.8 + 0.2 * Math.sin(clock * 3 + i)); ctx.fillRect(s.x - w / 2, yy, w, 3); }
+    }
+    // gentle waves
+    ctx.strokeStyle = 'rgba(255, 230, 200, 0.18)'; ctx.lineWidth = 1.5;
+    for (let row = 0; row < 7; row += 1) {
+      const y = horizon + 20 + row * ((H - horizon) / 7);
+      ctx.beginPath();
+      for (let x = 0; x <= W; x += 12) ctx.lineTo(x, y + Math.sin(x * 0.05 + clock * 1.6 + row) * 2.5);
+      ctx.stroke();
+    }
+    // floating diyas
+    for (let i = 0; i < 6; i += 1) {
+      const x = ((i * 0.19 + clock * 0.012 * (i % 2 ? 1 : -1)) % 1 + 1) % 1 * W;
+      const y = horizon + 18 + (i % 3) * 22;
+      ctx.fillStyle = '#8a4b1f'; ctx.beginPath(); ctx.ellipse(x, y, 7, 3, 0, 0, Math.PI); ctx.fill();
+      const fl = 1 + 0.15 * Math.sin(clock * 9 + i);
+      ctx.fillStyle = '#ffd43b'; ctx.beginPath(); ctx.ellipse(x, y - 4 * fl, 2, 4.5 * fl, 0, 0, Math.PI * 2); ctx.fill();
+    }
+  };
+
+  // sugarcane kosi on the near bank (left and right)
+  const drawGhat = () => {
+    const base = H;
+    ctx.fillStyle = '#5c3a22';
+    ctx.fillRect(0, base - 26, W * 0.16, 26); ctx.fillRect(W * 0.84, base - 26, W * 0.16, 26);
+    [W * 0.07, W * 0.93].forEach((cx) => {
+      ctx.strokeStyle = '#2f9e44'; ctx.lineWidth = 4;
+      [-14, -5, 5, 14].forEach((dx) => { ctx.beginPath(); ctx.moveTo(cx + dx, base - 26); ctx.lineTo(cx + dx * 0.25, base - 110); ctx.stroke(); });
+      ctx.fillStyle = '#69db7c';
+      [-1, 1].forEach((d) => { ctx.beginPath(); ctx.ellipse(cx + d * 12, base - 112, 18, 5, d * 0.6, 0, Math.PI * 2); ctx.fill(); });
+      ctx.fillStyle = '#ffd43b'; ctx.beginPath(); ctx.arc(cx, base - 36, 4, 0, Math.PI * 2); ctx.fill();
+    });
+  };
+
+  // the vrati in a yellow saree with a red border, standing waist-deep; depth 0 = standing, 1 = under water
+  const drawDevotee = (depth, arms) => {
+    const s = Math.min(W, H) / 420;
+    const x = W * 0.5, waterY = H * 0.8;
+    const top = waterY - 104 * s + depth * 116 * s; // top of the head
+    ctx.save();
+    ctx.beginPath(); ctx.rect(0, 0, W, waterY); ctx.clip();
+    const skin = '#a0612f', saree = '#fcc419', border = '#e03131';
+    // torso: shoulders and blouse under the saree
+    ctx.fillStyle = saree;
+    ctx.beginPath();
+    ctx.moveTo(x - 30 * s, top + 120 * s);
+    ctx.lineTo(x - 27 * s, top + 44 * s);
+    ctx.quadraticCurveTo(x - 25 * s, top + 32 * s, x - 12 * s, top + 30 * s);
+    ctx.lineTo(x + 12 * s, top + 30 * s);
+    ctx.quadraticCurveTo(x + 25 * s, top + 32 * s, x + 27 * s, top + 44 * s);
+    ctx.lineTo(x + 30 * s, top + 120 * s);
+    ctx.closePath(); ctx.fill();
+    // pallu falling diagonally across the chest, with a red border
+    ctx.fillStyle = '#ffd43b';
+    ctx.beginPath(); ctx.moveTo(x - 14 * s, top + 30 * s); ctx.lineTo(x + 6 * s, top + 30 * s); ctx.lineTo(x + 30 * s, top + 92 * s); ctx.lineTo(x + 16 * s, top + 100 * s); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = border; ctx.lineWidth = 3.5 * s;
+    ctx.beginPath(); ctx.moveTo(x + 6 * s, top + 30 * s); ctx.lineTo(x + 30 * s, top + 92 * s); ctx.stroke();
+    // neck and head
+    ctx.fillStyle = skin; ctx.fillRect(x - 5 * s, top + 22 * s, 10 * s, 10 * s);
+    ctx.beginPath(); ctx.ellipse(x, top + 13 * s, 11 * s, 13 * s, 0, 0, Math.PI * 2); ctx.fill();
+    // saree drawn over the head (ghoonghat) with the red border
+    ctx.fillStyle = saree;
+    ctx.beginPath(); ctx.moveTo(x - 16 * s, top + 34 * s); ctx.quadraticCurveTo(x - 18 * s, top - 6 * s, x, top - 6 * s); ctx.quadraticCurveTo(x + 18 * s, top - 6 * s, x + 16 * s, top + 34 * s); ctx.lineTo(x + 11 * s, top + 34 * s); ctx.quadraticCurveTo(x + 12 * s, top + 2 * s, x, top + 1 * s); ctx.quadraticCurveTo(x - 12 * s, top + 2 * s, x - 11 * s, top + 34 * s); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = border; ctx.lineWidth = 2.5 * s;
+    ctx.beginPath(); ctx.moveTo(x - 11 * s, top + 34 * s); ctx.quadraticCurveTo(x - 12 * s, top + 2 * s, x, top + 1 * s); ctx.quadraticCurveTo(x + 12 * s, top + 2 * s, x + 11 * s, top + 34 * s); ctx.stroke();
+    // face: closed eyes, smile, bindi and sindoor
+    ctx.strokeStyle = '#3b1d0b'; ctx.lineWidth = 1.4 * s; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.arc(x - 4.5 * s, top + 13 * s, 2.2 * s, 0.2, Math.PI - 0.2); ctx.stroke();
+    ctx.beginPath(); ctx.arc(x + 4.5 * s, top + 13 * s, 2.2 * s, 0.2, Math.PI - 0.2); ctx.stroke();
+    ctx.beginPath(); ctx.arc(x, top + 18 * s, 3 * s, 0.25, Math.PI - 0.25); ctx.stroke();
+    ctx.fillStyle = border; ctx.beginPath(); ctx.arc(x, top + 7.5 * s, 1.6 * s, 0, Math.PI * 2); ctx.fill();
+    ctx.fillRect(x - 0.8 * s, top + 1 * s, 1.6 * s, 4 * s);
+    // arms: hands joined (namaste) while dipping, raised with the soop for arghya
+    ctx.strokeStyle = skin; ctx.lineWidth = 6 * s;
+    if (arms) {
+      const hy = top - 26 * s;
+      ctx.beginPath(); ctx.moveTo(x - 24 * s, top + 40 * s); ctx.quadraticCurveTo(x - 34 * s, top + 8 * s, x - 22 * s, hy + 6 * s); ctx.moveTo(x + 24 * s, top + 40 * s); ctx.quadraticCurveTo(x + 34 * s, top + 8 * s, x + 22 * s, hy + 6 * s); ctx.stroke();
+      ctx.fillStyle = '#c99a5b'; ctx.beginPath(); ctx.moveTo(x - 38 * s, hy); ctx.quadraticCurveTo(x, hy + 22 * s, x + 38 * s, hy); ctx.lineTo(x + 32 * s, hy - 6 * s); ctx.lineTo(x - 32 * s, hy - 6 * s); ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = '#8a6a3a'; ctx.lineWidth = 1.2;
+      for (let k = -3; k <= 3; k += 1) { ctx.beginPath(); ctx.moveTo(x + k * 9 * s, hy - 5 * s); ctx.lineTo(x + k * 7 * s, hy + 8 * s); ctx.stroke(); }
+      ctx.font = `${15 * s}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`; ctx.textAlign = 'center';
+      ctx.fillText('🍌🪔🥥', x, hy - 7 * s);
+    } else {
+      ctx.beginPath(); ctx.moveTo(x - 24 * s, top + 42 * s); ctx.quadraticCurveTo(x - 20 * s, top + 66 * s, x - 2 * s, top + 52 * s); ctx.moveTo(x + 24 * s, top + 42 * s); ctx.quadraticCurveTo(x + 20 * s, top + 66 * s, x + 2 * s, top + 52 * s); ctx.stroke();
+      ctx.fillStyle = skin; ctx.beginPath(); ctx.ellipse(x, top + 46 * s, 3.5 * s, 8 * s, 0, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.restore();
+    // water around the waist
+    ctx.strokeStyle = 'rgba(255, 236, 210, 0.55)'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.ellipse(x, waterY, 42 * s, 7 * s, 0, 0, Math.PI * 2); ctx.stroke();
+    ctx.strokeStyle = 'rgba(255, 236, 210, 0.25)';
+    ctx.beginPath(); ctx.ellipse(x, waterY + 2, 62 * s, 11 * s, 0, 0, Math.PI * 2); ctx.stroke();
+    return { x, waterY, s };
+  };
+
+  const drawDipBar = () => {
+    const bw = Math.min(W * 0.8, 420), bx = (W - bw) / 2, by = H - 46;
+    ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.fillRect(bx - 6, by - 6, bw + 12, 28);
+    const zone = 0.16 - (DIPS - dipsLeft) * 0.012; // green zone shrinks a little each dip
+    ctx.fillStyle = '#e03131'; ctx.fillRect(bx, by, bw, 16);
+    ctx.fillStyle = '#fab005'; ctx.fillRect(bx + bw * (0.5 - zone), by, bw * zone * 2, 16);
+    ctx.fillStyle = '#40c057'; ctx.fillRect(bx + bw * (0.5 - zone / 2), by, bw * zone, 16);
+    const nx = bx + bw * needle;
+    ctx.fillStyle = '#fff'; ctx.fillRect(nx - 3, by - 8, 6, 32);
+    return zone;
+  };
+
+  const drawSoop = () => {
+    const sw = Math.min(110, W * 0.26), x = soopX * W, y = H - 38;
+    ctx.fillStyle = '#c99a5b'; ctx.beginPath(); ctx.moveTo(x - sw / 2, y - 10); ctx.quadraticCurveTo(x, y + 26, x + sw / 2, y - 10); ctx.lineTo(x + sw / 2 - 8, y - 16); ctx.lineTo(x - sw / 2 + 8, y - 16); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = '#8a6a3a'; ctx.lineWidth = 1.5;
+    for (let k = -4; k <= 4; k += 1) { ctx.beginPath(); ctx.moveTo(x + k * sw / 10, y - 15); ctx.lineTo(x + k * sw / 12, y + 6); ctx.stroke(); }
+    return { x, y, sw };
+  };
+
+  const ITEMS = [
+    { e: '🍪', p: 10, w: 5, name: 'thekua' }, { e: '🍌', p: 10, w: 4 }, { e: '🎋', p: 15, w: 2 }, { e: '🥥', p: 15, w: 2 }, { e: '🍊', p: 10, w: 3 }, { e: '✨', p: 30, w: 1, gold: true },
+  ];
+  const pickItem = () => { const total = ITEMS.reduce((a, b) => a + b.w, 0); let r = Math.random() * total; return ITEMS.find((it) => (r -= it.w) < 0) || ITEMS[0]; };
+
+  // ---- input
+  const press = () => {
+    if (stage === 'dip' && dipCool <= 0) {
+      const off = Math.abs(needle - 0.5);
+      const zone = 0.16 - (DIPS - dipsLeft) * 0.012;
+      let pts = 0;
+      if (off <= zone / 2) { pts = 30; say(t('perfect')); } else if (off <= zone) { pts = 15; say(t('good')); } else { say(t('miss')); }
+      if (pts) add('dip', pts);
+      pop(W / 2, H * 0.4, pts ? `+${pts}` : '·', pts === 30);
+      dipAnim = 1; dipCool = 0.9; splash(pts === 30);
+      ripples.push({ x: W / 2, y: H * 0.8, r: 10, life: 1 });
+      if (navigator.vibrate) navigator.vibrate(pts === 30 ? 30 : 12);
+      dipsLeft -= 1; needleSpeed += 0.25;
+      if (dipsLeft <= 0) setTimeout(() => { if (stage === 'dip') { stage = 'arghya'; sunT = 0; say(t('waitSun')); updateHud(); } }, 900);
+      updateHud();
+      return;
+    }
+    if (stage === 'arghya' && !arghyaDone && arghyaCool <= 0) {
+      if (sunT < 0.72) { say(t('early')); arghyaCool = 0.6; tone(220, 0.1, 'triangle', 0.06); return; }
+      const off = Math.abs(sunT - 0.86);
+      const pts = off < 0.06 ? 100 : Math.max(30, Math.round(100 - off * 300));
+      add('arghya', pts); arghyaDone = true; arghyaAnim = 1;
+      say(off < 0.06 ? t('arghyaPerfect') : sunT > 0.95 ? t('arghyaLate') : t('arghyaGood'));
+      pop(W / 2, H * 0.3, `+${pts}`, off < 0.06);
+      bell(0); bell(0.5);
+      for (let i = 0; i < 40; i += 1) drops.push({ x: W / 2 + (Math.random() - 0.5) * 30, y: H * 0.5, vx: (Math.random() - 0.5) * 50, vy: -40 - Math.random() * 60, life: 1.2 });
+      setTimeout(() => { if (stage === 'arghya') { stage = 'prasad'; prasadLeft = PRASAD_TIME; items = []; say(t('catchHint')); updateHud(); } }, 2200);
+      updateHud();
+    }
+  };
+  const moveTo = (clientX) => { const b = canvas.getBoundingClientRect(); soopX = Math.max(0.08, Math.min(0.92, (clientX - b.left) / b.width)); };
+  canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (stage === 'prasad') moveTo(e.clientX); else press(); });
+  canvas.addEventListener('pointermove', (e) => { if (stage === 'prasad') moveTo(e.clientX); });
+  document.addEventListener('keydown', (e) => {
+    if (stage === 'prasad' && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) { soopX = Math.max(0.08, Math.min(0.92, soopX + (e.key === 'ArrowLeft' ? -0.06 : 0.06))); e.preventDefault(); }
+    if ((stage === 'dip' || stage === 'arghya') && (e.key === ' ' || e.key === 'Enter') && document.activeElement === document.body) { e.preventDefault(); press(); }
+  });
+
+  const updateHud = () => {
+    $('hudScore').textContent = `⭐ ${score}`;
+    $('hudStage').textContent = stage === 'dip' ? t('stDip') : stage === 'arghya' ? t('stArghya') : stage === 'prasad' ? t('stPrasad') : '';
+    $('hudInfo').textContent = stage === 'dip' ? t('dipLeft')(dipsLeft) : stage === 'prasad' ? t('timeLeft')(Math.max(0, Math.ceil(prasadLeft))) : '';
+  };
+
+  // ---- loop
+  let lastT = 0, clock = 0;
+  const tick = (now) => {
+    const dt = Math.min(0.05, (now - (lastT || now)) / 1000);
+    lastT = now; clock += dt;
+    dipCool -= dt; arghyaCool -= dt;
+    if (stage === 'idle') sunT = 0.55 + 0.05 * Math.sin(clock * 0.5);
+    if (stage === 'dip') {
+      needle += needleDir * needleSpeed * dt;
+      if (needle > 1) { needle = 1; needleDir = -1; } if (needle < 0) { needle = 0; needleDir = 1; }
+      sunT = 0;
+    }
+    if (stage === 'arghya' && !arghyaDone) {
+      sunT = Math.min(1.08, sunT + dt / 5.5);
+      if (sunT >= 1.08) { arghyaDone = true; add('arghya', 20); say(t('arghyaLate')); bell(0); setTimeout(() => { if (stage === 'arghya') { stage = 'prasad'; prasadLeft = PRASAD_TIME; items = []; say(t('catchHint')); updateHud(); } }, 1500); }
+    }
+    if (stage === 'prasad') {
+      prasadLeft -= dt;
+      spawnAcc += dt;
+      const every = Math.max(0.38, 0.8 - (PRASAD_TIME - prasadLeft) * 0.02);
+      while (spawnAcc > every) { spawnAcc -= every; const it = pickItem(); items.push({ ...it, x: 0.08 + Math.random() * 0.84, y: -20, v: 140 + (PRASAD_TIME - prasadLeft) * 9 + Math.random() * 40, rot: Math.random() * 6 }); }
+      const sp = { x: soopX * W, y: H - 38, sw: Math.min(110, W * 0.26) };
+      items.forEach((it) => {
+        it.y += it.v * dt; it.rot += dt * 2;
+        if (!it.got && it.y > sp.y - 22 && it.y < sp.y + 6 && Math.abs(it.x * W - sp.x) < sp.sw / 2) { it.got = true; add('prasad', it.p); pop(it.x * W, sp.y - 30, `+${it.p}`, it.gold); blip(it.gold); if (navigator.vibrate) navigator.vibrate(8); }
+      });
+      items = items.filter((it) => !it.got && it.y < H + 30);
+      if (prasadLeft <= 0) end();
+      updateHud();
+    }
+    // draw
+    drawSky(clock);
+    drawWater(clock);
+    if (stage !== 'prasad') {
+      dipAnim = Math.max(0, dipAnim - dt * 1.4);
+      arghyaAnim = Math.max(0, arghyaAnim - dt * 0.35);
+      const depth = Math.sin(Math.min(1, 1 - dipAnim) * Math.PI) * (dipAnim > 0 ? 1 : 0);
+      drawDevotee(depth, stage === 'arghya' || stage === 'idle');
+    }
+    drawGhat();
+    ripples.forEach((r) => { r.r += 90 * dt; r.life -= dt; ctx.strokeStyle = `rgba(255,255,255,${Math.max(0, r.life) * 0.6})`; ctx.lineWidth = 2; ctx.beginPath(); ctx.ellipse(r.x, r.y, r.r, r.r * 0.25, 0, 0, Math.PI * 2); ctx.stroke(); });
+    ripples = ripples.filter((r) => r.life > 0);
+    drops.forEach((d) => { d.vy += 120 * dt; d.x += d.vx * dt; d.y += d.vy * dt; d.life -= dt; ctx.fillStyle = `rgba(190, 230, 255, ${Math.max(0, d.life)})`; ctx.beginPath(); ctx.arc(d.x, d.y, 2.2, 0, Math.PI * 2); ctx.fill(); });
+    drops = drops.filter((d) => d.life > 0);
+    if (stage === 'dip') drawDipBar();
+    if (stage === 'arghya' && !arghyaDone && sunT > 0.72) {
+      const s = sunPos();
+      ctx.strokeStyle = `rgba(255, 244, 200, ${0.5 + 0.5 * Math.sin(clock * 8)})`; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r * 1.35, 0, Math.PI * 2); ctx.stroke();
+      ctx.fillStyle = '#fff'; ctx.font = '800 18px Inter, "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(t('tapArghya'), W / 2, H - 30);
+    }
+    if (stage === 'prasad') {
+      ctx.font = '30px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      items.forEach((it) => { ctx.save(); ctx.translate(it.x * W, it.y); ctx.rotate(Math.sin(it.rot) * 0.3); if (it.gold) { ctx.shadowColor = '#ffd43b'; ctx.shadowBlur = 16; } ctx.fillText(it.name === 'thekua' ? '🍪' : it.e, 0, 0); ctx.restore(); });
+      ctx.textBaseline = 'alphabetic';
+      drawSoop();
+    }
+    pops.forEach((p) => { p.y -= 36 * dt; p.life -= dt * 1.1; ctx.globalAlpha = Math.max(0, p.life); ctx.fillStyle = p.gold ? '#ffd43b' : '#fff'; ctx.font = '800 22px Inter, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(p.text, p.x, p.y); });
+    ctx.globalAlpha = 1; pops = pops.filter((p) => p.life > 0);
+    if (msgLife > 0) {
+      msgLife -= dt;
+      ctx.globalAlpha = Math.min(1, msgLife * 2);
+      ctx.font = '800 20px Inter, "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif'; ctx.textAlign = 'center';
+      const mw = ctx.measureText(msg).width + 24;
+      ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.fillRect(W / 2 - mw / 2, 46, mw, 34);
+      ctx.fillStyle = '#fff3bf'; ctx.fillText(msg, W / 2, 70);
+      ctx.globalAlpha = 1;
+    }
+    requestAnimationFrame(tick);
+  };
+
+  const start = () => {
+    store.set('ch-name', cleanName($('name').value));
+    score = 0; parts = { dip: 0, arghya: 0, prasad: 0 }; lastEnd = null;
+    dipsLeft = DIPS; needle = 0; needleDir = 1; needleSpeed = 0.9; dipAnim = 0; dipCool = 0.3;
+    sunT = 0; arghyaDone = false; arghyaCool = 0; prasadLeft = PRASAD_TIME; items = []; spawnAcc = 0; soopX = 0.5;
+    pops = []; ripples = []; drops = [];
+    $('startScreen').classList.add('hidden'); $('endScreen').classList.add('hidden');
+    $('shareOther').textContent = t('shareOther');
+    stage = 'dip'; say(t('tapDip')); ac(); bell(0); updateHud();
+  };
+
+  const showEnd = (prev) => {
+    $('finalScore').textContent = score;
+    const max = DIPS * 30 + 100 + 300;
+    const stars = score >= max * 0.7 ? 3 : score >= max * 0.45 ? 2 : 1;
+    $('endStars').textContent = '☀️'.repeat(stars) + '·'.repeat(3 - stars);
+    $('endTitle').textContent = score > prev && prev > 0 ? t('record') : t('endTitle');
+    $('endBreak').textContent = t('breakdown')(parts.dip, parts.arghya, parts.prasad);
+    $('endNote').textContent = fromName && fromScore ? (score > fromScore ? t('beat')(fromName, fromScore) : t('notBeat')(fromName, fromScore)) : t('bestNote')(Math.max(score, prev));
+  };
+
+  const end = () => {
+    stage = 'done';
+    const prev = best();
+    if (score > prev) store.set('ch-best', String(score));
+    lastEnd = { prev };
+    showEnd(prev);
+    $('endScreen').classList.remove('hidden');
+    $('bestLine').textContent = t('best')(best());
+    updateHud(); bell(0); bell(0.6); bell(1.2);
+  };
+
+  const shareText = () => {
+    const name = cleanName($('name').value);
+    const u = new URL(SITE);
+    if (name) u.searchParams.set('from', name);
+    u.searchParams.set('score', String(score));
+    u.searchParams.set('lang', lang);
+    return t('shareText')(name, score, u.toString());
+  };
+
+  $('play').addEventListener('click', start);
+  $('again').addEventListener('click', start);
+  $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => window.prompt(t('copyPrompt'), text));
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && (stage === 'dip' || stage === 'arghya' || stage === 'prasad')) { stage = 'idle'; $('startScreen').classList.remove('hidden'); $('play').textContent = t('resume'); updateHud(); }
+  });
+  window.addEventListener('resize', resize);
+
+  applyLang();
+  resize();
+  requestAnimationFrame(tick);
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>
