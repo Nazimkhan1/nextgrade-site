@@ -4,6 +4,7 @@
  * retold in our own words. Each story has all four languages; keep them in step.
  */
 import { moreStories } from './stories-more.mjs';
+import { moreStories2 } from './stories-more2.mjs';
 
 const stories = [
   {
@@ -508,6 +509,6 @@ const stories = [
   },
 ];
 
-stories.push(...moreStories);
+stories.push(...moreStories, ...moreStories2);
 
 export { stories };
