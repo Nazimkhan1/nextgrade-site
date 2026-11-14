@@ -1,6 +1,8 @@
 // Wish Card Maker: draws the card on a <canvas> in the browser; nothing is uploaded.
 (() => {
   const list = window.NG_FESTIVALS || [];
+  const UI = window.NG_CARD_UI || { dear: '{to},', downloaded: '', cantShare: '' };
+  const FONT = '"Noto Sans Devanagari", "Noto Sans Bengali", Inter, sans-serif';
   const $ = (id) => document.getElementById(id);
   const canvas = $('card');
   const ctx = canvas.getContext('2d');
@@ -10,7 +12,7 @@
   const wish = $('wish');
   const status = $('status');
 
-  list.forEach((f) => pick.add(new Option(`${f.emoji} ${f.nameHi} · ${f.nameEn}`, f.slug)));
+  list.forEach((f) => pick.add(new Option(`${f.emoji} ${f.name} · ${f.alt}`, f.slug)));
   const wanted = new URLSearchParams(location.search).get('f');
   if (wanted && list.some((f) => f.slug === wanted)) pick.value = wanted;
 
@@ -59,21 +61,21 @@
     ctx.font = '160px serif';
     ctx.fillText(f.emoji, W / 2, 290);
 
-    ctx.font = '700 84px "Noto Sans Devanagari", Inter, sans-serif';
-    ctx.fillText(f.nameHi, W / 2, 420);
-    ctx.font = '600 44px Inter, sans-serif';
-    ctx.fillText(f.nameEn, W / 2, 485);
+    ctx.font = `700 84px ${FONT}`;
+    ctx.fillText(f.name, W / 2, 420);
+    ctx.font = `600 44px ${FONT}`;
+    ctx.fillText(f.alt, W / 2, 485);
 
     const to = $('to').value.trim();
     let y = 600;
     if (to) {
-      ctx.font = '600 50px "Noto Sans Devanagari", Inter, sans-serif';
-      ctx.fillText(`प्रिय ${to},`, W / 2, y);
+      ctx.font = `600 50px ${FONT}`;
+      ctx.fillText(UI.dear.replace('{to}', to), W / 2, y);
       y += 90;
     }
 
     const message = $('custom').value.trim() || (f.wishes[Number(wish.value)] || f.wishes[0]);
-    ctx.font = '500 50px "Noto Sans Devanagari", Inter, sans-serif';
+    ctx.font = `500 50px ${FONT}`;
     lines(message, W - 220).slice(0, 8).forEach((line) => {
       ctx.fillText(line, W / 2, y);
       y += 72;
@@ -81,7 +83,7 @@
 
     const from = $('from').value.trim();
     if (from) {
-      ctx.font = '700 52px "Noto Sans Devanagari", Inter, sans-serif';
+      ctx.font = `700 52px ${FONT}`;
       ctx.fillText(`— ${from}`, W / 2, Math.max(y + 60, 1130));
     }
 
@@ -99,16 +101,16 @@
     a.href = canvas.toDataURL('image/png');
     a.download = fileName();
     a.click();
-    status.textContent = 'कार्ड डाउनलोड हो गया।';
+    status.textContent = UI.downloaded;
   });
 
   $('share').addEventListener('click', () => {
     toBlob().then((blob) => {
       const file = new File([blob], fileName(), { type: 'image/png' });
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        return navigator.share({ files: [file], title: current().nameEn, text: 'nextgrade.in/wish-card' }).catch(() => undefined);
+        return navigator.share({ files: [file], title: current().name, text: 'nextgrade.in/wish-card' }).catch(() => undefined);
       }
-      status.textContent = 'इस ब्राउज़र में सीधा शेयर नहीं होता — Download करके भेजें।';
+      status.textContent = UI.cantShare;
       return undefined;
     });
   });

@@ -1,14 +1,20 @@
 /**
  * Builds the nextgrade.in site into docs/ (served by GitHub Pages).
- * No npm packages: `node build.mjs`. Content lives in src/*.mjs; static files
- * in src/assets and src/static are copied as they are.
+ * No npm packages: `node build.mjs`.
+ *
+ * Languages: Hindi at the root (/), English at /en/, Hinglish at /hinglish/,
+ * Bengali at /bn/. A language is built only when its content file exists
+ * (src/i18n/<code>.mjs; Hindi content is src/festivals.mjs + src/wishes.mjs).
+ * Interface text for all languages is in src/i18n/ui.mjs.
+ * Static files in src/assets and src/static are copied as they are.
  */
-import { cpSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { festivals } from './src/festivals.mjs';
 import { apps } from './src/apps.mjs';
 import { wishes } from './src/wishes.mjs';
 import { games } from './src/games.mjs';
+import { ui } from './src/i18n/ui.mjs';
 
 const SITE = 'https://nextgrade.in';
 const NAME = 'NextGrade';
@@ -17,32 +23,92 @@ const CONTACT = 'contact@nextgrade.in';
 const OUT = 'docs';
 const TODAY = new Date().toISOString().slice(0, 10);
 
-rmSync(OUT, { recursive: true, force: true });
-
-const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-
-const NAV = [
-  ['/', 'Home'],
-  ['/wishes/', 'Wishes'],
-  ['/festivals/', 'Festivals'],
-  ['/games/', 'Games'],
-  ['/wish-card/', 'Wish Card'],
-  ['/apps/', 'Apps'],
-  ['/about/', 'About'],
+const ALL_LANGS = [
+  { code: 'hi', prefix: '', html: 'hi', hreflang: 'hi', game: 'hi' },
+  { code: 'en', prefix: '/en', html: 'en', hreflang: 'en', game: 'en' },
+  { code: 'hinglish', prefix: '/hinglish', html: 'hi-Latn', hreflang: 'hi-Latn', game: 'hinglish' },
+  { code: 'bn', prefix: '/bn', html: 'bn', hreflang: 'bn', game: 'bn' },
 ];
 
-function page({ path, title, description, body, jsonLd = [], scripts = [] }) {
-  const url = `${SITE}${path}`;
-  const nav = NAV.map(([href, label]) => `<a href="${href}"${href === path || (href !== '/' && path.startsWith(href)) ? ' aria-current="page"' : ''}>${label}</a>`).join('');
+const content = { hi: {} };
+await Promise.all(
+  ALL_LANGS.filter((l) => l.code !== 'hi' && existsSync(`src/i18n/${l.code}.mjs`)).map((l) =>
+    import(`./src/i18n/${l.code}.mjs`).then((m) => {
+      content[l.code] = m;
+    }),
+  ),
+);
+const LANGS = ALL_LANGS.filter((l) => content[l.code]);
+
+rmSync(OUT, { recursive: true, force: true });
+mkdirSync(join(OUT, 'assets'), { recursive: true });
+
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const firstSentence = (s) => (String(s).match(/^.*?[।.!?](\s|$)/) || [s])[0].trim();
+
+// ---- Localised views of the content
+const lf = (f, L) => {
+  if (L.code === 'hi') return { name: f.nameHi, alt: f.nameEn, intro: f.introHi, when: f.whenHi, where: f.whereHi, sections: f.sections, wishes: f.wishesHi, wishes2: f.wishesEn, faq: f.faq, summary: f.enSummary };
+  const t = content[L.code].festivals[f.slug];
+  return {
+    name: t.name,
+    alt: L.code === 'bn' ? f.nameEn : f.nameHi,
+    intro: t.intro,
+    when: t.when,
+    where: t.where,
+    sections: t.sections,
+    wishes: L.code === 'en' ? [...f.wishesEn, ...(t.moreWishes || [])] : t.wishes,
+    wishes2: L.code === 'en' ? f.wishesHi : f.wishesEn,
+    faq: t.faq,
+    summary: [],
+  };
+};
+
+const lw = (w, L) => {
+  if (L.code === 'hi') return { name: w.nameHi, alt: w.nameEn, greet: w.greetHi, intro: w.introHi, about: w.aboutHi, summary: [w.aboutEn], wishes: w.wishesHi, wishes2: w.wishesEn, faq: w.faq };
+  const t = content[L.code].wishes[w.slug];
+  return {
+    name: t.name,
+    alt: L.code === 'bn' ? w.nameEn : w.nameHi,
+    greet: t.greet,
+    intro: t.intro,
+    about: t.about,
+    summary: [],
+    wishes: L.code === 'en' ? [...w.wishesEn, ...(t.moreWishes || [])] : t.wishes,
+    wishes2: L.code === 'en' ? w.wishesHi : w.wishesEn,
+    faq: t.faq,
+  };
+};
+
+const lgame = (g, L) => (L.code === 'hi' ? { name: g.name, desc: g.desc } : { ...g, ...content[L.code].games[g.slug] });
+const lapp = (a, L) => {
+  if (L.code === 'hi') return a;
+  const t = (content[L.code].apps || {})[a.slug] || {};
+  return { ...a, desc: t.desc || a.descEn, tag: t.tag || a.tag };
+};
+
+// ---- Page shell
+const P = (L, path) => `${L.prefix}${path}`;
+const NAV = ['/', '/wishes/', '/festivals/', '/games/', '/wish-card/', '/apps/', '/about/'];
+const NAV_KEYS = ['home', 'wishes', 'festivals', 'games', 'card', 'apps', 'about'];
+
+function page(L, { path, title, description, body, jsonLd = [], scripts = [], langs = LANGS }) {
+  const T = ui[L.code];
+  const url = `${SITE}${P(L, path)}`;
+  const nav = NAV.map((href, i) => `<a href="${P(L, href)}"${href === path || (href !== '/' && path.startsWith(href)) ? ' aria-current="page"' : ''}>${T.nav[NAV_KEYS[i]]}</a>`).join('');
+  const switcher = langs.length > 1 ? `<nav class="langs" aria-label="${T.langLabel}">${langs.map((l) => `<a href="${P(l, path)}" hreflang="${l.hreflang}" lang="${l.html}"${l.code === L.code ? ' aria-current="true"' : ''}>${ui[l.code].langName}</a>`).join('')}</nav>` : '';
+  const alternates = langs.length > 1 ? [...langs.map((l) => `<link rel="alternate" hreflang="${l.hreflang}" href="${SITE}${P(l, path)}">`), `<link rel="alternate" hreflang="x-default" href="${SITE}${path}">`].join('\n') : '';
   const ld = jsonLd.map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join('\n');
+  const fonts = `family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700${L.code === 'bn' ? '&family=Noto+Sans+Bengali:wght@400;600;700' : ''}&display=swap`;
   return `<!doctype html>
-<html lang="hi">
+<html lang="${L.html}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${url}">
+${alternates}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${NAME}">
 <meta property="og:title" content="${esc(title)}">
@@ -54,7 +120,7 @@ function page({ path, title, description, body, jsonLd = [], scripts = [] }) {
 <link rel="manifest" href="/manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?${fonts}" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
 <meta name="google-adsense-account" content="${ADSENSE}">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE}" crossorigin="anonymous"></script>
@@ -62,16 +128,16 @@ ${ld}
 </head>
 <body>
 <header class="site-head"><div class="wrap">
-<a class="logo" href="/"><span class="logo-mark">N</span>${NAME}</a>
+<a class="logo" href="${P(L, '/')}"><span class="logo-mark">N</span>${NAME}</a>
 <nav class="nav" aria-label="Main">${nav}</nav>
-</div></header>
+</div>${switcher ? `<div class="wrap langs-row">${switcher}</div>` : ''}</header>
 <main>
 ${body}
 </main>
 <footer class="site-foot"><div class="wrap">
-<div>© ${new Date().getFullYear()} ${NAME} · nextgrade.in<br>त्योहारों की जानकारी, शुभकामनाएँ और छोटे काम के ऐप्स।</div>
+<div>© ${new Date().getFullYear()} ${NAME} · nextgrade.in<br>${esc(T.footer)}</div>
 <nav aria-label="Footer">
-<a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="/sitemap.xml">Sitemap</a>
+<a href="${P(L, '/about/')}">${esc(T.about.title)}</a><a href="${P(L, '/contact/')}">${esc(T.contact.title)}</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="/sitemap.xml">Sitemap</a>
 </nav>
 </div></footer>
 <script src="/assets/site.js" defer></script>
@@ -81,55 +147,91 @@ ${scripts.map((s) => `<script src="${s}" defer></script>`).join('\n')}
 `;
 }
 
-const write = (path, html) => {
-  const file = join(OUT, path.endsWith('/') ? `${path}index.html` : path);
+const urls = [];
+const write = (L, path, html) => {
+  const full = L ? P(L, path) : path;
+  const file = join(OUT, full.endsWith('/') ? `${full}index.html` : full);
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, html);
+  if (full.endsWith('/')) urls.push(full);
 };
 
-const breadcrumbLd = (items) => ({
+const breadcrumbLd = (L, items) => ({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
-  itemListElement: items.map(([name, path], i) => ({ '@type': 'ListItem', position: i + 1, name, item: `${SITE}${path}` })),
+  itemListElement: items.map(([name, path], i) => ({ '@type': 'ListItem', position: i + 1, name, item: `${SITE}${P(L, path)}` })),
 });
 
-const festivalCard = (f) => `<a class="card" href="/festivals/${f.slug}/">
+const articleLd = (L, headline, path) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline,
+  inLanguage: L.html,
+  datePublished: TODAY,
+  dateModified: TODAY,
+  author: { '@type': 'Organization', name: NAME },
+  publisher: { '@type': 'Organization', name: NAME },
+  mainEntityOfPage: `${SITE}${P(L, path)}`,
+});
+
+const faqLd = (faq) => ({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((q) => ({ '@type': 'Question', name: q.q, acceptedAnswer: { '@type': 'Answer', text: q.a } })) });
+
+// ---- Building blocks
+const festivalCard = (L) => (f) => {
+  const x = lf(f, L);
+  return `<a class="card" href="${P(L, `/festivals/${f.slug}/`)}">
 <span class="emoji" aria-hidden="true">${f.emoji}</span>
-<h3>${esc(f.nameHi)} · ${esc(f.nameEn)}</h3>
-<p>${esc(f.whenHi)}</p>
+<h3>${esc(x.name)} · ${esc(x.alt)}</h3>
+<p>${esc(x.when)}</p>
 </a>`;
+};
 
-const appCard = (a) => `<a class="card" href="${a.url}">
-<span class="emoji" aria-hidden="true">${a.emoji}</span>
-<span class="tag">${esc(a.tag)}</span>
-<h3>${esc(a.name)}</h3>
-<p>${esc(a.desc)}</p>
-</a>`;
-
-const wishCard = (w) => `<a class="card" href="/wishes/${w.slug}/">
+const wishCard = (L) => (w) => {
+  const x = lw(w, L);
+  return `<a class="card" href="${P(L, `/wishes/${w.slug}/`)}">
 <span class="emoji" aria-hidden="true">${w.emoji}</span>
-<h3>${esc(w.nameHi)} · ${esc(w.nameEn)}</h3>
-<p>${esc(w.introHi.split('।')[0])}।</p>
+<h3>${esc(x.name)} · ${esc(x.alt)}</h3>
+<p>${esc(firstSentence(x.intro))}</p>
 </a>`;
+};
 
-const wishItems = (list) => list.map((w) => `<li><span>${esc(w)}</span><button class="copy" type="button" data-copy="${esc(w)}">Copy</button></li>`).join('');
+const appCard = (L) => (a) => {
+  const x = lapp(a, L);
+  return `<a class="card" href="${a.url.startsWith('/') ? P(L, a.url) : a.url}">
+<span class="emoji" aria-hidden="true">${a.emoji}</span>
+<span class="tag">${esc(x.tag)}</span>
+<h3>${esc(a.name)}</h3>
+<p>${esc(x.desc)}</p>
+</a>`;
+};
 
-const gameCard = (g) => `<a class="card" href="/games/${g.slug}/">
+const gameCard = (L) => (g) => {
+  const x = lgame(g, L);
+  return `<a class="card" href="/games/${g.slug}/?lang=${L.game}">
 <span class="emoji" aria-hidden="true">${g.emoji}</span>
-<span class="tag">${esc(g.tag)} game</span>
-<h3>${esc(g.name)}</h3>
-<p>${esc(g.desc)}</p>
+<span class="tag">${esc(ui[L.code].games.tag(g.tag))}</span>
+<h3>${esc(x.name)}</h3>
+<p>${esc(x.desc)}</p>
 </a>`;
+};
 
-/** "<name> ki taraf se aapko …" banner, filled by site.js from ?from= (as plain text). */
-const fromBanner = (greet, emoji) => `<p class="from-banner" hidden data-greet="${esc(greet)}" data-emoji="${esc(emoji)}"></p>`;
+const wishItems = (L, list) => list.map((w) => `<li><span>${esc(w)}</span><button class="copy" type="button" data-copy="${esc(w)}" data-done="${esc(ui[L.code].copied)}">${esc(ui[L.code].copy)}</button></li>`).join('');
 
-/** "Apna wish banao": your name → a link with ?from=<name> → WhatsApp. Nothing is stored. */
-const shareBox = (path, title, wish) => `<div class="share-box" data-path="${esc(path)}" data-wish="${esc(wish)}">
-<h2>✨ अपना विश बनाएं</h2>
-<p>अपना नाम लिखें — हम आपके नाम वाला लिंक बना देंगे। जिसे भेजेंगे, उसे पेज पर सबसे ऊपर दिखेगा: "<b>आपका नाम</b> की तरफ़ से आपको ${esc(title)}"। नाम सिर्फ़ लिंक में रहता है, कहीं सेव नहीं होता।</p>
-<div class="share-row"><input class="share-name" maxlength="30" placeholder="आपका नाम, जैसे: Rahul" aria-label="आपका नाम"><button class="btn btn-wa share-wa" type="button">📲 WhatsApp पर भेजें</button><button class="btn btn-ghost share-copy" type="button">🔗 लिंक कॉपी</button></div>
+/** "<name> sends you …" banner, filled by site.js from ?from= (as plain text). */
+const fromBanner = (L, greet, emoji) => `<p class="from-banner" hidden data-tpl="${esc(ui[L.code].share.banner)}" data-greet="${esc(greet)}" data-emoji="${esc(emoji)}"></p>`;
+
+/** "Make your own wish": your name → a link with ?from=<name> → WhatsApp. Nothing is stored. */
+const shareBox = (L, path, title, wish) => {
+  const S = ui[L.code].share;
+  return `<div class="share-box" data-path="${esc(P(L, path))}" data-wish="${esc(wish)}" data-with-name="${esc(S.withName)}" data-without-name="${esc(S.withoutName)}" data-need-name="${esc(S.needName)}" data-copied="${esc(S.copied)}" data-copy-prompt="${esc(S.copyPrompt)}">
+<h2>${esc(S.h)}</h2>
+<p>${S.p(esc(title))}</p>
+<div class="share-row"><input class="share-name" maxlength="30" placeholder="${esc(S.ph)}" aria-label="${esc(S.ph)}"><button class="btn btn-wa share-wa" type="button">${esc(S.wa)}</button><button class="btn btn-ghost share-copy" type="button">${esc(S.copy)}</button></div>
 </div>`;
+};
+
+const paragraphs = (list) => list.map((p) => `<p>${esc(p)}</p>`).join('\n');
+const faqBlock = (faq) => `<div class="faq">${faq.map((q) => `<details><summary>${esc(q.q)}</summary><p>${esc(q.a)}</p></details>`).join('')}</div>`;
 
 /** Festivals from the current month on, wrapping round the year. */
 const upcoming = () => {
@@ -137,306 +239,268 @@ const upcoming = () => {
   return [...festivals].sort((a, b) => ((a.month - m + 12) % 12) - ((b.month - m + 12) % 12));
 };
 
-// ---- Home
-write(
-  '/',
-  page({
-    path: '/',
-    title: `${NAME} — त्योहार, शुभकामनाएँ और काम के ऐप्स | Festivals, Wishes & Free Apps`,
-    description: 'भारत के त्योहारों की पूरी जानकारी — कहानी, महत्व, पूजा और पकवान — साथ में हिंदी-अंग्रेज़ी शुभकामनाएँ, मुफ़्त Wish Card Maker और Hisab Kitab जैसे काम के ऐप्स।',
-    jsonLd: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: NAME, url: SITE, inLanguage: ['hi', 'en'] }],
-    body: `<div class="wrap">
+// ---- Every page, once per language
+LANGS.forEach((L) => {
+  const T = ui[L.code];
+
+  // Home
+  write(
+    L,
+    '/',
+    page(L, {
+      path: '/',
+      title: T.home.title,
+      description: T.home.desc,
+      jsonLd: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: NAME, url: `${SITE}${P(L, '/')}`, inLanguage: L.html }],
+      body: `<div class="wrap">
 <section class="hero">
-<h1>त्योहारों की बातें, शुभकामनाएँ और काम के छोटे ऐप्स</h1>
-<p>हर त्योहार की कहानी, महत्व और मनाने का तरीका — आसान हिंदी में, साथ में अंग्रेज़ी सार। अपनों को भेजने के लिए तैयार शुभकामनाएँ और एक क्लिक में बनने वाला शुभकामना कार्ड।</p>
-<div class="btns"><a class="btn btn-primary" href="/wish-card/">💌 Wish Card बनाएं</a><a class="btn btn-ghost" href="/festivals/">सभी त्योहार देखें</a></div>
+<h1>${esc(T.home.h1)}</h1>
+<p>${esc(T.home.lead)}</p>
+<div class="btns"><a class="btn btn-primary" href="${P(L, '/wish-card/')}">${esc(T.home.btnCard)}</a><a class="btn btn-ghost" href="${P(L, '/festivals/')}">${esc(T.home.btnFestivals)}</a></div>
 </section>
-<section>
-<h2>रोज़ की शुभकामनाएँ</h2>
-<div class="grid">${wishes.map(wishCard).join('')}</div>
-</section>
-<section>
-<h2>आने वाले त्योहार</h2>
-<div class="grid">${upcoming().slice(0, 6).map(festivalCard).join('')}</div>
-</section>
-<section>
-<h2>गेम्स</h2>
-<div class="grid">${games.map(gameCard).join('')}</div>
-</section>
-<section>
-<h2>मुफ़्त ऐप्स और टूल्स</h2>
-<div class="grid">${apps.map(appCard).join('')}</div>
-</section>
-<section class="narrow">
-<h2>NextGrade क्या है?</h2>
-<p>NextGrade एक छोटी, स्वतंत्र वेबसाइट है जहाँ हम भारत के त्योहारों के बारे में भरोसेमंद, सरल जानकारी और रोज़मर्रा के काम आने वाले छोटे-छोटे मुफ़्त ऐप्स बनाते हैं। हमारी कोशिश है कि हर पेज पढ़ने में आसान हो, मोबाइल पर जल्दी खुले और सच में काम आए।</p>
-<p class="note">In English: NextGrade explains Indian festivals — their story, meaning and traditions — with ready-to-share wishes in Hindi and English, a free greeting-card maker and small, free web apps.</p>
-</section>
+<section><h2>${esc(T.home.secWishes)}</h2><div class="grid">${wishes.map(wishCard(L)).join('')}</div></section>
+<section><h2>${esc(T.home.secUpcoming)}</h2><div class="grid">${upcoming().slice(0, 6).map(festivalCard(L)).join('')}</div></section>
+<section><h2>${esc(T.home.secGames)}</h2><div class="grid">${games.map(gameCard(L)).join('')}</div></section>
+<section><h2>${esc(T.home.secApps)}</h2><div class="grid">${apps.map(appCard(L)).join('')}</div></section>
+<section class="narrow"><h2>${esc(T.home.aboutH)}</h2><p>${esc(T.home.aboutP)}</p></section>
 </div>`,
-  }),
-);
+    }),
+  );
 
-// ---- Festivals index
-write(
-  '/festivals/',
-  page({
-    path: '/festivals/',
-    title: `भारत के त्योहार — कहानी, महत्व और शुभकामनाएँ | ${NAME}`,
-    description: 'क्रिसमस, नया साल, लोहड़ी, मकर संक्रांति, गणतंत्र दिवस, वसंत पंचमी, महाशिवरात्रि, होली, ईद, राम नवमी, रक्षा बंधन और दिवाली — हर त्योहार की पूरी जानकारी और शुभकामनाएँ।',
-    jsonLd: [breadcrumbLd([['Home', '/'], ['Festivals', '/festivals/']])],
-    body: `<div class="wrap article">
-<p class="crumbs"><a href="/">Home</a> › Festivals</p>
-<h1>भारत के त्योहार</h1>
-<p class="lead">हर त्योहार का अपना पेज — क्यों मनाते हैं, कैसे मनाते हैं, क्या पकवान बनते हैं, और अपनों को भेजने के लिए हिंदी-अंग्रेज़ी शुभकामनाएँ। सूची आने वाले त्योहारों के क्रम में है।</p>
-<div class="grid">${upcoming().map(festivalCard).join('')}</div>
-<p class="note" style="margin-top:20px">जिन त्योहारों की तारीख चंद्र कैलेंडर (तिथि) से तय होती है, उनकी सटीक तारीख हर साल बदलती है — पूजा का मुहूर्त अपने स्थानीय पंचांग से ज़रूर देखें।</p>
-</div>`,
-  }),
-);
-
-// ---- Festival pages
-festivals.forEach((f, i) => {
-  const path = `/festivals/${f.slug}/`;
-  const next = [festivals[(i + 1) % festivals.length], festivals[(i + 2) % festivals.length], festivals[(i + 3) % festivals.length]];
+  // Festivals index
   write(
-    path,
-    page({
+    L,
+    '/festivals/',
+    page(L, {
+      path: '/festivals/',
+      title: T.festivals.title,
+      description: T.festivals.desc,
+      jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.festivals, '/festivals/']])],
+      body: `<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(T.nav.festivals)}</p>
+<h1>${esc(T.festivals.h1)}</h1>
+<p class="lead">${esc(T.festivals.lead)}</p>
+<div class="grid">${upcoming().map(festivalCard(L)).join('')}</div>
+<p class="note" style="margin-top:20px">${esc(T.festivals.note)}</p>
+</div>`,
+    }),
+  );
+
+  // Festival pages
+  festivals.forEach((f, i) => {
+    const path = `/festivals/${f.slug}/`;
+    const x = lf(f, L);
+    const F = T.festival;
+    const next = [1, 2, 3].map((k) => festivals[(i + k) % festivals.length]);
+    write(
+      L,
       path,
-      title: `${f.nameHi} (${f.nameEn}) — महत्व, कैसे मनाएँ और शुभकामनाएँ | ${NAME}`,
-      description: `${f.nameHi} क्यों और कैसे मनाया जाता है, इसकी कहानी, परंपराएँ और ${f.nameHi} की हिंदी-अंग्रेज़ी शुभकामनाएँ। ${f.whenHi}।`,
-      jsonLd: [
-        breadcrumbLd([['Home', '/'], ['Festivals', '/festivals/'], [f.nameEn, path]]),
-        {
-          '@context': 'https://schema.org',
-          '@type': 'Article',
-          headline: `${f.nameHi} (${f.nameEn})`,
-          inLanguage: 'hi',
-          datePublished: TODAY,
-          dateModified: TODAY,
-          author: { '@type': 'Organization', name: NAME },
-          publisher: { '@type': 'Organization', name: NAME },
-          mainEntityOfPage: `${SITE}${path}`,
-        },
-        {
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: f.faq.map((q) => ({ '@type': 'Question', name: q.q, acceptedAnswer: { '@type': 'Answer', text: q.a } })),
-        },
-      ],
-      body: `<article class="wrap narrow article">
-<p class="crumbs"><a href="/">Home</a> › <a href="/festivals/">Festivals</a> › ${esc(f.nameEn)}</p>
-${fromBanner(`${f.nameHi} की ढेर सारी शुभकामनाएँ`, f.emoji)}
-<h1>${f.emoji} ${esc(f.nameHi)} <span style="color:var(--muted);font-weight:600">· ${esc(f.nameEn)}</span></h1>
-<p class="lead">${esc(f.introHi)}</p>
+      page(L, {
+        path,
+        title: F.title(x.name, x.alt),
+        description: F.desc(x.name, x.when),
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.festivals, '/festivals/'], [x.name, path]]), articleLd(L, `${x.name} (${x.alt})`, path), faqLd(x.faq)],
+        body: `<article class="wrap narrow article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/festivals/')}">${esc(T.nav.festivals)}</a> › ${esc(x.name)}</p>
+${fromBanner(L, F.greet(x.name), f.emoji)}
+<h1>${f.emoji} ${esc(x.name)} <span style="color:var(--muted);font-weight:600">· ${esc(x.alt)}</span></h1>
+<p class="lead">${esc(x.intro)}</p>
 <div class="facts">
-<div class="fact"><b>कब</b>${esc(f.whenHi)}</div>
-<div class="fact"><b>कहाँ</b>${esc(f.whereHi)}</div>
+<div class="fact"><b>${esc(F.when)}</b>${esc(x.when)}</div>
+<div class="fact"><b>${esc(F.where)}</b>${esc(x.where)}</div>
 </div>
-${f.sections.map((s) => `<h2>${esc(s.h)}</h2>\n${s.p.map((p) => `<p>${esc(p)}</p>`).join('\n')}`).join('\n')}
+${x.sections.map((s) => `<h2>${esc(s.h)}</h2>\n${paragraphs(s.p)}`).join('\n')}
 <div class="ad" aria-hidden="true"></div>
-<h2>${esc(f.nameHi)} की शुभकामनाएँ (हिंदी)</h2>
-<ul class="wish-list">${wishItems(f.wishesHi)}</ul>
-<h2>${esc(f.nameEn)} wishes in English</h2>
-<ul class="wish-list">${wishItems(f.wishesEn)}</ul>
-${shareBox(path, `${f.nameHi} की शुभकामनाएँ`, f.wishesHi[0])}
-<div class="cta"><p>अपने नाम के साथ ${esc(f.nameHi)} का सुंदर कार्ड बनाएं और WhatsApp पर भेजें।</p><a class="btn btn-primary" href="/wish-card/?f=${f.slug}">💌 कार्ड बनाएं</a></div>
-<h2>In English</h2>
-${f.enSummary.map((p) => `<p>${esc(p)}</p>`).join('\n')}
-<h2>अक्सर पूछे जाने वाले सवाल</h2>
-<div class="faq">${f.faq.map((q) => `<details><summary>${esc(q.q)}</summary><p>${esc(q.a)}</p></details>`).join('')}</div>
-<h2>और त्योहार</h2>
-<div class="grid">${next.map(festivalCard).join('')}</div>
+<h2>${esc(F.wishesH(x.name))}</h2>
+<ul class="wish-list">${wishItems(L, x.wishes)}</ul>
+<h2>${esc(F.wishes2H(x.name))}</h2>
+<ul class="wish-list">${wishItems(L, x.wishes2)}</ul>
+${shareBox(L, path, F.shareTitle(x.name), x.wishes[0])}
+<div class="cta"><p>${esc(F.cta(x.name))}</p><a class="btn btn-primary" href="${P(L, `/wish-card/?f=${f.slug}`)}">${esc(T.home.btnCard)}</a></div>
+${x.summary.length && F.summaryH ? `<h2>${esc(F.summaryH)}</h2>\n${paragraphs(x.summary)}` : ''}
+<h2>${esc(F.faqH)}</h2>
+${faqBlock(x.faq)}
+<h2>${esc(F.moreH)}</h2>
+<div class="grid">${next.map(festivalCard(L)).join('')}</div>
 </article>`,
-    }),
-  );
-});
+      }),
+    );
+  });
 
-// ---- Wishes index
-write(
-  '/wishes/',
-  page({
-    path: '/wishes/',
-    title: `रोज़ की शुभकामनाएँ — Good Morning, Birthday, Anniversary, Jumma Mubarak | ${NAME}`,
-    description: 'गुड मॉर्निंग, जन्मदिन, शादी की सालगिरह और जुम्मा मुबारक की हिंदी-अंग्रेज़ी शुभकामनाएँ — कॉपी करें या अपने नाम के लिंक के साथ WhatsApp पर भेजें।',
-    jsonLd: [breadcrumbLd([['Home', '/'], ['Wishes', '/wishes/']])],
-    body: `<div class="wrap article">
-<p class="crumbs"><a href="/">Home</a> › Wishes</p>
-<h1>रोज़ की शुभकामनाएँ</h1>
-<p class="lead">वो मौके जो हर दिन या हर हफ़्ते आते हैं — सुबह की शुभकामना, जन्मदिन, सालगिरह और जुमा। हर पेज पर तैयार संदेश हैं, और आप अपने नाम वाला लिंक बनाकर भेज सकते हैं।</p>
-<div class="grid">${wishes.map(wishCard).join('')}</div>
-<h2>त्योहारों की शुभकामनाएँ</h2>
-<p>हर त्योहार के पेज पर उसकी कहानी के साथ शुभकामनाएँ भी हैं — <a href="/festivals/">सभी त्योहार देखें</a>।</p>
-</div>`,
-  }),
-);
-
-// ---- Wish pages
-wishes.forEach((w) => {
-  const path = `/wishes/${w.slug}/`;
-  const more = wishes.filter((x) => x.slug !== w.slug);
+  // Wishes index
   write(
-    path,
-    page({
-      path,
-      title: `${w.nameHi} शुभकामनाएँ (${w.nameEn} Wishes) — हिंदी और English | ${NAME}`,
-      description: `${w.nameHi} के लिए सादे और दिल से लिखे हिंदी-अंग्रेज़ी संदेश। कॉपी करें या अपने नाम का लिंक बनाकर WhatsApp पर भेजें।`,
-      jsonLd: [
-        breadcrumbLd([['Home', '/'], ['Wishes', '/wishes/'], [w.nameEn, path]]),
-        { '@context': 'https://schema.org', '@type': 'Article', headline: `${w.nameHi} (${w.nameEn}) Wishes`, inLanguage: 'hi', datePublished: TODAY, dateModified: TODAY, author: { '@type': 'Organization', name: NAME }, publisher: { '@type': 'Organization', name: NAME }, mainEntityOfPage: `${SITE}${path}` },
-        { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: w.faq.map((q) => ({ '@type': 'Question', name: q.q, acceptedAnswer: { '@type': 'Answer', text: q.a } })) },
-      ],
-      body: `<article class="wrap narrow article">
-<p class="crumbs"><a href="/">Home</a> › <a href="/wishes/">Wishes</a> › ${esc(w.nameEn)}</p>
-${fromBanner(w.greetHi, w.emoji)}
-<h1>${w.emoji} ${esc(w.nameHi)} <span style="color:var(--muted);font-weight:600">· ${esc(w.nameEn)}</span></h1>
-<p class="lead">${esc(w.introHi)}</p>
-<h2>${esc(w.nameHi)} के संदेश (हिंदी)</h2>
-<ul class="wish-list">${wishItems(w.wishesHi)}</ul>
-<div class="ad" aria-hidden="true"></div>
-<h2>${esc(w.nameEn)} wishes in English</h2>
-<ul class="wish-list">${wishItems(w.wishesEn)}</ul>
-${shareBox(path, w.greetHi, w.wishesHi[0])}
-<div class="cta"><p>${esc(w.nameHi)} का सुंदर कार्ड बनाकर गैलरी में सेव करें या भेजें।</p><a class="btn btn-primary" href="/wish-card/?f=${w.slug}">💌 कार्ड बनाएं</a></div>
-<h2>${esc(w.nameHi)} के बारे में</h2>
-${w.aboutHi.map((p) => `<p>${esc(p)}</p>`).join('\n')}
-<h2>In English</h2>
-<p>${esc(w.aboutEn)}</p>
-<h2>अक्सर पूछे जाने वाले सवाल</h2>
-<div class="faq">${w.faq.map((q) => `<details><summary>${esc(q.q)}</summary><p>${esc(q.a)}</p></details>`).join('')}</div>
-<h2>और शुभकामनाएँ</h2>
-<div class="grid">${more.map(wishCard).join('')}</div>
-</article>`,
+    L,
+    '/wishes/',
+    page(L, {
+      path: '/wishes/',
+      title: T.wishIndex.title,
+      description: T.wishIndex.desc,
+      jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.wishes, '/wishes/']])],
+      body: `<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(T.nav.wishes)}</p>
+<h1>${esc(T.wishIndex.h1)}</h1>
+<p class="lead">${esc(T.wishIndex.lead)}</p>
+<div class="grid">${wishes.map(wishCard(L)).join('')}</div>
+<h2>${esc(T.wishIndex.festH)}</h2>
+<p>${T.wishIndex.festP(P(L, '/festivals/'))}</p>
+</div>`,
     }),
   );
 
-});
+  // Wish pages
+  wishes.forEach((w) => {
+    const path = `/wishes/${w.slug}/`;
+    const x = lw(w, L);
+    const W = T.wish;
+    const more = wishes.filter((o) => o.slug !== w.slug);
+    write(
+      L,
+      path,
+      page(L, {
+        path,
+        title: W.title(x.name, x.alt),
+        description: W.desc(x.name),
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.wishes, '/wishes/'], [x.name, path]]), articleLd(L, `${x.name} (${x.alt})`, path), faqLd(x.faq)],
+        body: `<article class="wrap narrow article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/wishes/')}">${esc(T.nav.wishes)}</a> › ${esc(x.name)}</p>
+${fromBanner(L, x.greet, w.emoji)}
+<h1>${w.emoji} ${esc(x.name)} <span style="color:var(--muted);font-weight:600">· ${esc(x.alt)}</span></h1>
+<p class="lead">${esc(x.intro)}</p>
+<h2>${esc(W.wishesH(x.name))}</h2>
+<ul class="wish-list">${wishItems(L, x.wishes)}</ul>
+<div class="ad" aria-hidden="true"></div>
+<h2>${esc(W.wishes2H(x.name))}</h2>
+<ul class="wish-list">${wishItems(L, x.wishes2)}</ul>
+${shareBox(L, path, x.greet, x.wishes[0])}
+<div class="cta"><p>${esc(W.cta(x.name))}</p><a class="btn btn-primary" href="${P(L, `/wish-card/?f=${w.slug}`)}">${esc(T.home.btnCard)}</a></div>
+<h2>${esc(W.aboutH(x.name))}</h2>
+${paragraphs(x.about)}
+${x.summary.length && W.summaryH ? `<h2>${esc(W.summaryH)}</h2>\n${paragraphs(x.summary)}` : ''}
+<h2>${esc(W.faqH)}</h2>
+${faqBlock(x.faq)}
+<h2>${esc(W.moreH)}</h2>
+<div class="grid">${more.map(wishCard(L)).join('')}</div>
+</article>`,
+      }),
+    );
+  });
 
-// ---- Wish card maker
-write(
-  '/wish-card/',
-  page({
-    path: '/wish-card/',
-    title: `Wish Card Maker — नाम के साथ त्योहार का शुभकामना कार्ड बनाएं | ${NAME}`,
-    description: 'मुफ़्त Wish Card Maker: त्योहार चुनें, अपना और पाने वाले का नाम लिखें, संदेश चुनें और सुंदर कार्ड डाउनलोड करें या WhatsApp पर शेयर करें। कोई साइन-अप नहीं।',
-    jsonLd: [
-      breadcrumbLd([['Home', '/'], ['Wish Card Maker', '/wish-card/']]),
-      { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Wish Card Maker', url: `${SITE}/wish-card/`, applicationCategory: 'LifestyleApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
-    ],
-    scripts: ['/assets/festivals.js', '/assets/card.js'],
-    body: `<div class="wrap article">
-<p class="crumbs"><a href="/">Home</a> › Wish Card Maker</p>
+  // Wish card maker (+ its data file for this language)
+  const C = T.card;
+  writeFileSync(
+    join(OUT, 'assets', `cards.${L.code}.js`),
+    `window.NG_FESTIVALS = ${JSON.stringify([
+      ...wishes.map((w) => ({ w, x: lw(w, L) })),
+      ...festivals.map((f) => ({ w: f, x: lf(f, L) })),
+    ].map(({ w, x }) => ({ slug: w.slug, emoji: w.emoji, name: x.name, alt: x.alt, colors: w.colors, wishes: [...x.wishes, ...x.wishes2] })))};\nwindow.NG_CARD_UI = ${JSON.stringify({ dear: C.dear, downloaded: C.downloaded, cantShare: C.cantShare })};\n`,
+  );
+  write(
+    L,
+    '/wish-card/',
+    page(L, {
+      path: '/wish-card/',
+      title: C.title,
+      description: C.desc,
+      jsonLd: [
+        breadcrumbLd(L, [[T.nav.home, '/'], ['Wish Card Maker', '/wish-card/']]),
+        { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Wish Card Maker', url: `${SITE}${P(L, '/wish-card/')}`, applicationCategory: 'LifestyleApplication', operatingSystem: 'Any', inLanguage: L.html, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+      ],
+      scripts: [`/assets/cards.${L.code}.js`, '/assets/card.js'],
+      body: `<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › Wish Card Maker</p>
 <h1>💌 Wish Card Maker</h1>
-<p class="lead">त्योहार चुनें, नाम लिखें और कुछ ही सेकंड में अपना शुभकामना कार्ड बनाएं। कार्ड आपके फ़ोन/कंप्यूटर पर ही बनता है — आपका नाम या संदेश कहीं सेव या भेजा नहीं जाता।</p>
+<p class="lead">${esc(C.lead)}</p>
 <div class="maker">
 <form id="maker" onsubmit="return false">
-<div class="field"><label for="festival">मौका / त्योहार</label><select id="festival"></select></div>
-<div class="field"><label for="to">किसके लिए (नाम)</label><input id="to" maxlength="40" placeholder="जैसे: मम्मी-पापा, Rahul"></div>
-<div class="field"><label for="from">आपका नाम</label><input id="from" maxlength="40" placeholder="जैसे: Nazim"></div>
-<div class="field"><label for="wish">संदेश</label><select id="wish"></select></div>
-<div class="field"><label for="custom">या अपना संदेश लिखें</label><textarea id="custom" rows="3" maxlength="220" placeholder="खाली छोड़ें तो ऊपर वाला संदेश लगेगा"></textarea></div>
-<div class="btns"><button class="btn btn-primary" type="button" id="share">📤 Share</button><button class="btn btn-ghost" type="button" id="download">⬇️ Download</button></div>
+<div class="field"><label for="festival">${esc(C.occasion)}</label><select id="festival"></select></div>
+<div class="field"><label for="to">${esc(C.to)}</label><input id="to" maxlength="40" placeholder="${esc(C.toPh)}"></div>
+<div class="field"><label for="from">${esc(C.from)}</label><input id="from" maxlength="40" placeholder="${esc(C.fromPh)}"></div>
+<div class="field"><label for="wish">${esc(C.message)}</label><select id="wish"></select></div>
+<div class="field"><label for="custom">${esc(C.custom)}</label><textarea id="custom" rows="3" maxlength="220" placeholder="${esc(C.customPh)}"></textarea></div>
+<div class="btns"><button class="btn btn-primary" type="button" id="share">${esc(C.share)}</button><button class="btn btn-ghost" type="button" id="download">${esc(C.download)}</button></div>
 <p class="note" id="status" role="status"></p>
 </form>
-<div class="preview"><canvas id="card" width="1080" height="1350" aria-label="शुभकामना कार्ड का प्रीव्यू"></canvas></div>
+<div class="preview"><canvas id="card" width="1080" height="1350" aria-label="${esc(C.preview)}"></canvas></div>
 </div>
 <div class="ad" aria-hidden="true"></div>
-<h2>कैसे इस्तेमाल करें</h2>
-<ol>
-<li>ऊपर से त्योहार चुनें — कार्ड का रंग और संदेश उसी के हिसाब से बदल जाएंगे।</li>
-<li>पाने वाले का और अपना नाम लिखें (चाहें तो खाली भी छोड़ सकते हैं)।</li>
-<li>तैयार संदेशों में से चुनें या अपना संदेश लिखें।</li>
-<li><b>Share</b> दबाकर सीधे WhatsApp/Instagram पर भेजें, या <b>Download</b> करके गैलरी में सेव करें।</li>
-</ol>
-<p class="note">Make a festival greeting card with your own names and message, then share it or save it as an image. Everything happens in your browser.</p>
+<h2>${esc(C.howH)}</h2>
+<ol>${C.how.map((li) => `<li>${li}</li>`).join('')}</ol>
 </div>`,
-  }),
-);
+    }),
+  );
 
-// Festival data for the card maker (names, colours, wishes only).
-mkdirSync(join(OUT, 'assets'), { recursive: true });
-writeFileSync(
-  join(OUT, 'assets', 'festivals.js'),
-  `window.NG_FESTIVALS = ${JSON.stringify([...wishes, ...festivals].map((f) => ({ slug: f.slug, emoji: f.emoji, nameHi: f.nameHi, nameEn: f.nameEn, colors: f.colors, wishes: [...f.wishesHi, ...f.wishesEn] })))};\n`,
-);
-
-// ---- Games index (each game itself is a static page in src/static/games/<slug>/)
-write(
-  '/games/',
-  page({
-    path: '/games/',
-    title: `त्योहारों के मुफ़्त गेम्स — Free Festival Games | ${NAME}`,
-    description: 'त्योहारों पर बने छोटे, मुफ़्त ब्राउज़र गेम्स — फ़ोन पर खेलें, इंस्टॉल करें और दोस्तों को WhatsApp पर स्कोर का चैलेंज भेजें। कोई साइन-अप नहीं।',
-    jsonLd: [breadcrumbLd([['Home', '/'], ['Games', '/games/']])],
-    body: `<div class="wrap article">
-<p class="crumbs"><a href="/">Home</a> › Games</p>
-<h1>🎮 त्योहारों के गेम्स</h1>
-<p class="lead">हर त्योहार पर एक छोटा, मज़ेदार गेम — फ़ोन पर सीधे खेलें, स्कोर बनाएं और WhatsApp पर दोस्तों को चैलेंज भेजें। गेम आपके फ़ोन में ही चलते हैं; हम कोई अकाउंट या निजी जानकारी नहीं लेते।</p>
-<div class="grid">${games.map(gameCard).join('')}</div>
-<h2>जल्द आ रहे हैं</h2>
-<p>नए साल पर आतिशबाज़ी, दिवाली पर दीये जलाओ, होली के रंग और ईद पर ईदी गेम। 🎆🪔🎨🌙</p>
-<p class="note">Free festival games in Hindi, Hinglish, English and Bengali. Play in your browser, install on your phone and challenge friends on WhatsApp.</p>
+  // Games index (each game itself is a static page in src/static/games/<slug>/)
+  write(
+    L,
+    '/games/',
+    page(L, {
+      path: '/games/',
+      title: T.games.title,
+      description: T.games.desc,
+      jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.games, '/games/']])],
+      body: `<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(T.nav.games)}</p>
+<h1>${esc(T.games.h1)}</h1>
+<p class="lead">${esc(T.games.lead)}</p>
+<div class="grid">${games.map(gameCard(L)).join('')}</div>
+<h2>${esc(T.games.soonH)}</h2>
+<p>${esc(T.games.soonP)}</p>
 </div>`,
-  }),
-);
+    }),
+  );
 
-// ---- Apps
-write(
-  '/apps/',
-  page({
-    path: '/apps/',
-    title: `मुफ़्त ऐप्स और टूल्स | ${NAME}`,
-    description: 'NextGrade के मुफ़्त वेब ऐप्स — Hisab Kitab (खर्च और उधार का हिसाब) और Wish Card Maker। फ़ोन पर इंस्टॉल होते हैं, बिना साइन-अप के चलते हैं।',
-    jsonLd: [breadcrumbLd([['Home', '/'], ['Apps', '/apps/']])],
-    body: `<div class="wrap article">
-<p class="crumbs"><a href="/">Home</a> › Apps</p>
-<h1>मुफ़्त ऐप्स और टूल्स</h1>
-<p class="lead">छोटे, हल्के और मुफ़्त वेब ऐप्स जो मोबाइल पर ऐप की तरह इंस्टॉल हो जाते हैं। ज़्यादातर ऐप आपका डेटा आपके ही फ़ोन पर रखते हैं।</p>
-<div class="grid">${apps.map(appCard).join('')}</div>
-<h2>Install कैसे करें</h2>
-<p>Android पर Chrome में ऐप खोलें और मेनू (⋮) से <b>Install app / Add to Home screen</b> चुनें। iPhone पर Safari में Share बटन दबाकर <b>Add to Home Screen</b> चुनें।</p>
-<p class="note">More small apps and festival tools are on the way. Each lives on its own nextgrade.in address and is listed here.</p>
+  // Apps
+  write(
+    L,
+    '/apps/',
+    page(L, {
+      path: '/apps/',
+      title: T.apps.title,
+      description: T.apps.desc,
+      jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.apps, '/apps/']])],
+      body: `<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(T.nav.apps)}</p>
+<h1>${esc(T.apps.h1)}</h1>
+<p class="lead">${esc(T.apps.lead)}</p>
+<div class="grid">${apps.map(appCard(L)).join('')}</div>
+<h2>${esc(T.apps.installH)}</h2>
+<p>${T.apps.installP}</p>
 </div>`,
-  }),
-);
+    }),
+  );
 
-// ---- Static info pages
-const infoPage = (path, title, description, html) =>
-  write(path, page({ path, title: `${title} | ${NAME}`, description, jsonLd: [breadcrumbLd([['Home', '/'], [title, path]])], body: `<article class="wrap narrow article"><p class="crumbs"><a href="/">Home</a> › ${esc(title)}</p><h1>${esc(title)}</h1>${html}</article>` }));
+  // About + Contact
+  [
+    ['/about/', T.about, T.about.html(P(L, '/contact/'))],
+    ['/contact/', T.contact, T.contact.html(CONTACT)],
+  ].forEach(([path, X, html]) =>
+    write(
+      L,
+      path,
+      page(L, {
+        path,
+        title: `${X.title} | ${NAME}`,
+        description: X.desc,
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [X.title, path]])],
+        body: `<article class="wrap narrow article"><p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(X.title)}</p><h1>${esc(X.title)}</h1>${html}</article>`,
+      }),
+    ),
+  );
+});
 
-infoPage(
-  '/about/',
-  'About NextGrade',
-  'NextGrade के बारे में — हम कौन हैं, यह साइट क्यों बनाई और हमारी जानकारी कहाँ से आती है।',
-  `<p class="lead">NextGrade (nextgrade.in) भारत में बनी एक छोटी, स्वतंत्र वेबसाइट है।</p>
-<h2>हम क्या करते हैं</h2>
-<p>हम दो तरह की चीज़ें बनाते हैं: <b>त्योहारों की सरल और भरोसेमंद जानकारी</b> — कहानी, महत्व, परंपराएँ, पकवान और शुभकामनाएँ — और <b>छोटे मुफ़्त वेब ऐप्स</b>, जैसे खर्च और उधार का हिसाब रखने वाला Hisab Kitab और Wish Card Maker।</p>
-<h2>हमारी जानकारी</h2>
-<p>त्योहारों के पेज आम तौर पर मानी जाने वाली परंपराओं, धार्मिक ग्रंथों की लोकप्रिय कथाओं और सरकारी/सार्वजनिक स्रोतों पर आधारित हैं। जिन त्योहारों की तारीख तिथि से तय होती है, उनके लिए हम महीना और तिथि लिखते हैं, क्योंकि अंग्रेज़ी तारीख हर साल बदलती है। कोई गलती दिखे तो <a href="/contact/">हमें बताएं</a> — हम जल्द सुधारेंगे।</p>
-<h2>हमारे ऐप्स और आपका डेटा</h2>
-<p>हमारे ऐप्स जहाँ तक संभव हो आपका डेटा आपके ही डिवाइस पर रखते हैं। Wish Card Maker आपका नाम या संदेश कहीं नहीं भेजता — कार्ड आपके ब्राउज़र में ही बनता है।</p>
-<h2>About (English)</h2>
-<p>NextGrade is a small independent website from India. We write clear guides to Indian festivals with ready-to-share wishes, and build small free web apps such as Hisab Kitab (an expense and lend/borrow tracker) and the Wish Card Maker. Found a mistake? Please <a href="/contact/">tell us</a>.</p>`,
-);
+// ---- Policy pages: one version (English with a Hindi summary), linked from every language
+const HI = ALL_LANGS[0];
+const policyPage = (path, title, description, html) =>
+  write(HI, path, page(HI, { path, title: `${title} | ${NAME}`, description, langs: [HI], jsonLd: [breadcrumbLd(HI, [['Home', '/'], [title, path]])], body: `<article class="wrap narrow article"><p class="crumbs"><a href="/">Home</a> › ${esc(title)}</p><h1>${esc(title)}</h1>${html}</article>` }));
 
-infoPage(
-  '/contact/',
-  'Contact',
-  'NextGrade से संपर्क करें — सुझाव, गलती की सूचना या ऐप से जुड़ा सवाल।',
-  `<p class="lead">सुझाव, किसी पेज में गलती, या किसी ऐप से जुड़ा सवाल — हमें ईमेल करें।</p>
-<p style="font-size:20px"><b>Email:</b> <a href="mailto:${CONTACT}">${CONTACT}</a></p>
-<p>हम आम तौर पर 2-3 कार्यदिवसों में जवाब देते हैं। कृपया ईमेल में पासवर्ड, OTP या बैंक की जानकारी कभी न भेजें।</p>
-<h2>Contact (English)</h2>
-<p>For suggestions, corrections or questions about our apps, write to <a href="mailto:${CONTACT}">${CONTACT}</a>. We usually reply within 2-3 working days.</p>`,
-);
-
-infoPage(
+policyPage(
   '/privacy-policy/',
   'Privacy Policy',
-  'NextGrade की प्राइवेसी पॉलिसी — कौन सी जानकारी ली जाती है, कुकीज़ और Google AdSense विज्ञापन।',
+  'NextGrade की प्राइवेसी पॉलिसी — कौन सी जानकारी ली जाती है, कुकीज़ और Google AdSense विज्ञापन। NextGrade privacy policy: data, cookies and Google AdSense.',
   `<p class="note">Last updated: ${TODAY}</p>
-<p>This Privacy Policy explains how NextGrade ("we", "us") at nextgrade.in handles information when you use this website. Our apps on nextgrade.in subdomains (for example hisab.nextgrade.in) have their own privacy pages that apply in addition to this one.</p>
+<p>This Privacy Policy explains how NextGrade ("we", "us") at nextgrade.in handles information when you use this website in any language (Hindi, English, Hinglish or Bengali), including the games under nextgrade.in/games/. Our apps on nextgrade.in subdomains (for example hisab.nextgrade.in) have their own privacy pages that apply in addition to this one.</p>
 <h2>Information we collect</h2>
-<p>We do not ask you to create an account on this website and we do not collect your name, email or phone number unless you choose to email us. The Wish Card Maker works entirely in your browser: the names and message you type are not sent to us or stored by us.</p>
+<p>We do not ask you to create an account on this website and we do not collect your name, email or phone number unless you choose to email us. We have no server or database that stores your information. The Wish Card Maker works entirely in your browser: the names and message you type are not sent to us or stored by us. A name you add to a share link (for example ?from=Rahul) stays only in that link. Games save your best score and chosen language only on your own device.</p>
 <p>Like most websites, our hosting provider (GitHub Pages) and content delivery network (Cloudflare) may record standard technical information such as IP address, browser type and the pages requested, for security and to keep the service running.</p>
 <h2>Cookies and advertising</h2>
 <p>We use Google AdSense to show ads. Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to this site and/or other sites on the Internet.</p>
@@ -451,53 +515,56 @@ infoPage(
 <h2>Contact</h2>
 <p>Questions about this policy: <a href="mailto:${CONTACT}">${CONTACT}</a>.</p>
 <h2>हिंदी में सार</h2>
-<p>हम इस वेबसाइट पर आपसे कोई अकाउंट या निजी जानकारी नहीं माँगते। Wish Card Maker में लिखे नाम और संदेश आपके ब्राउज़र में ही रहते हैं। साइट पर Google AdSense के विज्ञापन दिखते हैं, जो कुकीज़ का इस्तेमाल करते हैं; आप <a href="https://www.google.com/settings/ads" rel="nofollow">Google Ads Settings</a> में जाकर पर्सनलाइज़्ड विज्ञापन बंद कर सकते हैं।</p>`,
+<p>हम इस वेबसाइट पर आपसे कोई अकाउंट या निजी जानकारी नहीं माँगते और कोई सर्वर/डेटाबेस आपकी जानकारी नहीं रखता। Wish Card Maker में लिखे नाम और संदेश आपके ब्राउज़र में ही रहते हैं। साइट पर Google AdSense के विज्ञापन दिखते हैं, जो कुकीज़ का इस्तेमाल करते हैं; आप <a href="https://www.google.com/settings/ads" rel="nofollow">Google Ads Settings</a> में जाकर पर्सनलाइज़्ड विज्ञापन बंद कर सकते हैं।</p>`,
 );
 
-infoPage(
+policyPage(
   '/terms/',
   'Terms of Use',
-  'NextGrade वेबसाइट और ऐप्स के इस्तेमाल की शर्तें।',
+  'NextGrade वेबसाइट, गेम्स और ऐप्स के इस्तेमाल की शर्तें। Terms of use for the NextGrade website, games and apps.',
   `<p class="note">Last updated: ${TODAY}</p>
-<p>By using nextgrade.in you agree to these terms.</p>
+<p>By using nextgrade.in in any language, including its games, you agree to these terms.</p>
 <h2>Use of content</h2>
 <p>You may read and share our pages and the wishes on them for personal, non-commercial use. Please link back to the page instead of copying whole articles. Greeting cards you make with the Wish Card Maker are yours to share.</p>
 <h2>Accuracy</h2>
 <p>We try to keep festival information accurate, but traditions vary by region and family, and dates of festivals that follow the lunar calendar change every year. Please check the exact date and muhurat in your local panchang. See our <a href="/disclaimer/">Disclaimer</a>.</p>
-<h2>Our apps</h2>
-<p>Our apps are provided free and "as is", without warranty. Keep your own backups of anything important you store in them.</p>
+<h2>Our apps and games</h2>
+<p>Our apps and games are provided free and "as is", without warranty. Keep your own backups of anything important you store in them.</p>
 <h2>Acceptable use</h2>
 <p>Do not use our tools to create cards or messages that are abusive, hateful, misleading or illegal.</p>
 <h2>Changes and contact</h2>
 <p>We may change these terms at any time. Questions: <a href="mailto:${CONTACT}">${CONTACT}</a>.</p>`,
 );
 
-infoPage(
+policyPage(
   '/disclaimer/',
   'Disclaimer',
-  'NextGrade पर दी गई त्योहारों और धार्मिक परंपराओं की जानकारी के बारे में डिस्क्लेमर।',
+  'NextGrade पर दी गई त्योहारों और धार्मिक परंपराओं की जानकारी के बारे में डिस्क्लेमर। Disclaimer about festival and religious information on NextGrade.',
   `<p>NextGrade पर दी गई त्योहारों, परंपराओं और पूजा से जुड़ी जानकारी सामान्य जानकारी के लिए है। अलग-अलग क्षेत्रों, समुदायों और परिवारों में परंपराएँ अलग हो सकती हैं।</p>
 <p>चंद्र कैलेंडर से तय होने वाले त्योहारों की तारीख और शुभ मुहूर्त हर साल बदलते हैं — सटीक समय के लिए अपने स्थानीय पंचांग, पुजारी या धार्मिक संस्था से पुष्टि करें। व्रत रखने से पहले, खासकर बीमारी या गर्भावस्था में, डॉक्टर की सलाह लें।</p>
-<p>The information on NextGrade is for general purposes only. Traditions differ by region and community, and lunar-calendar festival dates change every year — confirm exact dates and timings locally. Health-related notes (such as fasting) are not medical advice.</p>
+<p>The information on NextGrade, in every language, is for general purposes only. Traditions differ by region and community, and lunar-calendar festival dates change every year — confirm exact dates and timings locally. Health-related notes (such as fasting) are not medical advice.</p>
 <p>This site shows ads from Google AdSense. We are not responsible for the content of third-party ads or linked websites.</p>`,
 );
 
-// ---- 404
+// ---- 404 (Hindi + English)
 write(
+  null,
   '/404.html',
-  page({
+  page(HI, {
     path: '/404.html',
-    title: `पेज नहीं मिला | ${NAME}`,
-    description: 'यह पेज मौजूद नहीं है।',
-    body: `<div class="wrap article"><h1>पेज नहीं मिला</h1><p class="lead">यह पेज मौजूद नहीं है या हटा दिया गया है।</p><div class="btns"><a class="btn btn-primary" href="/">Home</a><a class="btn btn-ghost" href="/festivals/">Festivals</a></div></div>`,
+    title: `पेज नहीं मिला · Page not found | ${NAME}`,
+    description: 'यह पेज मौजूद नहीं है। This page does not exist.',
+    langs: [HI],
+    body: `<div class="wrap article"><h1>पेज नहीं मिला · Page not found</h1><p class="lead">यह पेज मौजूद नहीं है या हटा दिया गया है। This page does not exist or has been removed.</p><div class="btns"><a class="btn btn-primary" href="/">Home</a><a class="btn btn-ghost" href="/en/">English</a><a class="btn btn-ghost" href="/festivals/">Festivals</a></div></div>`,
   }),
 );
 
 // ---- Machine files
-const urls = ['/', '/games/', ...games.map((g) => `/games/${g.slug}/`), '/wishes/', ...wishes.map((w) => `/wishes/${w.slug}/`), '/festivals/', ...festivals.map((f) => `/festivals/${f.slug}/`), '/wish-card/', '/apps/', '/about/', '/contact/', '/privacy-policy/', '/terms/', '/disclaimer/'];
+const gameUrls = games.map((g) => `/games/${g.slug}/`);
+const allUrls = [...urls, ...gameUrls];
 writeFileSync(
   join(OUT, 'sitemap.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${TODAY}</lastmod></url>`).join('\n')}\n</urlset>\n`,
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${allUrls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${TODAY}</lastmod></url>`).join('\n')}\n</urlset>\n`,
 );
 writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 writeFileSync(join(OUT, 'ads.txt'), `google.com, ${ADSENSE.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n`);
@@ -507,5 +574,4 @@ writeFileSync(join(OUT, '.nojekyll'), '');
 cpSync('src/assets', join(OUT, 'assets'), { recursive: true });
 cpSync('src/static', OUT, { recursive: true });
 
-console.log(`Built ${urls.length} pages into ${OUT}/`);
-
+console.log(`Built ${allUrls.length} pages in ${LANGS.map((l) => l.code).join(', ')} into ${OUT}/`);
