@@ -185,7 +185,7 @@ const articleLd = (L, headline, path) => ({
   datePublished: TODAY,
   dateModified: TODAY,
   author: { '@type': 'Organization', name: NAME },
-  publisher: { '@type': 'Organization', name: NAME },
+  publisher: { '@type': 'Organization', name: NAME, logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png` } },
   mainEntityOfPage: `${SITE}${P(L, path)}`,
 });
 
@@ -326,7 +326,7 @@ LANGS.forEach((L) => {
       path: '/',
       title: T.home.title,
       description: T.home.desc,
-      jsonLd: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: NAME, url: `${SITE}${P(L, '/')}`, inLanguage: L.html }],
+      jsonLd: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: NAME, url: `${SITE}${P(L, '/')}`, inLanguage: L.html }, { '@context': 'https://schema.org', '@type': 'Organization', name: NAME, url: `${SITE}/`, logo: `${SITE}/icons/icon-512.png`, email: CONTACT, areaServed: 'IN' }],
       body: `<div class="wrap">
 <section class="hero">
 <h1>${esc(T.home.h1)}</h1>
@@ -622,6 +622,7 @@ ${paragraphs(x.paras)}
 <div class="grid">${games.map(gameCard(L)).join('')}</div>
 <h2>${esc(T.games.soonH)}</h2>
 <p>${esc(T.games.soonP)}</p>
+${T.games.more || ''}
 </div>`,
     }),
   );
@@ -642,6 +643,7 @@ ${paragraphs(x.paras)}
 <div class="grid">${apps.map(appCard(L)).join('')}</div>
 <h2>${esc(T.apps.installH)}</h2>
 <p>${T.apps.installP}</p>
+${T.apps.more || ''}
 </div>`,
     }),
   );

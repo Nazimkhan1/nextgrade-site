@@ -30,6 +30,13 @@ Site: **~162 pages**, all in 4 languages. Everything below is live (pushed to ma
 
 - [x] `/celebrate/new-year/` (14 Nov) — city skyline whose windows light up, 5 kinds of fireworks (peony, ring, willow, crackle, two-colour), opening finale + confetti, year auto (Jul–Dec → next year). On the engine; card, button on the New Year festival page, links to the Fireworks Pop game.
 
+
+**AdSense readiness pass (14 Nov, later)**
+- [x] New logo/favicon (N + up-arrow + sparkle): `src/static/favicon.svg`, `favicon.ico`, `icons/` (192/512/maskable/apple-touch), manifest icons, `og-image.jpg` 1200×630 + `summary_large_image` on every page incl. /celebrate/. Header logo = `<img class="logo-mark">` + Next<b>Grade</b>.
+- [x] About page (4 langs) now ~400 words: what's on the site, how we write (own words, cross-checked, respectful), ads disclosure, corrections. Contact ~170 words: what to write about, India-based, email only. Games + Apps index got `more` sections (how to play, kid-safe, offline; why apps, data on device). Organization JSON-LD with logo on home; publisher logo on articles.
+- Audit: 0 broken internal links; every page has the AdSense tag; ads.txt/robots/sitemap OK; JS pages (games, /celebrate/) render ~270–460 words.
+- User side while review runs: don't change the AdSense code/ads.txt; in Search Console → Sitemaps, resubmit `sitemap.xml` (now ~165 URLs) and use URL Inspection → "Request indexing" on home, /festivals/, /kahani/, /wishes/; share a few pages so there is some real traffic. If rejected for "low value content": add 10 more stories + longer festival pages, then re-apply.
+
 **Next (date order)** — 🌙 Shab-e-Miraj page (~5 Jan) → 🔥 Lohri / 🪁 Sankranti animated → 🌙 Shab-e-Barat (~23 Jan) → 🇮🇳 Republic Day → Ramzan series, Eidi lifafa + game, Eid animated (Feb–Mar) → 🎂 Birthday animated, Bachpan "Yaad hai?", 10 more stories. Optional: move Shaadi/Jumma onto the engine; Cloudflare Web Analytics (needs user's token).
 
 ---
