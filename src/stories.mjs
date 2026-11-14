@@ -3,6 +3,8 @@
  * (Panchatantra, Jataka, Aesop, Akbar-Birbal, Tenali Raman, Mulla Nasruddin),
  * retold in our own words. Each story has all four languages; keep them in step.
  */
+import { moreStories } from './stories-more.mjs';
+
 const stories = [
   {
     slug: 'pyasa-kauwa',
@@ -505,5 +507,7 @@ const stories = [
     },
   },
 ];
+
+stories.push(...moreStories);
 
 export { stories };
