@@ -36,6 +36,8 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 - [x] All-year wishes live: `/wishes/` + Good Morning, Birthday, Anniversary, Jumma Mubarak (also in the Wish Card Maker); "Wishes" in the nav; home section "रोज़ की शुभकामनाएँ".
 - [x] Name share on every wish and festival page: `?from=<name>` banner + "अपना विश बनाएं" box (WhatsApp / copy link) in `src/assets/site.js`.
 - [x] Guru Nanak Jayanti guide added (13 festivals now). Site: 27 pages.
+- [x] Christmas game in 4 languages (Hinglish, हिंदी, English, বাংলা) with a language menu; live at https://christmas.nextgrade.in
+- [ ] **User wants every app/site in English, Hinglish, Hindi and Bengali.** nextgrade.in pages are still Hindi with English summaries/wishes → plan language versions (e.g. `/en/`, `/bn/`, `/hinglish/` with hreflang) or a switch; do this before/with the next content batch.
 
 ## Older notes (14 Nov morning plan, now done)
 
