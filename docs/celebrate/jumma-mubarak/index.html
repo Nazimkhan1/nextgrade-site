@@ -31,8 +31,6 @@ header { display: flex; align-items: center; justify-content: space-between; pad
 .langsel { background: var(--card); border: 1px solid rgba(255,255,255,0.2); color: var(--ink); border-radius: 10px; padding: 6px 8px; font: inherit; font-size: 15px; }
 .langsel option { color: #111; }
 .tools { display: flex; gap: 8px; align-items: center; }
-.sound { cursor: pointer; white-space: nowrap; }
-.sound[aria-pressed="true"] { border-color: var(--gold); color: var(--gold); }
 .show { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.45); background: #021116; user-select: none; -webkit-user-select: none; }
 canvas { display: block; width: 100%; height: min(78vh, 680px); }
 .message { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; padding: max(16%, 92px) 22px 24px; pointer-events: none; }
@@ -79,7 +77,6 @@ footer a { color: var(--muted); margin-right: 12px; }
     <a class="brand" id="home" href="https://nextgrade.in/">🕌 NextGrade<small>Jumma Mubarak</small></a>
     <div class="tools">
       <select class="langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
-      <button class="langsel sound" id="sound" type="button" aria-pressed="false"></button>
     </div>
   </header>
 
@@ -126,7 +123,6 @@ footer a { color: var(--muted); margin-right: 12px; }
     <p id="aboutP"></p>
     <ul id="sunnah"></ul>
     <p class="note" id="aboutNote"></p>
-    <p class="note" id="soundNote"></p>
     <p><a id="moreWishes" href="https://nextgrade.in/wishes/jumma-mubarak/"></a> · <a id="calLink" href="https://nextgrade.in/islamic-calendar/"></a></p>
   </section>
 
@@ -151,7 +147,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         'Durood padhiye, Surah Kahf padhiye aur dua mein sabko yaad rakhiye — Allah aapka har Jumma khushiyon se bhar de.',
         'Hafte ka sabse behtareen din mubarak ho! Allah aapki sehat, imaan aur ghar ki khushiyon ki hifaazat kare. Aameen.',
       ],
-      listen: '🗣️ Dua suno', stopListen: '⏹ Roko', customLabel: '✍️ Ya apni dua khud likho (optional — ye awaaz mein bhi padhi jayegi)', customPh: 'Jaise: Allah aapko hamesha khush rakhe…', replay: '🔁 Phir se dekho', makeOwn: '🤲 Apni dua bhejo', soundOn: '🔊 Awaaz on', soundOff: '🔈 Awaaz', soundNote: 'Awaaz mein koi music nahi — sirf raat ka mahaul: halki hawa, jheengur, chidiya aur ek halki ghanti. Upar 🔈 button se on/off karo.',
+      listen: '🗣️ Dua suno', stopListen: '⏹ Roko', customLabel: '✍️ Ya apni dua khud likho (optional — ye awaaz mein bhi padhi jayegi)', customPh: 'Jaise: Allah aapko hamesha khush rakhe…', replay: '🔁 Phir se dekho', makeOwn: '🤲 Apni dua bhejo',
       makeH: '🤲 Apne apnon ko Jumma Mubarak bhejo', makeP: 'Naam likho, dua chuno aur link WhatsApp pe bhejo. Jo kholega usko roshan masjid, chaand-taare aur uske naam ki dua dikhegi. Har Jumme bhej sakte ho. Naam sirf link mein rehta hai, kahin save nahi hota.',
       toLabel: 'Kisko bhejna hai (naam)', fromLabel: 'Aapka naam', msgLabel: 'Dua', toPh: 'Jaise: Ammi, Salman bhai', fromPh: 'Jaise: Ayaan',
       sendWa: '📲 WhatsApp pe bhejo', preview: '👀 Pehle dekho', copyLink: '🔗 Link copy', copied: '✅ Link copy ho gaya', needName: 'Pehle naam likho',
@@ -172,7 +168,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         'दुरूद पढ़िए, सूरह कहफ़ पढ़िए और दुआ में सबको याद रखिए — अल्लाह आपका हर जुमा खुशियों से भर दे।',
         'हफ़्ते का सबसे बेहतरीन दिन मुबारक हो! अल्लाह आपकी सेहत, ईमान और घर की खुशियों की हिफ़ाज़त करे। आमीन।',
       ],
-      listen: '🗣️ दुआ सुनो', stopListen: '⏹ रोको', customLabel: '✍️ या अपनी दुआ ख़ुद लिखो (वैकल्पिक — यह आवाज़ में भी पढ़ी जाएगी)', customPh: 'जैसे: अल्लाह आपको हमेशा खुश रखे…', replay: '🔁 फिर से देखो', makeOwn: '🤲 अपनी दुआ भेजो', soundOn: '🔊 आवाज़ ऑन', soundOff: '🔈 आवाज़', soundNote: 'आवाज़ में कोई म्यूज़िक नहीं — सिर्फ़ रात का माहौल: हल्की हवा, झींगुर, चिड़िया और एक हल्की घंटी। ऊपर 🔈 बटन से चालू/बंद करो।',
+      listen: '🗣️ दुआ सुनो', stopListen: '⏹ रोको', customLabel: '✍️ या अपनी दुआ ख़ुद लिखो (वैकल्पिक — यह आवाज़ में भी पढ़ी जाएगी)', customPh: 'जैसे: अल्लाह आपको हमेशा खुश रखे…', replay: '🔁 फिर से देखो', makeOwn: '🤲 अपनी दुआ भेजो',
       makeH: '🤲 अपनों को जुम्मा मुबारक भेजो', makeP: 'नाम लिखो, दुआ चुनो और लिंक WhatsApp पर भेजो। जो खोलेगा उसे रोशन मस्जिद, चाँद-तारे और उसके नाम की दुआ दिखेगी। हर जुमे भेज सकते हो। नाम सिर्फ़ लिंक में रहता है, कहीं सेव नहीं होता।',
       toLabel: 'किसको भेजना है (नाम)', fromLabel: 'आपका नाम', msgLabel: 'दुआ', toPh: 'जैसे: अम्मी, सलमान भाई', fromPh: 'जैसे: अयान',
       sendWa: '📲 WhatsApp पर भेजो', preview: '👀 पहले देखो', copyLink: '🔗 लिंक कॉपी', copied: '✅ लिंक कॉपी हो गया', needName: 'पहले नाम लिखो',
@@ -193,7 +189,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         'Send durood, read Surah Al-Kahf and remember everyone in your duas — may Allah fill every Friday of yours with happiness.',
         'Blessings on the best day of the week! May Allah protect your health, your iman and the happiness of your home. Ameen.',
       ],
-      listen: '🗣️ Listen to the dua', stopListen: '⏹ Stop', customLabel: '✍️ Or write your own dua (optional — it will also be read aloud)', customPh: 'e.g. May Allah always keep you happy…', replay: '🔁 Watch again', makeOwn: '🤲 Send your own dua', soundOn: '🔊 Sound on', soundOff: '🔈 Sound', soundNote: 'There is no music — only the feel of the night: a soft breeze, crickets, a bird and a gentle chime. Turn it on or off with the 🔈 button at the top.',
+      listen: '🗣️ Listen to the dua', stopListen: '⏹ Stop', customLabel: '✍️ Or write your own dua (optional — it will also be read aloud)', customPh: 'e.g. May Allah always keep you happy…', replay: '🔁 Watch again', makeOwn: '🤲 Send your own dua',
       makeH: '🤲 Send Jumma Mubarak to your loved ones', makeP: 'Type a name, pick a dua and send the link on WhatsApp. They will see a glowing masjid, the moon and stars, and a dua with their name. Send it every Friday. The name stays only in the link — nothing is saved.',
       toLabel: 'Who is it for (name)', fromLabel: 'Your name', msgLabel: 'Dua', toPh: 'e.g. Ammi, Salman bhai', fromPh: 'e.g. Ayaan',
       sendWa: '📲 Send on WhatsApp', preview: '👀 Preview', copyLink: '🔗 Copy link', copied: '✅ Link copied', needName: 'Type a name first',
@@ -214,7 +210,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         'দরুদ পড়ুন, সূরা কাহফ পড়ুন আর দোয়ায় সবাইকে মনে রাখুন — আল্লাহ আপনার প্রতিটি জুম্মা আনন্দে ভরিয়ে দিন।',
         'সপ্তাহের সবচেয়ে উত্তম দিনের শুভেচ্ছা! আল্লাহ আপনার সুস্থতা, ঈমান আর ঘরের সুখ রক্ষা করুন। আমিন।',
       ],
-      listen: '🗣️ দোয়া শোনো', stopListen: '⏹ থামাও', customLabel: '✍️ অথবা নিজের দোয়া লেখো (ঐচ্ছিক — এটাও পড়ে শোনানো হবে)', customPh: 'যেমন: আল্লাহ আপনাকে সবসময় ভালো রাখুন…', replay: '🔁 আবার দেখো', makeOwn: '🤲 নিজের দোয়া পাঠাও', soundOn: '🔊 শব্দ চালু', soundOff: '🔈 শব্দ', soundNote: 'কোনো মিউজিক নেই — শুধু রাতের আবহ: মৃদু হাওয়া, ঝিঁঝিঁ পোকা, পাখি আর একটা মৃদু ঘণ্টা। ওপরের 🔈 বোতাম দিয়ে চালু/বন্ধ করো।',
+      listen: '🗣️ দোয়া শোনো', stopListen: '⏹ থামাও', customLabel: '✍️ অথবা নিজের দোয়া লেখো (ঐচ্ছিক — এটাও পড়ে শোনানো হবে)', customPh: 'যেমন: আল্লাহ আপনাকে সবসময় ভালো রাখুন…', replay: '🔁 আবার দেখো', makeOwn: '🤲 নিজের দোয়া পাঠাও',
       makeH: '🤲 প্রিয়জনকে জুম্মা মুবারক পাঠাও', makeP: 'নাম লেখো, দোয়া বাছো আর লিংক WhatsApp-এ পাঠাও। যে খুলবে সে দেখবে আলোকিত মসজিদ, চাঁদ-তারা আর তার নামে দোয়া। প্রতি জুম্মায় পাঠাতে পারো। নাম শুধু লিংকেই থাকে, কোথাও সেভ হয় না।',
       toLabel: 'কাকে পাঠাবে (নাম)', fromLabel: 'তোমার নাম', msgLabel: 'দোয়া', toPh: 'যেমন: আম্মু, সালমান ভাই', fromPh: 'যেমন: আয়ান',
       sendWa: '📲 WhatsApp-এ পাঠাও', preview: '👀 আগে দেখো', copyLink: '🔗 লিংক কপি', copied: '✅ লিংক কপি হয়েছে', needName: 'আগে নাম লেখো',
@@ -257,7 +253,7 @@ footer a { color: var(--muted); margin-right: 12px; }
     $('lang').value = lang;
     $('gateTitle').textContent = t('gate')(wish.from);
     $('gateTap').textContent = t('tap');
-    ['replay', 'makeOwn', 'makeH', 'makeP', 'toLabel', 'fromLabel', 'msgLabel', 'sendWa', 'preview', 'copyLink', 'aboutH', 'aboutP', 'aboutNote', 'soundNote', 'moreWishes', 'calLink', 'customLabel'].forEach((id) => { $(id).textContent = t(id); });
+    ['replay', 'makeOwn', 'makeH', 'makeP', 'toLabel', 'fromLabel', 'msgLabel', 'sendWa', 'preview', 'copyLink', 'aboutH', 'aboutP', 'aboutNote', 'moreWishes', 'calLink', 'customLabel'].forEach((id) => { $(id).textContent = t(id); });
     $('customDua').placeholder = t('customPh'); $('toName').placeholder = t('toPh'); $('fromName').placeholder = t('fromPh');
     const ul = $('sunnah'); ul.innerHTML = '';
     t('sunnah').forEach((s) => { const li = document.createElement('li'); li.textContent = s; ul.appendChild(li); });
@@ -267,67 +263,11 @@ footer a { color: var(--muted); margin-right: 12px; }
     sel.value = keep || '0';
     const p = PREFIX[lang];
     $('home').href = `https://nextgrade.in${p}/`; $('moreWishes').href = `https://nextgrade.in${p}/wishes/jumma-mubarak/`; $('calLink').href = `https://nextgrade.in${p}/islamic-calendar/`;
-    render(); setSoundBtn(); setListenBtn();
+    render(); setListenBtn();
   };
   $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('jm-lang', lang); applyLang(); });
   $('year').textContent = new Date().getFullYear();
   $('fromName').value = store.get('jm-from') || '';
-
-  // ---- sound: no music, only a calm night made in the browser (breeze, crickets, a bird, a chime). Off by default.
-  let soundOn = store.get('jm-sound') === '1';
-  let audio = null, master = null, ambient = null;
-  const setSoundBtn = () => { const b = $('sound'); b.textContent = soundOn ? t('soundOn') : t('soundOff'); b.setAttribute('aria-pressed', soundOn ? 'true' : 'false'); };
-  const ctxA = () => {
-    try {
-      if (!audio) { audio = new (window.AudioContext || window.webkitAudioContext)(); master = audio.createGain(); master.gain.value = 0; master.connect(audio.destination); }
-      if (audio.state === 'suspended') audio.resume();
-      return audio;
-    } catch (e) { return null; }
-  };
-  const chime = (a, time) => {
-    [[880, 0.12], [1320, 0.06], [1760, 0.04]].forEach(([f, v]) => {
-      const o = a.createOscillator(); const g = a.createGain(); o.type = 'sine'; o.frequency.value = f;
-      g.gain.setValueAtTime(0.0001, time); g.gain.exponentialRampToValueAtTime(v, time + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, time + 3.5);
-      o.connect(g).connect(master); o.start(time); o.stop(time + 3.6);
-    });
-  };
-  const cricket = (a, time) => {
-    for (let i = 0; i < 3; i += 1) {
-      const o = a.createOscillator(); const g = a.createGain(); const t0 = time + i * 0.07; o.type = 'sine'; o.frequency.value = 4300 + Math.random() * 300;
-      g.gain.setValueAtTime(0.0001, t0); g.gain.exponentialRampToValueAtTime(0.018, t0 + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.05);
-      o.connect(g).connect(master); o.start(t0); o.stop(t0 + 0.06);
-    }
-  };
-  const bird = (a, time) => {
-    const n = 2 + Math.floor(Math.random() * 3);
-    for (let i = 0; i < n; i += 1) {
-      const o = a.createOscillator(); const g = a.createGain(); const t0 = time + i * 0.16; const f = 2400 + Math.random() * 900;
-      o.type = 'sine'; o.frequency.setValueAtTime(f, t0); o.frequency.exponentialRampToValueAtTime(f * 1.5, t0 + 0.08);
-      g.gain.setValueAtTime(0.0001, t0); g.gain.exponentialRampToValueAtTime(0.03, t0 + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.11);
-      o.connect(g).connect(master); o.start(t0); o.stop(t0 + 0.12);
-    }
-  };
-  const startAmbient = () => {
-    const a = ctxA(); if (!a || ambient) return;
-    // breeze: looping soft noise through a slowly moving low-pass filter
-    const len = a.sampleRate * 4; const buf = a.createBuffer(1, len, a.sampleRate); const d = buf.getChannelData(0);
-    let last = 0; for (let i = 0; i < len; i += 1) { last = (last + 0.02 * (Math.random() * 2 - 1)) / 1.02; d[i] = last * 3.5; }
-    const src = a.createBufferSource(); src.buffer = buf; src.loop = true;
-    const f = a.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = 500;
-    const lfo = a.createOscillator(); const lg = a.createGain(); lfo.frequency.value = 0.08; lg.gain.value = 260; lfo.connect(lg).connect(f.frequency);
-    const wg = a.createGain(); wg.gain.value = 0.22;
-    src.connect(f).connect(wg).connect(master); src.start(); lfo.start();
-    const timer = setInterval(() => { const now = a.currentTime; if (Math.random() < 0.7) cricket(a, now + Math.random() * 0.5); if (Math.random() < 0.08) bird(a, now + Math.random()); }, 900);
-    ambient = { src, lfo, timer };
-  };
-  const stopAmbient = () => { if (!ambient) return; clearInterval(ambient.timer); try { ambient.src.stop(); ambient.lfo.stop(); } catch (e) { /* already stopped */ } ambient = null; };
-  const fade = (to) => { if (master && audio) { master.gain.cancelScheduledValues(audio.currentTime); master.gain.setTargetAtTime(to, audio.currentTime, 0.4); } };
-  const soundUp = (withChime) => { if (!soundOn) return; const a = ctxA(); if (!a) return; startAmbient(); fade(0.9); if (withChime) chime(a, a.currentTime + 0.6); };
-  $('sound').addEventListener('click', () => {
-    soundOn = !soundOn; store.set('jm-sound', soundOn ? '1' : '0'); setSoundBtn();
-    if (soundOn) soundUp(true); else { fade(0); setTimeout(() => { if (!soundOn) stopAmbient(); }, 1500); }
-  });
-  document.addEventListener('visibilitychange', () => { if (document.hidden) { fade(0); stopAmbient(); if (canSpeak) speechSynthesis.cancel(); } else if (soundOn && playing) soundUp(false); });
 
   // ---- read the dua aloud with the phone's own voice (speechSynthesis); nothing is recorded or sent anywhere
   const VOICE = { hinglish: 'en-IN', hi: 'hi-IN', en: 'en-IN', bn: 'bn-IN' };
@@ -340,20 +280,21 @@ footer a { color: var(--muted); margin-right: 12px; }
   };
   const sayText = () => [$('names').textContent, $('text').textContent, wish.from ? $('from').textContent.replace(/^—\s*/, '') : '']
     .join('. ').replace(/[\p{Extended_Pictographic}\u{FE0F}\u200d]/gu, '').replace(/\s+/g, ' ').trim();
-  const stopSpeak = () => { if (!canSpeak) return; speechSynthesis.cancel(); speaking = false; setListenBtn(); if (soundOn) fade(0.9); };
+  const stopSpeak = () => { if (!canSpeak) return; speechSynthesis.cancel(); speaking = false; setListenBtn(); };
   const speak = () => {
     if (!canSpeak) return;
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(sayText());
     u.lang = VOICE[lang]; const v = pickVoice(VOICE[lang]); if (v) u.voice = v;
     u.rate = 0.88; u.pitch = 1;
-    u.onstart = () => { speaking = true; setListenBtn(); if (soundOn) fade(0.3); };
-    u.onend = u.onerror = () => { speaking = false; setListenBtn(); if (soundOn) fade(0.9); };
+    u.onstart = () => { speaking = true; setListenBtn(); };
+    u.onend = u.onerror = () => { speaking = false; setListenBtn(); };
     speechSynthesis.speak(u);
   };
   if (canSpeak) speechSynthesis.getVoices();
   $('listen').addEventListener('click', () => { if (speaking) { stopSpeak(); return; } if ($('gate').classList.contains('hidden')) speak(); else play(); });
   window.addEventListener('pagehide', stopSpeak);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) stopSpeak(); });
 
   // ---- scene: night sky, crescent, stars, a masjid with glowing windows, swinging lanterns, rising light
   const canvas = $('sky'); const ctx = canvas.getContext('2d');
@@ -443,7 +384,6 @@ footer a { color: var(--muted); margin-right: 12px; }
     $('gate').classList.add('hidden');
     $('message').classList.add('hidden'); void $('message').offsetWidth; $('message').classList.remove('hidden');
     playing = true; startAt = performance.now();
-    soundUp(true);
     speak();
     if (navigator.vibrate) navigator.vibrate(40);
   };
