@@ -50,3 +50,8 @@ document.querySelectorAll('.share-box').forEach((box) => {
       .catch(() => window.prompt(box.dataset.copyPrompt, link().url));
   });
 });
+
+// Close the language dropdown when tapping anywhere else.
+document.addEventListener('click', (e) => {
+  document.querySelectorAll('details.lang-menu[open]').forEach((d) => { if (!d.contains(e.target)) d.removeAttribute('open'); });
+});

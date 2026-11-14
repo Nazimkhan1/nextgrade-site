@@ -96,7 +96,10 @@ function page(L, { path, title, description, body, jsonLd = [], scripts = [], la
   const T = ui[L.code];
   const url = `${SITE}${P(L, path)}`;
   const nav = NAV.map((href, i) => `<a href="${P(L, href)}"${href === path || (href !== '/' && path.startsWith(href)) ? ' aria-current="page"' : ''}>${T.nav[NAV_KEYS[i]]}</a>`).join('');
-  const switcher = langs.length > 1 ? `<nav class="langs" aria-label="${T.langLabel}">${langs.map((l) => `<a href="${P(l, path)}" hreflang="${l.hreflang}" lang="${l.html}"${l.code === L.code ? ' aria-current="true"' : ''}>${ui[l.code].langName}</a>`).join('')}</nav>` : '';
+  // Language dropdown (details/summary: works without JavaScript; site.js closes it on outside click).
+  const switcher = langs.length > 1
+    ? `<details class="lang-menu"><summary aria-label="${T.langLabel}">🌐 <span>${ui[L.code].langName}</span></summary><ul>${langs.map((l) => `<li><a href="${P(l, path)}" hreflang="${l.hreflang}" lang="${l.html}"${l.code === L.code ? ' aria-current="true"' : ''}>${ui[l.code].langName}${l.code === L.code ? ' ✓' : ''}</a></li>`).join('')}</ul></details>`
+    : '';
   const alternates = langs.length > 1 ? [...langs.map((l) => `<link rel="alternate" hreflang="${l.hreflang}" href="${SITE}${P(l, path)}">`), `<link rel="alternate" hreflang="x-default" href="${SITE}${path}">`].join('\n') : '';
   const ld = jsonLd.map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join('\n');
   const fonts = `family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700${L.code === 'bn' ? '&family=Noto+Sans+Bengali:wght@400;600;700' : ''}&display=swap`;
@@ -129,8 +132,8 @@ ${ld}
 <body>
 <header class="site-head"><div class="wrap">
 <a class="logo" href="${P(L, '/')}"><span class="logo-mark">N</span>${NAME}</a>
-<nav class="nav" aria-label="Main">${nav}</nav>
-</div>${switcher ? `<div class="wrap langs-row">${switcher}</div>` : ''}</header>
+<div class="head-right"><nav class="nav" aria-label="Main">${nav}</nav>${switcher}</div>
+</div></header>
 <main>
 ${body}
 </main>
