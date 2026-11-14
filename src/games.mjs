@@ -7,10 +7,10 @@ const games = [
   {
     slug: 'morning-exercise',
     emoji: '💪',
-    name: 'सुबह का 5 मिनट चैलेंज',
-    nameEn: 'Morning 5-Minute Challenge',
+    name: 'सुबह का 2 मिनट चैलेंज',
+    nameEn: 'Morning 2-Minute Challenge',
     tag: 'Daily',
-    desc: 'कार्टून कोच के साथ 8 आसान कसरतें — टाइमर, रोज़ की 🔥 स्ट्रीक, बैज और दोस्तों को WhatsApp पर चैलेंज। 3 या 5 मिनट, बिना कैमरा, बिना लॉगिन।',
+    desc: 'कार्टून कोच के साथ 8 आसान कसरतें — टाइमर, रोज़ की 🔥 स्ट्रीक, बैज और दोस्तों को WhatsApp पर चैलेंज। सिर्फ़ 2 मिनट (हर कसरत 15 सेकंड), बिना कैमरा, बिना लॉगिन।',
   },
   {
     slug: 'new-year',

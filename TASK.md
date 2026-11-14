@@ -11,6 +11,25 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 ---
 
+## Status, 14 Nov 2026 (evening): RESUME HERE
+Site: **~162 pages**, all in 4 languages. Everything below is live (pushed to main → GitHub Pages).
+
+**Done today (14 Nov)**
+- [x] `/kahani/` — 10 bedtime stories × 4 languages, read-aloud, night mode, sleep timer.
+- [x] `/islamic-calendar/` — today's Hijri date (browser, Umm al-Qura), 12 months, facts, upcoming dates (update yearly). Rajab Mubarak wish page.
+- [x] Animated name wishes under `/celebrate/<slug>/`:
+  - `shaadi-mubarak` — fireworks, crackers, flowers, own dhol+shehnai tune (OFF until "🥁 Band-baaja suno"). Standalone page.
+  - `jumma-mubarak` — masjid, moon, lanterns; custom dua `?d=`; dua read aloud only on "🗣️ Dua suno"; NO music/ambient. Standalone page.
+  - `gurpurab` (24 Nov 2026) — Gurdwara, full moon, Nishan Sahib, diyas. On the engine.
+  - `good-morning` — sunrise, birds, clouds, sunflowers, weekday greeting, daily-changing message. On the engine.
+  - Shared engine `celebrate/engine.js` + `engine.css` (see "Animated wishes engine" below). Register pages in the `CELEBRATE` list in build.mjs.
+- [x] Game `/games/morning-exercise/` — **Subah ka 2-Minute Challenge**: 8 moves × **15 s each** (user asked), 2 s rest, Easy/Normal, cartoon coach, streak + badges, optional voice coach, share box under the game (WhatsApp / copy link / native share) + share & copy on the finish screen.
+- Rules from the user today: **sound always optional** (nothing auto-plays); Jumma: no music; animated pages must look attractive.
+
+**Next (date order)** — 🎄 Christmas animated wish → 🎆 New Year animated wish → 🌙 Shab-e-Miraj page (~5 Jan) → 🔥 Lohri / 🪁 Sankranti animated → 🌙 Shab-e-Barat (~23 Jan) → 🇮🇳 Republic Day → Ramzan series, Eidi lifafa + game, Eid animated (Feb–Mar) → 🎂 Birthday animated, Bachpan "Yaad hai?", 10 more stories. Optional: move Shaadi/Jumma onto the engine; Cloudflare Web Analytics (needs user's token).
+
+---
+
 ## Status, 13 Nov 2026 (night): resume here
 
 **Done**

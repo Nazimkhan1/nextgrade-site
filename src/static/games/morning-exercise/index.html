@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Subah ka 5-Minute Challenge 💪 — Morning Exercise Game with Streak | NextGrade</title>
-<meta name="description" content="A free 3 or 5 minute morning exercise challenge: a cartoon coach shows 8 easy moves with a timer, you keep a daily 🔥 streak and challenge friends on WhatsApp. No signup, no camera — in Hinglish, Hindi, English and Bengali.">
+<title>Subah ka 2-Minute Challenge 💪 — Morning Exercise Game with Streak | NextGrade</title>
+<meta name="description" content="A free 2-minute morning exercise challenge (15 seconds a move): a cartoon coach shows 8 easy moves with a timer, you keep a daily 🔥 streak and challenge friends on WhatsApp. No signup, no camera — in Hinglish, Hindi, English and Bengali.">
 <link rel="canonical" href="https://nextgrade.in/games/morning-exercise/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NextGrade">
-<meta property="og:title" content="💪 Subah ka 5-Minute Challenge — kya tum roz kar paoge?">
+<meta property="og:title" content="💪 Subah ka 2-Minute Challenge — kya tum roz kar paoge?">
 <meta property="og:description" content="Cartoon coach ke saath 8 aasaan kasratein, timer aur 🔥 streak. Dosto ko challenge karo!">
 <meta property="og:url" content="https://nextgrade.in/games/morning-exercise/">
 <meta name="theme-color" content="#0b7285">
@@ -84,6 +84,10 @@ section li { margin-bottom: 6px; }
 .ad { min-height: 100px; margin: 20px 0; }
 footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.15); }
 footer a { color: var(--muted); margin-right: 12px; }
+.sharebox { background: var(--card); border: 1px solid rgba(255,255,255,0.15); border-radius: 18px; padding: 16px; margin: 18px 0; text-align: center; }
+.sharebox h2 { margin: 0 0 4px; font-size: 22px; }
+.share-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
+.share-row .btn { flex: 1 1 150px; font-size: 16px; }
 .hidden { display: none !important; }
 </style>
 </head>
@@ -137,9 +141,21 @@ footer a { color: var(--muted); margin-right: 12px; }
       <p class="sub" id="badgeText"></p>
       <div class="field"><label for="myName" id="nameLabel"></label><input id="myName" maxlength="24"></div>
       <button class="btn btn-wa" type="button" id="share"></button>
-      <div class="ctrl"><button class="btn btn-ghost" type="button" id="again"></button></div>
+      <div class="ctrl"><button class="btn btn-ghost" type="button" id="copyDone"></button><button class="btn btn-ghost" type="button" id="again"></button></div>
+      <p class="note" id="doneStatus" role="status"></p>
       <p class="note" id="tomorrow"></p>
     </div>
+  </div>
+
+  <div class="sharebox">
+    <h2 id="shareH"></h2>
+    <p class="note" id="shareP"></p>
+    <div class="share-row">
+      <button class="btn btn-wa" type="button" id="shWa"></button>
+      <button class="btn btn-ghost" type="button" id="shCopy"></button>
+      <button class="btn btn-ghost hidden" type="button" id="shMore"></button>
+    </div>
+    <p class="note" id="shStatus" role="status"></p>
   </div>
 
   <div class="ad" aria-hidden="true"></div>
@@ -165,9 +181,9 @@ footer a { color: var(--muted); margin-right: 12px; }
   const VOICE = { hinglish: 'hi-IN', hi: 'hi-IN', en: 'en-IN', bn: 'bn-IN' };
   const T = {
     hinglish: {
-      brand: 'Subah ka Challenge', title: 'Subah ka 5-Minute Challenge', sub: 'Cartoon coach ke saath 8 aasaan kasratein. Roz karo, 🔥 streak badhao aur dosto ko challenge karo!',
+      brand: 'Subah ka Challenge', title: 'Subah ka 2-Minute Challenge', sub: 'Cartoon coach ke saath 8 aasaan kasratein, har ek sirf 15 second. Roz karo, 🔥 streak badhao aur dosto ko challenge karo!',
       streak: (n) => (n === 1 ? 'din ki streak' : 'din ki streak'), week: ['Ra', 'So', 'Ma', 'Bu', 'Gu', 'Sh', 'Sa'],
-      easy: '🌱 Aasaan · 3 min', normal: '💪 Normal · 5 min', go: '▶ Shuru karo', voiceOn: '🔊 Coach ki awaaz: on', voiceOff: '🔈 Coach ki awaaz: off',
+      easy: '🌱 Aasaan', normal: '💪 Normal', go: '▶ Shuru karo', voiceOn: '🔊 Coach ki awaaz: on', voiceOff: '🔈 Coach ki awaaz: off',
       todayDone: '✅ Aaj ka challenge ho gaya! Chaaho to phir se kar sakte ho.',
       invite: (f, s) => `🔥 ${f} ne aapko subah ke challenge ke liye bulaya hai!${s ? ` Unki streak: ${s} din. Kya aap haraa paoge?` : ''}`,
       step: (i, n) => `Kasrat ${i} / ${n}`, rest: 'Saans lo… 😮‍💨', next: (x) => `Agla: ${x}`, getReady: 'Taiyaar ho jao!',
@@ -176,8 +192,8 @@ footer a { color: var(--muted); margin-right: 12px; }
       doneTitle: 'Shabaash! 🎉', doneSub: (n, m) => `Aaj ${m} minute ki kasrat poori. 🔥 ${n} din ki streak!`,
       badges: { 1: 'Pehla din — shuruaat ho gayi! 🌱', 3: '3 din lagaataar — aadat ban rahi hai! 🥉', 7: 'Poora hafta! 🥈 Aap champion ho!', 14: '2 hafte! 🥇 Zabardast!', 21: '21 din — ab ye aadat hai! 🏆', 30: '30 din! 👑 Subah ke Raja/Rani!' },
       nameLabel: 'Aapka naam (share ke liye, optional)', namePh: 'Jaise: Rahul',
-      share: '📲 Dosto ko challenge bhejo', shareText: (name, n, url) => `💪 ${name ? name + ' ne' : 'Maine'} aaj subah 5 minute kasrat ki! 🔥 ${n} din ki streak. Kya tum mujhse zyada din kar paoge? Shuru karo 👉 ${url}`,
-      again: '🔁 Phir se karo', tomorrow: 'Kal subah phir milte hain ☀️ Streak mat todna!',
+      share: '📲 Dosto ko challenge bhejo', shareText: (name, n, url) => `💪 ${name ? name + ' ne' : 'Maine'} aaj subah 2 minute kasrat ki! 🔥 ${n} din ki streak. Kya tum mujhse zyada din kar paoge? Shuru karo 👉 ${url}`,
+      shareH: '📣 Dosto ko bhi bulao', shareP: 'Saath mein karoge to streak todne ka mann nahi karega! Link WhatsApp pe bhejo ya copy karke kahin bhi daalo.', shWa: '📲 WhatsApp pe bhejo', shCopy: '🔗 Link copy karo', shMore: '📤 Aur jagah share', copied: '✅ Link copy ho gaya — ab kahin bhi paste karke bhejo', copyDone: '🔗 Link copy', inviteText: (name, n, url) => `💪 ${name ? name + ' ki taraf se' : 'Aao'} subah ka 2-minute challenge karein!${n ? ` Meri streak ${n} din ki hai 🔥` : ''} Roz sirf 2 minute, cartoon coach ke saath. Shuru karo 👉 ${url}`, again: '🔁 Phir se karo', tomorrow: 'Kal subah phir milte hain ☀️ Streak mat todna!',
       voiceSay: { start: (x) => `Shuru karte hain. ${x}`, next: (x) => `Agla, ${x}`, half: 'Aadha ho gaya, shabaash', five: 'Bas paanch second', done: 'Shabaash! Aaj ka challenge poora hua' },
       ex: {
         reach: ['Haath upar stretch', 'Haath upar le jao, ediyan uthao, poora khincho'],
@@ -190,15 +206,15 @@ footer a { color: var(--muted); margin-right: 12px; }
         side: ['Side bend', 'Haath upar, dheere bagal mein jhuko'],
         breathe: ['Lambi saans', 'Gola bade to saans lo, chhota ho to chhodo'],
       },
-      aboutH: 'Subah ki kasrat kyun?', aboutP: 'Roz subah sirf 3-5 minute hilna-dulna bhi din bhar ke liye taazgi deta hai. Is challenge mein koi saaman nahi chahiye, ghar mein khade-khade ho jaata hai:',
+      aboutH: 'Subah ki kasrat kyun?', aboutP: 'Roz subah sirf 2 minute hilna-dulna bhi din bhar ke liye taazgi deta hai. Is challenge mein koi saaman nahi chahiye, ghar mein khade-khade ho jaata hai:',
       aboutList: ['Badan ki akdan khulti hai aur neend jaldi bhaagti hai', 'Saans aur dhyaan pe dhyaan dene se mann shaant hota hai', 'Roz ki 🔥 streak se aadat banti hai — 21 din mein ye aapki routine ban sakti hai', 'Camera ya login kuch nahi — aapki streak sirf aapke phone mein rehti hai'],
       health: '⚠️ Ye aam logon ke liye halki kasrat hai, ilaaj nahi. Dard, chakkar ya saans phoolne lage to turant ruk jao. Dil, BP, ghutne/peeth ki takleef ho ya pregnancy ho to pehle doctor se poochho.',
       gm: '☀️ Good Morning wish bhejo', games: 'Aur games',
     },
     hi: {
-      brand: 'सुबह का चैलेंज', title: 'सुबह का 5 मिनट चैलेंज', sub: 'कार्टून कोच के साथ 8 आसान कसरतें। रोज़ करो, 🔥 स्ट्रीक बढ़ाओ और दोस्तों को चैलेंज करो!',
+      brand: 'सुबह का चैलेंज', title: 'सुबह का 2 मिनट चैलेंज', sub: 'कार्टून कोच के साथ 8 आसान कसरतें, हर एक सिर्फ़ 15 सेकंड। रोज़ करो, 🔥 स्ट्रीक बढ़ाओ और दोस्तों को चैलेंज करो!',
       streak: () => 'दिन की स्ट्रीक', week: ['र', 'सो', 'मं', 'बु', 'गु', 'शु', 'श'],
-      easy: '🌱 आसान · 3 मिनट', normal: '💪 नॉर्मल · 5 मिनट', go: '▶ शुरू करो', voiceOn: '🔊 कोच की आवाज़: चालू', voiceOff: '🔈 कोच की आवाज़: बंद',
+      easy: '🌱 आसान', normal: '💪 नॉर्मल', go: '▶ शुरू करो', voiceOn: '🔊 कोच की आवाज़: चालू', voiceOff: '🔈 कोच की आवाज़: बंद',
       todayDone: '✅ आज का चैलेंज हो गया! चाहो तो फिर से कर सकते हो।',
       invite: (f, s) => `🔥 ${f} ने आपको सुबह के चैलेंज के लिए बुलाया है!${s ? ` उनकी स्ट्रीक: ${s} दिन। क्या आप हरा पाओगे?` : ''}`,
       step: (i, n) => `कसरत ${i} / ${n}`, rest: 'साँस लो… 😮‍💨', next: (x) => `अगला: ${x}`, getReady: 'तैयार हो जाओ!',
@@ -207,8 +223,8 @@ footer a { color: var(--muted); margin-right: 12px; }
       doneTitle: 'शाबाश! 🎉', doneSub: (n, m) => `आज ${m} मिनट की कसरत पूरी। 🔥 ${n} दिन की स्ट्रीक!`,
       badges: { 1: 'पहला दिन — शुरुआत हो गई! 🌱', 3: '3 दिन लगातार — आदत बन रही है! 🥉', 7: 'पूरा हफ़्ता! 🥈 आप चैंपियन हो!', 14: '2 हफ़्ते! 🥇 ज़बरदस्त!', 21: '21 दिन — अब यह आदत है! 🏆', 30: '30 दिन! 👑 सुबह के राजा/रानी!' },
       nameLabel: 'आपका नाम (शेयर के लिए, वैकल्पिक)', namePh: 'जैसे: राहुल',
-      share: '📲 दोस्तों को चैलेंज भेजो', shareText: (name, n, url) => `💪 ${name ? name + ' ने' : 'मैंने'} आज सुबह 5 मिनट कसरत की! 🔥 ${n} दिन की स्ट्रीक। क्या तुम मुझसे ज़्यादा दिन कर पाओगे? शुरू करो 👉 ${url}`,
-      again: '🔁 फिर से करो', tomorrow: 'कल सुबह फिर मिलते हैं ☀️ स्ट्रीक मत तोड़ना!',
+      share: '📲 दोस्तों को चैलेंज भेजो', shareText: (name, n, url) => `💪 ${name ? name + ' ने' : 'मैंने'} आज सुबह 2 मिनट कसरत की! 🔥 ${n} दिन की स्ट्रीक। क्या तुम मुझसे ज़्यादा दिन कर पाओगे? शुरू करो 👉 ${url}`,
+      shareH: '📣 दोस्तों को भी बुलाओ', shareP: 'साथ में करोगे तो स्ट्रीक तोड़ने का मन नहीं करेगा! लिंक WhatsApp पर भेजो या कॉपी करके कहीं भी डालो।', shWa: '📲 WhatsApp पर भेजो', shCopy: '🔗 लिंक कॉपी करो', shMore: '📤 और जगह शेयर', copied: '✅ लिंक कॉपी हो गया — अब कहीं भी पेस्ट करके भेजो', copyDone: '🔗 लिंक कॉपी', inviteText: (name, n, url) => `💪 ${name ? name + ' की तरफ़ से —' : 'आओ'} सुबह का 2 मिनट चैलेंज करें!${n ? ` मेरी स्ट्रीक ${n} दिन की है 🔥` : ''} रोज़ सिर्फ़ 2 मिनट, कार्टून कोच के साथ। शुरू करो 👉 ${url}`, again: '🔁 फिर से करो', tomorrow: 'कल सुबह फिर मिलते हैं ☀️ स्ट्रीक मत तोड़ना!',
       voiceSay: { start: (x) => `शुरू करते हैं। ${x}`, next: (x) => `अगला, ${x}`, half: 'आधा हो गया, शाबाश', five: 'बस पाँच सेकंड', done: 'शाबाश! आज का चैलेंज पूरा हुआ' },
       ex: {
         reach: ['हाथ ऊपर स्ट्रेच', 'हाथ ऊपर ले जाओ, एड़ियाँ उठाओ, पूरा खिंचाव'],
@@ -221,15 +237,15 @@ footer a { color: var(--muted); margin-right: 12px; }
         side: ['साइड बेंड', 'हाथ ऊपर, धीरे बगल में झुको'],
         breathe: ['लंबी साँस', 'गोला बड़ा हो तो साँस लो, छोटा हो तो छोड़ो'],
       },
-      aboutH: 'सुबह की कसरत क्यों?', aboutP: 'रोज़ सुबह सिर्फ़ 3-5 मिनट हिलना-डुलना भी दिन भर के लिए ताज़गी देता है। इस चैलेंज में कोई सामान नहीं चाहिए, घर में खड़े-खड़े हो जाता है:',
+      aboutH: 'सुबह की कसरत क्यों?', aboutP: 'रोज़ सुबह सिर्फ़ 2 मिनट हिलना-डुलना भी दिन भर के लिए ताज़गी देता है। इस चैलेंज में कोई सामान नहीं चाहिए, घर में खड़े-खड़े हो जाता है:',
       aboutList: ['बदन की अकड़न खुलती है और नींद जल्दी भागती है', 'साँस पर ध्यान देने से मन शांत होता है', 'रोज़ की 🔥 स्ट्रीक से आदत बनती है — 21 दिन में यह आपकी दिनचर्या बन सकती है', 'कैमरा या लॉगिन कुछ नहीं — आपकी स्ट्रीक सिर्फ़ आपके फ़ोन में रहती है'],
       health: '⚠️ यह आम लोगों के लिए हल्की कसरत है, इलाज नहीं। दर्द, चक्कर या साँस फूलने लगे तो तुरंत रुक जाओ। दिल, बीपी, घुटने/पीठ की तकलीफ़ हो या प्रेगनेंसी हो तो पहले डॉक्टर से पूछो।',
       gm: '☀️ सुप्रभात विश भेजो', games: 'और गेम',
     },
     en: {
-      brand: 'Morning Challenge', title: 'Morning 5-Minute Challenge', sub: '8 easy moves with a cartoon coach. Do it daily, grow your 🔥 streak and challenge your friends!',
+      brand: 'Morning Challenge', title: 'Morning 2-Minute Challenge', sub: '8 easy moves with a cartoon coach, just 15 seconds each. Do it daily, grow your 🔥 streak and challenge your friends!',
       streak: (n) => (n === 1 ? 'day streak' : 'day streak'), week: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-      easy: '🌱 Easy · 3 min', normal: '💪 Normal · 5 min', go: '▶ Start', voiceOn: '🔊 Coach voice: on', voiceOff: '🔈 Coach voice: off',
+      easy: '🌱 Easy', normal: '💪 Normal', go: '▶ Start', voiceOn: '🔊 Coach voice: on', voiceOff: '🔈 Coach voice: off',
       todayDone: '✅ Today\'s challenge is done! You can do it again if you like.',
       invite: (f, s) => `🔥 ${f} has invited you to the morning challenge!${s ? ` Their streak: ${s} days. Can you beat it?` : ''}`,
       step: (i, n) => `Move ${i} of ${n}`, rest: 'Breathe… 😮‍💨', next: (x) => `Next: ${x}`, getReady: 'Get ready!',
@@ -238,8 +254,8 @@ footer a { color: var(--muted); margin-right: 12px; }
       doneTitle: 'Well done! 🎉', doneSub: (n, m) => `${m} minutes of exercise done today. 🔥 ${n}-day streak!`,
       badges: { 1: 'Day one — you\'ve started! 🌱', 3: '3 days in a row — a habit is forming! 🥉', 7: 'A whole week! 🥈 You\'re a champion!', 14: '2 weeks! 🥇 Amazing!', 21: '21 days — it\'s a habit now! 🏆', 30: '30 days! 👑 Morning royalty!' },
       nameLabel: 'Your name (for sharing, optional)', namePh: 'e.g. Rahul',
-      share: '📲 Challenge your friends', shareText: (name, n, url) => `💪 ${name || 'I'} did 5 minutes of morning exercise today! 🔥 ${n}-day streak. Can you keep going longer? Start here 👉 ${url}`,
-      again: '🔁 Do it again', tomorrow: 'See you tomorrow morning ☀️ Don\'t break the streak!',
+      share: '📲 Challenge your friends', shareText: (name, n, url) => `💪 ${name || 'I'} did 2 minutes of morning exercise today! 🔥 ${n}-day streak. Can you keep going longer? Start here 👉 ${url}`,
+      shareH: '📣 Bring your friends along', shareP: 'Doing it together makes it hard to break the streak! Send the link on WhatsApp or copy it and paste it anywhere.', shWa: '📲 Send on WhatsApp', shCopy: '🔗 Copy link', shMore: '📤 Share elsewhere', copied: '✅ Link copied — paste it anywhere to send', copyDone: '🔗 Copy link', inviteText: (name, n, url) => `💪 ${name ? name + ' invites you to' : 'Join'} the morning 2-minute challenge!${n ? ` My streak is ${n} days 🔥` : ''} Just 2 minutes a day with a cartoon coach. Start here 👉 ${url}`, again: '🔁 Do it again', tomorrow: 'See you tomorrow morning ☀️ Don\'t break the streak!',
       voiceSay: { start: (x) => `Let's begin. ${x}`, next: (x) => `Next, ${x}`, half: 'Halfway, well done', five: 'Five more seconds', done: 'Well done! Today\'s challenge is complete' },
       ex: {
         reach: ['Reach up stretch', 'Arms up, rise on your toes, stretch tall'],
@@ -252,15 +268,15 @@ footer a { color: var(--muted); margin-right: 12px; }
         side: ['Side bends', 'Arms up, lean slowly to each side'],
         breathe: ['Deep breathing', 'Breathe in as the circle grows, out as it shrinks'],
       },
-      aboutH: 'Why morning exercise?', aboutP: 'Just 3-5 minutes of movement every morning can leave you fresher for the whole day. You need no equipment — you can do it standing at home:',
+      aboutH: 'Why morning exercise?', aboutP: 'Just 2 minutes of movement every morning can leave you fresher for the whole day. You need no equipment — you can do it standing at home:',
       aboutList: ['It loosens a stiff body and shakes off sleepiness', 'Paying attention to your breath calms the mind', 'A daily 🔥 streak builds the habit — in 21 days it can become your routine', 'No camera, no login — your streak stays only on your phone'],
       health: '⚠️ This is light exercise for healthy adults, not treatment. Stop at once if you feel pain, dizziness or breathlessness. If you have heart, blood pressure, knee or back problems, or are pregnant, ask a doctor first.',
       gm: '☀️ Send a Good Morning wish', games: 'More games',
     },
     bn: {
-      brand: 'সকালের চ্যালেঞ্জ', title: 'সকালের ৫ মিনিট চ্যালেঞ্জ', sub: 'কার্টুন কোচের সঙ্গে ৮টা সহজ ব্যায়াম। রোজ করো, 🔥 স্ট্রিক বাড়াও আর বন্ধুদের চ্যালেঞ্জ করো!',
+      brand: 'সকালের চ্যালেঞ্জ', title: 'সকালের ২ মিনিট চ্যালেঞ্জ', sub: 'কার্টুন কোচের সঙ্গে ৮টা সহজ ব্যায়াম, প্রতিটা মাত্র ১৫ সেকেন্ড। রোজ করো, 🔥 স্ট্রিক বাড়াও আর বন্ধুদের চ্যালেঞ্জ করো!',
       streak: () => 'দিনের স্ট্রিক', week: ['র', 'সো', 'ম', 'বু', 'বৃ', 'শু', 'শ'],
-      easy: '🌱 সহজ · ৩ মিনিট', normal: '💪 নরমাল · ৫ মিনিট', go: '▶ শুরু করো', voiceOn: '🔊 কোচের গলা: চালু', voiceOff: '🔈 কোচের গলা: বন্ধ',
+      easy: '🌱 সহজ', normal: '💪 নরমাল', go: '▶ শুরু করো', voiceOn: '🔊 কোচের গলা: চালু', voiceOff: '🔈 কোচের গলা: বন্ধ',
       todayDone: '✅ আজকের চ্যালেঞ্জ হয়ে গেছে! চাইলে আবার করতে পারো।',
       invite: (f, s) => `🔥 ${f} তোমাকে সকালের চ্যালেঞ্জে ডেকেছে!${s ? ` ওর স্ট্রিক: ${s} দিন। হারাতে পারবে?` : ''}`,
       step: (i, n) => `ব্যায়াম ${i} / ${n}`, rest: 'শ্বাস নাও… 😮‍💨', next: (x) => `পরেরটা: ${x}`, getReady: 'তৈরি হও!',
@@ -269,8 +285,8 @@ footer a { color: var(--muted); margin-right: 12px; }
       doneTitle: 'সাবাশ! 🎉', doneSub: (n, m) => `আজ ${m} মিনিটের ব্যায়াম শেষ। 🔥 ${n} দিনের স্ট্রিক!`,
       badges: { 1: 'প্রথম দিন — শুরু হয়ে গেল! 🌱', 3: 'টানা ৩ দিন — অভ্যাস তৈরি হচ্ছে! 🥉', 7: 'পুরো এক সপ্তাহ! 🥈 তুমি চ্যাম্পিয়ন!', 14: '২ সপ্তাহ! 🥇 দুর্দান্ত!', 21: '২১ দিন — এখন এটা অভ্যাস! 🏆', 30: '৩০ দিন! 👑 সকালের রাজা/রানি!' },
       nameLabel: 'তোমার নাম (শেয়ারের জন্য, ঐচ্ছিক)', namePh: 'যেমন: রাহুল',
-      share: '📲 বন্ধুদের চ্যালেঞ্জ পাঠাও', shareText: (name, n, url) => `💪 ${name ? name + ' আজ' : 'আমি আজ'} সকালে ৫ মিনিট ব্যায়াম করেছি! 🔥 ${n} দিনের স্ট্রিক। তুমি কি বেশি দিন পারবে? শুরু করো 👉 ${url}`,
-      again: '🔁 আবার করো', tomorrow: 'কাল সকালে আবার দেখা হবে ☀️ স্ট্রিক ভেঙো না!',
+      share: '📲 বন্ধুদের চ্যালেঞ্জ পাঠাও', shareText: (name, n, url) => `💪 ${name ? name + ' আজ' : 'আমি আজ'} সকালে ২ মিনিট ব্যায়াম করেছি! 🔥 ${n} দিনের স্ট্রিক। তুমি কি বেশি দিন পারবে? শুরু করো 👉 ${url}`,
+      shareH: '📣 বন্ধুদেরও ডাকো', shareP: 'একসঙ্গে করলে স্ট্রিক ভাঙতে ইচ্ছে করবে না! লিংক WhatsApp-এ পাঠাও বা কপি করে যেকোনো জায়গায় দাও।', shWa: '📲 WhatsApp-এ পাঠাও', shCopy: '🔗 লিংক কপি করো', shMore: '📤 অন্য জায়গায় শেয়ার', copied: '✅ লিংক কপি হয়েছে — এবার যেকোনো জায়গায় পেস্ট করে পাঠাও', copyDone: '🔗 লিংক কপি', inviteText: (name, n, url) => `💪 ${name ? name + ' তোমাকে ডাকছে —' : 'চলো'} সকালের ২ মিনিট চ্যালেঞ্জ করি!${n ? ` আমার স্ট্রিক ${n} দিনের 🔥` : ''} রোজ মাত্র ২ মিনিট, কার্টুন কোচের সঙ্গে। শুরু করো 👉 ${url}`, again: '🔁 আবার করো', tomorrow: 'কাল সকালে আবার দেখা হবে ☀️ স্ট্রিক ভেঙো না!',
       voiceSay: { start: (x) => `শুরু করা যাক। ${x}`, next: (x) => `পরেরটা, ${x}`, half: 'অর্ধেক হয়ে গেছে, সাবাশ', five: 'আর পাঁচ সেকেন্ড', done: 'সাবাশ! আজকের চ্যালেঞ্জ শেষ' },
       ex: {
         reach: ['হাত তুলে স্ট্রেচ', 'হাত ওপরে তোলো, গোড়ালি তোলো, পুরো টান দাও'],
@@ -283,7 +299,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         side: ['সাইড বেন্ড', 'হাত ওপরে, আস্তে পাশে ঝোঁকো'],
         breathe: ['লম্বা শ্বাস', 'বৃত্ত বড় হলে শ্বাস নাও, ছোট হলে ছাড়ো'],
       },
-      aboutH: 'সকালের ব্যায়াম কেন?', aboutP: 'রোজ সকালে মাত্র ৩-৫ মিনিট নড়াচড়াও সারাদিনের জন্য সতেজ রাখে। কোনো সরঞ্জাম লাগে না, বাড়িতে দাঁড়িয়েই করা যায়:',
+      aboutH: 'সকালের ব্যায়াম কেন?', aboutP: 'রোজ সকালে মাত্র ২ মিনিট নড়াচড়াও সারাদিনের জন্য সতেজ রাখে। কোনো সরঞ্জাম লাগে না, বাড়িতে দাঁড়িয়েই করা যায়:',
       aboutList: ['শরীরের জড়তা কাটে আর ঘুমঘুম ভাব চলে যায়', 'শ্বাসে মন দিলে মন শান্ত হয়', 'রোজের 🔥 স্ট্রিকে অভ্যাস তৈরি হয় — ২১ দিনে এটা রুটিন হয়ে যেতে পারে', 'ক্যামেরা বা লগইন কিছুই নেই — স্ট্রিক শুধু তোমার ফোনে থাকে'],
       health: '⚠️ এটা সুস্থ মানুষের জন্য হালকা ব্যায়াম, চিকিৎসা নয়। ব্যথা, মাথা ঘোরা বা হাঁপ ধরলে সঙ্গে সঙ্গে থামো। হার্ট, প্রেশার, হাঁটু/পিঠের সমস্যা বা গর্ভাবস্থায় আগে ডাক্তারকে জিজ্ঞেস করো।',
       gm: '☀️ সুপ্রভাত উইশ পাঠাও', games: 'আরও গেম',
@@ -318,10 +334,11 @@ footer a { color: var(--muted); margin-right: 12px; }
 
   // ---- plan
   const PLAN = {
-    normal: [['reach', 30], ['neck', 24], ['shoulders', 24], ['march', 45], ['jacks', 40], ['squats', 36], ['side', 30], ['breathe', 40]],
-    easy: [['reach', 20], ['neck', 18], ['shoulders', 18], ['march', 30], ['stepjacks', 24], ['squats', 20], ['side', 20], ['breathe', 30]],
+    // every move is 15 seconds (user, 14 Nov); Easy swaps jumping jacks for step jacks
+    normal: [['reach', 15], ['neck', 15], ['shoulders', 15], ['march', 15], ['jacks', 15], ['squats', 15], ['side', 15], ['breathe', 15]],
+    easy: [['reach', 15], ['neck', 15], ['shoulders', 15], ['march', 15], ['stepjacks', 15], ['squats', 15], ['side', 15], ['breathe', 15]],
   };
-  const REST = 5;
+  const REST = 2;
   let level = store.get('me-level') === 'easy' ? 'easy' : 'normal';
   let voiceOn = store.get('me-voice') === '1';
 
@@ -362,7 +379,8 @@ footer a { color: var(--muted); margin-right: 12px; }
     $('lvEasy').textContent = t('easy'); $('lvNormal').textContent = t('normal'); $('go').textContent = t('go');
     $('pause').textContent = paused ? t('resume') : t('pause'); $('skip').textContent = t('skip');
     $('doneTitle').textContent = t('doneTitle'); $('nameLabel').textContent = t('nameLabel'); $('myName').placeholder = t('namePh');
-    $('share').textContent = t('share'); $('again').textContent = t('again'); $('tomorrow').textContent = t('tomorrow');
+    $('share').textContent = t('share'); $('again').textContent = t('again'); $('copyDone').textContent = t('copyDone');
+    ['shareH', 'shareP', 'shWa', 'shCopy', 'shMore'].forEach((id) => { $(id).textContent = t(id); }); $('tomorrow').textContent = t('tomorrow');
     $('aboutH').textContent = t('aboutH'); $('aboutP').textContent = t('aboutP'); $('health').textContent = t('health');
     const ul = $('aboutList'); ul.innerHTML = ''; t('aboutList').forEach((x) => { const li = document.createElement('li'); li.textContent = x; ul.appendChild(li); });
     const p = PREFIX[lang];
@@ -534,7 +552,7 @@ footer a { color: var(--muted); margin-right: 12px; }
     stopWork();
     streakNow = markToday();
     $('work').classList.add('hidden'); $('done').classList.remove('hidden');
-    const mins = level === 'easy' ? 3 : 5;
+    const mins = 2;
     $('doneSub').textContent = t('doneSub')(streakNow, mins);
     const marks = Object.keys(t('badges')).map(Number).filter((n) => n <= streakNow);
     const best = marks.length ? Math.max(...marks) : 1;
@@ -544,11 +562,30 @@ footer a { color: var(--muted); margin-right: 12px; }
     if (navigator.vibrate) navigator.vibrate([80, 60, 80, 60, 160]);
     confetti();
   };
+  // ---- sharing: a link with the sender's name and streak (both optional), nothing else
+  const shareLink = () => {
+    const name = clean($('myName').value || store.get('me-name') || ''); const n = streakOf(getDays());
+    const u = new URL(SITE); if (name) u.searchParams.set('from', name); if (n) u.searchParams.set('s', String(n)); u.searchParams.set('lang', lang);
+    return { url: u.toString(), name, n };
+  };
+  const wa = (text) => window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+  const copy = (statusId) => {
+    const { url } = shareLink();
+    (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject())
+      .then(() => { $(statusId).textContent = t('copied'); })
+      .catch(() => { window.prompt(t('shCopy'), url); });
+  };
   $('share').addEventListener('click', () => {
-    const name = clean($('myName').value); store.set('me-name', name);
-    const u = new URL(SITE); if (name) u.searchParams.set('from', name); u.searchParams.set('s', String(streakNow)); u.searchParams.set('lang', lang);
-    window.open(`https://wa.me/?text=${encodeURIComponent(t('shareText')(name, streakNow, u.toString()))}`, '_blank', 'noopener');
+    store.set('me-name', clean($('myName').value));
+    const l = shareLink(); wa(t('shareText')(l.name, l.n, l.url));
   });
+  $('copyDone').addEventListener('click', () => { store.set('me-name', clean($('myName').value)); copy('doneStatus'); });
+  $('shWa').addEventListener('click', () => { const l = shareLink(); wa(t('inviteText')(l.name, l.n, l.url)); });
+  $('shCopy').addEventListener('click', () => copy('shStatus'));
+  if (navigator.share) {
+    $('shMore').classList.remove('hidden');
+    $('shMore').addEventListener('click', () => { const l = shareLink(); navigator.share({ title: t('title'), text: t('inviteText')(l.name, l.n, ''), url: l.url }).catch(() => {}); });
+  }
   const confetti = () => {
     const c = $('confetti'); const x = c.getContext('2d'); const DPR = Math.min(window.devicePixelRatio || 1, 2); const r = c.getBoundingClientRect();
     c.width = r.width * DPR; c.height = r.height * DPR; x.setTransform(DPR, 0, 0, DPR, 0, 0);

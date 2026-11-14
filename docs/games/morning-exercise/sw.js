@@ -1,5 +1,5 @@
 // Offline support: the game files are cached on first visit; pages try the network first.
-const CACHE = 'ng-morning-v1';
+const CACHE = 'ng-morning-v3';
 const FILES = ['./', './index.html', './manifest.json', './icons/icon-192.png', './icons/icon-512.png'];
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(FILES)).then(() => self.skipWaiting()));
