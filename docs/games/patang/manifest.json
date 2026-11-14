@@ -1,0 +1,29 @@
+{
+  "name": "Patang Udao \u2014 Makar Sankranti Kite Game",
+  "short_name": "Patang Udao",
+  "description": "Steer your kite, cut other kites and catch til-gud laddoos. A Makar Sankranti game.",
+  "start_url": "/games/patang/",
+  "scope": "/games/patang/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b2545",
+  "theme_color": "#1864ab",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

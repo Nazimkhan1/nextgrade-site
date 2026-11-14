@@ -5,6 +5,14 @@
  */
 const games = [
   {
+    slug: 'patang',
+    emoji: '🪁',
+    name: 'पतंग उड़ाओ',
+    nameEn: 'Kite Fight',
+    tag: 'Makar Sankranti',
+    desc: 'अपनी पतंग घुमाओ, दूसरों की डोर काटो — "वो काटा!" — अपनी डोर बचाओ, तिल-गुड़ लड्डू पकड़ो और पक्षियों से बचो। 60 सेकंड, कॉम्बो और WhatsApp चैलेंज।',
+  },
+  {
     slug: 'zumba',
     emoji: '💃',
     name: 'घर बैठे ज़ुम्बा',

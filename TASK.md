@@ -46,7 +46,9 @@ Site: **~162 pages**, all in 4 languages. Everything below is live (pushed to ma
 
 - [x] **Birthday animated wish `/celebrate/birthday/` (14 Nov)** — bunting, floating balloons, two-tier cake whose 5 candles blow out ~4 s after opening (smoke) then a confetti burst and new balloons rise; 5 messages × 4 languages; card on Home/Wishes, button on /wishes/birthday/, links to the birthday card maker. No sound except the Listen button.
 
-**Next (date order)** — 🌙 Shab-e-Miraj page (~5 Jan) → 🔥 Lohri / 🪁 Sankranti animated → 🌙 Shab-e-Barat (~23 Jan) → 🇮🇳 Republic Day → Ramzan series, Eidi lifafa + game, Eid animated (Feb–Mar) → Bachpan "Yaad hai?", more stories (Vikram-Betaal, dadi-nani). Optional: move Shaadi/Jumma onto the engine; Cloudflare Web Analytics (needs user's token).
+- [x] **Lohri + Makar Sankranti (14 Nov, for 13–15 Jan)** — `/celebrate/lohri/` (night bonfire with layered flames, sparks, bhangra dancers, rewri/popcorn tossed in; Punjabi top line), `/celebrate/makar-sankranti/` (deep-blue sky, kites below the text, clouds, birds, rooftops; Marathi "tilgul ghya" top line; Bengali = Poush Sankranti/pithe-puli); game `/games/patang/` "Patang Udao / Kite Fight" (steer kite, cut others' strings +20, golden +50, combos ×3, 3 kites, enemies harmless while climbing and can only cut the top part of your string, laddoos +5, birds −10, 60 s, manjha safety box; CACHE ng-patang-v1). Cards + festival buttons + sitemap.
+
+**Next (date order)** — 🌙 Shab-e-Miraj page (~5 Jan) → 🌙 Shab-e-Barat (~23 Jan) → 🇮🇳 Republic Day → Ramzan series, Eidi lifafa + game, Eid animated (Feb–Mar) → Bachpan "Yaad hai?", more stories (Vikram-Betaal, dadi-nani). Optional: move Shaadi/Jumma onto the engine; Cloudflare Web Analytics (needs user's token).
 
 ---
 

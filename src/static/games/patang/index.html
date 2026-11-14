@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Patang Udao 🪁 — Makar Sankranti Kite Game | NextGrade</title>
+<meta name="description" content="Free Makar Sankranti kite-fight game in Hindi, Hinglish, English and Bengali: steer your kite, cut other kites’ strings (“Wo kaata!”), protect your own, catch til-gud laddoos and keep away from birds. Challenge friends on WhatsApp.">
+<link rel="canonical" href="https://nextgrade.in/games/patang/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Patang Udao 🪁 — Makar Sankranti Kite Game">
+<meta property="og:description" content="Kaai po che! Meri patang kaat ke dikhao — Makar Sankranti kite game.">
+<meta property="og:url" content="https://nextgrade.in/games/patang/">
+<meta property="og:image" content="https://nextgrade.in/games/patang/icons/icon-512.png">
+<meta name="theme-color" content="#1864ab">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Patang Udao","url":"https://nextgrade.in/games/patang/","genre":"Casual","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #0b2545; --bg2: #1864ab; --gold: #ffd43b; --saffron: #ff922b; --ink: #f8fbff; --muted: #c5dcf5; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #1c7ed6, var(--bg) 62%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { display: flex; align-items: center; gap: 8px; font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand img { width: 30px; height: 30px; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #e8590c, #f59f00); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.45); background: #0b2545; touch-action: none; user-select: none; -webkit-user-select: none; }
+canvas { display: block; width: 100%; height: min(70vh, 620px); }
+.hud { position: absolute; top: 10px; left: 10px; right: 10px; display: flex; justify-content: space-between; align-items: flex-start; pointer-events: none; font-weight: 800; font-size: 17px; text-shadow: 0 2px 6px rgba(0,0,0,0.7); }
+.stagebadge { background: rgba(0,0,0,0.35); border-radius: 999px; padding: 2px 12px; font-size: 14px; }
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(5, 20, 45, 0.7); padding: 16px; overflow-y: auto; }
+.panel { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); backdrop-filter: blur(6px); border-radius: 18px; padding: 20px; width: min(430px, 100%); text-align: center; }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 26px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: var(--muted); }
+.steps { text-align: left; margin: 8px 0; padding-left: 22px; color: var(--ink); font-size: 15px; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 56px; font-weight: 800; color: var(--gold); line-height: 1; margin: 8px 0; }
+.stars { font-size: 30px; letter-spacing: 4px; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 11px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 10px 0; }
+input::placeholder { color: #d9b9a3; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; }
+.btn-main { background: linear-gradient(90deg, #ff922b, #e8590c); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/"><img src="/favicon.svg" alt="" width="30" height="30"><span>NextGrade<small>Kite Game</small></span></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="game" aria-label="Kite game"></canvas>
+    <div class="hud" aria-hidden="true"><span id="hudScore">⭐ 0</span><span class="stagebadge" id="hudStage"></span><span id="hudInfo"></span></div>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle"></h2>
+        <ol class="steps" id="stepList"></ol>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <button class="btn btn-main" id="play" type="button" data-i18n="play"></button>
+        <p id="bestLine"></p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="stars" id="endStars"></div>
+        <div class="big" id="finalScore">0</div>
+        <p id="endBreak"></p>
+        <p id="endNote"></p>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card"><ol id="howList"></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2" style="background:rgba(255,212,59,0.12);border:1px solid rgba(255,212,59,0.4);border-radius:12px;padding:10px 12px"></p>
+    <p><span data-i18n="readMore"></span> <a id="guideLink" href="https://nextgrade.in/festivals/makar-sankranti/" data-i18n="guideLink"></a> · <a id="wishLink" href="https://nextgrade.in/celebrate/makar-sankranti/" data-i18n="wishLink"></a> · <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const SITE = 'https://nextgrade.in/games/patang/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const ROUND = 60, LIVES = 3;
+  const T = {
+    hinglish: {
+      title: 'Patang Udao 🪁', sub: 'Apni patang aasmaan mein ghumao, doosron ki dor kaato aur chillao "Wo kaata!" Apni dor bachao, laddoo pakdo aur pakshiyon ko chot mat pahunchao. 60 second.',
+      startTitle: '🪁 Kaai po che! Sankranti ki shubhkamnayein',
+      steps: ['👆 Ungli ya mouse se apni patang ghumao.', '✂️ Apni patang se doosri patang ki <b>dor</b> chhuo — "Wo kaata!" +20 (sunehri +50).', '⚠️ Doosri patang tumhari dor chhoo le to tumhari patang kat jaayegi — 3 patangein hain.', '🟤 Til-gud laddoo +5 · 🐦 Pakshi se takraaye to −10.'],
+      namePh: 'Aapka naam (challenge bhejne ke liye)', play: '▶ Patang udao', resume: '▶ Phir se shuru karo',
+      best: (n) => `Aapka best score: ${n}`, challenge: (name, n) => `🎯 ${name} ne ${n} points banaye — kya aap hara sakte ho?`,
+      cut: 'Wo kaata! ✂️', gold: 'Sunehri patang kaati! 🌟', lost: 'Arre, apni patang kat gayi! 🪁', bird: 'Pakshi ko bachao! 🐦', laddoo: 'Til-gud! 😋', newKite: 'Nayi patang taiyaar!',
+      endTitle: (n) => (n >= 300 ? 'Patang ke Badshah! 👑' : n >= 150 ? 'Kaai po che! 🎉' : 'Shabaash! 🪁'),
+      breakdown: (c, l, b) => `✂️ Kaati: ${c} · 🟤 Laddoo: ${l} · 🐦 Takkar: ${b}`,
+      record: 'Naya record! 🏆', beat: (name, n) => `Aapne ${name} (${n}) ko hara diya! 🥳`, notBeat: (name, n) => `${name} ka score ${n} hai — ek baar aur?`, bestNote: (n) => `Best score: ${n}`,
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareOther: '📤 Aur kahin share karo', again: '🔁 Phir se khelo', copied: '✅ Link copy ho gaya', copyPrompt: 'Ye link copy karo',
+      shareText: (name, n, url) => `🪁 Kaai po che! ${name ? name + ' ne' : 'Maine'} "Patang Udao" mein ${n} points banaye. Meri patang kaat ke dikhao! Happy Makar Sankranti 🌞\n${url}`,
+      howTitle: 'Kaise khelein',
+      how: ['<b>▶ Patang udao</b> dabao. Aapki patang neeche chhat se udti hai.', 'Screen pe ungli ghumao — patang ungli ke peechhe chalti hai. Computer pe mouse.', 'Doosri patangon ki dor (patli safed line) ko apni patang se chhuo — wo kat jaayegi: +20. Sunehri patang +50. Jaldi-jaldi kaato to combo.', 'Dhyaan rakho: doosri patang aapki dor ko chhoo le to aapki patang kat jaati hai. 3 patangein khatam to game khatam.', 'Hawa mein tairte til-gud laddoo pakdo +5. Pakshiyon se door raho — takkar pe −10.'],
+      aboutTitle: 'Makar Sankranti aur patangbaazi',
+      aboutText: 'Makar Sankranti (14–15 January) pe Gujarat mein Uttarayan, Rajasthan, UP, Punjab (Lohri ke baad Basant tak) aur kai jagah chhaton pe din bhar patangbaazi hoti hai. Kisi ki patang kaatne pe "Kaai po che!" ya "Wo kaata!" ki awaaz poore mohalle mein goonjti hai.',
+      aboutText2: '⚠️ Asli patang udaate waqt sirf saadi cotton ki dor use karo. Chinese / glass wala manjha har saal hazaaron pakshiyon aur bike chalane waalon ko gehri chot pahunchata hai, aur kai rajyon mein iski bikri pe rok hai. Chhat ki mundher se door raho, aur bijli ke taaron mein phansi patang kabhi mat kheencho.',
+      readMore: 'Aur padho:', guideLink: 'Makar Sankranti guide', wishLink: 'Naam wala Sankranti wish', moreGames: 'Aur games',
+      privacyTitle: 'Aapki privacy', privacyText: 'Ye game poori tarah aapke phone/browser mein chalta hai. Naam sirf us link mein rehta hai jo aap share karte ho, aur best score sirf isi device pe save hota hai.',
+    },
+    hi: {
+      title: 'पतंग उड़ाओ 🪁', sub: 'अपनी पतंग आसमान में घुमाओ, दूसरों की डोर काटो और चिल्लाओ "वो काटा!" अपनी डोर बचाओ, लड्डू पकड़ो और पक्षियों को चोट मत पहुँचाओ। 60 सेकंड।',
+      startTitle: '🪁 काई पो छे! संक्रांति की शुभकामनाएँ',
+      steps: ['👆 उँगली या माउस से अपनी पतंग घुमाओ।', '✂️ अपनी पतंग से दूसरी पतंग की <b>डोर</b> छुओ — "वो काटा!" +20 (सुनहरी +50)।', '⚠️ दूसरी पतंग तुम्हारी डोर छू ले तो तुम्हारी पतंग कट जाएगी — 3 पतंगें हैं।', '🟤 तिल-गुड़ लड्डू +5 · 🐦 पक्षी से टकराए तो −10।'],
+      namePh: 'आपका नाम (चैलेंज भेजने के लिए)', play: '▶ पतंग उड़ाओ', resume: '▶ फिर से शुरू करो',
+      best: (n) => `आपका बेस्ट स्कोर: ${n}`, challenge: (name, n) => `🎯 ${name} ने ${n} पॉइंट बनाए — क्या आप हरा सकते हो?`,
+      cut: 'वो काटा! ✂️', gold: 'सुनहरी पतंग काटी! 🌟', lost: 'अरे, अपनी पतंग कट गई! 🪁', bird: 'पक्षी को बचाओ! 🐦', laddoo: 'तिल-गुड़! 😋', newKite: 'नई पतंग तैयार!',
+      endTitle: (n) => (n >= 300 ? 'पतंग के बादशाह! 👑' : n >= 150 ? 'काई पो छे! 🎉' : 'शाबाश! 🪁'),
+      breakdown: (c, l, b) => `✂️ काटी: ${c} · 🟤 लड्डू: ${l} · 🐦 टक्कर: ${b}`,
+      record: 'नया रिकॉर्ड! 🏆', beat: (name, n) => `आपने ${name} (${n}) को हरा दिया! 🥳`, notBeat: (name, n) => `${name} का स्कोर ${n} है — एक बार और?`, bestNote: (n) => `बेस्ट स्कोर: ${n}`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareOther: '📤 और कहीं शेयर करो', again: '🔁 फिर से खेलो', copied: '✅ लिंक कॉपी हो गया', copyPrompt: 'यह लिंक कॉपी करें',
+      shareText: (name, n, url) => `🪁 काई पो छे! ${name ? name + ' ने' : 'मैंने'} "पतंग उड़ाओ" में ${n} पॉइंट बनाए। मेरी पतंग काटकर दिखाओ! मकर संक्रांति मुबारक 🌞\n${url}`,
+      howTitle: 'कैसे खेलें',
+      how: ['<b>▶ पतंग उड़ाओ</b> दबाओ। आपकी पतंग नीचे छत से उड़ती है।', 'स्क्रीन पर उँगली घुमाओ — पतंग उँगली के पीछे चलती है। कंप्यूटर पर माउस।', 'दूसरी पतंगों की डोर (पतली सफ़ेद लाइन) को अपनी पतंग से छुओ — वह कट जाएगी: +20। सुनहरी पतंग +50। जल्दी-जल्दी काटो तो कॉम्बो।', 'ध्यान रखो: दूसरी पतंग आपकी डोर को छू ले तो आपकी पतंग कट जाती है। 3 पतंगें ख़त्म तो गेम ख़त्म।', 'हवा में तैरते तिल-गुड़ लड्डू पकड़ो +5। पक्षियों से दूर रहो — टक्कर पर −10।'],
+      aboutTitle: 'मकर संक्रांति और पतंगबाज़ी',
+      aboutText: 'मकर संक्रांति (14–15 जनवरी) पर गुजरात में उत्तरायण, राजस्थान, यूपी और कई जगह छतों पर दिन भर पतंगबाज़ी होती है। किसी की पतंग काटने पर "काई पो छे!" या "वो काटा!" की आवाज़ पूरे मोहल्ले में गूँजती है।',
+      aboutText2: '⚠️ असली पतंग उड़ाते समय सिर्फ़ सादी सूती डोर इस्तेमाल करें। चाइनीज़ / काँच वाला मांझा हर साल हज़ारों पक्षियों और बाइक चलाने वालों को गहरी चोट पहुँचाता है, और कई राज्यों में इसकी बिक्री पर रोक है। छत की मुंडेर से दूर रहें, और बिजली के तारों में फँसी पतंग कभी न खींचें।',
+      readMore: 'और पढ़ें:', guideLink: 'मकर संक्रांति गाइड', wishLink: 'नाम वाला संक्रांति विश', moreGames: 'और गेम्स',
+      privacyTitle: 'आपकी प्राइवेसी', privacyText: 'यह गेम पूरी तरह आपके फ़ोन/ब्राउज़र में चलता है। नाम सिर्फ़ उस लिंक में रहता है जो आप शेयर करते हैं, और बेस्ट स्कोर सिर्फ़ इसी डिवाइस पर सेव होता है।',
+    },
+    en: {
+      title: 'Kite Fight 🪁', sub: 'Steer your kite across the sky, cut other kites’ strings and shout “Wo kaata!” Protect your own string, catch laddoos and don’t hurt the birds. 60 seconds.',
+      startTitle: '🪁 Kai po che! Happy Makar Sankranti',
+      steps: ['👆 Move your kite with your finger or mouse.', '✂️ Touch another kite’s <b>string</b> with your kite — “Wo kaata!” +20 (golden +50).', '⚠️ If another kite touches your string, your kite is cut — you have 3 kites.', '🟤 Til-gud laddoo +5 · 🐦 Bump into a bird −10.'],
+      namePh: 'Your name (for the challenge link)', play: '▶ Fly the kite', resume: '▶ Start again',
+      best: (n) => `Your best score: ${n}`, challenge: (name, n) => `🎯 ${name} scored ${n} points — can you beat that?`,
+      cut: 'Wo kaata! ✂️', gold: 'Golden kite cut! 🌟', lost: 'Oh no, your kite was cut! 🪁', bird: 'Mind the bird! 🐦', laddoo: 'Til-gud! 😋', newKite: 'New kite ready!',
+      endTitle: (n) => (n >= 300 ? 'King of Kites! 👑' : n >= 150 ? 'Kai po che! 🎉' : 'Well flown! 🪁'),
+      breakdown: (c, l, b) => `✂️ Cut: ${c} · 🟤 Laddoos: ${l} · 🐦 Bumps: ${b}`,
+      record: 'New record! 🏆', beat: (name, n) => `You beat ${name} (${n})! 🥳`, notBeat: (name, n) => `${name} scored ${n} — one more try?`, bestNote: (n) => `Best score: ${n}`,
+      shareWa: '📲 Challenge on WhatsApp', shareOther: '📤 Share elsewhere', again: '🔁 Play again', copied: '✅ Link copied', copyPrompt: 'Copy this link',
+      shareText: (name, n, url) => `🪁 Kai po che! ${name || 'I'} scored ${n} points in "Kite Fight". Try to cut my kite! Happy Makar Sankranti 🌞\n${url}`,
+      howTitle: 'How to play',
+      how: ['Tap <b>▶ Fly the kite</b>. Your kite flies up from the rooftop below.', 'Move your finger on the screen — the kite follows it. On a computer, use the mouse.', 'Touch another kite’s string (the thin white line) with your kite to cut it: +20. A golden kite is +50. Cut quickly for combos.', 'Careful: if another kite touches your string, your kite is cut. When all 3 kites are gone, the game ends.', 'Catch the floating til-gud laddoos +5. Keep away from birds — a bump is −10.'],
+      aboutTitle: 'Makar Sankranti and kite flying',
+      aboutText: 'On Makar Sankranti (14–15 January) rooftops fill with kite flyers — Uttarayan in Gujarat, and in Rajasthan, UP and many other places. When someone’s kite is cut, shouts of “Kai po che!” or “Wo kaata!” ring across the neighbourhood.',
+      aboutText2: '⚠️ When flying real kites, use plain cotton thread only. Chinese or glass-coated manjha badly injures thousands of birds and two-wheeler riders every year, and its sale is banned in many states. Stay away from roof edges, and never pull a kite stuck in power lines.',
+      readMore: 'Read more:', guideLink: 'Makar Sankranti guide', wishLink: 'Sankranti wish with a name', moreGames: 'More games',
+      privacyTitle: 'Your privacy', privacyText: 'This game runs entirely in your phone’s browser. Your name only travels inside the link you share, and your best score is saved on this device only.',
+    },
+    bn: {
+      title: 'ঘুড়ি ওড়াও 🪁', sub: 'আকাশে নিজের ঘুড়ি ঘোরাও, অন্যদের সুতো কাটো আর চেঁচাও "ভো-কাট্টা!" নিজের সুতো বাঁচাও, নাড়ু ধরো আর পাখিদের ব্যথা দিও না। ৬০ সেকেন্ড।',
+      startTitle: '🪁 ভো-কাট্টা! পৌষ সংক্রান্তির শুভেচ্ছা',
+      steps: ['👆 আঙুল বা মাউস দিয়ে নিজের ঘুড়ি ঘোরাও।', '✂️ নিজের ঘুড়ি দিয়ে অন্য ঘুড়ির <b>সুতো</b> ছোঁও — "ভো-কাট্টা!" +২০ (সোনালি +৫০)।', '⚠️ অন্য ঘুড়ি তোমার সুতো ছুঁলে তোমার ঘুড়ি কেটে যাবে — ৩টে ঘুড়ি আছে।', '🟤 তিলের নাড়ু +৫ · 🐦 পাখির সঙ্গে ধাক্কা −১০।'],
+      namePh: 'তোমার নাম (চ্যালেঞ্জ পাঠানোর জন্য)', play: '▶ ঘুড়ি ওড়াও', resume: '▶ আবার শুরু করো',
+      best: (n) => `তোমার সেরা স্কোর: ${n}`, challenge: (name, n) => `🎯 ${name} ${n} পয়েন্ট পেয়েছে — তুমি কি হারাতে পারবে?`,
+      cut: 'ভো-কাট্টা! ✂️', gold: 'সোনালি ঘুড়ি কাটা! 🌟', lost: 'যাঃ, নিজের ঘুড়ি কেটে গেল! 🪁', bird: 'পাখিকে বাঁচাও! 🐦', laddoo: 'তিলের নাড়ু! 😋', newKite: 'নতুন ঘুড়ি তৈরি!',
+      endTitle: (n) => (n >= 300 ? 'ঘুড়ির রাজা! 👑' : n >= 150 ? 'ভো-কাট্টা! 🎉' : 'শাবাশ! 🪁'),
+      breakdown: (c, l, b) => `✂️ কাটা: ${c} · 🟤 নাড়ু: ${l} · 🐦 ধাক্কা: ${b}`,
+      record: 'নতুন রেকর্ড! 🏆', beat: (name, n) => `তুমি ${name}-কে (${n}) হারিয়ে দিয়েছ! 🥳`, notBeat: (name, n) => `${name}-এর স্কোর ${n} — আরেকবার?`, bestNote: (n) => `সেরা স্কোর: ${n}`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: '📤 অন্য কোথাও শেয়ার করো', again: '🔁 আবার খেলো', copied: '✅ লিংক কপি হয়েছে', copyPrompt: 'এই লিংকটা কপি করো',
+      shareText: (name, n, url) => `🪁 ভো-কাট্টা! ${name || 'আমি'} "ঘুড়ি ওড়াও" খেলায় ${n} পয়েন্ট পেয়েছি। আমার ঘুড়ি কেটে দেখাও! শুভ পৌষ সংক্রান্তি 🌞\n${url}`,
+      howTitle: 'কীভাবে খেলবে',
+      how: ['<b>▶ ঘুড়ি ওড়াও</b> চাপো। তোমার ঘুড়ি নিচের ছাদ থেকে ওড়ে।', 'স্ক্রিনে আঙুল ঘোরাও — ঘুড়ি আঙুলের পেছনে চলবে। কম্পিউটারে মাউস।', 'অন্য ঘুড়ির সুতো (সরু সাদা লাইন) নিজের ঘুড়ি দিয়ে ছুঁলে সেটা কেটে যাবে: +২০। সোনালি ঘুড়ি +৫০। তাড়াতাড়ি কাটলে কম্বো।', 'সাবধান: অন্য ঘুড়ি তোমার সুতো ছুঁলে তোমার ঘুড়ি কেটে যায়। ৩টে ঘুড়ি শেষ হলে খেলা শেষ।', 'ভাসমান তিলের নাড়ু ধরো +৫। পাখি থেকে দূরে থাকো — ধাক্কায় −১০।'],
+      aboutTitle: 'সংক্রান্তি আর ঘুড়ি ওড়ানো',
+      aboutText: 'মকর সংক্রান্তিতে (১৪–১৫ জানুয়ারি) গুজরাটে উত্তরায়ণ আর বহু জায়গায় ছাদে ছাদে ঘুড়ি ওড়ে। কলকাতায় বিশ্বকর্মা পুজোর ঘুড়ি বিখ্যাত, আর কারও ঘুড়ি কাটলেই পাড়া জুড়ে "ভো-কাট্টা!"',
+      aboutText2: '⚠️ আসল ঘুড়ি ওড়াতে শুধু সাধারণ সুতির সুতো ব্যবহার করো। চাইনিজ বা কাচের মাঞ্জা প্রতি বছর হাজার হাজার পাখি আর বাইক আরোহীকে গুরুতর আঘাত করে, অনেক রাজ্যে এর বিক্রি নিষিদ্ধ। ছাদের কিনারা থেকে দূরে থাকো, আর বিদ্যুতের তারে আটকানো ঘুড়ি কখনো টেনো না।',
+      readMore: 'আরও পড়ো:', guideLink: 'মকর সংক্রান্তি গাইড', wishLink: 'নামের সংক্রান্তি উইশ', moreGames: 'আরও গেম',
+      privacyTitle: 'তোমার গোপনীয়তা', privacyText: 'এই খেলাটি পুরোপুরি তোমার ফোন/ব্রাউজারে চলে। নাম শুধু তুমি যে লিংক শেয়ার করো তাতেই থাকে, আর সেরা স্কোর শুধু এই ডিভাইসে সেভ হয়।',
+    },
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private */ } } };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+  let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('pt-lang')) ? store.get('pt-lang') : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(99999, parseInt(params.get('score'), 10) || 0));
+  const best = () => parseInt(store.get('pt-best'), 10) || 0;
+
+  let running = false, score = 0, lives = LIVES, timeLeft = ROUND, lastEnd = null, stats = { cut: 0, laddoo: 0, bird: 0 }, combo = 0, lastCut = -9;
+  let msg = '', msgLife = 0;
+
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Makar Sankranti Kite Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('stepList').innerHTML = t('steps').map((li) => `<li>${li}</li>`).join('');
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('guideLink').href = `https://nextgrade.in${p}/festivals/makar-sankranti/`;
+    $('wishLink').href = `https://nextgrade.in/celebrate/makar-sankranti/?lang=${lang}`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+    if (lastEnd) showEnd(lastEnd.prev);
+    hud();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('pt-lang', lang); applyLang(); });
+  $('name').value = store.get('pt-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---- sound (on by default, mute button)
+  let muted = store.get('pt-muted') === '1', audio = null;
+  const setMute = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setMute();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('pt-muted', muted ? '1' : '0'); setMute(); });
+  const ac = () => { try { audio = audio || new (window.AudioContext || window.webkitAudioContext)(); return audio; } catch (e) { return null; } };
+  const tone = (f, d, type, v, delay) => { if (muted) return; const a = ac(); if (!a) return; const t0 = a.currentTime + (delay || 0); const o = a.createOscillator(); const g = a.createGain(); o.type = type || 'sine'; o.frequency.setValueAtTime(f, t0); g.gain.setValueAtTime(0.0001, t0); g.gain.exponentialRampToValueAtTime(v || 0.1, t0 + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t0 + d); o.connect(g).connect(a.destination); o.start(t0); o.stop(t0 + d + 0.05); };
+  const snip = () => { tone(1400, 0.06, 'square', 0.06); tone(900, 0.12, 'triangle', 0.1, 0.05); tone(1320, 0.18, 'triangle', 0.09, 0.14); };
+  const sad = () => { tone(440, 0.2, 'triangle', 0.1); tone(330, 0.3, 'triangle', 0.1, 0.18); };
+  const pop = () => tone(880, 0.1, 'sine', 0.1);
+  const chirp = () => { tone(2200, 0.05, 'sine', 0.05); tone(2600, 0.06, 'sine', 0.05, 0.07); };
+
+  // ---- world
+  const canvas = $('game'); const ctx = canvas.getContext('2d');
+  let W = 0, H = 0;
+  const resize = () => { const DPR = Math.min(window.devicePixelRatio || 1, 2); const r = canvas.getBoundingClientRect(); W = r.width; H = r.height; canvas.width = Math.round(W * DPR); canvas.height = Math.round(H * DPR); ctx.setTransform(DPR, 0, 0, DPR, 0, 0); makeRoofs(); };
+  const COLS = ['#e03131', '#1971c2', '#2f9e44', '#7048e8', '#c2255c', '#f08c00'];
+  let roofs = [], enemies = [], falling = [], laddoos = [], birds = [], pops = [], clouds = [];
+  const me = { x: 0, y: 0, tx: 0, ty: 0, alive: true, respawn: 0, safe: 0 };
+  const anchor = () => ({ x: W * 0.5, y: H - 34 });
+  const makeRoofs = () => { roofs = []; let x = 0, i = 0; while (x < W) { const w = 46 + ((i * 37) % 50), h = 26 + ((i * 53) % 40); roofs.push({ x, w, h, c: ['#ffd8a8', '#ffc9c9', '#d0ebff', '#d3f9d8', '#fff3bf'][i % 5] }); x += w + 3; i += 1; } clouds = Array.from({ length: 4 }, (_, k) => ({ x: Math.random() * W, y: H * (0.08 + k * 0.1), s: 0.6 + Math.random() * 0.6, v: 8 + Math.random() * 10 })); };
+  const spawnEnemy = () => {
+    const golden = Math.random() < 0.12;
+    const leftN = enemies.filter((e) => e.x < W / 2).length, rightN = enemies.length - leftN; const goLeft = leftN === rightN ? Math.random() < 0.5 : leftN < rightN; const ax = goLeft ? W * (0.05 + Math.random() * 0.3) : W * (0.65 + Math.random() * 0.3);
+    enemies.push({ x: ax + (Math.random() - 0.5) * 120, y: H + 20, ty: H * (0.12 + Math.random() * 0.45), ax, ay: H - 40, vx: (Math.random() - 0.5) * 50, sz: golden ? 22 : 17 + Math.random() * 5, c: golden ? '#fab005' : COLS[Math.floor(Math.random() * COLS.length)], golden, p: Math.random() * 6, aggr: 0.15 + Math.random() * 0.35 });
+  };
+  // distance from point to the string (a gentle curve, sampled as a polyline)
+  const stringPts = (kx, ky, ax, ay) => { const pts = []; const mx = (kx + ax) / 2 + 26, my = (ky + ay) / 2 + 40; for (let i = 0; i <= 12; i += 1) { const u = i / 12; pts.push([(1 - u) * (1 - u) * kx + 2 * (1 - u) * u * mx + u * u * ax, (1 - u) * (1 - u) * ky + 2 * (1 - u) * u * my + u * u * ay]); } return pts; };
+  const distToPts = (x, y, pts, skip) => { let d = 1e9; for (let i = skip; i < pts.length - 1; i += 1) { const [x1, y1] = pts[i], [x2, y2] = pts[i + 1]; const dx = x2 - x1, dy = y2 - y1; const L = dx * dx + dy * dy || 1; const u = Math.max(0, Math.min(1, ((x - x1) * dx + (y - y1) * dy) / L)); d = Math.min(d, Math.hypot(x - (x1 + u * dx), y - (y1 + u * dy))); } return d; };
+  const drawKite = (x, y, sz, c, c2, tilt, golden) => {
+    ctx.save(); ctx.translate(x, y); ctx.rotate(tilt);
+    if (golden) { ctx.shadowColor = '#ffd43b'; ctx.shadowBlur = 16; }
+    ctx.fillStyle = c; ctx.beginPath(); ctx.moveTo(0, -sz); ctx.lineTo(sz * 0.85, 0); ctx.lineTo(0, sz); ctx.lineTo(-sz * 0.85, 0); ctx.closePath(); ctx.fill();
+    ctx.shadowBlur = 0;
+    ctx.fillStyle = c2; ctx.beginPath(); ctx.moveTo(0, -sz); ctx.lineTo(sz * 0.85, 0); ctx.lineTo(0, 0); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = 'rgba(0,0,0,0.35)'; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(0, -sz); ctx.lineTo(0, sz); ctx.moveTo(-sz * 0.85, 0); ctx.quadraticCurveTo(0, -sz * 0.4, sz * 0.85, 0); ctx.stroke();
+    ctx.fillStyle = c2; ctx.beginPath(); ctx.moveTo(0, sz); ctx.lineTo(-6, sz + 10); ctx.lineTo(6, sz + 10); ctx.closePath(); ctx.fill();
+    ctx.restore();
+  };
+  const say = (text) => { msg = text; msgLife = 1.3; };
+  const addPop = (x, y, text, gold) => pops.push({ x, y, text, gold, life: 1 });
+  const hud = () => { $('hudScore').textContent = `⭐ ${score}`; $('hudStage').textContent = '🪁'.repeat(Math.max(0, lives)) || '—'; $('hudInfo').textContent = `⏱ ${Math.max(0, Math.ceil(timeLeft))}`; };
+
+  const pointer = (e) => { const b = canvas.getBoundingClientRect(); me.tx = Math.max(16, Math.min(W - 16, e.clientX - b.left)); me.ty = Math.max(30, Math.min(H * 0.78, e.clientY - b.top - 30)); };
+  canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); pointer(e); });
+  canvas.addEventListener('pointermove', (e) => { if (e.pointerType === 'mouse' || e.buttons || e.pressure > 0) pointer(e); });
+  document.addEventListener('keydown', (e) => { const k = { ArrowLeft: [-30, 0], ArrowRight: [30, 0], ArrowUp: [0, -30], ArrowDown: [0, 30] }[e.key]; if (k && running) { me.tx = Math.max(16, Math.min(W - 16, me.tx + k[0])); me.ty = Math.max(30, Math.min(H * 0.78, me.ty + k[1])); e.preventDefault(); } });
+
+  let lastT = 0, clock = 0, spawnAcc = 0, ladAcc = 0, birdAcc = 0;
+  const tick = (now) => {
+    const dt = Math.min(0.05, (now - (lastT || now)) / 1000); lastT = now; clock += dt;
+    const wind = Math.sin(clock * 0.4) * 18;
+    // sky
+    const sky = ctx.createLinearGradient(0, 0, 0, H); sky.addColorStop(0, '#1864ab'); sky.addColorStop(0.7, '#74c0fc'); sky.addColorStop(1, '#fff3bf');
+    ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = '#ffd43b'; ctx.beginPath(); ctx.arc(W * 0.85, H * 0.12, Math.min(W, H) * 0.05, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    clouds.forEach((c) => { c.x += (c.v + wind * 0.2) * dt; if (c.x > W + 80) c.x = -80; [[0, 0, 20], [18, -7, 16], [34, 0, 18]].forEach(([dx, dy, rr]) => { ctx.beginPath(); ctx.arc(c.x + dx * c.s, c.y + dy * c.s, rr * c.s, 0, Math.PI * 2); ctx.fill(); }); });
+
+    if (running) {
+      timeLeft -= dt;
+      const el = ROUND - timeLeft;
+      spawnAcc += dt; if (spawnAcc > Math.max(1.1, 2.4 - el * 0.03) && enemies.length < 6) { spawnAcc = 0; spawnEnemy(); }
+      ladAcc += dt; if (ladAcc > 2.6) { ladAcc = 0; laddoos.push({ x: Math.random() * W, y: H + 10, v: 40 + Math.random() * 30, p: Math.random() * 6 }); }
+      birdAcc += dt; if (birdAcc > 3.2) { birdAcc = 0; const left = Math.random() < 0.5; birds.push({ x: left ? -20 : W + 20, y: H * (0.1 + Math.random() * 0.5), v: (left ? 1 : -1) * (70 + Math.random() * 50), p: Math.random() * 6, hit: false }); }
+      if (timeLeft <= 0) end();
+    } else if (enemies.length < 3 && Math.random() < dt) spawnEnemy();
+
+    // my kite follows the pointer smoothly
+    if (me.alive) { me.x += (me.tx - me.x) * Math.min(1, dt * 5) + wind * dt * 0.3; me.y += (me.ty - me.y) * Math.min(1, dt * 5); }
+    else if (running) { me.respawn -= dt; if (me.respawn <= 0) { me.alive = true; me.x = W / 2; me.y = H * 0.6; me.tx = me.x; me.ty = H * 0.45; me.safe = 2.5; say(t('newKite')); } }
+    me.safe -= dt;
+    const A = anchor();
+    const myPts = me.alive ? stringPts(me.x, me.y, A.x, A.y) : null;
+
+    // enemy kites: rise, drift, and some steer towards my string
+    enemies.forEach((k) => {
+      k.y += ((k.ty + Math.sin(clock + k.p) * 30) - k.y) * Math.min(1, dt * 0.8);
+      const target = running && me.alive && Math.random() < k.aggr * dt ? me.x : null;
+      k.vx += (target !== null ? Math.sign(target - k.x) * 30 : (Math.random() - 0.5) * 30 + (W / 2 - k.x) * 0.02) * dt;
+      k.vx = Math.max(-60, Math.min(60, k.vx)); k.x += (k.vx + wind) * dt;
+      if (k.x < 20) k.vx = Math.abs(k.vx); if (k.x > W - 20) k.vx = -Math.abs(k.vx);
+      k.pts = stringPts(k.x, k.y, k.ax, k.ay);
+    });
+    if (running && me.alive) {
+      // I cut them: my kite touches their string
+      enemies.forEach((k) => {
+        if (k.dead) return;
+        if (distToPts(me.x, me.y, k.pts, 2) < 14) {
+          k.dead = true; combo = clock - lastCut < 2.5 ? combo + 1 : 1; lastCut = clock;
+          const pts = (k.golden ? 50 : 20) * Math.min(combo, 3); score += pts; stats.cut += 1;
+          addPop(k.x, k.y - 20, `+${pts}${combo > 1 ? ` ×${Math.min(combo, 3)}` : ''}`, k.golden); say(k.golden ? t('gold') : t('cut')); snip();
+          falling.push({ x: k.x, y: k.y, vx: wind + (Math.random() - 0.5) * 40, vy: 10, rot: 0, c: k.c, sz: k.sz, golden: k.golden });
+          if (navigator.vibrate) navigator.vibrate(25);
+        }
+      });
+      // they cut me: their kite touches my string
+      if (me.safe <= 0 && enemies.some((k) => !k.dead && k.y < k.ty + 40 && distToPts(k.x, k.y, myPts.slice(0, 6), 1) < 7)) {
+        me.alive = false; lives -= 1; me.respawn = 1.2; say(t('lost')); sad();
+        falling.push({ x: me.x, y: me.y, vx: wind, vy: 10, rot: 0, c: '#f06595', sz: 20, mine: true });
+        if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
+        if (lives <= 0) setTimeout(end, 900);
+      }
+      // laddoos and birds
+      laddoos.forEach((l) => { if (!l.got && Math.hypot(l.x - me.x, l.y - me.y) < 26) { l.got = true; score += 5; stats.laddoo += 1; addPop(l.x, l.y, '+5', false); pop(); if (Math.random() < 0.3) say(t('laddoo')); } });
+      birds.forEach((b) => { if (!b.hit && Math.hypot(b.x - me.x, b.y - me.y) < 24) { b.hit = true; b.v *= 1.8; score = Math.max(0, score - 10); stats.bird += 1; addPop(me.x, me.y - 20, '−10', false); say(t('bird')); chirp(); } });
+    }
+    enemies = enemies.filter((k) => !k.dead);
+    laddoos.forEach((l) => { l.y -= l.v * dt; l.x += (wind * 0.5 + Math.sin(clock * 2 + l.p) * 10) * dt; });
+    laddoos = laddoos.filter((l) => !l.got && l.y > -20);
+    birds.forEach((b) => { b.x += b.v * dt; if (b.hit) b.y -= 60 * dt; });
+    birds = birds.filter((b) => b.x > -40 && b.x < W + 40);
+    falling.forEach((f) => { f.vy += 40 * dt; f.x += f.vx * dt; f.y += f.vy * dt; f.rot += dt * 3; });
+    falling = falling.filter((f) => f.y < H + 40);
+
+    // draw strings, kites, extras
+    enemies.forEach((k) => { ctx.strokeStyle = k.golden ? 'rgba(255, 224, 102, 0.9)' : 'rgba(255,255,255,0.75)'; ctx.lineWidth = 1.3; ctx.beginPath(); k.pts.forEach(([x, y], i) => (i ? ctx.lineTo(x, y) : ctx.moveTo(x, y))); ctx.stroke(); });
+    if (me.alive) { ctx.strokeStyle = me.safe > 0 && Math.sin(clock * 20) > 0 ? 'rgba(255,255,255,0.3)' : '#ff8787'; ctx.lineWidth = 2; ctx.beginPath(); myPts.forEach(([x, y], i) => (i ? ctx.lineTo(x, y) : ctx.moveTo(x, y))); ctx.stroke(); }
+    enemies.forEach((k) => drawKite(k.x, k.y, k.sz, k.c, k.golden ? '#fff3bf' : '#ffffff', Math.sin(clock * 1.5 + k.p) * 0.25, k.golden));
+    falling.forEach((f) => drawKite(f.x, f.y, f.sz, f.c, '#ffffff', f.rot, f.golden));
+    if (me.alive) drawKite(me.x, me.y, 22, '#f06595', '#ffd43b', Math.sin(clock * 2) * 0.2 + (me.tx - me.x) * 0.004, false);
+    ctx.font = '22px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    laddoos.forEach((l) => { ctx.fillStyle = '#8d5524'; ctx.beginPath(); ctx.arc(l.x, l.y, 11, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#f1d3bd'; for (let i = 0; i < 6; i += 1) ctx.fillRect(l.x - 7 + ((i * 5) % 12), l.y - 6 + ((i * 7) % 11), 2, 2); });
+    ctx.strokeStyle = '#212529'; ctx.lineWidth = 2;
+    birds.forEach((b) => { const f = Math.sin(clock * 14 + b.p) * 6; const d = Math.sign(b.v); ctx.beginPath(); ctx.moveTo(b.x - 9, b.y - f); ctx.quadraticCurveTo(b.x - 4 * d, b.y - 4, b.x, b.y); ctx.quadraticCurveTo(b.x + 4, b.y - 4, b.x + 9, b.y - f); ctx.stroke(); });
+    ctx.textBaseline = 'alphabetic';
+    // rooftops and my kite flyer
+    roofs.forEach((r) => { ctx.fillStyle = r.c; ctx.fillRect(r.x, H - r.h, r.w, r.h); ctx.fillStyle = 'rgba(0,0,0,0.12)'; ctx.fillRect(r.x, H - r.h, r.w, 4); });
+    ctx.fillStyle = '#343a40'; ctx.beginPath(); ctx.arc(A.x, A.y - 18, 6, 0, Math.PI * 2); ctx.fill(); ctx.fillRect(A.x - 5, A.y - 12, 10, 16);
+    ctx.fillStyle = '#e8590c'; ctx.beginPath(); ctx.arc(A.x + 10, A.y - 4, 6, 0, Math.PI * 2); ctx.fill(); // charkhi (spool)
+    pops.forEach((p) => { p.y -= 34 * dt; p.life -= dt; ctx.globalAlpha = Math.max(0, p.life); ctx.fillStyle = p.gold ? '#ffd43b' : '#fff'; ctx.font = '800 20px Inter, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(p.text, p.x, p.y); });
+    ctx.globalAlpha = 1; pops = pops.filter((p) => p.life > 0);
+    if (msgLife > 0) { msgLife -= dt; ctx.globalAlpha = Math.min(1, msgLife * 2); ctx.font = '800 20px Inter, "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif'; ctx.textAlign = 'center'; const mw = ctx.measureText(msg).width + 24; ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.fillRect(W / 2 - mw / 2, 46, mw, 34); ctx.fillStyle = '#fff3bf'; ctx.fillText(msg, W / 2, 70); ctx.globalAlpha = 1; }
+    if (running) hud();
+    requestAnimationFrame(tick);
+  };
+
+  const start = () => {
+    store.set('pt-name', cleanName($('name').value));
+    score = 0; lives = LIVES; timeLeft = ROUND; lastEnd = null; stats = { cut: 0, laddoo: 0, bird: 0 }; combo = 0;
+    enemies = []; falling = []; laddoos = []; birds = []; pops = [];
+    me.alive = true; me.x = W / 2; me.y = H * 0.7; me.tx = W / 2; me.ty = H * 0.4; me.safe = 2.5;
+    $('startScreen').classList.add('hidden'); $('endScreen').classList.add('hidden');
+    $('shareOther').textContent = t('shareOther');
+    running = true; ac(); pop(); hud();
+  };
+  const showEnd = (prev) => {
+    $('finalScore').textContent = score;
+    $('endStars').textContent = '🪁'.repeat(score >= 300 ? 3 : score >= 150 ? 2 : 1);
+    $('endTitle').textContent = score > prev && prev > 0 ? t('record') : t('endTitle')(score);
+    $('endBreak').textContent = t('breakdown')(stats.cut, stats.laddoo, stats.bird);
+    $('endNote').textContent = fromName && fromScore ? (score > fromScore ? t('beat')(fromName, fromScore) : t('notBeat')(fromName, fromScore)) : t('bestNote')(Math.max(score, prev));
+  };
+  const end = () => {
+    if (!running) return;
+    running = false;
+    const prev = best(); if (score > prev) store.set('pt-best', String(score));
+    lastEnd = { prev }; showEnd(prev);
+    $('endScreen').classList.remove('hidden'); $('bestLine').textContent = t('best')(best()); hud();
+    tone(523, 0.15, 'triangle', 0.1); tone(659, 0.15, 'triangle', 0.1, 0.15); tone(784, 0.3, 'triangle', 0.1, 0.3);
+  };
+  const shareText = () => { const name = cleanName($('name').value); const u = new URL(SITE); if (name) u.searchParams.set('from', name); u.searchParams.set('score', String(score)); u.searchParams.set('lang', lang); return t('shareText')(name, score, u.toString()); };
+  $('play').addEventListener('click', start);
+  $('again').addEventListener('click', start);
+  $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', () => { const text = shareText(); if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; } (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(() => { $('shareOther').textContent = t('copied'); }).catch(() => window.prompt(t('copyPrompt'), text)); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden && running) { running = false; $('startScreen').classList.remove('hidden'); $('play').textContent = t('resume'); } });
+  window.addEventListener('resize', resize);
+  applyLang(); resize(); me.x = W / 2; me.y = H * 0.4; me.tx = me.x; me.ty = me.y;
+  requestAnimationFrame(tick);
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>

@@ -232,6 +232,16 @@ const storyCard = (L) => (st) => {
 
 // Animated name wishes (standalone pages in src/static/celebrate/<slug>/). [title, card text, button text]
 const CELEBRATE = [
+  { slug: 'makar-sankranti', emoji: '🪁', festival: 'makar-sankranti',
+    hi: ['मकर संक्रांति — पतंगों वाला एनिमेटेड विश', 'नीले आसमान में उड़ती पतंगें, छतें और तिल-गुड़ — अपनों के नाम की बधाई आवाज़ के साथ WhatsApp पर भेजो।', '🪁 नाम के साथ एनिमेटेड संक्रांति बधाई भेजो'],
+    en: ['Makar Sankranti — animated kite wish', 'Kites in a blue sky, rooftops and til-gud — send a greeting with their name, read aloud, on WhatsApp.', '🪁 Send an animated Sankranti wish with a name'],
+    hinglish: ['Makar Sankranti — patangon wala animated wish', 'Neele aasmaan mein udti patangein, chhatein aur til-gud — apnon ke naam ki badhaai awaaz ke saath WhatsApp pe bhejo.', '🪁 Naam ke saath animated Sankranti badhaai bhejo'],
+    bn: ['পৌষ সংক্রান্তি — ঘুড়ির অ্যানিমেটেড উইশ', 'নীল আকাশে উড়ন্ত ঘুড়ি, ছাদ আর পিঠে-পুলি — প্রিয়জনের নামে শুভেচ্ছা, পড়ে শোনানো সহ WhatsApp-এ পাঠাও।', '🪁 নাম দিয়ে অ্যানিমেটেড সংক্রান্তির উইশ পাঠাও'] },
+  { slug: 'lohri', emoji: '🔥', festival: 'lohri',
+    hi: ['लोहड़ी — अलाव वाला एनिमेटेड विश', 'जलता अलाव, उड़ती चिंगारियाँ, भांगड़ा और रेवड़ी — अपनों के नाम की बधाई आवाज़ के साथ WhatsApp पर भेजो।', '🔥 नाम के साथ एनिमेटेड लोहड़ी बधाई भेजो'],
+    en: ['Happy Lohri — animated bonfire wish', 'A blazing bonfire, flying sparks, bhangra and rewri — send a greeting with their name, read aloud, on WhatsApp.', '🔥 Send an animated Lohri wish with a name'],
+    hinglish: ['Lohri — alaav wala animated wish', 'Jalta alaav, udti chingaariyan, bhangra aur rewri — apnon ke naam ki badhaai awaaz ke saath WhatsApp pe bhejo.', '🔥 Naam ke saath animated Lohri badhaai bhejo'],
+    bn: ['লোহরি — আগুনের অ্যানিমেটেড উইশ', 'জ্বলন্ত আগুন, উড়ন্ত স্ফুলিঙ্গ, ভাংড়া আর রেউড়ি — প্রিয়জনের নামে শুভেচ্ছা, পড়ে শোনানো সহ WhatsApp-এ পাঠাও।', '🔥 নাম দিয়ে অ্যানিমেটেড লোহরির উইশ পাঠাও'] },
   { slug: 'birthday', emoji: '🎂', wish: 'birthday',
     hi: ['जन्मदिन मुबारक — मोमबत्तियों वाला एनिमेटेड विश', 'गुब्बारे, झंडियाँ और मोमबत्तियों वाला केक जो फूँक से बुझता है — अपनों के नाम की बधाई आवाज़ के साथ WhatsApp पर भेजो।', '🎂 नाम के साथ एनिमेटेड जन्मदिन विश भेजो'],
     en: ['Happy Birthday — animated wish with candles', 'Balloons, bunting and a cake whose candles blow out — send a greeting with their name, read aloud, on WhatsApp.', '🎂 Send an animated birthday wish with a name'],
