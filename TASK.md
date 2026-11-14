@@ -48,7 +48,18 @@ Site: **~162 pages**, all in 4 languages. Everything below is live (pushed to ma
 
 - [x] **Lohri + Makar Sankranti (14 Nov, for 13–15 Jan)** — `/celebrate/lohri/` (night bonfire with layered flames, sparks, bhangra dancers, rewri/popcorn tossed in; Punjabi top line), `/celebrate/makar-sankranti/` (deep-blue sky, kites below the text, clouds, birds, rooftops; Marathi "tilgul ghya" top line; Bengali = Poush Sankranti/pithe-puli); game `/games/patang/` "Patang Udao / Kite Fight" (steer kite, cut others' strings +20, golden +50, combos ×3, 3 kites, enemies harmless while climbing and can only cut the top part of your string, laddoos +5, birds −10, 60 s, manjha safety box; CACHE ng-patang-v1). Cards + festival buttons + sitemap.
 
-**Next (date order)** — 🌙 Shab-e-Miraj page (~5 Jan) → 🌙 Shab-e-Barat (~23 Jan) → 🇮🇳 Republic Day → Ramzan series, Eidi lifafa + game, Eid animated (Feb–Mar) → Bachpan "Yaad hai?", more stories (Vikram-Betaal, dadi-nani). Optional: move Shaadi/Jumma onto the engine; Cloudflare Web Analytics (needs user's token).
+**PLANS (user, 14 Nov: "abhi time hai, plans mein rakho" — don't start these unless asked; start each ~2–3 weeks before its date):**
+| Start by | Item | Ready before |
+|---|---|---|
+| ~15 Dec | 🌙 Shab-e-Miraj page + animated wish | ~5 Jan 2027 (moon-dependent, confirm) |
+| ~1 Jan | 🌙 Shab-e-Barat page + animated wish | ~23 Jan 2027 |
+| ~5 Jan | 🇮🇳 Republic Day animated wish + quiz/game | 26 Jan |
+| ~20 Jan | 🌙 Ramzan series (Sehri/Iftar wishes, daily duas), Eidi lifafa + Eidi game, Eid animated wish | Ramzan ~8 Feb, Eid ~9–10 Mar 2027 |
+| ~10 Feb | 🎨 Holi animated wish + colours game | Holi (check 2027 date) |
+| anytime | 🧒 Bachpan "Yaad hai?" cards, 90s quiz, old games; more stories (Vikram-Betaal, dadi-nani, Jataka) | — |
+| anytime | Anniversary / Good Night / Congratulations animated wishes; move Shaadi & Jumma onto the engine | — |
+| when user gives token | Cloudflare Web Analytics | — |
+- Waiting on user: confirm Hindi read-aloud works after Chrome relaunch; resubmit sitemap in Search Console; AdSense review result (2–4 weeks from 14 Nov).
 
 ---
 
@@ -118,7 +129,7 @@ Site: **~162 pages**, all in 4 languages. Everything below is live (pushed to ma
 - [x] Morning exercise game `/games/morning-exercise/` (14 Nov): 8 moves with our own stick-figure coach (IK pose engine, MOVES table), Easy 3 min / Normal 5 min, rest 5 s, ring timer, cheers/halfway toasts, optional voice coach (off by default), wake lock, streak + 7-day row in localStorage `me-days`, badges 1/3/7/14/21/30, WhatsApp challenge `?from=- Pipeline (date order): morning exercise/motivation game (user asked 14 Nov) → s=`, health disclaimer, PWA (CACHE ng-morning-v1).
 - [x] Christmas `/celebrate/christmas/` (14 Nov) on the engine.
 - [x] New Year `/celebrate/new-year/` (14 Nov) on the engine.
-- Pipeline (date order): Shab-e-Miraj page (~5 Jan) → Lohri/Sankranti animated → Shab-e-Barat (~23 Jan) → Republic Day → Ramzan series, Eidi lifafa+game, Eid animated (Feb–Mar) → Birthday animated, Bachpan cards, more stories. (Shaadi/Jumma are older standalone pages, not on the engine yet.)
+- Pipeline: see the PLANS table in the 14 Nov status at the top.
 
 ## [x] Animated "Jumma Mubarak" wish — LIVE 14 Nov at /celebrate/jumma-mubarak/
 - Weekly share driver. Masjid silhouette + crescent + lanterns + rising light, names `?to=&from=&m=0-4&lang=`, NO music (user confirmed); NO ambient sound either (user removed it 14 Nov) — only the dua read aloud, custom dua `?d=` (max 200 chars, overrides `m`), dua read aloud with phone voice (speechSynthesis, en-IN/hi-IN/bn-IN) on open + "Dua suno" button, Sunnah list (ghusl, Kahf, durood, Asr-Maghrib dua). Card on Home+Wishes, button on /wishes/jumma-mubarak/ and /islamic-calendar/.
