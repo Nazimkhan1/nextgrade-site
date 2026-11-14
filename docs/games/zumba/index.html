@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ghar Baithe Zumba 💃 — Home Dance Workout for Women | NextGrade</title>
+<meta name="description" content="A free home Zumba-style dance workout for women: 8 fun moves with a cartoon coach who gets fitter as you dance, our own upbeat music, a voice coach, a daily 🔥 streak and WhatsApp challenges. No signup, no camera — in Hinglish, Hindi, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/games/zumba/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="💃 Ghar Baithe Zumba — roz 4 minute, music ke saath!">
+<meta property="og:description" content="Cartoon coach ke saath 8 dance moves. Har move ke saath coach fit hoti jaati hai — aap bhi! Saheliyon ko challenge karo.">
+<meta property="og:url" content="https://nextgrade.in/games/zumba/">
+<meta property="og:image" content="https://nextgrade.in/games/zumba/icons/icon-512.png">
+<meta name="theme-color" content="#862e9c">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Ghar Baithe Zumba","url":"https://nextgrade.in/games/zumba/","genre":"Fitness","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #2b0a3d; --bg2: #862e9c; --ink: #fff5fb; --muted: #f0c6e4; --gold: #ffd43b; --card: rgba(255,255,255,0.08); --a: #f06595; --b: #ff922b; --ok: #51cf66; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1100px 600px at 50% -10%, var(--bg2), var(--bg) 65%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 640px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 8px; }
+.brand { display: flex; align-items: center; gap: 8px; font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand img { width: 30px; height: 30px; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.langsel, .iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.2); color: var(--ink); border-radius: 10px; padding: 6px 8px; font: inherit; font-size: 15px; cursor: pointer; }
+.iconbtn { font-size: 18px; padding: 6px 10px; }
+.langsel option { color: #111; }
+h1, h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; line-height: 1.15; }
+:lang(bn) h1, :lang(bn) h2, :lang(bn) .ex-name, :lang(bn) .big { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.panel { position: relative; border-radius: 22px; overflow: hidden; background: linear-gradient(180deg, #5f1f78, #2e0c40); box-shadow: 0 12px 40px rgba(0,0,0,0.4); min-height: min(78vh, 660px); display: flex; flex-direction: column; }
+.screen { padding: 22px 18px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; flex: 1; }
+.screen h1 { margin: 4px 0 0; font-size: clamp(30px, 8vw, 44px); }
+.sub { color: var(--muted); margin: 0; max-width: 460px; }
+.invite { background: rgba(255, 212, 59, 0.15); border: 1px solid rgba(255, 212, 59, 0.5); border-radius: 14px; padding: 10px 14px; font-weight: 700; }
+.streak { display: flex; align-items: center; gap: 10px; background: var(--card); border-radius: 16px; padding: 10px 16px; }
+.streak .fire { font-size: 34px; }
+.streak b { font-size: 26px; font-family: "Baloo 2", sans-serif; }
+.week { display: flex; gap: 6px; justify-content: center; }
+.week span { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 800; background: rgba(255,255,255,0.08); color: var(--muted); }
+.week span.done { background: var(--ok); color: #083b14; }
+.week span.today { outline: 2px solid var(--gold); }
+.levels { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.level { border: 2px solid rgba(255,255,255,0.25); background: transparent; color: var(--ink); border-radius: 14px; padding: 10px 14px; font: inherit; font-weight: 800; cursor: pointer; }
+.level[aria-pressed="true"] { border-color: var(--gold); background: rgba(255, 212, 59, 0.15); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 18px; border-radius: 14px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, var(--a), var(--b)); color: #fff; box-shadow: 0 6px 18px rgba(240, 101, 149, 0.35); }
+.btn-big { font-size: 22px; padding: 16px 34px; border-radius: 18px; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.35); }
+.toggle { background: transparent; border: 1px dashed rgba(255,255,255,0.35); color: var(--muted); border-radius: 12px; padding: 8px 12px; font: inherit; font-size: 15px; cursor: pointer; }
+.toggle[aria-pressed="true"] { color: var(--gold); border-color: var(--gold); border-style: solid; }
+.toggles { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+#work { padding: 0; gap: 0; }
+.ex-head { padding: 14px 16px 0; width: 100%; }
+.ex-step { color: var(--muted); font-size: 14px; font-weight: 700; }
+.ex-name { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(26px, 7vw, 36px); font-weight: 800; line-height: 1.1; }
+.ex-tip { color: var(--muted); font-size: 15px; min-height: 2.6em; }
+canvas { display: block; width: 100%; }
+#stage { flex: 1; min-height: 300px; }
+.ex-foot { width: 100%; padding: 0 16px 16px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.bar { width: 100%; height: 8px; background: rgba(255,255,255,0.12); border-radius: 99px; overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--a), var(--gold)); transition: width 0.3s linear; }
+.ctrl { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.toast { position: absolute; left: 50%; top: 36%; transform: translate(-50%, -50%); font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(26px, 7vw, 38px); font-weight: 800; color: var(--gold); text-shadow: 0 3px 14px rgba(0,0,0,0.6); pointer-events: none; opacity: 0; white-space: nowrap; }
+.toast.show { animation: toast 1.6s ease both; }
+@keyframes toast { 0% { opacity: 0; transform: translate(-50%, -30%) scale(0.7); } 20% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); } 80% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -70%); } }
+.big { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(34px, 9vw, 50px); font-weight: 800; color: var(--gold); line-height: 1.05; }
+#ba { width: 100%; max-width: 380px; height: 230px; background: rgba(255,255,255,0.06); border-radius: 16px; }
+.field { display: flex; flex-direction: column; gap: 4px; width: 100%; max-width: 360px; text-align: left; }
+.field label { font-weight: 700; font-size: 14px; }
+.field input { font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); }
+#confetti { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+section { margin: 24px 0; }
+section ul { padding-left: 20px; }
+section li { margin-bottom: 6px; }
+.note { color: var(--muted); font-size: 14px; }
+.ad { min-height: 100px; margin: 20px 0; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.15); }
+footer a { color: var(--muted); margin-right: 12px; }
+.sharebox { background: var(--card); border: 1px solid rgba(255,255,255,0.15); border-radius: 18px; padding: 16px; margin: 18px 0; text-align: center; }
+.sharebox h2 { margin: 0 0 4px; font-size: 22px; }
+.share-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
+.share-row .btn { flex: 1 1 150px; font-size: 16px; }
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/"><img src="/favicon.svg" alt="" width="30" height="30"><span>NextGrade<small id="brandSub"></small></span></a>
+    <div class="tools">
+      <select class="langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Music on/off">🔊</button>
+    </div>
+  </header>
+
+  <div class="panel">
+    <div class="screen" id="start">
+      <div class="invite hidden" id="invite"></div>
+      <h1 id="title"></h1>
+      <p class="sub" id="sub"></p>
+      <canvas id="preview" style="height:220px;max-width:320px" aria-hidden="true"></canvas>
+      <div class="streak"><span class="fire">🔥</span><div><b id="streakN">0</b> <span id="streakLabel"></span></div></div>
+      <div class="week" id="week"></div>
+      <div class="levels">
+        <button class="level" type="button" data-level="easy" id="lvEasy"></button>
+        <button class="level" type="button" data-level="normal" id="lvNormal"></button>
+      </div>
+      <button class="btn btn-main btn-big" type="button" id="go"></button>
+      <div class="toggles"><button class="toggle" type="button" id="voice" aria-pressed="true"></button></div>
+      <p class="note" id="todayDone"></p>
+    </div>
+    <div class="screen hidden" id="work">
+      <div class="ex-head">
+        <div class="ex-step" id="exStep"></div>
+        <div class="ex-name" id="exName"></div>
+        <div class="ex-tip" id="exTip"></div>
+      </div>
+      <canvas id="stage" aria-hidden="true"></canvas>
+      <div class="toast" id="toast"></div>
+      <div class="ex-foot">
+        <div class="bar"><i id="bar"></i></div>
+        <div class="ctrl">
+          <button class="btn btn-ghost" type="button" id="pause"></button>
+          <button class="btn btn-ghost" type="button" id="skip"></button>
+          <button class="btn btn-ghost" type="button" id="quit">✕</button>
+        </div>
+      </div>
+    </div>
+    <div class="screen hidden" id="done">
+      <canvas id="confetti" aria-hidden="true"></canvas>
+      <div class="big" id="doneTitle"></div>
+      <p class="sub" id="doneSub"></p>
+      <canvas id="ba" aria-label="Before and after"></canvas>
+      <p class="note" id="baNote"></p>
+      <p class="sub" id="badgeText"></p>
+      <div class="field"><label for="myName" id="nameLabel"></label><input id="myName" maxlength="24"></div>
+      <button class="btn btn-wa" type="button" id="share"></button>
+      <div class="ctrl"><button class="btn btn-ghost" type="button" id="copyDone"></button><button class="btn btn-ghost" type="button" id="again"></button></div>
+      <p class="note" id="doneStatus" role="status"></p>
+      <p class="note" id="tomorrow"></p>
+    </div>
+  </div>
+
+  <div class="sharebox">
+    <h2 id="shareH"></h2>
+    <p class="note" id="shareP"></p>
+    <div class="share-row">
+      <button class="btn btn-wa" type="button" id="shWa"></button>
+      <button class="btn btn-ghost" type="button" id="shCopy"></button>
+      <button class="btn btn-ghost hidden" type="button" id="shMore"></button>
+    </div>
+    <p class="note" id="shStatus" role="status"></p>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 id="aboutH"></h2>
+    <p id="aboutP"></p>
+    <ul id="aboutList"></ul>
+    <h2 id="tipsH"></h2>
+    <ul id="tipsList"></ul>
+    <p class="note" id="health"></p>
+    <p><a id="meLink" href="https://nextgrade.in/games/morning-exercise/"></a> · <a id="gamesLink" href="https://nextgrade.in/games/"></a></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const SITE = 'https://nextgrade.in/games/zumba/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const VOICE = { hinglish: 'hi-IN', hi: 'hi-IN', en: 'en-IN', bn: 'bn-IN' };
+  const BPM = 124, BEAT = 60 / BPM;
+
+  const T = {
+    hinglish: {
+      brand: 'Ghar Baithe Zumba', title: 'Ghar Baithe Zumba 💃', sub: 'Music ke saath 8 mazedaar dance moves, cartoon coach ke saath. Dekho kaise har move ke saath coach fit hoti jaati hai — roz karo, aap bhi!',
+      streak: () => 'din ki streak', week: ['Ra', 'So', 'Ma', 'Bu', 'Gu', 'Sh', 'Sa'],
+      easy: '🌱 Aasaan · 3 min', normal: '🔥 Normal · 4 min', go: '▶ Dance shuru karo', voiceOn: '🗣️ Coach ki awaaz: on', voiceOff: '🔈 Coach ki awaaz: off',
+      todayDone: '✅ Aaj ka Zumba ho gaya! Mann ho to ek baar aur.',
+      invite: (f, s) => `💃 ${f} ne aapko Ghar Baithe Zumba ke liye bulaya hai!${s ? ` Unki streak: ${s} din. Saath mein karein?` : ''}`,
+      step: (i, n) => `Move ${i} / ${n}`, rest: 'Paani ka ek ghoont… 💧', next: (x) => `Agla: ${x}`, getReady: 'Taiyaar? Music shuru!',
+      pause: '⏸ Ruko', resume: '▶ Chalu', skip: '⏭ Aage',
+      fit: 'Fit-o-meter', fitLabels: ['Shuruaat', 'Garmi aa rahi hai', 'Energy full', 'Fit & fab!'],
+      half: 'Aadha ho gaya! 💃', last: 'Aakhri move — full josh!', cheers: ['Waah! 👏', 'Kya baat hai! 🌟', 'Aur zor se! 🔥', 'Superb! 💃', 'Fit ho rahi ho! 💪'],
+      doneTitle: 'Zabardast! 🎉', doneSub: (n, m) => `Aaj ${m} minute ka Zumba poora. 🔥 ${n} din ki streak!`,
+      baBefore: 'Shuru mein', baAfter: 'Aaj ke baad', baNote: 'Ye tasveer sirf josh badhaane ke liye hai 😊 Asli badlaav roz ki kasrat, achhe khaane aur poori neend se dheere-dheere aata hai.',
+      badges: { 1: 'Pehla din — dance shuru! 🌱', 3: '3 din lagaataar — wah! 🥉', 7: 'Poora hafta! 🥈 Dancing Queen!', 14: '2 hafte! 🥇 Zabardast!', 21: '21 din — ab ye aadat hai! 🏆', 30: '30 din! 👑 Zumba Queen!' },
+      nameLabel: 'Aapka naam (share ke liye, optional)', namePh: 'Jaise: Priya',
+      share: '📲 Saheliyon ko challenge bhejo', shareText: (name, n, url) => `💃 ${name ? name + ' ne' : 'Maine'} aaj ghar baithe Zumba kiya! 🔥 ${n} din ki streak. Aao saath mein karein — roz sirf 4 minute 👉 ${url}`,
+      shareH: '📣 Saheliyon ko bhi bulao', shareP: 'Saath mein karogi to mazaa double aur streak todne ka mann nahi karega! Link WhatsApp pe bhejo.', shWa: '📲 WhatsApp pe bhejo', shCopy: '🔗 Link copy karo', shMore: '📤 Aur jagah share', copied: '✅ Link copy ho gaya', copyDone: '🔗 Link copy',
+      inviteText: (name, n, url) => `💃 ${name ? name + ' ki taraf se:' : 'Aao'} ghar baithe Zumba karein!${n ? ` Meri streak ${n} din ki hai 🔥` : ''} Music, cartoon coach aur sirf 4 minute 👉 ${url}`,
+      again: '🔁 Ek baar aur', tomorrow: 'Kal phir milte hain 💃 Streak mat todna!',
+      voiceSay: { start: (x) => `Chalo dance karein. ${x}`, next: (x) => `Agla, ${x}`, half: 'Aadha ho gaya, shabaash', done: 'Zabardast! Aaj ka Zumba poora hua' },
+      ex: {
+        steptouch: ['Step Touch', 'Ek pair bagal mein, doosra saath laao, haath jhulao'],
+        salsa: ['Salsa Step', 'Aage-peeche step, kamar halki si hilao'],
+        march: ['Merengue March', 'Jagah pe march, kohniyan peeche-aage'],
+        punch: ['Upar Punch', 'Ek-ek haath upar punch — dil se!'],
+        knee: ['Knee Lift', 'Ghutna upar, ulti kohni ghutne ki taraf'],
+        grape: ['Side Shuffle', 'Do step dayein, do step bayein, taali bajao'],
+        hips: ['Hip Circle', 'Haath kamar pe, kamar gol-gol ghumao'],
+        cool: ['Cool Down Stretch', 'Haath upar, lambi saans, dheere chhodo'],
+      },
+      aboutH: 'Ghar baithe Zumba kyun?', aboutP: 'Zumba Latin music pe dance aur kasrat ka mel hai. Ye wala ghar ka chhota version hai — na gym, na saaman, bas thodi si jagah aur music. Ghar ke kaam ke beech, subah ya shaam, kabhi bhi:',
+      aboutList: ['Dance ke saath kasrat bore nahi lagti — 4 minute pata bhi nahi chalte', 'Dil ki dhadkan badhti hai, badan garam hota hai aur mood achha hota hai', 'Roz ki 🔥 streak se aadat banti hai', 'Camera ya login kuch nahi — sab sirf aapke phone mein'],
+      tipsH: 'Achhe se karne ke tips', tipsList: ['Joote ya chappal pehen ke karo, phisalne waale farsh pe nahi', 'Khaane ke turant baad nahi — 1–2 ghante ka gap rakho', 'Paani paas mein rakho, saans ruke to dheere ho jao', 'Shuru mein Aasaan level chuno, 1 hafte baad Normal'],
+      health: '⚠️ Ye aam swasth mahilaon ke liye halki dance kasrat hai, ilaaj nahi. Dard, chakkar ya saans phoolne lage to turant ruk jao. Pregnancy, delivery ke baad, ghutne/peeth ka dard, BP ya dil ki takleef ho to pehle doctor se poochho.',
+      me: '💪 Subah ka 2-Minute Challenge', games: 'Aur games',
+    },
+    hi: {
+      brand: 'घर बैठे ज़ुम्बा', title: 'घर बैठे ज़ुम्बा 💃', sub: 'म्यूज़िक के साथ 8 मज़ेदार डांस मूव्स, कार्टून कोच के साथ। देखो कैसे हर मूव के साथ कोच फ़िट होती जाती है — रोज़ करो, आप भी!',
+      streak: () => 'दिन की स्ट्रीक', week: ['र', 'सो', 'मं', 'बु', 'गु', 'शु', 'श'],
+      easy: '🌱 आसान · 3 मिनट', normal: '🔥 नॉर्मल · 4 मिनट', go: '▶ डांस शुरू करो', voiceOn: '🗣️ कोच की आवाज़: चालू', voiceOff: '🔈 कोच की आवाज़: बंद',
+      todayDone: '✅ आज का ज़ुम्बा हो गया! मन हो तो एक बार और।',
+      invite: (f, s) => `💃 ${f} ने आपको घर बैठे ज़ुम्बा के लिए बुलाया है!${s ? ` उनकी स्ट्रीक: ${s} दिन। साथ में करें?` : ''}`,
+      step: (i, n) => `मूव ${i} / ${n}`, rest: 'पानी का एक घूँट… 💧', next: (x) => `अगला: ${x}`, getReady: 'तैयार? म्यूज़िक शुरू!',
+      pause: '⏸ रुको', resume: '▶ चालू', skip: '⏭ आगे',
+      fit: 'फ़िट-ओ-मीटर', fitLabels: ['शुरुआत', 'गर्मी आ रही है', 'एनर्जी फ़ुल', 'फ़िट और फ़ैब!'],
+      half: 'आधा हो गया! 💃', last: 'आख़िरी मूव — पूरा जोश!', cheers: ['वाह! 👏', 'क्या बात है! 🌟', 'और ज़ोर से! 🔥', 'सुपर्ब! 💃', 'फ़िट हो रही हो! 💪'],
+      doneTitle: 'ज़बरदस्त! 🎉', doneSub: (n, m) => `आज ${m} मिनट का ज़ुम्बा पूरा। 🔥 ${n} दिन की स्ट्रीक!`,
+      baBefore: 'शुरू में', baAfter: 'आज के बाद', baNote: 'यह तस्वीर सिर्फ़ जोश बढ़ाने के लिए है 😊 असली बदलाव रोज़ की कसरत, अच्छे खाने और पूरी नींद से धीरे-धीरे आता है।',
+      badges: { 1: 'पहला दिन — डांस शुरू! 🌱', 3: '3 दिन लगातार — वाह! 🥉', 7: 'पूरा हफ़्ता! 🥈 डांसिंग क्वीन!', 14: '2 हफ़्ते! 🥇 ज़बरदस्त!', 21: '21 दिन — अब यह आदत है! 🏆', 30: '30 दिन! 👑 ज़ुम्बा क्वीन!' },
+      nameLabel: 'आपका नाम (शेयर के लिए, वैकल्पिक)', namePh: 'जैसे: प्रिया',
+      share: '📲 सहेलियों को चैलेंज भेजो', shareText: (name, n, url) => `💃 ${name ? name + ' ने' : 'मैंने'} आज घर बैठे ज़ुम्बा किया! 🔥 ${n} दिन की स्ट्रीक। आओ साथ में करें — रोज़ सिर्फ़ 4 मिनट 👉 ${url}`,
+      shareH: '📣 सहेलियों को भी बुलाओ', shareP: 'साथ में करोगी तो मज़ा दोगुना और स्ट्रीक तोड़ने का मन नहीं करेगा! लिंक WhatsApp पर भेजो।', shWa: '📲 WhatsApp पर भेजो', shCopy: '🔗 लिंक कॉपी करो', shMore: '📤 और जगह शेयर', copied: '✅ लिंक कॉपी हो गया', copyDone: '🔗 लिंक कॉपी',
+      inviteText: (name, n, url) => `💃 ${name ? name + ' की तरफ़ से:' : 'आओ'} घर बैठे ज़ुम्बा करें!${n ? ` मेरी स्ट्रीक ${n} दिन की है 🔥` : ''} म्यूज़िक, कार्टून कोच और सिर्फ़ 4 मिनट 👉 ${url}`,
+      again: '🔁 एक बार और', tomorrow: 'कल फिर मिलते हैं 💃 स्ट्रीक मत तोड़ना!',
+      voiceSay: { start: (x) => `चलो डांस करें। ${x}`, next: (x) => `अगला, ${x}`, half: 'आधा हो गया, शाबाश', done: 'ज़बरदस्त! आज का ज़ुम्बा पूरा हुआ' },
+      ex: {
+        steptouch: ['स्टेप टच', 'एक पैर बगल में, दूसरा साथ लाओ, हाथ झुलाओ'],
+        salsa: ['सालसा स्टेप', 'आगे-पीछे स्टेप, कमर हल्की-सी हिलाओ'],
+        march: ['मेरेंगे मार्च', 'जगह पर मार्च, कोहनियाँ पीछे-आगे'],
+        punch: ['ऊपर पंच', 'एक-एक हाथ ऊपर पंच — दिल से!'],
+        knee: ['नी लिफ़्ट', 'घुटना ऊपर, उल्टी कोहनी घुटने की ओर'],
+        grape: ['साइड शफ़ल', 'दो स्टेप दाएँ, दो स्टेप बाएँ, ताली बजाओ'],
+        hips: ['हिप सर्कल', 'हाथ कमर पर, कमर गोल-गोल घुमाओ'],
+        cool: ['कूल डाउन स्ट्रेच', 'हाथ ऊपर, लंबी साँस, धीरे छोड़ो'],
+      },
+      aboutH: 'घर बैठे ज़ुम्बा क्यों?', aboutP: 'ज़ुम्बा लैटिन म्यूज़िक पर डांस और कसरत का मेल है। यह घर का छोटा वर्ज़न है — न जिम, न सामान, बस थोड़ी-सी जगह और म्यूज़िक। घर के काम के बीच, सुबह या शाम, कभी भी:',
+      aboutList: ['डांस के साथ कसरत बोर नहीं लगती — 4 मिनट पता भी नहीं चलते', 'दिल की धड़कन बढ़ती है, बदन गरम होता है और मूड अच्छा होता है', 'रोज़ की 🔥 स्ट्रीक से आदत बनती है', 'कैमरा या लॉगिन कुछ नहीं — सब सिर्फ़ आपके फ़ोन में'],
+      tipsH: 'अच्छे से करने के टिप्स', tipsList: ['जूते या चप्पल पहनकर करो, फिसलने वाले फ़र्श पर नहीं', 'खाने के तुरंत बाद नहीं — 1–2 घंटे का गैप रखो', 'पानी पास में रखो, साँस फूले तो धीरे हो जाओ', 'शुरू में आसान लेवल चुनो, 1 हफ़्ते बाद नॉर्मल'],
+      health: '⚠️ यह आम स्वस्थ महिलाओं के लिए हल्की डांस कसरत है, इलाज नहीं। दर्द, चक्कर या साँस फूलने लगे तो तुरंत रुक जाओ। प्रेगनेंसी, डिलीवरी के बाद, घुटने/पीठ का दर्द, बीपी या दिल की तकलीफ़ हो तो पहले डॉक्टर से पूछो।',
+      me: '💪 सुबह का 2 मिनट चैलेंज', games: 'और गेम',
+    },
+    en: {
+      brand: 'Home Zumba', title: 'Home Zumba 💃', sub: '8 fun dance moves to music, with a cartoon coach. Watch her get fitter with every move — dance daily and so will you!',
+      streak: () => 'day streak', week: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+      easy: '🌱 Easy · 3 min', normal: '🔥 Normal · 4 min', go: '▶ Start dancing', voiceOn: '🗣️ Coach voice: on', voiceOff: '🔈 Coach voice: off',
+      todayDone: '✅ Today’s Zumba is done! Go again if you feel like it.',
+      invite: (f, s) => `💃 ${f} has invited you to Home Zumba!${s ? ` Their streak: ${s} days. Dance together?` : ''}`,
+      step: (i, n) => `Move ${i} of ${n}`, rest: 'Sip of water… 💧', next: (x) => `Next: ${x}`, getReady: 'Ready? Music on!',
+      pause: '⏸ Pause', resume: '▶ Resume', skip: '⏭ Skip',
+      fit: 'Fit-o-meter', fitLabels: ['Warming up', 'Feeling the heat', 'Full of energy', 'Fit & fab!'],
+      half: 'Halfway! 💃', last: 'Last move — give it all!', cheers: ['Wow! 👏', 'Looking great! 🌟', 'More power! 🔥', 'Superb! 💃', 'Getting fitter! 💪'],
+      doneTitle: 'Fantastic! 🎉', doneSub: (n, m) => `${m} minutes of Zumba done today. 🔥 ${n}-day streak!`,
+      baBefore: 'At the start', baAfter: 'After today', baNote: 'This picture is just for fun and motivation 😊 Real change comes slowly from daily exercise, good food and enough sleep.',
+      badges: { 1: 'Day one — the dance has begun! 🌱', 3: '3 days in a row — wow! 🥉', 7: 'A whole week! 🥈 Dancing Queen!', 14: '2 weeks! 🥇 Amazing!', 21: '21 days — it’s a habit now! 🏆', 30: '30 days! 👑 Zumba Queen!' },
+      nameLabel: 'Your name (for sharing, optional)', namePh: 'e.g. Priya',
+      share: '📲 Challenge your friends', shareText: (name, n, url) => `💃 ${name || 'I'} did Zumba at home today! 🔥 ${n}-day streak. Let’s dance together — just 4 minutes a day 👉 ${url}`,
+      shareH: '📣 Bring your friends along', shareP: 'Dancing together is twice the fun, and you won’t want to break the streak! Send the link on WhatsApp.', shWa: '📲 Send on WhatsApp', shCopy: '🔗 Copy link', shMore: '📤 Share elsewhere', copied: '✅ Link copied', copyDone: '🔗 Copy link',
+      inviteText: (name, n, url) => `💃 ${name ? name + ' invites you:' : 'Come and'} do Zumba at home!${n ? ` My streak is ${n} days 🔥` : ''} Music, a cartoon coach and just 4 minutes 👉 ${url}`,
+      again: '🔁 Once more', tomorrow: 'See you tomorrow 💃 Don’t break the streak!',
+      voiceSay: { start: (x) => `Let's dance. ${x}`, next: (x) => `Next, ${x}`, half: 'Halfway, well done', done: 'Fantastic! Today\'s Zumba is complete' },
+      ex: {
+        steptouch: ['Step Touch', 'Step to the side, bring the other foot in, swing your arms'],
+        salsa: ['Salsa Step', 'Step forward and back, sway your hips a little'],
+        march: ['Merengue March', 'March on the spot, elbows back and forth'],
+        punch: ['Punch Up', 'Punch up one arm at a time — with feeling!'],
+        knee: ['Knee Lift', 'Knee up, bring the opposite elbow towards it'],
+        grape: ['Side Shuffle', 'Two steps right, two steps left, clap'],
+        hips: ['Hip Circles', 'Hands on hips, circle your hips round and round'],
+        cool: ['Cool Down Stretch', 'Arms up, breathe in deeply, breathe out slowly'],
+      },
+      aboutH: 'Why Zumba at home?', aboutP: 'Zumba mixes dance and exercise to Latin music. This is a short home version — no gym, no equipment, just a little space and music. Between housework, in the morning or evening, any time:',
+      aboutList: ['Exercise with dance never feels boring — 4 minutes fly by', 'Your heart rate goes up, your body warms up and your mood lifts', 'A daily 🔥 streak builds the habit', 'No camera, no login — everything stays on your phone'],
+      tipsH: 'Tips to do it well', tipsList: ['Wear shoes or slippers; avoid slippery floors', 'Not straight after a meal — leave a 1–2 hour gap', 'Keep water nearby and slow down if you get breathless', 'Start with Easy and move to Normal after a week'],
+      health: '⚠️ This is light dance exercise for healthy women, not treatment. Stop at once if you feel pain, dizziness or breathlessness. If you are pregnant, have recently given birth, or have knee/back pain, blood pressure or heart problems, ask a doctor first.',
+      me: '💪 Morning 2-Minute Challenge', games: 'More games',
+    },
+    bn: {
+      brand: 'ঘরে বসে জুম্বা', title: 'ঘরে বসে জুম্বা 💃', sub: 'গানের সঙ্গে ৮টা মজার ডান্স মুভ, কার্টুন কোচের সঙ্গে। দেখো প্রতিটা মুভে কোচ কেমন ফিট হয়ে ওঠে — রোজ করো, তুমিও!',
+      streak: () => 'দিনের স্ট্রিক', week: ['র', 'সো', 'ম', 'বু', 'বৃ', 'শু', 'শ'],
+      easy: '🌱 সহজ · ৩ মিনিট', normal: '🔥 নরমাল · ৪ মিনিট', go: '▶ নাচ শুরু করো', voiceOn: '🗣️ কোচের গলা: চালু', voiceOff: '🔈 কোচের গলা: বন্ধ',
+      todayDone: '✅ আজকের জুম্বা হয়ে গেছে! ইচ্ছে হলে আরেকবার।',
+      invite: (f, s) => `💃 ${f} তোমাকে ঘরে বসে জুম্বায় ডেকেছে!${s ? ` ওর স্ট্রিক: ${s} দিন। একসঙ্গে করবে?` : ''}`,
+      step: (i, n) => `মুভ ${i} / ${n}`, rest: 'এক চুমুক জল… 💧', next: (x) => `পরেরটা: ${x}`, getReady: 'তৈরি? গান শুরু!',
+      pause: '⏸ থামো', resume: '▶ চালু', skip: '⏭ পরের',
+      fit: 'ফিট-ও-মিটার', fitLabels: ['শুরু', 'গরম লাগছে', 'এনার্জি ফুল', 'ফিট অ্যান্ড ফ্যাব!'],
+      half: 'অর্ধেক হয়ে গেছে! 💃', last: 'শেষ মুভ — পুরো জোশে!', cheers: ['বাহ! 👏', 'দারুণ! 🌟', 'আরও জোরে! 🔥', 'সুপার্ব! 💃', 'ফিট হয়ে উঠছ! 💪'],
+      doneTitle: 'দুর্দান্ত! 🎉', doneSub: (n, m) => `আজ ${m} মিনিটের জুম্বা শেষ। 🔥 ${n} দিনের স্ট্রিক!`,
+      baBefore: 'শুরুতে', baAfter: 'আজকের পরে', baNote: 'এই ছবি শুধু উৎসাহ দেওয়ার জন্য 😊 আসল বদল আসে ধীরে ধীরে — রোজের ব্যায়াম, ভালো খাবার আর পুরো ঘুমে।',
+      badges: { 1: 'প্রথম দিন — নাচ শুরু! 🌱', 3: 'টানা ৩ দিন — বাহ! 🥉', 7: 'পুরো এক সপ্তাহ! 🥈 ডান্সিং কুইন!', 14: '২ সপ্তাহ! 🥇 দুর্দান্ত!', 21: '২১ দিন — এখন এটা অভ্যাস! 🏆', 30: '৩০ দিন! 👑 জুম্বা কুইন!' },
+      nameLabel: 'তোমার নাম (শেয়ারের জন্য, ঐচ্ছিক)', namePh: 'যেমন: প্রিয়া',
+      share: '📲 বান্ধবীদের চ্যালেঞ্জ পাঠাও', shareText: (name, n, url) => `💃 ${name ? name + ' আজ' : 'আমি আজ'} ঘরে বসে জুম্বা করেছি! 🔥 ${n} দিনের স্ট্রিক। চলো একসঙ্গে করি — রোজ মাত্র ৪ মিনিট 👉 ${url}`,
+      shareH: '📣 বান্ধবীদেরও ডাকো', shareP: 'একসঙ্গে করলে মজা দ্বিগুণ আর স্ট্রিক ভাঙতে ইচ্ছে করবে না! লিংক WhatsApp-এ পাঠাও।', shWa: '📲 WhatsApp-এ পাঠাও', shCopy: '🔗 লিংক কপি করো', shMore: '📤 অন্য জায়গায় শেয়ার', copied: '✅ লিংক কপি হয়েছে', copyDone: '🔗 লিংক কপি',
+      inviteText: (name, n, url) => `💃 ${name ? name + ' ডাকছে:' : 'চলো'} ঘরে বসে জুম্বা করি!${n ? ` আমার স্ট্রিক ${n} দিনের 🔥` : ''} গান, কার্টুন কোচ আর মাত্র ৪ মিনিট 👉 ${url}`,
+      again: '🔁 আরেকবার', tomorrow: 'কাল আবার দেখা হবে 💃 স্ট্রিক ভেঙো না!',
+      voiceSay: { start: (x) => `চলো নাচি। ${x}`, next: (x) => `পরেরটা, ${x}`, half: 'অর্ধেক হয়ে গেছে, সাবাশ', done: 'দুর্দান্ত! আজকের জুম্বা শেষ' },
+      ex: {
+        steptouch: ['স্টেপ টাচ', 'এক পা পাশে, অন্য পা কাছে আনো, হাত দোলাও'],
+        salsa: ['সালসা স্টেপ', 'সামনে-পেছনে স্টেপ, কোমর একটু দোলাও'],
+        march: ['মেরেঙ্গে মার্চ', 'জায়গায় মার্চ, কনুই পেছনে-সামনে'],
+        punch: ['ওপরে পাঞ্চ', 'এক এক হাতে ওপরে পাঞ্চ — মন দিয়ে!'],
+        knee: ['নি লিফট', 'হাঁটু ওপরে, উল্টো কনুই হাঁটুর দিকে'],
+        grape: ['সাইড শাফল', 'দু-পা ডানে, দু-পা বাঁয়ে, হাততালি'],
+        hips: ['হিপ সার্কল', 'হাত কোমরে, কোমর গোল করে ঘোরাও'],
+        cool: ['কুল ডাউন স্ট্রেচ', 'হাত ওপরে, লম্বা শ্বাস, আস্তে ছাড়ো'],
+      },
+      aboutH: 'ঘরে বসে জুম্বা কেন?', aboutP: 'জুম্বা হল ল্যাটিন গানের তালে নাচ আর ব্যায়ামের মেলবন্ধন। এটা ঘরের ছোট সংস্করণ — জিম নয়, সরঞ্জাম নয়, শুধু একটু জায়গা আর গান। ঘরের কাজের ফাঁকে, সকালে বা সন্ধ্যায়, যখন খুশি:',
+      aboutList: ['নাচের সঙ্গে ব্যায়াম একঘেয়ে লাগে না — ৪ মিনিট টেরই পাবে না', 'হৃৎস্পন্দন বাড়ে, শরীর গরম হয় আর মন ভালো হয়', 'রোজের 🔥 স্ট্রিকে অভ্যাস তৈরি হয়', 'ক্যামেরা বা লগইন কিছুই নেই — সব শুধু তোমার ফোনে'],
+      tipsH: 'ভালোভাবে করার টিপস', tipsList: ['জুতো বা চটি পরে করো, পিছল মেঝেতে নয়', 'খাওয়ার ঠিক পরে নয় — ১–২ ঘণ্টা বিরতি রাখো', 'জল কাছে রাখো, হাঁপ ধরলে আস্তে করো', 'শুরুতে সহজ লেভেল, এক সপ্তাহ পরে নরমাল'],
+      health: '⚠️ এটা সুস্থ মহিলাদের জন্য হালকা নাচের ব্যায়াম, চিকিৎসা নয়। ব্যথা, মাথা ঘোরা বা হাঁপ ধরলে সঙ্গে সঙ্গে থামো। গর্ভাবস্থা, সদ্য প্রসবের পরে, হাঁটু/পিঠে ব্যথা, প্রেশার বা হার্টের সমস্যা থাকলে আগে ডাক্তারকে জিজ্ঞেস করো।',
+      me: '💪 সকালের ২ মিনিট চ্যালেঞ্জ', games: 'আরও গেম',
+    },
+  };
+
+  // ---- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+  let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('zb-lang')) ? store.get('zb-lang') : deviceLang();
+  const t = (k) => T[lang][k];
+  const clean = (s, n = 24) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, n);
+  const pad = (n) => String(n).padStart(2, '0');
+  const dayKey = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
+
+  // ---- streak (kept only on this phone)
+  const getDays = () => { try { const a = JSON.parse(store.get('zb-days') || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } };
+  const streakOf = (days) => {
+    const set = new Set(days); const today = new Date();
+    let d = set.has(dayKey(today)) ? today : addDays(today, -1); let n = 0;
+    while (set.has(dayKey(d))) { n += 1; d = addDays(d, -1); }
+    return n;
+  };
+  const markToday = () => { const days = getDays(); const k = dayKey(new Date()); if (!days.includes(k)) days.push(k); store.set('zb-days', JSON.stringify(days.slice(-120))); return streakOf(days); };
+
+  // ---- plan: 8 moves; Normal 30 s each, Easy 20 s each, a short water break between
+  const ORDER = ['steptouch', 'salsa', 'march', 'punch', 'knee', 'grape', 'hips', 'cool'];
+  const PLAN = { normal: ORDER.map((k) => [k, 30]), easy: ORDER.map((k) => [k, 20]) };
+  const REST = 3;
+  let level = store.get('zb-level') === 'easy' ? 'easy' : 'normal';
+  let voiceOn = store.get('zb-voice') !== '0';
+  let muted = store.get('zb-muted') === '1';
+
+  // ---- voice coach (on by default in games; speaks only after the Start tap)
+  const canSpeak = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+  const say = (text) => {
+    if (!voiceOn || !canSpeak) return;
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text.replace(/[\p{Extended_Pictographic}\u{FE0F}‍]/gu, ''));
+    u.lang = VOICE[lang]; const c = VOICE[lang].toLowerCase();
+    const vs = speechSynthesis.getVoices();
+    const v = vs.find((x) => x.lang.replace('_', '-').toLowerCase() === c && x.localService) || vs.find((x) => x.lang.replace('_', '-').toLowerCase() === c) || vs.find((x) => x.lang.toLowerCase().startsWith(c.split('-')[0]));
+    if (v) u.voice = v; u.rate = 0.95;
+    speechSynthesis.speak(u);
+  };
+  if (canSpeak) speechSynthesis.getVoices(); else $('voice').classList.add('hidden');
+
+  // ---- music: our own upbeat dance loop (dembow-style beat, bass and a little melody), made live with WebAudio
+  let actx = null, master = null, musicOn = false, nextNote = 0, step16 = 0, schedTimer = 0, noiseBuf = null;
+  const audio = () => {
+    if (actx) return actx;
+    try {
+      actx = new (window.AudioContext || window.webkitAudioContext)();
+      master = actx.createGain(); master.gain.value = muted ? 0 : 0.55; master.connect(actx.destination);
+      noiseBuf = actx.createBuffer(1, actx.sampleRate * 0.3, actx.sampleRate);
+      const d = noiseBuf.getChannelData(0); for (let i = 0; i < d.length; i += 1) d[i] = Math.random() * 2 - 1;
+    } catch (e) { actx = null; }
+    return actx;
+  };
+  const env = (node, t0, vol, dur) => { const g = actx.createGain(); g.gain.setValueAtTime(vol, t0); g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur); node.connect(g).connect(master); return g; };
+  const kick = (t0) => { const o = actx.createOscillator(); o.frequency.setValueAtTime(140, t0); o.frequency.exponentialRampToValueAtTime(45, t0 + 0.12); env(o, t0, 0.9, 0.25); o.start(t0); o.stop(t0 + 0.26); };
+  const snare = (t0, vol) => { const s = actx.createBufferSource(); s.buffer = noiseBuf; const f = actx.createBiquadFilter(); f.type = 'highpass'; f.frequency.value = 1500; s.connect(f); env(f, t0, vol, 0.14); s.start(t0); s.stop(t0 + 0.15); };
+  const hat = (t0, vol) => { const s = actx.createBufferSource(); s.buffer = noiseBuf; const f = actx.createBiquadFilter(); f.type = 'highpass'; f.frequency.value = 7000; s.connect(f); env(f, t0, vol, 0.04); s.start(t0); s.stop(t0 + 0.05); };
+  const note = (t0, freq, type, vol, dur) => { const o = actx.createOscillator(); o.type = type; o.frequency.value = freq; env(o, t0, vol, dur); o.start(t0); o.stop(t0 + dur + 0.02); };
+  // A minor – F – C – G, one chord per bar
+  const BASS = [110, 87.31, 130.81, 98];
+  const CHORD = [[440, 523.25, 659.25], [349.23, 440, 523.25], [392, 523.25, 659.25], [392, 493.88, 587.33]];
+  const MEL = [659.25, 0, 587.33, 523.25, 0, 523.25, 587.33, 0, 659.25, 0, 783.99, 659.25, 0, 587.33, 523.25, 0];
+  const schedule = () => {
+    if (!musicOn || !actx) return;
+    const s16 = BEAT / 4;
+    while (nextNote < actx.currentTime + 0.15) {
+      const i = step16 % 16, bar = Math.floor(step16 / 16) % 4;
+      if (i % 4 === 0) kick(nextNote);
+      if (i === 3 || i === 6 || i === 11 || i === 14) snare(nextNote, 0.32);
+      if (i % 2 === 0) hat(nextNote, i % 4 === 2 ? 0.12 : 0.06);
+      if (i === 0 || i === 3 || i === 6 || i === 8 || i === 11 || i === 14) note(nextNote, BASS[bar], 'triangle', 0.35, s16 * 2);
+      if (i === 2 || i === 10) CHORD[bar].forEach((f) => note(nextNote, f, 'square', 0.025, s16 * 1.5));
+      if (Math.floor(step16 / 64) % 2 === 1 && MEL[i]) note(nextNote, MEL[i] * (bar === 3 ? 0.89 : 1), 'triangle', 0.08, s16 * 1.6);
+      nextNote += s16; step16 += 1;
+    }
+    schedTimer = setTimeout(schedule, 40);
+  };
+  const startMusic = () => { if (!audio()) return; if (actx.state === 'suspended') actx.resume(); musicOn = true; nextNote = actx.currentTime + 0.08; step16 = 0; clearTimeout(schedTimer); schedule(); };
+  const stopMusic = () => { musicOn = false; clearTimeout(schedTimer); };
+  const setMute = () => { $('mute').textContent = muted ? '🔇' : '🔊'; if (master) master.gain.value = muted ? 0 : 0.55; };
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('zb-muted', muted ? '1' : '0'); setMute(); });
+  setMute();
+
+  // ---- start screen
+  const renderStart = () => {
+    const days = getDays(); const set = new Set(days); const n = streakOf(days);
+    $('streakN').textContent = n; $('streakLabel').textContent = t('streak')(n);
+    const wk = $('week'); wk.innerHTML = '';
+    for (let i = 6; i >= 0; i -= 1) {
+      const d = addDays(new Date(), -i); const s = document.createElement('span');
+      s.textContent = t('week')[d.getDay()];
+      if (set.has(dayKey(d))) s.classList.add('done'); if (i === 0) s.classList.add('today');
+      wk.appendChild(s);
+    }
+    $('todayDone').textContent = set.has(dayKey(new Date())) ? t('todayDone') : '';
+    $('lvEasy').setAttribute('aria-pressed', level === 'easy'); $('lvNormal').setAttribute('aria-pressed', level === 'normal');
+    $('voice').textContent = voiceOn ? t('voiceOn') : t('voiceOff'); $('voice').setAttribute('aria-pressed', voiceOn);
+    const f = clean(params.get('from')); const s = parseInt(params.get('s'), 10) || 0;
+    if (f) { $('invite').textContent = t('invite')(f, s > 0 && s < 1000 ? s : 0); $('invite').classList.remove('hidden'); }
+  };
+  const list = (id, items) => { const ul = $(id); ul.innerHTML = ''; items.forEach((x) => { const li = document.createElement('li'); li.textContent = x; ul.appendChild(li); }); };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Home Dance Workout | NextGrade`;
+    $('lang').value = lang;
+    $('brandSub').textContent = t('brand'); $('title').textContent = t('title'); $('sub').textContent = t('sub');
+    $('lvEasy').textContent = t('easy'); $('lvNormal').textContent = t('normal'); $('go').textContent = t('go');
+    $('pause').textContent = paused ? t('resume') : t('pause'); $('skip').textContent = t('skip');
+    $('doneTitle').textContent = t('doneTitle'); $('nameLabel').textContent = t('nameLabel'); $('myName').placeholder = t('namePh');
+    $('share').textContent = t('share'); $('again').textContent = t('again'); $('copyDone').textContent = t('copyDone'); $('baNote').textContent = t('baNote');
+    ['shareH', 'shareP', 'shWa', 'shCopy', 'shMore'].forEach((id) => { $(id).textContent = t(id); }); $('tomorrow').textContent = t('tomorrow');
+    $('aboutH').textContent = t('aboutH'); $('aboutP').textContent = t('aboutP'); $('tipsH').textContent = t('tipsH'); $('health').textContent = t('health');
+    list('aboutList', t('aboutList')); list('tipsList', t('tipsList'));
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`; $('gamesLink').href = `https://nextgrade.in${p}/games/`; $('meLink').href = `https://nextgrade.in/games/morning-exercise/?lang=${lang}`;
+    $('meLink').textContent = t('me'); $('gamesLink').textContent = t('games');
+    renderStart();
+    if (cur) showStep();
+    if (lastBA) drawBA();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('zb-lang', lang); applyLang(); });
+  [$('lvEasy'), $('lvNormal')].forEach((b) => b.addEventListener('click', () => { level = b.dataset.level; store.set('zb-level', level); renderStart(); }));
+  $('voice').addEventListener('click', () => { voiceOn = !voiceOn; store.set('zb-voice', voiceOn ? '1' : '0'); renderStart(); if (voiceOn) say(t('getReady')); else if (canSpeak) speechSynthesis.cancel(); });
+  $('year').textContent = new Date().getFullYear();
+  $('myName').value = store.get('zb-name') || '';
+
+  // ---- the dancer (our own drawing). fit: 0 = fuller at the start → 1 = trim at the end
+  const lerp = (a, b, k) => a + (b - a) * k;
+  const LP = (a, b, k) => [lerp(a[0], b[0], k), lerp(a[1], b[1], k)];
+  const rot = (p, a) => [p[0] * Math.cos(a) - p[1] * Math.sin(a), p[0] * Math.sin(a) + p[1] * Math.cos(a)];
+  const ik = (a, target, l1, l2, bendSign) => {
+    const dx = target[0] - a[0], dy = target[1] - a[1]; let d = Math.hypot(dx, dy);
+    const maxd = l1 + l2 - 0.001; const k = d > maxd ? maxd / d : 1; const tx = a[0] + dx * k, ty = a[1] + dy * k; d = Math.min(d, maxd);
+    const base = Math.atan2(ty - a[1], tx - a[0]);
+    const cosA = Math.max(-1, Math.min(1, (l1 * l1 + d * d - l2 * l2) / (2 * l1 * d)));
+    const ang = base + bendSign * Math.acos(cosA);
+    return { mid: [a[0] + Math.cos(ang) * l1, a[1] + Math.sin(ang) * l1], end: [tx, ty] };
+  };
+  // pose: dx (whole body shift), sway (hips vs feet), hip y, lean, lift, tilt, ul/ur (knee lift), hands rel. to shoulders, feet (world)
+  const STAND = { dx: 0, sway: 0, ul: 0, ur: 0, hip: 0.49, lean: 0, lift: 0, tilt: 0, hl: [-0.1, -0.31], hr: [0.1, -0.31], fl: [-0.08, 0], fr: [0.08, 0] };
+  const P = (o) => Object.assign({}, STAND, o);
+  const S = (k) => Math.sin(k * Math.PI * 2);
+  const MOVES = {
+    // cyc in beats; k = 0..1 through the cycle
+    steptouch: { beats: 4, fn: (k) => { const s = S(k); const o = 0.09 * s; return P({ dx: o, sway: -0.02 * s, fl: [-0.08 + o + (s < 0 ? 0.05 * s : 0), 0], fr: [0.08 + o + (s > 0 ? 0.05 * s : 0), 0], hl: [-0.2, -0.12 + 0.12 * Math.abs(s)], hr: [0.2, -0.12 + 0.12 * Math.abs(s)], lean: -0.05 * s }); } },
+    salsa: { beats: 4, fn: (k) => { const s = S(k), c = Math.cos(k * Math.PI * 2); return P({ sway: 0.04 * s, lean: -0.06 * s, fl: [-0.09, 0], fr: [0.09 + 0.03 * c, 0], ul: Math.max(0, -c) * 0.25, hl: [-0.14, -0.12 + 0.05 * s], hr: [0.14, -0.12 - 0.05 * s], hip: 0.48 }); } },
+    march: { beats: 2, fn: (k) => { const s = S(k); return P({ ul: Math.max(0, s) * 0.6, ur: Math.max(0, -s) * 0.6, sway: 0.025 * s, hl: [-0.16, -0.14 + 0.1 * Math.max(0, -s)], hr: [0.16, -0.14 + 0.1 * Math.max(0, s)] }); } },
+    punch: { beats: 2, fn: (k) => { const s = S(k); const up = (x) => Math.max(0, x); return P({ fl: [-0.13, 0], fr: [0.13, 0], hip: 0.46, sway: 0.02 * s, hl: LP([-0.06, -0.12], [-0.02, 0.32], up(s)), hr: LP([0.06, -0.12], [0.02, 0.32], up(-s)), lean: 0.06 * s }); } },
+    knee: { beats: 2, fn: (k) => { const s = S(k); return P({ ul: Math.max(0, s), ur: Math.max(0, -s), lean: -0.12 * s, hl: LP([-0.18, 0.12], [0.1, -0.2], Math.max(0, -s)), hr: LP([0.18, 0.12], [-0.1, -0.2], Math.max(0, s)), fl: [-0.07, 0], fr: [0.07, 0] }); } },
+    grape: { beats: 8, fn: (k) => { const pos = Math.sin(k * Math.PI * 2) * 0.16; const st = Math.abs(Math.sin(k * Math.PI * 8)); const clap = st > 0.85 ? 1 : 0; return P({ dx: pos, fl: [-0.08 + pos - 0.04 * st, 0], fr: [0.08 + pos + 0.04 * st, 0], hip: 0.49 - 0.02 * st, hl: clap ? [0.08, 0.05] : [-0.18, 0.02], hr: clap ? [-0.08, 0.05] : [0.18, 0.02] }); } },
+    hips: { beats: 4, fn: (k) => { const s = S(k), c = Math.cos(k * Math.PI * 2); return P({ sway: 0.06 * s, hip: 0.48 + 0.012 * c, lean: -0.08 * s, fl: [-0.12, 0], fr: [0.12, 0], hl: [0.0, -0.26], hr: [0.0, -0.26], eo: true }); } },
+    cool: { beats: 8, fn: (k) => { const s = (1 - Math.cos(k * Math.PI * 2)) / 2; return P({ hip: 0.49 + 0.02 * s, hl: LP([-0.12, -0.3], [-0.05, 0.32], s), hr: LP([0.12, -0.3], [0.05, 0.32], s), lift: 0.01 * s }); } },
+  };
+  const poseAt = (key, time) => { const m = MOVES[key]; return m.fn(((time / (m.beats * BEAT)) % 1 + 1) % 1); };
+
+  const drawDancer = (ctx, W, H, pose, fit, time, glow) => {
+    const unit = Math.min(H * 0.8, W * 1.1), gx = W / 2, gy = H * 0.94;
+    const X = (p) => gx + p[0] * unit, Y = (p) => gy - p[1] * unit;
+    const pt = (p) => [X(p), Y(p)];
+    const f = Math.max(0, Math.min(1, fit));
+    // widths that change with fitness
+    const waist = lerp(0.19, 0.062, f), hipW = lerp(0.19, 0.085, f), belly = lerp(0.09, 0, f), shW = lerp(0.105, 0.08, f);
+    const armT = lerp(0.066, 0.034, f), legT = lerp(0.11, 0.05, f), cheek = lerp(1.28, 1, f);
+    ctx.fillStyle = 'rgba(0,0,0,0.28)'; ctx.beginPath(); ctx.ellipse(X([pose.dx, 0]), gy + 4, unit * lerp(0.26, 0.2, f), unit * 0.025, 0, 0, Math.PI * 2); ctx.fill();
+    if (glow > 0) { const g = ctx.createRadialGradient(X([pose.dx, 0.55]), Y([0, 0.55]), 10, X([pose.dx, 0.55]), Y([0, 0.55]), unit * 0.6); g.addColorStop(0, `rgba(255, 212, 59, ${0.18 * glow})`); g.addColorStop(1, 'rgba(255, 212, 59, 0)'); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(X([pose.dx, 0.55]), Y([0, 0.55]), unit * 0.6, 0, Math.PI * 2); ctx.fill(); }
+    const hip = [pose.dx + pose.sway, pose.hip];
+    const up = rot([0, 0.34], pose.lean);
+    const neck = [hip[0] + up[0], hip[1] + up[1] + pose.lift * 0.3];
+    const shoulder = (sx) => { const r = rot([sx, -0.02 + pose.lift], pose.lean); return [neck[0] + r[0], neck[1] + r[1]]; };
+    const shL = shoulder(-shW), shR = shoulder(shW);
+    const hand = (sh, h) => { const r = rot(h, pose.lean); return [sh[0] + r[0], sh[1] + r[1]]; };
+    const hL = hand(shL, pose.hl), hR = hand(shR, pose.hr);
+    const hipL = [hip[0] - hipW * 0.5, hip[1]], hipR = [hip[0] + hipW * 0.5, hip[1]];
+    const leg = (h, foot, u, side) => {
+      const fpt = [foot[0] + pose.dx * 0, foot[1]];
+      if (!u) return ik(h, fpt, 0.25, 0.25, side);
+      const kn = [h[0] + side * 0.03 * u, h[1] - 0.25 * (1 - 0.8 * u)];
+      return { mid: kn, end: [kn[0], kn[1] - 0.25 * (1 - 0.25 * u)] };
+    };
+    const legL = leg(hipL, [pose.fl[0], pose.fl[1]], pose.ul, -1), legR = leg(hipR, [pose.fr[0], pose.fr[1]], pose.ur, 1);
+    const armL = ik(shL, hL, 0.16, 0.16, pose.eo ? -1 : 1), armR = ik(shR, hR, 0.16, 0.16, pose.eo ? 1 : -1);
+    const line = (pts, w, c) => { ctx.strokeStyle = c; ctx.lineWidth = w; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(...pt(pts[0])); pts.slice(1).forEach((p) => ctx.lineTo(...pt(p))); ctx.stroke(); };
+    const skin = '#c68a5e', legging = '#5f3dc4', top = '#f06595', shoe = '#ffffff', hair = '#1f1410';
+    // ponytail behind the head, swinging with the beat
+    const headUp = rot([0, 0.1], pose.lean + pose.tilt);
+    const hc = [neck[0] + headUp[0], neck[1] + headUp[1]];
+    const swing = Math.sin(time * Math.PI * 2 / BEAT / 2) * 0.05;
+    line([[hc[0] + 0.03, hc[1] + 0.05], [hc[0] + 0.08 + swing, hc[1] - 0.02], [hc[0] + 0.06 + swing * 1.6, hc[1] - 0.12]], unit * 0.04, hair);
+    // legs (leggings) and shoes
+    line([hipL, legL.mid, legL.end], unit * legT, legging); line([hipR, legR.mid, legR.end], unit * legT, legging);
+    [legL.end, legR.end].forEach((ft) => { ctx.fillStyle = shoe; ctx.beginPath(); ctx.ellipse(X(ft), Y(ft) - 2, unit * 0.045, unit * 0.02, 0, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#ff922b'; ctx.fillRect(X(ft) - unit * 0.03, Y(ft) - 3, unit * 0.06, 2); });
+    // hips (leggings top)
+    ctx.fillStyle = legging; ctx.beginPath(); ctx.ellipse(X(hip), Y([0, hip[1] + 0.01]), unit * hipW * 0.62, unit * lerp(0.075, 0.05, f), 0, 0, Math.PI * 2); ctx.fill();
+    // torso: sports top with a waist that narrows as fit grows, and a belly curve that goes away
+    const wy = hip[1] + 0.12;
+    const wl = [neck[0] - waist * 0.6 + rot([0, -0.22], pose.lean)[0] * 0, wy], wr = [neck[0] + waist * 0.6, wy];
+    const midW = [(hip[0] + neck[0]) / 2, wy];
+    ctx.fillStyle = top;
+    ctx.beginPath();
+    ctx.moveTo(...pt(shL)); ctx.lineTo(...pt(shR));
+    ctx.quadraticCurveTo(...pt([shR[0] + 0.01, (shR[1] + wy) / 2]), ...pt([midW[0] + waist * 0.62, wy]));
+    ctx.quadraticCurveTo(...pt([hipR[0] + belly * 0.8, hip[1] + 0.06]), ...pt([hipR[0], hip[1] + 0.02]));
+    ctx.lineTo(...pt([hipL[0], hip[1] + 0.02]));
+    ctx.quadraticCurveTo(...pt([hipL[0] - belly * 0.8, hip[1] + 0.06]), ...pt([midW[0] - waist * 0.62, wy]));
+    ctx.quadraticCurveTo(...pt([shL[0] - 0.01, (shL[1] + wy) / 2]), ...pt(shL));
+    ctx.closePath(); ctx.fill();
+    // a white stripe on the top
+    ctx.strokeStyle = 'rgba(255,255,255,0.75)'; ctx.lineWidth = unit * 0.008;
+    ctx.beginPath(); ctx.moveTo(...pt([shL[0] + 0.02, shL[1] - 0.03])); ctx.lineTo(...pt([midW[0] - waist * 0.4, wy + 0.01])); ctx.stroke();
+    // arms
+    line([shL, armL.mid, armL.end], unit * armT, skin); line([shR, armR.mid, armR.end], unit * armT, skin);
+    line([shL, LP(shL, armL.mid, 0.4)], unit * (armT + 0.012), top); line([shR, LP(shR, armR.mid, 0.4)], unit * (armT + 0.012), top);
+    [armL.end, armR.end].forEach((h) => { ctx.fillStyle = skin; ctx.beginPath(); ctx.arc(X(h), Y(h), unit * armT * 0.6, 0, Math.PI * 2); ctx.fill(); });
+    // neck and head
+    line([neck, hc], unit * 0.032, skin);
+    ctx.save(); ctx.translate(X(hc), Y(hc)); ctx.rotate(-(pose.lean + pose.tilt));
+    const r = unit * 0.075;
+    ctx.fillStyle = skin; ctx.beginPath(); ctx.ellipse(0, 0, r * cheek, r * (1 + (cheek - 1) * 0.4), 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = hair; ctx.beginPath(); ctx.arc(0, -r * 0.18, r * 1.04 * cheek, Math.PI * 1.02, Math.PI * 1.98); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(r * 0.35, -r * 0.55, r * 0.55, r * 0.3, -0.4, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#ff6b6b'; ctx.fillRect(-r * 1.0 * cheek, -r * 0.52, r * 2.0 * cheek, r * 0.16); // headband
+    ctx.fillStyle = '#2b1d14'; ctx.beginPath(); ctx.arc(-r * 0.35, r * 0.05, r * 0.09, 0, Math.PI * 2); ctx.arc(r * 0.35, r * 0.05, r * 0.09, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#e03131'; ctx.beginPath(); ctx.arc(0, -r * 0.2, r * 0.07, 0, Math.PI * 2); ctx.fill(); // bindi
+    ctx.strokeStyle = '#c92a2a'; ctx.lineWidth = r * 0.12; ctx.beginPath(); ctx.arc(0, r * 0.25, r * 0.35, 0.15 * Math.PI, 0.85 * Math.PI); ctx.stroke();
+    ctx.fillStyle = 'rgba(255, 107, 107, 0.35)'; ctx.beginPath(); ctx.arc(-r * 0.62 * cheek, r * 0.35, r * 0.16, 0, Math.PI * 2); ctx.arc(r * 0.62 * cheek, r * 0.35, r * 0.16, 0, Math.PI * 2); ctx.fill();
+    ctx.restore();
+    // sweat drops while working hard (middle of the session)
+    if (f > 0.2 && f < 0.95) { const dk = (time * 1.3) % 1; ctx.fillStyle = 'rgba(165, 216, 255, 0.85)'; ctx.beginPath(); ctx.ellipse(X(hc) + unit * 0.1, Y(hc) - unit * 0.02 + dk * unit * 0.08, 3, 4.5, 0, 0, Math.PI * 2); ctx.fill(); }
+  };
+
+  // ---- canvases
+  const canvas = $('stage'); const ctx = canvas.getContext('2d');
+  let W = 0, H = 0;
+  const fitCanvas = (c, x) => { const DPR = Math.min(window.devicePixelRatio || 1, 2); const r = c.getBoundingClientRect(); c.width = Math.round(r.width * DPR); c.height = Math.round(r.height * DPR); x.setTransform(DPR, 0, 0, DPR, 0, 0); return [r.width, r.height]; };
+  const resize = () => { [W, H] = fitCanvas(canvas, ctx); };
+
+  // disco lights behind the dancer
+  const drawFloor = (c, w, h, time) => {
+    const g = c.createLinearGradient(0, 0, 0, h); g.addColorStop(0, '#3a0f52'); g.addColorStop(1, '#1d0629'); c.fillStyle = g; c.fillRect(0, 0, w, h);
+    const beat = (time / BEAT) % 1;
+    ['#f06595', '#ffd43b', '#4dabf7', '#69db7c'].forEach((col, i) => {
+      const a = time * 0.6 + i * 1.6; const x = w / 2 + Math.sin(a) * w * 0.45;
+      const gr = c.createRadialGradient(x, 0, 4, x, h * 0.4, h * 0.7); gr.addColorStop(0, col + '55'); gr.addColorStop(1, col + '00');
+      c.fillStyle = gr; c.beginPath(); c.moveTo(x, 0); c.lineTo(x - w * 0.18, h); c.lineTo(x + w * 0.18, h); c.closePath(); c.fill();
+    });
+    c.fillStyle = `rgba(255,255,255,${0.05 + 0.08 * (1 - beat)})`; c.fillRect(0, h * 0.94, w, h * 0.06);
+  };
+  const drawFitMeter = (fit) => {
+    const x = 16, y = 16, w = Math.min(160, W * 0.42), h = 12;
+    ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillRect(x - 6, y - 6, w + 12, 44);
+    ctx.fillStyle = '#fff'; ctx.font = '700 12px Inter, "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+    ctx.fillText(`💪 ${t('fit')}`, x, y);
+    ctx.fillStyle = 'rgba(255,255,255,0.15)'; ctx.fillRect(x, y + 18, w, h);
+    const g = ctx.createLinearGradient(x, 0, x + w, 0); g.addColorStop(0, '#ff922b'); g.addColorStop(1, '#51cf66');
+    ctx.fillStyle = g; ctx.fillRect(x, y + 18, w * Math.max(0.03, fit), h);
+    ctx.textBaseline = 'alphabetic';
+  };
+  const drawBeat = (time) => {
+    const n = Math.floor(time / BEAT) % 4; const cx = W - 74, cy = 30;
+    for (let i = 0; i < 4; i += 1) { ctx.fillStyle = i === n ? '#ffd43b' : 'rgba(255,255,255,0.2)'; ctx.beginPath(); ctx.arc(cx + i * 16, cy, i === n ? 6 : 4, 0, Math.PI * 2); ctx.fill(); }
+  };
+  const drawRing = (left, total, rest) => {
+    const cx = W - 44, cy = 74, r = 26;
+    ctx.lineWidth = 7; ctx.strokeStyle = 'rgba(255,255,255,0.15)'; ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+    ctx.strokeStyle = rest ? '#74c0fc' : left <= 5 ? '#ff6b6b' : '#ffd43b'; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * (left / total)); ctx.stroke();
+    ctx.fillStyle = '#fff'; ctx.font = '800 20px Inter, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(Math.ceil(left)), cx, cy + 1); ctx.textBaseline = 'alphabetic';
+  };
+
+  // idle preview on the start screen: the dancer stepping to an imaginary beat, fit 0
+  const prev = $('preview'); const pctx = prev.getContext('2d'); let pW = 0, pH = 0, pRaf = 0;
+  const previewLoop = (now) => {
+    if ($('start').classList.contains('hidden')) return;
+    if (!pW) [pW, pH] = fitCanvas(prev, pctx);
+    const time = now / 1000;
+    drawFloor(pctx, pW, pH, time);
+    drawDancer(pctx, pW, pH, poseAt('steptouch', time), 0.05, time, 0);
+    pRaf = requestAnimationFrame(previewLoop);
+  };
+
+  // ---- workout loop
+  let cur = null, paused = false, last = 0, raf = 0, wake = null, lastBA = false;
+  const plan = () => PLAN[level];
+  const total = () => plan().reduce((a, [, s]) => a + s, 0) + REST * (plan().length - 1);
+  const toast = (text) => { const el = $('toast'); el.textContent = text; el.classList.remove('show'); void el.offsetWidth; el.classList.add('show'); };
+  const showStep = () => {
+    const [key] = plan()[cur.i]; const [name, tip] = t('ex')[key];
+    $('exStep').textContent = t('step')(cur.i + 1, plan().length);
+    $('exName').textContent = cur.rest ? t('rest') : name;
+    $('exTip').textContent = cur.rest ? t('next')(t('ex')[plan()[cur.i + 1][0]][0]) : tip;
+    $('pause').textContent = paused ? t('resume') : t('pause');
+  };
+  const begin = () => {
+    $('start').classList.add('hidden'); $('done').classList.add('hidden'); $('work').classList.remove('hidden');
+    cancelAnimationFrame(pRaf);
+    cur = { i: 0, rest: false, left: plan()[0][1], time: 0, done: 0, half: false, cheer: 0 };
+    paused = false; resize(); showStep();
+    startMusic();
+    say(t('voiceSay').start(t('ex')[plan()[0][0]][0]));
+    if ('wakeLock' in navigator) navigator.wakeLock.request('screen').then((w) => { wake = w; }).catch(() => {});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    last = performance.now(); cancelAnimationFrame(raf); raf = requestAnimationFrame(loop);
+  };
+  const nextStep = () => {
+    if (!cur.rest && cur.i < plan().length - 1) { cur.rest = true; cur.left = REST; showStep(); say(t('voiceSay').next(t('ex')[plan()[cur.i + 1][0]][0])); return; }
+    if (cur.rest) { cur.rest = false; cur.i += 1; cur.left = plan()[cur.i][1]; cur.half = false; cur.cheer = 0; showStep(); if (cur.i === plan().length - 1) toast(t('last')); return; }
+    finish();
+  };
+  // fitness grows with each move finished (and smoothly through the current one)
+  const fitNow = () => { if (!cur) return 0; const n = plan().length; const len = plan()[cur.i][1]; const part = cur.rest ? 1 : Math.max(0, Math.min(1, 1 - cur.left / len)); return Math.min(1, (cur.i + part) / n); };
+  const loop = (now) => {
+    const dt = Math.min(0.1, (now - last) / 1000); last = now;
+    if (!cur) return;
+    if (!paused) {
+      cur.left -= dt; cur.time += dt; cur.done += dt;
+      const len = cur.rest ? REST : plan()[cur.i][1];
+      if (!cur.rest) {
+        if (!cur.half && cur.i === Math.floor(plan().length / 2) && cur.left <= len / 2) { cur.half = true; toast(t('half')); say(t('voiceSay').half); }
+        else if (cur.cheer < 1 && len - cur.left > len * 0.35) { cur.cheer += 1; toast(t('cheers')[Math.floor(Math.random() * t('cheers').length)]); }
+      }
+      if (cur.left <= 0) nextStep();
+      if (!cur) return;
+    }
+    $('bar').style.width = `${Math.min(100, (cur.done / total()) * 100)}%`;
+    drawFloor(ctx, W, H, cur.time);
+    const key = cur.rest ? 'cool' : plan()[cur.i][0];
+    const pose = cur.rest ? STAND : poseAt(key, cur.time);
+    const fit = fitNow();
+    drawDancer(ctx, W, H, pose, fit, cur.time, fit > 0.9 ? (fit - 0.9) * 10 : 0);
+    drawFitMeter(fit);
+    drawBeat(cur.time);
+    drawRing(Math.max(0, cur.left), cur.rest ? REST : plan()[cur.i][1], cur.rest);
+    raf = requestAnimationFrame(loop);
+  };
+  const stopWork = () => { cur = null; cancelAnimationFrame(raf); stopMusic(); if (wake) { wake.release().catch(() => {}); wake = null; } };
+  $('go').addEventListener('click', begin);
+  $('again').addEventListener('click', begin);
+  $('pause').addEventListener('click', () => { paused = !paused; $('pause').textContent = paused ? t('resume') : t('pause'); if (paused) { stopMusic(); if (canSpeak) speechSynthesis.cancel(); } else startMusic(); });
+  $('skip').addEventListener('click', () => { if (cur) nextStep(); });
+  $('quit').addEventListener('click', () => { stopWork(); if (canSpeak) speechSynthesis.cancel(); $('work').classList.add('hidden'); $('start').classList.remove('hidden'); renderStart(); pRaf = requestAnimationFrame(previewLoop); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden && cur) { paused = true; stopMusic(); $('pause').textContent = t('resume'); if (canSpeak) speechSynthesis.cancel(); } });
+
+  // ---- before / after picture on the finish screen
+  const drawBA = () => {
+    const c = $('ba'); const x = c.getContext('2d'); const [w, h] = fitCanvas(c, x);
+    x.clearRect(0, 0, w, h);
+    const half = w / 2;
+    [[0, 0, t('baBefore')], [half, 1, t('baAfter')]].forEach(([ox, fit, label]) => {
+      x.save(); x.translate(ox, 0); x.beginPath(); x.rect(0, 0, half, h); x.clip();
+      drawFloor(x, half, h, fit * 3);
+      drawDancer(x, half, h - 26, fit ? P({ hl: [-0.06, 0.3], hr: [0.06, 0.3] }) : STAND, fit, 0.3, fit);
+      x.fillStyle = '#fff'; x.font = '800 15px Inter, "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif'; x.textAlign = 'center'; x.fillText(label, half / 2, h - 8);
+      x.restore();
+    });
+    x.fillStyle = '#ffd43b'; x.font = '800 26px Inter, sans-serif'; x.textAlign = 'center'; x.fillText('➜', half, h / 2);
+    lastBA = true;
+  };
+
+  // ---- finish
+  let streakNow = 0;
+  const finish = () => {
+    const mins = level === 'easy' ? 3 : 4;
+    stopWork();
+    streakNow = markToday();
+    $('work').classList.add('hidden'); $('done').classList.remove('hidden');
+    $('doneSub').textContent = t('doneSub')(streakNow, mins);
+    const marks = Object.keys(t('badges')).map(Number).filter((n) => n <= streakNow);
+    $('badgeText').textContent = t('badges')[marks.length ? Math.max(...marks) : 1];
+    drawBA();
+    say(t('voiceSay').done);
+    if (navigator.vibrate) navigator.vibrate([80, 60, 80, 60, 160]);
+    confetti();
+  };
+  const shareLink = () => {
+    const name = clean($('myName').value || store.get('zb-name') || ''); const n = streakOf(getDays());
+    const u = new URL(SITE); if (name) u.searchParams.set('from', name); if (n) u.searchParams.set('s', String(n)); u.searchParams.set('lang', lang);
+    return { url: u.toString(), name, n };
+  };
+  const wa = (text) => window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+  const copy = (statusId) => {
+    const { url } = shareLink();
+    (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject())
+      .then(() => { $(statusId).textContent = t('copied'); })
+      .catch(() => { window.prompt(t('shCopy'), url); });
+  };
+  $('share').addEventListener('click', () => { store.set('zb-name', clean($('myName').value)); const l = shareLink(); wa(t('shareText')(l.name, l.n, l.url)); });
+  $('copyDone').addEventListener('click', () => { store.set('zb-name', clean($('myName').value)); copy('doneStatus'); });
+  $('shWa').addEventListener('click', () => { const l = shareLink(); wa(t('inviteText')(l.name, l.n, l.url)); });
+  $('shCopy').addEventListener('click', () => copy('shStatus'));
+  if (navigator.share) {
+    $('shMore').classList.remove('hidden');
+    $('shMore').addEventListener('click', () => { const l = shareLink(); navigator.share({ title: t('title'), text: t('inviteText')(l.name, l.n, ''), url: l.url }).catch(() => {}); });
+  }
+  const confetti = () => {
+    const c = $('confetti'); const x = c.getContext('2d'); const [w, h] = fitCanvas(c, x);
+    const COLS = ['#f06595', '#ffd43b', '#4dabf7', '#69db7c', '#ff922b', '#cc5de8'];
+    const bits = Array.from({ length: 140 }, () => ({ x: Math.random() * w, y: -20 - Math.random() * h * 0.6, vy: 120 + Math.random() * 160, vx: (Math.random() - 0.5) * 60, a: Math.random() * 6, c: COLS[Math.floor(Math.random() * COLS.length)], s: 5 + Math.random() * 5 }));
+    let p = performance.now(); const until = p + 4500;
+    const step = (now) => {
+      const dt = Math.min(0.05, (now - p) / 1000); p = now; x.clearRect(0, 0, w, h);
+      bits.forEach((b) => { b.y += b.vy * dt; b.x += b.vx * dt; b.a += dt * 5; x.save(); x.translate(b.x, b.y); x.rotate(b.a); x.fillStyle = b.c; x.fillRect(-b.s / 2, -b.s / 4, b.s, b.s / 2); x.restore(); });
+      if (now < until) requestAnimationFrame(step); else x.clearRect(0, 0, w, h);
+    };
+    requestAnimationFrame(step);
+  };
+
+  applyLang();
+  pRaf = requestAnimationFrame(previewLoop);
+  window.addEventListener('resize', () => { if (cur) resize(); pW = 0; if (lastBA && !$('done').classList.contains('hidden')) drawBA(); });
+  if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+})();
+</script>
+</body>
+</html>

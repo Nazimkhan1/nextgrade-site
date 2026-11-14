@@ -425,6 +425,7 @@ const wishes = {
 
 const games = {
   'morning-exercise': { name: 'Subah ka 2-Minute Challenge', desc: 'Cartoon coach ke saath 8 aasaan kasratein — timer, roz ki 🔥 streak, badges aur dosto ko WhatsApp pe challenge. Sirf 2 minute (har kasrat 15 second), bina camera, bina login.' },
+  zumba: { name: 'Ghar Baithe Zumba', desc: 'Mahilaon ke liye ghar ka dance workout — music ke saath 8 mazedaar moves, cartoon coach jo har move ke saath fit hoti jaati hai, awaaz mein coach, roz ki 🔥 streak aur saheliyon ko challenge.' },
   chhath: { name: 'Chhath Ghat', desc: 'Bhor mein nadi mein dupki lagao, ugte suraj ko sahi pal pe arghya do, phir soop mein thekua-kela-ganna pakad ke vrat kholo. Teen stage, ghanti aur paani ki awaaz, WhatsApp challenge.' },
   'new-year': { name: 'Aatishbaazi Pop', desc: 'Neeche se uthte rockets tap karke aasmaan mein phodo — sabse upar phodo to Perfect, jaldi-jaldi phodo to combo. Saath mein naye saal ka live countdown.' },
   christmas: { name: 'Santa ke Gift Pakdo', desc: 'Santa ki sleigh chalao, girte gifts pakdo, koyle se bacho aur doston ko WhatsApp pe score ka challenge bhejo. Hindi, Hinglish, English aur Bangla mein.' },

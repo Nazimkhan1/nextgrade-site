@@ -294,6 +294,7 @@ const wishes = {
 
 const games = {
   'morning-exercise': { name: 'Morning 2-Minute Challenge', desc: '8 easy moves with a cartoon coach — a timer, a daily 🔥 streak, badges and WhatsApp challenges for friends. Just 2 minutes (15 seconds a move), no camera, no login.' },
+  zumba: { name: 'Home Zumba', desc: 'A home dance workout for women — 8 fun moves to music, a cartoon coach who gets fitter with every move, a voice coach, a daily 🔥 streak and challenges for friends.' },
   chhath: { name: 'Chhath Ghat', desc: 'Take the holy dip at dawn, offer arghya to the rising sun at the right moment, then catch thekua, bananas and sugarcane in your soop to break the fast. Three stages, temple bells and splashes, WhatsApp challenge.' },
   'new-year': { name: 'Fireworks Pop', desc: 'Tap the rockets rising into the sky and burst them — at the very top for a Perfect, quickly for combos. With a live countdown to the new year.' },
   christmas: { name: 'Catch Santa\'s Gifts', desc: 'Steer Santa\'s sleigh, catch the falling gifts, dodge the coal and challenge friends on WhatsApp. In Hindi, Hinglish, English and Bengali.' },
