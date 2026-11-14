@@ -24,7 +24,7 @@ Site: **~162 pages**, all in 4 languages. Everything below is live (pushed to ma
   - `good-morning` — sunrise, birds, clouds, sunflowers, weekday greeting, daily-changing message. On the engine.
   - Shared engine `celebrate/engine.js` + `engine.css` (see "Animated wishes engine" below). Register pages in the `CELEBRATE` list in build.mjs.
 - [x] Game `/games/morning-exercise/` — **Subah ka 2-Minute Challenge**: 8 moves × **15 s each** (user asked), 2 s rest, Easy/Normal, cartoon coach, streak + badges, optional voice coach, share box under the game (WhatsApp / copy link / native share) + share & copy on the finish screen.
-- Rules from the user today: **sound always optional** (nothing auto-plays); Jumma: no music; animated pages must look attractive.
+- Rules from the user today: **sound only in games** (games: sound/voice ON by default with a mute/toggle); **everywhere else sound is opt-in via a button** (wishes, stories, Shaadi baaja) — nothing auto-plays; Jumma: no music; animated pages must look attractive.
 
 - [x] `/celebrate/christmas/` (14 Nov, later) — snowfall, Christmas tree whose lights switch on one by one, glowing star, gifts, snowy houses with roof lights, Santa's sleigh + 2 reindeer crossing the moon every ~7 s. On the engine; card on Home+Wishes, button on the Christmas festival page (4 languages); links to the Christmas game.
 

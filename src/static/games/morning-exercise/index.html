@@ -111,7 +111,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         <button class="level" type="button" data-level="normal" id="lvNormal"></button>
       </div>
       <button class="btn btn-main btn-big" type="button" id="go"></button>
-      <button class="toggle" type="button" id="voice" aria-pressed="false"></button>
+      <button class="toggle" type="button" id="voice" aria-pressed="true"></button>
       <p class="note" id="todayDone"></p>
     </div>
     <!-- workout -->
@@ -340,9 +340,9 @@ footer a { color: var(--muted); margin-right: 12px; }
   };
   const REST = 2;
   let level = store.get('me-level') === 'easy' ? 'easy' : 'normal';
-  let voiceOn = store.get('me-voice') === '1';
+  let voiceOn = store.get('me-voice') !== '0';
 
-  // ---- voice coach (optional, off by default)
+  // ---- voice coach (on by default in games, toggle to switch off; speaks only after the Start tap)
   const canSpeak = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
   const say = (text) => {
     if (!voiceOn || !canSpeak) return;
