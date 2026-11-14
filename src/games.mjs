@@ -5,6 +5,14 @@
  */
 const games = [
   {
+    slug: 'new-year',
+    emoji: '🎆',
+    name: 'आतिशबाज़ी पॉप',
+    nameEn: 'Fireworks Pop',
+    tag: 'New Year',
+    desc: 'नीचे से उठते रॉकेट टैप करके आसमान में फोड़ो — सबसे ऊपर फोड़ो तो Perfect, जल्दी-जल्दी फोड़ो तो कॉम्बो। साथ में नए साल का लाइव काउंटडाउन।',
+  },
+  {
     slug: 'christmas',
     emoji: '🎅',
     name: 'Santa ke Gift Pakdo',

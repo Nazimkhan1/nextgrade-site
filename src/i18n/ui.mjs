@@ -73,7 +73,7 @@ const ui = {
       desc: 'त्योहारों पर बने छोटे, मुफ़्त ब्राउज़र गेम्स — फ़ोन पर खेलें, इंस्टॉल करें और दोस्तों को WhatsApp पर स्कोर का चैलेंज भेजें। कोई साइन-अप नहीं।',
       h1: '🎮 त्योहारों के गेम्स',
       lead: 'हर त्योहार पर एक छोटा, मज़ेदार गेम — फ़ोन पर सीधे खेलें, स्कोर बनाएं और WhatsApp पर दोस्तों को चैलेंज भेजें। गेम आपके फ़ोन में ही चलते हैं; हम कोई अकाउंट या निजी जानकारी नहीं लेते।',
-      soonH: 'जल्द आ रहे हैं', soonP: 'नए साल पर आतिशबाज़ी, दिवाली पर दीये जलाओ, होली के रंग और ईद पर ईदी गेम। 🎆🪔🎨🌙', tag: (t) => `${t} game`,
+      soonH: 'जल्द आ रहे हैं', soonP: 'दिवाली पर दीये जलाओ, होली के रंग, ईद पर ईदी गेम और राखी डिज़ाइन। 🪔🎨🌙🪢', tag: (t) => `${t} game`,
     },
     apps: {
       title: 'मुफ़्त ऐप्स और टूल्स | NextGrade',
@@ -169,7 +169,7 @@ const ui = {
       desc: 'Small free browser games for Indian festivals — play on your phone, install them and challenge friends on WhatsApp. No sign-up.',
       h1: '🎮 Festival games',
       lead: 'A small, fun game for every festival — play right in your phone\'s browser, set a score and challenge friends on WhatsApp. The games run on your phone; we don\'t ask for an account or any personal details.',
-      soonH: 'Coming soon', soonP: 'New Year fireworks, light the diyas for Diwali, Holi colours and an Eidi game for Eid. 🎆🪔🎨🌙', tag: (t) => `${t} game`,
+      soonH: 'Coming soon', soonP: 'Light the diyas for Diwali, Holi colours, an Eidi game for Eid and a rakhi designer. 🪔🎨🌙🪢', tag: (t) => `${t} game`,
     },
     apps: {
       title: 'Free Apps and Tools | NextGrade',
@@ -265,7 +265,7 @@ const ui = {
       desc: 'Tyoharon pe bane chhote, free browser games — phone pe khelo, install karo aur doston ko WhatsApp pe score ka challenge bhejo. Koi sign-up nahi.',
       h1: '🎮 Tyoharon ke games',
       lead: 'Har tyohar pe ek chhota, mazedaar game — phone pe seedha khelo, score banao aur WhatsApp pe doston ko challenge bhejo. Games aapke phone mein hi chalte hain; hum koi account ya personal jaankari nahi lete.',
-      soonH: 'Jaldi aa rahe hain', soonP: 'New Year pe aatishbaazi, Diwali pe diye jalao, Holi ke rang aur Eid pe Eidi game. 🎆🪔🎨🌙', tag: (t) => `${t} game`,
+      soonH: 'Jaldi aa rahe hain', soonP: 'Diwali pe diye jalao, Holi ke rang, Eid pe Eidi game aur rakhi design. 🪔🎨🌙🪢', tag: (t) => `${t} game`,
     },
     apps: {
       title: 'Free Apps aur Tools | NextGrade',
@@ -361,7 +361,7 @@ const ui = {
       desc: 'উৎসব নিয়ে তৈরি ছোট, ফ্রি ব্রাউজার গেম — ফোনে খেলো, ইনস্টল করো আর বন্ধুদের WhatsApp-এ স্কোরের চ্যালেঞ্জ পাঠাও। কোনো সাইন-আপ নেই।',
       h1: '🎮 উৎসবের গেম',
       lead: 'প্রতিটি উৎসবে একটা ছোট, মজার গেম — ফোনের ব্রাউজারেই খেলো, স্কোর করো আর WhatsApp-এ বন্ধুদের চ্যালেঞ্জ পাঠাও। গেমগুলো তোমার ফোনেই চলে; আমরা কোনো অ্যাকাউন্ট বা ব্যক্তিগত তথ্য নিই না।',
-      soonH: 'শিগগিরই আসছে', soonP: 'নববর্ষের আতশবাজি, দীপাবলির প্রদীপ জ্বালানো, হোলির রং আর ঈদের ঈদি গেম। 🎆🪔🎨🌙', tag: (t) => `${t} গেম`,
+      soonH: 'শিগগিরই আসছে', soonP: 'দীপাবলির প্রদীপ জ্বালানো, হোলির রং, ঈদের ঈদি গেম আর রাখি ডিজাইন। 🪔🎨🌙🪢', tag: (t) => `${t} গেম`,
     },
     apps: {
       title: 'ফ্রি অ্যাপ ও টুল | NextGrade',

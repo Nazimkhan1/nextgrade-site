@@ -380,6 +380,7 @@ const wishes = {
 };
 
 const games = {
+  'new-year': { name: 'Aatishbaazi Pop', desc: 'Neeche se uthte rockets tap karke aasmaan mein phodo — sabse upar phodo to Perfect, jaldi-jaldi phodo to combo. Saath mein naye saal ka live countdown.' },
   christmas: { name: 'Santa ke Gift Pakdo', desc: 'Santa ki sleigh chalao, girte gifts pakdo, koyle se bacho aur doston ko WhatsApp pe score ka challenge bhejo. Hindi, Hinglish, English aur Bangla mein.' },
 };
 

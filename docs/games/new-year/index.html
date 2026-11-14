@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aatishbaazi Pop 🎆 — New Year Game | NextGrade</title>
+<meta name="description" content="Free New Year fireworks game in Hindi, Hinglish, English and Bengali: tap the rockets, burst them at the top for a Perfect, chain combos and challenge friends on WhatsApp. With a live countdown to the new year.">
+<link rel="canonical" href="https://nextgrade.in/games/new-year/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Aatishbaazi Pop 🎆 — New Year Game">
+<meta property="og:description" content="Burst the fireworks, beat my score and count down to the new year!">
+<meta property="og:url" content="https://nextgrade.in/games/new-year/">
+<meta property="og:image" content="https://nextgrade.in/games/new-year/icons/icon-512.png">
+<meta name="theme-color" content="#141238">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Aatishbaazi Pop","url":"https://nextgrade.in/games/new-year/","genre":"Casual","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #141238; --bg2: #2b1d6b; --gold: #ffd43b; --pink: #f06595; --ink: #f8f9fa; --muted: #c5c3e6; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #3b2a8c, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.countdown { background: linear-gradient(90deg, #5f3dc4, #c2255c); border-radius: 14px; padding: 10px 14px; margin: 0 0 12px; text-align: center; }
+.countdown b { display: block; font-size: 13px; font-weight: 600; opacity: 0.9; }
+.countdown span { font-family: "Baloo 2", sans-serif; font-size: 26px; font-weight: 800; letter-spacing: 0.5px; }
+.challenge { background: linear-gradient(90deg, #e8590c, #f59f00); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.45); background: #0b0a24; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
+canvas { display: block; width: 100%; height: min(70vh, 620px); cursor: crosshair; }
+.hud { position: absolute; top: 10px; left: 10px; right: 10px; display: flex; justify-content: space-between; pointer-events: none; font-weight: 800; font-size: 18px; text-shadow: 0 2px 6px rgba(0,0,0,0.6); }
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(8, 6, 30, 0.72); padding: 16px; }
+.panel { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); backdrop-filter: blur(6px); border-radius: 18px; padding: 20px; width: min(420px, 100%); text-align: center; }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 26px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: var(--muted); }
+.big { font-family: "Baloo 2", sans-serif; font-size: 56px; font-weight: 800; color: var(--gold); line-height: 1; margin: 8px 0; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 11px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 10px 0; }
+input::placeholder { color: #a9a6d6; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; }
+.btn-main { background: linear-gradient(90deg, #f06595, #ff922b); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: center; font-size: 14px; color: var(--ink); margin: 8px 0 4px; }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🎆 NextGrade<small>New Year Game</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <div class="countdown" role="timer" aria-live="off"><b id="cdLabel"></b><span id="cdTime"></span></div>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="game" aria-label="Fireworks game"></canvas>
+    <div class="hud" aria-hidden="true"><span id="hudScore">⭐ 0</span><span id="hudCombo"></span><span id="hudTime">⏱ 45</span></div>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 id="startTitle"></h2>
+        <div class="legend"><span>🚀 +10</span><span data-i18n="perfectLegend"></span><span>🌟 +30</span><span>🔥 ×2 ×3</span></div>
+        <p data-i18n="controls"></p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <button class="btn btn-main" id="play" type="button" data-i18n="play"></button>
+        <p id="bestLine"></p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big" id="finalScore">0</div>
+        <p id="endNote"></p>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card"><ol id="howList"></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="safety"></p>
+    <p><span data-i18n="readMore"></span> <a id="guideLink" href="https://nextgrade.in/festivals/new-year/" data-i18n="guideLink"></a> · <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const ROUND = 45;
+  const SITE = 'https://nextgrade.in/games/new-year/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const now0 = new Date();
+  // The year being counted down to; in the first week of January keep celebrating the year that just began.
+  const NEW_YEAR = now0.getMonth() === 0 && now0.getDate() <= 7 ? now0.getFullYear() : now0.getFullYear() + 1;
+
+  const T = {
+    hinglish: {
+      title: 'Aatishbaazi Pop 🎆',
+      sub: 'Neeche se uthte rockets ko tap karke hawa mein phodo. Bilkul upar phodo to Perfect, jaldi-jaldi phodo to combo! 45 second.',
+      cdTo: (y) => `Naye saal ${y} mein baaki`, cdHere: (y) => `🎉 Happy New Year ${y}!`, days: 'din',
+      start: (y) => `🎆 Happy New Year ${y}!`, perfectLegend: '🎯 Perfect +20',
+      controls: 'Rocket pe tap ya click karo. Sabse oonchi jagah pe phodoge to extra points milenge.',
+      namePh: 'Aapka naam (challenge bhejne ke liye)', play: '▶ Khelo', resume: '▶ Phir se shuru karo',
+      best: (n) => `Aapka best score: ${n}`,
+      challenge: (name, n) => `🎯 ${name} ne ${n} points banaye hain — kya aap unhe hara sakte ho?`,
+      perfect: 'Perfect!', record: 'Naya record! 🏆', great: 'Kamaal kar diya! 🎉', good: 'Shabaash! 🎆',
+      beat: (name, n) => `Aapne ${name} (${n}) ko hara diya! 🥳`, notBeat: (name, n) => `${name} ka score ${n} hai — ek baar aur?`, bestNote: (n) => `Best score: ${n}`,
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareOther: '📤 Aur kahin share karo', again: '🔁 Phir se khelo', copied: '✅ Link copy ho gaya', copyPrompt: 'Ye link copy karo',
+      shareText: (name, n, y, url) => `🎆 ${name ? name + ' ne' : 'Maine'} "Aatishbaazi Pop" mein ${n} points banaye! Kya aap hara sakte ho? Happy New Year ${y}! 🎉\n${url}`,
+      howTitle: 'Kaise khelein',
+      how: ['<b>▶ Khelo</b> dabao. Neeche se rockets upar uthenge.', 'Rocket pe tap karo — hawa mein phat jaayega: +10.', 'Rocket jab sabse upar ruke, tab phodo — <b>Perfect +20</b>.', '🌟 Sunehri rocket +30. Ek-ek second ke andar phodte raho to combo ×2, ×3…', '45 second baad score WhatsApp pe bhejo aur doston ko challenge karo.'],
+      aboutTitle: 'Naye saal ke baare mein',
+      aboutText: 'Naya saal 1 January ko manaya jaata hai. 31 December ki raat log countdown karke aatishbaazi aur music ke saath naye saal ka swagat karte hain. Ye beete saal ko thank you kehne aur chhote naye sankalp lene ka mauka hai.',
+      safety: 'Asli patakhe kam chalao aur bachchon ko akele mat chalane do — is game mein jitni chaho utni aatishbaazi, bina dhuein ke! 😊',
+      readMore: 'Naye saal ki jaankari aur wishes:', guideLink: 'New Year guide', moreGames: 'Aur games',
+      privacyTitle: 'Aapki privacy',
+      privacyText: 'Ye game poori tarah aapke phone/browser mein chalta hai. Naam sirf us link mein rehta hai jo aap share karte ho, aur best score sirf isi device pe save hota hai. Hum koi account ya personal jaankari nahi lete.',
+    },
+    hi: {
+      title: 'आतिशबाज़ी पॉप 🎆',
+      sub: 'नीचे से उठते रॉकेटों को टैप करके हवा में फोड़ो। बिल्कुल ऊपर फोड़ो तो Perfect, जल्दी-जल्दी फोड़ो तो कॉम्बो! 45 सेकंड।',
+      cdTo: (y) => `नए साल ${y} में बाकी`, cdHere: (y) => `🎉 नया साल ${y} मुबारक!`, days: 'दिन',
+      start: (y) => `🎆 नया साल ${y} मुबारक!`, perfectLegend: '🎯 Perfect +20',
+      controls: 'रॉकेट पर टैप या क्लिक करो। सबसे ऊँची जगह पर फोड़ोगे तो ज़्यादा पॉइंट मिलेंगे।',
+      namePh: 'आपका नाम (चैलेंज भेजने के लिए)', play: '▶ खेलो', resume: '▶ फिर से शुरू करो',
+      best: (n) => `आपका बेस्ट स्कोर: ${n}`,
+      challenge: (name, n) => `🎯 ${name} ने ${n} पॉइंट बनाए हैं — क्या आप उन्हें हरा सकते हो?`,
+      perfect: 'Perfect!', record: 'नया रिकॉर्ड! 🏆', great: 'कमाल कर दिया! 🎉', good: 'शाबाश! 🎆',
+      beat: (name, n) => `आपने ${name} (${n}) को हरा दिया! 🥳`, notBeat: (name, n) => `${name} का स्कोर ${n} है — एक बार और?`, bestNote: (n) => `बेस्ट स्कोर: ${n}`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareOther: '📤 और कहीं शेयर करो', again: '🔁 फिर से खेलो', copied: '✅ लिंक कॉपी हो गया', copyPrompt: 'यह लिंक कॉपी करें',
+      shareText: (name, n, y, url) => `🎆 ${name ? name + ' ने' : 'मैंने'} "आतिशबाज़ी पॉप" में ${n} पॉइंट बनाए! क्या आप हरा सकते हो? नया साल ${y} मुबारक! 🎉\n${url}`,
+      howTitle: 'कैसे खेलें',
+      how: ['<b>▶ खेलो</b> दबाओ। नीचे से रॉकेट ऊपर उठेंगे।', 'रॉकेट पर टैप करो — वह हवा में फट जाएगा: +10।', 'जब रॉकेट सबसे ऊपर रुके, तभी फोड़ो — <b>Perfect +20</b>।', '🌟 सुनहरा रॉकेट +30। एक-एक सेकंड के अंदर फोड़ते रहो तो कॉम्बो ×2, ×3…', '45 सेकंड बाद स्कोर WhatsApp पर भेजो और दोस्तों को चैलेंज करो।'],
+      aboutTitle: 'नए साल के बारे में',
+      aboutText: 'नया साल 1 जनवरी को मनाया जाता है। 31 दिसंबर की रात लोग उल्टी गिनती करके आतिशबाज़ी और संगीत के साथ नए साल का स्वागत करते हैं। यह बीते साल को धन्यवाद कहने और छोटे-छोटे नए संकल्प लेने का मौका है।',
+      safety: 'असली पटाखे कम चलाएँ और बच्चों को अकेले न चलाने दें — इस गेम में जितनी चाहो उतनी आतिशबाज़ी, बिना धुएँ के! 😊',
+      readMore: 'नए साल की जानकारी और शुभकामनाएँ:', guideLink: 'नया साल गाइड', moreGames: 'और गेम्स',
+      privacyTitle: 'आपकी प्राइवेसी',
+      privacyText: 'यह गेम पूरी तरह आपके फ़ोन/ब्राउज़र में चलता है। नाम सिर्फ़ उस लिंक में रहता है जो आप शेयर करते हैं, और बेस्ट स्कोर सिर्फ़ इसी डिवाइस पर सेव होता है। हम कोई अकाउंट या निजी जानकारी नहीं लेते।',
+    },
+    en: {
+      title: 'Fireworks Pop 🎆',
+      sub: 'Tap the rockets rising from below to burst them in the sky. Burst at the very top for a Perfect, keep popping for combos! 45 seconds.',
+      cdTo: (y) => `Countdown to ${y}`, cdHere: (y) => `🎉 Happy New Year ${y}!`, days: 'days',
+      start: (y) => `🎆 Happy New Year ${y}!`, perfectLegend: '🎯 Perfect +20',
+      controls: 'Tap or click a rocket. Burst it at its highest point for extra points.',
+      namePh: 'Your name (for the challenge link)', play: '▶ Play', resume: '▶ Start again',
+      best: (n) => `Your best score: ${n}`,
+      challenge: (name, n) => `🎯 ${name} scored ${n} points — can you beat that?`,
+      perfect: 'Perfect!', record: 'New record! 🏆', great: 'Amazing! 🎉', good: 'Well done! 🎆',
+      beat: (name, n) => `You beat ${name} (${n})! 🥳`, notBeat: (name, n) => `${name} scored ${n} — one more try?`, bestNote: (n) => `Best score: ${n}`,
+      shareWa: '📲 Challenge on WhatsApp', shareOther: '📤 Share elsewhere', again: '🔁 Play again', copied: '✅ Link copied', copyPrompt: 'Copy this link',
+      shareText: (name, n, y, url) => `🎆 ${name || 'I'} scored ${n} points in "Fireworks Pop"! Can you beat it? Happy New Year ${y}! 🎉\n${url}`,
+      howTitle: 'How to play',
+      how: ['Tap <b>▶ Play</b>. Rockets start rising from the bottom.', 'Tap a rocket to burst it in the sky: +10.', 'Burst it when it stops at the very top — <b>Perfect +20</b>.', '🌟 Golden rocket +30. Keep bursting within a second of each other for combos ×2, ×3…', 'After 45 seconds, send your score on WhatsApp and challenge your friends.'],
+      aboutTitle: 'About New Year',
+      aboutText: 'New Year is celebrated on 1 January. On the night of 31 December people count down to midnight and welcome the new year with fireworks and music. It is a time to thank the year gone by and make small new resolutions.',
+      safety: 'Burst fewer real crackers and never let children light them alone — in this game you can have all the fireworks you like, with no smoke! 😊',
+      readMore: 'About New Year and wishes:', guideLink: 'New Year guide', moreGames: 'More games',
+      privacyTitle: 'Your privacy',
+      privacyText: 'This game runs entirely in your phone\'s browser. Your name only travels inside the link you share, and your best score is saved on this device only. We don\'t ask for an account or any personal details.',
+    },
+    bn: {
+      title: 'আতশবাজি পপ 🎆',
+      sub: 'নিচ থেকে উঠতে থাকা রকেটে ট্যাপ করে আকাশে ফাটাও। একদম ওপরে ফাটালে Perfect, তাড়াতাড়ি ফাটালে কম্বো! ৪৫ সেকেন্ড।',
+      cdTo: (y) => `নতুন বছর ${y} আসতে বাকি`, cdHere: (y) => `🎉 শুভ নববর্ষ ${y}!`, days: 'দিন',
+      start: (y) => `🎆 শুভ নববর্ষ ${y}!`, perfectLegend: '🎯 Perfect +২০',
+      controls: 'রকেটে ট্যাপ বা ক্লিক করো। সবচেয়ে উঁচুতে ফাটালে বেশি পয়েন্ট।',
+      namePh: 'তোমার নাম (চ্যালেঞ্জ পাঠানোর জন্য)', play: '▶ খেলো', resume: '▶ আবার শুরু করো',
+      best: (n) => `তোমার সেরা স্কোর: ${n}`,
+      challenge: (name, n) => `🎯 ${name} ${n} পয়েন্ট পেয়েছে — তুমি কি হারাতে পারবে?`,
+      perfect: 'Perfect!', record: 'নতুন রেকর্ড! 🏆', great: 'দারুণ খেলেছ! 🎉', good: 'শাবাশ! 🎆',
+      beat: (name, n) => `তুমি ${name}-কে (${n}) হারিয়ে দিয়েছ! 🥳`, notBeat: (name, n) => `${name}-এর স্কোর ${n} — আরেকবার চেষ্টা করবে?`, bestNote: (n) => `সেরা স্কোর: ${n}`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: '📤 অন্য কোথাও শেয়ার করো', again: '🔁 আবার খেলো', copied: '✅ লিংক কপি হয়েছে', copyPrompt: 'এই লিংকটা কপি করো',
+      shareText: (name, n, y, url) => `🎆 ${name || 'আমি'} "আতশবাজি পপ" খেলায় ${n} পয়েন্ট পেয়েছি! তুমি কি হারাতে পারবে? শুভ নববর্ষ ${y}! 🎉\n${url}`,
+      howTitle: 'কীভাবে খেলবে',
+      how: ['<b>▶ খেলো</b> চাপো। নিচ থেকে রকেট উঠতে শুরু করবে।', 'রকেটে ট্যাপ করলে আকাশে ফেটে যাবে: +১০।', 'রকেট যখন একদম ওপরে থামে, তখন ফাটাও — <b>Perfect +২০</b>।', '🌟 সোনালি রকেট +৩০। এক সেকেন্ডের মধ্যে পরপর ফাটালে কম্বো ×২, ×৩…', '৪৫ সেকেন্ড পরে স্কোর WhatsApp-এ পাঠাও আর বন্ধুদের চ্যালেঞ্জ করো।'],
+      aboutTitle: 'নতুন বছর নিয়ে',
+      aboutText: 'নতুন বছর পালিত হয় ১ জানুয়ারি। ৩১ ডিসেম্বর রাতে মানুষ কাউন্টডাউন করে আতশবাজি আর গানের সঙ্গে নতুন বছরকে স্বাগত জানায়। পুরনো বছরকে ধন্যবাদ জানানো আর ছোট ছোট নতুন সংকল্প নেওয়ার সময় এটা।',
+      safety: 'আসল বাজি কম ফাটাও আর ছোটদের একা বাজি ফাটাতে দিও না — এই গেমে যত খুশি আতশবাজি, ধোঁয়া ছাড়াই! 😊',
+      readMore: 'নতুন বছরের কথা আর শুভেচ্ছা:', guideLink: 'নতুন বছর গাইড', moreGames: 'আরও গেম',
+      privacyTitle: 'তোমার গোপনীয়তা',
+      privacyText: 'এই খেলাটি পুরোপুরি তোমার ফোন/ব্রাউজারে চলে। নাম শুধু তুমি যে লিংক শেয়ার করো তাতেই থাকে, আর সেরা স্কোর শুধু এই ডিভাইসে সেভ হয়। আমরা কোনো অ্যাকাউন্ট বা ব্যক্তিগত তথ্য নিই না।',
+    },
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const urlLang = params.get('lang');
+  const saved = store.get('ny-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(saved) ? saved : deviceLang();
+  const t = (k) => T[lang][k];
+
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(99999, parseInt(params.get('score'), 10) || 0));
+  const best = () => parseInt(store.get('ny-best'), 10) || 0;
+  let score = 0, lastEnd = null;
+
+  // ---- countdown
+  const pad = (n) => String(n).padStart(2, '0');
+  const tickCountdown = () => {
+    const target = new Date(NEW_YEAR, 0, 1, 0, 0, 0);
+    const ms = target - new Date();
+    if (ms <= 0) { $('cdLabel').textContent = ''; $('cdTime').textContent = t('cdHere')(NEW_YEAR); return; }
+    const s = Math.floor(ms / 1000);
+    const d = Math.floor(s / 86400);
+    $('cdLabel').textContent = t('cdTo')(NEW_YEAR);
+    $('cdTime').textContent = `${d} ${t('days')} ${pad(Math.floor((s % 86400) / 3600))}:${pad(Math.floor((s % 3600) / 60))}:${pad(s % 60)}`;
+  };
+
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — New Year Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    $('startTitle').textContent = t('start')(NEW_YEAR);
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('guideLink').href = `https://nextgrade.in${p}/festivals/new-year/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+    if (lastEnd) showEnd(lastEnd.prev);
+    tickCountdown();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('ny-lang', lang); applyLang(); });
+  $('name').value = store.get('ny-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---- sound
+  let muted = store.get('ny-muted') === '1';
+  let audio = null;
+  const setMuteIcon = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setMuteIcon();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('ny-muted', muted ? '1' : '0'); setMuteIcon(); });
+  const ac = () => { try { audio = audio || new (window.AudioContext || window.webkitAudioContext)(); return audio; } catch (e) { return null; } };
+  const beep = (freq, dur, type, vol) => {
+    if (muted) return;
+    const a = ac(); if (!a) return;
+    const o = a.createOscillator(); const g = a.createGain();
+    o.type = type || 'sine'; o.frequency.value = freq;
+    g.gain.setValueAtTime(vol || 0.1, a.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + dur);
+    o.connect(g).connect(a.destination); o.start(); o.stop(a.currentTime + dur);
+  };
+  const boom = (big) => {
+    if (muted) return;
+    const a = ac(); if (!a) return;
+    const len = Math.floor(a.sampleRate * (big ? 0.5 : 0.3));
+    const buf = a.createBuffer(1, len, a.sampleRate);
+    const d = buf.getChannelData(0);
+    for (let i = 0; i < len; i += 1) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3);
+    const src = a.createBufferSource(); const g = a.createGain();
+    g.gain.value = big ? 0.35 : 0.22; src.buffer = buf; src.connect(g).connect(a.destination); src.start();
+  };
+
+  // ---- canvas
+  const canvas = $('game');
+  const ctx = canvas.getContext('2d');
+  let W = 0, H = 0;
+  const resize = () => {
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+    const r = canvas.getBoundingClientRect();
+    W = r.width; H = r.height;
+    canvas.width = Math.round(W * DPR); canvas.height = Math.round(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  };
+
+  const COLORS = ['#ffd43b', '#ff6b6b', '#74c0fc', '#8ce99a', '#ff922b', '#cc5de8', '#f783ac', '#ffffff'];
+  let stars = [], rockets = [], sparks = [], pops = [];
+  let timeLeft = ROUND, running = false, lastT = 0, spawnAcc = 0, combo = 0, lastPop = -9, clock = 0, idleAcc = 0;
+
+  const makeStars = () => { stars = Array.from({ length: 90 }, () => ({ x: Math.random() * W, y: Math.random() * H * 0.8, r: Math.random() * 1.4 + 0.3, tw: Math.random() * 6 })); };
+
+  const launch = (speedUp, demo) => {
+    const golden = !demo && Math.random() < 0.1;
+    const apexY = H * (0.16 + Math.random() * 0.3);
+    const g = 260;
+    const vy = -Math.sqrt(2 * g * (H + 10 - apexY));
+    rockets.push({ x: 30 + Math.random() * (W - 60), y: H + 10, vx: (Math.random() - 0.5) * 40, vy: vy * (demo ? 1 : 1), g: g * (demo ? 1 : speedUp), golden, color: golden ? '#ffd43b' : COLORS[Math.floor(Math.random() * (COLORS.length - 1))], trail: [], demo, fuse: 0 });
+  };
+
+  const explode = (x, y, color, size, golden) => {
+    const n = golden ? 90 : 55 + Math.floor(size * 25);
+    for (let i = 0; i < n; i += 1) {
+      const a = (Math.PI * 2 * i) / n + Math.random() * 0.1;
+      const sp = (golden ? 210 : 150) * (0.5 + Math.random() * 0.7) * size;
+      sparks.push({ x, y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp, life: 1 + Math.random() * 0.4, color: golden && Math.random() < 0.5 ? '#fff3bf' : color });
+    }
+  };
+
+  const popRocket = (r, index) => {
+    rockets.splice(index, 1);
+    const atTop = Math.abs(r.vy) < 70;
+    combo = clock - lastPop < 1 ? Math.min(combo + 1, 5) : 1;
+    lastPop = clock;
+    const base = r.golden ? 30 : 10;
+    const pts = (base + (atTop ? 20 : 0)) * combo;
+    score += pts;
+    explode(r.x, r.y, r.color, atTop ? 1.3 : 1, r.golden);
+    pops.push({ x: r.x, y: r.y - 14, text: `+${pts}${atTop ? ' ' + t('perfect') : ''}`, life: 1, gold: atTop || r.golden });
+    boom(atTop || r.golden);
+    if (navigator.vibrate) navigator.vibrate(atTop ? 25 : 12);
+  };
+
+  // tap: burst the nearest rocket within reach
+  const tap = (clientX, clientY) => {
+    if (!running) return;
+    const b = canvas.getBoundingClientRect();
+    const x = clientX - b.left, y = clientY - b.top;
+    let hit = -1, bestD = 46 * 46;
+    rockets.forEach((r, i) => { const d = (r.x - x) ** 2 + (r.y - y) ** 2; if (d < bestD) { bestD = d; hit = i; } });
+    if (hit >= 0) popRocket(rockets[hit], hit); else { combo = 0; beep(220, 0.05, 'triangle', 0.05); }
+  };
+  canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); tap(e.clientX, e.clientY); });
+
+  const drawSky = () => {
+    const g = ctx.createLinearGradient(0, 0, 0, H);
+    g.addColorStop(0, '#0b0a24'); g.addColorStop(1, '#2b1d6b');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    stars.forEach((s) => { ctx.globalAlpha = 0.5 + 0.5 * Math.sin(clock * 2 + s.tw); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill(); });
+    ctx.globalAlpha = 1;
+    // city skyline
+    ctx.fillStyle = '#100d33';
+    let x = 0, i = 0;
+    while (x < W) { const w = 26 + ((i * 37) % 30); const h = 30 + ((i * 53) % 70); ctx.fillRect(x, H - h, w - 3, h); x += w; i += 1; }
+    ctx.fillStyle = 'rgba(255, 212, 59, 0.55)';
+    x = 0; i = 0;
+    while (x < W) { const w = 26 + ((i * 37) % 30); const h = 30 + ((i * 53) % 70); for (let wy = H - h + 8; wy < H - 8; wy += 12) if ((i + wy) % 3 === 0) ctx.fillRect(x + 6, wy, 4, 5); x += w; i += 1; }
+  };
+
+  const update = (dt) => {
+    rockets.forEach((r) => {
+      r.trail.push({ x: r.x, y: r.y }); if (r.trail.length > 10) r.trail.shift();
+      r.vy += r.g * dt; r.x += r.vx * dt; r.y += r.vy * dt;
+      if (r.vy > 0) r.fuse += dt;
+    });
+    // rockets fizzle a moment after the top (demo ones explode by themselves)
+    rockets = rockets.filter((r) => {
+      if (r.fuse > 0.35) { if (r.demo) explode(r.x, r.y, r.color, 0.9, false); else explode(r.x, r.y, 'rgba(255,255,255,0.35)', 0.35, false); return false; }
+      return true;
+    });
+    sparks.forEach((s) => { s.vy += 90 * dt; s.vx *= 0.985; s.vy *= 0.985; s.x += s.vx * dt; s.y += s.vy * dt; s.life -= dt * 0.9; });
+    sparks = sparks.filter((s) => s.life > 0);
+    pops.forEach((p) => { p.y -= 38 * dt; p.life -= dt * 1.1; });
+    pops = pops.filter((p) => p.life > 0);
+  };
+
+  const draw = () => {
+    drawSky();
+    rockets.forEach((r) => {
+      r.trail.forEach((p, i) => { ctx.globalAlpha = i / r.trail.length * 0.8; ctx.fillStyle = r.golden ? '#ffd43b' : '#ffe8cc'; ctx.beginPath(); ctx.arc(p.x, p.y, 2.2, 0, Math.PI * 2); ctx.fill(); });
+      ctx.globalAlpha = 1;
+      ctx.save(); ctx.translate(r.x, r.y); ctx.rotate(Math.atan2(r.vy, r.vx) + Math.PI / 2);
+      ctx.fillStyle = r.color; ctx.fillRect(-4, -14, 8, 22);
+      ctx.beginPath(); ctx.moveTo(-6, -14); ctx.lineTo(0, -24); ctx.lineTo(6, -14); ctx.closePath(); ctx.fill();
+      if (r.golden) { ctx.font = '18px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif'; ctx.textAlign = 'center'; ctx.fillText('🌟', 0, 26); }
+      ctx.restore();
+    });
+    ctx.globalCompositeOperation = 'lighter';
+    sparks.forEach((s) => { ctx.globalAlpha = Math.max(0, Math.min(1, s.life)); ctx.fillStyle = s.color; ctx.beginPath(); ctx.arc(s.x, s.y, 2.4, 0, Math.PI * 2); ctx.fill(); });
+    ctx.globalCompositeOperation = 'source-over';
+    pops.forEach((p) => { ctx.globalAlpha = Math.max(0, p.life); ctx.fillStyle = p.gold ? '#ffd43b' : '#ffffff'; ctx.font = '800 20px Inter, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(p.text, p.x, p.y); });
+    ctx.globalAlpha = 1;
+  };
+
+  const tick = (now) => {
+    const dt = Math.min(0.05, (now - (lastT || now)) / 1000);
+    lastT = now; clock += dt;
+    if (running) {
+      timeLeft -= dt;
+      const elapsed = ROUND - timeLeft;
+      const speedUp = 1 + elapsed / 40;
+      spawnAcc += dt;
+      const every = Math.max(0.32, 0.9 - elapsed * 0.013);
+      while (spawnAcc > every) { spawnAcc -= every; launch(speedUp, false); if (elapsed > 20 && Math.random() < 0.3) launch(speedUp, false); }
+      if (clock - lastPop > 1.2) combo = 0;
+      $('hudScore').textContent = `⭐ ${score}`;
+      $('hudCombo').textContent = combo > 1 ? `🔥 ×${combo}` : '';
+      $('hudTime').textContent = `⏱ ${Math.max(0, Math.ceil(timeLeft))}`;
+      if (timeLeft <= 0) end();
+    } else {
+      // gentle fireworks behind the menus
+      idleAcc += dt;
+      if (idleAcc > 0.9) { idleAcc = 0; launch(1, true); }
+    }
+    update(dt);
+    draw();
+    requestAnimationFrame(tick);
+  };
+
+  const start = () => {
+    store.set('ny-name', cleanName($('name').value));
+    rockets = []; sparks = []; pops = []; score = 0; timeLeft = ROUND; spawnAcc = 0; combo = 0; lastEnd = null;
+    $('startScreen').classList.add('hidden'); $('endScreen').classList.add('hidden');
+    $('shareOther').textContent = t('shareOther');
+    running = true; ac(); beep(660, 0.1);
+  };
+
+  const showEnd = (prev) => {
+    $('finalScore').textContent = score;
+    $('endTitle').textContent = score > prev && prev > 0 ? t('record') : score >= 600 ? t('great') : t('good');
+    $('endNote').textContent = fromName && fromScore ? (score > fromScore ? t('beat')(fromName, fromScore) : t('notBeat')(fromName, fromScore)) : t('bestNote')(Math.max(score, prev));
+  };
+
+  const end = () => {
+    running = false;
+    const prev = best();
+    if (score > prev) store.set('ny-best', String(score));
+    lastEnd = { prev };
+    showEnd(prev);
+    $('endScreen').classList.remove('hidden');
+    $('bestLine').textContent = t('best')(best());
+    $('hudCombo').textContent = '';
+    for (let i = 0; i < 4; i += 1) setTimeout(() => launch(1, true), i * 180);
+    beep(523, 0.15); setTimeout(() => beep(784, 0.25), 150);
+  };
+
+  const shareText = () => {
+    const name = cleanName($('name').value);
+    const u = new URL(SITE);
+    if (name) u.searchParams.set('from', name);
+    u.searchParams.set('score', String(score));
+    u.searchParams.set('lang', lang);
+    return t('shareText')(name, score, NEW_YEAR, u.toString());
+  };
+
+  $('play').addEventListener('click', start);
+  $('again').addEventListener('click', start);
+  $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => window.prompt(t('copyPrompt'), text));
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && running) { running = false; $('startScreen').classList.remove('hidden'); $('play').textContent = t('resume'); }
+  });
+  window.addEventListener('resize', () => { resize(); makeStars(); });
+
+  applyLang();
+  resize();
+  makeStars();
+  setInterval(tickCountdown, 1000);
+  requestAnimationFrame(tick);
+
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>

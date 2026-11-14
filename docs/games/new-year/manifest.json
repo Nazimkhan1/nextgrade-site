@@ -1,0 +1,16 @@
+{
+  "name": "Aatishbaazi Pop — New Year Game",
+  "short_name": "New Year Game",
+  "description": "Tap the rockets, burst the fireworks and challenge your friends. Countdown to the new year.",
+  "start_url": "/games/new-year/",
+  "scope": "/games/new-year/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#141238",
+  "theme_color": "#141238",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

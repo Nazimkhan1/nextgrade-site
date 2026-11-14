@@ -80,8 +80,8 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 - [ ] Later: Good Night, Congratulations, Get Well Soon
 
 ### 2. Season deadlines
-- [ ] Christmas wish page + card polish: live by **20 Dec 2026**
-- [ ] New Year 2027 wish page (+ countdown / fireworks tap game): live by **25 Dec 2026**
+- [x] Christmas game live (nextgrade.in/games/christmas/), Christmas guide + card in 4 languages
+- [x] New Year game "Aatishbaazi Pop / Fireworks Pop" live (14 Nov) at nextgrade.in/games/new-year/: tap rockets, Perfect at the top, golden rocket, combos, 45 s, live countdown to the next 1 January (shows "Happy New Year" in the first week of January), 4 languages, challenge link, PWA (`src/static/games/new-year/`, bump `CACHE` in its sw.js after edits)
 
 ### 3. Kahaniyan under `/kahani/`
 - [ ] 5–10 short moral stories to start, 2–3 minutes each, written in our own words: Panchatantra, Jataka, Akbar-Birbal, Tenali Raman, Mulla Nasruddin, Sheikh Chilli, Vikram-Betaal, dadi-nani ki kahani

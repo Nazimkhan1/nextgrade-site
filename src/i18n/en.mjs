@@ -262,6 +262,7 @@ const wishes = {
 };
 
 const games = {
+  'new-year': { name: 'Fireworks Pop', desc: 'Tap the rockets rising into the sky and burst them — at the very top for a Perfect, quickly for combos. With a live countdown to the new year.' },
   christmas: { name: 'Catch Santa\'s Gifts', desc: 'Steer Santa\'s sleigh, catch the falling gifts, dodge the coal and challenge friends on WhatsApp. In Hindi, Hinglish, English and Bengali.' },
 };
 
