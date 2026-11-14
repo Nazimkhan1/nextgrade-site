@@ -14,6 +14,7 @@ import { festivals } from './src/festivals.mjs';
 import { apps } from './src/apps.mjs';
 import { wishes } from './src/wishes.mjs';
 import { games } from './src/games.mjs';
+import { stories } from './src/stories.mjs';
 import { ui } from './src/i18n/ui.mjs';
 
 const SITE = 'https://nextgrade.in';
@@ -91,8 +92,10 @@ const lapp = (a, L) => {
 
 // ---- Page shell
 const P = (L, path) => `${L.prefix}${path}`;
-const NAV = ['/', '/wishes/', '/festivals/', '/games/', '/wish-card/', '/apps/', '/about/'];
-const NAV_KEYS = ['home', 'wishes', 'festivals', 'games', 'card', 'apps', 'about'];
+const NAV = ['/', '/kahani/', '/wishes/', '/festivals/', '/games/', '/wish-card/', '/apps/', '/about/'];
+const NAV_KEYS = ['home', 'stories', 'wishes', 'festivals', 'games', 'card', 'apps', 'about'];
+// Voice used by the browser to read stories aloud.
+const SPEECH = { hi: 'hi-IN', en: 'en-IN', hinglish: 'en-IN', bn: 'bn-IN' };
 
 function page(L, { path, title, description, body, jsonLd = [], scripts = [], langs = LANGS }) {
   const T = ui[L.code];
@@ -210,6 +213,16 @@ const appCard = (L) => (a) => {
 </a>`;
 };
 
+const storyCard = (L) => (st) => {
+  const x = st[L.code];
+  return `<a class="card" href="${P(L, `/kahani/${st.slug}/`)}">
+<span class="emoji" aria-hidden="true">${st.emoji}</span>
+<span class="tag">${esc(st.source[L.code])} · ${esc(ui[L.code].stories.minutes(st.minutes))}</span>
+<h3>${esc(x.title)}</h3>
+<p>${esc(firstSentence(x.paras[0]))}</p>
+</a>`;
+};
+
 const gameCard = (L) => (g) => {
   const x = lgame(g, L);
   return `<a class="card" href="/games/${g.slug}/?lang=${L.game}">
@@ -263,6 +276,7 @@ LANGS.forEach((L) => {
 <p>${esc(T.home.lead)}</p>
 <div class="btns"><a class="btn btn-primary" href="${P(L, '/wish-card/')}">${esc(T.home.btnCard)}</a><a class="btn btn-ghost" href="${P(L, '/festivals/')}">${esc(T.home.btnFestivals)}</a></div>
 </section>
+<section><h2>${esc(T.stories.h1)}</h2><div class="grid">${stories.slice(0, 3).map(storyCard(L)).join('')}</div><p><a href="${P(L, '/kahani/')}">${esc(T.stories.all)} →</a></p></section>
 <section><h2>${esc(T.home.secWishes)}</h2><div class="grid">${wishes.map(wishCard(L)).join('')}</div></section>
 <section><h2>${esc(T.home.secUpcoming)}</h2><div class="grid">${upcoming().slice(0, 6).map(festivalCard(L)).join('')}</div></section>
 <section><h2>${esc(T.home.secGames)}</h2><div class="grid">${games.map(gameCard(L)).join('')}</div></section>
@@ -385,6 +399,65 @@ ${x.summary.length && W.summaryH ? `<h2>${esc(W.summaryH)}</h2>\n${paragraphs(x.
 ${faqBlock(x.faq)}
 <h2>${esc(W.moreH)}</h2>
 <div class="grid">${more.map(wishCard(L)).join('')}</div>
+</article>`,
+      }),
+    );
+  });
+
+  // Stories index + story pages
+  const S = T.stories;
+  write(
+    L,
+    '/kahani/',
+    page(L, {
+      path: '/kahani/',
+      title: S.title,
+      description: S.desc,
+      jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.stories, '/kahani/']])],
+      body: `<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(T.nav.stories)}</p>
+<h1>${esc(S.h1)}</h1>
+<p class="lead">${esc(S.lead)}</p>
+<div class="cta"><p><b>${esc(S.momH)}</b><br>${esc(S.momP)}</p></div>
+<div class="grid">${stories.map(storyCard(L)).join('')}</div>
+</div>`,
+    }),
+  );
+  stories.forEach((st, i) => {
+    const path = `/kahani/${st.slug}/`;
+    const x = st[L.code];
+    const prev = stories[(i - 1 + stories.length) % stories.length];
+    const next = stories[(i + 1) % stories.length];
+    const more = [1, 2, 3].map((k) => stories[(i + k) % stories.length]);
+    write(
+      L,
+      path,
+      page(L, {
+        path,
+        title: `${x.title} — ${S.h1.replace('🌙 ', '')} | NextGrade`,
+        description: `${firstSentence(x.paras[0])} ${x.seekh}`,
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.stories, '/kahani/'], [x.title, path]]), { ...articleLd(L, x.title, path), '@type': 'Article', genre: st.source.en, timeRequired: `PT${st.minutes}M` }],
+        scripts: ['/assets/story.js'],
+        body: `<article class="wrap narrow article story-page" data-speech="${SPEECH[L.code]}" data-pause="${esc(S.pause)}" data-resume="${esc(S.resume)}" data-listen="${esc(S.listen)}" data-night="${esc(S.night)}" data-day="${esc(S.day)}" data-no-voice="${esc(S.noVoice)}" data-goodnight="${esc(S.goodnight)}" data-goodnight-sub="${esc(S.goodnightSub)}">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/kahani/')}">${esc(T.nav.stories)}</a> › ${esc(x.title)}</p>
+<p class="tag">${esc(st.source[L.code])} · ${esc(S.minutes(st.minutes))}</p>
+<h1>${st.emoji} ${esc(x.title)}</h1>
+<div class="story-tools">
+<button class="btn btn-primary" type="button" id="listen">${esc(S.listen)}</button>
+<button class="btn btn-ghost" type="button" id="stopSpeak" hidden>${esc(S.stop)}</button>
+<button class="btn btn-ghost" type="button" id="nightToggle">${esc(S.night)}</button>
+<label class="timer"><span>⏲️ ${esc(S.timer)}</span><select id="sleepTimer"><option value="0">${esc(S.timerOff)}</option>${[5, 10, 15].map((m) => `<option value="${m}">${esc(S.timerMin(m))}</option>`).join('')}</select></label>
+</div>
+<p class="note" id="storyStatus" role="status"></p>
+<div class="story-text" id="storyText">
+${paragraphs(x.paras)}
+</div>
+<div class="seekh"><b>${esc(S.seekh)}</b><p>${esc(x.seekh)}</p></div>
+<div class="story-nav"><a class="btn btn-ghost" href="${P(L, `/kahani/${prev.slug}/`)}">${esc(S.prev)}</a><a class="btn btn-primary" href="${P(L, `/kahani/${next.slug}/`)}">${esc(S.next)}</a></div>
+<p><a class="btn btn-wa" href="https://wa.me/?text=${encodeURIComponent(S.shareText(x.title, `${SITE}${P(L, path)}`))}" target="_blank" rel="noopener">${esc(S.share)}</a></p>
+<div class="ad" aria-hidden="true"></div>
+<h2>${esc(S.moreH)}</h2>
+<div class="grid">${more.map(storyCard(L)).join('')}</div>
 </article>`,
       }),
     );

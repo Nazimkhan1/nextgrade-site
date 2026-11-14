@@ -83,7 +83,9 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 - [x] Christmas game live (nextgrade.in/games/christmas/), Christmas guide + card in 4 languages
 - [x] New Year game "Aatishbaazi Pop / Fireworks Pop" live (14 Nov) at nextgrade.in/games/new-year/: tap rockets, Perfect at the top, golden rocket, combos, 45 s, live countdown to the next 1 January (shows "Happy New Year" in the first week of January), 4 languages, challenge link, PWA (`src/static/games/new-year/`, bump `CACHE` in its sw.js after edits)
 
-### 3. Kahaniyan under `/kahani/`
+### 3. Kahaniyan under `/kahani/` — [x] first 10 live (14 Nov)
+- Done: `src/stories.mjs` (each story has hi/en/hinglish/bn in one entry), `/kahani/` + story pages in 4 languages, "Kahaniyan" in the nav, home section. Story page: 🔊 read aloud (browser speechSynthesis; voices hi-IN / en-IN / bn-IN — Hinglish uses en-IN; message if the phone has no voice), 🌙 night mode (remembered), ⏲️ sleep timer 5/10/15 min → stops voice + black "Good night" screen, prev/next, WhatsApp share. Stories: Pyaasa Kauwa, Kachhua-Khargosh, Bandar-Magarmachh, Sher-Chooha, Akbar-Birbal lakeer, Tenali Raman aur chor, Mulla Nasruddin ke kapde, Laalchi Kutta, Kabootar aur jaal, Sone ka anda.
+- Next: 10 more (Jataka, Vikram-Betaal, Sheikh Chilli, dadi-nani, more Akbar-Birbal/Tenali), maybe a "story of the night" card on home
 - [ ] 5–10 short moral stories to start, 2–3 minutes each, written in our own words: Panchatantra, Jataka, Akbar-Birbal, Tenali Raman, Mulla Nasruddin, Sheikh Chilli, Vikram-Betaal, dadi-nani ki kahani
 - [ ] Each story: "Seekh" (the moral), a WhatsApp share button, an "Agli kahani" link
 - [ ] Bedtime stories for kids (searched every night)

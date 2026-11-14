@@ -6,7 +6,21 @@
 const ui = {
   hi: {
     langName: 'हिंदी',
-    nav: { home: 'Home', wishes: 'Wishes', festivals: 'Festivals', games: 'Games', card: 'Wish Card', apps: 'Apps', about: 'About' },
+    nav: { home: 'Home', stories: 'कहानियाँ', wishes: 'Wishes', festivals: 'Festivals', games: 'Games', card: 'Wish Card', apps: 'Apps', about: 'About' },
+    stories: {
+      title: 'सोने से पहले की छोटी कहानियाँ — बच्चों के लिए नैतिक कहानियाँ | NextGrade',
+      desc: 'बच्चों को रात में सुलाने के लिए 2-3 मिनट की छोटी नैतिक कहानियाँ — पंचतंत्र, अकबर-बीरबल, तेनाली रामन, मुल्ला नसरुद्दीन। फ़ोन से पढ़कर सुनवाएँ, नाइट मोड और स्लीप टाइमर के साथ।',
+      h1: '🌙 सोने से पहले की कहानियाँ',
+      lead: 'बच्चों को रात में सुनाने के लिए 2-3 मिनट की छोटी कहानियाँ, हर कहानी के अंत में एक छोटी सीख। थक गई हों तो "सुनाओ" दबाइए — फ़ोन खुद कहानी पढ़कर सुनाएगा।',
+      momH: 'माँ के लिए छोटी मदद',
+      momP: '🔊 सुनाओ — फ़ोन खुद कहानी पढ़ता है। 🌙 नाइट मोड — अँधेरी स्क्रीन, बड़े अक्षर, ताकि बच्चे की आँखों पर रोशनी न पड़े। ⏲️ स्लीप टाइमर — 5/10/15 मिनट बाद आवाज़ अपने-आप बंद और स्क्रीन अँधेरी।',
+      minutes: (n) => `${n} मिनट`, seekh: '🌟 सीख', listen: '🔊 सुनाओ', pause: '⏸️ रोको', resume: '▶️ आगे सुनाओ', stop: '⏹️ बंद', night: '🌙 नाइट मोड', day: '☀️ दिन मोड',
+      timer: 'स्लीप टाइमर', timerOff: 'टाइमर बंद', timerMin: (n) => `${n} मिनट`, next: 'अगली कहानी →', prev: '← पिछली कहानी', all: 'सारी कहानियाँ',
+      goodnight: '🌙 शुभ रात्रि', goodnightSub: 'स्क्रीन पर टैप करके वापस आएँ',
+      noVoice: 'इस फ़ोन/ब्राउज़र में इस भाषा की आवाज़ नहीं मिली — कोई दूसरी भाषा चुनें या खुद पढ़कर सुनाएँ।',
+      share: '📲 WhatsApp पर भेजें', shareText: (t, u) => `आज रात बच्चों को यह कहानी सुनाइए: "${t}" 🌙\n${u}`,
+      moreH: 'और कहानियाँ',
+    },
     footer: 'त्योहारों की जानकारी, शुभकामनाएँ और छोटे काम के ऐप्स।',
     langLabel: 'भाषा',
     home: {
@@ -103,7 +117,21 @@ const ui = {
 
   en: {
     langName: 'English',
-    nav: { home: 'Home', wishes: 'Wishes', festivals: 'Festivals', games: 'Games', card: 'Wish Card', apps: 'Apps', about: 'About' },
+    nav: { home: 'Home', stories: 'Stories', wishes: 'Wishes', festivals: 'Festivals', games: 'Games', card: 'Wish Card', apps: 'Apps', about: 'About' },
+    stories: {
+      title: 'Short Bedtime Stories for Kids — Moral Stories | NextGrade',
+      desc: 'Short 2-3 minute bedtime stories with a moral — Panchatantra, Akbar-Birbal, Tenali Raman, Mulla Nasruddin and more. Let your phone read them aloud, with night mode and a sleep timer.',
+      h1: '🌙 Bedtime stories',
+      lead: 'Short 2-3 minute stories to tell children at night, each ending with a small lesson. Too tired to read? Tap "Read aloud" and your phone will tell the story.',
+      momH: 'A little help for parents',
+      momP: '🔊 Read aloud — your phone reads the story. 🌙 Night mode — a dark screen with big letters so the light doesn\'t bother your child. ⏲️ Sleep timer — after 5/10/15 minutes the voice stops and the screen goes dark.',
+      minutes: (n) => `${n} min`, seekh: '🌟 Moral', listen: '🔊 Read aloud', pause: '⏸️ Pause', resume: '▶️ Continue', stop: '⏹️ Stop', night: '🌙 Night mode', day: '☀️ Day mode',
+      timer: 'Sleep timer', timerOff: 'Timer off', timerMin: (n) => `${n} min`, next: 'Next story →', prev: '← Previous story', all: 'All stories',
+      goodnight: '🌙 Good night', goodnightSub: 'Tap the screen to come back',
+      noVoice: 'No voice for this language on this phone/browser — pick another language or read it yourself.',
+      share: '📲 Send on WhatsApp', shareText: (t, u) => `Tell the kids this story tonight: "${t}" 🌙\n${u}`,
+      moreH: 'More stories',
+    },
     footer: 'Indian festivals, wishes and small useful apps.',
     langLabel: 'Language',
     home: {
@@ -199,7 +227,21 @@ const ui = {
 
   hinglish: {
     langName: 'Hinglish',
-    nav: { home: 'Home', wishes: 'Wishes', festivals: 'Festivals', games: 'Games', card: 'Wish Card', apps: 'Apps', about: 'About' },
+    nav: { home: 'Home', stories: 'Kahaniyan', wishes: 'Wishes', festivals: 'Festivals', games: 'Games', card: 'Wish Card', apps: 'Apps', about: 'About' },
+    stories: {
+      title: 'Sone se Pehle ki Chhoti Kahaniyan — Bachchon ki Moral Stories | NextGrade',
+      desc: 'Bachchon ko raat mein sulaane ke liye 2-3 minute ki chhoti moral kahaniyan — Panchatantra, Akbar-Birbal, Tenali Raman, Mulla Nasruddin. Phone se padh ke sunwao, night mode aur sleep timer ke saath.',
+      h1: '🌙 Sone se pehle ki kahaniyan',
+      lead: 'Bachchon ko raat mein sunaane ke liye 2-3 minute ki chhoti kahaniyan, har kahani ke ant mein ek chhoti seekh. Thak gayi ho to "Sunao" dabao — phone khud kahani padh ke sunaayega.',
+      momH: 'Maa ke liye chhoti madad',
+      momP: '🔊 Sunao — phone khud kahani padhta hai. 🌙 Night mode — andheri screen, bade akshar, taaki bachche ki aankh pe roshni na pade. ⏲️ Sleep timer — 5/10/15 minute baad awaaz apne aap band aur screen andheri.',
+      minutes: (n) => `${n} minute`, seekh: '🌟 Seekh', listen: '🔊 Sunao', pause: '⏸️ Roko', resume: '▶️ Aage sunao', stop: '⏹️ Band', night: '🌙 Night mode', day: '☀️ Day mode',
+      timer: 'Sleep timer', timerOff: 'Timer band', timerMin: (n) => `${n} minute`, next: 'Agli kahani →', prev: '← Pichhli kahani', all: 'Saari kahaniyan',
+      goodnight: '🌙 Shubh raatri', goodnightSub: 'Screen pe tap karke waapas aao',
+      noVoice: 'Is phone/browser mein is bhasha ki awaaz nahi mili — koi doosri bhasha chuno ya khud padh ke sunao.',
+      share: '📲 WhatsApp pe bhejo', shareText: (t, u) => `Aaj raat bachchon ko ye kahani sunao: "${t}" 🌙\n${u}`,
+      moreH: 'Aur kahaniyan',
+    },
     footer: 'Tyoharon ki jaankari, wishes aur chhote kaam ke apps.',
     langLabel: 'Bhasha',
     home: {
@@ -295,7 +337,21 @@ const ui = {
 
   bn: {
     langName: 'বাংলা',
-    nav: { home: 'হোম', wishes: 'শুভেচ্ছা', festivals: 'উৎসব', games: 'গেম', card: 'উইশ কার্ড', apps: 'অ্যাপ', about: 'আমাদের কথা' },
+    nav: { home: 'হোম', stories: 'গল্প', wishes: 'শুভেচ্ছা', festivals: 'উৎসব', games: 'গেম', card: 'উইশ কার্ড', apps: 'অ্যাপ', about: 'আমাদের কথা' },
+    stories: {
+      title: 'ঘুমপাড়ানি ছোট গল্প — ছোটদের নীতিকথার গল্প | NextGrade',
+      desc: 'ছোটদের রাতে ঘুম পাড়ানোর জন্য ২-৩ মিনিটের ছোট নীতিকথার গল্প — পঞ্চতন্ত্র, আকবর-বীরবল, তেনালি রামন, মোল্লা নাসিরুদ্দিন। ফোনে পড়ে শোনাও, নাইট মোড আর স্লিপ টাইমার সহ।',
+      h1: '🌙 ঘুমপাড়ানি গল্প',
+      lead: 'রাতে ছোটদের শোনানোর জন্য ২-৩ মিনিটের ছোট গল্প, প্রতিটির শেষে একটা ছোট্ট শিক্ষা। ক্লান্ত লাগলে "শোনাও" চাপো — ফোন নিজেই গল্প পড়ে শোনাবে।',
+      momH: 'মায়েদের জন্য একটু সাহায্য',
+      momP: '🔊 শোনাও — ফোন নিজেই গল্প পড়ে। 🌙 নাইট মোড — অন্ধকার স্ক্রিন, বড় অক্ষর, যাতে শিশুর চোখে আলো না লাগে। ⏲️ স্লিপ টাইমার — ৫/১০/১৫ মিনিট পরে আওয়াজ নিজে থেকেই বন্ধ আর স্ক্রিন অন্ধকার।',
+      minutes: (n) => `${n} মিনিট`, seekh: '🌟 শিক্ষা', listen: '🔊 শোনাও', pause: '⏸️ থামাও', resume: '▶️ আবার শোনাও', stop: '⏹️ বন্ধ', night: '🌙 নাইট মোড', day: '☀️ দিনের মোড',
+      timer: 'স্লিপ টাইমার', timerOff: 'টাইমার বন্ধ', timerMin: (n) => `${n} মিনিট`, next: 'পরের গল্প →', prev: '← আগের গল্প', all: 'সব গল্প',
+      goodnight: '🌙 শুভরাত্রি', goodnightSub: 'স্ক্রিনে ট্যাপ করে ফিরে এসো',
+      noVoice: 'এই ফোন/ব্রাউজারে এই ভাষার আওয়াজ পাওয়া যায়নি — অন্য ভাষা বেছে নাও বা নিজে পড়ে শোনাও।',
+      share: '📲 WhatsApp-এ পাঠাও', shareText: (t, u) => `আজ রাতে ছোটদের এই গল্পটা শোনাও: "${t}" 🌙\n${u}`,
+      moreH: 'আরও গল্প',
+    },
     footer: 'উৎসবের কথা, শুভেচ্ছা আর ছোট কাজের অ্যাপ।',
     langLabel: 'ভাষা',
     home: {

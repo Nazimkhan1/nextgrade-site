@@ -137,3 +137,23 @@ a.card:hover { border-color: var(--brand); }
   .head-right { width: 100%; }
   .lang-menu { position: absolute; top: 8px; right: 16px; }
 }
+
+/* Bedtime stories */
+.story-tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 14px 0; }
+.story-tools .btn { padding: 9px 14px; font-size: 15px; }
+.timer { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--muted); }
+.timer select { font: inherit; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--text); }
+.story-text p { font-size: 20px; line-height: 1.85; margin: 0 0 16px; }
+.seekh { background: var(--soft); border-left: 4px solid var(--brand); border-radius: 12px; padding: 14px 18px; margin: 22px 0; }
+.seekh p { margin: 6px 0 0; font-size: 18px; }
+.story-nav { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin: 20px 0; }
+/* Night mode: dark, calm, big text */
+body.night { --bg: #0d0b14; --surface: #16131f; --text: #e8e3d8; --muted: #9a93a8; --line: #2a2536; --soft: #1d1828; --brand: #c7a46b; --brand-ink: #0d0b14; }
+body.night .story-text p { font-size: 22px; color: #e8e3d8; }
+body.night .ad { display: none; }
+.sleep-veil { position: fixed; inset: 0; z-index: 1000; background: #000; color: #8c8577; display: grid; place-items: center; text-align: center; cursor: pointer; }
+.sleep-veil .gn { font-size: 28px; margin: 0; }
+.sleep-veil .gns { font-size: 14px; margin-top: 8px; opacity: 0.6; }
+
+/* The hidden attribute always wins over .btn display rules */
+[hidden] { display: none !important; }
