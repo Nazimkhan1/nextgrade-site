@@ -5,6 +5,14 @@
  */
 const games = [
   {
+    slug: 'morning-exercise',
+    emoji: '💪',
+    name: 'सुबह का 5 मिनट चैलेंज',
+    nameEn: 'Morning 5-Minute Challenge',
+    tag: 'Daily',
+    desc: 'कार्टून कोच के साथ 8 आसान कसरतें — टाइमर, रोज़ की 🔥 स्ट्रीक, बैज और दोस्तों को WhatsApp पर चैलेंज। 3 या 5 मिनट, बिना कैमरा, बिना लॉगिन।',
+  },
+  {
     slug: 'new-year',
     emoji: '🎆',
     name: 'आतिशबाज़ी पॉप',

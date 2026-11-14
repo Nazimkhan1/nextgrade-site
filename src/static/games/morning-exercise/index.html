@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Subah ka 5-Minute Challenge 💪 — Morning Exercise Game with Streak | NextGrade</title>
+<meta name="description" content="A free 3 or 5 minute morning exercise challenge: a cartoon coach shows 8 easy moves with a timer, you keep a daily 🔥 streak and challenge friends on WhatsApp. No signup, no camera — in Hinglish, Hindi, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/games/morning-exercise/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="💪 Subah ka 5-Minute Challenge — kya tum roz kar paoge?">
+<meta property="og:description" content="Cartoon coach ke saath 8 aasaan kasratein, timer aur 🔥 streak. Dosto ko challenge karo!">
+<meta property="og:url" content="https://nextgrade.in/games/morning-exercise/">
+<meta name="theme-color" content="#0b7285">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<style>
+:root { --bg: #062a33; --bg2: #0b7285; --ink: #f1fbfc; --muted: #b9e3ea; --gold: #ffd43b; --card: rgba(255,255,255,0.08); --a: #ff922b; --b: #f06595; --ok: #51cf66; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1100px 600px at 50% -10%, var(--bg2), var(--bg) 65%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 640px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 8px; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.langsel { background: var(--card); border: 1px solid rgba(255,255,255,0.2); color: var(--ink); border-radius: 10px; padding: 6px 8px; font: inherit; font-size: 15px; }
+.langsel option { color: #111; }
+h1, h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; line-height: 1.15; }
+:lang(bn) h1, :lang(bn) h2, :lang(bn) .ex-name, :lang(bn) .big { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.panel { position: relative; border-radius: 22px; overflow: hidden; background: linear-gradient(180deg, #0c4a5a, #08303b); box-shadow: 0 12px 40px rgba(0,0,0,0.4); min-height: min(76vh, 640px); display: flex; flex-direction: column; }
+.screen { padding: 22px 18px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; flex: 1; }
+.screen h1 { margin: 4px 0 0; font-size: clamp(30px, 8vw, 44px); }
+.sub { color: var(--muted); margin: 0; max-width: 460px; }
+.invite { background: rgba(255, 212, 59, 0.15); border: 1px solid rgba(255, 212, 59, 0.5); border-radius: 14px; padding: 10px 14px; font-weight: 700; }
+.streak { display: flex; align-items: center; gap: 10px; background: var(--card); border-radius: 16px; padding: 10px 16px; }
+.streak .fire { font-size: 34px; }
+.streak b { font-size: 26px; font-family: "Baloo 2", sans-serif; }
+.week { display: flex; gap: 6px; justify-content: center; }
+.week span { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 800; background: rgba(255,255,255,0.08); color: var(--muted); }
+.week span.done { background: var(--ok); color: #083b14; }
+.week span.today { outline: 2px solid var(--gold); }
+.levels { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.level { border: 2px solid rgba(255,255,255,0.25); background: transparent; color: var(--ink); border-radius: 14px; padding: 10px 14px; font: inherit; font-weight: 800; cursor: pointer; }
+.level[aria-pressed="true"] { border-color: var(--gold); background: rgba(255, 212, 59, 0.15); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 18px; border-radius: 14px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, var(--a), var(--b)); color: #fff; box-shadow: 0 6px 18px rgba(240, 101, 149, 0.35); }
+.btn-big { font-size: 22px; padding: 16px 34px; border-radius: 18px; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.35); }
+.toggle { background: transparent; border: 1px dashed rgba(255,255,255,0.35); color: var(--muted); border-radius: 12px; padding: 8px 12px; font: inherit; font-size: 15px; cursor: pointer; }
+.toggle[aria-pressed="true"] { color: var(--gold); border-color: var(--gold); border-style: solid; }
+/* workout */
+#work { padding: 0; gap: 0; }
+.ex-head { padding: 14px 16px 0; width: 100%; }
+.ex-step { color: var(--muted); font-size: 14px; font-weight: 700; }
+.ex-name { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(26px, 7vw, 36px); font-weight: 800; line-height: 1.1; }
+.ex-tip { color: var(--muted); font-size: 15px; min-height: 2.6em; }
+canvas { display: block; width: 100%; flex: 1; min-height: 280px; }
+.ex-foot { width: 100%; padding: 0 16px 16px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.bar { width: 100%; height: 8px; background: rgba(255,255,255,0.12); border-radius: 99px; overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--ok), var(--gold)); transition: width 0.3s linear; }
+.ctrl { display: flex; gap: 8px; }
+.toast { position: absolute; left: 50%; top: 38%; transform: translate(-50%, -50%); font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(26px, 7vw, 38px); font-weight: 800; color: var(--gold); text-shadow: 0 3px 14px rgba(0,0,0,0.6); pointer-events: none; opacity: 0; white-space: nowrap; }
+.toast.show { animation: toast 1.6s ease both; }
+@keyframes toast { 0% { opacity: 0; transform: translate(-50%, -30%) scale(0.7); } 20% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); } 80% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -70%); } }
+/* done */
+.big { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(36px, 10vw, 54px); font-weight: 800; color: var(--gold); line-height: 1.05; }
+.badge { font-size: 64px; line-height: 1; }
+.field { display: flex; flex-direction: column; gap: 4px; width: 100%; max-width: 360px; text-align: left; }
+.field label { font-weight: 700; font-size: 14px; }
+.field input { font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); }
+#confetti { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; min-height: 0; }
+section { margin: 24px 0; }
+section ul { padding-left: 20px; }
+section li { margin-bottom: 6px; }
+.note { color: var(--muted); font-size: 14px; }
+.ad { min-height: 100px; margin: 20px 0; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.15); }
+footer a { color: var(--muted); margin-right: 12px; }
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">💪 NextGrade<small id="brandSub"></small></a>
+    <select class="langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+  </header>
+
+  <div class="panel">
+    <!-- start -->
+    <div class="screen" id="start">
+      <div class="invite hidden" id="invite"></div>
+      <h1 id="title"></h1>
+      <p class="sub" id="sub"></p>
+      <div class="streak"><span class="fire">🔥</span><div><b id="streakN">0</b> <span id="streakLabel"></span></div></div>
+      <div class="week" id="week"></div>
+      <div class="levels">
+        <button class="level" type="button" data-level="easy" id="lvEasy"></button>
+        <button class="level" type="button" data-level="normal" id="lvNormal"></button>
+      </div>
+      <button class="btn btn-main btn-big" type="button" id="go"></button>
+      <button class="toggle" type="button" id="voice" aria-pressed="false"></button>
+      <p class="note" id="todayDone"></p>
+    </div>
+    <!-- workout -->
+    <div class="screen hidden" id="work">
+      <div class="ex-head">
+        <div class="ex-step" id="exStep"></div>
+        <div class="ex-name" id="exName"></div>
+        <div class="ex-tip" id="exTip"></div>
+      </div>
+      <canvas id="stage" aria-hidden="true"></canvas>
+      <div class="toast" id="toast"></div>
+      <div class="ex-foot">
+        <div class="bar"><i id="bar"></i></div>
+        <div class="ctrl">
+          <button class="btn btn-ghost" type="button" id="pause"></button>
+          <button class="btn btn-ghost" type="button" id="skip"></button>
+          <button class="btn btn-ghost" type="button" id="quit">✕</button>
+        </div>
+      </div>
+    </div>
+    <!-- done -->
+    <div class="screen hidden" id="done">
+      <canvas id="confetti" aria-hidden="true"></canvas>
+      <div class="badge" id="badge">🏅</div>
+      <div class="big" id="doneTitle"></div>
+      <p class="sub" id="doneSub"></p>
+      <p class="sub" id="badgeText"></p>
+      <div class="field"><label for="myName" id="nameLabel"></label><input id="myName" maxlength="24"></div>
+      <button class="btn btn-wa" type="button" id="share"></button>
+      <div class="ctrl"><button class="btn btn-ghost" type="button" id="again"></button></div>
+      <p class="note" id="tomorrow"></p>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 id="aboutH"></h2>
+    <p id="aboutP"></p>
+    <ul id="aboutList"></ul>
+    <p class="note" id="health"></p>
+    <p><a id="gmLink" href="https://nextgrade.in/celebrate/good-morning/"></a> · <a id="gamesLink" href="https://nextgrade.in/games/"></a></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const SITE = 'https://nextgrade.in/games/morning-exercise/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const VOICE = { hinglish: 'hi-IN', hi: 'hi-IN', en: 'en-IN', bn: 'bn-IN' };
+  const T = {
+    hinglish: {
+      brand: 'Subah ka Challenge', title: 'Subah ka 5-Minute Challenge', sub: 'Cartoon coach ke saath 8 aasaan kasratein. Roz karo, 🔥 streak badhao aur dosto ko challenge karo!',
+      streak: (n) => (n === 1 ? 'din ki streak' : 'din ki streak'), week: ['Ra', 'So', 'Ma', 'Bu', 'Gu', 'Sh', 'Sa'],
+      easy: '🌱 Aasaan · 3 min', normal: '💪 Normal · 5 min', go: '▶ Shuru karo', voiceOn: '🔊 Coach ki awaaz: on', voiceOff: '🔈 Coach ki awaaz: off',
+      todayDone: '✅ Aaj ka challenge ho gaya! Chaaho to phir se kar sakte ho.',
+      invite: (f, s) => `🔥 ${f} ne aapko subah ke challenge ke liye bulaya hai!${s ? ` Unki streak: ${s} din. Kya aap haraa paoge?` : ''}`,
+      step: (i, n) => `Kasrat ${i} / ${n}`, rest: 'Saans lo… 😮‍💨', next: (x) => `Agla: ${x}`, getReady: 'Taiyaar ho jao!',
+      pause: '⏸ Ruko', resume: '▶ Chalu', skip: '⏭ Aage',
+      half: 'Aadha ho gaya! 💪', last: 'Bas thoda aur!', cheers: ['Shabaash! 👏', 'Bahut badhiya! 🌟', 'Kya baat hai! 🔥', 'Lage raho! 💪'],
+      doneTitle: 'Shabaash! 🎉', doneSub: (n, m) => `Aaj ${m} minute ki kasrat poori. 🔥 ${n} din ki streak!`,
+      badges: { 1: 'Pehla din — shuruaat ho gayi! 🌱', 3: '3 din lagaataar — aadat ban rahi hai! 🥉', 7: 'Poora hafta! 🥈 Aap champion ho!', 14: '2 hafte! 🥇 Zabardast!', 21: '21 din — ab ye aadat hai! 🏆', 30: '30 din! 👑 Subah ke Raja/Rani!' },
+      nameLabel: 'Aapka naam (share ke liye, optional)', namePh: 'Jaise: Rahul',
+      share: '📲 Dosto ko challenge bhejo', shareText: (name, n, url) => `💪 ${name ? name + ' ne' : 'Maine'} aaj subah 5 minute kasrat ki! 🔥 ${n} din ki streak. Kya tum mujhse zyada din kar paoge? Shuru karo 👉 ${url}`,
+      again: '🔁 Phir se karo', tomorrow: 'Kal subah phir milte hain ☀️ Streak mat todna!',
+      voiceSay: { start: (x) => `Shuru karte hain. ${x}`, next: (x) => `Agla, ${x}`, half: 'Aadha ho gaya, shabaash', five: 'Bas paanch second', done: 'Shabaash! Aaj ka challenge poora hua' },
+      ex: {
+        reach: ['Haath upar stretch', 'Haath upar le jao, ediyan uthao, poora khincho'],
+        neck: ['Gardan dayein-bayein', 'Dheere se kaan kandhe ki taraf — jhatka nahi'],
+        shoulders: ['Kandhe upar-neeche', 'Kandhe kaan tak uthao, phir dheela chhodo'],
+        march: ['Jagah pe march', 'Ghutne upar, haath jhulao'],
+        jacks: ['Jumping jacks', 'Pair khol ke koodo, haath upar'],
+        stepjacks: ['Step jacks', 'Ek-ek pair bagal mein, haath upar'],
+        squats: ['Squats (uthak-baithak)', 'Peeth seedhi, jaise kursi pe baith rahe ho'],
+        side: ['Side bend', 'Haath upar, dheere bagal mein jhuko'],
+        breathe: ['Lambi saans', 'Gola bade to saans lo, chhota ho to chhodo'],
+      },
+      aboutH: 'Subah ki kasrat kyun?', aboutP: 'Roz subah sirf 3-5 minute hilna-dulna bhi din bhar ke liye taazgi deta hai. Is challenge mein koi saaman nahi chahiye, ghar mein khade-khade ho jaata hai:',
+      aboutList: ['Badan ki akdan khulti hai aur neend jaldi bhaagti hai', 'Saans aur dhyaan pe dhyaan dene se mann shaant hota hai', 'Roz ki 🔥 streak se aadat banti hai — 21 din mein ye aapki routine ban sakti hai', 'Camera ya login kuch nahi — aapki streak sirf aapke phone mein rehti hai'],
+      health: '⚠️ Ye aam logon ke liye halki kasrat hai, ilaaj nahi. Dard, chakkar ya saans phoolne lage to turant ruk jao. Dil, BP, ghutne/peeth ki takleef ho ya pregnancy ho to pehle doctor se poochho.',
+      gm: '☀️ Good Morning wish bhejo', games: 'Aur games',
+    },
+    hi: {
+      brand: 'सुबह का चैलेंज', title: 'सुबह का 5 मिनट चैलेंज', sub: 'कार्टून कोच के साथ 8 आसान कसरतें। रोज़ करो, 🔥 स्ट्रीक बढ़ाओ और दोस्तों को चैलेंज करो!',
+      streak: () => 'दिन की स्ट्रीक', week: ['र', 'सो', 'मं', 'बु', 'गु', 'शु', 'श'],
+      easy: '🌱 आसान · 3 मिनट', normal: '💪 नॉर्मल · 5 मिनट', go: '▶ शुरू करो', voiceOn: '🔊 कोच की आवाज़: चालू', voiceOff: '🔈 कोच की आवाज़: बंद',
+      todayDone: '✅ आज का चैलेंज हो गया! चाहो तो फिर से कर सकते हो।',
+      invite: (f, s) => `🔥 ${f} ने आपको सुबह के चैलेंज के लिए बुलाया है!${s ? ` उनकी स्ट्रीक: ${s} दिन। क्या आप हरा पाओगे?` : ''}`,
+      step: (i, n) => `कसरत ${i} / ${n}`, rest: 'साँस लो… 😮‍💨', next: (x) => `अगला: ${x}`, getReady: 'तैयार हो जाओ!',
+      pause: '⏸ रुको', resume: '▶ चालू', skip: '⏭ आगे',
+      half: 'आधा हो गया! 💪', last: 'बस थोड़ा और!', cheers: ['शाबाश! 👏', 'बहुत बढ़िया! 🌟', 'क्या बात है! 🔥', 'लगे रहो! 💪'],
+      doneTitle: 'शाबाश! 🎉', doneSub: (n, m) => `आज ${m} मिनट की कसरत पूरी। 🔥 ${n} दिन की स्ट्रीक!`,
+      badges: { 1: 'पहला दिन — शुरुआत हो गई! 🌱', 3: '3 दिन लगातार — आदत बन रही है! 🥉', 7: 'पूरा हफ़्ता! 🥈 आप चैंपियन हो!', 14: '2 हफ़्ते! 🥇 ज़बरदस्त!', 21: '21 दिन — अब यह आदत है! 🏆', 30: '30 दिन! 👑 सुबह के राजा/रानी!' },
+      nameLabel: 'आपका नाम (शेयर के लिए, वैकल्पिक)', namePh: 'जैसे: राहुल',
+      share: '📲 दोस्तों को चैलेंज भेजो', shareText: (name, n, url) => `💪 ${name ? name + ' ने' : 'मैंने'} आज सुबह 5 मिनट कसरत की! 🔥 ${n} दिन की स्ट्रीक। क्या तुम मुझसे ज़्यादा दिन कर पाओगे? शुरू करो 👉 ${url}`,
+      again: '🔁 फिर से करो', tomorrow: 'कल सुबह फिर मिलते हैं ☀️ स्ट्रीक मत तोड़ना!',
+      voiceSay: { start: (x) => `शुरू करते हैं। ${x}`, next: (x) => `अगला, ${x}`, half: 'आधा हो गया, शाबाश', five: 'बस पाँच सेकंड', done: 'शाबाश! आज का चैलेंज पूरा हुआ' },
+      ex: {
+        reach: ['हाथ ऊपर स्ट्रेच', 'हाथ ऊपर ले जाओ, एड़ियाँ उठाओ, पूरा खिंचाव'],
+        neck: ['गर्दन दाएँ-बाएँ', 'धीरे से कान कंधे की ओर — झटका नहीं'],
+        shoulders: ['कंधे ऊपर-नीचे', 'कंधे कान तक उठाओ, फिर ढीला छोड़ो'],
+        march: ['जगह पर मार्च', 'घुटने ऊपर, हाथ झुलाओ'],
+        jacks: ['जंपिंग जैक', 'पैर खोलकर कूदो, हाथ ऊपर'],
+        stepjacks: ['स्टेप जैक', 'एक-एक पैर बगल में, हाथ ऊपर'],
+        squats: ['स्क्वैट (उठक-बैठक)', 'पीठ सीधी, जैसे कुर्सी पर बैठ रहे हो'],
+        side: ['साइड बेंड', 'हाथ ऊपर, धीरे बगल में झुको'],
+        breathe: ['लंबी साँस', 'गोला बड़ा हो तो साँस लो, छोटा हो तो छोड़ो'],
+      },
+      aboutH: 'सुबह की कसरत क्यों?', aboutP: 'रोज़ सुबह सिर्फ़ 3-5 मिनट हिलना-डुलना भी दिन भर के लिए ताज़गी देता है। इस चैलेंज में कोई सामान नहीं चाहिए, घर में खड़े-खड़े हो जाता है:',
+      aboutList: ['बदन की अकड़न खुलती है और नींद जल्दी भागती है', 'साँस पर ध्यान देने से मन शांत होता है', 'रोज़ की 🔥 स्ट्रीक से आदत बनती है — 21 दिन में यह आपकी दिनचर्या बन सकती है', 'कैमरा या लॉगिन कुछ नहीं — आपकी स्ट्रीक सिर्फ़ आपके फ़ोन में रहती है'],
+      health: '⚠️ यह आम लोगों के लिए हल्की कसरत है, इलाज नहीं। दर्द, चक्कर या साँस फूलने लगे तो तुरंत रुक जाओ। दिल, बीपी, घुटने/पीठ की तकलीफ़ हो या प्रेगनेंसी हो तो पहले डॉक्टर से पूछो।',
+      gm: '☀️ सुप्रभात विश भेजो', games: 'और गेम',
+    },
+    en: {
+      brand: 'Morning Challenge', title: 'Morning 5-Minute Challenge', sub: '8 easy moves with a cartoon coach. Do it daily, grow your 🔥 streak and challenge your friends!',
+      streak: (n) => (n === 1 ? 'day streak' : 'day streak'), week: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+      easy: '🌱 Easy · 3 min', normal: '💪 Normal · 5 min', go: '▶ Start', voiceOn: '🔊 Coach voice: on', voiceOff: '🔈 Coach voice: off',
+      todayDone: '✅ Today\'s challenge is done! You can do it again if you like.',
+      invite: (f, s) => `🔥 ${f} has invited you to the morning challenge!${s ? ` Their streak: ${s} days. Can you beat it?` : ''}`,
+      step: (i, n) => `Move ${i} of ${n}`, rest: 'Breathe… 😮‍💨', next: (x) => `Next: ${x}`, getReady: 'Get ready!',
+      pause: '⏸ Pause', resume: '▶ Resume', skip: '⏭ Skip',
+      half: 'Halfway there! 💪', last: 'Almost done!', cheers: ['Well done! 👏', 'Great job! 🌟', 'You\'re on fire! 🔥', 'Keep going! 💪'],
+      doneTitle: 'Well done! 🎉', doneSub: (n, m) => `${m} minutes of exercise done today. 🔥 ${n}-day streak!`,
+      badges: { 1: 'Day one — you\'ve started! 🌱', 3: '3 days in a row — a habit is forming! 🥉', 7: 'A whole week! 🥈 You\'re a champion!', 14: '2 weeks! 🥇 Amazing!', 21: '21 days — it\'s a habit now! 🏆', 30: '30 days! 👑 Morning royalty!' },
+      nameLabel: 'Your name (for sharing, optional)', namePh: 'e.g. Rahul',
+      share: '📲 Challenge your friends', shareText: (name, n, url) => `💪 ${name || 'I'} did 5 minutes of morning exercise today! 🔥 ${n}-day streak. Can you keep going longer? Start here 👉 ${url}`,
+      again: '🔁 Do it again', tomorrow: 'See you tomorrow morning ☀️ Don\'t break the streak!',
+      voiceSay: { start: (x) => `Let's begin. ${x}`, next: (x) => `Next, ${x}`, half: 'Halfway, well done', five: 'Five more seconds', done: 'Well done! Today\'s challenge is complete' },
+      ex: {
+        reach: ['Reach up stretch', 'Arms up, rise on your toes, stretch tall'],
+        neck: ['Neck side tilts', 'Slowly bring your ear towards your shoulder — no jerks'],
+        shoulders: ['Shoulder shrugs', 'Lift your shoulders to your ears, then let go'],
+        march: ['March on the spot', 'Knees up, swing your arms'],
+        jacks: ['Jumping jacks', 'Jump your feet apart, arms up'],
+        stepjacks: ['Step jacks', 'Step one foot out at a time, arms up'],
+        squats: ['Squats', 'Back straight, as if sitting down on a chair'],
+        side: ['Side bends', 'Arms up, lean slowly to each side'],
+        breathe: ['Deep breathing', 'Breathe in as the circle grows, out as it shrinks'],
+      },
+      aboutH: 'Why morning exercise?', aboutP: 'Just 3-5 minutes of movement every morning can leave you fresher for the whole day. You need no equipment — you can do it standing at home:',
+      aboutList: ['It loosens a stiff body and shakes off sleepiness', 'Paying attention to your breath calms the mind', 'A daily 🔥 streak builds the habit — in 21 days it can become your routine', 'No camera, no login — your streak stays only on your phone'],
+      health: '⚠️ This is light exercise for healthy adults, not treatment. Stop at once if you feel pain, dizziness or breathlessness. If you have heart, blood pressure, knee or back problems, or are pregnant, ask a doctor first.',
+      gm: '☀️ Send a Good Morning wish', games: 'More games',
+    },
+    bn: {
+      brand: 'সকালের চ্যালেঞ্জ', title: 'সকালের ৫ মিনিট চ্যালেঞ্জ', sub: 'কার্টুন কোচের সঙ্গে ৮টা সহজ ব্যায়াম। রোজ করো, 🔥 স্ট্রিক বাড়াও আর বন্ধুদের চ্যালেঞ্জ করো!',
+      streak: () => 'দিনের স্ট্রিক', week: ['র', 'সো', 'ম', 'বু', 'বৃ', 'শু', 'শ'],
+      easy: '🌱 সহজ · ৩ মিনিট', normal: '💪 নরমাল · ৫ মিনিট', go: '▶ শুরু করো', voiceOn: '🔊 কোচের গলা: চালু', voiceOff: '🔈 কোচের গলা: বন্ধ',
+      todayDone: '✅ আজকের চ্যালেঞ্জ হয়ে গেছে! চাইলে আবার করতে পারো।',
+      invite: (f, s) => `🔥 ${f} তোমাকে সকালের চ্যালেঞ্জে ডেকেছে!${s ? ` ওর স্ট্রিক: ${s} দিন। হারাতে পারবে?` : ''}`,
+      step: (i, n) => `ব্যায়াম ${i} / ${n}`, rest: 'শ্বাস নাও… 😮‍💨', next: (x) => `পরেরটা: ${x}`, getReady: 'তৈরি হও!',
+      pause: '⏸ থামো', resume: '▶ চালু', skip: '⏭ পরের',
+      half: 'অর্ধেক হয়ে গেছে! 💪', last: 'আর একটু!', cheers: ['সাবাশ! 👏', 'দারুণ! 🌟', 'কী দারুণ! 🔥', 'চালিয়ে যাও! 💪'],
+      doneTitle: 'সাবাশ! 🎉', doneSub: (n, m) => `আজ ${m} মিনিটের ব্যায়াম শেষ। 🔥 ${n} দিনের স্ট্রিক!`,
+      badges: { 1: 'প্রথম দিন — শুরু হয়ে গেল! 🌱', 3: 'টানা ৩ দিন — অভ্যাস তৈরি হচ্ছে! 🥉', 7: 'পুরো এক সপ্তাহ! 🥈 তুমি চ্যাম্পিয়ন!', 14: '২ সপ্তাহ! 🥇 দুর্দান্ত!', 21: '২১ দিন — এখন এটা অভ্যাস! 🏆', 30: '৩০ দিন! 👑 সকালের রাজা/রানি!' },
+      nameLabel: 'তোমার নাম (শেয়ারের জন্য, ঐচ্ছিক)', namePh: 'যেমন: রাহুল',
+      share: '📲 বন্ধুদের চ্যালেঞ্জ পাঠাও', shareText: (name, n, url) => `💪 ${name ? name + ' আজ' : 'আমি আজ'} সকালে ৫ মিনিট ব্যায়াম করেছি! 🔥 ${n} দিনের স্ট্রিক। তুমি কি বেশি দিন পারবে? শুরু করো 👉 ${url}`,
+      again: '🔁 আবার করো', tomorrow: 'কাল সকালে আবার দেখা হবে ☀️ স্ট্রিক ভেঙো না!',
+      voiceSay: { start: (x) => `শুরু করা যাক। ${x}`, next: (x) => `পরেরটা, ${x}`, half: 'অর্ধেক হয়ে গেছে, সাবাশ', five: 'আর পাঁচ সেকেন্ড', done: 'সাবাশ! আজকের চ্যালেঞ্জ শেষ' },
+      ex: {
+        reach: ['হাত তুলে স্ট্রেচ', 'হাত ওপরে তোলো, গোড়ালি তোলো, পুরো টান দাও'],
+        neck: ['ঘাড় ডানে-বাঁয়ে', 'আস্তে কান কাঁধের দিকে — ঝাঁকুনি নয়'],
+        shoulders: ['কাঁধ ওপর-নিচ', 'কাঁধ কান পর্যন্ত তোলো, তারপর ছেড়ে দাও'],
+        march: ['জায়গায় মার্চ', 'হাঁটু ওপরে, হাত দোলাও'],
+        jacks: ['জাম্পিং জ্যাক', 'পা ফাঁক করে লাফাও, হাত ওপরে'],
+        stepjacks: ['স্টেপ জ্যাক', 'এক এক পা পাশে, হাত ওপরে'],
+        squats: ['স্কোয়াট (ওঠবস)', 'পিঠ সোজা, যেন চেয়ারে বসছ'],
+        side: ['সাইড বেন্ড', 'হাত ওপরে, আস্তে পাশে ঝোঁকো'],
+        breathe: ['লম্বা শ্বাস', 'বৃত্ত বড় হলে শ্বাস নাও, ছোট হলে ছাড়ো'],
+      },
+      aboutH: 'সকালের ব্যায়াম কেন?', aboutP: 'রোজ সকালে মাত্র ৩-৫ মিনিট নড়াচড়াও সারাদিনের জন্য সতেজ রাখে। কোনো সরঞ্জাম লাগে না, বাড়িতে দাঁড়িয়েই করা যায়:',
+      aboutList: ['শরীরের জড়তা কাটে আর ঘুমঘুম ভাব চলে যায়', 'শ্বাসে মন দিলে মন শান্ত হয়', 'রোজের 🔥 স্ট্রিকে অভ্যাস তৈরি হয় — ২১ দিনে এটা রুটিন হয়ে যেতে পারে', 'ক্যামেরা বা লগইন কিছুই নেই — স্ট্রিক শুধু তোমার ফোনে থাকে'],
+      health: '⚠️ এটা সুস্থ মানুষের জন্য হালকা ব্যায়াম, চিকিৎসা নয়। ব্যথা, মাথা ঘোরা বা হাঁপ ধরলে সঙ্গে সঙ্গে থামো। হার্ট, প্রেশার, হাঁটু/পিঠের সমস্যা বা গর্ভাবস্থায় আগে ডাক্তারকে জিজ্ঞেস করো।',
+      gm: '☀️ সুপ্রভাত উইশ পাঠাও', games: 'আরও গেম',
+    },
+  };
+
+  // ---- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+  let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('me-lang')) ? store.get('me-lang') : deviceLang();
+  const t = (k) => T[lang][k];
+  const clean = (s, n = 24) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, n);
+  const pad = (n) => String(n).padStart(2, '0');
+  const dayKey = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
+
+  // ---- streak (kept only on this phone)
+  const getDays = () => { try { const a = JSON.parse(store.get('me-days') || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } };
+  const streakOf = (days) => {
+    const set = new Set(days); const today = new Date();
+    let d = set.has(dayKey(today)) ? today : addDays(today, -1); let n = 0;
+    while (set.has(dayKey(d))) { n += 1; d = addDays(d, -1); }
+    return n;
+  };
+  const markToday = () => { const days = getDays(); const k = dayKey(new Date()); if (!days.includes(k)) days.push(k); store.set('me-days', JSON.stringify(days.slice(-120))); return streakOf(days); };
+
+  // ---- plan
+  const PLAN = {
+    normal: [['reach', 30], ['neck', 24], ['shoulders', 24], ['march', 45], ['jacks', 40], ['squats', 36], ['side', 30], ['breathe', 40]],
+    easy: [['reach', 20], ['neck', 18], ['shoulders', 18], ['march', 30], ['stepjacks', 24], ['squats', 20], ['side', 20], ['breathe', 30]],
+  };
+  const REST = 5;
+  let level = store.get('me-level') === 'easy' ? 'easy' : 'normal';
+  let voiceOn = store.get('me-voice') === '1';
+
+  // ---- voice coach (optional, off by default)
+  const canSpeak = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+  const say = (text) => {
+    if (!voiceOn || !canSpeak) return;
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text.replace(/[\p{Extended_Pictographic}\u{FE0F}‍]/gu, ''));
+    u.lang = VOICE[lang]; const c = VOICE[lang].toLowerCase();
+    const v = speechSynthesis.getVoices().find((x) => x.lang.replace('_', '-').toLowerCase() === c) || speechSynthesis.getVoices().find((x) => x.lang.toLowerCase().startsWith(c.split('-')[0]));
+    if (v) u.voice = v; u.rate = 0.95;
+    speechSynthesis.speak(u);
+  };
+  if (canSpeak) speechSynthesis.getVoices(); else $('voice').classList.add('hidden');
+
+  // ---- start screen
+  const renderStart = () => {
+    const days = getDays(); const set = new Set(days); const n = streakOf(days);
+    $('streakN').textContent = n; $('streakLabel').textContent = t('streak')(n);
+    const wk = $('week'); wk.innerHTML = '';
+    for (let i = 6; i >= 0; i -= 1) {
+      const d = addDays(new Date(), -i); const s = document.createElement('span');
+      s.textContent = t('week')[d.getDay()];
+      if (set.has(dayKey(d))) s.classList.add('done'); if (i === 0) s.classList.add('today');
+      wk.appendChild(s);
+    }
+    $('todayDone').textContent = set.has(dayKey(new Date())) ? t('todayDone') : '';
+    $('lvEasy').setAttribute('aria-pressed', level === 'easy'); $('lvNormal').setAttribute('aria-pressed', level === 'normal');
+    $('voice').textContent = voiceOn ? t('voiceOn') : t('voiceOff'); $('voice').setAttribute('aria-pressed', voiceOn);
+    const f = clean(params.get('from')); const s = parseInt(params.get('s'), 10) || 0;
+    if (f) { $('invite').textContent = t('invite')(f, s > 0 && s < 1000 ? s : 0); $('invite').classList.remove('hidden'); }
+  };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    $('lang').value = lang;
+    $('brandSub').textContent = t('brand'); $('title').textContent = t('title'); $('sub').textContent = t('sub');
+    $('lvEasy').textContent = t('easy'); $('lvNormal').textContent = t('normal'); $('go').textContent = t('go');
+    $('pause').textContent = paused ? t('resume') : t('pause'); $('skip').textContent = t('skip');
+    $('doneTitle').textContent = t('doneTitle'); $('nameLabel').textContent = t('nameLabel'); $('myName').placeholder = t('namePh');
+    $('share').textContent = t('share'); $('again').textContent = t('again'); $('tomorrow').textContent = t('tomorrow');
+    $('aboutH').textContent = t('aboutH'); $('aboutP').textContent = t('aboutP'); $('health').textContent = t('health');
+    const ul = $('aboutList'); ul.innerHTML = ''; t('aboutList').forEach((x) => { const li = document.createElement('li'); li.textContent = x; ul.appendChild(li); });
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`; $('gamesLink').href = `https://nextgrade.in${p}/games/`; $('gmLink').href = `https://nextgrade.in/celebrate/good-morning/?lang=${lang}`;
+    $('gmLink').textContent = t('gm'); $('gamesLink').textContent = t('games');
+    renderStart();
+    if (cur) showStep();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('me-lang', lang); applyLang(); });
+  [$('lvEasy'), $('lvNormal')].forEach((b) => b.addEventListener('click', () => { level = b.dataset.level; store.set('me-level', level); renderStart(); }));
+  $('voice').addEventListener('click', () => { voiceOn = !voiceOn; store.set('me-voice', voiceOn ? '1' : '0'); renderStart(); if (voiceOn) say(t('getReady')); else if (canSpeak) speechSynthesis.cancel(); });
+  $('year').textContent = new Date().getFullYear();
+  $('myName').value = store.get('me-name') || '';
+
+  // ---- stick-figure coach (our own drawing)
+  const canvas = $('stage'); const ctx = canvas.getContext('2d');
+  let W = 0, H = 0;
+  const resize = () => { const DPR = Math.min(window.devicePixelRatio || 1, 2); const r = canvas.getBoundingClientRect(); W = r.width; H = r.height; canvas.width = Math.round(W * DPR); canvas.height = Math.round(H * DPR); ctx.setTransform(DPR, 0, 0, DPR, 0, 0); };
+  const lerp = (a, b, k) => a + (b - a) * k;
+  const LP = (a, b, k) => [lerp(a[0], b[0], k), lerp(a[1], b[1], k)];
+  const rot = (p, a) => [p[0] * Math.cos(a) - p[1] * Math.sin(a), p[0] * Math.sin(a) + p[1] * Math.cos(a)];
+  const ik = (a, target, l1, l2, bendSign) => {
+    const dx = target[0] - a[0], dy = target[1] - a[1]; let d = Math.hypot(dx, dy);
+    const maxd = l1 + l2 - 0.001; const k = d > maxd ? maxd / d : 1; const tx = a[0] + dx * k, ty = a[1] + dy * k; d = Math.min(d, maxd);
+    const base = Math.atan2(ty - a[1], tx - a[0]);
+    const cosA = Math.max(-1, Math.min(1, (l1 * l1 + d * d - l2 * l2) / (2 * l1 * d)));
+    const ang = base + bendSign * Math.acos(cosA);
+    return { mid: [a[0] + Math.cos(ang) * l1, a[1] + Math.sin(ang) * l1], end: [tx, ty] };
+  };
+  // pose: hip y, lean (radians), shoulder lift, head tilt, hands (relative to each shoulder, torso frame), feet (world)
+  const STAND = { ul: 0, ur: 0, hip: 0.49, lean: 0, lift: 0, tilt: 0, hl: [-0.1, -0.31], hr: [0.1, -0.31], fl: [-0.09, 0], fr: [0.09, 0] };
+  const P = (o) => Object.assign({}, STAND, o);
+  const MOVES = {
+    reach: { cyc: 4, a: P({}), b: P({ hip: 0.53, hl: [-0.06, 0.32], hr: [0.06, 0.32] }), smooth: true },
+    neck: { cyc: 4, a: P({ tilt: -0.38, hl: [-0.05, -0.33], hr: [0.05, -0.33] }), b: P({ tilt: 0.38, hl: [-0.05, -0.33], hr: [0.05, -0.33] }), smooth: true },
+    shoulders: { cyc: 2.4, a: P({ hl: [-0.05, -0.33], hr: [0.05, -0.33] }), b: P({ lift: 0.05, hl: [-0.05, -0.31], hr: [0.05, -0.31] }), smooth: true },
+    march: { cyc: 1.1, fn: (k) => { const s = Math.sin(k * Math.PI * 2); return P({ ul: Math.max(0, s), ur: Math.max(0, -s), hl: [-0.12, -0.25 + Math.max(0, -s) * 0.22], hr: [0.12, -0.25 + Math.max(0, s) * 0.22], hip: 0.49 - Math.abs(s) * 0.01 }); } },
+    jacks: { cyc: 1.0, fn: (k) => { const s = (1 - Math.cos(k * Math.PI * 2)) / 2; return P({ hip: 0.49 + Math.sin(k * Math.PI * 2) ** 2 * 0.05, fl: [-0.08 - 0.2 * s, Math.sin(k * Math.PI) * 0.04], fr: [0.08 + 0.2 * s, Math.sin(k * Math.PI) * 0.04], hl: LP([-0.1, -0.31], [-0.22, 0.26], s), hr: LP([0.1, -0.31], [0.22, 0.26], s) }); } },
+    stepjacks: { cyc: 2.0, fn: (k) => { const half = k < 0.5; const s = (1 - Math.cos((k % 0.5) * Math.PI * 4)) / 2; return P({ fl: [half ? -0.08 - 0.2 * s : -0.08, 0], fr: [half ? 0.08 : 0.08 + 0.2 * s, 0], hl: LP([-0.1, -0.31], [-0.22, 0.26], s), hr: LP([0.1, -0.31], [0.22, 0.26], s) }); } },
+    squats: { cyc: 3, a: P({ fl: [-0.15, 0], fr: [0.15, 0], hl: [-0.08, -0.3], hr: [0.08, -0.3] }), b: P({ hip: 0.3, fl: [-0.15, 0], fr: [0.15, 0], hl: [0.05, -0.13], hr: [-0.05, -0.13] }), smooth: true },
+    side: { cyc: 4.5, a: P({ lean: -0.32, fl: [-0.13, 0], fr: [0.13, 0], hl: [-0.04, 0.32], hr: [0.04, 0.32] }), b: P({ lean: 0.32, fl: [-0.13, 0], fr: [0.13, 0], hl: [-0.04, 0.32], hr: [0.04, 0.32] }), smooth: true },
+    breathe: { cyc: 7, a: P({ hl: [-0.12, -0.3], hr: [0.12, -0.3] }), b: P({ hl: [-0.3, 0.1], hr: [0.3, 0.1], lift: 0.015 }), smooth: true, circle: true },
+  };
+  const poseAt = (m, time) => {
+    const k = (time / m.cyc) % 1;
+    if (m.fn) return m.fn(k);
+    const s = m.smooth ? (1 - Math.cos(k * Math.PI * 2)) / 2 : k;
+    const out = {}; Object.keys(m.a).forEach((key) => { out[key] = Array.isArray(m.a[key]) ? LP(m.a[key], m.b[key], s) : lerp(m.a[key], m.b[key], s); });
+    out.s = s; return out;
+  };
+  const SHIRT = ['#ff922b', '#f06595', '#4dabf7', '#51cf66', '#cc5de8', '#fcc419', '#20c997', '#ff6b6b'];
+  const drawFigure = (pose, color, breath) => {
+    const unit = Math.min(H * 0.78, W * 1.1), gx = W / 2, gy = H * 0.93;
+    const X = (p) => gx + p[0] * unit, Y = (p) => gy - p[1] * unit;
+    const pt = (p) => [X(p), Y(p)];
+    // ground shadow
+    ctx.fillStyle = 'rgba(0,0,0,0.25)'; ctx.beginPath(); ctx.ellipse(gx, gy + 4, unit * 0.22, unit * 0.025, 0, 0, Math.PI * 2); ctx.fill();
+    if (breath !== undefined) {
+      const r = unit * (0.22 + 0.16 * breath);
+      const g = ctx.createRadialGradient(X([0, 0.7]), Y([0, 0.7]), r * 0.2, X([0, 0.7]), Y([0, 0.7]), r);
+      g.addColorStop(0, 'rgba(116, 192, 252, 0.0)'); g.addColorStop(0.7, 'rgba(116, 192, 252, 0.18)'); g.addColorStop(1, 'rgba(116, 192, 252, 0.45)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(X([0, 0.7]), Y([0, 0.7]), r, 0, Math.PI * 2); ctx.fill();
+    }
+    const hip = [0, pose.hip];
+    const neck = [hip[0] + rot([0, 0.34], pose.lean)[0], hip[1] + rot([0, 0.34], pose.lean)[1] + pose.lift * 0.3];
+    const shL = [neck[0] + rot([-0.08, -0.02 + pose.lift], pose.lean)[0], neck[1] + rot([-0.08, -0.02 + pose.lift], pose.lean)[1]];
+    const shR = [neck[0] + rot([0.08, -0.02 + pose.lift], pose.lean)[0], neck[1] + rot([0.08, -0.02 + pose.lift], pose.lean)[1]];
+    const hL = [shL[0] + rot(pose.hl, pose.lean)[0], shL[1] + rot(pose.hl, pose.lean)[1]];
+    const hR = [shR[0] + rot(pose.hr, pose.lean)[0], shR[1] + rot(pose.hr, pose.lean)[1]];
+    const hipL = [hip[0] - 0.05, hip[1]], hipR = [hip[0] + 0.05, hip[1]];
+    const knee = (h, f, u, side) => {
+      if (!u) return ik(h, f, 0.25, 0.25, side);
+      const k = [h[0] + side * 0.012 * u, h[1] - 0.25 * (1 - 0.8 * u)];
+      return { mid: k, end: [k[0], k[1] - 0.25 * (1 - 0.25 * u)] };
+    };
+    const legL = knee(hipL, pose.fl, pose.ul, -1), legR = knee(hipR, pose.fr, pose.ur, 1);
+    const armL = ik(shL, hL, 0.16, 0.16, 1), armR = ik(shR, hR, 0.16, 0.16, -1);
+    const line = (pts, w, c) => { ctx.strokeStyle = c; ctx.lineWidth = w; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(...pt(pts[0])); pts.slice(1).forEach((p) => ctx.lineTo(...pt(p))); ctx.stroke(); };
+    const skin = '#f5c6a5', pants = '#364fc7', shoe = '#212529';
+    line([hipL, legL.mid, legL.end], unit * 0.05, pants); line([hipR, legR.mid, legR.end], unit * 0.05, pants);
+    [legL.end, legR.end].forEach((f) => { ctx.fillStyle = shoe; ctx.beginPath(); ctx.ellipse(X(f), Y(f) - 2, unit * 0.04, unit * 0.018, 0, 0, Math.PI * 2); ctx.fill(); });
+    // torso (t-shirt)
+    ctx.fillStyle = color; ctx.beginPath(); ctx.moveTo(...pt(shL)); ctx.lineTo(...pt(shR)); ctx.lineTo(...pt([hipR[0] + 0.01, hipR[1] - 0.02])); ctx.lineTo(...pt([hipL[0] - 0.01, hipL[1] - 0.02])); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = color; ctx.lineWidth = unit * 0.05; ctx.lineJoin = 'round'; ctx.stroke();
+    line([shL, armL.mid, armL.end], unit * 0.038, skin); line([shR, armR.mid, armR.end], unit * 0.038, skin);
+    line([shL, armL.mid], unit * 0.045, color); line([shR, armR.mid], unit * 0.045, color);
+    // head
+    const hc = [neck[0] + rot([0, 0.1], pose.lean + pose.tilt)[0], neck[1] + rot([0, 0.1], pose.lean + pose.tilt)[1]];
+    line([neck, hc], unit * 0.03, skin);
+    ctx.save(); ctx.translate(X(hc), Y(hc)); ctx.rotate(-(pose.lean + pose.tilt));
+    const r = unit * 0.075;
+    ctx.fillStyle = skin; ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#2b1d14'; ctx.beginPath(); ctx.arc(0, -r * 0.2, r * 1.02, Math.PI * 1.05, Math.PI * 1.95); ctx.fill();
+    ctx.fillStyle = '#2b1d14'; ctx.beginPath(); ctx.arc(-r * 0.35, r * 0.05, r * 0.09, 0, Math.PI * 2); ctx.arc(r * 0.35, r * 0.05, r * 0.09, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#c92a2a'; ctx.lineWidth = r * 0.12; ctx.beginPath(); ctx.arc(0, r * 0.25, r * 0.35, 0.15 * Math.PI, 0.85 * Math.PI); ctx.stroke();
+    ctx.fillStyle = 'rgba(255, 107, 107, 0.35)'; ctx.beginPath(); ctx.arc(-r * 0.6, r * 0.35, r * 0.15, 0, Math.PI * 2); ctx.arc(r * 0.6, r * 0.35, r * 0.15, 0, Math.PI * 2); ctx.fill();
+    ctx.restore();
+  };
+  const drawRing = (left, total, rest) => {
+    const cx = W - 52, cy = 52, r = 36;
+    ctx.lineWidth = 8; ctx.strokeStyle = 'rgba(255,255,255,0.15)'; ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+    ctx.strokeStyle = rest ? '#74c0fc' : left <= 5 ? '#ff6b6b' : '#ffd43b'; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * (left / total)); ctx.stroke();
+    ctx.fillStyle = '#fff'; ctx.font = '800 26px Inter, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(Math.ceil(left)), cx, cy + 1);
+  };
+
+  // ---- workout loop
+  let cur = null, paused = false, last = 0, raf = 0, wake = null;
+  const plan = () => PLAN[level];
+  const total = () => plan().reduce((a, [, s]) => a + s, 0) + REST * (plan().length - 1);
+  const toast = (text) => { const el = $('toast'); el.textContent = text; el.classList.remove('show'); void el.offsetWidth; el.classList.add('show'); };
+  const showStep = () => {
+    const [key] = plan()[cur.i]; const [name, tip] = t('ex')[key];
+    $('exStep').textContent = t('step')(cur.i + 1, plan().length);
+    $('exName').textContent = cur.rest ? t('rest') : name;
+    $('exTip').textContent = cur.rest ? t('next')(name) : tip;
+    $('pause').textContent = paused ? t('resume') : t('pause');
+  };
+  const begin = () => {
+    $('start').classList.add('hidden'); $('done').classList.add('hidden'); $('work').classList.remove('hidden');
+    cur = { i: 0, rest: false, left: plan()[0][1], time: 0, done: 0, half: false, five: false, cheer: 0 };
+    paused = false; resize(); showStep();
+    say(t('voiceSay').start(t('ex')[plan()[0][0]][0]));
+    if ('wakeLock' in navigator) navigator.wakeLock.request('screen').then((w) => { wake = w; }).catch(() => {});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    last = performance.now(); cancelAnimationFrame(raf); raf = requestAnimationFrame(loop);
+  };
+  const nextStep = () => {
+    if (!cur.rest && cur.i < plan().length - 1) { cur.rest = true; cur.left = REST; showStep(); say(t('voiceSay').next(t('ex')[plan()[cur.i + 1][0]][0])); return; }
+    if (cur.rest) { cur.rest = false; cur.i += 1; cur.left = plan()[cur.i][1]; cur.half = false; cur.five = false; cur.cheer = 0; showStep(); return; }
+    finish();
+  };
+  const loop = (now) => {
+    const dt = Math.min(0.1, (now - last) / 1000); last = now;
+    if (!cur) return;
+    if (!paused) {
+      cur.left -= dt; cur.time += dt; cur.done += dt;
+      const len = cur.rest ? REST : plan()[cur.i][1];
+      if (!cur.rest) {
+        if (!cur.half && cur.left <= len / 2) { cur.half = true; toast(cur.i === plan().length - 1 ? t('last') : t('half')); say(t('voiceSay').half); }
+        else if (cur.cheer < 2 && len - cur.left > 8 + cur.cheer * 14 && !cur.half) { cur.cheer += 1; toast(t('cheers')[Math.floor(Math.random() * 4)]); }
+        if (!cur.five && cur.left <= 5 && len > 12) { cur.five = true; say(t('voiceSay').five); }
+      }
+      if (cur.left <= 0) nextStep();
+      if (!cur) return;
+    }
+    $('bar').style.width = `${Math.min(100, (cur.done / total()) * 100)}%`;
+    ctx.clearRect(0, 0, W, H);
+    const [key] = plan()[cur.rest ? cur.i + 1 : cur.i] || plan()[cur.i];
+    const m = MOVES[key];
+    const pose = cur.rest ? STAND : poseAt(m, cur.time);
+    ctx.globalAlpha = cur.rest ? 0.55 : 1;
+    drawFigure(pose, SHIRT[cur.i % SHIRT.length], !cur.rest && m.circle ? pose.s : undefined);
+    ctx.globalAlpha = 1;
+    drawRing(Math.max(0, cur.left), cur.rest ? REST : plan()[cur.i][1], cur.rest);
+    raf = requestAnimationFrame(loop);
+  };
+  const stopWork = () => { cur = null; cancelAnimationFrame(raf); if (wake) { wake.release().catch(() => {}); wake = null; } };
+  $('go').addEventListener('click', begin);
+  $('again').addEventListener('click', begin);
+  $('pause').addEventListener('click', () => { paused = !paused; $('pause').textContent = paused ? t('resume') : t('pause'); if (paused && canSpeak) speechSynthesis.cancel(); });
+  $('skip').addEventListener('click', () => { if (cur) nextStep(); });
+  $('quit').addEventListener('click', () => { stopWork(); if (canSpeak) speechSynthesis.cancel(); $('work').classList.add('hidden'); $('start').classList.remove('hidden'); renderStart(); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden && cur) { paused = true; $('pause').textContent = t('resume'); if (canSpeak) speechSynthesis.cancel(); } });
+
+  // ---- finish
+  let streakNow = 0;
+  const finish = () => {
+    stopWork();
+    streakNow = markToday();
+    $('work').classList.add('hidden'); $('done').classList.remove('hidden');
+    const mins = level === 'easy' ? 3 : 5;
+    $('doneSub').textContent = t('doneSub')(streakNow, mins);
+    const marks = Object.keys(t('badges')).map(Number).filter((n) => n <= streakNow);
+    const best = marks.length ? Math.max(...marks) : 1;
+    $('badgeText').textContent = t('badges')[best];
+    $('badge').textContent = { 1: '🌱', 3: '🥉', 7: '🥈', 14: '🥇', 21: '🏆', 30: '👑' }[best];
+    say(t('voiceSay').done);
+    if (navigator.vibrate) navigator.vibrate([80, 60, 80, 60, 160]);
+    confetti();
+  };
+  $('share').addEventListener('click', () => {
+    const name = clean($('myName').value); store.set('me-name', name);
+    const u = new URL(SITE); if (name) u.searchParams.set('from', name); u.searchParams.set('s', String(streakNow)); u.searchParams.set('lang', lang);
+    window.open(`https://wa.me/?text=${encodeURIComponent(t('shareText')(name, streakNow, u.toString()))}`, '_blank', 'noopener');
+  });
+  const confetti = () => {
+    const c = $('confetti'); const x = c.getContext('2d'); const DPR = Math.min(window.devicePixelRatio || 1, 2); const r = c.getBoundingClientRect();
+    c.width = r.width * DPR; c.height = r.height * DPR; x.setTransform(DPR, 0, 0, DPR, 0, 0);
+    const bits = Array.from({ length: 140 }, () => ({ x: Math.random() * r.width, y: -20 - Math.random() * r.height * 0.6, vy: 120 + Math.random() * 160, vx: (Math.random() - 0.5) * 60, a: Math.random() * 6, c: SHIRT[Math.floor(Math.random() * SHIRT.length)], s: 5 + Math.random() * 5 }));
+    let prev = performance.now(); const until = prev + 4500;
+    const step = (now) => {
+      const dt = Math.min(0.05, (now - prev) / 1000); prev = now; x.clearRect(0, 0, r.width, r.height);
+      bits.forEach((b) => { b.y += b.vy * dt; b.x += b.vx * dt; b.a += dt * 5; x.save(); x.translate(b.x, b.y); x.rotate(b.a); x.fillStyle = b.c; x.fillRect(-b.s / 2, -b.s / 4, b.s, b.s / 2); x.restore(); });
+      if (now < until) requestAnimationFrame(step); else x.clearRect(0, 0, r.width, r.height);
+    };
+    requestAnimationFrame(step);
+  };
+
+  applyLang();
+  window.addEventListener('resize', () => { if (cur) resize(); });
+  if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "Subah ka 5-Minute Challenge — Morning Exercise",
+  "short_name": "Subah Challenge",
+  "description": "A 3 or 5 minute morning exercise challenge with a cartoon coach, a daily streak and friend challenges.",
+  "start_url": "/games/morning-exercise/",
+  "scope": "/games/morning-exercise/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#062a33",
+  "theme_color": "#0b7285",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -277,6 +277,7 @@ const wishes = {
 };
 
 const games = {
+  'morning-exercise': { name: 'Morning 5-Minute Challenge', desc: '8 easy moves with a cartoon coach — a timer, a daily 🔥 streak, badges and WhatsApp challenges for friends. 3 or 5 minutes, no camera, no login.' },
   'new-year': { name: 'Fireworks Pop', desc: 'Tap the rockets rising into the sky and burst them — at the very top for a Perfect, quickly for combos. With a live countdown to the new year.' },
   christmas: { name: 'Catch Santa\'s Gifts', desc: 'Steer Santa\'s sleigh, catch the falling gifts, dodge the coal and challenge friends on WhatsApp. In Hindi, Hinglish, English and Bengali.' },
 };
