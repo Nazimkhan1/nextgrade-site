@@ -425,6 +425,7 @@ const wishes = {
 
 const games = {
   'morning-exercise': { name: 'Subah ka 2-Minute Challenge', desc: 'Cartoon coach ke saath 8 aasaan kasratein — timer, roz ki 🔥 streak, badges aur dosto ko WhatsApp pe challenge. Sirf 2 minute (har kasrat 15 second), bina camera, bina login.' },
+  shabd: { name: 'Aaj ka Shabd', desc: 'Roz ek naya 5 akshar ka shabd — 6 koshish mein pehchano. Hindi shabd (Roman mein, matlab ke saath) ya English words. Rang batate hain kaunsa akshar sahi hai; result WhatsApp par bhejo aur streak banao.' },
   patang: { name: 'Patang Udao', desc: 'Apni patang ghumao, doosron ki dor kaato — "Wo kaata!" — apni dor bachao, til-gud laddoo pakdo aur pakshiyon se bacho. 60 second, combo aur WhatsApp challenge.' },
   zumba: { name: 'Ghar Baithe Zumba', desc: 'Mahilaon ke liye ghar ka dance workout — music ke saath 8 mazedaar moves, cartoon coach jo har move ke saath fit hoti jaati hai, awaaz mein coach, roz ki 🔥 streak aur saheliyon ko challenge.' },
   chhath: { name: 'Chhath Ghat', desc: 'Bhor mein nadi mein dupki lagao, ugte suraj ko sahi pal pe arghya do, phir soop mein thekua-kela-ganna pakad ke vrat kholo. Teen stage, ghanti aur paani ki awaaz, WhatsApp challenge.' },

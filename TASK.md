@@ -11,6 +11,10 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 ---
 
+## 15 Nov 2026: Games series (user: "banao ek ek kar ke")
+Plan, in order: 1) **Aaj ka Shabd** ✅  2) Bharat Quiz  3) Chai Tapri Rush. Other ideas given to the user: Paheli Bujho, Ganit Dhamaka, Auto-Rickshaw Dash, Gol Gappa Challenge, Rangoli memory, Akshar Pakdo (kids), memory cards, Gully Cricket Super Over (no real teams/logos), board-exam quiz.
+- [x] **`/games/shabd/` Aaj ka Shabd** — daily 5-letter word, 6 tries; modes "Hindi shabd" (97 Hindi words in Roman letters, each with Devanagari + English meaning shown after the game) and "English words" (119). Same word for everyone, changes at midnight IST; #1 = 15 Nov 2026 (`EPOCH`); order = seeded shuffle, list repeats after its length (~3 months) → **add words before Feb 2027**. Practice mode (random). Colours 🟩 ok / 🟧 near / ⬛ no, share grid via WhatsApp/native share (word never shown). Stats + streak per mode in localStorage (`sh-*`), today's board restored on reload. Sound on with 🔇. CACHE `ng-shabd-v1`. Any 5 letters accepted (no dictionary check, on purpose: Roman Hindi spellings vary).
+
 ## 15 Nov 2026: Google Analytics + where things are
 - [x] **Google Analytics** (GA4 account "NextGrade", property "NextGrade site", **G-NJ43J91EBJ**): `GA_ID` in build.mjs, tag injected right after `<head>` on every built page (260). Privacy policy "Visitor statistics" mentions it (cookies, opt-out). Prerender blocks GA hosts.
 - ✅ (redaction ON + verified 15 Nov: names show as "(redacted)") **Names in share links:** wish/game links carry names (`?from=`, `?to=`, `?with=`, `?d=`, `?m=`, `?score=`). This GA tag ignores `page_location` overrides (tested), so the fix is in GA: Admin → Data streams → NextGrade site → **Redact data** → URL query parameters = `from, to, with, d, m, score`. **Don't push the GA tag live until that is on** (check: a local load of `/celebrate/birthday/?to=X&from=Y` must send `dl` without the names).

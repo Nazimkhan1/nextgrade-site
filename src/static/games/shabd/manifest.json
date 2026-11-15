@@ -1,0 +1,16 @@
+{
+  "name": "Aaj ka Shabd — Daily Word Puzzle",
+  "short_name": "Aaj ka Shabd",
+  "description": "Guess today's 5-letter word in 6 tries — Hindi words in Roman letters or English words.",
+  "start_url": "/games/shabd/",
+  "scope": "/games/shabd/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#062c33",
+  "theme_color": "#0b7285",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

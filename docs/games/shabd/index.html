@@ -1,0 +1,427 @@
+<!doctype html>
+<html data-prerendered="hi" lang="hi">
+<head>
+<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aaj ka Shabd 🔤 — Daily 5-Letter Word Puzzle in Hindi &amp; English | NextGrade</title>
+<meta name="description" content="Aaj ka Shabd: a free daily word puzzle. Guess today's 5-letter word in 6 tries — Hindi words in Roman letters (with meaning) or English words. Colours show which letters are right. Share your result on WhatsApp. Hindi, Hinglish, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/games/shabd/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Aaj ka Shabd 🔤 — roz ek naya shabd, 6 koshish">
+<meta property="og:description" content="Aaj ka shabd pehchano! 5 akshar, 6 koshish. Mera result dekho aur khud try karo.">
+<meta property="og:url" content="https://nextgrade.in/games/shabd/">
+<meta property="og:image" content="https://nextgrade.in/games/shabd/icons/icon-512.png">
+<meta name="theme-color" content="#0b7285">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Aaj ka Shabd","url":"https://nextgrade.in/games/shabd/","genre":"Word puzzle","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #062c33; --bg2: #0b7285; --ink: #f1fbfc; --muted: #b9dfe4; --card: rgba(255,255,255,0.07); --line: rgba(255,255,255,0.16);
+  --ok: #2f9e44; --near: #e8590c; --no: #3b474d; --gold: #ffd43b; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1100px 600px at 50% -10%, #1098ad, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; min-height: 100vh; -webkit-tap-highlight-color: transparent; }
+a { color: var(--gold); }
+.wrap { max-width: 560px; margin: 0 auto; padding: 0 14px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; }
+.brand { display: flex; align-items: center; gap: 8px; font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand img { width: 30px; height: 30px; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid var(--line); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; font-family: inherit; }
+.langsel { font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: clamp(26px, 7vw, 36px); line-height: 1.1; margin: 2px 0 4px; }
+.sub { color: var(--muted); margin: 0 0 10px; font-size: 15px; }
+.modes { display: flex; gap: 6px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 4px; margin-bottom: 10px; }
+.modes button { flex: 1; border: 0; border-radius: 9px; padding: 8px 6px; font: inherit; font-weight: 700; font-size: 14px; color: var(--muted); background: none; cursor: pointer; }
+.modes button[aria-pressed="true"] { background: var(--bg2); color: #fff; }
+.daybar { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+.daybar button { font: inherit; font-size: 13px; color: var(--gold); background: none; border: 0; cursor: pointer; text-decoration: underline; padding: 0; }
+.board { display: grid; grid-template-rows: repeat(6, 1fr); gap: 6px; width: min(330px, 86vw); margin: 0 auto 12px; }
+.row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.row.shake { animation: shake .4s; }
+@keyframes shake { 0%,100% { transform: translateX(0); } 20%,60% { transform: translateX(-6px); } 40%,80% { transform: translateX(6px); } }
+.tile { aspect-ratio: 1; display: grid; place-items: center; border: 2px solid var(--line); border-radius: 8px; font-weight: 800; font-size: clamp(22px, 7vw, 30px); text-transform: uppercase; background: rgba(0,0,0,0.15); }
+.tile.filled { border-color: rgba(255,255,255,0.45); animation: pop .1s; }
+@keyframes pop { 50% { transform: scale(1.08); } }
+.tile.ok, .tile.near, .tile.no { border-color: transparent; animation: flip .45s ease both; }
+.tile.ok { background: var(--ok); } .tile.near { background: var(--near); } .tile.no { background: var(--no); }
+@keyframes flip { 0% { transform: rotateX(0); } 50% { transform: rotateX(90deg); } 100% { transform: rotateX(0); } }
+.msg { min-height: 26px; text-align: center; font-weight: 700; margin: 0 0 8px; }
+.kb { display: grid; gap: 6px; margin: 0 auto 14px; max-width: 500px; user-select: none; }
+.kr { display: flex; gap: 5px; justify-content: center; }
+.key { flex: 1; min-width: 0; height: 52px; border: 0; border-radius: 8px; background: #6c8a91; color: #fff; font: inherit; font-weight: 800; font-size: 16px; cursor: pointer; padding: 0; }
+.key.wide { flex: 1.6; font-size: 13px; }
+.key.ok { background: var(--ok); } .key.near { background: var(--near); } .key.no { background: #2a3337; color: #8fa3a8; }
+.result { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; margin: 0 0 14px; text-align: center; }
+.result[hidden] { display: none; }
+.result h2 { margin: 0 0 4px; font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; }
+.word { font-size: 28px; font-weight: 800; letter-spacing: 4px; color: var(--gold); }
+.meaning { color: var(--ink); margin: 2px 0 8px; }
+.grid-share { font-size: 18px; line-height: 1.15; margin: 6px 0 10px; white-space: pre-line; }
+.btns { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.btn { border: 0; border-radius: 12px; padding: 11px 16px; font: inherit; font-weight: 700; cursor: pointer; }
+.btn-wa { background: #25d366; color: #063b1c; } .btn-main { background: var(--gold); color: #3b2a00; } .btn-ghost { background: var(--card); color: var(--ink); border: 1px solid var(--line); }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 10px 0 6px; }
+.stats div { background: rgba(0,0,0,0.18); border-radius: 10px; padding: 6px 2px; }
+.stats b { display: block; font-size: 22px; } .stats span { font-size: 11px; color: var(--muted); }
+.next { color: var(--muted); font-size: 13px; margin-top: 8px; }
+section { margin: 18px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: 22px; margin: 0 0 6px; }
+section p, section li { color: var(--muted); }
+.legend { display: flex; gap: 12px; flex-wrap: wrap; margin: 8px 0; color: var(--muted); font-size: 14px; }
+.legend i { display: inline-block; width: 16px; height: 16px; border-radius: 4px; vertical-align: -3px; margin-right: 5px; }
+.ad { min-height: 100px; margin: 20px 0; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid var(--line); }
+footer a { color: var(--muted); margin-right: 12px; }
+</style>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/"><img src="/favicon.svg" alt="" width="30" height="30"><span>NextGrade<small>Word Puzzle</small></span></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title">आज का शब्द</h1>
+  <p class="sub" data-i18n="sub">रोज़ एक नया 5 अक्षर का शब्द। 6 कोशिश में पहचानो!</p>
+
+  <div class="modes" role="group">
+    <button type="button" id="modeHi" aria-pressed="true" data-i18n="modeHi"></button>
+    <button type="button" id="modeEn" aria-pressed="false" data-i18n="modeEn"></button>
+  </div>
+  <div class="daybar"><span id="dayLabel">शब्द #1 · आज का</span><button type="button" id="practice" data-i18n="practice"></button></div>
+
+  <div class="board" id="board" aria-label="Word grid"></div>
+  <p class="msg" id="msg" role="status" aria-live="polite"></p>
+
+  <div class="result" id="result" hidden>
+    <h2 id="resTitle"></h2>
+    <div class="word" id="resWord"></div>
+    <p class="meaning" id="resMeaning"></p>
+    <div class="grid-share" id="resGrid" aria-hidden="true"></div>
+    <div class="btns">
+      <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+      <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
+    </div>
+    <div class="stats" id="stats"></div>
+    <p class="next" id="next"></p>
+  </div>
+
+  <div class="kb" id="kb"><div class="kr"><button type="button" class="key" data-k="Q" aria-label="Q">Q</button><button type="button" class="key" data-k="W" aria-label="W">W</button><button type="button" class="key" data-k="E" aria-label="E">E</button><button type="button" class="key" data-k="R" aria-label="R">R</button><button type="button" class="key" data-k="T" aria-label="T">T</button><button type="button" class="key" data-k="Y" aria-label="Y">Y</button><button type="button" class="key" data-k="U" aria-label="U">U</button><button type="button" class="key" data-k="I" aria-label="I">I</button><button type="button" class="key" data-k="O" aria-label="O">O</button><button type="button" class="key" data-k="P" aria-label="P">P</button></div><div class="kr"><button type="button" class="key" data-k="A" aria-label="A">A</button><button type="button" class="key" data-k="S" aria-label="S">S</button><button type="button" class="key" data-k="D" aria-label="D">D</button><button type="button" class="key" data-k="F" aria-label="F">F</button><button type="button" class="key" data-k="G" aria-label="G">G</button><button type="button" class="key" data-k="H" aria-label="H">H</button><button type="button" class="key" data-k="J" aria-label="J">J</button><button type="button" class="key" data-k="K" aria-label="K">K</button><button type="button" class="key" data-k="L" aria-label="L">L</button></div><div class="kr"><button type="button" class="key wide" data-k="↵" aria-label="Enter">ENTER</button><button type="button" class="key" data-k="Z" aria-label="Z">Z</button><button type="button" class="key" data-k="X" aria-label="X">X</button><button type="button" class="key" data-k="C" aria-label="C">C</button><button type="button" class="key" data-k="V" aria-label="V">V</button><button type="button" class="key" data-k="B" aria-label="B">B</button><button type="button" class="key" data-k="N" aria-label="N">N</button><button type="button" class="key" data-k="M" aria-label="M">M</button><button type="button" class="key wide" data-k="⌫" aria-label="Backspace">⌫</button></div></div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle">कैसे खेलें</h2>
+    <ol id="howList"><li>कोई भी 5 अक्षर का शब्द लिखो और Enter दबाओ।</li><li>हर अक्षर का रंग बदलेगा: हरा = सही अक्षर सही जगह, नारंगी = अक्षर शब्द में है पर जगह ग़लत, काला = अक्षर शब्द में नहीं।</li><li>रंगों से अंदाज़ा लगाओ और 6 कोशिश में शब्द पहचानो।</li><li>"हिंदी शब्द" में हिंदी के शब्द रोमन अक्षरों में हैं (जैसे PAANI = पानी, DOSTI = दोस्ती)। खेल के बाद मतलब भी दिखेगा।</li><li>हर दिन सबके लिए एक ही शब्द होता है। नतीजा WhatsApp पर भेजो — शब्द नहीं दिखेगा, सिर्फ़ रंग।</li></ol>
+    <div class="legend"><span><i style="background:var(--ok)"></i><span data-i18n="lgOk">सही जगह</span></span><span><i style="background:var(--near)"></i><span data-i18n="lgNear">शब्द में है, जगह ग़लत</span></span><span><i style="background:var(--no)"></i><span data-i18n="lgNo">शब्द में नहीं</span></span></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle">आज का शब्द क्या है?</h2>
+    <p data-i18n="aboutText">आज का शब्द एक छोटा-सा रोज़ का दिमाग़ी खेल है। हर दिन एक नया 5 अक्षर का शब्द आता है — हिंदी के रोज़मर्रा के शब्द जैसे पानी, दोस्ती, सपना, या English के आम शब्द। सिर्फ़ 2–3 मिनट लगते हैं, पर दिमाग़ पूरा चलता है: कौन-से अक्षर हैं, कौन-से नहीं, और किस जगह।</p>
+    <p data-i18n="aboutText2">शब्दों के खेल याददाश्त, स्पेलिंग और ध्यान के लिए अच्छे माने जाते हैं। बच्चे नए शब्द सीखते हैं, बड़े अपनी रफ़्तार देखते हैं, और परिवार के WhatsApp ग्रुप में रोज़ का मुक़ाबला हो जाता है। हर दिन की स्ट्रीक बनाओ!</p>
+    <p><span data-i18n="readMore">और भी:</span> <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames">और गेम</a> · <a id="stories" href="https://nextgrade.in/kahani/" data-i18n="storiesLink">बच्चों की कहानियाँ</a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle">प्राइवेसी</h2>
+    <p data-i18n="privacyText">कोई लॉगिन नहीं। आपके खेल, स्ट्रीक और भाषा सिर्फ़ इसी फ़ोन में सेव होते हैं। कुछ भी हमारे पास नहीं आता।</p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const SITE = 'https://nextgrade.in/games/shabd/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const LEN = 5, TRIES = 6;
+  // Hindi words in Roman letters: [WORD, Devanagari, English meaning]
+  const HI_WORDS = [["PAANI", "पानी", "water"], ["KHANA", "खाना", "food"], ["PYAAR", "प्यार", "love"], ["DOSTI", "दोस्ती", "friendship"], ["MASTI", "मस्ती", "fun"], ["SAPNA", "सपना", "dream"], ["DHOOP", "धूप", "sunshine"], ["BADAL", "बादल", "cloud"], ["CHAND", "चाँद", "moon"], ["TAARA", "तारा", "star"], ["PHOOL", "फूल", "flower"], ["HALWA", "हलवा", "halwa (sweet)"], ["LADDU", "लड्डू", "laddoo"], ["KHEER", "खीर", "rice pudding"], ["SAMAY", "समय", "time"], ["KITAB", "किताब", "book"], ["KALAM", "कलम", "pen"], ["SAFAR", "सफ़र", "journey"], ["RAAJA", "राजा", "king"], ["RAANI", "रानी", "queen"], ["SHAAM", "शाम", "evening"], ["SUBAH", "सुबह", "morning"], ["AANKH", "आँख", "eye"], ["HAATH", "हाथ", "hand"], ["CHAAY", "चाय", "tea"], ["KISAN", "किसान", "farmer"], ["BAZAR", "बाज़ार", "market"], ["SADAK", "सड़क", "road"], ["GAADI", "गाड़ी", "vehicle"], ["TABLA", "तबला", "tabla (drum)"], ["SITAR", "सितार", "sitar"], ["GHODA", "घोड़ा", "horse"], ["BILLI", "बिल्ली", "cat"], ["PAISA", "पैसा", "money"], ["DUKAN", "दुकान", "shop"], ["KHETI", "खेती", "farming"], ["GEHUN", "गेहूँ", "wheat"], ["SABZI", "सब्ज़ी", "vegetable"], ["ACHAR", "अचार", "pickle"], ["LASSI", "लस्सी", "lassi"], ["NIMBU", "नींबू", "lemon"], ["AAMLA", "आँवला", "amla (gooseberry)"], ["ANGUR", "अंगूर", "grapes"], ["MAUSI", "मौसी", "aunt (mother's sister)"], ["NAANA", "नाना", "grandfather (mother's side)"], ["NAANI", "नानी", "grandmother (mother's side)"], ["DAADA", "दादा", "grandfather (father's side)"], ["DAADI", "दादी", "grandmother (father's side)"], ["BHABI", "भाभी", "sister-in-law"], ["BEHAN", "बहन", "sister"], ["BHAAI", "भाई", "brother"], ["DULHA", "दूल्हा", "groom"], ["SEHRA", "सेहरा", "groom's veil"], ["PAYAL", "पायल", "anklet"], ["BINDI", "बिंदी", "bindi"], ["SAREE", "साड़ी", "saree"], ["KURTA", "कुर्ता", "kurta"], ["JOOTA", "जूता", "shoe"], ["GHADI", "घड़ी", "watch, clock"], ["CHHAT", "छत", "roof"], ["PATTA", "पत्ता", "leaf"], ["AMBAR", "अंबर", "sky"], ["ZAMIN", "ज़मीन", "land"], ["BIJLI", "बिजली", "electricity, lightning"], ["THAND", "ठंड", "cold"], ["GARMI", "गर्मी", "heat, summer"], ["SARDI", "सर्दी", "winter"], ["NAACH", "नाच", "dance"], ["GILLI", "गिल्ली", "gilli (of gilli-danda)"], ["DANDA", "डंडा", "stick"], ["LATTU", "लट्टू", "spinning top"], ["DIYAA", "दीया", "clay lamp"], ["DHAGA", "धागा", "thread"], ["KAMRA", "कमरा", "room"], ["KURSI", "कुर्सी", "chair"], ["THALI", "थाली", "plate (thali)"], ["BARAF", "बर्फ़", "ice, snow"], ["JHEEL", "झील", "lake"], ["PAHAD", "पहाड़", "mountain"], ["JUGNU", "जुगनू", "firefly"], ["TITLI", "तितली", "butterfly"], ["MAINA", "मैना", "myna (bird)"], ["KOYAL", "कोयल", "cuckoo"], ["MORNI", "मोरनी", "peahen"], ["HIRAN", "हिरन", "deer"], ["BHALU", "भालू", "bear"], ["BAKRI", "बकरी", "goat"], ["MURGA", "मुर्गा", "rooster"], ["KUTTA", "कुत्ता", "dog"], ["GAANV", "गाँव", "village"], ["NAGAR", "नगर", "town"], ["AWAAZ", "आवाज़", "voice"], ["IMAAN", "ईमान", "honesty"], ["IZZAT", "इज़्ज़त", "respect"], ["DHYAN", "ध्यान", "attention, meditation"], ["GYAAN", "ज्ञान", "knowledge"], ["VIDYA", "विद्या", "learning"]];
+  const EN_WORDS = ["APPLE", "BEACH", "BLOOM", "BRAIN", "BRAVE", "BREAD", "BRICK", "BRUSH", "CANDY", "CHAIR", "CHALK", "CHARM", "CHEST", "CLEAN", "CLOCK", "CLOUD", "COAST", "CORAL", "CRANE", "CREAM", "CROWN", "DANCE", "DREAM", "DRINK", "EAGLE", "EARTH", "FAITH", "FEAST", "FIELD", "FLAME", "FLOUR", "FOCUS", "FRESH", "FROST", "FRUIT", "GHOST", "GIANT", "GLASS", "GLOBE", "GRACE", "GRAPE", "GRASS", "HAPPY", "HEART", "HONEY", "HORSE", "HOUSE", "JUICE", "KITES", "KNIFE", "LAUGH", "LEMON", "LIGHT", "LOTUS", "LUCKY", "MANGO", "MAPLE", "MARCH", "MONEY", "MOUSE", "MUSIC", "NIGHT", "NOBLE", "NORTH", "OCEAN", "OLIVE", "ORBIT", "PAINT", "PAPER", "PARTY", "PEACE", "PEARL", "PIANO", "PILOT", "PLANT", "PLATE", "POWER", "QUEEN", "QUICK", "QUIET", "RADIO", "RIVER", "ROBOT", "ROUND", "SALAD", "SCALE", "SHEEP", "SHELL", "SHINE", "SHIRT", "SKILL", "SLEEP", "SMILE", "SNAKE", "SPACE", "SPICE", "SPOON", "SPORT", "STAMP", "STORM", "STORY", "SUGAR", "SWEET", "TABLE", "TEACH", "TIGER", "TOAST", "TOWER", "TRAIN", "TRUST", "TRUTH", "UNCLE", "VOICE", "WATER", "WHALE", "WHEAT", "WORLD", "YOUTH", "ZEBRA"];
+  const $ = (id) => document.getElementById(id);
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+  let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('sh-lang')) ? store.get('sh-lang') : deviceLang();
+
+  const T = {
+    hinglish: {
+      title: 'Aaj ka Shabd', sub: 'Roz ek naya 5 akshar ka shabd. 6 koshish mein pehchano!',
+      modeHi: 'Hindi shabd', modeEn: 'English words', practice: 'Practice (aur khelo)',
+      day: (n) => `Shabd #${n} · aaj ka`, practiceDay: 'Practice mode', tooShort: 'Poore 5 akshar likho', onlyAZ: 'Sirf A–Z akshar',
+      win: ['Kamaal! 🤯', 'Shaandaar! 🌟', 'Bahut badhiya! 🎉', 'Badhiya! 👏', 'Achha khela! 🙂', 'Phew, bach gaye! 😅'], lose: 'Is baar nahi! Shabd tha:',
+      shareWa: 'WhatsApp par bhejo', shareOther: 'Share', again: 'Practice karo', copied: 'Copy ho gaya ✓',
+      stPlayed: 'Khele', stWin: 'Jeet %', stStreak: 'Streak', stMax: 'Best streak', next: (h, m) => `Agla shabd ${h} ghante ${m} minute mein`,
+      shareText: (mode, n, score, grid) => `Aaj ka Shabd ${mode === 'hi' ? '(Hindi)' : '(English)'} #${n} ${score}/6\n${grid}\nKhud try karo 👉 `,
+      meaning: (dev, gl) => `${dev} — ${gl}`,
+      howTitle: 'Kaise khelein', how: ['Koi bhi 5 akshar ka shabd likho aur Enter dabao.', 'Har akshar ka rang badlega: hara = sahi akshar sahi jagah, narangi = akshar shabd mein hai par jagah galat, kaala = akshar shabd mein nahi.', 'Rangon se andaza lagao aur 6 koshish mein shabd pehchano.', '"Hindi shabd" mein Hindi ke shabd Roman akshar mein hain (jaise PAANI, DOSTI). Khel ke baad matlab bhi dikhega.', 'Har din sabke liye ek hi shabd hota hai. Result WhatsApp par bhejo — shabd nahi dikhega, sirf rang.'],
+      lgOk: 'Sahi jagah', lgNear: 'Shabd mein hai, jagah galat', lgNo: 'Shabd mein nahi',
+      aboutTitle: 'Aaj ka Shabd kya hai?', aboutText: 'Aaj ka Shabd ek chhota sa roz ka dimaagi khel hai. Har din ek naya 5 akshar ka shabd aata hai — Hindi ke rozmarra ke shabd jaise paani, dosti, sapna, ya English ke aam words. Sirf 2–3 minute lagte hain, par dimaag poora chalta hai: kaunse akshar hain, kaunse nahi, aur kis jagah.',
+      aboutText2: 'Shabdon ke khel yaaddasht, spelling aur dhyan ke liye achhe maane jaate hain. Bachche naye shabd seekhte hain, bade apni speed dekhte hain, aur parivaar ke WhatsApp group mein roz ka mukaabla ho jaata hai. Har din ki streak banao!',
+      readMore: 'Aur bhi:', moreGames: 'Aur games', storiesLink: 'Bachchon ki kahaniyan',
+      privacyTitle: 'Privacy', privacyText: 'Koi login nahi. Aapke khel, streak aur language sirf isi phone mein save hote hain. Kuch bhi hamare paas nahi aata.',
+    },
+    hi: {
+      title: 'आज का शब्द', sub: 'रोज़ एक नया 5 अक्षर का शब्द। 6 कोशिश में पहचानो!',
+      modeHi: 'हिंदी शब्द', modeEn: 'English शब्द', practice: 'प्रैक्टिस (और खेलो)',
+      day: (n) => `शब्द #${n} · आज का`, practiceDay: 'प्रैक्टिस मोड', tooShort: 'पूरे 5 अक्षर लिखो', onlyAZ: 'सिर्फ़ A–Z अक्षर',
+      win: ['कमाल! 🤯', 'शानदार! 🌟', 'बहुत बढ़िया! 🎉', 'बढ़िया! 👏', 'अच्छा खेला! 🙂', 'फ़्यू, बच गए! 😅'], lose: 'इस बार नहीं! शब्द था:',
+      shareWa: 'WhatsApp पर भेजो', shareOther: 'शेयर', again: 'प्रैक्टिस करो', copied: 'कॉपी हो गया ✓',
+      stPlayed: 'खेले', stWin: 'जीत %', stStreak: 'स्ट्रीक', stMax: 'सबसे लंबी', next: (h, m) => `अगला शब्द ${h} घंटे ${m} मिनट में`,
+      shareText: (mode, n, score, grid) => `आज का शब्द ${mode === 'hi' ? '(हिंदी)' : '(English)'} #${n} ${score}/6\n${grid}\nख़ुद आज़माओ 👉 `,
+      meaning: (dev, gl) => `${dev} — ${gl}`,
+      howTitle: 'कैसे खेलें', how: ['कोई भी 5 अक्षर का शब्द लिखो और Enter दबाओ।', 'हर अक्षर का रंग बदलेगा: हरा = सही अक्षर सही जगह, नारंगी = अक्षर शब्द में है पर जगह ग़लत, काला = अक्षर शब्द में नहीं।', 'रंगों से अंदाज़ा लगाओ और 6 कोशिश में शब्द पहचानो।', '"हिंदी शब्द" में हिंदी के शब्द रोमन अक्षरों में हैं (जैसे PAANI = पानी, DOSTI = दोस्ती)। खेल के बाद मतलब भी दिखेगा।', 'हर दिन सबके लिए एक ही शब्द होता है। नतीजा WhatsApp पर भेजो — शब्द नहीं दिखेगा, सिर्फ़ रंग।'],
+      lgOk: 'सही जगह', lgNear: 'शब्द में है, जगह ग़लत', lgNo: 'शब्द में नहीं',
+      aboutTitle: 'आज का शब्द क्या है?', aboutText: 'आज का शब्द एक छोटा-सा रोज़ का दिमाग़ी खेल है। हर दिन एक नया 5 अक्षर का शब्द आता है — हिंदी के रोज़मर्रा के शब्द जैसे पानी, दोस्ती, सपना, या English के आम शब्द। सिर्फ़ 2–3 मिनट लगते हैं, पर दिमाग़ पूरा चलता है: कौन-से अक्षर हैं, कौन-से नहीं, और किस जगह।',
+      aboutText2: 'शब्दों के खेल याददाश्त, स्पेलिंग और ध्यान के लिए अच्छे माने जाते हैं। बच्चे नए शब्द सीखते हैं, बड़े अपनी रफ़्तार देखते हैं, और परिवार के WhatsApp ग्रुप में रोज़ का मुक़ाबला हो जाता है। हर दिन की स्ट्रीक बनाओ!',
+      readMore: 'और भी:', moreGames: 'और गेम', storiesLink: 'बच्चों की कहानियाँ',
+      privacyTitle: 'प्राइवेसी', privacyText: 'कोई लॉगिन नहीं। आपके खेल, स्ट्रीक और भाषा सिर्फ़ इसी फ़ोन में सेव होते हैं। कुछ भी हमारे पास नहीं आता।',
+    },
+    en: {
+      title: 'Aaj ka Shabd — Word of the Day', sub: 'A new 5-letter word every day. Guess it in 6 tries!',
+      modeHi: 'Hindi words', modeEn: 'English words', practice: 'Practice (play more)',
+      day: (n) => `Word #${n} · today`, practiceDay: 'Practice mode', tooShort: 'Type all 5 letters', onlyAZ: 'Letters A–Z only',
+      win: ['Genius! 🤯', 'Brilliant! 🌟', 'Great! 🎉', 'Nice! 👏', 'Good game! 🙂', 'Phew! 😅'], lose: 'Not this time! The word was:',
+      shareWa: 'Send on WhatsApp', shareOther: 'Share', again: 'Practice', copied: 'Copied ✓',
+      stPlayed: 'Played', stWin: 'Win %', stStreak: 'Streak', stMax: 'Best', next: (h, m) => `Next word in ${h}h ${m}m`,
+      shareText: (mode, n, score, grid) => `Aaj ka Shabd ${mode === 'hi' ? '(Hindi)' : '(English)'} #${n} ${score}/6\n${grid}\nTry it 👉 `,
+      meaning: (dev, gl) => `${dev} — ${gl}`,
+      howTitle: 'How to play', how: ['Type any 5-letter word and press Enter.', 'Each letter changes colour: green = right letter in the right place, orange = the letter is in the word but in another place, dark = not in the word.', 'Use the colours to work out the word in 6 tries.', 'In "Hindi words" the words are Hindi written in Roman letters (like PAANI = water, DOSTI = friendship). You see the meaning after the game.', 'Everyone gets the same word each day. Share your result on WhatsApp — only the colours, never the word.'],
+      lgOk: 'Right place', lgNear: 'In the word, wrong place', lgNo: 'Not in the word',
+      aboutTitle: 'What is Aaj ka Shabd?', aboutText: 'Aaj ka Shabd ("today\'s word") is a small daily brain game. Every day there is a new 5-letter word — everyday Hindi words such as paani, dosti and sapna written in Roman letters, or common English words. It takes 2–3 minutes and keeps your mind busy: which letters are in, which are out, and where they go.',
+      aboutText2: 'Word games are good for memory, spelling and focus. Children pick up new words, adults race their own speed, and family WhatsApp groups get a friendly daily contest. Keep your streak going!',
+      readMore: 'More:', moreGames: 'More games', storiesLink: 'Bedtime stories',
+      privacyTitle: 'Privacy', privacyText: 'No login. Your games, streak and language are saved only on this phone. Nothing is sent to us.',
+    },
+    bn: {
+      title: 'আজকের শব্দ', sub: 'প্রতিদিন একটা নতুন ৫ অক্ষরের শব্দ। ৬ বারে চিনে ফেলো!',
+      modeHi: 'হিন্দি শব্দ', modeEn: 'ইংরেজি শব্দ', practice: 'প্র্যাকটিস (আরও খেলো)',
+      day: (n) => `শব্দ #${n} · আজকের`, practiceDay: 'প্র্যাকটিস মোড', tooShort: 'পুরো ৫টা অক্ষর লেখো', onlyAZ: 'শুধু A–Z অক্ষর',
+      win: ['দারুণ! 🤯', 'অসাধারণ! 🌟', 'খুব ভালো! 🎉', 'বাহ! 👏', 'ভালো খেলেছ! 🙂', 'উফ, বাঁচলাম! 😅'], lose: 'এবার হলো না! শব্দটা ছিল:',
+      shareWa: 'WhatsApp-এ পাঠাও', shareOther: 'শেয়ার', again: 'প্র্যাকটিস করো', copied: 'কপি হয়েছে ✓',
+      stPlayed: 'খেলেছ', stWin: 'জয় %', stStreak: 'স্ট্রিক', stMax: 'সেরা', next: (h, m) => `পরের শব্দ ${h} ঘণ্টা ${m} মিনিটে`,
+      shareText: (mode, n, score, grid) => `আজকের শব্দ ${mode === 'hi' ? '(হিন্দি)' : '(English)'} #${n} ${score}/6\n${grid}\nতুমিও খেলো 👉 `,
+      meaning: (dev, gl) => `${dev} — ${gl}`,
+      howTitle: 'কীভাবে খেলবে', how: ['যেকোনো ৫ অক্ষরের শব্দ লেখো আর Enter টেপো।', 'প্রতিটা অক্ষরের রং বদলাবে: সবুজ = ঠিক অক্ষর ঠিক জায়গায়, কমলা = অক্ষরটা শব্দে আছে কিন্তু অন্য জায়গায়, কালো = শব্দে নেই।', 'রং দেখে আন্দাজ করো আর ৬ বারে শব্দটা বের করো।', '"হিন্দি শব্দ"-এ হিন্দি শব্দ রোমান অক্ষরে লেখা (যেমন PAANI = জল, DOSTI = বন্ধুত্ব)। খেলার পরে মানেও দেখাবে।', 'প্রতিদিন সবার জন্য একই শব্দ। ফল WhatsApp-এ পাঠাও — শব্দ দেখা যাবে না, শুধু রং।'],
+      lgOk: 'ঠিক জায়গায়', lgNear: 'শব্দে আছে, জায়গা ভুল', lgNo: 'শব্দে নেই',
+      aboutTitle: 'আজকের শব্দ কী?', aboutText: 'আজকের শব্দ একটা ছোট্ট রোজকার মাথা খাটানোর খেলা। প্রতিদিন একটা নতুন ৫ অক্ষরের শব্দ — হিন্দির চেনা শব্দ যেমন paani, dosti, sapna রোমান অক্ষরে, অথবা সাধারণ ইংরেজি শব্দ। মাত্র ২–৩ মিনিট লাগে, কিন্তু মাথা পুরো চলে: কোন অক্ষর আছে, কোনটা নেই, আর কোথায়।',
+      aboutText2: 'শব্দের খেলা স্মৃতি, বানান আর মনোযোগের জন্য ভালো। ছোটরা নতুন শব্দ শেখে, বড়রা নিজের গতি দেখে, আর পরিবারের WhatsApp গ্রুপে রোজ একটা মজার প্রতিযোগিতা হয়ে যায়। রোজ খেলে স্ট্রিক বাড়াও!',
+      readMore: 'আরও:', moreGames: 'আরও গেম', storiesLink: 'ছোটদের গল্প',
+      privacyTitle: 'প্রাইভেসি', privacyText: 'কোনো লগইন নেই। তোমার খেলা, স্ট্রিক আর ভাষা শুধু এই ফোনেই সেভ থাকে। আমাদের কাছে কিছু আসে না।',
+    },
+  };
+  const t = (k) => T[lang][k];
+
+  // ---- daily word: same for everyone, changes at midnight India time
+  const EPOCH = Date.UTC(2026, 10, 15) / 86400000; // 15 Nov 2026 = #1
+  const istDay = () => Math.floor((Date.now() + 5.5 * 3600000) / 86400000);
+  const dayNo = () => istDay() - EPOCH + 1;
+  const shuffled = (list, seed) => {
+    let s = seed >>> 0;
+    const rnd = () => { s = (s + 0x6D2B79F5) >>> 0; let x = Math.imul(s ^ (s >>> 15), 1 | s); x ^= x + Math.imul(x ^ (x >>> 7), 61 | x); return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+    const a = list.slice();
+    for (let i = a.length - 1; i > 0; i -= 1) { const j = Math.floor(rnd() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    return a;
+  };
+  const ORDER = { hi: shuffled(HI_WORDS.map((w) => w[0]), 20261115), en: shuffled(EN_WORDS, 11152026) };
+  const dailyWord = (mode) => ORDER[mode][(dayNo() - 1 + ORDER[mode].length * 100) % ORDER[mode].length];
+  const info = (word) => HI_WORDS.find((w) => w[0] === word);
+
+  // ---- state
+  let mode = store.get('sh-mode') === 'en' || store.get('sh-mode') === 'hi' ? store.get('sh-mode') : (lang === 'en' ? 'en' : 'hi');
+  let practice = false;
+  let answer = '', guesses = [], cur = '', done = false, won = false, revealing = false;
+  const todayKey = () => `sh-${mode}-today`;
+  const statsKey = () => `sh-${mode}-stats`;
+  const loadStats = () => { try { return JSON.parse(store.get(statsKey())) || null; } catch (e) { return null; } };
+  const stats = () => loadStats() || { played: 0, won: 0, streak: 0, max: 0, last: 0, dist: [0, 0, 0, 0, 0, 0] };
+
+  // ---- sound (on by default, mute button)
+  let muted = store.get('sh-muted') === '1', audio = null;
+  const setMute = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('sh-muted', muted ? '1' : '0'); setMute(); });
+  const ac = () => { try { audio = audio || new (window.AudioContext || window.webkitAudioContext)(); return audio; } catch (e) { return null; } };
+  const tone = (f, d, type, v, delay) => {
+    if (muted) return; const a = ac(); if (!a) return;
+    const t0 = a.currentTime + (delay || 0), o = a.createOscillator(), g = a.createGain();
+    o.type = type || 'sine'; o.frequency.value = f; g.gain.setValueAtTime(v || 0.08, t0); g.gain.exponentialRampToValueAtTime(0.0001, t0 + d);
+    o.connect(g); g.connect(a.destination); o.start(t0); o.stop(t0 + d + 0.02);
+  };
+  const sfx = {
+    key: () => tone(660, 0.05, 'triangle', 0.04),
+    del: () => tone(330, 0.05, 'triangle', 0.04),
+    bad: () => { tone(180, 0.12, 'square', 0.04); tone(150, 0.14, 'square', 0.04, 0.1); },
+    flip: (i, s) => tone(s === 'ok' ? 880 : s === 'near' ? 660 : 400, 0.08, 'sine', 0.05, i * 0.18),
+    win: () => [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.18, 'triangle', 0.07, 1 + i * 0.12)),
+    lose: () => [392, 330, 262].forEach((f, i) => tone(f, 0.22, 'sine', 0.06, 1 + i * 0.16)),
+  };
+
+  // ---- scoring: two passes so repeated letters are coloured fairly
+  const score = (guess, ans) => {
+    const res = Array(LEN).fill('no'); const left = {};
+    for (let i = 0; i < LEN; i += 1) { if (guess[i] === ans[i]) res[i] = 'ok'; else left[ans[i]] = (left[ans[i]] || 0) + 1; }
+    for (let i = 0; i < LEN; i += 1) { if (res[i] !== 'ok' && left[guess[i]]) { res[i] = 'near'; left[guess[i]] -= 1; } }
+    return res;
+  };
+
+  // ---- board + keyboard
+  const board = $('board');
+  board.innerHTML = Array.from({ length: TRIES }, () => `<div class="row">${'<div class="tile"></div>'.repeat(LEN)}</div>`).join('');
+  const rows = [...board.children];
+  const KEYS = ['QWERTYUIOP', 'ASDFGHJKL', '↵ZXCVBNM⌫'];
+  $('kb').innerHTML = KEYS.map((r) => `<div class="kr">${[...r].map((k) => `<button type="button" class="key${k === '↵' || k === '⌫' ? ' wide' : ''}" data-k="${k}" aria-label="${k === '↵' ? 'Enter' : k === '⌫' ? 'Backspace' : k}">${k === '↵' ? 'ENTER' : k}</button>`).join('')}</div>`).join('');
+  const RANK = { no: 1, near: 2, ok: 3 };
+  const paintKeys = () => {
+    const best = {};
+    guesses.forEach((g) => score(g, answer).forEach((s, i) => { if (!best[g[i]] || RANK[s] > RANK[best[g[i]]]) best[g[i]] = s; }));
+    document.querySelectorAll('.key[data-k]').forEach((b) => { b.classList.remove('ok', 'near', 'no'); if (best[b.dataset.k]) b.classList.add(best[b.dataset.k]); });
+  };
+  const paintRow = (r, word, res, animate) => {
+    [...rows[r].children].forEach((tile, i) => {
+      tile.textContent = word[i] || '';
+      tile.className = 'tile' + (word[i] ? ' filled' : '');
+      if (res) {
+        const apply = () => { tile.classList.add(res[i]); };
+        if (animate) { tile.style.animationDelay = `${i * 0.18}s`; setTimeout(apply, i * 180 + 120); } else { tile.style.animationDelay = '0s'; apply(); }
+      }
+    });
+  };
+  const render = () => {
+    rows.forEach((_, r) => { if (r < guesses.length) paintRow(r, guesses[r], score(guesses[r], answer), false); else if (r === guesses.length && !done) paintRow(r, cur, null); else paintRow(r, '', null); });
+    paintKeys();
+  };
+  const say = (text, ms) => { $('msg').textContent = text; if (ms) setTimeout(() => { if ($('msg').textContent === text) $('msg').textContent = ''; }, ms); };
+
+  // ---- result panel
+  const gridText = () => guesses.map((g) => score(g, answer).map((s) => (s === 'ok' ? '🟩' : s === 'near' ? '🟧' : '⬛')).join('')).join('\n');
+  const shareText = () => t('shareText')(mode, practice ? 'P' : dayNo(), won ? guesses.length : 'X', gridText()) + `${SITE}?lang=${lang}`;
+  const nextIn = () => { const ms = 86400000 - ((Date.now() + 5.5 * 3600000) % 86400000); return t('next')(Math.floor(ms / 3600000), Math.floor((ms % 3600000) / 60000)); };
+  const showResult = () => {
+    const box = $('result');
+    if (!done) { box.hidden = true; return; }
+    box.hidden = false;
+    $('resTitle').textContent = won ? t('win')[guesses.length - 1] : t('lose');
+    $('resWord').textContent = answer;
+    const w = mode === 'hi' ? info(answer) : null;
+    $('resMeaning').textContent = w ? t('meaning')(w[1], w[2]) : '';
+    $('resGrid').textContent = gridText();
+    const s = stats();
+    $('stats').innerHTML = practice ? '' : [[s.played, t('stPlayed')], [s.played ? Math.round((s.won / s.played) * 100) : 0, t('stWin')], [s.streak, t('stStreak')], [s.max, t('stMax')]].map(([n, l]) => `<div><b>${n}</b><span>${l}</span></div>`).join('');
+    $('next').textContent = practice ? '' : nextIn();
+  };
+
+  // ---- game flow
+  const saveToday = () => { if (!practice) store.set(todayKey(), JSON.stringify({ day: dayNo(), guesses, done, won })); };
+  const finish = () => {
+    done = true;
+    if (!practice) {
+      const s = stats(); const d = dayNo();
+      s.played += 1;
+      if (won) { s.won += 1; s.dist[guesses.length - 1] += 1; s.streak = s.last === d - 1 ? s.streak + 1 : 1; s.max = Math.max(s.max, s.streak); } else s.streak = 0;
+      s.last = won ? d : s.last;
+      store.set(statsKey(), JSON.stringify(s));
+    }
+    saveToday();
+    if (won) sfx.win(); else sfx.lose();
+    setTimeout(() => { showResult(); $('result').scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 1100);
+  };
+  const submit = () => {
+    if (done || revealing) return;
+    if (cur.length < LEN) { sfx.bad(); rows[guesses.length].classList.remove('shake'); void rows[guesses.length].offsetWidth; rows[guesses.length].classList.add('shake'); say(t('tooShort'), 1500); return; }
+    const r = guesses.length, res = score(cur, answer);
+    guesses.push(cur); revealing = true;
+    paintRow(r, cur, res, true); res.forEach((s, i) => sfx.flip(i, s));
+    const word = cur; cur = '';
+    setTimeout(() => {
+      revealing = false; paintKeys();
+      if (word === answer) { won = true; finish(); } else if (guesses.length >= TRIES) { won = false; finish(); } else saveToday();
+    }, LEN * 180 + 350);
+  };
+  const press = (k) => {
+    if (done || revealing) return;
+    if (k === '↵' || k === 'ENTER') { submit(); return; }
+    if (k === '⌫' || k === 'BACKSPACE') { if (cur) { cur = cur.slice(0, -1); sfx.del(); paintRow(guesses.length, cur, null); } return; }
+    if (!/^[A-Z]$/.test(k)) return;
+    if (cur.length < LEN) { cur += k; sfx.key(); paintRow(guesses.length, cur, null); }
+  };
+  $('kb').addEventListener('click', (e) => { const b = e.target.closest('[data-k]'); if (b) press(b.dataset.k); });
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey || e.metaKey || e.altKey || /input|select|textarea/i.test(e.target.tagName)) return;
+    const k = e.key === 'Enter' ? '↵' : e.key === 'Backspace' ? '⌫' : e.key.toUpperCase();
+    if (k === '↵' || k === '⌫' || /^[A-Z]$/.test(k)) { e.preventDefault(); press(k); }
+  });
+
+  const start = (isPractice) => {
+    practice = isPractice; cur = ''; revealing = false;
+    if (practice) {
+      const list = ORDER[mode];
+      answer = list[Math.floor(Math.random() * list.length)]; guesses = []; done = false; won = false;
+    } else {
+      answer = dailyWord(mode);
+      let saved = null; try { saved = JSON.parse(store.get(todayKey())); } catch (e) { saved = null; }
+      if (saved && saved.day === dayNo()) { guesses = saved.guesses || []; done = !!saved.done; won = !!saved.won; } else { guesses = []; done = false; won = false; }
+    }
+    $('dayLabel').textContent = practice ? t('practiceDay') : t('day')(dayNo());
+    say('');
+    render(); showResult();
+  };
+  const setMode = (m) => {
+    mode = m; store.set('sh-mode', m);
+    $('modeHi').setAttribute('aria-pressed', String(m === 'hi')); $('modeEn').setAttribute('aria-pressed', String(m === 'en'));
+    start(false);
+  };
+  $('modeHi').addEventListener('click', () => setMode('hi'));
+  $('modeEn').addEventListener('click', () => setMode('en'));
+  $('practice').addEventListener('click', () => start(true));
+  $('again').addEventListener('click', () => start(true));
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(() => say(t('copied'), 1500)).catch(() => window.prompt('Copy', text));
+  });
+
+  // ---- language
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} 🔤 — Daily Word Puzzle | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    $('stories').href = `https://nextgrade.in${p}/kahani/`;
+    $('dayLabel').textContent = practice ? t('practiceDay') : t('day')(dayNo());
+    showResult();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('sh-lang', lang); applyLang(); });
+  $('year').textContent = new Date().getFullYear();
+
+  setMute(); applyLang(); setMode(mode);
+  if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+})();
+</script>
+</body>
+</html>
