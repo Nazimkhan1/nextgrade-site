@@ -39,6 +39,8 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 | 1 Dec | story: Mulla Nasruddin ki Degchi |
 | 2 Dec | story: Chidiya ka Ghar, Kauwe ka Ghar |
 
+- User decided (15 Nov): everything live until 14 Nov stays (incl. the 30 stories of 14 Nov); only from now on, no bulk.
+- A held page that was live before gets a tiny "moved" stub at its URL (noindex + redirect to /games/ or /kahani/, not in the sitemap) instead of a 404; the real page replaces it on its release day.
 - Anything new written after this: add it to the END of the schedule (next free day), don't push it live directly.
 
 

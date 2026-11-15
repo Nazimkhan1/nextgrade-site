@@ -879,6 +879,12 @@ if (GA_ID) {
   walk(OUT);
 }
 
+// Pages that were live once and are now held back: a small "moved" page instead of a 404 —
+// sends people to the index and tells search engines not to index it (no sitemap entry either).
+const holdStub = (to, title) => `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${title} | NextGrade</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="${SITE}${to}"><meta http-equiv="refresh" content="0; url=${to}"></head><body><p><a href="${to}">${title} →</a></p></body></html>\n`;
+heldGames.forEach((slug) => { mkdirSync(join(OUT, 'games', slug), { recursive: true }); writeFileSync(join(OUT, 'games', slug, 'index.html'), holdStub('/games/', 'Games')); });
+LANGS.forEach((L) => heldStories.forEach((slug) => { const dir = join(OUT, `${L.prefix}/kahani/${slug}`.replace(/^\//, '')); mkdirSync(dir, { recursive: true }); writeFileSync(join(dir, 'index.html'), holdStub(`${L.prefix}/kahani/`, ui[L.code].stories.h1)); }));
+
 // Links on live pages that point at not-yet-released pages: drop "· <a data-game=…>" links, send the rest to the index
 if (heldGames.length || heldStories.length) {
   const walk = (dir) => readdirSync(dir, { withFileTypes: true }).forEach((d) => {
