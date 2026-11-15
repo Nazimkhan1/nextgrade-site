@@ -25,7 +25,7 @@ const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim(
 })();
 
 // "Make your own wish": build a link with your name and share it; nothing is stored anywhere.
-document.querySelectorAll('.share-box').forEach((box) => {
+document.querySelectorAll('.share-box:not(.video-share)').forEach((box) => {
   const input = box.querySelector('.share-name');
   const link = () => {
     const url = new URL(box.dataset.path, location.origin);
