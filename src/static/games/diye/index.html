@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diye Jalao 🪔 — Light All the Lamps Puzzle Game | NextGrade</title>
+<meta name="description" content="Diye Jalao: a free logic puzzle. Tap a diya and it flips — along with its neighbours. Light every lamp on 3×3, 4×4 and 5×5 boards. Hints and stars. Hindi, Hinglish, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/games/diye/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Diye Jalao 🪔 — saare diye jalao!">
+<meta property="og:description" content="Ek diya chhuo, padosi bhi badal jaate hain. Saare diye jala paoge?">
+<meta property="og:url" content="https://nextgrade.in/games/diye/">
+<meta property="og:image" content="https://nextgrade.in/games/diye/icons/icon-512.png">
+<meta name="theme-color" content="#e8590c">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoGame", "name": "Diye Jalao", "alternateName": "Lights Out Puzzle", "url": "https://nextgrade.in/games/diye/", "genre": "Puzzle", "gamePlatform": "Web browser", "applicationCategory": "Game", "operatingSystem": "Any", "inLanguage": ["hi", "en", "bn"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "publisher": {"@type": "Organization", "name": "NextGrade", "url": "https://nextgrade.in/"}}</script>
+<link rel="stylesheet" href="/games/kit/puzzle.css?v=1">
+<style>
+:root { --bg: #1a0d05; --accent: #e8590c; --glow: #7a3410; }
+.grid { display: grid; gap: 8px; margin: 0 auto; width: min(360px, 88vw); }
+.cell { aspect-ratio: 1; border-radius: 14px; border: 0; cursor: pointer; display: grid; place-items: center; font-size: clamp(24px, 8vw, 40px); background: #2b1a10; transition: background .2s, transform .1s; padding: 0; }
+.cell.off .f { filter: grayscale(1) brightness(.45); opacity: .7; }
+.cell.on { background: radial-gradient(circle at 50% 45%, rgba(255,212,59,.55), rgba(255,146,43,.18) 55%, #3a2212 75%); }
+.cell.on .f { filter: drop-shadow(0 0 8px #ffd43b); }
+.cell:active { transform: scale(.94); }
+.count { text-align: center; margin-top: 10px; font-weight: 800; color: #ffe8a3; }
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/"><img src="/favicon.svg" alt="" width="30" height="30"><span>NextGrade<small>Puzzle</small></span></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <div class="levels" id="levels"></div>
+  <div class="rules" id="rules"></div>
+
+  <div class="board" id="board">
+    <div class="grid" id="grid"></div>
+    <div class="count" id="count"></div>
+  </div>
+
+
+  <div class="controls">
+    <button class="btn btn-ghost" id="undo" type="button"></button>
+    <button class="btn btn-ghost" id="hint" type="button"></button>
+    <button class="btn btn-ghost" id="reset" type="button"></button>
+  </div>
+  <div class="status"><span id="moves"></span><span id="target"></span></div>
+  <p class="msg" id="msg" role="status" aria-live="polite"></p>
+
+  <div class="win" id="win" hidden>
+    <h2 id="winTitle"></h2>
+    <div class="stars" id="winStars"></div>
+    <p id="winLine"></p>
+    <div class="btns">
+      <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+      <button class="btn btn-main" id="nextLevel" type="button"></button>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <ol id="howList"></ol>
+  </section>
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+    <p><span data-i18n="readMore"></span> <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a> · <a data-game="meenar" href="https://nextgrade.in/games/meenar/" data-i18n="meenarLink"></a> · <a data-game="nadi-paar" href="https://nextgrade.in/games/nadi-paar/" data-i18n="nadiLink"></a></p>
+  </section>
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script src="/games/kit/puzzle.js?v=1"></script>
+<script>
+(() => {
+  const LEVELS = [{ n: 3, k: 3 }, { n: 4, k: 5 }, { n: 5, k: 7 }];
+  const T = {
+    hinglish: {
+      title: 'Diye Jalao', sub: 'Ek diya chhuo — woh aur uske padosi badal jaate hain. Saare diye jalao!', winTitle: '🎉 Shabaash! Saare diye jal gaye!',
+      rules: '<b>Kisi diye par tap</b> karo: woh diya aur uske <b>upar, neeche, baayein, daayein</b> wale diye badal jaate hain — bujha ho to jal jaata hai, jala ho to bujh jaata hai. <b>Saare diye jalao.</b>',
+      levelLabel: (n) => `${n}×${n}`, lit: (a, b) => `🪔 ${a} / ${b} jale`, tap: 'Kisi diye par tap karo.', hintSay: '💡 Chamakte hue diye par tap karo.',
+      winLine: (m, k) => `Aapne ${m} chaal mein kiya. Lakshya: ${k} chaal.`, share: (n, m) => `🪔 Diye Jalao ${n}×${n}: maine ${m} chaal mein saare diye jala diye! Aap kar paoge? 👉 `, target: (k) => `Lakshya: ${k}`,
+      howTitle: 'Kaise khelein', how: ['Kisi bhi diye par tap karo — woh diya aur uske chaaron taraf ke padosi (tirchhe nahi) ulat jaate hain.', 'Ek hi diye ko do baar dabaoge to sab pehle jaisa ho jaata hai.', 'Saare diye jalaane hain. Board jitna bada, paheli utni mushkil.', 'Atak gaye? "💡 Hint" batata hai kaunsa diya dabana hai.', 'Kam chaal = zyada star.'],
+      aboutTitle: 'Yeh paheli kaise kaam karti hai?', aboutText: 'Yeh "Lights Out" naam ki mashhoor paheli ka desi roop hai, jo 1990 ke dashak mein ek electronic khilaune ke roop mein mashhoor hui. Hamne battiyon ki jagah Diwali ke diye rakhe hain.',
+      aboutText2: 'Isme ek mazedaar ganit hai: kisi diye ko do baar dabana na dabane jaisa hai, aur dabane ka kram bhi maayne nahi rakhta. Isliye sawaal sirf itna hai ki "kaun-kaun se diye ek baar dabane hain" — ise ganitagya "rekhiya beejganit" (linear algebra) se hal karte hain, aur hamara Hint yahi karta hai.',
+      meenarLink: 'Brahma ki Meenar', nadiLink: 'Nadi Paar paheli',
+    },
+    hi: {
+      title: 'दीये जलाओ', sub: 'एक दीया छुओ — वह और उसके पड़ोसी बदल जाते हैं। सारे दीये जलाओ!', winTitle: '🎉 शाबाश! सारे दीये जल गए!',
+      rules: '<b>किसी दीये पर टैप</b> करो: वह दीया और उसके <b>ऊपर, नीचे, बाएँ, दाएँ</b> वाले दीये बदल जाते हैं — बुझा हो तो जल जाता है, जला हो तो बुझ जाता है। <b>सारे दीये जलाओ।</b>',
+      levelLabel: (n) => `${n}×${n}`, lit: (a, b) => `🪔 ${a} / ${b} जले`, tap: 'किसी दीये पर टैप करो।', hintSay: '💡 चमकते हुए दीये पर टैप करो।',
+      winLine: (m, k) => `आपने ${m} चाल में किया। लक्ष्य: ${k} चाल।`, share: (n, m) => `🪔 दीये जलाओ ${n}×${n}: मैंने ${m} चाल में सारे दीये जला दिए! आप कर पाओगे? 👉 `, target: (k) => `लक्ष्य: ${k}`,
+      howTitle: 'कैसे खेलें', how: ['किसी भी दीये पर टैप करो — वह दीया और उसके चारों तरफ़ के पड़ोसी (तिरछे नहीं) उलट जाते हैं।', 'एक ही दीये को दो बार दबाओगे तो सब पहले जैसा हो जाता है।', 'सारे दीये जलाने हैं। बोर्ड जितना बड़ा, पहेली उतनी मुश्किल।', 'अटक गए? "💡 हिंट" बताता है कौन-सा दीया दबाना है।', 'कम चाल = ज़्यादा स्टार।'],
+      aboutTitle: 'यह पहेली कैसे काम करती है?', aboutText: 'यह "लाइट्स आउट" नाम की मशहूर पहेली का देसी रूप है, जो 1990 के दशक में एक इलेक्ट्रॉनिक खिलौने के रूप में मशहूर हुई। हमने बत्तियों की जगह दिवाली के दीये रखे हैं।',
+      aboutText2: 'इसमें एक मज़ेदार गणित है: किसी दीये को दो बार दबाना न दबाने जैसा है, और दबाने का क्रम भी मायने नहीं रखता। इसलिए सवाल सिर्फ़ इतना है कि "कौन-कौन से दीये एक बार दबाने हैं" — इसे गणितज्ञ "रैखिक बीजगणित" से हल करते हैं, और हमारा हिंट यही करता है।',
+      meenarLink: 'ब्रह्मा की मीनार', nadiLink: 'नदी पार पहेली',
+    },
+    en: {
+      title: 'Diye Jalao — Light the Lamps', sub: 'Touch a diya — it and its neighbours flip. Light them all!', winTitle: '🎉 Well done! Every lamp is lit!',
+      rules: '<b>Tap a diya</b>: that lamp and the ones <b>above, below, left and right</b> of it flip — an unlit lamp lights, a lit one goes out. <b>Light every lamp.</b>',
+      levelLabel: (n) => `${n}×${n}`, lit: (a, b) => `🪔 ${a} / ${b} lit`, tap: 'Tap any diya.', hintSay: '💡 Tap the glowing diya.',
+      winLine: (m, k) => `You did it in ${m} moves. Target: ${k}.`, share: (n, m) => `🪔 Diye Jalao ${n}×${n}: I lit every lamp in ${m} moves! Can you? 👉 `, target: (k) => `Target: ${k}`,
+      howTitle: 'How to play', how: ['Tap any diya — it and its four neighbours (not diagonals) flip.', 'Tapping the same diya twice puts everything back.', 'Light all the lamps. The bigger the board, the harder the puzzle.', 'Stuck? "💡 Hint" shows which diya to tap.', 'Fewer moves = more stars.'],
+      aboutTitle: 'How does this puzzle work?', aboutText: 'This is our Indian take on the famous "Lights Out" puzzle, which became popular as an electronic toy in the 1990s. We swapped the lights for Diwali diyas.',
+      aboutText2: 'There is neat maths inside: tapping a lamp twice is the same as not tapping it, and the order of taps does not matter. So the only question is "which lamps to tap once" — mathematicians solve that with linear algebra, and that is exactly what our hint does.',
+      meenarLink: 'Tower of Hanoi', nadiLink: 'River crossing puzzle',
+    },
+    bn: {
+      title: 'প্রদীপ জ্বালাও', sub: 'একটা প্রদীপ ছোঁও — সেটা আর তার পাশেরগুলো বদলে যায়। সব প্রদীপ জ্বালাও!', winTitle: '🎉 শাবাশ! সব প্রদীপ জ্বলে উঠেছে!',
+      rules: '<b>কোনো প্রদীপে ট্যাপ</b> করো: সেটা আর তার <b>উপর, নিচ, বাঁ, ডান</b> পাশের প্রদীপ বদলে যায় — নেভা থাকলে জ্বলে, জ্বলা থাকলে নিভে যায়। <b>সব প্রদীপ জ্বালাও।</b>',
+      levelLabel: (n) => `${n}×${n}`, lit: (a, b) => `🪔 ${a} / ${b} জ্বলছে`, tap: 'যেকোনো প্রদীপে ট্যাপ করো।', hintSay: '💡 ঝলমলে প্রদীপটায় ট্যাপ করো।',
+      winLine: (m, k) => `তুমি ${m} চালে করেছ। লক্ষ্য: ${k}।`, share: (n, m) => `🪔 প্রদীপ জ্বালাও ${n}×${n}: আমি ${m} চালে সব প্রদীপ জ্বালিয়েছি! তুমি পারবে? 👉 `, target: (k) => `লক্ষ্য: ${k}`,
+      howTitle: 'কীভাবে খেলবে', how: ['যেকোনো প্রদীপে ট্যাপ করো — সেটা আর তার চার পাশের (কোনাকুনি নয়) প্রদীপ উল্টে যায়।', 'একই প্রদীপ দুবার টিপলে সব আগের মতো হয়ে যায়।', 'সব প্রদীপ জ্বালাতে হবে। বোর্ড যত বড়, ধাঁধা তত কঠিন।', 'আটকে গেলে? "💡 হিন্ট" বলে দেয় কোন প্রদীপ টিপতে হবে।', 'কম চাল = বেশি তারা।'],
+      aboutTitle: 'এই ধাঁধা কীভাবে কাজ করে?', aboutText: 'এটা বিখ্যাত "লাইটস আউট" ধাঁধার দেশি রূপ, যা ১৯৯০-এর দশকে একটা ইলেকট্রনিক খেলনা হিসেবে জনপ্রিয় হয়। আমরা আলোর বদলে দীপাবলির প্রদীপ রেখেছি।',
+      aboutText2: 'এতে একটা মজার অঙ্ক আছে: একটা প্রদীপ দুবার টেপা আর না টেপা একই, আর টেপার ক্রমও কোনো ব্যাপার নয়। তাই প্রশ্ন শুধু "কোন কোন প্রদীপ একবার টিপতে হবে" — গণিতবিদরা এটা রৈখিক বীজগণিত দিয়ে সমাধান করেন, আমাদের হিন্টও তাই করে।',
+      meenarLink: 'ব্রহ্মার মিনার', nadiLink: 'নদী পার ধাঁধা',
+    },
+  };
+
+  let n = 3, on = [], moves = 0, hist = [], over = false, k = 0, hintCell = -1;
+  const kit = window.PuzzleKit({ key: 'dy', site: 'https://nextgrade.in/games/diye/', emoji: '🪔', titleTail: 'Light the Lamps Puzzle', T, levels: LEVELS.length, levelLabel: (i, lang) => T[lang].levelLabel(LEVELS[i].n), onLevel: (i) => start(i), onLang: () => draw() });
+  const t = kit.t;
+  const flip = (s, c) => { const r = Math.floor(c / n), q = c % n; [[0, 0], [1, 0], [-1, 0], [0, 1], [0, -1]].forEach(([dr, dq]) => { const rr = r + dr, qq = q + dq; if (rr >= 0 && rr < n && qq >= 0 && qq < n) s[rr * n + qq] = !s[rr * n + qq]; }); };
+
+  // ---- hint: solve "which lamps to tap once" over GF(2) by Gaussian elimination (free variables = 0)
+  const solve = () => {
+    const N = n * n, rows = [];
+    for (let c = 0; c < N; c += 1) {
+      const row = new Array(N + 1).fill(0);
+      const r = Math.floor(c / n), q = c % n;
+      [[0, 0], [1, 0], [-1, 0], [0, 1], [0, -1]].forEach(([dr, dq]) => { const rr = r + dr, qq = q + dq; if (rr >= 0 && rr < n && qq >= 0 && qq < n) row[rr * n + qq] = 1; });
+      row[N] = on[c] ? 0 : 1; // cells that are off must flip an odd number of times
+      rows.push(row);
+    }
+    let rank = 0; const pivots = [];
+    for (let col = 0; col < N && rank < N; col += 1) {
+      const p = rows.findIndex((row, i) => i >= rank && row[col]);
+      if (p < 0) continue;
+      [rows[rank], rows[p]] = [rows[p], rows[rank]];
+      rows.forEach((row, i) => { if (i !== rank && row[col]) for (let j = col; j <= N; j += 1) row[j] ^= rows[rank][j]; });
+      pivots.push(col); rank += 1;
+    }
+    if (rows.slice(rank).some((row) => row[N])) return null;
+    // several answers can exist (free variables); try them all and keep the one with the fewest taps
+    const free = Array.from({ length: N }, (_, c) => c).filter((c) => !pivots.includes(c));
+    let best = null;
+    for (let mask = 0; mask < (1 << Math.min(free.length, 12)); mask += 1) {
+      const x = new Array(N).fill(0);
+      free.forEach((c, b) => { x[c] = (mask >> b) & 1; });
+      pivots.forEach((col, i) => { let v = rows[i][N]; free.forEach((c) => { if (rows[i][c] && x[c]) v ^= 1; }); x[col] = v; });
+      const w = x.reduce((s, v) => s + v, 0);
+      if (!best || w < best.w) best = { x, w };
+    }
+    return best.x;
+  };
+
+  const draw = () => {
+    kit.$('rules').innerHTML = t('rules');
+    const g = kit.$('grid'); g.style.gridTemplateColumns = `repeat(${n}, 1fr)`;
+    g.innerHTML = on.map((v, c) => `<button type="button" class="cell ${v ? 'on' : 'off'}${hintCell === c ? ' hinted' : ''}" data-c="${c}" aria-label="${v ? 'on' : 'off'}"><span class="f">🪔</span></button>`).join('');
+    kit.$('count').textContent = t('lit')(on.filter(Boolean).length, n * n);
+    kit.status(moves, t('target')(k));
+  };
+  kit.$('grid').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-c]'); if (!b || over) return;
+    hist.push(on.slice()); flip(on, Number(b.dataset.c)); moves += 1; hintCell = -1;
+    kit.sfx.tap(); kit.say(''); draw();
+    if (on.every(Boolean)) { over = true; kit.win({ stars: moves <= k ? 3 : moves <= k + 4 ? 2 : 1, line: t('winLine')(moves, k), share: t('share')(n, moves), bestKey: kit.lv, score: moves }); }
+  });
+  kit.$('undo').addEventListener('click', () => { if (over || !hist.length) return; on = hist.pop(); moves += 1; hintCell = -1; draw(); });
+  kit.$('hint').addEventListener('click', () => { if (over) return; const x = solve(); if (!x) { kit.say(t('noHint'), 'bad'); return; } hintCell = x.indexOf(1); kit.say(t('hintSay'), 'good'); draw(); });
+  kit.$('reset').addEventListener('click', () => start(kit.lv, true));
+  let saved = null;
+  const start = (i, same) => {
+    n = LEVELS[i].n; k = LEVELS[i].k;
+    if (!same || !saved || saved.n !== n) {
+      // start from all lit and tap k different random lamps — always solvable, in at most k moves
+      on = new Array(n * n).fill(true);
+      const picks = new Set(); while (picks.size < k) picks.add(Math.floor(Math.random() * n * n));
+      picks.forEach((c) => flip(on, c));
+      if (on.every(Boolean)) flip(on, 0);
+      saved = { n, on: on.slice() };
+    } else on = saved.on.slice();
+    moves = 0; hist = []; over = false; hintCell = -1;
+    kit.hideWin(); kit.say(t('tap')); draw();
+  };
+  kit.start();
+})();
+
+</script>
+</body>
+</html>

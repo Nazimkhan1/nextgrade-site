@@ -425,6 +425,13 @@ const wishes = {
 
 const games = {
   'morning-exercise': { name: 'Subah ka 2-Minute Challenge', desc: 'Cartoon coach ke saath 8 aasaan kasratein — timer, roz ki 🔥 streak, badges aur dosto ko WhatsApp pe challenge. Sirf 2 minute (har kasrat 15 second), bina camera, bina login.' },
+  'meenar': { name: 'Brahma ki Meenar', desc: 'Sone ki thaaliyon ka minaar ek khambe se doosre par le jaao — ek baar mein ek, badi kabhi chhoti ke upar nahi. 3 se 7 thaali, hint aur star.' },
+  'matke': { name: 'Do Matke', desc: '3 aur 5 litre ke matkon se theek 4 litre naapo — bharo, khaali karo, udelo. Phir 4 aur 9 se 6 litre, aur 8-5-3 se 4+4 baanto.' },
+  'pul': { name: 'Raat ka Pul', desc: 'Andheri raat, kamzor pul aur ek torch — 4 logon ko 17 minute mein paar karao. Pul par ek baar mein 2, dheeme ki raftaar se. Teen level.' },
+  'diye': { name: 'Diye Jalao', desc: 'Ek diya chhuo — woh aur uske padosi badal jaate hain. 3×3, 4×4 aur 5×5 board par saare diye jalao. Hint aur star.' },
+  'gotiyan': { name: 'Gotiyan', desc: 'Brainvita wali purani paheli: goti ke upar se koodo, aakhir mein sirf ek goti bachao — poore 32 goti wale board tak. Wapas aur hint.' },
+  'jaadui-varg': { name: 'Jaadui Varg', desc: 'Khaane bharo taaki har line, column aur tirchhi line ka jod barabar ho — 3×3 se Khajuraho mandir ke 1000 saal purane 4×4 varg tak.' },
+  'khiskao': { name: 'Khiskao Tasveer', desc: 'Tukde khaali jagah mein khiskaao aur dhalte suraj wale mahal ki tasveer poori karo — 3×3 aur 4×4. Hint aur star.' },
   'nadi-paar': { name: 'Nadi Paar', desc: 'Purani dimaagi paheli ab game mein: kisan, sher, bakri aur ghaas ko bina kuch khaaye-piye paar karao — phir Papa aur do bachche, aur 3 sipahi-3 chor. Hint, kam chaal par zyada star, WhatsApp challenge.' },
   quiz: { name: 'Bharat Quiz', desc: 'Roz 10 sawaal, har ek ke liye 10 second: rajya-rajdhani, rashtriya prateek, itihas, bhugol, vigyan, khel aur sanskriti. Har jawab ke baad ek rochak tathya, vishay-wise practice aur WhatsApp par score challenge.' },
   shabd: { name: 'Aaj ka Shabd', desc: 'Roz ek naya 5 akshar ka shabd — 6 koshish mein pehchano. Hindi shabd (Roman mein, matlab ke saath) ya English words. Rang batate hain kaunsa akshar sahi hai; result WhatsApp par bhejo aur streak banao.' },

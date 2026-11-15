@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brahma ki Meenar 🗼 — Tower of Hanoi Puzzle Game | NextGrade</title>
+<meta name="description" content="Brahma ki Meenar: the classic Tower of Hanoi puzzle as a free game. Move the stack of golden discs to another peg — one disc at a time, never a big one on a small one. 3 to 7 discs, hints, stars for the fewest moves. Hindi, Hinglish, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/games/meenar/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Brahma ki Meenar 🗼 — kitni chaal mein karoge?">
+<meta property="og:description" content="Sone ki thaaliyan, teen khambe, ek niyam: badi kabhi chhoti ke upar nahi. Purani paheli, naya game.">
+<meta property="og:url" content="https://nextgrade.in/games/meenar/">
+<meta property="og:image" content="https://nextgrade.in/games/meenar/icons/icon-512.png">
+<meta name="theme-color" content="#862e9c">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Brahma ki Meenar","alternateName":"Tower of Hanoi","url":"https://nextgrade.in/games/meenar/","genre":"Puzzle","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #2b0f33; --ink: #fbf4ff; --muted: #dcc6e6; --card: rgba(255,255,255,0.08); --line: rgba(255,255,255,0.16); --gold: #ffd43b; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1100px 600px at 50% -10%, #ae3ec9, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; min-height: 100vh; -webkit-tap-highlight-color: transparent; }
+a { color: var(--gold); }
+.wrap { max-width: 640px; margin: 0 auto; padding: 0 14px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; }
+.brand { display: flex; align-items: center; gap: 8px; font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand img { width: 30px; height: 30px; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid var(--line); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; font-family: inherit; }
+.langsel { font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: clamp(26px, 7vw, 38px); line-height: 1.1; margin: 2px 0 4px; }
+.sub { color: var(--muted); margin: 0 0 10px; font-size: 15px; }
+.levels { display: flex; gap: 6px; margin-bottom: 8px; }
+.levels button { flex: 1; border: 1px solid var(--line); background: var(--card); color: var(--muted); border-radius: 10px; padding: 7px 2px; font: inherit; font-weight: 700; font-size: 13px; cursor: pointer; }
+.levels button[aria-pressed="true"] { background: #862e9c; color: #fff; border-color: #862e9c; }
+.levels button:disabled { opacity: .45; cursor: default; }
+.rules { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; font-size: 14px; margin-bottom: 8px; }
+.rules b { color: var(--gold); }
+.scene { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); height: 300px; border-radius: 18px; border: 1px solid var(--line); background: linear-gradient(#3b1747, #5f2a6e 70%, #8c5a2b 70%, #6b4220); padding: 0 6px 34px; }
+.peg { position: relative; display: flex; flex-direction: column-reverse; align-items: center; justify-content: flex-start; cursor: pointer; border: 0; background: none; padding: 0; font: inherit; }
+.peg::before { content: ''; position: absolute; bottom: 0; width: 10px; height: 82%; background: linear-gradient(90deg, #b07a3c, #e0b070, #b07a3c); border-radius: 6px 6px 0 0; }
+.peg.sel { background: rgba(255,212,59,0.12); border-radius: 12px; }
+.peg.hint::after { content: '👇'; position: absolute; top: 2px; font-size: 22px; animation: bob .6s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(-6px); } }
+.disc { position: relative; z-index: 1; height: 22px; border-radius: 12px; margin-top: 3px; box-shadow: inset 0 -4px 0 rgba(0,0,0,.18), inset 0 3px 0 rgba(255,255,255,.35); display: grid; place-items: center; font-size: 11px; font-weight: 800; color: rgba(0,0,0,.55); transition: transform .15s; }
+.disc.lift { transform: translateY(-26px); box-shadow: 0 8px 12px rgba(0,0,0,.35), inset 0 3px 0 rgba(255,255,255,.35); }
+.label { position: absolute; bottom: -28px; font-weight: 800; color: #ffe8a3; font-size: 14px; }
+.scene.bad { animation: shake .4s; }
+@keyframes shake { 25%,75% { transform: translateX(-6px); } 50% { transform: translateX(6px); } }
+.controls { display: flex; gap: 8px; margin: 12px 0 8px; }
+.btn { border: 0; border-radius: 12px; padding: 12px 14px; font: inherit; font-weight: 800; cursor: pointer; }
+.btn-ghost { background: var(--card); color: var(--ink); border: 1px solid var(--line); flex: 1; }
+.btn-main { background: var(--gold); color: #3b2a00; }
+.btn-wa { background: #25d366; color: #063b1c; }
+.status { display: flex; justify-content: space-between; font-weight: 700; color: var(--muted); font-size: 14px; }
+.msg { min-height: 48px; margin: 8px 0; font-weight: 700; text-align: center; }
+.msg.bad { color: #ffa8a8; } .msg.good { color: #b2f2bb; }
+.win { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; text-align: center; margin-bottom: 12px; }
+.win[hidden] { display: none; }
+.win .stars { font-size: 32px; }
+.win .btns { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px; }
+section { margin: 18px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: 22px; margin: 0 0 6px; }
+section p, section li { color: var(--muted); }
+.ad { min-height: 100px; margin: 20px 0; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid var(--line); }
+footer a { color: var(--muted); margin-right: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/"><img src="/favicon.svg" alt="" width="30" height="30"><span>NextGrade<small>Puzzle</small></span></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <div class="levels" id="levels"></div>
+  <div class="rules" id="rules"></div>
+
+  <div class="scene" id="scene">
+    <button type="button" class="peg" data-p="0"><span class="label">A</span></button>
+    <button type="button" class="peg" data-p="1"><span class="label">B</span></button>
+    <button type="button" class="peg" data-p="2"><span class="label">C</span></button>
+  </div>
+
+  <div class="controls">
+    <button class="btn btn-ghost" id="undo" type="button"></button>
+    <button class="btn btn-ghost" id="hint" type="button"></button>
+    <button class="btn btn-ghost" id="reset" type="button"></button>
+  </div>
+  <div class="status"><span id="moves"></span><span id="target"></span></div>
+  <p class="msg" id="msg" role="status" aria-live="polite"></p>
+
+  <div class="win" id="win" hidden>
+    <h2 id="winTitle"></h2>
+    <div class="stars" id="winStars"></div>
+    <p id="winLine"></p>
+    <div class="btns">
+      <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+      <button class="btn btn-main" id="nextLevel" type="button"></button>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <ol id="howList"></ol>
+  </section>
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+    <p><span data-i18n="readMore"></span> <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a> · <a id="nadiLink" href="https://nextgrade.in/games/nadi-paar/" data-i18n="nadiLink"></a> · <a id="quizLink" href="https://nextgrade.in/games/quiz/" data-i18n="quizLink"></a></p>
+  </section>
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const SITE = 'https://nextgrade.in/games/meenar/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const SIZES = [3, 4, 5, 6, 7];
+  const COLORS = ['#ffd43b', '#ffa94d', '#ff8787', '#f783ac', '#da77f2', '#9775fa', '#74c0fc'];
+  const $ = (id) => document.getElementById(id);
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+  let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('mn-lang')) ? store.get('mn-lang') : deviceLang();
+
+  const T = {
+    hinglish: {
+      title: 'Brahma ki Meenar', sub: 'Sone ki thaaliyon ka minaar khamba A se khamba C par le jaao. Purani paheli — "Tower of Hanoi".',
+      level: (n) => `${n} thaali`, rules: '<b>Ek baar mein ek</b> thaali utha sakte ho — sabse upar wali. <b>Badi thaali kabhi chhoti ke upar nahi</b> rakh sakte. Saari thaaliyan <b>khamba C</b> par isi kram mein pahunchao.',
+      undo: '↶ Wapas', hint: '💡 Hint', reset: '↺ Phir se', moves: (m) => `Chaal: ${m}`, target: (min) => `Sabse kam: ${min}`,
+      tap: 'Kisi khambe par tap karo — upar wali thaali uthegi. Phir doosre khambe par tap karo.', empty: 'Is khambe par koi thaali nahi.', bigOnSmall: '🚫 Badi thaali chhoti ke upar nahi rakh sakte!',
+      hintSay: (from, to) => `💡 Agli chaal: khamba ${from} se ${to} par.`,
+      winTitle: '🎉 Shabaash! Minaar poora ho gaya!', winLine: (m, min) => `Aapne ${m} chaal mein kiya. Sabse kam: ${min}.`, next: 'Agla level →', allDone: 'Phir se khelo ↺',
+      shareWa: 'WhatsApp par challenge bhejo', shareOther: 'Share', shareText: (n, m) => `🗼 Brahma ki Meenar: maine ${n} thaaliyon ka minaar ${m} chaal mein shift kiya! Aap kitni mein karoge? 👉 `,
+      howTitle: 'Kaise khelein', how: ['Jis khambe se thaali uthaani hai, us par tap karo — sabse upar wali thaali upar uth jaayegi.', 'Ab jis khambe par rakhni hai, us par tap karo. Wahi khamba dobara dabao to thaali wapas baith jaayegi.', 'Badi thaali chhoti ke upar nahi aa sakti.', 'Saari thaaliyan khamba C par pahunchao. n thaaliyon ke liye sabse kam chaal 2ⁿ − 1 hoti hai (3 thaali = 7, 4 = 15, 5 = 31).', 'Atak gaye? "💡 Hint" agli sahi chaal dikhata hai, aur "↶ Wapas" pichhli chaal hata deta hai.'],
+      aboutTitle: 'Brahma ki Meenar ki kahani', aboutText: 'Yeh paheli 1883 mein French ganitagya Édouard Lucas ne "Tower of Hanoi" naam se banayi. Uske saath ek kahani bhi chhapi: Kashi ke ek mandir mein pujari 64 sone ki thaaliyon ko teen heere ke khambon par isi niyam se shift kar rahe hain, aur jis din kaam poora hoga, us din pralay aayegi. Kahani gadhi hui hai, par paheli asli aur bahut mazedaar hai.',
+      aboutText2: '64 thaaliyon ke liye 2⁶⁴ − 1 chaal chahiye — agar har second ek chaal ho, to bhi lagbhag 58,500 crore saal lagenge! Yeh paheli computer science mein "recursion" samjhane ka sabse mashhoor udaharan hai: n thaaliyan shift karne ke liye pehle upar ki n−1 hatao, sabse badi rakho, phir n−1 wapas uske upar.',
+      readMore: 'Aur bhi:', moreGames: 'Aur games', nadiLink: 'Nadi Paar paheli', quizLink: 'Bharat Quiz',
+      privacyTitle: 'Privacy', privacyText: 'Koi login nahi. Aapke level aur best chaal sirf isi phone mein save hote hain.',
+    },
+    hi: {
+      title: 'ब्रह्मा की मीनार', sub: 'सोने की थालियों की मीनार खंभा A से खंभा C पर ले जाओ। पुरानी पहेली — "टावर ऑफ़ हनोई"।',
+      level: (n) => `${n} थाली`, rules: '<b>एक बार में एक</b> थाली उठा सकते हो — सबसे ऊपर वाली। <b>बड़ी थाली कभी छोटी के ऊपर नहीं</b> रख सकते। सारी थालियाँ <b>खंभा C</b> पर इसी क्रम में पहुँचाओ।',
+      undo: '↶ वापस', hint: '💡 हिंट', reset: '↺ फिर से', moves: (m) => `चाल: ${m}`, target: (min) => `सबसे कम: ${min}`,
+      tap: 'किसी खंभे पर टैप करो — ऊपर वाली थाली उठेगी। फिर दूसरे खंभे पर टैप करो।', empty: 'इस खंभे पर कोई थाली नहीं।', bigOnSmall: '🚫 बड़ी थाली छोटी के ऊपर नहीं रख सकते!',
+      hintSay: (from, to) => `💡 अगली चाल: खंभा ${from} से ${to} पर।`,
+      winTitle: '🎉 शाबाश! मीनार पूरी हो गई!', winLine: (m, min) => `आपने ${m} चाल में किया। सबसे कम: ${min}।`, next: 'अगला लेवल →', allDone: 'फिर से खेलो ↺',
+      shareWa: 'WhatsApp पर चैलेंज भेजो', shareOther: 'शेयर', shareText: (n, m) => `🗼 ब्रह्मा की मीनार: मैंने ${n} थालियों की मीनार ${m} चाल में शिफ़्ट की! आप कितनी में करोगे? 👉 `,
+      howTitle: 'कैसे खेलें', how: ['जिस खंभे से थाली उठानी है, उस पर टैप करो — सबसे ऊपर वाली थाली ऊपर उठ जाएगी।', 'अब जिस खंभे पर रखनी है, उस पर टैप करो। वही खंभा दोबारा दबाओ तो थाली वापस बैठ जाएगी।', 'बड़ी थाली छोटी के ऊपर नहीं आ सकती।', 'सारी थालियाँ खंभा C पर पहुँचाओ। n थालियों के लिए सबसे कम चाल 2ⁿ − 1 होती है (3 थाली = 7, 4 = 15, 5 = 31)।', 'अटक गए? "💡 हिंट" अगली सही चाल दिखाता है, और "↶ वापस" पिछली चाल हटा देता है।'],
+      aboutTitle: 'ब्रह्मा की मीनार की कहानी', aboutText: 'यह पहेली 1883 में फ़्रांसीसी गणितज्ञ एदुआर्द लुकास ने "टावर ऑफ़ हनोई" नाम से बनाई। उसके साथ एक कहानी भी छपी: काशी के एक मंदिर में पुजारी 64 सोने की थालियों को तीन हीरे के खंभों पर इसी नियम से शिफ़्ट कर रहे हैं, और जिस दिन काम पूरा होगा, उस दिन प्रलय आएगी। कहानी गढ़ी हुई है, पर पहेली असली और बहुत मज़ेदार है।',
+      aboutText2: '64 थालियों के लिए 2⁶⁴ − 1 चाल चाहिए — अगर हर सेकंड एक चाल हो, तो भी लगभग 58,500 करोड़ साल लगेंगे! यह पहेली कंप्यूटर साइंस में "रिकर्शन" समझाने का सबसे मशहूर उदाहरण है: n थालियाँ शिफ़्ट करने के लिए पहले ऊपर की n−1 हटाओ, सबसे बड़ी रखो, फिर n−1 वापस उसके ऊपर।',
+      readMore: 'और भी:', moreGames: 'और गेम', nadiLink: 'नदी पार पहेली', quizLink: 'भारत क्विज़',
+      privacyTitle: 'प्राइवेसी', privacyText: 'कोई लॉगिन नहीं। आपके लेवल और बेस्ट चाल सिर्फ़ इसी फ़ोन में सेव होते हैं।',
+    },
+    en: {
+      title: 'Brahma ki Meenar — Tower of Hanoi', sub: 'Move the tower of golden discs from peg A to peg C. A classic puzzle.',
+      level: (n) => `${n} discs`, rules: 'Move <b>one disc at a time</b> — the top one. <b>Never put a bigger disc on a smaller one.</b> Get the whole tower onto <b>peg C</b> in the same order.',
+      undo: '↶ Undo', hint: '💡 Hint', reset: '↺ Restart', moves: (m) => `Moves: ${m}`, target: (min) => `Fewest: ${min}`,
+      tap: 'Tap a peg to lift its top disc, then tap another peg to drop it.', empty: 'There is no disc on this peg.', bigOnSmall: '🚫 A bigger disc cannot go on a smaller one!',
+      hintSay: (from, to) => `💡 Next move: peg ${from} to ${to}.`,
+      winTitle: '🎉 Well done! The tower is complete!', winLine: (m, min) => `You did it in ${m} moves. Fewest possible: ${min}.`, next: 'Next level →', allDone: 'Play again ↺',
+      shareWa: 'Challenge on WhatsApp', shareOther: 'Share', shareText: (n, m) => `🗼 Brahma ki Meenar: I moved a ${n}-disc tower in ${m} moves! How many will you need? 👉 `,
+      howTitle: 'How to play', how: ['Tap the peg you want to take a disc from — its top disc lifts up.', 'Now tap the peg to put it on. Tap the same peg again to put the disc back.', 'A bigger disc can never sit on a smaller one.', 'Move all discs to peg C. With n discs the fewest moves is 2ⁿ − 1 (3 discs = 7, 4 = 15, 5 = 31).', 'Stuck? "💡 Hint" shows the next right move, and "↶ Undo" takes back your last move.'],
+      aboutTitle: 'The story of the tower', aboutText: 'The French mathematician Édouard Lucas created this puzzle in 1883 as the "Tower of Hanoi". It came with a legend: in a temple in Kashi (Benares), priests are moving 64 golden discs between three diamond needles by these same rules, and when they finish, the world will end. The legend was made up, but the puzzle is real — and great fun.',
+      aboutText2: '64 discs need 2⁶⁴ − 1 moves — even at one move a second that is about 585 billion years! The puzzle is the best-known example for teaching "recursion" in computer science: to move n discs, first move the top n−1 out of the way, move the biggest, then put the n−1 back on top.',
+      readMore: 'More:', moreGames: 'More games', nadiLink: 'River crossing puzzle', quizLink: 'Bharat Quiz',
+      privacyTitle: 'Privacy', privacyText: 'No login. Your levels and best moves are saved only on this phone.',
+    },
+    bn: {
+      title: 'ব্রহ্মার মিনার', sub: 'সোনার থালার মিনারটা খুঁটি A থেকে খুঁটি C-তে নিয়ে যাও। পুরনো ধাঁধা — "টাওয়ার অফ হ্যানয়"।',
+      level: (n) => `${n} থালা`, rules: '<b>একবারে একটা</b> থালা তোলা যাবে — সবচেয়ে উপরেরটা। <b>বড় থালা কখনো ছোটর উপর</b> রাখা যাবে না। সব থালা <b>খুঁটি C</b>-তে একই ক্রমে পৌঁছে দাও।',
+      undo: '↶ ফেরাও', hint: '💡 হিন্ট', reset: '↺ আবার', moves: (m) => `চাল: ${m}`, target: (min) => `সবচেয়ে কম: ${min}`,
+      tap: 'কোনো খুঁটিতে ট্যাপ করো — উপরের থালা উঠবে। তারপর অন্য খুঁটিতে ট্যাপ করো।', empty: 'এই খুঁটিতে কোনো থালা নেই।', bigOnSmall: '🚫 বড় থালা ছোটর উপর রাখা যাবে না!',
+      hintSay: (from, to) => `💡 পরের চাল: খুঁটি ${from} থেকে ${to}-তে।`,
+      winTitle: '🎉 শাবাশ! মিনার সম্পূর্ণ!', winLine: (m, min) => `তুমি ${m} চালে করেছ। সবচেয়ে কম: ${min}।`, next: 'পরের লেভেল →', allDone: 'আবার খেলো ↺',
+      shareWa: 'WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: 'শেয়ার', shareText: (n, m) => `🗼 ব্রহ্মার মিনার: আমি ${n} থালার মিনার ${m} চালে সরিয়েছি! তুমি কত চালে পারবে? 👉 `,
+      howTitle: 'কীভাবে খেলবে', how: ['যে খুঁটি থেকে থালা তুলবে, সেটায় ট্যাপ করো — উপরের থালা উঠে যাবে।', 'এবার যে খুঁটিতে রাখবে, সেটায় ট্যাপ করো। একই খুঁটিতে আবার টাপলে থালা ফিরে বসবে।', 'বড় থালা কখনো ছোটর উপর বসতে পারে না।', 'সব থালা খুঁটি C-তে পৌঁছাও। n থালার জন্য সবচেয়ে কম চাল 2ⁿ − 1 (৩ থালা = ৭, ৪ = ১৫, ৫ = ৩১)।', 'আটকে গেলে? "💡 হিন্ট" পরের ঠিক চাল দেখায়, আর "↶ ফেরাও" আগের চাল মুছে দেয়।'],
+      aboutTitle: 'মিনারের গল্প', aboutText: '১৮৮৩ সালে ফরাসি গণিতজ্ঞ এদুয়ার লুকা "টাওয়ার অফ হ্যানয়" নামে এই ধাঁধা বানান। সঙ্গে একটা গল্পও ছাপা হয়: কাশীর এক মন্দিরে পুরোহিতরা ৬৪টা সোনার থালা তিনটে হিরের খুঁটিতে এই নিয়মে সরাচ্ছেন, আর কাজ শেষ হলেই প্রলয় আসবে। গল্পটা বানানো, কিন্তু ধাঁধাটা সত্যিই দারুণ মজার।',
+      aboutText2: '৬৪টা থালার জন্য 2⁶⁴ − 1 চাল লাগে — প্রতি সেকেন্ডে একটা চাল দিলেও প্রায় ৫৮,৫০০ কোটি বছর! কম্পিউটার বিজ্ঞানে "রিকার্শন" বোঝানোর সবচেয়ে বিখ্যাত উদাহরণ এটাই: n থালা সরাতে আগে উপরের n−1 সরাও, সবচেয়ে বড়টা রাখো, তারপর n−1 আবার তার উপরে।',
+      readMore: 'আরও:', moreGames: 'আরও গেম', nadiLink: 'নদী পার ধাঁধা', quizLink: 'ভারত কুইজ',
+      privacyTitle: 'প্রাইভেসি', privacyText: 'কোনো লগইন নেই। তোমার লেভেল আর সেরা চাল শুধু এই ফোনেই সেভ থাকে।',
+    },
+  };
+  const t = (k) => T[lang][k];
+  const PEG = ['A', 'B', 'C'];
+
+  // ---- state
+  let lv = Math.min(SIZES.length - 1, Math.max(0, parseInt(store.get('mn-level'), 10) || 0));
+  let pegs = [[], [], []], held = null, moves = 0, history = [], over = false, hintMove = null;
+  const n = () => SIZES[lv];
+  const minMoves = () => 2 ** n() - 1;
+  const unlocked = () => Math.max(1, parseInt(store.get('mn-unlocked'), 10) || 1);
+
+  // ---- sound (on by default, mute button)
+  let muted = store.get('mn-muted') === '1', audio = null;
+  const setMute = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('mn-muted', muted ? '1' : '0'); setMute(); });
+  const ac = () => { try { audio = audio || new (window.AudioContext || window.webkitAudioContext)(); return audio; } catch (e) { return null; } };
+  const tone = (f, d, type, v, delay) => {
+    if (muted) return; const a = ac(); if (!a) return;
+    const t0 = a.currentTime + (delay || 0), o = a.createOscillator(), g = a.createGain();
+    o.type = type || 'sine'; o.frequency.value = f; g.gain.setValueAtTime(v || 0.08, t0); g.gain.exponentialRampToValueAtTime(0.0001, t0 + d);
+    o.connect(g); g.connect(a.destination); o.start(t0); o.stop(t0 + d + 0.02);
+  };
+  const sfx = { lift: () => tone(520, 0.07, 'triangle', 0.05), drop: (size) => tone(300 + (8 - size) * 60, 0.12, 'sine', 0.07), no: () => tone(180, 0.15, 'square', 0.04), win: () => [523, 659, 784, 1047, 1319].forEach((f, i) => tone(f, 0.2, 'triangle', 0.07, i * 0.11)) };
+
+  // ---- drawing
+  const draw = () => {
+    const maxW = 92;
+    document.querySelectorAll('.peg').forEach((el, p) => {
+      el.classList.toggle('sel', held === p);
+      el.classList.toggle('hint', !!hintMove && hintMove[held === null ? 0 : 1] === p);
+      el.querySelectorAll('.disc').forEach((d) => d.remove());
+      pegs[p].forEach((size, k) => {
+        const d = document.createElement('div');
+        d.className = 'disc' + (held === p && k === pegs[p].length - 1 ? ' lift' : '');
+        d.style.width = `${30 + (maxW - 30) * ((size - 1) / Math.max(1, n() - 1))}%`;
+        d.style.background = COLORS[(size - 1) % COLORS.length];
+        d.textContent = size;
+        el.insertBefore(d, el.querySelector('.label'));
+      });
+    });
+    $('moves').textContent = t('moves')(moves);
+    $('target').textContent = t('target')(minMoves());
+  };
+  const say = (text, cls) => { $('msg').textContent = text; $('msg').className = `msg ${cls || ''}`; };
+
+  // ---- hint: the optimal next move from ANY position (classic recursive rule, works even after mistakes)
+  const nextMove = () => {
+    const where = []; pegs.forEach((st, p) => st.forEach((s) => { where[s] = p; }));
+    const solve = (k, target) => { // move discs 1..k onto `target`; returns the first move needed
+      if (k === 0) return null;
+      if (where[k] === target) return solve(k - 1, target);
+      const other = 3 - where[k] - target;
+      return solve(k - 1, other) || [where[k], target];
+    };
+    return solve(n(), 2);
+  };
+
+  // ---- actions
+  const tapPeg = (p) => {
+    if (over) return;
+    if (held === null) {
+      if (!pegs[p].length) { sfx.no(); say(t('empty'), 'bad'); return; }
+      held = p; sfx.lift(); say(''); draw(); return;
+    }
+    if (held === p) { held = null; draw(); return; }
+    const top = pegs[held][pegs[held].length - 1], under = pegs[p][pegs[p].length - 1];
+    if (under !== undefined && under < top) { sfx.no(); say(t('bigOnSmall'), 'bad'); $('scene').classList.add('bad'); setTimeout(() => $('scene').classList.remove('bad'), 450); return; }
+    pegs[p].push(pegs[held].pop()); history.push([held, p]); moves += 1; held = null; hintMove = null;
+    sfx.drop(top); say(''); draw();
+    if (pegs[2].length === n()) win();
+  };
+  document.querySelectorAll('.peg').forEach((el) => el.addEventListener('click', () => tapPeg(Number(el.dataset.p))));
+  $('undo').addEventListener('click', () => {
+    if (over || !history.length) return;
+    const [from, to] = history.pop(); pegs[from].push(pegs[to].pop()); moves += 1; held = null; hintMove = null; say(''); draw();
+  });
+  $('hint').addEventListener('click', () => {
+    if (over) return;
+    held = null; hintMove = nextMove(); draw();
+    if (hintMove) say(t('hintSay')(PEG[hintMove[0]], PEG[hintMove[1]]), 'good');
+  });
+  const win = () => {
+    over = true; sfx.win();
+    const k = `mn-best-${n()}`, best = parseInt(store.get(k), 10) || 0;
+    if (!best || moves < best) store.set(k, String(moves));
+    if (lv + 2 > unlocked()) store.set('mn-unlocked', String(Math.min(SIZES.length, lv + 2)));
+    const stars = moves <= minMoves() ? 3 : moves <= Math.ceil(minMoves() * 1.5) ? 2 : 1;
+    $('winTitle').textContent = t('winTitle'); $('winStars').textContent = '⭐'.repeat(stars);
+    $('winLine').textContent = t('winLine')(moves, minMoves());
+    $('nextLevel').textContent = lv + 1 < SIZES.length ? t('next') : t('allDone');
+    $('win').hidden = false; levelTabs();
+    $('win').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+  const reset = () => {
+    pegs = [Array.from({ length: n() }, (_, i) => n() - i), [], []];
+    held = null; moves = 0; history = []; over = false; hintMove = null;
+    $('win').hidden = true; say(t('tap')); draw();
+  };
+  $('reset').addEventListener('click', reset);
+  $('nextLevel').addEventListener('click', () => { lv = lv + 1 < SIZES.length ? lv + 1 : 0; store.set('mn-level', String(lv)); levelTabs(); reset(); $('scene').scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+  const levelTabs = () => {
+    $('levels').innerHTML = SIZES.map((s, i) => `<button type="button" data-l="${i}" aria-pressed="${i === lv}"${i + 1 > unlocked() ? ' disabled' : ''}>${i + 1 > unlocked() ? '🔒 ' : ''}${t('level')(s)}</button>`).join('');
+  };
+  $('levels').addEventListener('click', (e) => { const b = e.target.closest('[data-l]'); if (!b || b.disabled) return; lv = Number(b.dataset.l); store.set('mn-level', String(lv)); levelTabs(); reset(); });
+  const shareText = () => t('shareText')(n(), moves) + `${SITE}?lang=${lang}`;
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', () => { const text = shareText(); if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; } (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).catch(() => window.prompt('Copy', text)); });
+
+  // ---- language
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} 🗼 — Tower of Hanoi Puzzle | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    $('rules').innerHTML = t('rules');
+    $('undo').textContent = t('undo'); $('hint').textContent = t('hint'); $('reset').textContent = t('reset');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`; $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    $('nadiLink').href = `https://nextgrade.in/games/nadi-paar/?lang=${lang}`; $('quizLink').href = `https://nextgrade.in/games/quiz/?lang=${lang}`;
+    levelTabs(); draw();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('mn-lang', lang); applyLang(); say(''); });
+  $('year').textContent = new Date().getFullYear();
+
+  if (lv + 1 > unlocked()) lv = 0;
+  setMute(); reset(); applyLang(); say(t('tap'));
+  if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+})();
+</script>
+</body>
+</html>

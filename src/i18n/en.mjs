@@ -294,6 +294,13 @@ const wishes = {
 
 const games = {
   'morning-exercise': { name: 'Morning 2-Minute Challenge', desc: '8 easy moves with a cartoon coach — a timer, a daily 🔥 streak, badges and WhatsApp challenges for friends. Just 2 minutes (15 seconds a move), no camera, no login.' },
+  'meenar': { name: 'Brahma ki Meenar — Tower of Hanoi', desc: 'Move the tower of golden discs to another peg — one at a time, never a big one on a small one. 3 to 7 discs, hints, stars for fewest moves.' },
+  'matke': { name: 'Do Matke — Water Jug Puzzle', desc: 'Measure exactly 4 litres with a 3- and a 5-litre pot — fill, empty, pour. Then 6 litres with 4 and 9, and split 8 into 4 + 4.' },
+  'pul': { name: 'Raat ka Pul — Bridge & Torch', desc: 'A dark night, a weak bridge and one torch — get 4 people across in 17 minutes. Two at a time, at the slower pace. Three levels.' },
+  'diye': { name: 'Diye Jalao — Light the Lamps', desc: 'Tap a diya — it and its neighbours flip. Light every lamp on 3×3, 4×4 and 5×5 boards. Hints and stars.' },
+  'gotiyan': { name: 'Gotiyan — Peg Solitaire', desc: 'The old Brainvita puzzle: jump marbles over each other and leave just one — up to the full 32-marble board. Undo and hints.' },
+  'jaadui-varg': { name: 'Jaadui Varg — Magic Square', desc: 'Fill the square so every row, column and diagonal adds up the same — from 3×3 to the 1,000-year-old Khajuraho 4×4 square.' },
+  'khiskao': { name: 'Khiskao Tasveer — Sliding Puzzle', desc: 'Slide the pieces into the empty space and rebuild a sunset palace picture — 3×3 and 4×4. Hints and stars.' },
   'nadi-paar': { name: 'Nadi Paar — River Crossing Puzzle', desc: 'The classic brain puzzle as a game: take the farmer, tiger, goat and grass across without anything getting eaten — then Dad and two kids, and 3 guards with 3 thieves. Hints, stars for fewest moves, WhatsApp challenge.' },
   quiz: { name: 'Bharat Quiz — Daily India GK', desc: '10 questions a day, 10 seconds each: states and capitals, national symbols, history, geography, science, sports and culture. A fact after every answer, topic practice, and a WhatsApp score challenge.' },
   shabd: { name: 'Aaj ka Shabd — Word of the Day', desc: 'A new 5-letter word every day: guess it in 6 tries. Hindi words in Roman letters (with meaning) or English words. Colours show which letters are right; share your result on WhatsApp and keep your streak.' },

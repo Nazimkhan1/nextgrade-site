@@ -1,0 +1,47 @@
+/* Shared look for the puzzle games (/games/<slug>/ pages that load /games/kit/puzzle.js). Each page sets --bg, --accent, --glow. */
+:root { --ink: #f6f8ff; --muted: #c9d3ea; --card: rgba(255,255,255,0.08); --line: rgba(255,255,255,0.16); --gold: #ffd43b; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1100px 600px at 50% -10%, var(--glow), var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; min-height: 100vh; -webkit-tap-highlight-color: transparent; }
+a { color: var(--gold); }
+.wrap { max-width: 640px; margin: 0 auto; padding: 0 14px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; }
+.brand { display: flex; align-items: center; gap: 8px; font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand img { width: 30px; height: 30px; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid var(--line); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; font-family: inherit; }
+.langsel { font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: clamp(26px, 7vw, 38px); line-height: 1.1; margin: 2px 0 4px; }
+.sub { color: var(--muted); margin: 0 0 10px; font-size: 15px; }
+.levels { display: flex; gap: 6px; margin-bottom: 8px; flex-wrap: wrap; }
+.levels button { flex: 1; min-width: 70px; border: 1px solid var(--line); background: var(--card); color: var(--muted); border-radius: 10px; padding: 7px 4px; font: inherit; font-weight: 700; font-size: 13px; cursor: pointer; }
+.levels button[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+.levels button:disabled { opacity: .45; cursor: default; }
+.rules { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; font-size: 14px; margin-bottom: 10px; }
+.rules b { color: var(--gold); }
+.board { border-radius: 18px; border: 1px solid var(--line); background: rgba(0,0,0,0.18); padding: 12px; }
+.board.bad { animation: kitshake .4s; }
+@keyframes kitshake { 25%,75% { transform: translateX(-6px); } 50% { transform: translateX(6px); } }
+.hinted { animation: kitbob .6s ease-in-out infinite; outline: 3px solid var(--gold); outline-offset: 2px; }
+@keyframes kitbob { 50% { transform: translateY(-4px); } }
+.controls { display: flex; gap: 8px; margin: 12px 0 8px; }
+.btn { border: 0; border-radius: 12px; padding: 12px 14px; font: inherit; font-weight: 800; cursor: pointer; }
+.btn-ghost { background: var(--card); color: var(--ink); border: 1px solid var(--line); flex: 1; }
+.btn-main { background: var(--gold); color: #3b2a00; }
+.btn-wa { background: #25d366; color: #063b1c; }
+.btn:disabled { opacity: .5; cursor: default; }
+.status { display: flex; justify-content: space-between; font-weight: 700; color: var(--muted); font-size: 14px; }
+.msg { min-height: 48px; margin: 8px 0; font-weight: 700; text-align: center; }
+.msg.bad { color: #ffa8a8; } .msg.good { color: #b2f2bb; }
+.win { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; text-align: center; margin-bottom: 12px; }
+.win[hidden] { display: none; }
+.win .stars { font-size: 32px; }
+.win .btns { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px; }
+section { margin: 18px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: 22px; margin: 0 0 6px; }
+section p, section li { color: var(--muted); }
+.ad { min-height: 100px; margin: 20px 0; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid var(--line); }
+footer a { color: var(--muted); margin-right: 12px; }
