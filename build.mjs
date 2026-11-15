@@ -16,7 +16,7 @@ import { hisabVideo, APP_URL, VIDEO } from './src/hisab-video.mjs';
 import { wishes } from './src/wishes.mjs';
 import { games as allGames } from './src/games.mjs';
 import { stories as allStories } from './src/stories.mjs';
-import { releases, isLive } from './src/releases.mjs';
+import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
 const games = allGames.filter((g) => isLive(`game:${g.slug}`));
 const stories = allStories.filter((st) => isLive(`story:${st.slug}`));
@@ -823,11 +823,23 @@ write(
 );
 
 // ---- Machine files
+// Sitemap lastmod: honest dates, not "today" for every page (the daily Action rebuilds everything).
+// Bump CONTENT_DATE when existing pages get real content changes.
+const CONTENT_DATE = '2026-11-15';
+const lastRelease = Object.values(releases).filter((d) => d <= todayIST()).sort().pop() || CONTENT_DATE;
+const lastmodFor = (url) => {
+  const path = url.replace(/^\/(en|hinglish|bn)(?=\/)/, '');
+  const m = path.match(/^\/(games|kahani)\/([^/]+)\/$/);
+  const rel = m && releases[`${m[1] === 'games' ? 'game' : 'story'}:${m[2]}`];
+  if (rel) return rel;
+  if (['/', '/games/', '/kahani/'].includes(path)) return [CONTENT_DATE, lastRelease].sort().pop();
+  return CONTENT_DATE;
+};
 const gameUrls = games.map((g) => `/games/${g.slug}/`);
 const allUrls = [...urls, ...gameUrls, ...CELEBRATE.map((c) => `/celebrate/${c.slug}/`)];
 writeFileSync(
   join(OUT, 'sitemap.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${allUrls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${TODAY}</lastmod></url>`).join('\n')}\n</urlset>\n`,
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${allUrls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${lastmodFor(u)}</lastmod></url>`).join('\n')}\n</urlset>\n`,
 );
 writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 writeFileSync(join(OUT, 'ads.txt'), `google.com, ${ADSENSE.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n`);

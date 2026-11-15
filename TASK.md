@@ -15,6 +15,7 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 - New pages (games, stories, wishes, anything) go into **`src/releases.mjs`** with a date; the build leaves them out (no page, no card, no sitemap, links to them removed) until that date in IST.
 - **`.github/workflows/daily-release.yml`** rebuilds + pushes every day at **06:00 IST** (also "Run workflow" by hand), and asks Pages to rebuild. So pages go live on their own; nobody has to do anything daily.
 - **The Action commits to `main` every day → always `git pull` before working locally.** Tested 15 Nov (manual run 43725859171: built 262 pages incl. prerender on the runner, pushed "Daily release 2026-11-15", held pages 404 live).
+- **Sitemap** stays current by itself: every build (incl. the daily Action) writes `docs/sitemap.xml` with only live pages. `lastmod` is honest: a released page = its release date; `/`, `/games/`, `/kahani/` = latest release; everything else = `CONTENT_DATE` in build.mjs (**bump it when existing pages really change**). Search Console already has the sitemap; Google re-reads it, no ping needed.
 - Preview any day locally: `RELEASE_TODAY=2026-11-20 node build.mjs` (then run plain `node build.mjs` again before committing).
 - Live on 15 Nov: Nadi Paar ("naav wala", user kept it), Aaj ka Shabd, Bharat Quiz, Hisab Kitab video page (not on the user's removal list). Removed from live on 15 Nov and scheduled one per day:
 
