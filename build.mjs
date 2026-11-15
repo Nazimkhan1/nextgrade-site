@@ -14,8 +14,14 @@ import { festivals } from './src/festivals.mjs';
 import { apps } from './src/apps.mjs';
 import { hisabVideo, APP_URL, VIDEO } from './src/hisab-video.mjs';
 import { wishes } from './src/wishes.mjs';
-import { games } from './src/games.mjs';
-import { stories } from './src/stories.mjs';
+import { games as allGames } from './src/games.mjs';
+import { stories as allStories } from './src/stories.mjs';
+import { releases, isLive } from './src/releases.mjs';
+// Scheduled pages (src/releases.mjs) stay out of the build until their day
+const games = allGames.filter((g) => isLive(`game:${g.slug}`));
+const stories = allStories.filter((st) => isLive(`story:${st.slug}`));
+const heldGames = allGames.filter((g) => !isLive(`game:${g.slug}`)).map((g) => g.slug);
+const heldStories = allStories.filter((st) => !isLive(`story:${st.slug}`)).map((st) => st.slug);
 import * as islamic from './src/islamic.mjs';
 import { ui } from './src/i18n/ui.mjs';
 
@@ -830,6 +836,8 @@ writeFileSync(join(OUT, '.nojekyll'), '');
 
 cpSync('src/assets', join(OUT, 'assets'), { recursive: true });
 cpSync('src/static', OUT, { recursive: true });
+// games that are not released yet: remove their copied folders
+heldGames.forEach((slug) => rmSync(join(OUT, 'games', slug), { recursive: true, force: true }));
 
 // Cloudflare Web Analytics beacon on every page (only when a token is set)
 if (CF_BEACON) {
@@ -858,6 +866,25 @@ if (GA_ID) {
   });
   walk(OUT);
 }
+
+// Links on live pages that point at not-yet-released pages: drop "· <a data-game=…>" links, send the rest to the index
+if (heldGames.length || heldStories.length) {
+  const walk = (dir) => readdirSync(dir, { withFileTypes: true }).forEach((d) => {
+    const f = join(dir, d.name);
+    if (d.isDirectory()) { walk(f); return; }
+    if (!d.name.endsWith('.html')) return;
+    let html = readFileSync(f, 'utf8');
+    const before = html;
+    heldGames.forEach((slug) => {
+      html = html.replace(new RegExp(` · <a data-game="${slug}"[^>]*>[^<]*</a>`, 'g'), '');
+      html = html.split(`https://nextgrade.in/games/${slug}/`).join('https://nextgrade.in/games/').split(`"/games/${slug}/`).join('"/games/');
+    });
+    heldStories.forEach((slug) => { html = html.split(`/kahani/${slug}/`).join('/kahani/'); });
+    if (html !== before) writeFileSync(f, html);
+  });
+  walk(OUT);
+}
+console.log(`Held back until release: ${[...heldGames.map((s) => `game:${s}`), ...heldStories.map((s) => `story:${s}`)].map((k) => `${k} (${releases[k]})`).join(', ') || 'none'}`);
 
 console.log(`Built ${allUrls.length} pages in ${LANGS.map((l) => l.code).join(', ')} into ${OUT}/`);
 

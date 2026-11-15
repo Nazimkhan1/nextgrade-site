@@ -5,11 +5,40 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 - Live: **https://nextgrade.in** (GitHub Pages, HTTPS on; `www` and `http` redirect here)
 - Repo: `Nazimkhan1/nextgrade-site` (public), local `~/www/nextgrade-site`
-- Build: `node build.mjs` → `docs/` → commit + push (no npm, no CI)
+- Build: `node build.mjs` → `docs/` → commit + push (no npm). Daily 06:00 IST GitHub Action republishes so scheduled pages go live (see RULE below)
 - AdSense publisher: `ca-pub-4135041725422483` (`ads.txt` live at https://nextgrade.in/ads.txt)
 - DNS: Cloudflare (the user makes DNS changes). `@` and `www` CNAME → `nazimkhan1.github.io`, **DNS only**
 
 ---
+
+## ⚠️ RULE (user, 15 Nov 2026): ONE new page per day — never publish in bulk
+- New pages (games, stories, wishes, anything) go into **`src/releases.mjs`** with a date; the build leaves them out (no page, no card, no sitemap, links to them removed) until that date in IST.
+- **`.github/workflows/daily-release.yml`** rebuilds + pushes every day at **06:00 IST** (also "Run workflow" by hand), and asks Pages to rebuild. So pages go live on their own; nobody has to do anything daily.
+- Preview any day locally: `RELEASE_TODAY=2026-11-20 node build.mjs` (then run plain `node build.mjs` again before committing).
+- Live on 15 Nov: Nadi Paar ("naav wala", user kept it), Aaj ka Shabd, Bharat Quiz, Hisab Kitab video page (not on the user's removal list). Removed from live on 15 Nov and scheduled one per day:
+
+| Date | Page |
+|---|---|
+| 16 Nov | game: Brahma ki Meenar |
+| 17 Nov | story: Neela Siyaar |
+| 18 Nov | game: Do Matke |
+| 19 Nov | story: Bagula aur Kekda |
+| 20 Nov | game: Raat ka Pul |
+| 21 Nov | story: Do Billiyan aur Bandar |
+| 22 Nov | game: Diye Jalao |
+| 23 Nov | story: Hawa aur Suraj |
+| 24 Nov | game: Gotiyan |
+| 25 Nov | story: Shehar ka Chooha, Gaanv ka Chooha |
+| 26 Nov | game: Jaadui Varg |
+| 27 Nov | story: Sher ki Khaal mein Gadha |
+| 28 Nov | game: Khiskao Tasveer |
+| 29 Nov | story: Birbal — Andhon ki Ginti |
+| 30 Nov | story: Tenali Raman aur Kuen ka Khazaana |
+| 1 Dec | story: Mulla Nasruddin ki Degchi |
+| 2 Dec | story: Chidiya ka Ghar, Kauwe ka Ghar |
+
+- Anything new written after this: add it to the END of the schedule (next free day), don't push it live directly.
+
 
 ## 15 Nov 2026: 10 more stories (40 total)
 - [x] `src/stories-more3.mjs` (pushed onto `stories` in stories.mjs): Neela Siyaar, Bagula aur Kekda (Panchatantra; crab only grips, no killing), Do Billiyan aur Bandar (folk), Hawa aur Suraj, Shehar ka Chooha–Gaanv ka Chooha (Aesop), Sher ki Khaal mein Gadha (Jataka), Birbal: Andhon ki Ginti, Tenali Raman aur Kuen ka Khazaana, Mulla Nasruddin ki Degchi, Chidiya ka Ghar–Kauwe ka Ghar (dadi-nani; kind ending). All 4 languages, 5 paras + seekh each. Checked: 40 pages load (10 × 4 languages), /kahani/ lists 40. Site now 309 pages.

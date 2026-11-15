@@ -1,0 +1,37 @@
+# Publishes the next scheduled page (src/releases.mjs) every morning: rebuilds the site and pushes docs/.
+# 00:30 UTC = 06:00 IST. Can also be run by hand from the Actions tab ("Run workflow").
+name: Daily release
+on:
+  schedule:
+    - cron: '30 0 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: daily-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build (Chrome is preinstalled on the runner; used by scripts/prerender.mjs)
+        run: node build.mjs
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+      - name: Commit and push if the site changed
+        run: |
+          git config user.name "nextgrade-release-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A docs
+          if git diff --cached --quiet; then echo "nothing to publish"; exit 0; fi
+          git commit -m "Daily release $(TZ=Asia/Kolkata date +%F)"
+          git push
+      - name: Ask GitHub Pages to rebuild
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
+        env:
+          GH_TOKEN: ${{ github.token }}
