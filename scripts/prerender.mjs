@@ -47,7 +47,7 @@ const dump = (url) => {
     '--headless=new', '--disable-gpu', '--no-first-run', '--mute-audio', `--user-data-dir=${profile}`,
     '--lang=hi', '--virtual-time-budget=6000',
     // no ad or analytics requests from the prerender run
-    '--host-resolver-rules=MAP pagead2.googlesyndication.com ~NOTFOUND, MAP *.googlesyndication.com ~NOTFOUND, MAP static.cloudflareinsights.com ~NOTFOUND, MAP cloudflareinsights.com ~NOTFOUND, MAP *.doubleclick.net ~NOTFOUND', '--dump-dom', url,
+    '--host-resolver-rules=MAP pagead2.googlesyndication.com ~NOTFOUND, MAP *.googlesyndication.com ~NOTFOUND, MAP static.cloudflareinsights.com ~NOTFOUND, MAP cloudflareinsights.com ~NOTFOUND, MAP *.doubleclick.net ~NOTFOUND, MAP www.googletagmanager.com ~NOTFOUND, MAP *.google-analytics.com ~NOTFOUND, MAP *.analytics.google.com ~NOTFOUND', '--dump-dom', url,
   ], { maxBuffer: 64 * 1024 * 1024, timeout: 60000 }, (err, stdout) => (err ? reject(err) : resolve(stdout))))
     .finally(() => rmSync(profile, { recursive: true, force: true }));
 };

@@ -26,6 +26,8 @@ const ADSENSE = 'ca-pub-4135041725422483';
 // Cloudflare dashboard → Analytics & Logs → Web Analytics → nextgrade.in → "Manage site" JS snippet.
 // Empty = off. When set, the beacon is added to every HTML page in docs/ (site pages, games, wishes).
 const CF_BEACON = process.env.CF_BEACON || '3c79c0e96af3466f826210eb91f124a0';
+// Google Analytics 4 (property "NextGrade site"): counts unique users. Set GA_ID='' to turn it off.
+const GA_ID = process.env.GA_ID ?? 'G-NJ43J91EBJ';
 const CONTACT = 'contact@nextgrade.in';
 const OUT = 'docs';
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -760,6 +762,7 @@ policyPage(
 <p>Where required by law (for example for visitors in the EEA, UK or Switzerland), Google will show a consent message before using cookies for ads.</p>
 <h2>Visitor statistics</h2>
 <p>To understand which pages are useful, we use Cloudflare Web Analytics. It does not use cookies or local storage, does not track you across websites and does not collect personal information — it only counts page views, the country, the type of device and browser, and page load speed, in aggregate. See <a href="https://www.cloudflare.com/web-analytics/" rel="nofollow">Cloudflare Web Analytics</a>.</p>
+<p>We also use <strong>Google Analytics</strong> to count how many different people visit (for example: number of users, city or country, phone or computer, and which pages they read). Google Analytics uses cookies for this. It does not receive the names or messages you type into wish links, cards or games. You can block it with your browser's privacy settings, an ad blocker or the <a href="https://tools.google.com/dlpage/gaoptout" rel="nofollow">Google Analytics opt-out add-on</a>; the site works the same. Learn more about <a href="https://policies.google.com/technologies/partner-sites" rel="nofollow">how Google uses this data</a>.</p>
 <h2>Children</h2>
 <p>This website is meant for a general audience and is not directed at children under 13. We do not knowingly collect personal information from children.</p>
 <h2>Links to other sites</h2>
@@ -837,6 +840,21 @@ if (CF_BEACON) {
     if (!d.name.endsWith('.html')) return;
     const html = readFileSync(f, 'utf8');
     if (!html.includes('cloudflareinsights.com') && html.includes('</head>')) writeFileSync(f, html.replace('</head>', `${tag}\n</head>`));
+  });
+  walk(OUT);
+}
+
+// Google Analytics tag on every page, right after <head> (only when GA_ID is set).
+// Names in share links (?from=, ?to=, ?with=, ?d=, ?m=, ?score=) are dropped by GA's own "Redact data → URL query
+// parameters" setting on the NextGrade site web stream (GA ignores page_location overrides for this tag).
+if (GA_ID) {
+  const tag = `<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${GA_ID}');</script>`;
+  const walk = (dir) => readdirSync(dir, { withFileTypes: true }).forEach((d) => {
+    const f = join(dir, d.name);
+    if (d.isDirectory()) { walk(f); return; }
+    if (!d.name.endsWith('.html')) return;
+    const html = readFileSync(f, 'utf8');
+    if (!html.includes(`gtag/js?id=${GA_ID}`) && /<head[^>]*>/.test(html)) writeFileSync(f, html.replace(/<head[^>]*>/, (h) => `${h}\n${tag}`));
   });
   walk(OUT);
 }

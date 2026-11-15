@@ -11,6 +11,14 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 ---
 
+## 15 Nov 2026: Google Analytics + where things are
+- [x] **Google Analytics** (GA4 account "NextGrade", property "NextGrade site", **G-NJ43J91EBJ**): `GA_ID` in build.mjs, tag injected right after `<head>` on every built page (260). Privacy policy "Visitor statistics" mentions it (cookies, opt-out). Prerender blocks GA hosts.
+- ⚠️ **Names in share links:** wish/game links carry names (`?from=`, `?to=`, `?with=`, `?d=`, `?m=`, `?score=`). This GA tag ignores `page_location` overrides (tested), so the fix is in GA: Admin → Data streams → NextGrade site → **Redact data** → URL query parameters = `from, to, with, d, m, score`. **Don't push the GA tag live until that is on** (check: a local load of `/celebrate/birthday/?to=X&from=Y` must send `dl` without the names).
+- Cloudflare Web Analytics stays too (visits/pages, no users). Read it via API: wrangler OAuth token, account "Nazim" (not "Darkroom"), GraphQL `rumPageloadEventsAdaptiveGroups`. 14 Nov: 110 views / 40 visits; 15 Nov: ~610 views mostly a US desktop crawler, ~60 India mobile, ~20 from Facebook.
+- Hisab Kitab (repo `~/www/hisab`, own TASK.md): GA **G-0T71BBL3QT** live since 15 Nov (hk-v22); delete-confirm row fix (hk-v21).
+- Promo media (outside this repo): `~/www/videos/` — Hisab Kitab videos, 6 wish Reels (`wishes/reels/`, scripts capture.js/compose.js), post texts `POSTS.md`.
+- Next ideas (not started): Facebook + native "📲 Share" buttons on wish/festival pages; Anniversary / Good Night / Congratulations wishes; Good Morning reel per weekday.
+
 ## 15 Nov 2026: Hisab Kitab video page
 - [x] `/apps/hisab-kitab/` (4 languages; text in `src/hisab-video.mjs`, page in build.mjs after Apps): 80 s demo video `src/static/media/hisab-kitab.mp4` (+ poster), "App kholiye", share box (`assets/video-share.js`): "Video share" sends the mp4 file via the phone share sheet with the app link as text (falls back to text share / WhatsApp), WhatsApp text, copy. Steps, why, FAQ (FAQPage + VideoObject JSON-LD). Button on /apps/.
 - Video source + scripts: `~/www/videos/hisab-kitab/` (capture.js / compose.js; Hindi voice-over via macOS "Lekha"). To change the video: rebuild there, copy over `src/static/media/hisab-kitab.mp4`.
