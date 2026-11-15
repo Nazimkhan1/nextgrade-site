@@ -5,6 +5,7 @@
  */
 import { moreStories } from './stories-more.mjs';
 import { moreStories2 } from './stories-more2.mjs';
+import { moreStories3 } from './stories-more3.mjs';
 
 const stories = [
   {
@@ -509,6 +510,6 @@ const stories = [
   },
 ];
 
-stories.push(...moreStories, ...moreStories2);
+stories.push(...moreStories, ...moreStories2, ...moreStories3);
 
 export { stories };

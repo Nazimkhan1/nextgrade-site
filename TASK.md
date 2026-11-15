@@ -11,6 +11,9 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 ---
 
+## 15 Nov 2026: 10 more stories (40 total)
+- [x] `src/stories-more3.mjs` (pushed onto `stories` in stories.mjs): Neela Siyaar, Bagula aur Kekda (Panchatantra; crab only grips, no killing), Do Billiyan aur Bandar (folk), Hawa aur Suraj, Shehar ka Chooha–Gaanv ka Chooha (Aesop), Sher ki Khaal mein Gadha (Jataka), Birbal: Andhon ki Ginti, Tenali Raman aur Kuen ka Khazaana, Mulla Nasruddin ki Degchi, Chidiya ka Ghar–Kauwe ka Ghar (dadi-nani; kind ending). All 4 languages, 5 paras + seekh each. Checked: 40 pages load (10 × 4 languages), /kahani/ lists 40. Site now 309 pages.
+
 ## 15 Nov 2026: Games series (user: "banao ek ek kar ke")
 Plan, in order: 1) **Aaj ka Shabd** ✅  2) **Bharat Quiz** ✅  3) **Nadi Paar** ✅  4) Chai Tapri Rush. Other ideas given to the user: Paheli Bujho, Ganit Dhamaka, Auto-Rickshaw Dash, Gol Gappa Challenge, Rangoli memory, Akshar Pakdo (kids), memory cards, Gully Cricket Super Over (no real teams/logos), board-exam quiz.
 - [x] **7 puzzle games (15 Nov, user: "isi type ka games", build all then push once)** — all 4 languages, levels unlock in order, 💡 hint = real solver, ↶ undo, stars, WhatsApp share, sound + mute, offline:
