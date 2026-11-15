@@ -1,0 +1,16 @@
+{
+  "name": "Nadi Paar — River Crossing Puzzle",
+  "short_name": "Nadi Paar",
+  "description": "Get the farmer, tiger, goat and grass across the river — plus two more levels.",
+  "start_url": "/games/nadi-paar/",
+  "scope": "/games/nadi-paar/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0c2a43",
+  "theme_color": "#1971c2",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -1,0 +1,401 @@
+<!doctype html>
+<html data-prerendered="hi" lang="hi">
+<head>
+<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nadi Paar 🛶 — River Crossing Puzzle (Kisan, Sher, Bakri, Ghaas) | NextGrade</title>
+<meta name="description" content="Nadi Paar: the classic river-crossing brain puzzle as a free game. Take the farmer, tiger, goat and grass across without anything getting eaten — then two more levels. Hints, star ratings and WhatsApp challenge. Hindi, Hinglish, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/games/nadi-paar/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Nadi Paar 🛶 — kisan, sher, bakri aur ghaas ko paar karao!">
+<meta property="og:description" content="Purani dimaagi paheli ab game mein. Kitni chaal mein karoge?">
+<meta property="og:url" content="https://nextgrade.in/games/nadi-paar/">
+<meta property="og:image" content="https://nextgrade.in/games/nadi-paar/icons/icon-512.png">
+<meta name="theme-color" content="#1971c2">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Nadi Paar","url":"https://nextgrade.in/games/nadi-paar/","genre":"Puzzle","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #0c2a43; --ink: #f3f9ff; --muted: #c3dcf2; --card: rgba(255,255,255,0.08); --line: rgba(255,255,255,0.16); --gold: #ffd43b; --grass: #5c940d; --river: #1c7ed6; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1100px 600px at 50% -10%, #339af0, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; min-height: 100vh; -webkit-tap-highlight-color: transparent; }
+a { color: var(--gold); }
+.wrap { max-width: 640px; margin: 0 auto; padding: 0 14px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; }
+.brand { display: flex; align-items: center; gap: 8px; font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand img { width: 30px; height: 30px; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid var(--line); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; font-family: inherit; }
+.langsel { font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: clamp(26px, 7vw, 38px); line-height: 1.1; margin: 2px 0 4px; }
+.sub { color: var(--muted); margin: 0 0 10px; font-size: 15px; }
+.levels { display: flex; gap: 6px; margin-bottom: 8px; }
+.levels button { flex: 1; border: 1px solid var(--line); background: var(--card); color: var(--muted); border-radius: 10px; padding: 7px 4px; font: inherit; font-weight: 700; font-size: 13px; cursor: pointer; }
+.levels button[aria-pressed="true"] { background: #1971c2; color: #fff; border-color: #1971c2; }
+.levels button:disabled { opacity: .45; cursor: default; }
+.rules { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; font-size: 14px; color: var(--ink); margin-bottom: 8px; }
+.rules b { color: var(--gold); }
+.scene { position: relative; display: grid; grid-template-columns: 27% 1fr 27%; height: 330px; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: linear-gradient(#8ecdf8, #d0ebff 45%); }
+.bank { position: relative; z-index: 2; background: linear-gradient(#82c91e, var(--grass)); display: flex; flex-wrap: wrap; align-content: flex-end; justify-content: center; gap: 4px; padding: 8px 4px 14px; }
+.bank::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 40%; background: linear-gradient(#8ecdf8, rgba(142,205,248,0)); z-index: -1; }
+.river { position: relative; background: linear-gradient(transparent 40%, #4dabf7 40%, var(--river)); }
+.wave { position: absolute; left: 0; right: 0; height: 6px; background: repeating-linear-gradient(90deg, rgba(255,255,255,.5) 0 18px, transparent 18px 36px); opacity: .5; animation: drift 3s linear infinite; }
+@keyframes drift { to { background-position: 36px 0; } }
+.boat { position: absolute; bottom: 30px; width: 58%; height: 70px; transition: left .9s ease-in-out; display: flex; align-items: flex-end; justify-content: center; z-index: 3; }
+.boat .hull { position: absolute; bottom: 0; left: 0; right: 0; height: 26px; background: #8d5524; border-radius: 0 0 40px 40px; box-shadow: inset 0 4px 0 #a9692e; }
+.boat .seats { position: relative; display: flex; gap: 2px; margin-bottom: 18px; min-height: 48px; align-items: flex-end; }
+.who { border: 0; background: none; cursor: pointer; padding: 0 2px; display: flex; flex-direction: column; align-items: center; font: inherit; color: #1b1b1b; }
+.who .e { font-size: clamp(30px, 9vw, 40px); line-height: 1; filter: drop-shadow(0 2px 2px rgba(0,0,0,.25)); }
+.who .n { font-size: 10px; font-weight: 800; background: rgba(255,255,255,.85); border-radius: 6px; padding: 0 4px; margin-top: 1px; white-space: nowrap; }
+.who.hint .e { animation: bob .6s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(-6px); } }
+.scene.fail { animation: shake .5s; }
+@keyframes shake { 20%,60% { transform: translateX(-6px); } 40%,80% { transform: translateX(6px); } }
+.controls { display: flex; gap: 8px; margin: 10px 0; }
+.btn { border: 0; border-radius: 12px; padding: 12px 14px; font: inherit; font-weight: 800; cursor: pointer; }
+.btn-main { background: var(--gold); color: #3b2a00; flex: 2; font-size: 17px; }
+.btn-ghost { background: var(--card); color: var(--ink); border: 1px solid var(--line); flex: 1; }
+.btn-wa { background: #25d366; color: #063b1c; }
+.btn:disabled { opacity: .5; cursor: default; }
+.status { display: flex; justify-content: space-between; font-weight: 700; color: var(--muted); font-size: 14px; }
+.msg { min-height: 48px; margin: 8px 0; font-weight: 700; text-align: center; }
+.msg.bad { color: #ffa8a8; } .msg.good { color: #b2f2bb; }
+.win { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; text-align: center; margin-bottom: 12px; }
+.win[hidden] { display: none; }
+.win .stars { font-size: 32px; }
+.win .btns { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px; }
+section { margin: 18px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: 22px; margin: 0 0 6px; }
+section p, section li { color: var(--muted); }
+.ad { min-height: 100px; margin: 20px 0; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid var(--line); }
+footer a { color: var(--muted); margin-right: 12px; }
+</style>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/"><img src="/favicon.svg" alt="" width="30" height="30"><span>NextGrade<small>Puzzle</small></span></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title">नदी पार</h1>
+  <p class="sub" data-i18n="sub">पुरानी दिमाग़ी पहेली: सबको नदी के उस पार पहुँचाओ — पर ध्यान से!</p>
+
+  <div class="levels" id="levels"><button type="button" data-l="0" aria-pressed="true">लेवल 1</button><button type="button" data-l="1" aria-pressed="false" disabled="">🔒 लेवल 2</button><button type="button" data-l="2" aria-pressed="false" disabled="">🔒 लेवल 3</button></div>
+  <div class="rules" id="rules"><b>किसान</b> को शेर, बकरी और घास को पार ले जाना है। नाव में किसान के साथ <b>सिर्फ़ एक</b> चीज़ आती है, और नाव सिर्फ़ किसान चला सकता है। किसान न हो तो <b>शेर बकरी को</b>, और <b>बकरी घास को</b> खा जाएगी।</div>
+
+  <div class="scene" id="scene">
+    <div class="bank" id="bankL"><button type="button" class="who" data-i="0" aria-label="किसान"><span class="e">👨‍🌾</span><span class="n">किसान</span></button><button type="button" class="who" data-i="1" aria-label="शेर"><span class="e">🐅</span><span class="n">शेर</span></button><button type="button" class="who" data-i="2" aria-label="बकरी"><span class="e">🐐</span><span class="n">बकरी</span></button><button type="button" class="who" data-i="3" aria-label="घास"><span class="e">🌿</span><span class="n">घास</span></button></div>
+    <div class="river"><div class="wave" style="top:46%"></div><div class="wave" style="top:70%;animation-duration:4s"></div>
+      <div class="boat" id="boat"><div class="hull"></div><div class="seats" id="seats"></div></div>
+    </div>
+    <div class="bank" id="bankR"></div>
+  </div>
+
+  <div class="controls">
+    <button class="btn btn-main" id="go" type="button"></button>
+    <button class="btn btn-ghost" id="hint" type="button"></button>
+    <button class="btn btn-ghost" id="reset" type="button"></button>
+  </div>
+  <div class="status"><span id="moves">चाल: 0</span><span id="best"></span></div>
+  <p class="msg" id="msg" role="status" aria-live="polite">किसी पर टैप करके नाव में बिठाओ, फिर "पार करो" दबाओ।</p>
+
+  <div class="win" id="win" hidden>
+    <h2 id="winTitle"></h2>
+    <div class="stars" id="winStars"></div>
+    <p id="winLine"></p>
+    <div class="btns">
+      <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+      <button class="btn btn-main" id="nextLevel" type="button"></button>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle">कैसे खेलें</h2>
+    <ol id="howList"><li>जिस किनारे पर नाव है, वहाँ के किसी किरदार पर टैप करो — वो नाव में बैठ जाएगा। नाव में बैठे पर टैप करो तो वापस उतर जाएगा।</li><li>"⛵ पार करो" दबाओ — नाव दूसरे किनारे चली जाएगी।</li><li>हर लेवल के नियम ऊपर लिखे हैं। ग़लती हुई तो लेवल फिर से शुरू होगा।</li><li>अटक गए? "💡 हिंट" अगली सही चाल दिखाता है।</li><li>कम चाल = ज़्यादा स्टार। तीनों लेवल पूरे करो और दोस्तों को चैलेंज भेजो।</li></ol>
+  </section>
+  <section>
+    <h2 data-i18n="aboutTitle">यह पहेली कहाँ से आई?</h2>
+    <p data-i18n="aboutText">नदी पार कराने वाली पहेलियाँ सदियों पुरानी हैं। किसान, जानवर और घास वाली पहेली 8वीं-9वीं सदी के यूरोप की एक पहेली-किताब में भी मिलती है, और इसके रूप दुनिया भर की लोक-कथाओं में सुने जाते हैं — कहीं भेड़िया, बकरी और गोभी, तो कहीं शेर, बकरी और घास।</p>
+    <p data-i18n="aboutText2">ऐसी पहेलियाँ "आगे की सोच" सिखाती हैं: कभी एक क़दम पीछे जाना (किसी को वापस लाना) ही आगे बढ़ने का रास्ता होता है। बच्चों और बड़ों दोनों के लिए यह तर्क और धैर्य का अच्छा अभ्यास है।</p>
+    <p><span data-i18n="readMore">और भी:</span> <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames">और गेम</a> · <a id="quizLink" href="https://nextgrade.in/games/quiz/" data-i18n="quizLink">भारत क्विज़</a> · <a id="storyLink" href="https://nextgrade.in/kahani/" data-i18n="storyLink">बच्चों की कहानियाँ</a></p>
+  </section>
+  <section>
+    <h2 data-i18n="privacyTitle">प्राइवेसी</h2>
+    <p data-i18n="privacyText">कोई लॉगिन नहीं। आपके लेवल और बेस्ट चाल सिर्फ़ इसी फ़ोन में सेव होते हैं।</p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const SITE = 'https://nextgrade.in/games/nadi-paar/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const $ = (id) => document.getElementById(id);
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+  let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('np-lang')) ? store.get('np-lang') : deviceLang();
+
+  // ---- names shown under each character
+  const N = {
+    kisan: { hinglish: 'Kisan', hi: 'किसान', en: 'Farmer', bn: 'কৃষক' }, sher: { hinglish: 'Sher', hi: 'शेर', en: 'Tiger', bn: 'বাঘ' },
+    bakri: { hinglish: 'Bakri', hi: 'बकरी', en: 'Goat', bn: 'ছাগল' }, ghaas: { hinglish: 'Ghaas', hi: 'घास', en: 'Grass', bn: 'ঘাস' },
+    papa: { hinglish: 'Papa', hi: 'पापा', en: 'Dad', bn: 'বাবা' }, beta: { hinglish: 'Beta', hi: 'बेटा', en: 'Son', bn: 'ছেলে' }, beti: { hinglish: 'Beti', hi: 'बेटी', en: 'Daughter', bn: 'মেয়ে' },
+    sipahi: { hinglish: 'Sipahi', hi: 'सिपाही', en: 'Guard', bn: 'সিপাই' }, chor: { hinglish: 'Chor', hi: 'चोर', en: 'Thief', bn: 'চোর' },
+  };
+  // ---- levels: who is there, how many fit in the boat, who can row, and what goes wrong on a bank without supervision
+  const LEVELS = [
+    { key: 'l1', items: [['kisan', '👨‍🌾'], ['sher', '🐅'], ['bakri', '🐐'], ['ghaas', '🌿']], min: 7,
+      fits: (b) => b.length <= 2, rows: (b) => b.some((i) => i.t === 'kisan'),
+      wrong: (g) => (g.some((i) => i.t === 'kisan') ? null : g.some((i) => i.t === 'sher') && g.some((i) => i.t === 'bakri') ? 'sherBakri' : g.some((i) => i.t === 'bakri') && g.some((i) => i.t === 'ghaas') ? 'bakriGhaas' : null) },
+    { key: 'l2', items: [['papa', '👨'], ['beta', '👦'], ['beti', '👧']], min: 5,
+      fits: (b) => b.reduce((w, i) => w + (i.t === 'papa' ? 2 : 1), 0) <= 2, rows: (b) => b.length > 0, wrong: () => null },
+    { key: 'l3', items: [['sipahi', '👮'], ['sipahi', '👮'], ['sipahi', '👮'], ['chor', '🥷'], ['chor', '🥷'], ['chor', '🥷']], min: 11,
+      fits: (b) => b.length <= 2, rows: (b) => b.length > 0,
+      wrong: (g) => { const s = g.filter((i) => i.t === 'sipahi').length, c = g.filter((i) => i.t === 'chor').length; return s > 0 && c > s ? 'chorMore' : null; } },
+  ];
+
+  const T = {
+    hinglish: {
+      title: 'Nadi Paar', sub: 'Purani dimaagi paheli: sabko nadi ke us paar pahunchao — par dhyan se!',
+      level: (n) => `Level ${n}`,
+      rules: { l1: '<b>Kisan</b> ko sher, bakri aur ghaas ko paar le jaana hai. Naav mein kisan ke saath <b>sirf ek</b> cheez aati hai, aur naav sirf kisan chala sakta hai. Kisan na ho to <b>sher bakri ko</b>, aur <b>bakri ghaas ko</b> kha jaayegi.', l2: '<b>Papa aur do bachche</b> paar jaana chahte hain. Naav mein ya to <b>sirf Papa</b>, ya <b>do bachche</b> (ya ek bachcha) baith sakte hain. Sab ko paar pahunchao.', l3: '<b>3 sipahi aur 3 chor</b>. Naav mein 2 log aate hain. Kisi bhi kinare par agar <b>chor sipahiyon se zyada</b> ho gaye (aur wahan koi sipahi ho), to gadbad! Sabko paar karao.' },
+      go: '⛵ Paar karo', hint: '💡 Hint', reset: '↺ Phir se', moves: (m) => `Chaal: ${m}`, best: (b) => (b ? `Best: ${b}` : ''),
+      tapHelp: 'Kisi par tap karke naav mein bithao, phir "Paar karo" dabao.', empty: 'Naav khaali hai — pehle kisi ko bithao.', full: 'Naav mein aur jagah nahi!', needKisan: 'Naav sirf kisan chala sakta hai!', heavy: 'Naav itna wazan nahi utha sakti!', otherSide: 'Naav doosre kinare par hai.',
+      fail: { sherBakri: '😱 Kisan ke bina sher ne bakri kha li! Phir se koshish karo.', bakriGhaas: '😱 Kisan ke bina bakri ghaas kha gayi! Phir se koshish karo.', chorMore: '😱 Chor sipahiyon se zyada ho gaye! Phir se koshish karo.' },
+      hintSay: (names) => `💡 Agli chaal: naav mein ${names} bhejo.`, hintNone: '💡 Yahan se raasta nahi — "Phir se" dabao.',
+      winTitle: '🎉 Shabaash! Sab paar pahunch gaye!', winLine: (m, min) => `Aapne ${m} chaal mein kiya. Sabse kam: ${min}.`, next: 'Agla level →', allDone: 'Phir se khelo ↺',
+      shareWa: 'WhatsApp par challenge bhejo', shareOther: 'Share', shareText: (lv, m) => `🛶 Nadi Paar level ${lv}: maine ${m} chaal mein sabko nadi paar karaya! Aap kitni chaal mein karoge? 👉 `,
+      howTitle: 'Kaise khelein', how: ['Jis kinare par naav hai, wahan ke kisi kirdaar par tap karo — wo naav mein baith jaayega. Naav mein baithe par tap karo to wapas utar jaayega.', '"⛵ Paar karo" dabao — naav doosre kinare chali jaayegi.', 'Har level ke niyam upar likhe hain. Galti hui to level phir se shuru hoga.', 'Atak gaye? "💡 Hint" agli sahi chaal dikhata hai.', 'Kam chaal = zyada star. Teeno level poore karo aur dosto ko challenge bhejo.'],
+      aboutTitle: 'Yeh paheli kahan se aayi?', aboutText: 'Nadi paar karane wali paheliyan sadiyon purani hain. Kisan, jaanwar aur ghaas wali paheli 8vi-9vi sadi ke Europe ki ek paheli-kitaab mein bhi milti hai, aur iske roop duniya bhar ki lok-kathaon mein sune jaate hain — kahin bhediya, bakri aur gobhi, to kahin sher, bakri aur ghaas.',
+      aboutText2: 'Aisi paheliyan "aage ki soch" sikhati hain: kabhi ek kadam peeche jaana (kisi ko wapas laana) hi aage badhne ka raasta hota hai. Bachchon aur badon dono ke liye yeh logic aur dhairya ka achha abhyaas hai.',
+      readMore: 'Aur bhi:', moreGames: 'Aur games', quizLink: 'Bharat Quiz', storyLink: 'Bachchon ki kahaniyan',
+      privacyTitle: 'Privacy', privacyText: 'Koi login nahi. Aapke level aur best chaal sirf isi phone mein save hote hain.',
+    },
+    hi: {
+      title: 'नदी पार', sub: 'पुरानी दिमाग़ी पहेली: सबको नदी के उस पार पहुँचाओ — पर ध्यान से!',
+      level: (n) => `लेवल ${n}`,
+      rules: { l1: '<b>किसान</b> को शेर, बकरी और घास को पार ले जाना है। नाव में किसान के साथ <b>सिर्फ़ एक</b> चीज़ आती है, और नाव सिर्फ़ किसान चला सकता है। किसान न हो तो <b>शेर बकरी को</b>, और <b>बकरी घास को</b> खा जाएगी।', l2: '<b>पापा और दो बच्चे</b> पार जाना चाहते हैं। नाव में या तो <b>सिर्फ़ पापा</b>, या <b>दो बच्चे</b> (या एक बच्चा) बैठ सकते हैं। सबको पार पहुँचाओ।', l3: '<b>3 सिपाही और 3 चोर</b>। नाव में 2 लोग आते हैं। किसी भी किनारे पर अगर <b>चोर सिपाहियों से ज़्यादा</b> हो गए (और वहाँ कोई सिपाही हो), तो गड़बड़! सबको पार कराओ।' },
+      go: '⛵ पार करो', hint: '💡 हिंट', reset: '↺ फिर से', moves: (m) => `चाल: ${m}`, best: (b) => (b ? `बेस्ट: ${b}` : ''),
+      tapHelp: 'किसी पर टैप करके नाव में बिठाओ, फिर "पार करो" दबाओ।', empty: 'नाव ख़ाली है — पहले किसी को बिठाओ।', full: 'नाव में और जगह नहीं!', needKisan: 'नाव सिर्फ़ किसान चला सकता है!', heavy: 'नाव इतना वज़न नहीं उठा सकती!', otherSide: 'नाव दूसरे किनारे पर है।',
+      fail: { sherBakri: '😱 किसान के बिना शेर ने बकरी खा ली! फिर से कोशिश करो।', bakriGhaas: '😱 किसान के बिना बकरी घास खा गई! फिर से कोशिश करो।', chorMore: '😱 चोर सिपाहियों से ज़्यादा हो गए! फिर से कोशिश करो।' },
+      hintSay: (names) => `💡 अगली चाल: नाव में ${names} भेजो।`, hintNone: '💡 यहाँ से रास्ता नहीं — "फिर से" दबाओ।',
+      winTitle: '🎉 शाबाश! सब पार पहुँच गए!', winLine: (m, min) => `आपने ${m} चाल में किया। सबसे कम: ${min}।`, next: 'अगला लेवल →', allDone: 'फिर से खेलो ↺',
+      shareWa: 'WhatsApp पर चैलेंज भेजो', shareOther: 'शेयर', shareText: (lv, m) => `🛶 नदी पार लेवल ${lv}: मैंने ${m} चाल में सबको नदी पार कराया! आप कितनी चाल में करोगे? 👉 `,
+      howTitle: 'कैसे खेलें', how: ['जिस किनारे पर नाव है, वहाँ के किसी किरदार पर टैप करो — वो नाव में बैठ जाएगा। नाव में बैठे पर टैप करो तो वापस उतर जाएगा।', '"⛵ पार करो" दबाओ — नाव दूसरे किनारे चली जाएगी।', 'हर लेवल के नियम ऊपर लिखे हैं। ग़लती हुई तो लेवल फिर से शुरू होगा।', 'अटक गए? "💡 हिंट" अगली सही चाल दिखाता है।', 'कम चाल = ज़्यादा स्टार। तीनों लेवल पूरे करो और दोस्तों को चैलेंज भेजो।'],
+      aboutTitle: 'यह पहेली कहाँ से आई?', aboutText: 'नदी पार कराने वाली पहेलियाँ सदियों पुरानी हैं। किसान, जानवर और घास वाली पहेली 8वीं-9वीं सदी के यूरोप की एक पहेली-किताब में भी मिलती है, और इसके रूप दुनिया भर की लोक-कथाओं में सुने जाते हैं — कहीं भेड़िया, बकरी और गोभी, तो कहीं शेर, बकरी और घास।',
+      aboutText2: 'ऐसी पहेलियाँ "आगे की सोच" सिखाती हैं: कभी एक क़दम पीछे जाना (किसी को वापस लाना) ही आगे बढ़ने का रास्ता होता है। बच्चों और बड़ों दोनों के लिए यह तर्क और धैर्य का अच्छा अभ्यास है।',
+      readMore: 'और भी:', moreGames: 'और गेम', quizLink: 'भारत क्विज़', storyLink: 'बच्चों की कहानियाँ',
+      privacyTitle: 'प्राइवेसी', privacyText: 'कोई लॉगिन नहीं। आपके लेवल और बेस्ट चाल सिर्फ़ इसी फ़ोन में सेव होते हैं।',
+    },
+    en: {
+      title: 'Nadi Paar — River Crossing', sub: 'An old brain puzzle: get everyone across the river — carefully!',
+      level: (n) => `Level ${n}`,
+      rules: { l1: 'The <b>farmer</b> must take a tiger, a goat and some grass across. The boat holds the farmer and <b>just one</b> more, and only the farmer can row. Without the farmer, <b>the tiger eats the goat</b> and <b>the goat eats the grass</b>.', l2: '<b>Dad and two kids</b> want to cross. The boat can carry <b>only Dad</b>, or <b>two kids</b> (or one kid). Get everyone across.', l3: '<b>3 guards and 3 thieves</b>. The boat holds 2. If on either bank the <b>thieves outnumber the guards</b> (while a guard is there), trouble! Get everyone across.' },
+      go: '⛵ Cross', hint: '💡 Hint', reset: '↺ Restart', moves: (m) => `Moves: ${m}`, best: (b) => (b ? `Best: ${b}` : ''),
+      tapHelp: 'Tap someone to put them in the boat, then press "Cross".', empty: 'The boat is empty — put someone in first.', full: 'No more room in the boat!', needKisan: 'Only the farmer can row the boat!', heavy: 'The boat cannot carry that much weight!', otherSide: 'The boat is on the other bank.',
+      fail: { sherBakri: '😱 Without the farmer, the tiger ate the goat! Try again.', bakriGhaas: '😱 Without the farmer, the goat ate the grass! Try again.', chorMore: '😱 The thieves outnumbered the guards! Try again.' },
+      hintSay: (names) => `💡 Next move: send ${names} in the boat.`, hintNone: '💡 No way forward from here — press "Restart".',
+      winTitle: '🎉 Well done! Everyone is across!', winLine: (m, min) => `You did it in ${m} moves. Fewest possible: ${min}.`, next: 'Next level →', allDone: 'Play again ↺',
+      shareWa: 'Challenge on WhatsApp', shareOther: 'Share', shareText: (lv, m) => `🛶 Nadi Paar level ${lv}: I got everyone across the river in ${m} moves! How many will you need? 👉 `,
+      howTitle: 'How to play', how: ['Tap a character on the bank where the boat is — they get into the boat. Tap someone in the boat to get them out.', 'Press "⛵ Cross" — the boat goes to the other bank.', 'Each level\'s rules are shown above. Make a mistake and the level starts again.', 'Stuck? "💡 Hint" shows the next right move.', 'Fewer moves = more stars. Finish all three levels and challenge your friends.'],
+      aboutTitle: 'Where does this puzzle come from?', aboutText: 'River-crossing puzzles are centuries old. The farmer, animal and grass puzzle appears in a European puzzle book from the 8th–9th century, and versions of it are told in folk tales around the world — a wolf, a goat and a cabbage in one place, a tiger, a goat and grass in another.',
+      aboutText2: 'Puzzles like this teach thinking ahead: sometimes stepping back (bringing someone back) is the only way forward. They are good practice in logic and patience for children and adults alike.',
+      readMore: 'More:', moreGames: 'More games', quizLink: 'Bharat Quiz', storyLink: 'Bedtime stories',
+      privacyTitle: 'Privacy', privacyText: 'No login. Your levels and best moves are saved only on this phone.',
+    },
+    bn: {
+      title: 'নদী পার', sub: 'পুরনো ধাঁধা: সবাইকে নদীর ওপারে পৌঁছে দাও — কিন্তু সাবধানে!',
+      level: (n) => `লেভেল ${n}`,
+      rules: { l1: '<b>কৃষককে</b> বাঘ, ছাগল আর ঘাস ওপারে নিতে হবে। নৌকায় কৃষকের সঙ্গে <b>শুধু একটা</b> জিনিস ধরে, আর নৌকা শুধু কৃষকই চালাতে পারে। কৃষক না থাকলে <b>বাঘ ছাগলকে</b>, আর <b>ছাগল ঘাস</b> খেয়ে ফেলবে।', l2: '<b>বাবা আর দুই ছেলেমেয়ে</b> পার হতে চায়। নৌকায় হয় <b>শুধু বাবা</b>, নয়তো <b>দুই বাচ্চা</b> (বা একজন) বসতে পারে। সবাইকে পার করাও।', l3: '<b>৩ সিপাই আর ৩ চোর</b>। নৌকায় ২ জন ধরে। কোনো পাড়ে যদি <b>চোর সিপাইয়ের চেয়ে বেশি</b> হয়ে যায় (আর সেখানে কোনো সিপাই থাকে), তাহলে বিপদ! সবাইকে পার করাও।' },
+      go: '⛵ পার করো', hint: '💡 হিন্ট', reset: '↺ আবার', moves: (m) => `চাল: ${m}`, best: (b) => (b ? `সেরা: ${b}` : ''),
+      tapHelp: 'কারও উপর ট্যাপ করে নৌকায় বসাও, তারপর "পার করো" টেপো।', empty: 'নৌকা খালি — আগে কাউকে বসাও।', full: 'নৌকায় আর জায়গা নেই!', needKisan: 'নৌকা শুধু কৃষকই চালাতে পারে!', heavy: 'নৌকা এত ভার নিতে পারবে না!', otherSide: 'নৌকা অন্য পাড়ে আছে।',
+      fail: { sherBakri: '😱 কৃষক নেই, বাঘ ছাগলটা খেয়ে ফেলল! আবার চেষ্টা করো।', bakriGhaas: '😱 কৃষক নেই, ছাগল ঘাস খেয়ে ফেলল! আবার চেষ্টা করো।', chorMore: '😱 চোর সিপাইয়ের চেয়ে বেশি হয়ে গেল! আবার চেষ্টা করো।' },
+      hintSay: (names) => `💡 পরের চাল: নৌকায় ${names} পাঠাও।`, hintNone: '💡 এখান থেকে পথ নেই — "আবার" টেপো।',
+      winTitle: '🎉 শাবাশ! সবাই পার হয়ে গেছে!', winLine: (m, min) => `তুমি ${m} চালে করেছ। সবচেয়ে কম: ${min}।`, next: 'পরের লেভেল →', allDone: 'আবার খেলো ↺',
+      shareWa: 'WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: 'শেয়ার', shareText: (lv, m) => `🛶 নদী পার লেভেল ${lv}: আমি ${m} চালে সবাইকে নদী পার করিয়েছি! তুমি কত চালে পারবে? 👉 `,
+      howTitle: 'কীভাবে খেলবে', how: ['যে পাড়ে নৌকা আছে, সেখানকার কারও উপর ট্যাপ করো — সে নৌকায় উঠবে। নৌকায় বসা কারও উপর ট্যাপ করলে নেমে যাবে।', '"⛵ পার করো" টেপো — নৌকা অন্য পাড়ে যাবে।', 'প্রতিটা লেভেলের নিয়ম উপরে লেখা। ভুল হলে লেভেল আবার শুরু হবে।', 'আটকে গেলে? "💡 হিন্ট" পরের ঠিক চাল দেখায়।', 'কম চাল = বেশি তারা। তিনটে লেভেল শেষ করো আর বন্ধুদের চ্যালেঞ্জ পাঠাও।'],
+      aboutTitle: 'এই ধাঁধা কোথা থেকে এল?', aboutText: 'নদী পার করানোর ধাঁধা বহু শতাব্দী পুরনো। কৃষক, পশু আর ঘাসের ধাঁধাটা ৮ম-৯ম শতকের ইউরোপের এক ধাঁধার বইয়েও আছে, আর এর নানা রূপ সারা পৃথিবীর লোককথায় শোনা যায় — কোথাও নেকড়ে, ছাগল আর বাঁধাকপি, কোথাও বাঘ, ছাগল আর ঘাস।',
+      aboutText2: 'এমন ধাঁধা "আগে থেকে ভাবতে" শেখায়: কখনো এক পা পিছিয়ে যাওয়া (কাউকে ফেরত আনা)ই এগোনোর একমাত্র পথ। ছোট-বড় সবার জন্য এটা যুক্তি আর ধৈর্যের ভালো অনুশীলন।',
+      readMore: 'আরও:', moreGames: 'আরও গেম', quizLink: 'ভারত কুইজ', storyLink: 'ছোটদের গল্প',
+      privacyTitle: 'প্রাইভেসি', privacyText: 'কোনো লগইন নেই। তোমার লেভেল আর সেরা চাল শুধু এই ফোনেই সেভ থাকে।',
+    },
+  };
+  const t = (k) => T[lang][k];
+  const nm = (it) => N[it.t][lang];
+
+  // ---- state: each item is on 'L', 'R' or in the boat ('B'); boat is at 'L' or 'R'
+  let lv = Math.min(LEVELS.length - 1, Math.max(0, parseInt(store.get('np-level'), 10) || 0));
+  let items = [], side = 'L', moves = 0, busy = false, over = false, hintSet = [];
+  const unlocked = () => Math.max(1, parseInt(store.get('np-unlocked'), 10) || 1);
+  const L = () => LEVELS[lv];
+  const inBoat = () => items.filter((i) => i.at === 'B');
+  const group = (s) => items.filter((i) => i.at === s || (i.at === 'B' && side === s));
+
+  // ---- sound (on by default, mute button)
+  let muted = store.get('np-muted') === '1', audio = null;
+  const setMute = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('np-muted', muted ? '1' : '0'); setMute(); });
+  const ac = () => { try { audio = audio || new (window.AudioContext || window.webkitAudioContext)(); return audio; } catch (e) { return null; } };
+  const tone = (f, d, type, v, delay) => {
+    if (muted) return; const a = ac(); if (!a) return;
+    const t0 = a.currentTime + (delay || 0), o = a.createOscillator(), g = a.createGain();
+    o.type = type || 'sine'; o.frequency.value = f; g.gain.setValueAtTime(v || 0.08, t0); g.gain.exponentialRampToValueAtTime(0.0001, t0 + d);
+    o.connect(g); g.connect(a.destination); o.start(t0); o.stop(t0 + d + 0.02);
+  };
+  const splash = () => { if (muted) return; const a = ac(); if (!a) return; const len = a.sampleRate * 0.5, buf = a.createBuffer(1, len, a.sampleRate), d = buf.getChannelData(0); for (let i = 0; i < len; i += 1) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3) * 0.25; const s = a.createBufferSource(), f = a.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = 900; s.buffer = buf; s.connect(f); f.connect(a.destination); s.start(); };
+  const sfx = { tap: () => tone(700, 0.06, 'triangle', 0.05), no: () => tone(200, 0.15, 'square', 0.04), fail: () => [330, 262, 196].forEach((f, i) => tone(f, 0.25, 'sawtooth', 0.05, i * 0.15)), win: () => [523, 659, 784, 1047, 1319].forEach((f, i) => tone(f, 0.2, 'triangle', 0.07, i * 0.11)) };
+
+  // ---- drawing
+  const btn = (it) => `<button type="button" class="who${hintSet.includes(it.i) && it.at !== 'B' ? ' hint' : ''}" data-i="${it.i}" aria-label="${nm(it)}"><span class="e">${it.e}</span><span class="n">${nm(it)}</span></button>`;
+  const draw = () => {
+    $('bankL').innerHTML = items.filter((i) => i.at === 'L').map(btn).join('');
+    $('bankR').innerHTML = items.filter((i) => i.at === 'R').map(btn).join('');
+    $('seats').innerHTML = inBoat().map(btn).join('');
+    $('boat').style.left = side === 'L' ? '2%' : '40%';
+    $('moves').textContent = t('moves')(moves);
+    $('best').textContent = t('best')(parseInt(store.get(`np-best-${L().key}`), 10) || 0);
+    $('go').disabled = busy || over;
+  };
+  const say = (text, cls) => { $('msg').textContent = text; $('msg').className = `msg ${cls || ''}`; };
+
+  // ---- solver (breadth-first search) for the hint: finds the shortest way from the current bank state
+  const keyOf = (pos, s) => pos.join('') + s;
+  const solveNext = () => {
+    const pos0 = items.map((i) => (i.at === 'B' ? side : i.at));
+    const start = keyOf(pos0, side), goal = keyOf(pos0.map(() => 'R'), 'R');
+    const seen = new Map([[start, null]]), q = [[pos0, side]];
+    const subsets = (idxs) => { const out = []; const n = idxs.length; for (let m = 1; m < (1 << n); m += 1) { const s = idxs.filter((_, b) => m & (1 << b)); if (s.length <= 2) out.push(s); } return out; };
+    while (q.length) {
+      const [pos, s] = q.shift(); const k = keyOf(pos, s);
+      if (k === goal) { let cur = k, prev = seen.get(cur); while (prev && prev.from !== start) { cur = prev.from; prev = seen.get(cur); } return prev ? prev.load : []; }
+      const here = pos.map((p, i) => (p === s ? i : -1)).filter((i) => i >= 0);
+      subsets(here).forEach((load) => {
+        const boat = load.map((i) => items[i]);
+        if (!L().fits(boat) || !L().rows(boat)) return;
+        const ns = s === 'L' ? 'R' : 'L', np = pos.map((p, i) => (load.includes(i) ? ns : p));
+        const gl = items.filter((_, i) => np[i] === 'L'), gr = items.filter((_, i) => np[i] === 'R');
+        if (L().wrong(gl) || L().wrong(gr)) return;
+        const nk = keyOf(np, ns);
+        if (!seen.has(nk)) { seen.set(nk, { from: k, load }); q.push([np, ns]); }
+      });
+    }
+    return null;
+  };
+
+  // ---- actions
+  const tapItem = (i) => {
+    if (busy || over) return;
+    const it = items[i];
+    if (it.at === 'B') { it.at = side; sfx.tap(); say(''); draw(); return; }
+    if (it.at !== side) { sfx.no(); say(t('otherSide'), 'bad'); return; }
+    const load = [...inBoat(), it];
+    if (!L().fits(load)) { sfx.no(); say(L().key === 'l2' ? t('heavy') : t('full'), 'bad'); return; }
+    it.at = 'B'; sfx.tap(); say(''); draw();
+  };
+  ['bankL', 'bankR', 'seats'].forEach((id) => $(id).addEventListener('click', (e) => { const b = e.target.closest('[data-i]'); if (b) tapItem(Number(b.dataset.i)); }));
+  const cross = () => {
+    if (busy || over) return;
+    const load = inBoat();
+    if (!load.length) { sfx.no(); say(t('empty'), 'bad'); return; }
+    if (!L().rows(load)) { sfx.no(); say(t('needKisan'), 'bad'); return; }
+    busy = true; say('');
+    hintSet = [];
+    side = side === 'L' ? 'R' : 'L'; moves += 1; splash(); draw();
+    setTimeout(() => {
+      load.forEach((it) => { it.at = side; });
+      busy = false; draw();
+      const bad = L().wrong(group('L')) || L().wrong(group('R'));
+      if (bad) { over = true; sfx.fail(); say(t('fail')[bad], 'bad'); $('scene').classList.add('fail'); setTimeout(() => $('scene').classList.remove('fail'), 600); draw(); return; }
+      if (items.every((i) => i.at === 'R')) win();
+    }, 950);
+  };
+  $('go').addEventListener('click', cross);
+  $('hint').addEventListener('click', () => {
+    if (busy) return;
+    if (over) { reset(); }
+    const load = solveNext();
+    if (!load) { say(t('hintNone'), 'bad'); return; }
+    // send everyone in the boat back to the bank first, so the hint starts clean
+    inBoat().forEach((it) => { it.at = side; });
+    hintSet = load; draw();
+    say(t('hintSay')(load.map((i) => nm(items[i])).join(' + ')), 'good');
+  });
+  const win = () => {
+    over = true; sfx.win(); draw();
+    const k = `np-best-${L().key}`, best = parseInt(store.get(k), 10) || 0;
+    if (!best || moves < best) store.set(k, String(moves));
+    if (lv + 2 > unlocked()) store.set('np-unlocked', String(Math.min(LEVELS.length, lv + 2)));
+    const stars = moves <= L().min ? 3 : moves <= L().min + 4 ? 2 : 1;
+    $('winTitle').textContent = t('winTitle');
+    $('winStars').textContent = '⭐'.repeat(stars);
+    $('winLine').textContent = t('winLine')(moves, L().min);
+    $('nextLevel').textContent = lv + 1 < LEVELS.length ? t('next') : t('allDone');
+    $('win').hidden = false; say('', 'good'); levelTabs(); draw();
+    $('win').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+  const reset = () => {
+    items = L().items.map(([tp, e], i) => ({ i, t: tp, e, at: 'L' }));
+    side = 'L'; moves = 0; busy = false; over = false; hintSet = [];
+    $('win').hidden = true; $('rules').innerHTML = t('rules')[L().key];
+    say(t('tapHelp')); draw();
+  };
+  $('reset').addEventListener('click', reset);
+  $('nextLevel').addEventListener('click', () => { lv = lv + 1 < LEVELS.length ? lv + 1 : 0; store.set('np-level', String(lv)); levelTabs(); reset(); $('scene').scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+  const levelTabs = () => {
+    $('levels').innerHTML = LEVELS.map((l, i) => `<button type="button" data-l="${i}" aria-pressed="${i === lv}"${i + 1 > unlocked() ? ' disabled' : ''}>${i + 1 > unlocked() ? '🔒 ' : ''}${t('level')(i + 1)}</button>`).join('');
+  };
+  $('levels').addEventListener('click', (e) => { const b = e.target.closest('[data-l]'); if (!b || b.disabled) return; lv = Number(b.dataset.l); store.set('np-level', String(lv)); levelTabs(); reset(); });
+  const shareText = () => t('shareText')(lv + 1, moves) + `${SITE}?lang=${lang}`;
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', () => { const text = shareText(); if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; } (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).catch(() => window.prompt('Copy', text)); });
+
+  // ---- language
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} 🛶 — River Crossing Puzzle | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    $('go').textContent = t('go'); $('hint').textContent = t('hint'); $('reset').textContent = t('reset');
+    $('rules').innerHTML = t('rules')[L().key];
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`; $('moreGames').href = `https://nextgrade.in${p}/games/`; $('storyLink').href = `https://nextgrade.in${p}/kahani/`;
+    $('quizLink').href = `https://nextgrade.in/games/quiz/?lang=${lang}`;
+    levelTabs(); draw();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('np-lang', lang); applyLang(); say(''); });
+  $('year').textContent = new Date().getFullYear();
+
+  if (lv + 1 > unlocked()) lv = 0;
+  setMute(); reset(); applyLang(); say(t('tapHelp'));
+  if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+})();
+</script>
+</body>
+</html>

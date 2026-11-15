@@ -294,6 +294,7 @@ const wishes = {
 
 const games = {
   'morning-exercise': { name: 'Morning 2-Minute Challenge', desc: '8 easy moves with a cartoon coach — a timer, a daily 🔥 streak, badges and WhatsApp challenges for friends. Just 2 minutes (15 seconds a move), no camera, no login.' },
+  'nadi-paar': { name: 'Nadi Paar — River Crossing Puzzle', desc: 'The classic brain puzzle as a game: take the farmer, tiger, goat and grass across without anything getting eaten — then Dad and two kids, and 3 guards with 3 thieves. Hints, stars for fewest moves, WhatsApp challenge.' },
   quiz: { name: 'Bharat Quiz — Daily India GK', desc: '10 questions a day, 10 seconds each: states and capitals, national symbols, history, geography, science, sports and culture. A fact after every answer, topic practice, and a WhatsApp score challenge.' },
   shabd: { name: 'Aaj ka Shabd — Word of the Day', desc: 'A new 5-letter word every day: guess it in 6 tries. Hindi words in Roman letters (with meaning) or English words. Colours show which letters are right; share your result on WhatsApp and keep your streak.' },
   patang: { name: 'Kite Fight', desc: 'Steer your kite, cut other kites’ strings — “Wo kaata!” — protect your own, catch til-gud laddoos and keep away from birds. 60 seconds, combos and a WhatsApp challenge.' },
