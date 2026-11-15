@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bharat Quiz 🇮🇳 — Daily India GK Quiz in Hindi &amp; English | NextGrade</title>
+<meta name="description" content="Bharat Quiz: a free daily India GK quiz — 10 questions, 10 seconds each, on states and capitals, national symbols, history, geography, science, sports and culture. Learn a fact after every answer and challenge friends on WhatsApp. Hindi, Hinglish, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/games/quiz/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Bharat Quiz 🇮🇳 — 10 sawaal, 10 second">
+<meta property="og:description" content="Kitna jaante ho Bharat ke baare mein? Aaj ka quiz khelo aur mera score haraao!">
+<meta property="og:url" content="https://nextgrade.in/games/quiz/">
+<meta property="og:image" content="https://nextgrade.in/games/quiz/icons/icon-512.png">
+<meta name="theme-color" content="#5f3dc4">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Quiz","name":"Bharat Quiz","url":"https://nextgrade.in/games/quiz/","about":"India general knowledge","educationalLevel":"General","inLanguage":["hi","en","bn"],"isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #1b1036; --bg2: #5f3dc4; --ink: #f6f3ff; --muted: #cfc4f5; --card: rgba(255,255,255,0.08); --line: rgba(255,255,255,0.16);
+  --ok: #2f9e44; --bad: #e03131; --gold: #ffd43b; --saffron: #ff922b; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1100px 600px at 50% -10%, #7048e8, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; min-height: 100vh; -webkit-tap-highlight-color: transparent; }
+a { color: var(--gold); }
+.wrap { max-width: 600px; margin: 0 auto; padding: 0 14px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; }
+.brand { display: flex; align-items: center; gap: 8px; font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand img { width: 30px; height: 30px; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid var(--line); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; font-family: inherit; }
+.langsel { font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: clamp(26px, 7vw, 38px); line-height: 1.1; margin: 2px 0 4px; }
+.sub { color: var(--muted); margin: 0 0 10px; font-size: 15px; }
+.challenge { display: none; background: rgba(255,212,59,0.14); border: 1px solid rgba(255,212,59,0.45); border-radius: 12px; padding: 10px 12px; font-weight: 700; margin: 0 0 10px; }
+.box { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px; margin-bottom: 14px; }
+.hidden { display: none !important; }
+.btn { border: 0; border-radius: 12px; padding: 12px 16px; font: inherit; font-weight: 800; cursor: pointer; }
+.btn-main { background: var(--gold); color: #3b2a00; width: 100%; font-size: 18px; }
+.btn-wa { background: #25d366; color: #063b1c; } .btn-ghost { background: var(--card); color: var(--ink); border: 1px solid var(--line); }
+input.name { width: 100%; font: inherit; font-size: 16px; padding: 11px 12px; border-radius: 12px; border: 1px solid var(--line); background: rgba(0,0,0,0.2); color: var(--ink); margin: 6px 0 10px; }
+.daily-note { color: var(--muted); font-size: 14px; margin: 8px 0 0; text-align: center; }
+.cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 8px; }
+.cats button { border: 1px solid var(--line); background: rgba(0,0,0,0.18); color: var(--ink); border-radius: 12px; padding: 10px 8px; font: inherit; font-weight: 700; font-size: 14px; cursor: pointer; text-align: left; }
+.qtop { display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: var(--muted); font-size: 14px; }
+.timer { height: 8px; background: rgba(255,255,255,0.12); border-radius: 99px; overflow: hidden; margin: 8px 0 14px; }
+.timer i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--ok), var(--gold), var(--bad)); background-size: 300% 100%; transition: width .1s linear; }
+.qcat { font-size: 13px; color: var(--gold); font-weight: 700; }
+.q { font-size: clamp(19px, 5vw, 23px); font-weight: 800; margin: 4px 0 12px; line-height: 1.35; }
+.opts { display: grid; gap: 8px; }
+.opts button { text-align: left; border: 2px solid var(--line); background: rgba(0,0,0,0.2); color: var(--ink); border-radius: 12px; padding: 12px 14px; font: inherit; font-size: 17px; font-weight: 600; cursor: pointer; }
+.opts button.ok { background: var(--ok); border-color: var(--ok); }
+.opts button.bad { background: var(--bad); border-color: var(--bad); }
+.opts button:disabled { cursor: default; opacity: 1; }
+.fact { margin: 12px 0 0; background: rgba(255,212,59,0.12); border-left: 4px solid var(--gold); border-radius: 8px; padding: 10px 12px; color: var(--ink); }
+.next { margin-top: 12px; }
+.end { text-align: center; }
+.score { font-size: 56px; font-weight: 800; color: var(--gold); line-height: 1; margin: 6px 0; }
+.stars { font-size: 30px; }
+.endbtns { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 12px; }
+.review { text-align: left; margin-top: 14px; font-size: 14px; color: var(--muted); }
+.review li { margin: 4px 0; }
+section { margin: 18px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: 22px; margin: 0 0 6px; }
+section p, section li { color: var(--muted); }
+.ad { min-height: 100px; margin: 20px 0; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid var(--line); }
+footer a { color: var(--muted); margin-right: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/"><img src="/favicon.svg" alt="" width="30" height="30"><span>NextGrade<small>Quiz</small></span></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="box" id="startBox">
+    <label for="name" data-i18n="nameLabel"></label>
+    <input class="name" id="name" maxlength="30" autocomplete="nickname" data-i18n-ph="namePh">
+    <button class="btn btn-main" id="daily" type="button"></button>
+    <p class="daily-note" id="dailyNote"></p>
+    <h2 style="font-size:18px;margin:16px 0 0" data-i18n="practiceH"></h2>
+    <div class="cats" id="cats"></div>
+  </div>
+
+  <div class="box hidden" id="qBox">
+    <div class="qtop"><span id="qNo"></span><span id="qScore"></span></div>
+    <div class="timer"><i id="bar"></i></div>
+    <div class="qcat" id="qCat"></div>
+    <div class="q" id="qText"></div>
+    <div class="opts" id="opts"></div>
+    <p class="fact hidden" id="fact"></p>
+    <button class="btn btn-main next hidden" id="nextBtn" type="button"></button>
+  </div>
+
+  <div class="box end hidden" id="endBox">
+    <h2 id="endTitle"></h2>
+    <div class="stars" id="endStars"></div>
+    <div class="score" id="endScore"></div>
+    <p id="endLine"></p>
+    <div class="endbtns">
+      <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+      <button class="btn btn-ghost" id="again" type="button" data-i18n="again"></button>
+    </div>
+    <ol class="review" id="review"></ol>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <ol id="howList"></ol>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+    <p><span data-i18n="readMore"></span> <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a> · <a id="shabdLink" href="https://nextgrade.in/games/shabd/" data-i18n="shabdLink"></a> · <a id="festLink" href="https://nextgrade.in/festivals/" data-i18n="festLink"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script src="questions.js"></script>
+<script>
+(() => {
+  const SITE = 'https://nextgrade.in/games/quiz/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const PER = 10, SECS = 10;
+  const QS = window.QUIZ_QUESTIONS || [], CATS = window.QUIZ_CATS || {};
+  const $ = (id) => document.getElementById(id);
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+  let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('bq-lang')) ? store.get('bq-lang') : deviceLang();
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(PER * 20, parseInt(params.get('score'), 10) || 0));
+
+  const T = {
+    hinglish: {
+      title: 'Bharat Quiz', sub: 'Roz 10 sawaal, har sawaal ke liye 10 second. Kitna jaante ho Bharat ko?',
+      nameLabel: 'Aapka naam (score share karne ke liye, chahein to)', namePh: 'Jaise: Aman',
+      daily: (n) => `▶ Aaj ka Quiz #${n} khelo`, dailyDone: (s) => `✓ Aaj ka quiz ho gaya: ${s} points. Kal naya quiz aayega!`, dailyNote: 'Aaj ke sawaal sabke liye ek jaise hain.', practiceH: 'Ya vishay chun kar practice karo:',
+      qNo: (i) => `Sawaal ${i}/${PER}`, pts: (s) => `⭐ ${s}`, next: 'Aage →', finish: 'Result dekho →', timeUp: '⏱️ Samay khatam! Sahi jawab:', right: '✅ Sahi!', wrong: '❌ Galat. Sahi jawab:',
+      endTitle: ['Phir koshish karo! 💪', 'Achha hai! 🙂', 'Badhiya! 👏', 'Shaandaar! 🌟', 'Kamaal! 🏆'], endLine: (c, s) => `${c}/${PER} sahi · ${s} points`,
+      shareWa: 'WhatsApp par challenge bhejo', shareOther: 'Share', again: 'Phir se khelo', copied: 'Copy ho gaya ✓',
+      shareText: (name, s, c, n) => `🇮🇳 Bharat Quiz${n ? ` #${n}` : ''}: ${name ? name + ' ne' : 'Maine'} ${s} points banaye (${c}/10 sahi)! Kya aap hara sakte ho? 👉 `,
+      challenge: (n, s) => `🎯 ${n} ne ${s} points banaye hain. Kya aap unhe hara sakte ho?`,
+      howTitle: 'Kaise khelein', how: ['"Aaj ka Quiz" dabao — 10 sawaal aayenge, sabke liye ek jaise.', 'Har sawaal ke liye 10 second. Chaar mein se sahi jawab chuno.', 'Sahi jawab = 10 points, aur jitne second bache utne bonus points. Ek sawaal se 20 tak, poore quiz se 200 tak.', 'Har jawab ke baad ek chhoti jaankari dikhegi — padh kar "Aage" dabao.', 'Score WhatsApp par bhejo; dost link kholkar aapka score haraane ki koshish karenge.'],
+      aboutTitle: 'Bharat Quiz ke baare mein', aboutText: 'Bharat Quiz Bharat ke baare mein aam jaankari (GK) ka chhota roz ka khel hai: rajya aur rajdhaniyan, rashtriya prateek, itihas aur smarak, nadiyan aur jheelein, vigyan, khel, aur tyohaar-nritya. Sawaal aise chune gaye hain jinke jawab pakke hain aur badalte nahi.',
+      aboutText2: 'Har jawab ke baad ek rochak tathya milta hai, isliye khel ke saath kuch naya seekhna bhi ho jaata hai. Bachchon ke school GK, competitive exam ki shuruaati taiyaari, ya parivaar ke saath mazedaar mukaable ke liye achha hai.',
+      readMore: 'Aur bhi:', moreGames: 'Aur games', shabdLink: 'Aaj ka Shabd', festLink: 'Tyohaaron ki jaankari',
+      privacyTitle: 'Privacy', privacyText: 'Koi login nahi. Aapka naam aur score sirf isi phone mein save hote hain; naam sirf share link mein jaata hai jab aap khud bhejte ho.',
+    },
+    hi: {
+      title: 'भारत क्विज़', sub: 'रोज़ 10 सवाल, हर सवाल के लिए 10 सेकंड। कितना जानते हो भारत को?',
+      nameLabel: 'आपका नाम (स्कोर शेयर करने के लिए, चाहें तो)', namePh: 'जैसे: अमन',
+      daily: (n) => `▶ आज का क्विज़ #${n} खेलो`, dailyDone: (s) => `✓ आज का क्विज़ हो गया: ${s} अंक। कल नया क्विज़ आएगा!`, dailyNote: 'आज के सवाल सबके लिए एक जैसे हैं।', practiceH: 'या विषय चुनकर प्रैक्टिस करो:',
+      qNo: (i) => `सवाल ${i}/${PER}`, pts: (s) => `⭐ ${s}`, next: 'आगे →', finish: 'नतीजा देखो →', timeUp: '⏱️ समय ख़त्म! सही जवाब:', right: '✅ सही!', wrong: '❌ ग़लत। सही जवाब:',
+      endTitle: ['फिर कोशिश करो! 💪', 'अच्छा है! 🙂', 'बढ़िया! 👏', 'शानदार! 🌟', 'कमाल! 🏆'], endLine: (c, s) => `${c}/${PER} सही · ${s} अंक`,
+      shareWa: 'WhatsApp पर चैलेंज भेजो', shareOther: 'शेयर', again: 'फिर से खेलो', copied: 'कॉपी हो गया ✓',
+      shareText: (name, s, c, n) => `🇮🇳 भारत क्विज़${n ? ` #${n}` : ''}: ${name ? name + ' ने' : 'मैंने'} ${s} अंक बनाए (${c}/10 सही)! क्या आप हरा सकते हो? 👉 `,
+      challenge: (n, s) => `🎯 ${n} ने ${s} अंक बनाए हैं। क्या आप उन्हें हरा सकते हो?`,
+      howTitle: 'कैसे खेलें', how: ['"आज का क्विज़" दबाओ — 10 सवाल आएँगे, सबके लिए एक जैसे।', 'हर सवाल के लिए 10 सेकंड। चार में से सही जवाब चुनो।', 'सही जवाब = 10 अंक, और जितने सेकंड बचे उतने बोनस अंक। एक सवाल से 20 तक, पूरे क्विज़ से 200 तक।', 'हर जवाब के बाद एक छोटी जानकारी दिखेगी — पढ़कर "आगे" दबाओ।', 'स्कोर WhatsApp पर भेजो; दोस्त लिंक खोलकर आपका स्कोर हराने की कोशिश करेंगे।'],
+      aboutTitle: 'भारत क्विज़ के बारे में', aboutText: 'भारत क्विज़ भारत के बारे में आम जानकारी (GK) का छोटा रोज़ का खेल है: राज्य और राजधानियाँ, राष्ट्रीय प्रतीक, इतिहास और स्मारक, नदियाँ और झीलें, विज्ञान, खेल, और त्योहार-नृत्य। सवाल ऐसे चुने गए हैं जिनके जवाब पक्के हैं और बदलते नहीं।',
+      aboutText2: 'हर जवाब के बाद एक रोचक तथ्य मिलता है, इसलिए खेल के साथ कुछ नया सीखना भी हो जाता है। बच्चों के स्कूल GK, प्रतियोगी परीक्षा की शुरुआती तैयारी, या परिवार के साथ मज़ेदार मुक़ाबले के लिए अच्छा है।',
+      readMore: 'और भी:', moreGames: 'और गेम', shabdLink: 'आज का शब्द', festLink: 'त्योहारों की जानकारी',
+      privacyTitle: 'प्राइवेसी', privacyText: 'कोई लॉगिन नहीं। आपका नाम और स्कोर सिर्फ़ इसी फ़ोन में सेव होते हैं; नाम सिर्फ़ शेयर लिंक में जाता है जब आप ख़ुद भेजते हो।',
+    },
+    en: {
+      title: 'Bharat Quiz', sub: '10 questions a day, 10 seconds each. How well do you know India?',
+      nameLabel: 'Your name (only for sharing your score, optional)', namePh: 'e.g. Aman',
+      daily: (n) => `▶ Play today's quiz #${n}`, dailyDone: (s) => `✓ Today's quiz done: ${s} points. A new quiz comes tomorrow!`, dailyNote: 'Everyone gets the same questions today.', practiceH: 'Or practise a topic:',
+      qNo: (i) => `Question ${i}/${PER}`, pts: (s) => `⭐ ${s}`, next: 'Next →', finish: 'See result →', timeUp: '⏱️ Time\'s up! The answer:', right: '✅ Correct!', wrong: '❌ Wrong. The answer:',
+      endTitle: ['Try again! 💪', 'Not bad! 🙂', 'Good! 👏', 'Brilliant! 🌟', 'Champion! 🏆'], endLine: (c, s) => `${c}/${PER} correct · ${s} points`,
+      shareWa: 'Challenge on WhatsApp', shareOther: 'Share', again: 'Play again', copied: 'Copied ✓',
+      shareText: (name, s, c, n) => `🇮🇳 Bharat Quiz${n ? ` #${n}` : ''}: ${name || 'I'} scored ${s} points (${c}/10 correct)! Can you beat it? 👉 `,
+      challenge: (n, s) => `🎯 ${n} scored ${s} points. Can you beat that?`,
+      howTitle: 'How to play', how: ['Tap "Play today\'s quiz" — you get 10 questions, the same for everyone.', 'You have 10 seconds per question. Pick the right answer out of four.', 'A right answer gives 10 points plus a bonus point for every second left — up to 20 per question and 200 per quiz.', 'After each answer you see a short fact — read it and tap "Next".', 'Send your score on WhatsApp; friends open the link and try to beat it.'],
+      aboutTitle: 'About Bharat Quiz', aboutText: 'Bharat Quiz is a short daily general-knowledge game about India: states and capitals, national symbols, history and monuments, rivers and lakes, science, sports, and festivals and dances. The questions are chosen so that their answers are settled and do not change.',
+      aboutText2: 'Every answer comes with an interesting fact, so you learn something new while you play. It is good for school GK, early preparation for competitive exams, or a fun contest with the family.',
+      readMore: 'More:', moreGames: 'More games', shabdLink: 'Word of the Day', festLink: 'Festival guides',
+      privacyTitle: 'Privacy', privacyText: 'No login. Your name and scores are saved only on this phone; your name goes into a share link only when you send it yourself.',
+    },
+    bn: {
+      title: 'ভারত কুইজ', sub: 'রোজ ১০টা প্রশ্ন, প্রতিটার জন্য ১০ সেকেন্ড। ভারতকে কতটা চেনো?',
+      nameLabel: 'তোমার নাম (স্কোর শেয়ার করার জন্য, চাইলে)', namePh: 'যেমন: অমন',
+      daily: (n) => `▶ আজকের কুইজ #${n} খেলো`, dailyDone: (s) => `✓ আজকের কুইজ হয়ে গেছে: ${s} পয়েন্ট। কাল নতুন কুইজ আসবে!`, dailyNote: 'আজকের প্রশ্ন সবার জন্য একই।', practiceH: 'অথবা বিষয় বেছে প্র্যাকটিস করো:',
+      qNo: (i) => `প্রশ্ন ${i}/${PER}`, pts: (s) => `⭐ ${s}`, next: 'পরের →', finish: 'ফল দেখো →', timeUp: '⏱️ সময় শেষ! সঠিক উত্তর:', right: '✅ ঠিক!', wrong: '❌ ভুল। সঠিক উত্তর:',
+      endTitle: ['আবার চেষ্টা করো! 💪', 'মন্দ নয়! 🙂', 'ভালো! 👏', 'দারুণ! 🌟', 'চ্যাম্পিয়ন! 🏆'], endLine: (c, s) => `${c}/${PER} ঠিক · ${s} পয়েন্ট`,
+      shareWa: 'WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: 'শেয়ার', again: 'আবার খেলো', copied: 'কপি হয়েছে ✓',
+      shareText: (name, s, c, n) => `🇮🇳 ভারত কুইজ${n ? ` #${n}` : ''}: ${name || 'আমি'} ${s} পয়েন্ট পেয়েছে (${c}/10 ঠিক)! হারাতে পারবে? 👉 `,
+      challenge: (n, s) => `🎯 ${n} ${s} পয়েন্ট পেয়েছে। তুমি হারাতে পারবে?`,
+      howTitle: 'কীভাবে খেলবে', how: ['"আজকের কুইজ" টেপো — ১০টা প্রশ্ন আসবে, সবার জন্য একই।', 'প্রতিটা প্রশ্নের জন্য ১০ সেকেন্ড। চারটের মধ্যে ঠিক উত্তর বাছো।', 'ঠিক উত্তরে ১০ পয়েন্ট, আর যত সেকেন্ড বাকি তত বোনাস। এক প্রশ্নে ২০ পর্যন্ত, পুরো কুইজে ২০০ পর্যন্ত।', 'প্রতিটা উত্তরের পরে একটা ছোট তথ্য দেখাবে — পড়ে "পরের" টেপো।', 'স্কোর WhatsApp-এ পাঠাও; বন্ধুরা লিংক খুলে তোমার স্কোর হারানোর চেষ্টা করবে।'],
+      aboutTitle: 'ভারত কুইজ সম্পর্কে', aboutText: 'ভারত কুইজ ভারত নিয়ে সাধারণ জ্ঞানের (GK) একটা ছোট রোজকার খেলা: রাজ্য আর রাজধানী, জাতীয় প্রতীক, ইতিহাস আর স্মৃতিসৌধ, নদী আর হ্রদ, বিজ্ঞান, খেলা, আর উৎসব-নাচ। প্রশ্নগুলো এমনভাবে বাছা যাদের উত্তর পাকা, বদলায় না।',
+      aboutText2: 'প্রতিটা উত্তরের সঙ্গে একটা মজার তথ্য থাকে, তাই খেলার সঙ্গে নতুন কিছু শেখাও হয়। স্কুলের GK, প্রতিযোগিতামূলক পরীক্ষার প্রথম প্রস্তুতি বা পরিবারের সঙ্গে মজার প্রতিযোগিতার জন্য ভালো।',
+      readMore: 'আরও:', moreGames: 'আরও গেম', shabdLink: 'আজকের শব্দ', festLink: 'উৎসবের কথা',
+      privacyTitle: 'প্রাইভেসি', privacyText: 'কোনো লগইন নেই। তোমার নাম আর স্কোর শুধু এই ফোনেই সেভ থাকে; নাম শুধু শেয়ার লিংকে যায় যখন তুমি নিজে পাঠাও।',
+    },
+  };
+  const t = (k) => T[lang][k];
+
+  // ---- daily set: same 10 questions for everyone, changes at midnight India time
+  const EPOCH = Date.UTC(2026, 10, 15) / 86400000; // 15 Nov 2026 = #1
+  const dayNo = () => Math.floor((Date.now() + 5.5 * 3600000) / 86400000) - EPOCH + 1;
+  const seeded = (seed) => { let s = seed >>> 0; return () => { s = (s + 0x6D2B79F5) >>> 0; let x = Math.imul(s ^ (s >>> 15), 1 | s); x ^= x + Math.imul(x ^ (x >>> 7), 61 | x); return ((x ^ (x >>> 14)) >>> 0) / 4294967296; }; };
+  const shuffle = (list, rnd) => { const a = list.slice(); for (let i = a.length - 1; i > 0; i -= 1) { const j = Math.floor(rnd() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const dailySet = () => shuffle(QS.map((_, i) => i), seeded(777 + dayNo() * 7919)).slice(0, PER);
+  const dailyResult = () => { try { const r = JSON.parse(store.get('bq-daily')); return r && r.day === dayNo() ? r : null; } catch (e) { return null; } };
+
+  // ---- sound (on by default, mute button)
+  let muted = store.get('bq-muted') === '1', audio = null;
+  const setMute = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('bq-muted', muted ? '1' : '0'); setMute(); });
+  const ac = () => { try { audio = audio || new (window.AudioContext || window.webkitAudioContext)(); return audio; } catch (e) { return null; } };
+  const tone = (f, d, type, v, delay) => {
+    if (muted) return; const a = ac(); if (!a) return;
+    const t0 = a.currentTime + (delay || 0), o = a.createOscillator(), g = a.createGain();
+    o.type = type || 'sine'; o.frequency.value = f; g.gain.setValueAtTime(v || 0.08, t0); g.gain.exponentialRampToValueAtTime(0.0001, t0 + d);
+    o.connect(g); g.connect(a.destination); o.start(t0); o.stop(t0 + d + 0.02);
+  };
+  const sfx = {
+    right: () => { tone(660, 0.12, 'triangle', 0.08); tone(990, 0.18, 'triangle', 0.08, 0.1); },
+    wrong: () => { tone(220, 0.2, 'sawtooth', 0.05); tone(160, 0.25, 'sawtooth', 0.05, 0.12); },
+    tick: () => tone(1200, 0.03, 'square', 0.025),
+    end: (good) => (good ? [523, 659, 784, 1047] : [392, 349, 330]).forEach((f, i) => tone(f, 0.2, 'triangle', 0.07, i * 0.13)),
+  };
+
+  // ---- game state
+  let set = [], idx = 0, total = 0, correct = 0, answers = [], timer = null, left = SECS, startAt = 0, daily = false, chosen = false, cat = null;
+  const show = (id) => ['startBox', 'qBox', 'endBox'].forEach((b) => $(b).classList.toggle('hidden', b !== id));
+  const row = (i) => QS[i][1][lang];
+
+  const renderQ = () => {
+    const i = set[idx], r = row(i);
+    chosen = false;
+    $('qNo').textContent = t('qNo')(idx + 1);
+    $('qScore').textContent = t('pts')(total);
+    $('qCat').textContent = `${CATS[QS[i][0]].emoji} ${CATS[QS[i][0]][lang]}`;
+    $('qText').textContent = r[0];
+    const order = shuffle([1, 2, 3, 4], Math.random);
+    $('opts').innerHTML = '';
+    order.forEach((k) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = r[k]; b.dataset.k = k; $('opts').appendChild(b); });
+    $('fact').classList.add('hidden'); $('nextBtn').classList.add('hidden');
+    left = SECS; startAt = Date.now();
+    $('bar').style.width = '100%';
+    clearInterval(timer);
+    let lastWhole = SECS;
+    timer = setInterval(() => {
+      left = Math.max(0, SECS - (Date.now() - startAt) / 1000);
+      $('bar').style.width = `${(left / SECS) * 100}%`;
+      $('bar').style.backgroundPosition = `${(1 - left / SECS) * 100}% 0`;
+      if (Math.ceil(left) < lastWhole && left <= 3 && left > 0) sfx.tick();
+      lastWhole = Math.ceil(left);
+      if (left <= 0) answer(null);
+    }, 100);
+  };
+  const answer = (k) => {
+    if (chosen) return;
+    chosen = true; clearInterval(timer);
+    const i = set[idx], r = row(i), ok = k === 1;
+    const pts = ok ? 10 + Math.ceil(left) : 0;
+    total += pts; if (ok) correct += 1;
+    answers.push({ i, ok, k });
+    [...$('opts').children].forEach((b) => { b.disabled = true; if (b.dataset.k === '1') b.classList.add('ok'); else if (Number(b.dataset.k) === k) b.classList.add('bad'); });
+    if (ok) sfx.right(); else sfx.wrong();
+    const head = ok ? t('right') : k === null ? `${t('timeUp')} ${r[1]}` : `${t('wrong')} ${r[1]}`;
+    $('fact').textContent = `${head} — ${r[5]}`;
+    $('fact').classList.remove('hidden');
+    $('qScore').textContent = t('pts')(total);
+    $('nextBtn').textContent = idx + 1 < set.length ? t('next') : t('finish');
+    $('nextBtn').classList.remove('hidden');
+  };
+  $('opts').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b && !chosen) answer(Number(b.dataset.k)); });
+  $('nextBtn').addEventListener('click', () => { idx += 1; if (idx < set.length) renderQ(); else finish(); });
+
+  const finish = () => {
+    clearInterval(timer);
+    if (daily) store.set('bq-daily', JSON.stringify({ day: dayNo(), score: total, correct }));
+    const best = parseInt(store.get('bq-best'), 10) || 0;
+    if (total > best) store.set('bq-best', String(total));
+    sfx.end(correct >= 6);
+    showEnd();
+    show('endBox');
+    $('endBox').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  const showEnd = () => {
+    const band = correct >= 10 ? 4 : correct >= 8 ? 3 : correct >= 6 ? 2 : correct >= 4 ? 1 : 0;
+    $('endTitle').textContent = t('endTitle')[band];
+    $('endStars').textContent = '⭐'.repeat(Math.max(1, band + 1));
+    $('endScore').textContent = total;
+    $('endLine').textContent = t('endLine')(correct, total);
+    $('review').innerHTML = answers.map((a) => { const r = row(a.i); return `<li>${a.ok ? '✅' : '❌'} ${r[0]} — <b>${r[1]}</b></li>`; }).join('');
+  };
+  const name = () => cleanName($('name').value);
+  const shareLink = () => { const u = new URL(SITE); u.searchParams.set('lang', lang); if (name()) u.searchParams.set('from', name()); u.searchParams.set('score', String(total)); return u.toString(); };
+  const shareText = () => t('shareText')(name(), total, correct, daily ? dayNo() : 0) + shareLink();
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).catch(() => window.prompt('Copy', text));
+  });
+  $('again').addEventListener('click', () => { renderStart(); show('startBox'); });
+  $('name').addEventListener('change', () => store.set('bq-name', name()));
+
+  const begin = (isDaily, category) => {
+    daily = isDaily; cat = category;
+    set = isDaily ? dailySet() : shuffle(QS.map((_, i) => i).filter((i) => QS[i][0] === category), Math.random).slice(0, PER);
+    idx = 0; total = 0; correct = 0; answers = [];
+    store.set('bq-name', name());
+    show('qBox'); renderQ();
+    $('qBox').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  $('daily').addEventListener('click', () => { if (!dailyResult()) begin(true); });
+  $('cats').addEventListener('click', (e) => { const b = e.target.closest('[data-cat]'); if (b) begin(false, b.dataset.cat); });
+
+  const renderStart = () => {
+    const done = dailyResult();
+    $('daily').textContent = done ? t('dailyDone')(done.score) : t('daily')(dayNo());
+    $('daily').disabled = !!done;
+    $('dailyNote').textContent = done ? '' : t('dailyNote');
+    $('cats').innerHTML = Object.keys(CATS).map((c) => `<button type="button" data-cat="${c}">${CATS[c].emoji} ${CATS[c][lang]}</button>`).join('');
+  };
+
+  // ---- language
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} 🇮🇳 — Daily India GK Quiz | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    $('festLink').href = `https://nextgrade.in${p}/festivals/`;
+    $('shabdLink').href = `https://nextgrade.in/games/shabd/?lang=${lang}`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    renderStart();
+    if (!$('qBox').classList.contains('hidden')) {
+      const i = set[idx], r = row(i);
+      $('qNo').textContent = t('qNo')(idx + 1); $('qCat').textContent = `${CATS[QS[i][0]].emoji} ${CATS[QS[i][0]][lang]}`; $('qText').textContent = r[0];
+      [...$('opts').children].forEach((b) => { b.textContent = r[Number(b.dataset.k)]; });
+    }
+    if (!$('endBox').classList.contains('hidden')) showEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('bq-lang', lang); applyLang(); });
+  $('name').value = store.get('bq-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  setMute(); applyLang(); show('startBox');
+  if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+})();
+</script>
+</body>
+</html>

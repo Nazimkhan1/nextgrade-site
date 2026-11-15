@@ -1,0 +1,16 @@
+{
+  "name": "Bharat Quiz — Daily India GK Quiz",
+  "short_name": "Bharat Quiz",
+  "description": "10 questions a day, 10 seconds each — India general knowledge with a fact after every answer.",
+  "start_url": "/games/quiz/",
+  "scope": "/games/quiz/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1b1036",
+  "theme_color": "#5f3dc4",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
