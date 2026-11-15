@@ -11,6 +11,12 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 ---
 
+## 15 Nov 2026: prerender for AdSense
+- [x] Game + animated-wish pages (`/celebrate/*`, `/games/*`, 16 pages) filled all their text with JS, so their HTML had only 11–35 words (thin content risk for AdSense). New `scripts/prerender.mjs` runs at the end of `node build.mjs`: opens each page in headless Chrome (`?lang=hi`, throwaway profile, ad + Cloudflare beacon hosts blocked) and writes the text JS puts into empty, visible elements (by `id` or `data-i18n`) back into `docs/`. Now 163–404 words in the HTML. Checked: text seen by visitors in en/hi/bn is identical before/after (no doubling); the page's JS still fills its own language.
+- Needs Google Chrome on the build machine (or `CHROME_PATH`); without it the build only warns and skips.
+- New game/wish pages: nothing to do, they are picked up automatically if their text goes into empty elements.
+- Stories (260–300 words, have `seekh`) left as they are.
+
 ## Status, 14 Nov 2026 (evening): RESUME HERE
 Site: **~162 pages**, all in 4 languages. Everything below is live (pushed to main → GitHub Pages).
 

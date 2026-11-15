@@ -793,3 +793,6 @@ if (CF_BEACON) {
 }
 
 console.log(`Built ${allUrls.length} pages in ${LANGS.map((l) => l.code).join(', ')} into ${OUT}/`);
+
+// Write the text that JavaScript fills on game / animated-wish pages into their HTML (see scripts/prerender.mjs)
+await (await import('./scripts/prerender.mjs')).default();

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="hi">
+<html data-prerendered="hi" lang="hi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -95,25 +95,25 @@ footer a { color: var(--muted); margin-right: 12px; }
     </div>
     <div class="gate" id="gate" role="button" tabindex="0">
       <div class="env">🕌</div>
-      <p id="gateTitle"></p>
-      <small id="gateTap"></small>
+      <p id="gateTitle">आपके लिए जुमे की दुआ आई है!</p>
+      <small id="gateTap">👆 टैप करके खोलो</small>
     </div>
   </div>
   <div class="controls">
     <button class="btn btn-main" type="button" id="listen"></button>
     <button class="btn btn-ghost" type="button" id="replay"></button>
-    <a class="btn btn-main" href="#make" id="makeOwn"></a>
+    <a class="btn btn-main" href="#make" id="makeOwn">🤲 अपनी दुआ भेजो</a>
   </div>
 
   <div class="ad" aria-hidden="true"></div>
 
   <div class="maker" id="make">
-    <h2 id="makeH"></h2>
-    <p class="note" id="makeP"></p>
-    <div class="field"><label for="toName" id="toLabel"></label><input id="toName" maxlength="30"></div>
-    <div class="field"><label for="fromName" id="fromLabel"></label><input id="fromName" maxlength="30"></div>
-    <div class="field"><label for="msg" id="msgLabel"></label><select id="msg"></select></div>
-    <div class="field"><label for="customDua" id="customLabel"></label><textarea id="customDua" maxlength="200" rows="3"></textarea></div>
+    <h2 id="makeH">🤲 अपनों को जुम्मा मुबारक भेजो</h2>
+    <p class="note" id="makeP">नाम लिखो, दुआ चुनो और लिंक WhatsApp पर भेजो। जो खोलेगा उसे रोशन मस्जिद, चाँद-तारे और उसके नाम की दुआ दिखेगी। हर जुमे भेज सकते हो। नाम सिर्फ़ लिंक में रहता है, कहीं सेव नहीं होता।</p>
+    <div class="field"><label for="toName" id="toLabel">किसको भेजना है (नाम)</label><input id="toName" maxlength="30"></div>
+    <div class="field"><label for="fromName" id="fromLabel">आपका नाम</label><input id="fromName" maxlength="30"></div>
+    <div class="field"><label for="msg" id="msgLabel">दुआ</label><select id="msg"></select></div>
+    <div class="field"><label for="customDua" id="customLabel">✍️ या अपनी दुआ ख़ुद लिखो (वैकल्पिक — यह आवाज़ में भी पढ़ी जाएगी)</label><textarea id="customDua" maxlength="200" rows="3"></textarea></div>
     <div class="row">
       <button class="btn btn-wa" type="button" id="sendWa"></button>
       <button class="btn btn-ghost" type="button" id="preview"></button>
@@ -123,11 +123,11 @@ footer a { color: var(--muted); margin-right: 12px; }
   </div>
 
   <section>
-    <h2 id="aboutH"></h2>
-    <p id="aboutP"></p>
-    <ul id="sunnah"></ul>
-    <p class="note" id="aboutNote"></p>
-    <p><a id="moreWishes" href="https://nextgrade.in/wishes/jumma-mubarak/"></a> · <a id="calLink" href="https://nextgrade.in/islamic-calendar/"></a></p>
+    <h2 id="aboutH">जुमा क्यों ख़ास है?</h2>
+    <p id="aboutP">हदीस (सहीह मुस्लिम) में आता है कि जिन दिनों में सूरज निकलता है उनमें सबसे बेहतर दिन जुमा है। इस दिन जुमे की नमाज़ जमात के साथ अदा की जाती है। बहुत से मुसलमान जुमे को ये अमल करते हैं:</p>
+    <ul id="sunnah"><li>ग़ुस्ल करना, साफ़ कपड़े पहनना और ख़ुशबू लगाना</li><li>जल्दी मस्जिद जाना और ख़ुतबा ध्यान से सुनना</li><li>सूरह अल-कहफ़ पढ़ना</li><li>पैग़ंबर ﷺ पर ज़्यादा से ज़्यादा दुरूद भेजना</li><li>अस्र और मग़रिब के बीच दुआ करना — इस दिन एक घड़ी ऐसी है जिसमें दुआ क़ुबूल होती है</li></ul>
+    <p class="note" id="aboutNote">अमल के बारे में पूरी जानकारी के लिए अपनी मस्जिद के इमाम या किसी आलिम से पूछें।</p>
+    <p><a id="moreWishes" href="https://nextgrade.in/wishes/jumma-mubarak/">जुम्मा मुबारक के और संदेश</a> · <a id="calLink" href="https://nextgrade.in/islamic-calendar/">आज की इस्लामी तारीख़</a></p>
   </section>
 
   <footer>

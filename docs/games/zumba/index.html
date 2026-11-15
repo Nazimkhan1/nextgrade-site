@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="hi">
+<html data-prerendered="hi" lang="hi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -100,7 +100,7 @@ footer a { color: var(--muted); margin-right: 12px; }
 <body>
 <div class="wrap">
   <header>
-    <a class="brand" id="home" href="https://nextgrade.in/"><img src="/favicon.svg" alt="" width="30" height="30"><span>NextGrade<small id="brandSub"></small></span></a>
+    <a class="brand" id="home" href="https://nextgrade.in/"><img src="/favicon.svg" alt="" width="30" height="30"><span>NextGrade<small id="brandSub">घर बैठे ज़ुम्बा</small></span></a>
     <div class="tools">
       <select class="langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
       <button class="iconbtn" id="mute" type="button" aria-label="Music on/off">🔊</button>
@@ -110,11 +110,11 @@ footer a { color: var(--muted); margin-right: 12px; }
   <div class="panel">
     <div class="screen" id="start">
       <div class="invite hidden" id="invite"></div>
-      <h1 id="title"></h1>
-      <p class="sub" id="sub"></p>
+      <h1 id="title">घर बैठे ज़ुम्बा 💃</h1>
+      <p class="sub" id="sub">म्यूज़िक के साथ 8 मज़ेदार डांस मूव्स, कार्टून कोच के साथ। देखो कैसे हर मूव के साथ कोच फ़िट होती जाती है — रोज़ करो, आप भी!</p>
       <canvas id="preview" style="height:220px;max-width:320px" aria-hidden="true"></canvas>
-      <div class="streak"><span class="fire">🔥</span><div><b id="streakN">0</b> <span id="streakLabel"></span></div></div>
-      <div class="week" id="week"></div>
+      <div class="streak"><span class="fire">🔥</span><div><b id="streakN">0</b> <span id="streakLabel">दिन की स्ट्रीक</span></div></div>
+      <div class="week" id="week"><span>सो</span><span>मं</span><span>बु</span><span>गु</span><span>शु</span><span>श</span><span class="today">र</span></div>
       <div class="levels">
         <button class="level" type="button" data-level="easy" id="lvEasy"></button>
         <button class="level" type="button" data-level="normal" id="lvNormal"></button>
@@ -156,8 +156,8 @@ footer a { color: var(--muted); margin-right: 12px; }
   </div>
 
   <div class="sharebox">
-    <h2 id="shareH"></h2>
-    <p class="note" id="shareP"></p>
+    <h2 id="shareH">📣 सहेलियों को भी बुलाओ</h2>
+    <p class="note" id="shareP">साथ में करोगी तो मज़ा दोगुना और स्ट्रीक तोड़ने का मन नहीं करेगा! लिंक WhatsApp पर भेजो।</p>
     <div class="share-row">
       <button class="btn btn-wa" type="button" id="shWa"></button>
       <button class="btn btn-ghost" type="button" id="shCopy"></button>
@@ -169,13 +169,13 @@ footer a { color: var(--muted); margin-right: 12px; }
   <div class="ad" aria-hidden="true"></div>
 
   <section>
-    <h2 id="aboutH"></h2>
-    <p id="aboutP"></p>
-    <ul id="aboutList"></ul>
-    <h2 id="tipsH"></h2>
-    <ul id="tipsList"></ul>
-    <p class="note" id="health"></p>
-    <p><a id="meLink" href="https://nextgrade.in/games/morning-exercise/"></a> · <a id="gamesLink" href="https://nextgrade.in/games/"></a></p>
+    <h2 id="aboutH">घर बैठे ज़ुम्बा क्यों?</h2>
+    <p id="aboutP">ज़ुम्बा लैटिन म्यूज़िक पर डांस और कसरत का मेल है। यह घर का छोटा वर्ज़न है — न जिम, न सामान, बस थोड़ी-सी जगह और म्यूज़िक। घर के काम के बीच, सुबह या शाम, कभी भी:</p>
+    <ul id="aboutList"><li>डांस के साथ कसरत बोर नहीं लगती — 4 मिनट पता भी नहीं चलते</li><li>दिल की धड़कन बढ़ती है, बदन गरम होता है और मूड अच्छा होता है</li><li>रोज़ की 🔥 स्ट्रीक से आदत बनती है</li><li>कैमरा या लॉगिन कुछ नहीं — सब सिर्फ़ आपके फ़ोन में</li></ul>
+    <h2 id="tipsH">अच्छे से करने के टिप्स</h2>
+    <ul id="tipsList"><li>जूते या चप्पल पहनकर करो, फिसलने वाले फ़र्श पर नहीं</li><li>खाने के तुरंत बाद नहीं — 1–2 घंटे का गैप रखो</li><li>पानी पास में रखो, साँस फूले तो धीरे हो जाओ</li><li>शुरू में आसान लेवल चुनो, 1 हफ़्ते बाद नॉर्मल</li></ul>
+    <p class="note" id="health">⚠️ यह आम स्वस्थ महिलाओं के लिए हल्की डांस कसरत है, इलाज नहीं। दर्द, चक्कर या साँस फूलने लगे तो तुरंत रुक जाओ। प्रेगनेंसी, डिलीवरी के बाद, घुटने/पीठ का दर्द, बीपी या दिल की तकलीफ़ हो तो पहले डॉक्टर से पूछो।</p>
+    <p><a id="meLink" href="https://nextgrade.in/games/morning-exercise/">💪 सुबह का 2 मिनट चैलेंज</a> · <a id="gamesLink" href="https://nextgrade.in/games/">और गेम</a></p>
   </section>
 
   <footer>

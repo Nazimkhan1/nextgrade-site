@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="hi">
+<html data-prerendered="hi" lang="hi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -28,7 +28,54 @@
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
-<div class="wrap" id="app"></div>
+<div class="wrap" id="app"><header>
+  <a class="brand" id="home" href="https://nextgrade.in/">🙏 NextGrade<small id="brandSub">गुरपुरब की बधाई</small></a>
+  <select class="langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+</header>
+<div class="show">
+  <canvas id="sky" aria-hidden="true" width="709" height="322"></canvas>
+  <div class="message hidden" id="message" aria-live="polite">
+    <div class="top-line" lang="pa">ਗੁਰਪੁਰਬ ਦੀਆਂ ਲੱਖ ਲੱਖ ਵਧਾਈਆਂ</div>
+    <h1 id="title">गुरपुरब की बधाई</h1>
+    <div class="names" id="names">सत श्री अकाल, जी</div>
+    <div class="text" id="text">गुरु नानक देव जी की कृपा आप और आपके परिवार पर हमेशा बनी रहे। गुरपुरब दी लख-लख वधाइयाँ!</div>
+    <div class="from" id="from"></div>
+  </div>
+  <div class="gate" id="gate" role="button" tabindex="0">
+    <div class="env">🙏</div>
+    <p id="gateTitle">आपके लिए गुरपुरब की बधाई आई है!</p>
+    <small id="gateTap">👆 टैप करके खोलो</small>
+  </div>
+</div>
+<div class="controls">
+  <button class="btn btn-main" type="button" id="listen">🗣️ बधाई सुनो</button>
+  <button class="btn btn-ghost" type="button" id="replay">🔁 फिर से देखो</button>
+  <a class="btn btn-ghost" href="#make" id="makeOwn">✨ अपना भेजो</a>
+</div>
+<div class="ad" aria-hidden="true"></div>
+<div class="maker" id="make">
+  <h2 id="makeH">🙏 अपनों को गुरपुरब की बधाई भेजो</h2>
+  <p class="note" id="makeP">नाम लिखो, संदेश चुनो या अपने शब्दों में लिखो, और लिंक WhatsApp पर भेजो। खोलने वाले को रोशन गुरुद्वारा, पूरा चाँद, दीये और उसके नाम की बधाई दिखेगी — और आवाज़ में सुनाई भी देगी।</p>
+  <div class="field"><label for="toName" id="toLabel">किसको भेजना है (नाम)</label><input id="toName" maxlength="30" placeholder="जैसे: हरप्रीत, गुरप्रीत जी"></div>
+  
+  <div class="field"><label for="fromName" id="fromLabel">आपका नाम</label><input id="fromName" maxlength="30" placeholder="जैसे: अमन"></div>
+  <div class="field"><label for="msg" id="msgLabel">संदेश चुनो</label><select id="msg"><option value="0">गुरु नानक देव जी की कृपा आप और आपके परिवार पर हमेशा बनी रहे।…</option><option value="1">नाम जपो, किरत करो, वंड छको — गुरु साहिब की यह सीख आपकी ज़िंद…</option><option value="2">इक ओंकार — सब में एक ही ज्योत। इस गुरपुरब आपके घर में सुख, श…</option><option value="3">गुरु नानक देव जी के प्रकाश पर्व पर आपके जीवन में भी ज्ञान और…</option></select></div>
+  <div class="field"><label for="customMsg" id="customLabel">✍️ या अपने शब्दों में लिखो (वैकल्पिक — यह आवाज़ में भी पढ़ा जाएगा)</label><textarea id="customMsg" maxlength="200" rows="3" placeholder="जैसे: वाहेगुरु आपको हमेशा खुश रखे…"></textarea></div>
+  <div class="row">
+    <button class="btn btn-wa" type="button" id="sendWa">📲 WhatsApp पर भेजो</button>
+    <button class="btn btn-ghost" type="button" id="preview">👀 पहले देखो</button>
+    <button class="btn btn-ghost" type="button" id="copyLink">🔗 लिंक कॉपी</button>
+  </div>
+  <p class="note" id="makeStatus" role="status"></p>
+  <p class="note" id="privacy">नाम और संदेश सिर्फ़ लिंक में रहते हैं, कहीं सेव नहीं होते।</p>
+</div>
+<section>
+  <h2 id="aboutH">गुरपुरब (गुरु नानक जयंती) के बारे में</h2>
+  <div id="about"><p>सिख धर्म के पहले गुरु, गुरु नानक देव जी का जन्म 1469 में तलवंडी (आज का ननकाना साहिब, पाकिस्तान) में हुआ था। उनका प्रकाश पर्व कार्तिक पूर्णिमा को मनाया जाता है — 2026 में यह 24 नवंबर (मंगलवार) को है।</p><p>गुरपुरब से दो दिन पहले गुरुद्वारों में अखंड पाठ (गुरु ग्रंथ साहिब का लगभग 48 घंटे का लगातार पाठ) शुरू होता है। एक दिन पहले नगर कीर्तन निकलता है, जिसकी अगुवाई पंज प्यारे करते हैं। गुरपुरब की सुबह प्रभात फेरी, दिन भर कीर्तन और लंगर, और रात को गुरुद्वारों और घरों में दीये और रोशनी की जाती है।</p><p>गुरु नानक देव जी की तीन मूल सीख:</p></div>
+  <ul id="list"><li>नाम जपो — वाहेगुरु (ईश्वर) को हमेशा याद रखना</li><li>किरत करो — मेहनत और ईमानदारी से कमाना</li><li>वंड छको — जो है, उसे दूसरों के साथ बाँटकर खाना</li></ul>
+  <p class="note" id="aboutNote">सही तारीख़ और कार्यक्रम के लिए अपने नज़दीकी गुरुद्वारा साहिब से जानकारी लें।</p>
+  <p id="links"><a href="https://nextgrade.in/festivals/guru-nanak-jayanti/">गुरु नानक जयंती की पूरी जानकारी</a> · <a href="https://nextgrade.in/wishes/">और शुभकामनाएँ</a></p>
+</section></div>
 <div class="wrap"><footer>
   © 2026 NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
   <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/disclaimer/">Disclaimer</a>

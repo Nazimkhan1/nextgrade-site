@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="hi">
+<html data-prerendered="hi" lang="hi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -78,18 +78,18 @@ footer a { color: var(--muted); margin-right: 12px; }
     </div>
   </header>
 
-  <h1 data-i18n="title"></h1>
-  <p class="sub" data-i18n="sub"></p>
+  <h1 data-i18n="title">पतंग उड़ाओ 🪁</h1>
+  <p class="sub" data-i18n="sub">अपनी पतंग आसमान में घुमाओ, दूसरों की डोर काटो और चिल्लाओ "वो काटा!" अपनी डोर बचाओ, लड्डू पकड़ो और पक्षियों को चोट मत पहुँचाओ। 60 सेकंड।</p>
   <p class="challenge" id="challenge" role="status"></p>
 
   <div class="stage" id="stage">
     <canvas id="game" aria-label="Kite game"></canvas>
-    <div class="hud" aria-hidden="true"><span id="hudScore">⭐ 0</span><span class="stagebadge" id="hudStage"></span><span id="hudInfo"></span></div>
+    <div class="hud" aria-hidden="true"><span id="hudScore">⭐ 0</span><span class="stagebadge" id="hudStage">🪁🪁🪁</span><span id="hudInfo">⏱ 60</span></div>
 
     <div class="overlay" id="startScreen">
       <div class="panel">
-        <h2 data-i18n="startTitle"></h2>
-        <ol class="steps" id="stepList"></ol>
+        <h2 data-i18n="startTitle">🪁 काई पो छे! संक्रांति की शुभकामनाएँ</h2>
+        <ol class="steps" id="stepList"><li>👆 उँगली या माउस से अपनी पतंग घुमाओ।</li><li>✂️ अपनी पतंग से दूसरी पतंग की <b>डोर</b> छुओ — "वो काटा!" +20 (सुनहरी +50)।</li><li>⚠️ दूसरी पतंग तुम्हारी डोर छू ले तो तुम्हारी पतंग कट जाएगी — 3 पतंगें हैं।</li><li>🟤 तिल-गुड़ लड्डू +5 · 🐦 पक्षी से टकराए तो −10।</li></ol>
         <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
         <button class="btn btn-main" id="play" type="button" data-i18n="play"></button>
         <p id="bestLine"></p>
@@ -113,20 +113,20 @@ footer a { color: var(--muted); margin-right: 12px; }
   <div class="ad" aria-hidden="true"></div>
 
   <section>
-    <h2 data-i18n="howTitle"></h2>
-    <div class="card"><ol id="howList"></ol></div>
+    <h2 data-i18n="howTitle">कैसे खेलें</h2>
+    <div class="card"><ol id="howList"><li><b>▶ पतंग उड़ाओ</b> दबाओ। आपकी पतंग नीचे छत से उड़ती है।</li><li>स्क्रीन पर उँगली घुमाओ — पतंग उँगली के पीछे चलती है। कंप्यूटर पर माउस।</li><li>दूसरी पतंगों की डोर (पतली सफ़ेद लाइन) को अपनी पतंग से छुओ — वह कट जाएगी: +20। सुनहरी पतंग +50। जल्दी-जल्दी काटो तो कॉम्बो।</li><li>ध्यान रखो: दूसरी पतंग आपकी डोर को छू ले तो आपकी पतंग कट जाती है। 3 पतंगें ख़त्म तो गेम ख़त्म।</li><li>हवा में तैरते तिल-गुड़ लड्डू पकड़ो +5। पक्षियों से दूर रहो — टक्कर पर −10।</li></ol></div>
   </section>
 
   <section>
-    <h2 data-i18n="aboutTitle"></h2>
-    <p data-i18n="aboutText"></p>
-    <p data-i18n="aboutText2" style="background:rgba(255,212,59,0.12);border:1px solid rgba(255,212,59,0.4);border-radius:12px;padding:10px 12px"></p>
-    <p><span data-i18n="readMore"></span> <a id="guideLink" href="https://nextgrade.in/festivals/makar-sankranti/" data-i18n="guideLink"></a> · <a id="wishLink" href="https://nextgrade.in/celebrate/makar-sankranti/" data-i18n="wishLink"></a> · <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+    <h2 data-i18n="aboutTitle">मकर संक्रांति और पतंगबाज़ी</h2>
+    <p data-i18n="aboutText">मकर संक्रांति (14–15 जनवरी) पर गुजरात में उत्तरायण, राजस्थान, यूपी और कई जगह छतों पर दिन भर पतंगबाज़ी होती है। किसी की पतंग काटने पर "काई पो छे!" या "वो काटा!" की आवाज़ पूरे मोहल्ले में गूँजती है।</p>
+    <p data-i18n="aboutText2" style="background:rgba(255,212,59,0.12);border:1px solid rgba(255,212,59,0.4);border-radius:12px;padding:10px 12px">⚠️ असली पतंग उड़ाते समय सिर्फ़ सादी सूती डोर इस्तेमाल करें। चाइनीज़ / काँच वाला मांझा हर साल हज़ारों पक्षियों और बाइक चलाने वालों को गहरी चोट पहुँचाता है, और कई राज्यों में इसकी बिक्री पर रोक है। छत की मुंडेर से दूर रहें, और बिजली के तारों में फँसी पतंग कभी न खींचें।</p>
+    <p><span data-i18n="readMore">और पढ़ें:</span> <a id="guideLink" href="https://nextgrade.in/festivals/makar-sankranti/" data-i18n="guideLink">मकर संक्रांति गाइड</a> · <a id="wishLink" href="https://nextgrade.in/celebrate/makar-sankranti/" data-i18n="wishLink">नाम वाला संक्रांति विश</a> · <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames">और गेम्स</a></p>
   </section>
 
   <section>
-    <h2 data-i18n="privacyTitle"></h2>
-    <p data-i18n="privacyText"></p>
+    <h2 data-i18n="privacyTitle">आपकी प्राइवेसी</h2>
+    <p data-i18n="privacyText">यह गेम पूरी तरह आपके फ़ोन/ब्राउज़र में चलता है। नाम सिर्फ़ उस लिंक में रहता है जो आप शेयर करते हैं, और बेस्ट स्कोर सिर्फ़ इसी डिवाइस पर सेव होता है।</p>
   </section>
 
   <footer>

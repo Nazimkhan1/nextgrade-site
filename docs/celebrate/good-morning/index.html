@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="hi">
+<html data-prerendered="hi" lang="hi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -34,7 +34,54 @@
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
-<div class="wrap" id="app"></div>
+<div class="wrap" id="app"><header>
+  <a class="brand" id="home" href="https://nextgrade.in/">☀️ NextGrade<small id="brandSub">सुप्रभात</small></a>
+  <select class="langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+</header>
+<div class="show">
+  <canvas id="sky" aria-hidden="true" width="709" height="322"></canvas>
+  <div class="message hidden" id="message" aria-live="polite">
+    
+    <h1 id="title">सुप्रभात</h1>
+    <div class="names" id="names">मेरे दोस्त — शुभ रविवार! 🌼</div>
+    <div class="text" id="text">कल की फ़िक्र छोड़ो, आज को जी भर के जियो। आपका दिन शुभ और मंगलमय हो!</div>
+    <div class="from" id="from"></div>
+  </div>
+  <div class="gate" id="gate" role="button" tabindex="0">
+    <div class="env">☀️</div>
+    <p id="gateTitle">आपके लिए सुबह का एक प्यारा पैग़ाम!</p>
+    <small id="gateTap">👆 टैप करके खोलो</small>
+  </div>
+</div>
+<div class="controls">
+  <button class="btn btn-main" type="button" id="listen">🗣️ सुनो</button>
+  <button class="btn btn-ghost" type="button" id="replay">🔁 फिर से देखो</button>
+  <a class="btn btn-ghost" href="#make" id="makeOwn">✨ अपना भेजो</a>
+</div>
+<div class="ad" aria-hidden="true"></div>
+<div class="maker" id="make">
+  <h2 id="makeH">☀️ अपनों की सुबह सुंदर बनाओ</h2>
+  <p class="note" id="makeP">नाम लिखो, संदेश चुनो या अपने शब्दों में लिखो, और लिंक WhatsApp पर भेजो। खोलने वाले को उगता सूरज, उड़ते पंछी, खिलते फूल और उसके नाम का पैग़ाम दिखेगा — आवाज़ के साथ। हर रोज़ नया संदेश अपने आप आता है।</p>
+  <div class="field"><label for="toName" id="toLabel">किसको भेजना है (नाम)</label><input id="toName" maxlength="30" placeholder="जैसे: मम्मी, रिया, ऑफ़िस ग्रुप"></div>
+  
+  <div class="field"><label for="fromName" id="fromLabel">आपका नाम</label><input id="fromName" maxlength="30" placeholder="जैसे: राहुल"></div>
+  <div class="field"><label for="msg" id="msgLabel">संदेश चुनो</label><select id="msg"><option value="0">नई सुबह, नया मौका! आज का दिन आपके लिए मुस्कान, सेहत और ढेर स…</option><option value="1">सूरज हर रोज़ याद दिलाता है कि अँधेरा कितना भी हो, रोशनी ज़रू…</option><option value="2">एक कप चाय, एक प्यारी मुस्कान और एक अच्छा विचार — दिन की शुरु…</option><option value="3">कल की फ़िक्र छोड़ो, आज को जी भर के जियो। आपका दिन शुभ और मंग…</option><option value="4">छोटे-छोटे कदम भी मंज़िल तक ले जाते हैं। आज एक कदम अपने सपने …</option><option value="5">आपकी मुस्कान किसी का दिन बना सकती है — आज उसे बाँटना मत भूलि…</option><option value="6">थोड़ा पानी, थोड़ी कसरत, थोड़ी हँसी — सेहतमंद दिन की यही रेसि…</option></select></div>
+  <div class="field"><label for="customMsg" id="customLabel">✍️ या अपने शब्दों में लिखो (वैकल्पिक — यह आवाज़ में भी पढ़ा जाएगा)</label><textarea id="customMsg" maxlength="200" rows="3" placeholder="जैसे: आज का दिन आपके लिए बहुत ख़ास हो…"></textarea></div>
+  <div class="row">
+    <button class="btn btn-wa" type="button" id="sendWa">📲 WhatsApp पर भेजो</button>
+    <button class="btn btn-ghost" type="button" id="preview">👀 पहले देखो</button>
+    <button class="btn btn-ghost" type="button" id="copyLink">🔗 लिंक कॉपी</button>
+  </div>
+  <p class="note" id="makeStatus" role="status"></p>
+  <p class="note" id="privacy">नाम और संदेश सिर्फ़ लिंक में रहते हैं, कहीं सेव नहीं होते।</p>
+</div>
+<section>
+  <h2 id="aboutH">अच्छी सुबह की 5 आदतें</h2>
+  <div id="about"><p>दिन कैसा जाएगा, यह अक्सर सुबह के पहले घंटे से तय होता है। ये छोटी आदतें कोई भी शुरू कर सकता है:</p></div>
+  <ul id="list"><li>उठते ही एक-दो गिलास पानी पियो</li><li>5-10 मिनट स्ट्रेचिंग या हल्की सैर करो</li><li>सुबह की हल्की धूप में थोड़ी देर बैठो</li><li>पहले 20 मिनट फ़ोन से दूर रहो</li><li>आज के लिए एक छोटा-सा काम तय करो — और किसी अपने को सुप्रभात भेजो</li></ul>
+  <p class="note" id="aboutNote">कोई बीमारी हो तो कसरत शुरू करने से पहले डॉक्टर से सलाह ज़रूर लें।</p>
+  <p id="links"><a href="https://nextgrade.in/wishes/good-morning/">सुप्रभात के और संदेश</a> · <a href="https://nextgrade.in/kahani/">बच्चों की कहानियाँ</a></p>
+</section></div>
 <div class="wrap"><footer>
   © 2026 NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
   <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/disclaimer/">Disclaimer</a>
