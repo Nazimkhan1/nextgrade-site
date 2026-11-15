@@ -12,6 +12,7 @@ import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, write
 import { dirname, join } from 'node:path';
 import { festivals } from './src/festivals.mjs';
 import { apps } from './src/apps.mjs';
+import { hisabVideo, APP_URL, VIDEO } from './src/hisab-video.mjs';
 import { wishes } from './src/wishes.mjs';
 import { games } from './src/games.mjs';
 import { stories } from './src/stories.mjs';
@@ -665,12 +666,60 @@ ${T.games.more || ''}
 <h1>${esc(T.apps.h1)}</h1>
 <p class="lead">${esc(T.apps.lead)}</p>
 <div class="grid">${apps.map(appCard(L)).join('')}</div>
+<p class="btns"><a class="btn btn-primary" href="${P(L, '/apps/hisab-kitab/')}">▶️ ${esc(hisabVideo[L.code].h1)}</a></p>
 <h2>${esc(T.apps.installH)}</h2>
 <p>${T.apps.installP}</p>
 ${T.apps.more || ''}
 </div>`,
     }),
   );
+
+  // Hisab Kitab video page: watch, open the app, share the video file or the links
+  {
+    const H = hisabVideo[L.code];
+    const path = '/apps/hisab-kitab/';
+    const pageUrl = `${SITE}${P(L, path)}`;
+    const videoLd = {
+      '@context': 'https://schema.org',
+      '@type': 'VideoObject',
+      name: H.h1,
+      description: H.desc,
+      thumbnailUrl: `${SITE}${VIDEO.poster}`,
+      contentUrl: `${SITE}${VIDEO.src}`,
+      uploadDate: VIDEO.uploaded,
+      duration: VIDEO.duration,
+      inLanguage: 'hi',
+    };
+    write(
+      L,
+      path,
+      page(L, {
+        path,
+        title: H.title,
+        description: H.desc,
+        scripts: ['/assets/video-share.js'],
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.apps, '/apps/'], ['Hisab Kitab', path]]), videoLd, faqLd(H.faq)],
+        body: `<div class="wrap narrow article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/apps/')}">${esc(T.nav.apps)}</a> › Hisab Kitab</p>
+<h1>${esc(H.h1)}</h1>
+<p class="lead">${esc(H.lead)}</p>
+<figure class="app-video"><video controls playsinline preload="metadata" poster="${VIDEO.poster}" src="${VIDEO.src}" width="540" height="960"></video><figcaption>${esc(H.videoNote)}</figcaption></figure>
+<p class="btns"><a class="btn btn-primary" href="${APP_URL}">${esc(H.open)}</a></p>
+<div class="share-box video-share" data-src="${VIDEO.src}" data-filename="hisab-kitab.mp4" data-title="Hisab Kitab" data-text="${esc(H.shareText(pageUrl))}" data-preparing="${esc(H.preparing)}" data-ready="${esc(H.ready)}" data-copied="${esc(H.copied)}">
+<h2>${esc(H.shareH)}</h2>
+<p>${esc(H.shareP)}</p>
+<div class="share-row"><button class="btn btn-primary vs-file" type="button">${esc(H.shareVideo)}</button><button class="btn btn-wa vs-wa" type="button">${esc(H.wa)}</button><button class="btn btn-ghost vs-copy" type="button">${esc(H.copy)}</button></div>
+</div>
+<h2>${esc(H.howH)}</h2>
+<ol>${H.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ol>
+<h2>${esc(H.whyH)}</h2>
+${paragraphs(H.why)}
+<h2>${esc(H.faqH)}</h2>
+${faqBlock(H.faq)}
+</div>`,
+      }),
+    );
+  }
 
   // About + Contact
   [

@@ -11,6 +11,10 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 ---
 
+## 15 Nov 2026: Hisab Kitab video page
+- [x] `/apps/hisab-kitab/` (4 languages; text in `src/hisab-video.mjs`, page in build.mjs after Apps): 80 s demo video `src/static/media/hisab-kitab.mp4` (+ poster), "App kholiye", share box (`assets/video-share.js`): "Video share" sends the mp4 file via the phone share sheet with the app link as text (falls back to text share / WhatsApp), WhatsApp text, copy. Steps, why, FAQ (FAQPage + VideoObject JSON-LD). Button on /apps/.
+- Video source + scripts: `~/www/videos/hisab-kitab/` (capture.js / compose.js; Hindi voice-over via macOS "Lekha"). To change the video: rebuild there, copy over `src/static/media/hisab-kitab.mp4`.
+
 ## 15 Nov 2026: prerender for AdSense
 - [x] Game + animated-wish pages (`/celebrate/*`, `/games/*`, 16 pages) filled all their text with JS, so their HTML had only 11–35 words (thin content risk for AdSense). New `scripts/prerender.mjs` runs at the end of `node build.mjs`: opens each page in headless Chrome (`?lang=hi`, throwaway profile, ad + Cloudflare beacon hosts blocked) and writes the text JS puts into empty, visible elements (by `id` or `data-i18n`) back into `docs/`. Now 163–404 words in the HTML. Checked: text seen by visitors in en/hi/bn is identical before/after (no doubling); the page's JS still fills its own language.
 - Needs Google Chrome on the build machine (or `CHROME_PATH`); without it the build only warns and skips.
