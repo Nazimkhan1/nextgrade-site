@@ -42,6 +42,44 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 - Anything new written after this: add it to the END of the schedule (next free day), don't push it live directly.
 
 
+## HOW TO — step by step (read this first)
+
+**0. Before any work:** `cd ~/www/nextgrade-site && git pull` (the daily Action commits to `main` every morning).
+
+**1. Add a new story** — add an entry to the newest `src/stories-more*.mjs` (or a new `stories-moreN.mjs`, imported and pushed in `src/stories.mjs`). Shape: `{ slug, emoji, minutes, source: SRC.x, hi|en|hinglish|bn: { title, paras: [5], seekh } }`. All 4 languages, own words, old public tales only.
+
+**2. Add a new game** — folder `src/static/games/<slug>/` with `index.html`, `manifest.json`, `sw.js` (CACHE `ng-<slug>-v1`), `icons/` (192, 512, maskable-512, apple-touch). Puzzle-type games: copy a kit game (e.g. `matke/`) — load `/games/kit/puzzle.js` + `puzzle.css`, call `PuzzleKit({...})`, write only the game logic + texts. Then add it to `src/games.mjs` (Hindi name/desc) and `games: {}` in `src/i18n/en.mjs`, `hinglish.mjs`, `bn.mjs`. Rules: 4 languages, sound on with 🔇, hint/undo for puzzles, "how to play" + "about" text (prerender puts it into the HTML).
+
+**3. Schedule it (never publish directly)** — add `'game:<slug>': 'YYYY-MM-DD'` or `'story:<slug>': 'YYYY-MM-DD'` to `src/releases.mjs` on the **next free day** after the last date in the list. Only `game:` and `story:` keys are supported; to schedule wishes/festival/celebrate pages, first add the same filtering for them in `build.mjs`.
+
+**4. Test locally**
+- `node build.mjs` → must print `Built N pages` and `Held back until release: …`.
+- Preview a future day: `RELEASE_TODAY=2026-11-20 node build.mjs` (run plain `node build.mjs` again afterwards).
+- Look at it: `python3 -m http.server 8000 -d docs` → http://localhost:8000/… (phone width in the browser).
+- Check: no console errors in all 4 languages; for puzzles, every level solvable with the hint button only.
+
+**5. Publish** — `git add -A && git commit -m "…" && git push`. The page stays hidden until its date; the **06:00 IST Action** (`.github/workflows/daily-release.yml`) builds, pushes and asks Pages to rebuild.
+
+**6. Only if the user says "live now":** delete that line from `src/releases.mjs`, `node build.mjs`, commit, push. To delay/reorder: change the dates.
+
+**7. Check / run the daily Action**
+- Status: `gh run list --workflow daily-release.yml --limit 5`
+- Run by hand: `gh workflow run daily-release.yml` · logs: `gh run view <id> --log`
+- If a run failed: read the log (usually a build error) → fix locally → push → run by hand.
+- Live check: `curl -s -o /dev/null -w "%{http_code}" https://nextgrade.in/games/<slug>/` (200 = live, 404 = not yet).
+
+**8. Sitemap** — automatic (only live pages). When existing pages get a real content change, bump `CONTENT_DATE` in `build.mjs`. Search Console → Sitemaps: if "Last read" is old, resubmit `sitemap.xml`.
+
+**9. Visitor numbers**
+- Google Analytics (users): analytics.google.com → property **NextGrade** (nextgrade.in, G-NJ43J91EBJ) or **Hisab Kitab** (G-0T71BBL3QT) → Reports → Realtime / Reports snapshot. Names in share links are redacted (stream setting "Redact data" — keep it on).
+- Cloudflare Web Analytics (visits/pages): dashboard → Analytics & Logs → Web Analytics → nextgrade.in, or via API with the wrangler OAuth token, account **"Nazim"** (not "Darkroom"), GraphQL `rumPageloadEventsAdaptiveGroups`; run `npx wrangler whoami` first to refresh the token. A US-desktop crawler inflates page views — filter it out.
+
+**10. AdSense (review running since 14 Nov)** — don't touch the AdSense tag / `ads.txt` / domain / site structure; no bulk pages (rule above); no bought traffic; never click own ads. If rejected: fix exactly the reason Google gives, then re-apply.
+
+**11. Hisab Kitab app** — separate repo `~/www/hisab` (own TASK.md). Edit `index.html`, **bump `VERSION` in `sw.js`**, push → live in ~1 min (no schedule there). Its video page here is `/apps/hisab-kitab/` (`src/hisab-video.mjs`, video in `src/static/media/`).
+
+**12. Promo videos** — `~/www/videos/` (not in this repo): Hisab Kitab videos, 6 wish Reels (`wishes/`: `capture.js` → `compose.js`), post texts `POSTS.md`.
+
 ## 15 Nov 2026: 10 more stories (40 total)
 - [x] `src/stories-more3.mjs` (pushed onto `stories` in stories.mjs): Neela Siyaar, Bagula aur Kekda (Panchatantra; crab only grips, no killing), Do Billiyan aur Bandar (folk), Hawa aur Suraj, Shehar ka Chooha–Gaanv ka Chooha (Aesop), Sher ki Khaal mein Gadha (Jataka), Birbal: Andhon ki Ginti, Tenali Raman aur Kuen ka Khazaana, Mulla Nasruddin ki Degchi, Chidiya ka Ghar–Kauwe ka Ghar (dadi-nani; kind ending). All 4 languages, 5 paras + seekh each. Checked: 40 pages load (10 × 4 languages), /kahani/ lists 40. Site now 309 pages.
 
@@ -238,7 +276,7 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 ### 5. Bachpan ki yaadein (see `MY-PLANS/festival-wishes/BACHPAN-KI-YAADEIN.md`)
 - [ ] "Yaad hai?" cards, a 90s quiz, old games and how to play them, then-vs-now prices
 
-### 6. Small games and quizzes (each can be its own subdomain app)
+### 6. Small games and quizzes (as `/games/<slug>/` folders — see HOW TO 2; schedule them, one per day)
 - [ ] Light the diyas, Holi colours, Eidi game, catch the gifts, rakhi design; a score plus a challenge link
 - [ ] "Aap kaunsi mithai ho?" quiz with a shareable result card
 
