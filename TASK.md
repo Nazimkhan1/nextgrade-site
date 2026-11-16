@@ -11,7 +11,7 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 ---
 
-## ⚠️ RULE (user, 15 Nov 2026): ONE new page per day — never publish in bulk
+## ⚠️ RULE (user, 15 Nov 2026; changed 16 Nov): 2 new pages a WEEK (Tuesday + Friday) — never publish in bulk
 - New pages (games, stories, wishes, anything) go into **`src/releases.mjs`** with a date; the build leaves them out (no page, no card, no sitemap, links to them removed) until that date in IST.
 - **`.github/workflows/daily-release.yml`** rebuilds + pushes every day at **06:00 IST** (also "Run workflow" by hand), and asks Pages to rebuild. So pages go live on their own; nobody has to do anything daily.
 - **The Action commits to `main` every day → always `git pull` before working locally.** Tested 15 Nov (manual run 43725859171: built 262 pages incl. prerender on the runner, pushed "Daily release 2026-11-15", held pages 404 live).
@@ -21,35 +21,35 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 | Date | Page |
 |---|---|
-| 16 Nov | game: Brahma ki Meenar |
-| 17 Nov | story: Neela Siyaar |
-| 18 Nov | game: Do Matke |
-| 19 Nov | story: Bagula aur Kekda |
-| 20 Nov | game: Raat ka Pul |
-| 21 Nov | story: Do Billiyan aur Bandar |
-| 22 Nov | game: Diye Jalao |
-| 23 Nov | story: Hawa aur Suraj |
-| 24 Nov | game: Gotiyan |
-| 25 Nov | story: Shehar ka Chooha, Gaanv ka Chooha |
-| 26 Nov | game: Jaadui Varg |
-| 27 Nov | story: Sher ki Khaal mein Gadha |
-| 28 Nov | game: Khiskao Tasveer |
-| 29 Nov | story: Birbal — Andhon ki Ginti |
-| 30 Nov | story: Tenali Raman aur Kuen ka Khazaana |
-| 1 Dec | story: Mulla Nasruddin ki Degchi |
-| 2 Dec | story: Chidiya ka Ghar, Kauwe ka Ghar |
-| 3 Dec | game: Saal ka Safar 2026 → 2027 (New Year) |
-| 4 Dec | game: Parade ki Taal (Republic Day) |
-| 5 Dec | wish: /celebrate/republic-day/ (Republic Day animated wish) |
-| 6 Dec | game: Chaand Dhundo (Ramzan) |
-| 7 Dec | game: Chidiya Udd |
-| 8 Dec | game: Saanp-Seedhi |
-| 9 Dec | game: Basant ki Sargam (Vasant Panchami, ~11 Feb 2027) |
-| 10 Dec | game: Rang Barsao (Holi, ~22 Mar 2027) |
-| 11 Dec | game: Kanche |
-| 12 Dec | game: Raja Mantri Chor Sipahi |
+| Mon 16 Nov | game: Brahma ki Meenar (live) |
+| Tue 17 Nov | game: Langar Seva (Gurpurab, 24 Nov) |
+| Fri 20 Nov | game: Saal ka Safar 2026 → 2027 (New Year) |
+| Tue 24 Nov | game: Parade ki Taal (Republic Day) |
+| Fri 27 Nov | wish: /celebrate/republic-day/ |
+| Tue 1 Dec | game: Chaand Dhundo (Ramzan) |
+| Fri 4 Dec | game: Basant ki Sargam (Vasant Panchami) |
+| Tue 8 Dec | game: Rang Barsao (Holi) |
+| Fri 11 Dec | story: neela-siyaar |
+| Tue 15 Dec | game: matke |
+| Fri 18 Dec | story: bagula-aur-kekda |
+| Tue 22 Dec | game: pul |
+| Fri 25 Dec | story: billiyan-aur-bandar |
+| Tue 29 Dec | game: diye |
+| Fri 1 Jan | story: hawa-aur-suraj |
+| Tue 5 Jan | game: gotiyan |
+| Fri 8 Jan | story: shehar-gaon-chooha |
+| Tue 12 Jan | game: jaadui-varg |
+| Fri 15 Jan | story: sher-ki-khaal-gadha |
+| Tue 19 Jan | game: khiskao |
+| Fri 22 Jan | story: birbal-andhon-ki-ginti |
+| Tue 26 Jan | game: chidiya-udd |
+| Fri 29 Jan | story: tenali-kuen-ka-khazana |
+| Tue 2 Feb | game: saanp-seedhi |
+| Fri 5 Feb | story: mulla-ki-degchi |
+| Tue 9 Feb | game: kanche |
+| Fri 12 Feb | story: chidiya-kauwa-ghar |
+| Tue 16 Feb | game: raja-mantri-chor-sipahi |
 
-Extra (festival first, same day as another page is fine): **18 Nov — game: Langar Seva (Gurpurab, 24 Nov)**.
 
 - User decided (15 Nov): everything live until 14 Nov stays (incl. the 30 stories of 14 Nov); only from now on, no bulk.
 - A held page that was live before gets a tiny "moved" stub at its URL (noindex + redirect to /games/ or /kahani/, not in the sitemap) instead of a 404; the real page replaces it on its release day.
@@ -65,7 +65,7 @@ Extra (festival first, same day as another page is fine): **18 Nov — game: Lan
 
 **2. Add a new game** — folder `src/static/games/<slug>/` with `index.html`, `manifest.json`, `sw.js` (CACHE `ng-<slug>-v1`), `icons/` (192, 512, maskable-512, apple-touch). Puzzle-type games: copy a kit game (e.g. `matke/`) — load `/games/kit/puzzle.js` + `puzzle.css`, call `PuzzleKit({...})`, write only the game logic + texts. Then add it to `src/games.mjs` (Hindi name/desc) and `games: {}` in `src/i18n/en.mjs`, `hinglish.mjs`, `bn.mjs`. Rules: 4 languages, sound on with 🔇, hint/undo for puzzles, "how to play" + "about" text (prerender puts it into the HTML).
 
-**3. Schedule it (never publish directly)** — add `'game:<slug>': 'YYYY-MM-DD'` or `'story:<slug>': 'YYYY-MM-DD'` to `src/releases.mjs` on the **next free day** after the last date in the list. Keys: `game:`, `story:` and `celebrate:` (animated wishes, added 16 Nov); festival pages are not schedulable yet.
+**3. Schedule it (never publish directly)** — add `'game:<slug>': 'YYYY-MM-DD'` or `'story:<slug>': 'YYYY-MM-DD'` to `src/releases.mjs` on the **next free Tuesday or Friday** after the last date in the list (festival pages may jump ahead: nearest festival first). Keys: `game:`, `story:` and `celebrate:` (animated wishes, added 16 Nov); festival pages are not schedulable yet.
 
 **4. Test locally**
 - `node build.mjs` → must print `Built N pages` and `Held back until release: …`.
