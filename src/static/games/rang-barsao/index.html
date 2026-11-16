@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rang Barsao 🎨 — Holi Game | NextGrade</title>
+<meta name="description" content="Rang Barsao: a free Holi game in Hinglish, Hindi, English and Bengali. Friends peep out of the windows and doors of a Braj lane — throw dry gulal at them, their favourite colour scores double. Leave out anyone who says no, and never colour animals. Holi facts from Barsana to Shantiniketan.">
+<link rel="canonical" href="https://nextgrade.in/games/rang-barsao/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Rang Barsao 🎨 — Holi Game">
+<meta property="og:description" content="Holi hai! Doston pe sookha gulal udaao — pasandida rang pe double points. Jo mana kare unhe chhodo, jaanwaron pe rang nahi!">
+<meta property="og:url" content="https://nextgrade.in/games/rang-barsao/">
+<meta property="og:image" content="https://nextgrade.in/games/rang-barsao/icons/icon-512.png">
+<meta name="theme-color" content="#d6336c">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Rang Barsao","url":"https://nextgrade.in/games/rang-barsao/","genre":"Casual","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #24103a; --gold: #ffd43b; --ink: #f8f9fa; --muted: #dcc8ea; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #8a1f4f, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #d6336c, #ae3ec9); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.45); height: min(74vh, 620px, 150vw); min-height: 470px; background: #fff0f6; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
+#cv { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: crosshair; }
+.hud { position: absolute; top: 10px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 17px; color: #6b1f3d; pointer-events: none; z-index: 3; gap: 8px; }
+.hud span { background: rgba(255,255,255,0.88); border-radius: 12px; padding: 2px 10px; white-space: nowrap; }
+.tray { position: absolute; left: 8px; right: 8px; bottom: 8px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; z-index: 3; }
+.tray button { font: inherit; font-weight: 800; font-size: 13px; line-height: 1.15; padding: 6px 2px 5px; border-radius: 14px; border: 3px solid transparent; background: rgba(255,255,255,0.92); color: #3b1d2c; cursor: pointer; box-shadow: 0 3px 0 rgba(60,20,40,0.35); }
+.tray button i { display: block; width: 30px; height: 30px; margin: 0 auto 2px; border-radius: 50%; box-shadow: inset 0 -4px 0 rgba(0,0,0,0.15); }
+.tray button.on { border-color: #3b1d2c; background: #fff3bf; transform: translateY(-3px); }
+
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(40, 8, 30, 0.72); padding: 16px; overflow-y: auto; z-index: 10; cursor: default; }
+.panel { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 18px; width: min(420px, 100%); text-align: center; margin: auto; color: var(--ink); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: #f6e3ee; }
+.panel .fact { background: rgba(255,212,59,0.12); border: 1px solid rgba(255,212,59,0.35); border-radius: 12px; padding: 8px 10px; color: #ffe8a3; font-size: 15px; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 54px; font-weight: 800; color: var(--gold); line-height: 1; margin: 6px 0; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 8px 0; }
+input::placeholder { color: #e3c6d6; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #e64980, #be4bdb); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+@media (max-width: 480px) { .panel { padding: 14px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .hud { font-size: 15px; } .tray button { font-size: 12px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🎨 NextGrade<small>Holi</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="cv" aria-label="Holi lane"></canvas>
+    <div class="hud" aria-hidden="true"><span id="hudScore">🎨 0</span><span id="hudTime">⏱ 60</span></div>
+    <div class="tray" id="tray"></div>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle"></h2>
+        <p data-i18n="controls"></p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <button class="btn btn-main" id="play" type="button" data-i18n="play"></button>
+        <p id="bestLine"></p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="pauseScreen">
+      <div class="panel">
+        <h2 data-i18n="paused"></h2>
+        <button class="btn btn-main" id="restart" type="button" data-i18n="again"></button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big" id="finalScore">0</div>
+        <p id="endNote"></p>
+        <p class="fact" id="endFact"></p>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card2"><ol id="howList"></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+    <p><a id="guideLink" href="https://nextgrade.in/festivals/holi/" data-i18n="readMore"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="factsTitle"></h2>
+    <div class="card2"><ul id="factList"></ul></div>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/rang-barsao/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const GAME_MS = 60000;
+  const COLS = ['#e64980', '#2f9e44', '#fab005', '#1c7ed6'];
+  const FACT_KEYS = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8'];
+
+  const T = {
+    hinglish: {
+      title: 'Rang Barsao 🎨',
+      sub: 'Holi hai! Braj ki gali mein dost khidkiyon aur darwazon se jhaank rahe hain — unpe sookha gulal udaao. Jise jo rang pasand hai, usi rang pe double points! Par jo mana kare unpe rang nahi, aur jaanwaron pe bilkul nahi.',
+      colours: ['Gulabi', 'Hara', 'Peela', 'Neela'],
+      startTitle: 'Holi Hai! 🎉',
+      controls: 'Neeche se gulal ka rang chuno, phir hanste dost par tap karo. Gole mein unka pasandida rang dikhta hai. 🙅 haath uthaane walon ne mana kiya hai — unhe chhodo. 🐄🐕 jaanwaron pe rang mat daalo. 🥟 gujiya dikhe to tap karke kha lo!',
+      namePh: 'Aapka naam (optional)',
+      play: '▶ Holi shuru',
+      paused: '⏸ Game ruka hua hai',
+      again: '🔁 Phir se khelo',
+      best: (n) => `Aapka best: ${n} points`,
+      challenge: (name, n) => `🎨 ${name} ne Rang Barsao mein ${n} points banaye! Aap kitne bana paoge?`,
+      hits: ['Holi Hai! 🎉', 'Bura na mano! 😄', 'Rang barse! 🌈', 'Waah! ✨'],
+      match: 'Pasandida rang ×2 💖',
+      noTap: 'Inhone mana kiya tha 🙅',
+      animalTap: 'Jaanwaron pe rang nahi! 🐾',
+      gujiya: 'Gujiya! 😋',
+      endTitle: (name) => `Holi Hai${name ? `, ${name}` : ''}! 🎉`,
+      endNote: (n, oops, best, isNew) => `${n} dost rang gaye · ${oops} galti · ${isNew ? '🏅 Naya best!' : `Aapka best: ${best}`}`,
+      shareWa: '📲 WhatsApp pe challenge bhejo',
+      shareOther: '🔗 Link share / copy karo',
+      copied: '✅ Copy ho gaya',
+      copyPrompt: 'Yeh text copy karo:',
+      shareText: (name, n, url) => `🎨 ${name ? `${name} ne` : 'Maine'} Rang Barsao game mein ${n} points banaye! Holi ki shubhkamnayein — aap bhi khelo: ${url}`,
+      howTitle: 'Kaise khelein',
+      how: ['<b>▶ Holi shuru</b> dabao. Gali ke gharon ki khidkiyon aur darwazon se log jhaankenge.', 'Neeche ki patti se <b>gulal ka rang chuno</b> (gulabi, hara, peela ya neela), phir <b>hanste dost par tap</b> karo — 10 points.', 'Dost ke upar wale gole mein unka <b>pasandida rang</b> hai. Wahi rang daala to <b>20 points</b>.', '<b>🙅 haath uthaane wale</b> ne mana kiya hai aur <b>🐄🐕 jaanwaron</b> pe rang nahi daalna — inpe tap kiya to 10 points kat jaayenge. <b>🥟 gujiya</b> pe tap = 5 points.', '60 second mein jitne zyada points, utna achha. WhatsApp pe doston ko challenge bhejo!'],
+      aboutTitle: 'Holi — rangon ka tyohaar',
+      aboutText: 'Holi Phalgun maheene ki Purnima ko aati hai, aam taur par March mein (sahi tareekh apne panchang mein dekhein). Purnima ki raat Holika Dahan hota hai — yeh Bhakt Prahlad ki kahani yaad dilata hai, jo aag se bach gaye aur Holika jal gayi: buraai par achhaai ki jeet. Agle din log rang-gulal khelte hain, gujiya-thandai baant-te hain aur purani naraazgi bhoolkar gale milte hain.',
+      aboutText2: 'Is game ke niyam asli Holi ke liye bhi achhe hain: sookha aur herbal gulal lagao, paani bachao, jo mana kare usse zabardasti mat karo ("bura na mano" ka matlab zabardasti nahi hota), aur jaanwaron pe rang kabhi mat daalo — unki aankh aur khaal ko nuksaan hota hai. Is game mein koi music nahi, sirf halki awaazein hain.',
+      readMore: 'Holi ki poori jaankari →',
+      factsTitle: 'Holi ke tathya',
+      facts: {
+        f1: 'Holika Dahan Phalgun Purnima ki raat hota hai aur rangon wali Holi (Dhulandi) agle din khelte hain.',
+        f2: 'Holika Dahan ki kahani: Hiranyakashipu ki behen Holika, Vishnu bhakt Prahlad ko godi mein lekar aag mein baithi — Prahlad bach gaye aur Holika jal gayi.',
+        f3: 'Barsana aur Nandgaon (Uttar Pradesh) ki "Lathmar Holi" mashhoor hai, jismein mahilayein mazaak-mazaak mein laathi se purushon ko bhagaati hain aur purush dhaal se bachte hain.',
+        f4: 'Vrindavan ke Banke Bihari mandir mein Holi se pehle phoolon wali Holi khelte hain — rang ki jagah phool barsaaye jaate hain.',
+        f5: 'Bengal mein Holi ko "Dol Jatra" ya "Dol Purnima" kehte hain. Shantiniketan mein Rabindranath Tagore ka shuru kiya "Basanta Utsav" manaya jaata hai.',
+        f6: 'Holi ke agle din Anandpur Sahib (Punjab) mein "Hola Mohalla" hota hai, jo Guru Gobind Singh Ji ne shuru kiya — ismein Nihang Singh ghudsawari aur gatka dikhate hain.',
+        f7: 'Purane zamaane mein Holi ka kesariya rang tesu (palash) ke phoolon ko paani mein bhigokar banaya jaata tha — yeh bilkul natural rang hai.',
+        f8: 'Holi ki khaas mithai gujiya hai — maida ki parat mein khoya, suji aur meva bhar kar talte hain. Saath mein thandai piyi jaati hai.',
+      },
+      moreGames: 'Aur games khelo →',
+      privacyTitle: 'Aapka data',
+      privacyText: 'Naam aur best score sirf aapke phone mein rehte hain. Share link mein sirf naam aur score jaata hai. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'रंग बरसाओ 🎨',
+      sub: 'होली है! ब्रज की गली में दोस्त खिड़कियों और दरवाज़ों से झाँक रहे हैं — उन पर सूखा गुलाल उड़ाओ। जिसे जो रंग पसंद है, उसी रंग पर डबल पॉइंट! पर जो मना करे उस पर रंग नहीं, और जानवरों पर बिल्कुल नहीं।',
+      colours: ['गुलाबी', 'हरा', 'पीला', 'नीला'],
+      startTitle: 'होली है! 🎉',
+      controls: 'नीचे से गुलाल का रंग चुनो, फिर हँसते दोस्त पर टैप करो। गोले में उनका पसंदीदा रंग दिखता है। 🙅 हाथ उठाने वालों ने मना किया है — उन्हें छोड़ो। 🐄🐕 जानवरों पर रंग मत डालो। 🥟 गुझिया दिखे तो टैप करके खा लो!',
+      namePh: 'आपका नाम (ज़रूरी नहीं)',
+      play: '▶ होली शुरू',
+      paused: '⏸ गेम रुका हुआ है',
+      again: '🔁 फिर से खेलो',
+      best: (n) => `आपका बेस्ट: ${n} पॉइंट`,
+      challenge: (name, n) => `🎨 ${name} ने रंग बरसाओ में ${n} पॉइंट बनाए! आप कितने बना पाओगे?`,
+      hits: ['होली है! 🎉', 'बुरा न मानो! 😄', 'रंग बरसे! 🌈', 'वाह! ✨'],
+      match: 'पसंदीदा रंग ×2 💖',
+      noTap: 'इन्होंने मना किया था 🙅',
+      animalTap: 'जानवरों पर रंग नहीं! 🐾',
+      gujiya: 'गुझिया! 😋',
+      endTitle: (name) => `होली है${name ? `, ${name}` : ''}! 🎉`,
+      endNote: (n, oops, best, isNew) => `${n} दोस्त रंग गए · ${oops} ग़लती · ${isNew ? '🏅 नया बेस्ट!' : `आपका बेस्ट: ${best}`}`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो',
+      shareOther: '🔗 लिंक शेयर / कॉपी करो',
+      copied: '✅ कॉपी हो गया',
+      copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareText: (name, n, url) => `🎨 ${name ? `${name} ने` : 'मैंने'} रंग बरसाओ गेम में ${n} पॉइंट बनाए! होली की शुभकामनाएँ — आप भी खेलो: ${url}`,
+      howTitle: 'कैसे खेलें',
+      how: ['<b>▶ होली शुरू</b> दबाओ। गली के घरों की खिड़कियों और दरवाज़ों से लोग झाँकेंगे।', 'नीचे की पट्टी से <b>गुलाल का रंग चुनो</b> (गुलाबी, हरा, पीला या नीला), फिर <b>हँसते दोस्त पर टैप</b> करो — 10 पॉइंट।', 'दोस्त के ऊपर वाले गोले में उनका <b>पसंदीदा रंग</b> है। वही रंग डाला तो <b>20 पॉइंट</b>।', '<b>🙅 हाथ उठाने वाले</b> ने मना किया है और <b>🐄🐕 जानवरों</b> पर रंग नहीं डालना — इन पर टैप किया तो 10 पॉइंट कट जाएँगे। <b>🥟 गुझिया</b> पर टैप = 5 पॉइंट।', '60 सेकंड में जितने ज़्यादा पॉइंट, उतना अच्छा। WhatsApp पर दोस्तों को चैलेंज भेजो!'],
+      aboutTitle: 'होली — रंगों का त्योहार',
+      aboutText: 'होली फाल्गुन महीने की पूर्णिमा को आती है, आमतौर पर मार्च में (सही तारीख़ अपने पंचांग में देखें)। पूर्णिमा की रात होलिका दहन होता है — यह भक्त प्रह्लाद की कथा याद दिलाता है, जो आग से बच गए और होलिका जल गई: बुराई पर अच्छाई की जीत। अगले दिन लोग रंग-गुलाल खेलते हैं, गुझिया-ठंडाई बाँटते हैं और पुरानी नाराज़गी भूलकर गले मिलते हैं।',
+      aboutText2: 'इस गेम के नियम असली होली के लिए भी अच्छे हैं: सूखा और हर्बल गुलाल लगाओ, पानी बचाओ, जो मना करे उससे ज़बरदस्ती मत करो ("बुरा न मानो" का मतलब ज़बरदस्ती नहीं होता), और जानवरों पर रंग कभी मत डालो — उनकी आँख और खाल को नुक़सान होता है। इस गेम में कोई संगीत नहीं, सिर्फ़ हल्की आवाज़ें हैं।',
+      readMore: 'होली की पूरी जानकारी →',
+      factsTitle: 'होली के तथ्य',
+      facts: {
+        f1: 'होलिका दहन फाल्गुन पूर्णिमा की रात होता है और रंगों वाली होली (धुलेंडी) अगले दिन खेलते हैं।',
+        f2: 'होलिका दहन की कथा: हिरण्यकशिपु की बहन होलिका, विष्णु भक्त प्रह्लाद को गोद में लेकर आग में बैठी — प्रह्लाद बच गए और होलिका जल गई।',
+        f3: 'बरसाना और नंदगाँव (उत्तर प्रदेश) की "लट्ठमार होली" मशहूर है, जिसमें महिलाएँ मज़ाक़-मज़ाक़ में लाठी से पुरुषों को भगाती हैं और पुरुष ढाल से बचते हैं।',
+        f4: 'वृंदावन के बाँके बिहारी मंदिर में होली से पहले फूलों वाली होली खेलते हैं — रंग की जगह फूल बरसाए जाते हैं।',
+        f5: 'बंगाल में होली को "दोल यात्रा" या "दोल पूर्णिमा" कहते हैं। शांतिनिकेतन में रवींद्रनाथ टैगोर का शुरू किया "बसंत उत्सव" मनाया जाता है।',
+        f6: 'होली के अगले दिन आनंदपुर साहिब (पंजाब) में "होला मोहल्ला" होता है, जो गुरु गोबिंद सिंह जी ने शुरू किया — इसमें निहंग सिंह घुड़सवारी और गतका दिखाते हैं।',
+        f7: 'पुराने ज़माने में होली का केसरिया रंग टेसू (पलाश) के फूलों को पानी में भिगोकर बनाया जाता था — यह बिल्कुल प्राकृतिक रंग है।',
+        f8: 'होली की ख़ास मिठाई गुझिया है — मैदे की परत में खोया, सूजी और मेवा भरकर तलते हैं। साथ में ठंडाई पी जाती है।',
+      },
+      moreGames: 'और गेम खेलो →',
+      privacyTitle: 'आपका डेटा',
+      privacyText: 'नाम और बेस्ट स्कोर सिर्फ़ आपके फ़ोन में रहते हैं। शेयर लिंक में सिर्फ़ नाम और स्कोर जाता है। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Rang Barsao 🎨',
+      sub: 'Holi hai! Friends are peeping out of the windows and doors of a Braj lane — throw dry gulal at them. Use the colour each friend loves for double points! But no colour on anyone who says no, and never on animals.',
+      colours: ['Pink', 'Green', 'Yellow', 'Blue'],
+      startTitle: 'Holi Hai! 🎉',
+      controls: 'Pick a gulal colour at the bottom, then tap a smiling friend. The bubble shows their favourite colour. 🙅 People with raised hands have said no — leave them. 🐄🐕 Never colour animals. 🥟 Tap a gujiya to eat it!',
+      namePh: 'Your name (optional)',
+      play: '▶ Start Holi',
+      paused: '⏸ Game paused',
+      again: '🔁 Play again',
+      best: (n) => `Your best: ${n} points`,
+      challenge: (name, n) => `🎨 ${name} scored ${n} points in Rang Barsao! How many can you score?`,
+      hits: ['Holi Hai! 🎉', 'Bura na mano! 😄', 'Colours! 🌈', 'Wah! ✨'],
+      match: 'Favourite colour ×2 💖',
+      noTap: 'They said no 🙅',
+      animalTap: 'No colour on animals! 🐾',
+      gujiya: 'Gujiya! 😋',
+      endTitle: (name) => `Holi Hai${name ? `, ${name}` : ''}! 🎉`,
+      endNote: (n, oops, best, isNew) => `${n} friends coloured · ${oops} mistakes · ${isNew ? '🏅 New best!' : `Your best: ${best}`}`,
+      shareWa: '📲 Challenge on WhatsApp',
+      shareOther: '🔗 Share / copy link',
+      copied: '✅ Copied',
+      copyPrompt: 'Copy this text:',
+      shareText: (name, n, url) => `🎨 ${name || 'I'} scored ${n} points in the Rang Barsao Holi game! Happy Holi — come and play: ${url}`,
+      howTitle: 'How to play',
+      how: ['Tap <b>▶ Start Holi</b>. People will peep out of the windows and doors of the houses in the lane.', '<b>Pick a gulal colour</b> from the strip at the bottom (pink, green, yellow or blue), then <b>tap a smiling friend</b> — 10 points.', 'The bubble above a friend shows their <b>favourite colour</b>. Use that colour for <b>20 points</b>.', '<b>🙅 People with raised hands</b> have said no, and <b>🐄🐕 animals</b> must never be coloured — tapping them costs 10 points. Tapping a <b>🥟 gujiya</b> = 5 points.', 'Score as much as you can in 60 seconds. Challenge your friends on WhatsApp!'],
+      aboutTitle: 'Holi — the festival of colours',
+      aboutText: 'Holi falls on the full moon (Purnima) of the month of Phalgun, usually in March (check your local panchang for the exact date). On the night of the full moon, Holika Dahan recalls the story of Prahlad, who was saved from the fire while Holika burned — the victory of good over evil. The next day people play with colours, share gujiya and thandai, and forget old quarrels.',
+      aboutText2: 'The rules of this game are good for real Holi too: use dry, herbal gulal, save water, never force colour on someone who says no ("bura na mano" does not mean forcing anyone), and never put colour on animals — it hurts their eyes and skin. This game has no music, only soft sound effects.',
+      readMore: 'All about Holi →',
+      factsTitle: 'Facts about Holi',
+      facts: {
+        f1: 'Holika Dahan takes place on the night of Phalgun Purnima, and the Holi of colours (Dhulandi) is played the next day.',
+        f2: 'The story of Holika Dahan: Holika, sister of the king Hiranyakashipu, sat in a fire with Vishnu\'s devotee Prahlad in her lap — Prahlad was saved and Holika burned.',
+        f3: 'The "Lathmar Holi" of Barsana and Nandgaon (Uttar Pradesh) is famous: women playfully chase the men with sticks, and the men defend themselves with shields.',
+        f4: 'At the Banke Bihari temple in Vrindavan a "Holi of flowers" is played before Holi — flower petals are showered instead of colour.',
+        f5: 'In Bengal Holi is called "Dol Jatra" or "Dol Purnima". Shantiniketan celebrates "Basanta Utsav", started by Rabindranath Tagore.',
+        f6: 'The day after Holi, Anandpur Sahib (Punjab) celebrates "Hola Mohalla", started by Guru Gobind Singh Ji, with Nihang Sikhs showing horse riding and gatka.',
+        f7: 'In old times the saffron colour of Holi was made by soaking tesu (palash) flowers in water — a fully natural colour.',
+        f8: 'The special sweet of Holi is gujiya — a pastry filled with khoya, semolina and dry fruit, then fried. It is enjoyed with thandai.',
+      },
+      moreGames: 'Play more games →',
+      privacyTitle: 'Your data',
+      privacyText: 'Your name and best score stay only on your phone. The share link carries only your name and score. No login, no server.',
+    },
+    bn: {
+      title: 'রং বরষাও 🎨',
+      sub: 'হোলি হ্যায়! ব্রজের গলিতে বন্ধুরা জানলা-দরজা দিয়ে উঁকি দিচ্ছে — ওদের ওপর শুকনো আবির ওড়াও। যার যে রং পছন্দ, সেই রঙে ডবল পয়েন্ট! কিন্তু যে না বলে তাকে রং নয়, আর পশুদের তো একদমই নয়।',
+      colours: ['গোলাপি', 'সবুজ', 'হলুদ', 'নীল'],
+      startTitle: 'হোলি হ্যায়! 🎉',
+      controls: 'নিচ থেকে আবিরের রং বাছো, তারপর হাসিমুখ বন্ধুকে ট্যাপ করো। বুদবুদে ওদের পছন্দের রং দেখা যায়। 🙅 হাত তোলা মানুষ না বলেছে — ওদের ছেড়ে দাও। 🐄🐕 পশুদের রং দিও না। 🥟 গুজিয়া দেখলে ট্যাপ করে খেয়ে নাও!',
+      namePh: 'তোমার নাম (ঐচ্ছিক)',
+      play: '▶ হোলি শুরু',
+      paused: '⏸ খেলা থেমে আছে',
+      again: '🔁 আবার খেলো',
+      best: (n) => `তোমার সেরা: ${n} পয়েন্ট`,
+      challenge: (name, n) => `🎨 ${name} রং বরষাও-তে ${n} পয়েন্ট পেয়েছে! তুমি কত পাবে?`,
+      hits: ['হোলি হ্যায়! 🎉', 'বুরা না মানো! 😄', 'রঙের বৃষ্টি! 🌈', 'বাহ! ✨'],
+      match: 'পছন্দের রং ×২ 💖',
+      noTap: 'উনি না বলেছিলেন 🙅',
+      animalTap: 'পশুদের রং নয়! 🐾',
+      gujiya: 'গুজিয়া! 😋',
+      endTitle: (name) => `হোলি হ্যায়${name ? `, ${name}` : ''}! 🎉`,
+      endNote: (n, oops, best, isNew) => `${n} জন বন্ধু রঙিন · ${oops}টা ভুল · ${isNew ? '🏅 নতুন সেরা!' : `তোমার সেরা: ${best}`}`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও',
+      shareOther: '🔗 লিংক শেয়ার / কপি',
+      copied: '✅ কপি হয়েছে',
+      copyPrompt: 'এই লেখাটা কপি করো:',
+      shareText: (name, n, url) => (name ? `🎨 ${name} রং বরষাও খেলায় ${n} পয়েন্ট পেয়েছে! দোলযাত্রার শুভেচ্ছা — তুমিও খেলো: ${url}` : `🎨 আমি রং বরষাও খেলায় ${n} পয়েন্ট পেয়েছি! দোলযাত্রার শুভেচ্ছা — তুমিও খেলো: ${url}`),
+      howTitle: 'কীভাবে খেলবে',
+      how: ['<b>▶ হোলি শুরু</b> টিপো। গলির বাড়িগুলোর জানলা-দরজা দিয়ে লোকে উঁকি দেবে।', 'নিচের পট্টি থেকে <b>আবিরের রং বাছো</b> (গোলাপি, সবুজ, হলুদ বা নীল), তারপর <b>হাসিমুখ বন্ধুকে ট্যাপ</b> করো — ১০ পয়েন্ট।', 'বন্ধুর মাথার ওপরের বুদবুদে তার <b>পছন্দের রং</b>। সেই রং দিলে <b>২০ পয়েন্ট</b>।', '<b>🙅 হাত তোলা মানুষ</b> না বলেছে আর <b>🐄🐕 পশুদের</b> রং দেওয়া চলবে না — এদের ট্যাপ করলে ১০ পয়েন্ট কাটা যাবে। <b>🥟 গুজিয়া</b> ট্যাপ = ৫ পয়েন্ট।', '৬০ সেকেন্ডে যত বেশি পয়েন্ট, তত ভালো। WhatsApp-এ বন্ধুদের চ্যালেঞ্জ পাঠাও!'],
+      aboutTitle: 'হোলি — রঙের উৎসব',
+      aboutText: 'হোলি আসে ফাল্গুন মাসের পূর্ণিমায়, সাধারণত মার্চে (সঠিক তারিখ পঞ্জিকায় দেখে নাও)। পূর্ণিমার রাতে হোলিকা দহন হয় — ভক্ত প্রহ্লাদের কাহিনি মনে করায়, যিনি আগুন থেকে বেঁচে যান আর হোলিকা পুড়ে যায়: অশুভের ওপর শুভের জয়। বাংলায় এই দিনটা দোলযাত্রা — রাধা-কৃষ্ণকে দোলায় চড়িয়ে আবির খেলা হয়।',
+      aboutText2: 'এই খেলার নিয়ম আসল হোলিতেও কাজে লাগে: শুকনো, ভেষজ আবির দাও, জল বাঁচাও, কেউ না বললে জোর কোরো না ("বুরা না মানো" মানে জোর করা নয়), আর পশুদের গায়ে কখনো রং দিও না — ওদের চোখ আর চামড়ার ক্ষতি হয়। এই খেলায় কোনো গান নেই, শুধু হালকা আওয়াজ।',
+      readMore: 'হোলি নিয়ে পুরোটা পড়ো →',
+      factsTitle: 'হোলির তথ্য',
+      facts: {
+        f1: 'হোলিকা দহন হয় ফাল্গুনী পূর্ণিমার রাতে, আর রঙের হোলি খেলা হয় পরের দিন। বাংলায় দোলযাত্রা পূর্ণিমার দিনই হয়।',
+        f2: 'হোলিকা দহনের কাহিনি: হিরণ্যকশিপুর বোন হোলিকা বিষ্ণুভক্ত প্রহ্লাদকে কোলে নিয়ে আগুনে বসে — প্রহ্লাদ বেঁচে যান, হোলিকা পুড়ে যায়।',
+        f3: 'বরসানা আর নন্দগাঁওয়ের (উত্তরপ্রদেশ) "লাঠমার হোলি" বিখ্যাত: মেয়েরা মজা করে লাঠি নিয়ে ছেলেদের তাড়া করে, ছেলেরা ঢাল দিয়ে বাঁচে।',
+        f4: 'বৃন্দাবনের বাঁকে বিহারী মন্দিরে হোলির আগে ফুলের হোলি হয় — রঙের বদলে ফুলের পাপড়ি ছড়ানো হয়।',
+        f5: 'শান্তিনিকেতনে রবীন্দ্রনাথ ঠাকুরের শুরু করা "বসন্ত উৎসব" হয় দোলের দিন — হলুদ পোশাক, গান আর আবির।',
+        f6: 'হোলির পরের দিন আনন্দপুর সাহিবে (পাঞ্জাব) "হোলা মহল্লা" হয়, গুরু গোবিন্দ সিং জি এটা শুরু করেন — নিহঙ্গ শিখরা ঘোড়সওয়ারি আর গতকা দেখান।',
+        f7: 'পুরোনো দিনে হোলির গেরুয়া রং বানানো হত পলাশ (টেসু) ফুল জলে ভিজিয়ে — একদম প্রাকৃতিক রং।',
+        f8: 'হোলির বিশেষ মিষ্টি গুজিয়া — ময়দার খোলে খোয়া, সুজি আর বাদাম ভরে ভাজা হয়। সঙ্গে থাকে ঠান্ডাই।',
+      },
+      moreGames: 'আরও গেম খেলো →',
+      privacyTitle: 'তোমার ডেটা',
+      privacyText: 'নাম আর সেরা স্কোর শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর স্কোর। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const urlLang = params.get('lang');
+  const savedLang = store.get('rb-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(99999, parseInt(params.get('score'), 10) || 0));
+  const best = () => parseInt(store.get('rb-best'), 10) || 0;
+  const debug = params.has('debug') ? 1 : 0;
+
+  // ---------- page texts
+  let last = null, selected = 0;
+  const renderTray = () => {
+    $('tray').innerHTML = COLS.map((c, i) => `<button type="button" data-i="${i}" class="${i === selected ? 'on' : ''}"><i style="background:${c}"></i>${t('colours')[i]}</button>`).join('');
+  };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Holi Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const F = t('facts');
+    $('factList').innerHTML = FACT_KEYS.map((k) => `<li>${F[k]}</li>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    $('guideLink').href = `https://nextgrade.in${p}/festivals/holi/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+    renderTray();
+    if (last) fillEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('rb-lang', lang); applyLang(); });
+  $('name').value = store.get('rb-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- sound: soft effects only, no music
+  let muted = store.get('rb-muted') === '1';
+  let ac = null, master = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setIcons();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('rb-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.8; });
+  const initAudio = () => {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    ac = new AC();
+    master = ac.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(ac.destination);
+  };
+  const tone = (f, dur, type = 'sine', vol = 0.07, delay = 0, f2 = null) => {
+    if (!ac) return;
+    const w = ac.currentTime + delay;
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, w);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, w + dur);
+    g.gain.setValueAtTime(0.0001, w); g.gain.exponentialRampToValueAtTime(vol, w + 0.015); g.gain.exponentialRampToValueAtTime(0.0001, w + dur);
+    o.connect(g); g.connect(master); o.start(w); o.stop(w + dur + 0.03);
+  };
+  // a soft "poof" of powder: filtered noise burst
+  const poof = (vol = 0.12) => {
+    if (!ac) return;
+    const len = Math.floor(ac.sampleRate * 0.25), buf = ac.createBuffer(1, len, ac.sampleRate), d = buf.getChannelData(0);
+    for (let i = 0; i < len; i += 1) d[i] = (Math.random() * 2 - 1) * (1 - i / len) ** 2;
+    const s = ac.createBufferSource(), f = ac.createBiquadFilter(), g = ac.createGain();
+    f.type = 'bandpass'; f.frequency.value = 1400; f.Q.value = 0.7; g.gain.value = vol;
+    s.buffer = buf; s.connect(f); f.connect(g); g.connect(master); s.start();
+  };
+  const sfx = {
+    pick: () => tone(660, 0.08, 'triangle', 0.05),
+    hit: (match) => { poof(); if (match) tone(988, 0.2, 'sine', 0.05, 0.05); },
+    oops: () => tone(300, 0.2, 'triangle', 0.06, 0, 220),
+    yum: () => { tone(660, 0.12, 'sine', 0.05); tone(880, 0.16, 'sine', 0.05, 0.08); },
+    end: () => { [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.6, 'sine', 0.06, i * 0.15)); },
+  };
+
+  // ---------- state
+  const cv = $('cv');
+  const ctx = cv.getContext('2d');
+  let W = 400, H = 600, dpr = 1;
+  let state = 'idle'; // idle | play | over
+  let spots = [], T0 = 0, nextSpawn = 0, score = 0, coloured = 0, oops = 0;
+  let pops = [], clouds = [], playerName = '';
+  const SKIN = ['#e0a370', '#c68642', '#f1c27d', '#8d5524', '#d9a066'];
+  const HOUSE = ['#ffd8a8', '#d0ebff', '#ffdeeb', '#d3f9d8'];
+
+  const layout = () => {
+    const cols = W < 520 ? 3 : 4;
+    const old = spots;
+    spots = [];
+    for (let r = 0; r < 2; r += 1) {
+      for (let c = 0; c < cols; c += 1) {
+        const i = r * cols + c;
+        const o = old[i] || { kind: '', born: 0, life: 0, want: 0, hit: 0, splats: [], skin: SKIN[i % SKIN.length], wait: 0 };
+        spots.push(Object.assign(o, { x: ((c + 0.5) / cols) * W, y: r ? H * 0.66 : H * 0.36, door: r === 1, size: Math.min(W / cols * 0.62, H * 0.17) }));
+      }
+    }
+  };
+  const resize = () => {
+    const r = $('stage').getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+    W = Math.max(280, r.width); H = Math.max(420, r.height);
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    layout();
+  };
+
+  const elapsed = (now) => (state === 'play' ? now - T0 : 0);
+  const lifeFor = (now) => 2300 - (elapsed(now) / GAME_MS) * 1100; // 2.3 s → 1.2 s
+  const spawnGap = (now) => 900 - (elapsed(now) / GAME_MS) * 420; // 0.9 s → 0.48 s
+  const updateHud = (now = performance.now()) => {
+    $('hudScore').textContent = `🎨 ${score}`;
+    $('hudTime').textContent = `⏱ ${state === 'play' ? Math.max(0, Math.ceil((GAME_MS - elapsed(now)) / 1000)) : 60}`;
+  };
+  const pop = (x, y, text, col) => { pops.push({ x, y, text, col, t0: performance.now() }); };
+
+  const spawn = (now) => {
+    const free = spots.filter((s) => !s.kind && now - s.wait > 500);
+    if (!free.length) return;
+    const s = free[Math.floor(Math.random() * free.length)];
+    const r = Math.random();
+    // most are friends; some say no, a few animals (only in doors) and a rare gujiya plate
+    s.kind = r < 0.64 ? 'friend' : r < 0.82 ? 'no' : r < 0.94 ? (s.door ? 'animal' : 'no') : 'gujiya';
+    s.animal = Math.random() < 0.5 ? '🐄' : '🐕';
+    s.want = Math.floor(Math.random() * COLS.length);
+    s.born = now; s.life = lifeFor(now) * (s.kind === 'friend' ? 1 : 0.85); s.hit = 0; s.splats = [];
+    s.skin = SKIN[Math.floor(Math.random() * SKIN.length)];
+  };
+
+  const tapSpot = (s, now) => {
+    if (state !== 'play' || !s.kind || s.hit) return;
+    const top = s.y - s.size * 1.2;
+    if (s.kind === 'friend') {
+      const match = s.want === selected;
+      const pts = match ? 20 : 10;
+      score += pts; coloured += 1; s.hit = now;
+      for (let k = 0; k < 7; k += 1) s.splats.push({ dx: (Math.random() - 0.5) * s.size * 0.9, dy: -s.size * (0.3 + Math.random() * 0.75), r: s.size * (0.08 + Math.random() * 0.12), c: COLS[k % 3 === 2 ? (selected + 1) % COLS.length : selected] });
+      clouds.push({ x: s.x, y: s.y - s.size * 0.6, col: COLS[selected], t0: now });
+      const h = t('hits');
+      pop(s.x, top, match ? t('match') : h[coloured % h.length], match ? '#c2255c' : '#2b8a3e');
+      sfx.hit(match);
+    } else if (s.kind === 'gujiya') {
+      score += 5; s.hit = now; pop(s.x, top, t('gujiya'), '#e67700'); sfx.yum();
+    } else {
+      score = Math.max(0, score - 10); oops += 1; s.hit = now;
+      pop(s.x, top, s.kind === 'animal' ? t('animalTap') : t('noTap'), '#c92a2a'); sfx.oops();
+    }
+    updateHud(now);
+  };
+
+  // ---------- frame
+  const step = (now) => {
+    if (state === 'play') {
+      if (now >= nextSpawn) { spawn(now); nextSpawn = now + spawnGap(now); }
+      spots.forEach((s) => {
+        if (!s.kind) return;
+        const gone = s.hit ? now - s.hit > 650 : now - s.born > s.life;
+        if (gone) { s.kind = ''; s.wait = now; }
+      });
+      if (debug) {
+        const target = spots.find((s) => s.kind === 'friend' && !s.hit && now - s.born > 380);
+        if (target) { selected = target.want; renderTray(); tapSpot(target, now); }
+      }
+      if (elapsed(now) >= GAME_MS) gameOver();
+      updateHud(now);
+    }
+    draw(now);
+    requestAnimationFrame(step);
+  };
+
+  // ---------- drawing
+  const drawLane = (now) => {
+    const sky = ctx.createLinearGradient(0, 0, 0, H * 0.2);
+    sky.addColorStop(0, '#fff0f6'); sky.addColorStop(1, '#ffe3e3');
+    ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
+    // bunting across the lane
+    const flags = ['#e64980', '#fab005', '#2f9e44', '#1c7ed6', '#ae3ec9', '#fd7e14'];
+    ctx.strokeStyle = '#868e96'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(0, H * 0.13); ctx.quadraticCurveTo(W / 2, H * 0.19, W, H * 0.13); ctx.stroke();
+    for (let x = 10, k = 0; x < W; x += 22, k += 1) {
+      const y = H * 0.13 + Math.sin((x / W) * Math.PI) * H * 0.03;
+      ctx.fillStyle = flags[k % flags.length]; ctx.beginPath(); ctx.moveTo(x - 7, y); ctx.lineTo(x + 7, y); ctx.lineTo(x, y + 14); ctx.closePath(); ctx.fill();
+    }
+    // houses: one coloured block per column, with a window and a door
+    const cols = W < 520 ? 3 : 4;
+    for (let c = 0; c < cols; c += 1) {
+      const x0 = (c / cols) * W, w = W / cols;
+      ctx.fillStyle = HOUSE[c % HOUSE.length]; ctx.fillRect(x0, H * 0.2, w, H * 0.6);
+      ctx.fillStyle = 'rgba(0,0,0,0.06)'; ctx.fillRect(x0 + w - 4, H * 0.2, 4, H * 0.6);
+      ctx.fillStyle = '#c2884d'; ctx.fillRect(x0, H * 0.2 - 8, w, 10);
+    }
+    spots.forEach((s) => {
+      const ww = s.size * 1.25, wh = s.size * (s.door ? 1.55 : 1.15);
+      const x = s.x - ww / 2, y = s.y - wh + s.size * 0.25;
+      ctx.fillStyle = '#5c3d2e'; ctx.fillRect(x - 5, y - 5, ww + 10, wh + 5);
+      ctx.fillStyle = '#2b1f17'; ctx.fillRect(x, y, ww, wh);
+      if (s.door) { ctx.fillStyle = '#5c3d2e'; ctx.beginPath(); ctx.arc(s.x, y, ww / 2 + 5, Math.PI, 0); ctx.fill(); ctx.fillStyle = '#2b1f17'; ctx.beginPath(); ctx.arc(s.x, y, ww / 2, Math.PI, 0); ctx.fill(); }
+    });
+    // road and old colour stains on it
+    ctx.fillStyle = '#e9d8c4'; ctx.fillRect(0, H * 0.8, W, H * 0.2);
+    ctx.globalAlpha = 0.35;
+    [[0.15, 0.86, 0], [0.5, 0.9, 1], [0.8, 0.84, 2], [0.33, 0.95, 3]].forEach(([px, py, c]) => { ctx.fillStyle = COLS[c]; ctx.beginPath(); ctx.ellipse(px * W, py * H, 26, 9, 0, 0, Math.PI * 2); ctx.fill(); });
+    ctx.globalAlpha = 1;
+  };
+  const drawWho = (s, now) => {
+    if (!s.kind) return;
+    const z = s.size;
+    const rise = Math.min(1, (now - s.born) / 160);
+    const x = s.x, base = s.y + z * 0.25, y = base - z * 0.95 * rise;
+    ctx.save();
+    // clip to the window / door opening so people rise from inside
+    const ww = z * 1.25, wh = z * (s.door ? 1.55 : 1.15);
+    ctx.beginPath(); ctx.rect(x - ww / 2, base - wh - (s.door ? ww / 2 : 0), ww, wh + (s.door ? ww / 2 : 0)); ctx.clip();
+    if (s.kind === 'animal' || s.kind === 'gujiya') {
+      ctx.font = `${z * (s.kind === 'animal' ? 0.95 : 0.75)}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      if (s.kind === 'gujiya') { ctx.fillStyle = '#dee2e6'; ctx.beginPath(); ctx.ellipse(x, y + z * 0.15, z * 0.48, z * 0.14, 0, 0, Math.PI * 2); ctx.fill(); }
+      ctx.fillText(s.kind === 'animal' ? s.animal : '🥟', x, y);
+      ctx.restore();
+      return;
+    }
+    // body: white kurta
+    ctx.fillStyle = '#f8f9fa'; ctx.beginPath(); ctx.ellipse(x, y + z * 0.75, z * 0.5, z * 0.5, 0, Math.PI, 0); ctx.fill();
+    ctx.fillRect(x - z * 0.5, y + z * 0.74, z, z * 0.6);
+    // head
+    const hr = z * 0.28, hy = y + z * 0.12;
+    ctx.fillStyle = s.skin; ctx.beginPath(); ctx.arc(x, hy, hr, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#212529'; ctx.beginPath(); ctx.ellipse(x, hy - hr * 0.55, hr * 1.02, hr * 0.55, 0, Math.PI, 0); ctx.fill();
+    // face
+    ctx.fillStyle = '#212529';
+    [-1, 1].forEach((d) => { ctx.beginPath(); ctx.arc(x + d * hr * 0.38, hy, hr * 0.09, 0, Math.PI * 2); ctx.fill(); });
+    ctx.strokeStyle = '#7a3e1d'; ctx.lineWidth = 2; ctx.beginPath();
+    if (s.kind === 'no') ctx.moveTo(x - hr * 0.3, hy + hr * 0.45), ctx.lineTo(x + hr * 0.3, hy + hr * 0.45);
+    else ctx.arc(x, hy + hr * 0.2, hr * 0.38, 0.1 * Math.PI, 0.9 * Math.PI);
+    ctx.stroke();
+    if (s.kind === 'no') {
+      // both palms raised: "no, please"
+      ctx.fillStyle = s.skin;
+      [-1, 1].forEach((d) => {
+        const px = x + d * z * 0.5, py = hy - z * 0.22;
+        ctx.strokeStyle = '#f8f9fa'; ctx.lineWidth = z * 0.12; ctx.beginPath(); ctx.moveTo(x + d * z * 0.3, y + z * 0.8); ctx.lineTo(px, py + z * 0.12); ctx.stroke();
+        ctx.fillStyle = s.skin; ctx.beginPath(); ctx.ellipse(px, py, z * 0.11, z * 0.15, 0, 0, Math.PI * 2); ctx.fill();
+        for (let f = -1.5; f <= 1.5; f += 1) { ctx.beginPath(); ctx.ellipse(px + f * z * 0.045, py - z * 0.15, z * 0.022, z * 0.06, 0, 0, Math.PI * 2); ctx.fill(); }
+      });
+    }
+    // colour splats once hit
+    s.splats.forEach((p) => { ctx.fillStyle = p.c; ctx.globalAlpha = 0.85; ctx.beginPath(); ctx.arc(x + p.dx, y + z * 0.7 + p.dy, p.r, 0, Math.PI * 2); ctx.fill(); });
+    ctx.globalAlpha = 1;
+    ctx.restore();
+    // bubble: favourite colour, or a "no" sign
+    if (!s.hit && rise >= 1) {
+      const br = Math.max(14, z * 0.22), bx = x + z * 0.48, by = hy - hr - br * 0.6;
+      const left = Math.max(0, 1 - (now - s.born) / s.life);
+      ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(bx, by, br, 0, Math.PI * 2); ctx.fill();
+      if (s.kind === 'friend') {
+        ctx.fillStyle = COLS[s.want]; ctx.beginPath(); ctx.arc(bx, by, br * 0.62, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = left > 0.4 ? '#40c057' : '#fa5252'; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.arc(bx, by, br + 2, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * left); ctx.stroke();
+      } else {
+        ctx.font = `${br * 1.2}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText('🙅', bx, by + 1);
+      }
+    }
+  };
+  const draw = (now) => {
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    drawLane(now);
+    spots.forEach((s) => drawWho(s, now));
+    // gulal clouds
+    clouds = clouds.filter((c) => now - c.t0 < 700);
+    clouds.forEach((c) => {
+      const k = (now - c.t0) / 700;
+      ctx.globalAlpha = 0.55 * (1 - k); ctx.fillStyle = c.col;
+      for (let i = 0; i < 6; i += 1) { const a = (i / 6) * Math.PI * 2; ctx.beginPath(); ctx.arc(c.x + Math.cos(a) * 30 * k, c.y + Math.sin(a) * 22 * k, 16 + 22 * k, 0, Math.PI * 2); ctx.fill(); }
+      ctx.globalAlpha = 1;
+    });
+    pops = pops.filter((p) => now - p.t0 < 900);
+    pops.forEach((p) => {
+      const a = 1 - (now - p.t0) / 900;
+      ctx.globalAlpha = a; ctx.fillStyle = p.col; ctx.font = `800 15px "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", Inter, sans-serif`; ctx.textAlign = 'center';
+      ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(255,255,255,0.95)';
+      const hw = ctx.measureText(p.text).width / 2 + 6, y = Math.max(50, p.y - (1 - a) * 24), x = Math.min(W - hw, Math.max(hw, p.x));
+      ctx.strokeText(p.text, x, y); ctx.fillText(p.text, x, y);
+      ctx.globalAlpha = 1;
+    });
+  };
+
+  // ---------- start / end
+  const start = () => {
+    initAudio();
+    playerName = cleanName($('name').value);
+    store.set('rb-name', playerName);
+    score = 0; coloured = 0; oops = 0; pops = []; clouds = []; last = null;
+    spots.forEach((s) => { s.kind = ''; s.wait = 0; s.hit = 0; });
+    ['startScreen', 'endScreen', 'pauseScreen'].forEach((id) => $(id).classList.add('hidden'));
+    $('shareOther').textContent = t('shareOther');
+    state = 'play'; T0 = performance.now(); nextSpawn = T0 + 300;
+    updateHud();
+  };
+  const gameOver = () => {
+    state = 'over';
+    spots.forEach((s) => { s.kind = ''; });
+    sfx.end();
+    const prev = best();
+    if (score > prev) store.set('rb-best', String(score));
+    last = { score, coloured, oops, isNew: score > prev && prev > 0, name: playerName, fact: FACT_KEYS[Math.floor(Math.random() * FACT_KEYS.length)] };
+    fillEnd();
+    $('endScreen').classList.remove('hidden');
+  };
+  const fillEnd = () => {
+    $('endTitle').textContent = t('endTitle')(last.name);
+    $('finalScore').textContent = String(last.score);
+    $('endNote').textContent = t('endNote')(last.coloured, last.oops, best(), last.isNew);
+    $('endFact').textContent = `💡 ${t('facts')[last.fact]}`;
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+  };
+  const pause = () => {
+    if (state !== 'play') return;
+    state = 'idle';
+    spots.forEach((s) => { s.kind = ''; });
+    $('pauseScreen').classList.remove('hidden');
+  };
+
+  // ---------- input
+  $('tray').addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    initAudio();
+    selected = +b.dataset.i; renderTray(); sfx.pick();
+  });
+  cv.addEventListener('pointerdown', (e) => {
+    if (state !== 'play') return;
+    e.preventDefault();
+    const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+    let bs = null, bd = 1e9;
+    spots.forEach((s) => {
+      if (!s.kind || s.hit) return;
+      const d = Math.hypot(x - s.x, y - (s.y - s.size * 0.4));
+      if (d < bd) { bd = d; bs = s; }
+    });
+    if (bs && bd < bs.size * 1.05) tapSpot(bs, performance.now());
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.target && e.target.tagName === 'INPUT') return;
+    const n = { Digit1: 0, Digit2: 1, Digit3: 2, Digit4: 3 }[e.code];
+    if (n !== undefined) { selected = n; renderTray(); }
+  });
+
+  // ---------- share
+  const shareText = () => {
+    const u = new URL(SITE);
+    if (playerName) u.searchParams.set('from', playerName);
+    u.searchParams.set('score', String(score));
+    u.searchParams.set('lang', lang);
+    return t('shareText')(playerName, score, u.toString());
+  };
+  $('play').addEventListener('click', start);
+  $('again').addEventListener('click', start);
+  $('restart').addEventListener('click', start);
+  $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => window.prompt(t('copyPrompt'), text));
+  });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
+
+  if ('ResizeObserver' in window) new ResizeObserver(resize).observe($('stage'));
+  window.addEventListener('resize', resize);
+  resize();
+  applyLang();
+  requestAnimationFrame(step);
+  if (debug && params.has('auto')) start();
+  window.__rb = { get state() { return state; }, get score() { return score; }, get coloured() { return coloured; }, get oops() { return oops; } };
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>

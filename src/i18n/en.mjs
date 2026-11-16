@@ -314,6 +314,10 @@ const games = {
   'saanp-seedhi': { name: 'Saanp-Seedhi (Snakes & Ladders)', desc: 'The childhood board game: play the computer or 2–4 friends on one phone. Every ladder a good habit, every snake a bad one.' },
   'parade-ki-taal': { name: 'Parade ki Taal (Parade Beat)', desc: 'Tap on the drum beat so the Republic Day parade marches in step: Army, BSF camels, NCC band, then the tricolour flypast.' },
   'chaand-dhundo': { name: 'Chaand Dhundo (Find the Crescent)', desc: 'Use the telescope to find the thin new crescent in the evening sky before it sets — Venus, planes and kites will try to fool you! 10 evenings.' },
+  'basant-sargam': { name: 'Basant ki Sargam', desc: 'The petals of a spring flower play Sa Re Ga Ma Pa Dha Ni like Maa Saraswati\'s veena — repeat the tune, one note longer every round. Vasant Panchami game with a practice mode.' },
+  'rang-barsao': { name: 'Rang Barsao (Holi)', desc: 'Throw dry gulal at friends peeping out of a Braj lane — favourite colour scores double. No colour on anyone who says no, and never on animals! 60 seconds.' },
+  'kanche': { name: 'Kanche (Marbles)', desc: 'The childhood marbles game: pull back and flick to knock marbles out of the circle or roll into the gucchi. 6 levels with stars — no bets, just aim.' },
+  'raja-mantri-chor-sipahi': { name: 'Raja Mantri Chor Sipahi', desc: 'The old chit game on one phone: 4 friends pass it round to see their chits, or play the computer. Mantri ji, who is the Chor? 5 or 10 rounds.' },
   'langar-seva': { name: 'Langar Seva', desc: 'Do seva in the langar this Gurpurab: serve prashada, dal, kheer and water to the sangat in pangat. 60 seconds, no music, with Guru Nanak Dev Ji\'s teachings.' },
 };
 

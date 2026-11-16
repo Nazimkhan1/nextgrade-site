@@ -32,6 +32,10 @@ const releases = {
   'game:chaand-dhundo': '2026-12-06', // Ramzan, ~8 Feb
   'game:chidiya-udd': '2026-12-07',
   'game:saanp-seedhi': '2026-12-08',
+  'game:basant-sargam': '2026-12-09', // Vasant Panchami, ~11 Feb 2027
+  'game:rang-barsao': '2026-12-10', // Holi, ~22 Mar 2027
+  'game:kanche': '2026-12-11',
+  'game:raja-mantri-chor-sipahi': '2026-12-12',
 };
 
 // today's date in India (the release day changes at midnight IST)

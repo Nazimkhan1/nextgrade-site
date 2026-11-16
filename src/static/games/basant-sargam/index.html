@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Basant ki Sargam 🌼 — Vasant Panchami Game | NextGrade</title>
+<meta name="description" content="Basant ki Sargam: a free Vasant Panchami (Saraswati Puja) memory game in Hinglish, Hindi, English and Bengali. The petals of a spring flower play Sa Re Ga Ma Pa Dha Ni — repeat the tune, one note longer every round. Free-play veena mode and Vasant Panchami facts.">
+<link rel="canonical" href="https://nextgrade.in/games/basant-sargam/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Basant ki Sargam 🌼 — Vasant Panchami Game">
+<meta property="og:description" content="Sa Re Ga Ma Pa Dha Ni — phool ki pankhudiyon ki dhun suno aur dohrao! Kitni lambi sargam yaad rakh paoge?">
+<meta property="og:url" content="https://nextgrade.in/games/basant-sargam/">
+<meta property="og:image" content="https://nextgrade.in/games/basant-sargam/icons/icon-512.png">
+<meta name="theme-color" content="#f59f00">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Basant ki Sargam","url":"https://nextgrade.in/games/basant-sargam/","genre":"Music memory","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #1d2408; --gold: #ffd43b; --ink: #f8f9fa; --muted: #d8dcc0; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #6b5300, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #f59f00, #fcc419); color: #3d2c00; border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.45); height: min(74vh, 600px, 140vw); min-height: 440px; background: #fff9db; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
+#cv { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: pointer; }
+.hud { position: absolute; top: 10px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 17px; color: #5c3d00; pointer-events: none; z-index: 3; gap: 8px; }
+.hud span { background: rgba(255,255,255,0.85); border-radius: 12px; padding: 2px 10px; white-space: nowrap; }
+.stopfree { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); z-index: 4; font: inherit; font-weight: 800; font-size: 15px; padding: 8px 16px; border-radius: 12px; border: 0; background: rgba(92,61,0,0.85); color: #fff; cursor: pointer; }
+
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(40, 30, 0, 0.72); padding: 16px; overflow-y: auto; z-index: 10; cursor: default; }
+.panel { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 18px; width: min(420px, 100%); text-align: center; margin: auto; color: var(--ink); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: #f3ecd0; }
+.panel .fact { background: rgba(255,212,59,0.12); border: 1px solid rgba(255,212,59,0.35); border-radius: 12px; padding: 8px 10px; color: #ffe8a3; font-size: 15px; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 54px; font-weight: 800; color: var(--gold); line-height: 1; margin: 6px 0; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 8px 0; }
+input::placeholder { color: #d9d2ae; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #f59f00, #f08c00); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+@media (max-width: 480px) { .panel { padding: 14px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .hud { font-size: 15px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🌼 NextGrade<small>Vasant Panchami</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="cv" aria-label="Sargam flower"></canvas>
+    <div class="hud" aria-hidden="true"><span id="hudRound">🎵 0</span><span id="hudBest">🏅 0</span></div>
+    <button class="stopfree hidden" id="stopFree" type="button" data-i18n="freeStop"></button>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle"></h2>
+        <p data-i18n="controls"></p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <button class="btn btn-main" id="play" type="button" data-i18n="play"></button>
+        <button class="btn btn-ghost" id="free" type="button" data-i18n="free"></button>
+        <p id="bestLine"></p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="pauseScreen">
+      <div class="panel">
+        <h2 data-i18n="paused"></h2>
+        <button class="btn btn-main" id="restart" type="button" data-i18n="again"></button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big" id="finalScore">0</div>
+        <p id="endNote"></p>
+        <p class="fact" id="endFact"></p>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card2"><ol id="howList"></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+    <p><a id="guideLink" href="https://nextgrade.in/festivals/vasant-panchami/" data-i18n="readMore"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="factsTitle"></h2>
+    <div class="card2"><ul id="factList"></ul></div>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/basant-sargam/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  // the seven shuddh swar of Bilawal thaat, Sa = middle C
+  const FREQ = [261.63, 293.66, 329.63, 349.23, 392.0, 440.0, 493.88];
+  const COL = ['#f03e3e', '#f76707', '#f59f00', '#37b24d', '#1098ad', '#4263eb', '#ae3ec9'];
+  const FACT_KEYS = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8'];
+
+  const T = {
+    hinglish: {
+      title: 'Basant ki Sargam 🌼',
+      sub: 'Vasant Panchami par Maa Saraswati ki veena ki tarah phool ki pankhudiyan sargam bajati hain — dhun suno aur wahi dohrao! Har round mein ek swar badhta hai. Kitni lambi dhun yaad rakh paoge?',
+      notes: ['Sa', 'Re', 'Ga', 'Ma', 'Pa', 'Dha', 'Ni'],
+      startTitle: 'Basant aa gaya 🌼',
+      controls: 'Pankhudiyan ek-ek karke chamakengi aur swar bajenge. Dhyan se dekho aur suno, phir usi kram mein pankhudiyon par tap karo. Awaaz band ho to bhi chamak dekh kar khel sakte ho.',
+      namePh: 'Aapka naam (optional)',
+      play: '▶ Shuru karo',
+      free: '🎶 Khud bajao (abhyas)',
+      freeStop: '⏹ Abhyas band karo',
+      paused: '⏸ Game ruka hua hai',
+      again: '🔁 Phir se khelo',
+      listen: 'Suno… 👂',
+      yourTurn: 'Ab aap 👆',
+      freeHint: 'Koi bhi pankhudi chhuo 🎶',
+      good: ['Waah! 🌼', 'Sur sahi! 🎶', 'Shabash! ✨', 'Kya baat! 🌻'],
+      wrong: 'Galat sur!',
+      chance: 'Ek mauka aur — phir se suno 👂',
+      best: (n) => `Aapka best: ${n} swar`,
+      challenge: (name, n) => `🌼 ${name} ne Basant ki Sargam mein ${n} swar ki dhun yaad rakhi! Aap kitni lambi yaad rakh paoge?`,
+      endTitle: (name) => `Waah${name ? `, ${name}` : ''}! 🌼`,
+      endNote: (n, best, isNew) => `${n} swar ki dhun sahi bajayi · ${isNew ? '🏅 Naya best!' : `Aapka best: ${best}`}`,
+      shareWa: '📲 WhatsApp pe challenge bhejo',
+      shareOther: '🔗 Link share / copy karo',
+      copied: '✅ Copy ho gaya',
+      copyPrompt: 'Yeh text copy karo:',
+      shareText: (name, n, url) => `🌼 ${name ? `${name} ne` : 'Maine'} Basant ki Sargam game mein ${n} swar ki dhun yaad rakhi! Vasant Panchami ki shubhkamnayein — aap try karo: ${url}`,
+      howTitle: 'Kaise khelein',
+      how: ['<b>▶ Shuru karo</b> dabao. Beech mein saat pankhudiyon wala phool hai — har pankhudi ek swar: <b>Sa Re Ga Ma Pa Dha Ni</b>.', 'Phool ek dhun bajata hai: pankhudiyan ek-ek karke chamakti hain. Beech mein <b>"Suno"</b> likha ho to sirf dekho aur suno.', 'Jab <b>"Ab aap"</b> dikhe, usi kram mein pankhudiyon par tap karo. (Computer par 1 se 7 number key bhi chalti hai.)', 'Sahi bajaya to agli dhun ek swar lambi hogi. Galti hui to ek baar <b>ek mauka aur</b> milta hai — dobara galti par game khatam.', '<b>🎶 Khud bajao</b> mein bina score ke apni marzi ki dhun bajao. Phir WhatsApp pe doston ko challenge bhejo!'],
+      aboutTitle: 'Vasant Panchami aur sargam',
+      aboutText: 'Vasant Panchami Magh maheene ke shukla paksh ki panchami ko aati hai (aam taur par January ke aakhir ya February mein — sahi tareekh apne panchang mein dekhein). Yeh basant ritu ke aane ka tyohaar hai aur is din gyaan, sangeet aur kala ki devi Maa Saraswati ki pooja hoti hai. Maa Saraswati ke haath mein veena hoti hai, isliye is game mein phool sargam bajata hai.',
+      aboutText2: 'Bharatiya sangeet ke saat shuddh swar hain: Sa (shadaj), Re (rishabh), Ga (gandhar), Ma (madhyam), Pa (pancham), Dha (dhaivat) aur Ni (nishad) — inhe milakar "sargam" kehte hain. Dhun yaad rakhna dimaag ki achhi kasrat hai: chhote-chhote tukdon mein yaad karo, jaise gaane ki line yaad karte ho.',
+      readMore: 'Vasant Panchami ki poori jaankari →',
+      factsTitle: 'Vasant Panchami ke tathya',
+      facts: {
+        f1: 'Vasant Panchami Magh maah ke shukla paksh ki panchami ko manayi jaati hai — isliye har saal angrezi tareekh badalti hai.',
+        f2: 'Is din Maa Saraswati ki pooja hoti hai — gyaan, vaani, sangeet aur kala ki devi. Unka vaahan hans hai aur haath mein veena.',
+        f3: 'Peela rang basant ka rang hai: is samay sarson ke khet peele phoolon se bhar jaate hain, log peele kapde pehente hain aur peele (kesariya) chawal banate hain.',
+        f4: 'Kai gharon mein chhote bachchon ki padhai ki shuruaat isi din hoti hai — Bengal mein ise "Haate Khori" kehte hain.',
+        f5: 'Bengal aur Assam mein Saraswati Puja badi dhoom se hoti hai: school-college mein pooja hoti hai aur kitaabein Maa ke charnon mein rakhi jaati hain.',
+        f6: 'Punjab mein Basant par rang-birangi patang udaane ki purani parampara hai.',
+        f7: 'Sargam mein "Sa" aur "Pa" achal swar hain — yeh kabhi komal ya teevra nahi hote. Baaki paanch swar komal ya teevra ho sakte hain.',
+        f8: 'Braj mein Holi ki taiyari Vasant Panchami se hi shuru ho jaati hai — Holi isse lagbhag 40 din baad Phalgun Purnima ko aati hai.',
+      },
+      moreGames: 'Aur games khelo →',
+      privacyTitle: 'Aapka data',
+      privacyText: 'Naam aur best score sirf aapke phone mein rehte hain. Share link mein sirf naam aur score jaata hai. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'बसंत की सरगम 🌼',
+      sub: 'वसंत पंचमी पर माँ सरस्वती की वीणा की तरह फूल की पंखुड़ियाँ सरगम बजाती हैं — धुन सुनो और वही दोहराओ! हर राउंड में एक स्वर बढ़ता है। कितनी लंबी धुन याद रख पाओगे?',
+      notes: ['सा', 'रे', 'ग', 'म', 'प', 'ध', 'नि'],
+      startTitle: 'बसंत आ गया 🌼',
+      controls: 'पंखुड़ियाँ एक-एक करके चमकेंगी और स्वर बजेंगे। ध्यान से देखो और सुनो, फिर उसी क्रम में पंखुड़ियों पर टैप करो। आवाज़ बंद हो तो भी चमक देखकर खेल सकते हो।',
+      namePh: 'आपका नाम (ज़रूरी नहीं)',
+      play: '▶ शुरू करो',
+      free: '🎶 ख़ुद बजाओ (अभ्यास)',
+      freeStop: '⏹ अभ्यास बंद करो',
+      paused: '⏸ गेम रुका हुआ है',
+      again: '🔁 फिर से खेलो',
+      listen: 'सुनो… 👂',
+      yourTurn: 'अब आप 👆',
+      freeHint: 'कोई भी पंखुड़ी छुओ 🎶',
+      good: ['वाह! 🌼', 'सुर सही! 🎶', 'शाबाश! ✨', 'क्या बात! 🌻'],
+      wrong: 'ग़लत सुर!',
+      chance: 'एक मौका और — फिर से सुनो 👂',
+      best: (n) => `आपका बेस्ट: ${n} स्वर`,
+      challenge: (name, n) => `🌼 ${name} ने बसंत की सरगम में ${n} स्वर की धुन याद रखी! आप कितनी लंबी याद रख पाओगे?`,
+      endTitle: (name) => `वाह${name ? `, ${name}` : ''}! 🌼`,
+      endNote: (n, best, isNew) => `${n} स्वर की धुन सही बजाई · ${isNew ? '🏅 नया बेस्ट!' : `आपका बेस्ट: ${best}`}`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो',
+      shareOther: '🔗 लिंक शेयर / कॉपी करो',
+      copied: '✅ कॉपी हो गया',
+      copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareText: (name, n, url) => `🌼 ${name ? `${name} ने` : 'मैंने'} बसंत की सरगम गेम में ${n} स्वर की धुन याद रखी! वसंत पंचमी की शुभकामनाएँ — आप भी आज़माओ: ${url}`,
+      howTitle: 'कैसे खेलें',
+      how: ['<b>▶ शुरू करो</b> दबाओ। बीच में सात पंखुड़ियों वाला फूल है — हर पंखुड़ी एक स्वर: <b>सा रे ग म प ध नि</b>।', 'फूल एक धुन बजाता है: पंखुड़ियाँ एक-एक करके चमकती हैं। बीच में <b>"सुनो"</b> लिखा हो तो सिर्फ़ देखो और सुनो।', 'जब <b>"अब आप"</b> दिखे, उसी क्रम में पंखुड़ियों पर टैप करो। (कंप्यूटर पर 1 से 7 नंबर की भी चलती हैं।)', 'सही बजाया तो अगली धुन एक स्वर लंबी होगी। ग़लती हुई तो एक बार <b>एक मौका और</b> मिलता है — दोबारा ग़लती पर गेम ख़त्म।', '<b>🎶 ख़ुद बजाओ</b> में बिना स्कोर के अपनी मर्ज़ी की धुन बजाओ। फिर WhatsApp पर दोस्तों को चैलेंज भेजो!'],
+      aboutTitle: 'वसंत पंचमी और सरगम',
+      aboutText: 'वसंत पंचमी माघ महीने के शुक्ल पक्ष की पंचमी को आती है (आमतौर पर जनवरी के अंत या फरवरी में — सही तारीख़ अपने पंचांग में देखें)। यह बसंत ऋतु के आने का त्योहार है और इस दिन ज्ञान, संगीत और कला की देवी माँ सरस्वती की पूजा होती है। माँ सरस्वती के हाथ में वीणा होती है, इसलिए इस गेम में फूल सरगम बजाता है।',
+      aboutText2: 'भारतीय संगीत के सात शुद्ध स्वर हैं: सा (षड्ज), रे (ऋषभ), ग (गांधार), म (मध्यम), प (पंचम), ध (धैवत) और नि (निषाद) — इन्हें मिलाकर "सरगम" कहते हैं। धुन याद रखना दिमाग़ की अच्छी कसरत है: छोटे-छोटे टुकड़ों में याद करो, जैसे गाने की पंक्ति याद करते हो।',
+      readMore: 'वसंत पंचमी की पूरी जानकारी →',
+      factsTitle: 'वसंत पंचमी के तथ्य',
+      facts: {
+        f1: 'वसंत पंचमी माघ मास के शुक्ल पक्ष की पंचमी को मनाई जाती है — इसलिए हर साल अंग्रेज़ी तारीख़ बदलती है।',
+        f2: 'इस दिन माँ सरस्वती की पूजा होती है — ज्ञान, वाणी, संगीत और कला की देवी। उनका वाहन हंस है और हाथ में वीणा।',
+        f3: 'पीला रंग बसंत का रंग है: इस समय सरसों के खेत पीले फूलों से भर जाते हैं, लोग पीले कपड़े पहनते हैं और पीले (केसरिया) चावल बनाते हैं।',
+        f4: 'कई घरों में छोटे बच्चों की पढ़ाई की शुरुआत इसी दिन होती है — बंगाल में इसे "हाते खोड़ी" कहते हैं।',
+        f5: 'बंगाल और असम में सरस्वती पूजा बड़ी धूम से होती है: स्कूल-कॉलेज में पूजा होती है और किताबें माँ के चरणों में रखी जाती हैं।',
+        f6: 'पंजाब में बसंत पर रंग-बिरंगी पतंग उड़ाने की पुरानी परंपरा है।',
+        f7: 'सरगम में "सा" और "प" अचल स्वर हैं — ये कभी कोमल या तीव्र नहीं होते। बाक़ी पाँच स्वर कोमल या तीव्र हो सकते हैं।',
+        f8: 'ब्रज में होली की तैयारी वसंत पंचमी से ही शुरू हो जाती है — होली इसके लगभग 40 दिन बाद फाल्गुन पूर्णिमा को आती है।',
+      },
+      moreGames: 'और गेम खेलो →',
+      privacyTitle: 'आपका डेटा',
+      privacyText: 'नाम और बेस्ट स्कोर सिर्फ़ आपके फ़ोन में रहते हैं। शेयर लिंक में सिर्फ़ नाम और स्कोर जाता है। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Basant ki Sargam 🌼',
+      sub: 'This Vasant Panchami, the petals of a spring flower play the sargam like Maa Saraswati\'s veena — listen to the tune and play it back! Every round adds one note. How long a tune can you remember?',
+      notes: ['Sa', 'Re', 'Ga', 'Ma', 'Pa', 'Dha', 'Ni'],
+      startTitle: 'Spring is here 🌼',
+      controls: 'The petals light up one by one and play their notes. Watch and listen, then tap the petals in the same order. With the sound off you can still play by watching the glow.',
+      namePh: 'Your name (optional)',
+      play: '▶ Start',
+      free: '🎶 Play freely (practice)',
+      freeStop: '⏹ Stop practice',
+      paused: '⏸ Game paused',
+      again: '🔁 Play again',
+      listen: 'Listen… 👂',
+      yourTurn: 'Your turn 👆',
+      freeHint: 'Touch any petal 🎶',
+      good: ['Wah! 🌼', 'In tune! 🎶', 'Well done! ✨', 'Lovely! 🌻'],
+      wrong: 'Wrong note!',
+      chance: 'One more chance — listen again 👂',
+      best: (n) => `Your best: ${n} notes`,
+      challenge: (name, n) => `🌼 ${name} remembered a ${n}-note tune in Basant ki Sargam! How long a tune can you remember?`,
+      endTitle: (name) => `Wah${name ? `, ${name}` : ''}! 🌼`,
+      endNote: (n, best, isNew) => `You played a ${n}-note tune · ${isNew ? '🏅 New best!' : `Your best: ${best}`}`,
+      shareWa: '📲 Challenge on WhatsApp',
+      shareOther: '🔗 Share / copy link',
+      copied: '✅ Copied',
+      copyPrompt: 'Copy this text:',
+      shareText: (name, n, url) => `🌼 ${name || 'I'} remembered a ${n}-note tune in the Basant ki Sargam game! Happy Vasant Panchami — try it: ${url}`,
+      howTitle: 'How to play',
+      how: ['Tap <b>▶ Start</b>. In the middle is a flower with seven petals — each petal is a note: <b>Sa Re Ga Ma Pa Dha Ni</b>.', 'The flower plays a tune: the petals light up one by one. While the centre says <b>"Listen"</b>, just watch and listen.', 'When it says <b>"Your turn"</b>, tap the petals in the same order. (On a computer the number keys 1 to 7 work too.)', 'Get it right and the next tune is one note longer. Make a mistake and you get <b>one more chance</b> once — a second mistake ends the game.', 'In <b>🎶 Play freely</b> you can play any tune you like, without a score. Then challenge your friends on WhatsApp!'],
+      aboutTitle: 'Vasant Panchami and the sargam',
+      aboutText: 'Vasant Panchami falls on the fifth day of the bright half of the month of Magh (usually late January or February — check your local panchang for the exact date). It welcomes spring, and on this day people worship Maa Saraswati, the goddess of knowledge, music and the arts. Maa Saraswati holds a veena, which is why the flower in this game plays the sargam.',
+      aboutText2: 'Indian music has seven pure notes: Sa (shadaj), Re (rishabh), Ga (gandhar), Ma (madhyam), Pa (pancham), Dha (dhaivat) and Ni (nishad) — together called the "sargam". Remembering a tune is good exercise for the brain: learn it in small pieces, the way you remember the lines of a song.',
+      readMore: 'All about Vasant Panchami →',
+      factsTitle: 'Facts about Vasant Panchami',
+      facts: {
+        f1: 'Vasant Panchami is celebrated on the fifth day of the bright half of Magh — so its date in the English calendar changes every year.',
+        f2: 'On this day Maa Saraswati is worshipped — the goddess of knowledge, speech, music and the arts. Her vehicle is the swan and she holds a veena.',
+        f3: 'Yellow is the colour of Basant: mustard fields are in full yellow bloom, people wear yellow and cook yellow (saffron) rice.',
+        f4: 'In many homes young children begin their first lessons on this day — in Bengal this is called "Haate Khori".',
+        f5: 'Saraswati Puja is celebrated in a big way in Bengal and Assam: schools and colleges hold the puja and books are placed at the goddess\'s feet.',
+        f6: 'Punjab has an old tradition of flying colourful kites on Basant.',
+        f7: 'In the sargam, "Sa" and "Pa" are fixed notes — they are never komal (flat) or teevra (sharp). The other five can be.',
+        f8: 'In Braj the preparations for Holi begin on Vasant Panchami — Holi comes about 40 days later, on Phalgun Purnima.',
+      },
+      moreGames: 'Play more games →',
+      privacyTitle: 'Your data',
+      privacyText: 'Your name and best score stay only on your phone. The share link carries only your name and score. No login, no server.',
+    },
+    bn: {
+      title: 'বসন্তের সরগম 🌼',
+      sub: 'সরস্বতী পুজোয় মা সরস্বতীর বীণার মতো ফুলের পাপড়িরা সরগম বাজায় — সুর শোনো আর আবার বাজাও! প্রতি রাউন্ডে একটা করে স্বর বাড়ে। কত লম্বা সুর মনে রাখতে পারবে?',
+      notes: ['সা', 'রে', 'গা', 'মা', 'পা', 'ধা', 'নি'],
+      startTitle: 'বসন্ত এসে গেছে 🌼',
+      controls: 'পাপড়িগুলো একে একে জ্বলে উঠবে আর স্বর বাজবে। মন দিয়ে দেখো আর শোনো, তারপর একই ক্রমে পাপড়িতে ট্যাপ করো। আওয়াজ বন্ধ থাকলেও আলো দেখে খেলা যায়।',
+      namePh: 'তোমার নাম (ঐচ্ছিক)',
+      play: '▶ শুরু করো',
+      free: '🎶 নিজে বাজাও (অনুশীলন)',
+      freeStop: '⏹ অনুশীলন বন্ধ',
+      paused: '⏸ খেলা থেমে আছে',
+      again: '🔁 আবার খেলো',
+      listen: 'শোনো… 👂',
+      yourTurn: 'এবার তুমি 👆',
+      freeHint: 'যেকোনো পাপড়ি ছোঁও 🎶',
+      good: ['বাহ! 🌼', 'সুর ঠিক! 🎶', 'শাবাশ! ✨', 'দারুণ! 🌻'],
+      wrong: 'ভুল সুর!',
+      chance: 'আর একটা সুযোগ — আবার শোনো 👂',
+      best: (n) => `তোমার সেরা: ${n}টা স্বর`,
+      challenge: (name, n) => `🌼 ${name} বসন্তের সরগমে ${n} স্বরের সুর মনে রেখেছে! তুমি কত লম্বা মনে রাখতে পারবে?`,
+      endTitle: (name) => `বাহ${name ? `, ${name}` : ''}! 🌼`,
+      endNote: (n, best, isNew) => `${n} স্বরের সুর ঠিক বাজিয়েছ · ${isNew ? '🏅 নতুন সেরা!' : `তোমার সেরা: ${best}`}`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও',
+      shareOther: '🔗 লিংক শেয়ার / কপি',
+      copied: '✅ কপি হয়েছে',
+      copyPrompt: 'এই লেখাটা কপি করো:',
+      shareText: (name, n, url) => (name ? `🌼 ${name} বসন্তের সরগম খেলায় ${n} স্বরের সুর মনে রেখেছে! সরস্বতী পুজোর শুভেচ্ছা — তুমিও খেলো: ${url}` : `🌼 আমি বসন্তের সরগম খেলায় ${n} স্বরের সুর মনে রেখেছি! সরস্বতী পুজোর শুভেচ্ছা — তুমিও খেলো: ${url}`),
+      howTitle: 'কীভাবে খেলবে',
+      how: ['<b>▶ শুরু করো</b> টিপো। মাঝখানে সাত পাপড়ির একটা ফুল — প্রতিটা পাপড়ি একটা স্বর: <b>সা রে গা মা পা ধা নি</b>।', 'ফুল একটা সুর বাজায়: পাপড়িগুলো একে একে জ্বলে ওঠে। মাঝখানে <b>"শোনো"</b> লেখা থাকলে শুধু দেখো আর শোনো।', '<b>"এবার তুমি"</b> দেখলে একই ক্রমে পাপড়িতে ট্যাপ করো। (কম্পিউটারে ১ থেকে ৭ নম্বর কী-ও চলে।)', 'ঠিক বাজালে পরের সুর একটা স্বর লম্বা হবে। ভুল হলে একবার <b>আর একটা সুযোগ</b> পাবে — আবার ভুল হলে খেলা শেষ।', '<b>🎶 নিজে বাজাও</b>-তে স্কোর ছাড়াই ইচ্ছেমতো সুর বাজাও। তারপর WhatsApp-এ বন্ধুদের চ্যালেঞ্জ পাঠাও!'],
+      aboutTitle: 'বসন্ত পঞ্চমী আর সরগম',
+      aboutText: 'বসন্ত পঞ্চমী মাঘ মাসের শুক্লপক্ষের পঞ্চমীতে আসে (সাধারণত জানুয়ারির শেষে বা ফেব্রুয়ারিতে — সঠিক তারিখ পঞ্জিকায় দেখে নাও)। এটা বসন্ত ঋতুকে স্বাগত জানানোর উৎসব, আর এই দিন জ্ঞান, সংগীত ও শিল্পের দেবী মা সরস্বতীর পুজো হয়। মা সরস্বতীর হাতে থাকে বীণা, তাই এই খেলায় ফুল সরগম বাজায়।',
+      aboutText2: 'ভারতীয় সংগীতে সাতটি শুদ্ধ স্বর: সা (ষড়জ), রে (ঋষভ), গা (গান্ধার), মা (মধ্যম), পা (পঞ্চম), ধা (ধৈবত) আর নি (নিষাদ) — একসঙ্গে "সরগম"। সুর মনে রাখা মস্তিষ্কের ভালো ব্যায়াম: ছোট ছোট টুকরোয় মনে রাখো, যেমন গানের লাইন মনে রাখো।',
+      readMore: 'বসন্ত পঞ্চমী নিয়ে পুরোটা পড়ো →',
+      factsTitle: 'বসন্ত পঞ্চমীর তথ্য',
+      facts: {
+        f1: 'বসন্ত পঞ্চমী মাঘ মাসের শুক্লপক্ষের পঞ্চমীতে পালিত হয় — তাই ইংরেজি তারিখ প্রতি বছর বদলায়।',
+        f2: 'এই দিন মা সরস্বতীর পুজো হয় — জ্ঞান, বাণী, সংগীত ও শিল্পের দেবী। তাঁর বাহন হাঁস আর হাতে বীণা।',
+        f3: 'হলুদ বসন্তের রং: এই সময় সরষে খেত হলুদ ফুলে ভরে যায়, সবাই বাসন্তী রঙের পোশাক পরে।',
+        f4: 'বাংলায় এই দিন ছোটদের "হাতেখড়ি" হয় — প্রথম অক্ষর লেখা শুরু।',
+        f5: 'বাংলা আর অসমে সরস্বতী পুজো খুব ধুমধাম করে হয়: স্কুল-কলেজে পুজো হয়, বই রাখা হয় মায়ের পায়ে।',
+        f6: 'পাঞ্জাবে বসন্তে রঙিন ঘুড়ি ওড়ানোর পুরোনো রীতি আছে।',
+        f7: 'সরগমে "সা" আর "পা" অচল স্বর — এরা কখনো কোমল বা তীব্র হয় না। বাকি পাঁচটা হতে পারে।',
+        f8: 'ব্রজে হোলির প্রস্তুতি বসন্ত পঞ্চমী থেকেই শুরু হয় — হোলি আসে প্রায় ৪০ দিন পরে, ফাল্গুনী পূর্ণিমায়।',
+      },
+      moreGames: 'আরও গেম খেলো →',
+      privacyTitle: 'তোমার ডেটা',
+      privacyText: 'নাম আর সেরা স্কোর শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর স্কোর। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const urlLang = params.get('lang');
+  const savedLang = store.get('bs-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(999, parseInt(params.get('score'), 10) || 0));
+  const best = () => parseInt(store.get('bs-best'), 10) || 0;
+  const debug = params.has('debug') ? (parseInt(params.get('debug'), 10) || 5) : 0;
+
+  // ---------- state
+  let state = 'idle'; // idle | show | input | free | over
+  let seq = [], pos = 0, chanceLeft = 1, score = 0, playerName = '', last = null, token = 0;
+  let lit = -1, litUntil = 0, centre = '', centreCol = '#5c3d00', pops = [];
+
+  // ---------- page texts
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Vasant Panchami Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const F = t('facts');
+    $('factList').innerHTML = FACT_KEYS.map((k) => `<li>${F[k]}</li>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    $('guideLink').href = `https://nextgrade.in${p}/festivals/vasant-panchami/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+    if (state === 'show') centre = t('listen');
+    if (state === 'input') centre = t('yourTurn');
+    if (state === 'free') centre = t('freeHint');
+    updateHud();
+    if (last) fillEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('bs-lang', lang); applyLang(); });
+  $('name').value = store.get('bs-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- sound: plucked notes, played only after a tap; 🔇 turns everything off
+  let muted = store.get('bs-muted') === '1';
+  let ac = null, master = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setIcons();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('bs-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.8; });
+  const initAudio = () => {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    ac = new AC();
+    master = ac.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(ac.destination);
+  };
+  const tone = (f, dur, type = 'sine', vol = 0.07, delay = 0, f2 = null) => {
+    if (!ac) return;
+    const w = ac.currentTime + delay;
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, w);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, w + dur);
+    g.gain.setValueAtTime(0.0001, w); g.gain.exponentialRampToValueAtTime(vol, w + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, w + dur);
+    o.connect(g); g.connect(master); o.start(w); o.stop(w + dur + 0.03);
+  };
+  // a veena-like pluck: the note plus a soft octave and a fifth that die away quickly
+  const pluck = (i) => { const f = FREQ[i]; tone(f, 0.9, 'triangle', 0.09); tone(f * 2, 0.45, 'sine', 0.025); tone(f * 3, 0.25, 'sine', 0.012); };
+  const sfx = {
+    wrong: () => tone(220, 0.35, 'triangle', 0.06, 0, 160),
+    round: () => { tone(784, 0.18, 'sine', 0.04); tone(1047, 0.25, 'sine', 0.04, 0.09); },
+    end: () => { [0, 2, 4, 7].forEach((n, i) => tone(FREQ[n % 7] * (n >= 7 ? 2 : 1), 0.6, 'triangle', 0.06, i * 0.14)); },
+  };
+
+  // ---------- canvas
+  const cv = $('cv');
+  const ctx = cv.getContext('2d');
+  let W = 400, H = 600, dpr = 1, CX = 200, CY = 300, R = 120;
+  const resize = () => {
+    const r = $('stage').getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+    W = Math.max(280, r.width); H = Math.max(420, r.height);
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    CX = W / 2; CY = H * 0.5; R = Math.min(W * 0.42, H * 0.3);
+  };
+  const petalAt = (i) => { const a = -Math.PI / 2 + (i * Math.PI * 2) / 7; return { a, x: CX + Math.cos(a) * R * 0.62, y: CY + Math.sin(a) * R * 0.62 }; };
+  const kites = [{ x: 0.15, y: 0.14, c: '#e64980', s: 1 }, { x: 0.82, y: 0.1, c: '#4263eb', s: 0.8 }];
+
+  const updateHud = () => {
+    $('hudRound').textContent = `🎵 ${state === 'free' ? '—' : seq.length}`;
+    $('hudBest').textContent = `🏅 ${best()}`;
+  };
+  const pop = (text, col) => { pops.push({ text, col, t0: performance.now() }); };
+
+  const drawScene = (now) => {
+    const sky = ctx.createLinearGradient(0, 0, 0, H);
+    sky.addColorStop(0, '#e7f5ff'); sky.addColorStop(0.55, '#fff9db'); sky.addColorStop(1, '#ffec99');
+    ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
+    // sun
+    ctx.fillStyle = 'rgba(255,212,59,0.55)'; ctx.beginPath(); ctx.arc(W * 0.86, H * 0.2, 46, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#ffd43b'; ctx.beginPath(); ctx.arc(W * 0.86, H * 0.2, 30, 0, Math.PI * 2); ctx.fill();
+    // Basant kites drifting
+    kites.forEach((k, i) => {
+      const x = k.x * W + Math.sin(now / 1400 + i) * 14, y = k.y * H + 40 + Math.cos(now / 1700 + i) * 8, s = 16 * k.s;
+      ctx.strokeStyle = 'rgba(80,60,0,0.35)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x, y + s); ctx.quadraticCurveTo(x + (i ? 10 : -10), y + 80, i ? W : 0, H * 0.6); ctx.stroke();
+      ctx.fillStyle = k.c; ctx.beginPath(); ctx.moveTo(x, y - s); ctx.lineTo(x + s * 0.8, y); ctx.lineTo(x, y + s); ctx.lineTo(x - s * 0.8, y); ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.7)'; ctx.beginPath(); ctx.moveTo(x, y - s); ctx.lineTo(x, y + s); ctx.moveTo(x - s * 0.8, y); ctx.lineTo(x + s * 0.8, y); ctx.stroke();
+    });
+    // mustard field: rows of yellow dots on green stems
+    const top = H * 0.8;
+    ctx.fillStyle = '#8ce99a'; ctx.fillRect(0, top, W, H - top);
+    for (let row = 0; row < 4; row += 1) {
+      const y = top + 8 + row * ((H - top) / 4);
+      for (let x = (row % 2) * 9; x < W + 10; x += 18) {
+        const sway = Math.sin(now / 900 + x * 0.05 + row) * 2;
+        ctx.strokeStyle = '#2f9e44'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y + 14); ctx.lineTo(x + sway, y); ctx.stroke();
+        ctx.fillStyle = row % 2 ? '#fcc419' : '#ffd43b'; ctx.beginPath(); ctx.arc(x + sway, y - 2, 5 + row * 0.6, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+  };
+  const drawFlower = (now) => {
+    const names = t('notes');
+    // stem and leaves
+    ctx.strokeStyle = '#2b8a3e'; ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(CX, CY + R * 0.4); ctx.quadraticCurveTo(CX - 10, (CY + H) / 2, CX, H); ctx.stroke();
+    ctx.fillStyle = '#40c057';
+    [-1, 1].forEach((d) => { ctx.beginPath(); ctx.ellipse(CX + d * 28, CY + R * 1.05, 30, 12, d * 0.5, 0, Math.PI * 2); ctx.fill(); });
+    for (let i = 0; i < 7; i += 1) {
+      const p = petalAt(i);
+      const on = lit === i && now < litUntil;
+      const k = on ? 1.12 : 1;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a);
+      if (on) { ctx.shadowColor = COL[i]; ctx.shadowBlur = 28; }
+      ctx.fillStyle = on ? COL[i] : `${COL[i]}b3`;
+      ctx.beginPath(); ctx.ellipse(0, 0, R * 0.42 * k, R * 0.25 * k, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.shadowBlur = 0;
+      ctx.strokeStyle = on ? '#fff' : 'rgba(255,255,255,0.55)'; ctx.lineWidth = on ? 4 : 2; ctx.stroke();
+      ctx.restore();
+      ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.font = `800 ${Math.round(R * 0.15)}px "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", Inter, sans-serif`;
+      ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(0,0,0,0.25)';
+      const lx = CX + Math.cos(p.a) * R * 0.72, ly = CY + Math.sin(p.a) * R * 0.72;
+      ctx.strokeText(names[i], lx, ly); ctx.fillText(names[i], lx, ly);
+    }
+    // centre disc with the current instruction
+    ctx.fillStyle = '#fff3bf'; ctx.beginPath(); ctx.arc(CX, CY, R * 0.34, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#f59f00'; ctx.lineWidth = 4; ctx.stroke();
+    ctx.fillStyle = 'rgba(245,159,0,0.35)';
+    for (let i = 0; i < 18; i += 1) { const a = (i / 18) * Math.PI * 2; ctx.beginPath(); ctx.arc(CX + Math.cos(a) * R * 0.27, CY + Math.sin(a) * R * 0.27, 2.2, 0, Math.PI * 2); ctx.fill(); }
+    if (centre) {
+      ctx.fillStyle = centreCol; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      let fs = Math.round(R * 0.13);
+      ctx.font = `800 ${fs}px "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", Inter, sans-serif`;
+      while (ctx.measureText(centre).width > R * 0.62 && fs > 10) { fs -= 1; ctx.font = `800 ${fs}px "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", Inter, sans-serif`; }
+      ctx.fillText(centre, CX, CY);
+    }
+    // progress dots while repeating
+    if (state === 'input' && seq.length) {
+      const n = seq.length, gap = Math.min(16, (W - 40) / n), x0 = CX - ((n - 1) * gap) / 2, y = CY + R * 1.02 + 4;
+      for (let i = 0; i < n; i += 1) { ctx.fillStyle = i < pos ? COL[seq[i]] : 'rgba(92,61,0,0.25)'; ctx.beginPath(); ctx.arc(x0 + i * gap, Math.min(y, H * 0.78), 5, 0, Math.PI * 2); ctx.fill(); }
+    }
+  };
+  const draw = (now) => {
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    drawScene(now);
+    drawFlower(now);
+    pops = pops.filter((p) => now - p.t0 < 1000);
+    pops.forEach((p) => {
+      const a = 1 - (now - p.t0) / 1000;
+      ctx.globalAlpha = a; ctx.fillStyle = p.col; ctx.textAlign = 'center';
+      ctx.font = `800 20px "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", Inter, sans-serif`;
+      ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(255,255,255,0.95)';
+      const y = CY - R * 1.08 - (1 - a) * 24;
+      ctx.strokeText(p.text, CX, Math.max(54, y)); ctx.fillText(p.text, CX, Math.max(54, y));
+      ctx.globalAlpha = 1;
+    });
+  };
+  const frame = (now) => { draw(now); requestAnimationFrame(frame); };
+
+  // ---------- game flow
+  const light = (i, ms) => { lit = i; litUntil = performance.now() + ms; pluck(i); };
+  const noteMs = () => Math.max(260, 560 - seq.length * 18);
+  const later = (ms, fn) => { const my = token; setTimeout(() => { if (my === token) fn(); }, ms); };
+  const playSeq = () => {
+    state = 'show'; centre = t('listen'); centreCol = '#5c3d00'; pos = 0; updateHud();
+    const on = noteMs(), off = Math.round(on * 0.35);
+    seq.forEach((n, k) => later(600 + k * (on + off), () => light(n, on)));
+    later(600 + seq.length * (on + off), () => { state = 'input'; centre = t('yourTurn'); centreCol = '#2b8a3e'; if (debug) botPlay(); });
+  };
+  const nextRound = () => { seq.push(Math.floor(Math.random() * 7)); playSeq(); };
+  const press = (i) => {
+    if (state === 'free') { light(i, 280); return; }
+    if (state !== 'input') return;
+    light(i, 230);
+    if (i === seq[pos]) {
+      pos += 1;
+      if (pos === seq.length) {
+        score = seq.length;
+        const g = t('good'); pop(g[score % g.length], '#2b8a3e'); sfx.round();
+        state = 'show'; centre = '✨';
+        later(850, nextRound);
+      }
+    } else if (chanceLeft > 0) {
+      chanceLeft -= 1; sfx.wrong(); pop(t('wrong'), '#c92a2a');
+      state = 'show'; centre = t('chance'); centreCol = '#c92a2a';
+      later(1300, playSeq);
+    } else {
+      sfx.wrong(); pop(t('wrong'), '#c92a2a');
+      state = 'show'; later(700, gameOver);
+    }
+  };
+  // test helper (?debug=N): plays rounds correctly up to N notes, then makes mistakes
+  const botPlay = () => {
+    const wrongNow = seq.length > debug;
+    seq.forEach((n, k) => later(250 + k * 200, () => { if (state === 'input') press(wrongNow ? (seq[pos] + 1) % 7 : seq[pos]); }));
+  };
+
+  const hideOverlays = () => ['startScreen', 'endScreen', 'pauseScreen'].forEach((id) => $(id).classList.add('hidden'));
+  const start = () => {
+    initAudio();
+    token += 1;
+    playerName = cleanName($('name').value);
+    store.set('bs-name', playerName);
+    seq = []; pos = 0; chanceLeft = 1; score = 0; pops = []; last = null; lit = -1;
+    hideOverlays(); $('stopFree').classList.add('hidden');
+    $('shareOther').textContent = t('shareOther');
+    nextRound();
+  };
+  const startFree = () => {
+    initAudio();
+    token += 1;
+    hideOverlays();
+    state = 'free'; seq = []; centre = t('freeHint'); centreCol = '#5c3d00'; updateHud();
+    $('stopFree').classList.remove('hidden');
+  };
+  const stopFree = () => {
+    token += 1;
+    state = 'idle'; centre = ''; updateHud();
+    $('stopFree').classList.add('hidden');
+    $('startScreen').classList.remove('hidden');
+  };
+  const gameOver = () => {
+    token += 1;
+    state = 'over'; centre = '';
+    sfx.end();
+    const prev = best();
+    if (score > prev) store.set('bs-best', String(score));
+    last = { score, isNew: score > prev && prev > 0, name: playerName, fact: FACT_KEYS[Math.floor(Math.random() * FACT_KEYS.length)] };
+    fillEnd(); updateHud();
+    $('endScreen').classList.remove('hidden');
+  };
+  const fillEnd = () => {
+    $('endTitle').textContent = t('endTitle')(last.name);
+    $('finalScore').textContent = String(last.score);
+    $('endNote').textContent = t('endNote')(last.score, best(), last.isNew);
+    $('endFact').textContent = `💡 ${t('facts')[last.fact]}`;
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+  };
+  const pause = () => {
+    if (state !== 'show' && state !== 'input') return;
+    token += 1;
+    state = 'idle'; centre = '';
+    $('pauseScreen').classList.remove('hidden');
+  };
+
+  // ---------- input
+  cv.addEventListener('pointerdown', (e) => {
+    if (state !== 'input' && state !== 'free') return;
+    e.preventDefault();
+    initAudio();
+    const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+    const d = Math.hypot(x - CX, y - CY);
+    if (d < R * 0.3 || d > R * 1.15) return;
+    let bi = -1, bd = 1e9;
+    for (let i = 0; i < 7; i += 1) { const p = petalAt(i), dd = Math.hypot(x - p.x, y - p.y); if (dd < bd) { bd = dd; bi = i; } }
+    if (bi >= 0) press(bi);
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.target && e.target.tagName === 'INPUT') return;
+    const n = parseInt(e.key, 10);
+    if (n >= 1 && n <= 7) { initAudio(); press(n - 1); }
+  });
+
+  // ---------- share
+  const shareText = () => {
+    const u = new URL(SITE);
+    if (playerName) u.searchParams.set('from', playerName);
+    u.searchParams.set('score', String(score));
+    u.searchParams.set('lang', lang);
+    return t('shareText')(playerName, score, u.toString());
+  };
+  $('play').addEventListener('click', start);
+  $('free').addEventListener('click', startFree);
+  $('stopFree').addEventListener('click', stopFree);
+  $('again').addEventListener('click', start);
+  $('restart').addEventListener('click', start);
+  $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => window.prompt(t('copyPrompt'), text));
+  });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
+
+  if ('ResizeObserver' in window) new ResizeObserver(resize).observe($('stage'));
+  window.addEventListener('resize', resize);
+  resize();
+  applyLang();
+  requestAnimationFrame(frame);
+  if (debug && params.has('auto')) start();
+  window.__bs = { get state() { return state; }, get score() { return score; }, get len() { return seq.length; } };
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>

@@ -445,6 +445,10 @@ const games = {
   'saanp-seedhi': { name: 'Saanp-Seedhi', desc: 'Bachpan wala board game: computer se ya ek hi phone pe 2–4 doston ke saath khelo. Har seedhi ek achhi aadat, har saanp ek buri.' },
   'parade-ki-taal': { name: 'Parade ki Taal', desc: 'Dhol ki taal pe tap karo, parade kadam se kadam milake chale: fauj, BSF oont, NCC band aur tiranga flypast.' },
   'chaand-dhundo': { name: 'Chaand Dhundo', desc: 'Doorbeen se shaam ke aasmaan mein patla sa naya chaand dhundo, chhupne se pehle — sitara, jahaz aur patang dhoka denge! 10 shaamein.' },
+  'basant-sargam': { name: 'Basant ki Sargam', desc: 'Maa Saraswati ki veena jaisi sargam: phool ki saat pankhudiyan Sa Re Ga Ma Pa Dha Ni bajati hain — dhun suno aur dohrao, har round ek swar lambi. Vasant Panchami game.' },
+  'rang-barsao': { name: 'Rang Barsao (Holi)', desc: 'Braj ki gali mein jhaankte doston pe sookha gulal udaao — pasandida rang pe double points. Jo mana kare unpe rang nahi, jaanwaron pe bilkul nahi! 60 second.' },
+  'kanche': { name: 'Kanche', desc: 'Bachpan wale kanche: apna kancha peeche kheench kar chhodo, ghere se saare kanche bahar nikaalo ya goli gucchi mein daalo. 6 level, star — koi daav nahi, sirf nishana.' },
+  'raja-mantri-chor-sipahi': { name: 'Raja Mantri Chor Sipahi', desc: 'Chitthi wala purana khel, ab ek phone par: 4 dost phone ghuma kar apni chitthi dekhein, ya computer ke saath khelo. Mantri ji, chor kaun hai?' },
   'langar-seva': { name: 'Langar Seva', desc: 'Gurpurab par langar ki seva: pangat mein baithi sangat ko prashada, dal, kheer aur jal parosiye. 60 second, bina music, Guru Nanak Dev Ji ki seekhon ke saath.' },
 };
 

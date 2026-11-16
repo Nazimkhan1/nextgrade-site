@@ -1,0 +1,29 @@
+{
+  "name": "Rang Barsao — Holi Game",
+  "short_name": "Rang Barsao",
+  "description": "Throw dry gulal at friends in a Braj lane — but never at anyone who says no, or at animals. A Holi game in 4 languages.",
+  "start_url": "/games/rang-barsao/",
+  "scope": "/games/rang-barsao/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#24103a",
+  "theme_color": "#d6336c",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

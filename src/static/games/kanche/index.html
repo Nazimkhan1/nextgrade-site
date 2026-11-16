@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kanche 🔵 — Marbles Game | NextGrade</title>
+<meta name="description" content="Kanche: the childhood marbles game, free in Hinglish, Hindi, English and Bengali. Pull back and flick your marble to knock the others out of the chalk circle, or roll it into the gucchi (hole). 6 levels, stars, real flick physics — and no betting, just play.">
+<link rel="canonical" href="https://nextgrade.in/games/kanche/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Kanche 🔵 — Marbles Game">
+<meta property="og:description" content="Bachpan wale kanche: nishana lagao, ghere se kanche bahar karo, gucchi mein goli daalo! 6 level, star aur WhatsApp challenge.">
+<meta property="og:url" content="https://nextgrade.in/games/kanche/">
+<meta property="og:image" content="https://nextgrade.in/games/kanche/icons/icon-512.png">
+<meta name="theme-color" content="#2f9e44">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Kanche","url":"https://nextgrade.in/games/kanche/","genre":"Casual","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #102a1a; --gold: #ffd43b; --ink: #f8f9fa; --muted: #c6dccd; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #2b6b3f, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #2f9e44, #1098ad); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.45); height: min(76vh, 640px, 150vw); min-height: 480px; background: #c9a77c; touch-action: none; user-select: none; -webkit-user-select: none; }
+#cv { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hud { position: absolute; top: 10px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 16px; color: #3b2a14; pointer-events: none; z-index: 3; gap: 6px; }
+.hud span { background: rgba(255,255,255,0.85); border-radius: 12px; padding: 2px 10px; white-space: nowrap; }
+.menubtn { position: absolute; right: 10px; bottom: 10px; z-index: 4; font: inherit; font-weight: 800; font-size: 14px; padding: 6px 12px; border-radius: 10px; border: 0; background: rgba(59,42,20,0.8); color: #fff; cursor: pointer; }
+
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(10, 30, 16, 0.74); padding: 16px; overflow-y: auto; z-index: 10; cursor: default; }
+.panel { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 18px; width: min(420px, 100%); text-align: center; margin: auto; color: var(--ink); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: #e3efe6; }
+.panel .fact { background: rgba(255,212,59,0.12); border: 1px solid rgba(255,212,59,0.35); border-radius: 12px; padding: 8px 10px; color: #ffe8a3; font-size: 15px; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 44px; font-weight: 800; color: var(--gold); line-height: 1.1; margin: 6px 0; }
+.levels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0 4px; }
+.levels button { font: inherit; font-weight: 800; font-size: 15px; padding: 8px 4px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.1); color: var(--ink); cursor: pointer; line-height: 1.25; }
+.levels button small { display: block; font-size: 12px; font-weight: 600; color: var(--gold); }
+.levels button:disabled { opacity: 0.45; cursor: not-allowed; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 8px 0; }
+input::placeholder { color: #b8cfbf; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #2f9e44, #099268); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+@media (max-width: 480px) { .panel { padding: 14px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .hud { font-size: 14px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🔵 NextGrade<small>Bachpan</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="cv" aria-label="Marbles ground"></canvas>
+    <div class="hud" aria-hidden="true"><span id="hudLevel">L1</span><span id="hudGoal">🔵 0/0</span><span id="hudShots">🎯 0</span></div>
+    <button class="menubtn hidden" id="menuBtn" type="button" data-i18n="levelsBtn"></button>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle"></h2>
+        <p data-i18n="controls"></p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <div class="levels" id="levels"></div>
+        <p id="starLine"></p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big" id="endStars"></div>
+        <p id="endNote"></p>
+        <p class="fact" id="endFact"></p>
+        <button class="btn btn-main" id="nextBtn" type="button" data-i18n="next"></button>
+        <button class="btn btn-ghost" id="retryBtn" type="button" data-i18n="retry"></button>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-ghost" id="toLevels" type="button" data-i18n="levelsBtn"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card2"><ol id="howList"></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="factsTitle"></h2>
+    <div class="card2"><ul id="factList"></ul></div>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/kanche/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const FACT_KEYS = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7'];
+  // Levels: 'ring' = knock every marble out of the circle; 'hole' = roll your marble into the gucchi.
+  // Marble positions are in marble-diameters from the centre of the circle.
+  const LEVELS = [
+    { mode: 'ring', shots: 4, at: [[-1.4, 0], [0, 0], [1.4, 0]] },
+    { mode: 'ring', shots: 6, at: [[0, 0], [-1.3, 0], [1.3, 0], [0, -1.3], [0, 1.3]] },
+    { mode: 'hole', shots: 3, stones: [] },
+    { mode: 'ring', shots: 9, at: [[0, 0], [1.2, 1.2], [-1.2, 1.2], [1.2, -1.2], [-1.2, -1.2], [2.4, 2.4], [-2.4, 2.4], [2.4, -2.4], [-2.4, -2.4]] },
+    { mode: 'ring', shots: 8, at: [[0, 0], [1.6, 0], [-1.6, 0], [0.8, 1.39], [-0.8, 1.39], [0.8, -1.39], [-0.8, -1.39]] },
+    { mode: 'hole', shots: 3, stones: [[0, 0.4], [-0.35, 0.1]] },
+  ];
+
+  const T = {
+    hinglish: {
+      title: 'Kanche 🔵',
+      sub: 'Bachpan wala kancha-goli! Apne kanche ko peeche kheencho aur chhodo — ghere ke andar ke kanche bahar nikaalo, ya goli ko gucchi (gaddhe) mein daalo. 6 level, kam nishaanon mein jeeto to zyada star.',
+      startTitle: 'Chalo kanche khelein 🔵',
+      controls: 'Apne bade neeli kanche ko chhookar peeche kheencho (jaise gulel) aur chhod do. Kitna kheenchoge, utni zor se jaayegi. Line par kahin aur chhoo kar kancha khiska bhi sakte ho.',
+      namePh: 'Aapka naam (optional)',
+      level: (n) => `Level ${n}`,
+      modeRing: 'Ghera',
+      modeHole: 'Gucchi',
+      levelsBtn: '☰ Level',
+      next: '▶ Agla level',
+      retry: '🔁 Phir se',
+      goalRing: (n) => `${n} kanche ghere se bahar nikaalo`,
+      goalHole: 'Apni goli gucchi mein daalo',
+      out: ['Bahar! 🎯', 'Shabash! ✨', 'Kya nishana! 🔥'],
+      inHole: 'Gucchi mein! 🕳️',
+      winTitle: (name) => `Jeet gaye${name ? `, ${name}` : ''}! 🎉`,
+      loseTitle: 'Nishaane khatam 😅',
+      winNote: (n, left) => `Level ${n} poora · ${left} nishaane bache`,
+      loseNote: (n) => `Level ${n} — ek baar aur koshish karo!`,
+      starLine: (s, max) => `Kul star: ${s}/${max} ⭐`,
+      challenge: (name, n) => `🔵 ${name} ne Kanche mein ${n} star jeete! Aap kitne jeet paoge?`,
+      shareWa: '📲 WhatsApp pe challenge bhejo',
+      shareOther: '🔗 Link share / copy karo',
+      copied: '✅ Copy ho gaya',
+      copyPrompt: 'Yeh text copy karo:',
+      shareText: (name, s, url) => `🔵 ${name ? `${name} ne` : 'Maine'} Kanche game mein ${s} star jeete! Bachpan wala kancha-goli — aap bhi nishana lagao: ${url}`,
+      howTitle: 'Kaise khelein',
+      how: ['Level chuno. Neeche chalk ki line par aapka <b>bada neela kancha</b> hai.', 'Kanche ko chhoo kar <b>peeche kheencho</b> — teer wali line dikhegi ki kidhar aur kitni zor se jaayega. Ungli chhodte hi kancha chal padega.', 'Line par kahin aur chhoo kar ya kheench kar kancha <b>daayein-baayein khiska</b> sakte ho.', '<b>Ghera:</b> saare kanche chalk ke ghere se poori tarah bahar nikaalo. <b>Gucchi:</b> apni goli dheere se gaddhe mein daalo — bahut tez jaayegi to upar se nikal jaayegi. Patthar beech mein aayein to bach ke.', 'Har level mein gine-chune nishaane hain. Jitne nishaane bachenge utne star (3 tak). Sabse pehle level 1, phir aage ke level khulte hain.'],
+      aboutTitle: 'Kanche — bachpan ka khel',
+      aboutText: 'Kanche (goli, banta, marble) gali-mohalle ka sabse purana khel hai. Zameen par chalk ya lakdi se ghera banaate, beech mein kanche rakhte, aur ungli se apna kancha chhitak kar unhe bahar nikaalte. Dusra mashhoor khel tha "gucchi" — mitti mein chhota sa gaddha, aur door se goli usme pahunchaana.',
+      aboutText2: 'Bachpan mein kai log jeete hue kanche rakh lete the — is game mein koi daav ya shart nahi hai, sirf khel aur nishana. Asli kanche khelo to dhyan rakho: chhote bachche kanche muh mein na daalein.',
+      factsTitle: 'Kanchon ke tathya',
+      facts: {
+        f1: 'Kanchon ko alag-alag jagah goli, kancha, banta, antiyan ya marble kehte hain.',
+        f2: 'Sindhu Ghati (Mohenjo-daro, Harappa) ki khudai mein patthar aur mitti ki chhoti goliyan mili hain — goli khelna hazaron saal purana ho sakta hai.',
+        f3: 'Purani "banta" soda bottle ki gardan mein ek kanch ki goli hoti hai, jo gas ke dabaav se dhakkan ka kaam karti hai. Is design ko "Codd bottle" kehte hain — 1872 mein England ke Hiram Codd ne banaya.',
+        f4: 'Physics: jab ek kancha seedha apne jaise dusre kanche se takrata hai, to pehla lagbhag ruk jaata hai aur dusra usi raftaar se aage nikal jaata hai.',
+        f5: 'Nishana lagaane wala kancha aksar baaki kanchon se thoda bada aur bhaari hota hai, taaki takkar mein zyada zor ho.',
+        f6: 'Kanchon ke andar ki rangeen lehar ("aankh") pighle hue rangeen kanch ko ghuma kar banti hai.',
+        f7: 'Kanche khelne se ungliyon ki pakad, nishana aur andaaza lagaane ki aadat achhi hoti hai.',
+      },
+      moreGames: 'Aur games khelo →',
+      privacyTitle: 'Aapka data',
+      privacyText: 'Naam aur star sirf aapke phone mein rehte hain. Share link mein sirf naam aur star jaate hain. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'कंचे 🔵',
+      sub: 'बचपन वाला कंचा-गोली! अपने कंचे को पीछे खींचो और छोड़ो — घेरे के अंदर के कंचे बाहर निकालो, या गोली को गुच्ची (गड्ढे) में डालो। 6 लेवल, कम निशानों में जीतो तो ज़्यादा स्टार।',
+      startTitle: 'चलो कंचे खेलें 🔵',
+      controls: 'अपने बड़े नीले कंचे को छूकर पीछे खींचो (जैसे गुलेल) और छोड़ दो। जितना खींचोगे, उतनी ज़ोर से जाएगा। लाइन पर कहीं और छूकर कंचा खिसका भी सकते हो।',
+      namePh: 'आपका नाम (ज़रूरी नहीं)',
+      level: (n) => `लेवल ${n}`,
+      modeRing: 'घेरा',
+      modeHole: 'गुच्ची',
+      levelsBtn: '☰ लेवल',
+      next: '▶ अगला लेवल',
+      retry: '🔁 फिर से',
+      goalRing: (n) => `${n} कंचे घेरे से बाहर निकालो`,
+      goalHole: 'अपनी गोली गुच्ची में डालो',
+      out: ['बाहर! 🎯', 'शाबाश! ✨', 'क्या निशाना! 🔥'],
+      inHole: 'गुच्ची में! 🕳️',
+      winTitle: (name) => `जीत गए${name ? `, ${name}` : ''}! 🎉`,
+      loseTitle: 'निशाने ख़त्म 😅',
+      winNote: (n, left) => `लेवल ${n} पूरा · ${left} निशाने बचे`,
+      loseNote: (n) => `लेवल ${n} — एक बार और कोशिश करो!`,
+      starLine: (s, max) => `कुल स्टार: ${s}/${max} ⭐`,
+      challenge: (name, n) => `🔵 ${name} ने कंचे में ${n} स्टार जीते! आप कितने जीत पाओगे?`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो',
+      shareOther: '🔗 लिंक शेयर / कॉपी करो',
+      copied: '✅ कॉपी हो गया',
+      copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareText: (name, s, url) => `🔵 ${name ? `${name} ने` : 'मैंने'} कंचे गेम में ${s} स्टार जीते! बचपन वाला कंचा-गोली — आप भी निशाना लगाओ: ${url}`,
+      howTitle: 'कैसे खेलें',
+      how: ['लेवल चुनो। नीचे चॉक की लाइन पर आपका <b>बड़ा नीला कंचा</b> है।', 'कंचे को छूकर <b>पीछे खींचो</b> — तीर वाली लाइन दिखेगी कि किधर और कितनी ज़ोर से जाएगा। उँगली छोड़ते ही कंचा चल पड़ेगा।', 'लाइन पर कहीं और छूकर या खींचकर कंचा <b>दाएँ-बाएँ खिसका</b> सकते हो।', '<b>घेरा:</b> सारे कंचे चॉक के घेरे से पूरी तरह बाहर निकालो। <b>गुच्ची:</b> अपनी गोली धीरे से गड्ढे में डालो — बहुत तेज़ जाएगी तो ऊपर से निकल जाएगी। बीच में पत्थर आएँ तो बचके।', 'हर लेवल में गिने-चुने निशाने हैं। जितने निशाने बचेंगे उतने स्टार (3 तक)। सबसे पहले लेवल 1, फिर आगे के लेवल खुलते हैं।'],
+      aboutTitle: 'कंचे — बचपन का खेल',
+      aboutText: 'कंचे (गोली, बंटा, मार्बल) गली-मोहल्ले का सबसे पुराना खेल है। ज़मीन पर चॉक या लकड़ी से घेरा बनाते, बीच में कंचे रखते, और उँगली से अपना कंचा छिटककर उन्हें बाहर निकालते। दूसरा मशहूर खेल था "गुच्ची" — मिट्टी में छोटा-सा गड्ढा, और दूर से गोली उसमें पहुँचाना।',
+      aboutText2: 'बचपन में कई लोग जीते हुए कंचे रख लेते थे — इस गेम में कोई दाँव या शर्त नहीं है, सिर्फ़ खेल और निशाना। असली कंचे खेलो तो ध्यान रखो: छोटे बच्चे कंचे मुँह में न डालें।',
+      factsTitle: 'कंचों के तथ्य',
+      facts: {
+        f1: 'कंचों को अलग-अलग जगह गोली, कंचा, बंटा, अंटियाँ या मार्बल कहते हैं।',
+        f2: 'सिंधु घाटी (मोहनजोदड़ो, हड़प्पा) की खुदाई में पत्थर और मिट्टी की छोटी गोलियाँ मिली हैं — गोली खेलना हज़ारों साल पुराना हो सकता है।',
+        f3: 'पुरानी "बंटा" सोडा बोतल की गर्दन में एक काँच की गोली होती है, जो गैस के दबाव से ढक्कन का काम करती है। इस डिज़ाइन को "कॉड बोतल" कहते हैं — 1872 में इंग्लैंड के हिरम कॉड ने बनाया।',
+        f4: 'भौतिकी: जब एक कंचा सीधा अपने जैसे दूसरे कंचे से टकराता है, तो पहला लगभग रुक जाता है और दूसरा उसी रफ़्तार से आगे निकल जाता है।',
+        f5: 'निशाना लगाने वाला कंचा अक्सर बाक़ी कंचों से थोड़ा बड़ा और भारी होता है, ताकि टक्कर में ज़्यादा ज़ोर हो।',
+        f6: 'कंचों के अंदर की रंगीन लहर ("आँख") पिघले हुए रंगीन काँच को घुमाकर बनती है।',
+        f7: 'कंचे खेलने से उँगलियों की पकड़, निशाना और अंदाज़ा लगाने की आदत अच्छी होती है।',
+      },
+      moreGames: 'और गेम खेलो →',
+      privacyTitle: 'आपका डेटा',
+      privacyText: 'नाम और स्टार सिर्फ़ आपके फ़ोन में रहते हैं। शेयर लिंक में सिर्फ़ नाम और स्टार जाते हैं। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Kanche (Marbles) 🔵',
+      sub: 'The childhood marbles game! Pull your marble back and let go — knock the marbles out of the chalk circle, or roll your marble into the gucchi (the little pit). 6 levels; win with fewer shots for more stars.',
+      startTitle: 'Let\'s play kanche 🔵',
+      controls: 'Touch your big blue marble, pull it back (like a slingshot) and let go. The further you pull, the harder it goes. Touch the line anywhere else to slide your marble along it.',
+      namePh: 'Your name (optional)',
+      level: (n) => `Level ${n}`,
+      modeRing: 'Circle',
+      modeHole: 'Gucchi',
+      levelsBtn: '☰ Levels',
+      next: '▶ Next level',
+      retry: '🔁 Try again',
+      goalRing: (n) => `Knock ${n} marbles out of the circle`,
+      goalHole: 'Roll your marble into the gucchi',
+      out: ['Out! 🎯', 'Well done! ✨', 'What a shot! 🔥'],
+      inHole: 'In the gucchi! 🕳️',
+      winTitle: (name) => `You won${name ? `, ${name}` : ''}! 🎉`,
+      loseTitle: 'Out of shots 😅',
+      winNote: (n, left) => `Level ${n} done · ${left} shots to spare`,
+      loseNote: (n) => `Level ${n} — give it one more go!`,
+      starLine: (s, max) => `Total stars: ${s}/${max} ⭐`,
+      challenge: (name, n) => `🔵 ${name} won ${n} stars in Kanche! How many can you win?`,
+      shareWa: '📲 Challenge on WhatsApp',
+      shareOther: '🔗 Share / copy link',
+      copied: '✅ Copied',
+      copyPrompt: 'Copy this text:',
+      shareText: (name, s, url) => `🔵 ${name || 'I'} won ${s} stars in the Kanche marbles game! The childhood classic — come and take a shot: ${url}`,
+      howTitle: 'How to play',
+      how: ['Pick a level. Your <b>big blue marble</b> sits on the chalk line at the bottom.', 'Touch it and <b>pull back</b> — an arrow shows where it will go and how hard. Let go and it rolls.', 'Touch or drag anywhere else on the line to <b>slide your marble left or right</b>.', '<b>Circle:</b> knock every marble fully out of the chalk circle. <b>Gucchi:</b> roll your marble gently into the pit — too fast and it jumps over. Watch out for stones in the way.', 'Each level gives you a few shots. The more shots left at the end, the more stars (up to 3). Level 1 first; the next levels unlock as you win.'],
+      aboutTitle: 'Kanche — a childhood game',
+      aboutText: 'Kanche (goli, banta, marbles) is one of the oldest games of India\'s lanes. Children drew a circle with chalk or a stick, placed marbles inside and flicked their own marble with a finger to knock them out. Another favourite was "gucchi" — a small pit dug in the mud, and the aim was to get your marble into it from a distance.',
+      aboutText2: 'As children, many people kept the marbles they won — this game has no bets or stakes at all, just play and aim. If you play with real marbles, keep them away from small children, who might put them in their mouths.',
+      factsTitle: 'Facts about marbles',
+      facts: {
+        f1: 'Marbles go by many names across India: goli, kancha, banta, antiyan and more.',
+        f2: 'Small balls of stone and clay have been found in the excavations of the Indus Valley (Mohenjo-daro, Harappa) — playing with marbles may be thousands of years old.',
+        f3: 'The old "banta" soda bottle has a glass marble in its neck that the gas pressure pushes up to seal it. The design is called the "Codd bottle", made by Hiram Codd of England in 1872.',
+        f4: 'Physics: when a marble hits an identical marble head-on, the first one almost stops and the second rolls on at nearly the same speed.',
+        f5: 'The shooting marble is often a little bigger and heavier than the others, so it hits harder.',
+        f6: 'The coloured swirl inside a glass marble (its "eye") is made by twisting molten coloured glass.',
+        f7: 'Playing marbles trains finger grip, aim and judging distance.',
+      },
+      moreGames: 'Play more games →',
+      privacyTitle: 'Your data',
+      privacyText: 'Your name and stars stay only on your phone. The share link carries only your name and stars. No login, no server.',
+    },
+    bn: {
+      title: 'মার্বেল 🔵',
+      sub: 'ছোটবেলার মার্বেল খেলা! নিজের গুলিটা পিছনে টেনে ছেড়ে দাও — দাগের গোলের ভেতরের মার্বেলগুলো বাইরে বার করো, বা গুলি গর্তে ফেলো। ৬টা লেভেল, কম শটে জিতলে বেশি তারা।',
+      startTitle: 'চলো মার্বেল খেলি 🔵',
+      controls: 'তোমার বড় নীল গুলিটা ছুঁয়ে পিছনে টানো (গুলতির মতো) আর ছেড়ে দাও। যত টানবে, তত জোরে যাবে। লাইনের অন্য কোথাও ছুঁয়ে গুলি সরাতেও পারো।',
+      namePh: 'তোমার নাম (ঐচ্ছিক)',
+      level: (n) => `লেভেল ${n}`,
+      modeRing: 'গোল',
+      modeHole: 'গর্ত',
+      levelsBtn: '☰ লেভেল',
+      next: '▶ পরের লেভেল',
+      retry: '🔁 আবার',
+      goalRing: (n) => `${n}টা মার্বেল গোলের বাইরে বার করো`,
+      goalHole: 'তোমার গুলি গর্তে ফেলো',
+      out: ['বাইরে! 🎯', 'শাবাশ! ✨', 'কী টিপ! 🔥'],
+      inHole: 'গর্তে! 🕳️',
+      winTitle: (name) => `জিতে গেছ${name ? `, ${name}` : ''}! 🎉`,
+      loseTitle: 'শট শেষ 😅',
+      winNote: (n, left) => `লেভেল ${n} শেষ · ${left}টা শট বাকি`,
+      loseNote: (n) => `লেভেল ${n} — আর একবার চেষ্টা করো!`,
+      starLine: (s, max) => `মোট তারা: ${s}/${max} ⭐`,
+      challenge: (name, n) => `🔵 ${name} মার্বেল খেলায় ${n}টা তারা জিতেছে! তুমি কতগুলো পাবে?`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও',
+      shareOther: '🔗 লিংক শেয়ার / কপি',
+      copied: '✅ কপি হয়েছে',
+      copyPrompt: 'এই লেখাটা কপি করো:',
+      shareText: (name, s, url) => (name ? `🔵 ${name} মার্বেল খেলায় ${s}টা তারা জিতেছে! ছোটবেলার খেলা — তুমিও টিপ করো: ${url}` : `🔵 আমি মার্বেল খেলায় ${s}টা তারা জিতেছি! ছোটবেলার খেলা — তুমিও টিপ করো: ${url}`),
+      howTitle: 'কীভাবে খেলবে',
+      how: ['লেভেল বাছো। নিচে চকের লাইনে তোমার <b>বড় নীল গুলি</b>।', 'গুলিটা ছুঁয়ে <b>পিছনে টানো</b> — তির দেখাবে কোন দিকে আর কত জোরে যাবে। আঙুল ছাড়লেই গুলি গড়াবে।', 'লাইনের অন্য কোথাও ছুঁয়ে বা টেনে গুলি <b>ডানে-বাঁয়ে সরাও</b>।', '<b>গোল:</b> সব মার্বেল চকের গোলের পুরো বাইরে বার করো। <b>গর্ত:</b> গুলি আস্তে গর্তে ফেলো — খুব জোরে গেলে গর্ত পেরিয়ে যাবে। মাঝে পাথর থাকলে সাবধান।', 'প্রতি লেভেলে গোনা কয়েকটা শট। যত শট বাঁচবে, তত তারা (৩ পর্যন্ত)। আগে লেভেল ১, জিতলে পরেরগুলো খোলে।'],
+      aboutTitle: 'মার্বেল — ছোটবেলার খেলা',
+      aboutText: 'মার্বেল (গুলি, কাঁচের গুলি) পাড়ার গলির সবচেয়ে পুরোনো খেলাগুলোর একটা। মাটিতে চক বা কাঠি দিয়ে গোল আঁকা হত, ভেতরে মার্বেল রাখা হত, আর আঙুলে নিজের গুলি ছিটকে সেগুলো বাইরে বার করা হত। আর একটা প্রিয় খেলা ছিল গর্তের খেলা — মাটিতে ছোট গর্ত, দূর থেকে গুলি তাতে ফেলা।',
+      aboutText2: 'ছোটবেলায় অনেকে জেতা মার্বেল রেখে দিত — এই খেলায় কোনো বাজি বা শর্ত নেই, শুধু খেলা আর টিপ। আসল মার্বেল খেললে খেয়াল রেখো: ছোট বাচ্চারা যেন মুখে না দেয়।',
+      factsTitle: 'মার্বেলের তথ্য',
+      facts: {
+        f1: 'ভারতের নানা জায়গায় মার্বেলকে গুলি, কাঞ্চা, বান্টা — নানা নামে ডাকা হয়।',
+        f2: 'সিন্ধু সভ্যতার (মহেঞ্জোদারো, হরপ্পা) খননে পাথর আর মাটির ছোট গুলি পাওয়া গেছে — মার্বেল খেলা হাজার হাজার বছরের পুরোনো হতে পারে।',
+        f3: 'পুরোনো "বান্টা" সোডার বোতলের গলায় একটা কাঁচের গুলি থাকে, গ্যাসের চাপে সেটা ছিপির কাজ করে। এই নকশাকে বলে "কড বোতল" — ১৮৭২ সালে ইংল্যান্ডের হাইরাম কড বানান।',
+        f4: 'পদার্থবিদ্যা: একটা মার্বেল সোজা তার মতোই আর একটাকে ধাক্কা দিলে প্রথমটা প্রায় থেমে যায়, দ্বিতীয়টা প্রায় একই গতিতে এগিয়ে যায়।',
+        f5: 'টিপ করার গুলিটা প্রায়ই বাকিগুলোর চেয়ে একটু বড় আর ভারী হয়, যাতে ধাক্কা জোরে লাগে।',
+        f6: 'কাঁচের মার্বেলের ভেতরের রঙিন ঢেউ ("চোখ") গলানো রঙিন কাঁচ পাকিয়ে তৈরি হয়।',
+        f7: 'মার্বেল খেললে আঙুলের জোর, টিপ আর দূরত্ব আন্দাজ করার অভ্যাস ভালো হয়।',
+      },
+      moreGames: 'আরও গেম খেলো →',
+      privacyTitle: 'তোমার ডেটা',
+      privacyText: 'নাম আর তারা শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর তারা। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const urlLang = params.get('lang');
+  const savedLang = store.get('kc-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(LEVELS.length * 3, parseInt(params.get('score'), 10) || 0));
+  const debug = params.has('debug') ? 1 : 0;
+  const loadStars = () => { try { const a = JSON.parse(store.get('kc-stars') || '[]'); return LEVELS.map((_, i) => Math.max(0, Math.min(3, +a[i] || 0))); } catch (e) { return LEVELS.map(() => 0); } };
+  let stars = loadStars();
+  const totalStars = () => stars.reduce((a, b) => a + b, 0);
+  const unlocked = (i) => debug || i === 0 || stars[i - 1] > 0;
+
+  // ---------- state
+  let level = 0, state = 'menu'; // menu | aim | roll | over
+  let balls = [], shooter = null, stonesAt = [], shotsLeft = 0, outCount = 0, need = 0;
+  let pops = [], last = null, playerName = '', lineX = 0, sunk = 0;
+  let aiming = false, sliding = false, pull = { x: 0, y: 0 };
+
+  // ---------- page texts
+  const renderLevels = () => {
+    $('levels').innerHTML = LEVELS.map((L, i) => `<button type="button" data-l="${i}" ${unlocked(i) ? '' : 'disabled'}>${unlocked(i) ? '' : '🔒 '}${i + 1} · ${L.mode === 'ring' ? t('modeRing') : t('modeHole')}<small>${'★'.repeat(stars[i])}${'☆'.repeat(3 - stars[i])}</small></button>`).join('');
+    $('starLine').textContent = t('starLine')(totalStars(), LEVELS.length * 3);
+  };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Marbles Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const F = t('facts');
+    $('factList').innerHTML = FACT_KEYS.map((k) => `<li>${F[k]}</li>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    renderLevels();
+    updateHud();
+    if (last) fillEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('kc-lang', lang); applyLang(); });
+  $('name').value = store.get('kc-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- sound: clicks of glass, no music
+  let muted = store.get('kc-muted') === '1';
+  let ac = null, master = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setIcons();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('kc-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.8; });
+  const initAudio = () => {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    ac = new AC();
+    master = ac.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(ac.destination);
+  };
+  const tone = (f, dur, type = 'sine', vol = 0.07, delay = 0, f2 = null) => {
+    if (!ac) return;
+    const w = ac.currentTime + delay;
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, w);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, w + dur);
+    g.gain.setValueAtTime(0.0001, w); g.gain.exponentialRampToValueAtTime(vol, w + 0.004); g.gain.exponentialRampToValueAtTime(0.0001, w + dur);
+    o.connect(g); g.connect(master); o.start(w); o.stop(w + dur + 0.03);
+  };
+  let lastClick = 0;
+  const sfx = {
+    click: (hard) => { const n = performance.now(); if (n - lastClick < 40) return; lastClick = n; tone(2600 + Math.random() * 600, 0.05, 'sine', Math.min(0.09, 0.02 + hard * 0.07)); },
+    flick: () => tone(500, 0.06, 'triangle', 0.05, 0, 900),
+    out: () => { tone(880, 0.12, 'sine', 0.05); tone(1320, 0.18, 'sine', 0.04, 0.07); },
+    hole: () => { tone(400, 0.25, 'triangle', 0.06, 0, 200); tone(1047, 0.3, 'sine', 0.05, 0.2); },
+    win: () => { [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.5, 'sine', 0.06, i * 0.13)); },
+    lose: () => tone(330, 0.4, 'triangle', 0.05, 0, 220),
+  };
+
+  // ---------- geometry
+  const cv = $('cv');
+  const ctx = cv.getContext('2d');
+  let W = 400, H = 600, dpr = 1, CX = 200, CY = 250, RC = 120, r = 9, LINE = 500;
+  const geometry = () => {
+    RC = Math.min(W * 0.36, H * 0.27);
+    CX = W / 2; CY = H * 0.4; r = RC * 0.075; LINE = H * 0.84;
+  };
+  const resize = () => {
+    const rect = $('stage').getBoundingClientRect();
+    const oldW = W, oldH = H, oldCX = CX, oldCY = CY, oldR = r;
+    dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+    W = Math.max(280, rect.width); H = Math.max(420, rect.height);
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    geometry();
+    // keep the marbles in the same place relative to the circle when the size changes
+    if (oldW && (oldW !== W || oldH !== H)) {
+      const k = r / oldR;
+      balls.concat(shooter ? [shooter] : []).forEach((b) => { b.x = CX + (b.x - oldCX) * k; b.y = CY + (b.y - oldCY) * k; b.vx *= k; b.vy *= k; b.r = b.shooter ? r * 1.3 : r; });
+      if (shooter && state === 'aim') { lineX = Math.min(W * 0.88, Math.max(W * 0.12, W / 2 + (lineX - oldW / 2) * (W / oldW))); shooter.x = lineX; shooter.y = LINE; }
+    }
+  };
+  const HOLE = () => ({ x: CX, y: CY - RC * 0.15, r: r * 1.75 });
+  const VMAX = () => RC * 4.5;
+  const DECEL = () => RC * 1.5;
+
+  const swirl = () => `hsl(${Math.floor(Math.random() * 360)}, 75%, 50%)`;
+  const loadLevel = (i) => {
+    level = i;
+    const L = LEVELS[i];
+    shotsLeft = L.shots; outCount = 0; sunk = 0; pops = []; last = null;
+    balls = (L.at || []).map(([dx, dy]) => ({ x: CX + dx * r * 2, y: CY + dy * r * 2, vx: 0, vy: 0, r, m: 1, out: 0, col: swirl() }));
+    need = balls.length;
+    stonesAt = (L.stones || []).map(([dx, dy]) => ({ dx, dy }));
+    lineX = W / 2;
+    shooter = { x: lineX, y: LINE, vx: 0, vy: 0, r: r * 1.3, m: 1.6, shooter: true, out: 0, col: '#1c7ed6' };
+    state = 'aim';
+    updateHud();
+  };
+  const stones = () => stonesAt.map((s) => ({ x: CX + s.dx * RC, y: CY + s.dy * RC, r: r * 1.6 }));
+
+  const updateHud = () => {
+    $('hudLevel').textContent = t('level')(level + 1);
+    const L = LEVELS[level];
+    $('hudGoal').textContent = L.mode === 'ring' ? `🔵 ${outCount}/${need}` : `🕳️ ${sunk ? '✔' : '—'}`;
+    $('hudShots').textContent = `🎯 ${shotsLeft}`;
+  };
+  const pop = (x, y, text, col) => { pops.push({ x, y, text, col, t0: performance.now() }); };
+
+  // ---------- physics
+  const speed = (b) => Math.hypot(b.vx, b.vy);
+  const slow = (b, dt) => {
+    const s = speed(b);
+    if (!s) return;
+    const ns = Math.max(0, s - (DECEL() + 0.4 * s) * dt);
+    if (ns < r * 0.6) { b.vx = 0; b.vy = 0; return; }
+    b.vx *= ns / s; b.vy *= ns / s;
+  };
+  const collide = (a, b) => {
+    const dx = b.x - a.x, dy = b.y - a.y, d = Math.hypot(dx, dy), min = a.r + b.r;
+    if (d >= min || d === 0) return;
+    const nx = dx / d, ny = dy / d, im = 1 / a.m + 1 / b.m, push = (min - d) / im;
+    a.x -= nx * push / a.m; a.y -= ny * push / a.m; b.x += nx * push / b.m; b.y += ny * push / b.m;
+    const rel = (a.vx - b.vx) * nx + (a.vy - b.vy) * ny;
+    if (rel <= 0) return;
+    const j = (1.92 * rel) / im;
+    a.vx -= (j / a.m) * nx; a.vy -= (j / a.m) * ny; b.vx += (j / b.m) * nx; b.vy += (j / b.m) * ny;
+    sfx.click(Math.min(1, rel / VMAX()));
+  };
+  const hitStone = (b, s) => {
+    const dx = b.x - s.x, dy = b.y - s.y, d = Math.hypot(dx, dy), min = b.r + s.r;
+    if (d >= min || d === 0) return;
+    const nx = dx / d, ny = dy / d;
+    b.x = s.x + nx * min; b.y = s.y + ny * min;
+    const vn = b.vx * nx + b.vy * ny;
+    if (vn < 0) { b.vx -= 1.6 * vn * nx; b.vy -= 1.6 * vn * ny; sfx.click(0.5); }
+  };
+  const walls = (b) => {
+    const top = 46;
+    if (b.x < b.r) { b.x = b.r; b.vx = Math.abs(b.vx) * 0.5; }
+    if (b.x > W - b.r) { b.x = W - b.r; b.vx = -Math.abs(b.vx) * 0.5; }
+    if (b.y < top + b.r) { b.y = top + b.r; b.vy = Math.abs(b.vy) * 0.5; }
+    if (b.y > H - b.r) { b.y = H - b.r; b.vy = -Math.abs(b.vy) * 0.5; }
+  };
+  // the gucchi: a slow marble over the pit drops in; a fast one is pulled a little and rolls over
+  const holeCheck = (b, dt) => {
+    const h = HOLE(), dx = h.x - b.x, dy = h.y - b.y, d = Math.hypot(dx, dy);
+    if (d > h.r) return false;
+    const s = speed(b);
+    if (s < RC * 0.9 && d < h.r * 0.8) return true;
+    const pullK = RC * 6 * (1 - d / h.r);
+    b.vx += (dx / (d || 1)) * pullK * dt; b.vy += (dy / (d || 1)) * pullK * dt;
+    return false;
+  };
+  const physics = (dt, now) => {
+    const L = LEVELS[level];
+    const all = balls.filter((b) => !b.out).concat(shooter && !shooter.out ? [shooter] : []);
+    const st = stones();
+    all.forEach((b) => { b.x += b.vx * dt; b.y += b.vy * dt; slow(b, dt); walls(b); });
+    for (let i = 0; i < all.length; i += 1) for (let j = i + 1; j < all.length; j += 1) collide(all[i], all[j]);
+    all.forEach((b) => st.forEach((s) => hitStone(b, s)));
+    if (L.mode === 'ring') {
+      balls.forEach((b) => {
+        if (b.out) return;
+        if (Math.hypot(b.x - CX, b.y - CY) > RC + b.r) {
+          b.out = now; outCount += 1;
+          const o = t('out'); pop(b.x, b.y - 18, o[outCount % o.length], '#2b8a3e'); sfx.out(); updateHud();
+        }
+      });
+    } else if (!sunk && holeCheck(shooter, dt)) {
+      sunk = now; shooter.vx = 0; shooter.vy = 0;
+      const h = HOLE(); shooter.x = h.x; shooter.y = h.y;
+      pop(h.x, h.y - 26, t('inHole'), '#2b8a3e'); sfx.hole(); updateHud();
+    }
+  };
+  const moving = () => balls.some((b) => !b.out && speed(b) > 0) || (shooter && speed(shooter) > 0);
+
+  const afterShot = () => {
+    const L = LEVELS[level];
+    const won = L.mode === 'ring' ? outCount >= need : !!sunk;
+    if (won) return finish(true);
+    if (shotsLeft <= 0) return finish(false);
+    // back to the line for the next shot
+    shooter.x = lineX; shooter.y = LINE; shooter.vx = 0; shooter.vy = 0;
+    state = 'aim';
+    if (debug) setTimeout(botShot, 250);
+  };
+  const shoot = (vx, vy) => {
+    if (state !== 'aim') return;
+    shooter.vx = vx; shooter.vy = vy;
+    shotsLeft -= 1; state = 'roll'; updateHud(); sfx.flick();
+  };
+
+  // ---------- test helper (?debug): aims straight at a marble (or rolls to the hole) and shoots
+  const rollDistance = (v0) => { const b = { vx: v0, vy: 0 }; let x = 0; const dt = 1 / 240; for (let k = 0; k < 4000 && b.vx > 0; k += 1) { x += b.vx * dt; slow(b, dt); } return x; };
+  const botShot = () => {
+    if (state !== 'aim') return;
+    const L = LEVELS[level];
+    let tx, ty, v;
+    if (L.mode === 'ring') {
+      lineX = W * (0.2 + (((L.shots - shotsLeft) * 0.37) % 0.6)); shooter.x = lineX;
+      const left = balls.filter((b) => !b.out).sort((a, b) => Math.hypot(a.x - shooter.x, a.y - shooter.y) - Math.hypot(b.x - shooter.x, b.y - shooter.y));
+      tx = left[0].x; ty = left[0].y; v = VMAX();
+    } else {
+      if (L.stones.length) { lineX = W * 0.88; shooter.x = lineX; }
+      const h = HOLE(); tx = h.x; ty = h.y;
+      const d = Math.hypot(tx - shooter.x, ty - shooter.y);
+      let lo = 0, hi = VMAX();
+      for (let k = 0; k < 30; k += 1) { const mid = (lo + hi) / 2; if (rollDistance(mid) < d) lo = mid; else hi = mid; }
+      v = lo + (hi - lo) * 0.5;
+    }
+    const d = Math.hypot(tx - shooter.x, ty - shooter.y);
+    shoot(((tx - shooter.x) / d) * v, ((ty - shooter.y) / d) * v);
+  };
+
+  // ---------- drawing
+  const drawGround = () => {
+    const g = ctx.createLinearGradient(0, 0, 0, H);
+    g.addColorStop(0, '#d9b98c'); g.addColorStop(1, '#bf9a6a');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    // little pebbles and grass tufts (fixed pattern)
+    for (let i = 0; i < 40; i += 1) {
+      const x = ((i * 97) % 100) / 100 * W, y = 50 + ((i * 61) % 100) / 100 * (H - 60);
+      ctx.fillStyle = i % 3 ? 'rgba(120,90,50,0.25)' : 'rgba(80,140,60,0.35)';
+      ctx.beginPath(); ctx.arc(x, y, i % 3 ? 2 : 3, 0, Math.PI * 2); ctx.fill();
+    }
+    const L = LEVELS[level];
+    ctx.strokeStyle = 'rgba(255,255,255,0.85)'; ctx.lineWidth = 3; ctx.setLineDash([]);
+    if (L.mode === 'ring') { ctx.beginPath(); ctx.arc(CX, CY, RC, 0, Math.PI * 2); ctx.stroke(); }
+    else {
+      const h = HOLE();
+      ctx.fillStyle = '#5c4326'; ctx.beginPath(); ctx.arc(h.x, h.y, h.r, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#3b2a14'; ctx.beginPath(); ctx.arc(h.x, h.y + 2, h.r * 0.75, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.35)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(h.x, h.y, h.r + 6, 0, Math.PI * 2); ctx.stroke();
+    }
+    // the shooting line
+    ctx.strokeStyle = 'rgba(255,255,255,0.8)'; ctx.lineWidth = 3; ctx.setLineDash([10, 8]);
+    ctx.beginPath(); ctx.moveTo(W * 0.08, LINE); ctx.lineTo(W * 0.92, LINE); ctx.stroke(); ctx.setLineDash([]);
+    stones().forEach((s) => {
+      ctx.fillStyle = '#868e96'; ctx.beginPath(); ctx.ellipse(s.x, s.y, s.r * 1.1, s.r * 0.9, 0.4, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#adb5bd'; ctx.beginPath(); ctx.ellipse(s.x - s.r * 0.3, s.y - s.r * 0.25, s.r * 0.45, s.r * 0.3, 0.4, 0, Math.PI * 2); ctx.fill();
+    });
+  };
+  const drawMarble = (b, alpha = 1) => {
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = 'rgba(0,0,0,0.22)'; ctx.beginPath(); ctx.ellipse(b.x + b.r * 0.25, b.y + b.r * 0.35, b.r, b.r * 0.8, 0, 0, Math.PI * 2); ctx.fill();
+    const g = ctx.createRadialGradient(b.x - b.r * 0.35, b.y - b.r * 0.35, b.r * 0.1, b.x, b.y, b.r);
+    g.addColorStop(0, '#ffffff'); g.addColorStop(0.35, b.shooter ? '#74c0fc' : 'rgba(230,245,255,0.95)'); g.addColorStop(1, b.shooter ? '#1864ab' : 'rgba(165,216,255,0.9)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2); ctx.fill();
+    if (!b.shooter) { ctx.strokeStyle = b.col; ctx.lineWidth = Math.max(1.5, b.r * 0.28); ctx.beginPath(); ctx.arc(b.x, b.y, b.r * 0.45, 0.3, 2.6); ctx.stroke(); }
+    ctx.fillStyle = 'rgba(255,255,255,0.9)'; ctx.beginPath(); ctx.arc(b.x - b.r * 0.38, b.y - b.r * 0.4, b.r * 0.22, 0, Math.PI * 2); ctx.fill();
+    ctx.globalAlpha = 1;
+  };
+  const drawAim = () => {
+    if (!aiming || state !== 'aim') return;
+    const p = Math.min(1, Math.hypot(pull.x, pull.y) / (RC * 1.1));
+    if (p < 0.05) return;
+    const a = Math.atan2(pull.y, pull.x), len = RC * (0.4 + p * 1.6);
+    // rubber band back to the finger
+    ctx.strokeStyle = 'rgba(92,67,38,0.7)'; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(shooter.x, shooter.y); ctx.lineTo(shooter.x - Math.cos(a) * p * RC * 1.1, shooter.y - Math.sin(a) * p * RC * 1.1); ctx.stroke();
+    // dotted arrow in the shot direction
+    ctx.strokeStyle = p > 0.8 ? '#e03131' : p > 0.45 ? '#f08c00' : '#2f9e44'; ctx.lineWidth = 3; ctx.setLineDash([6, 7]);
+    ctx.beginPath(); ctx.moveTo(shooter.x, shooter.y); ctx.lineTo(shooter.x + Math.cos(a) * len, shooter.y + Math.sin(a) * len); ctx.stroke(); ctx.setLineDash([]);
+    const ex = shooter.x + Math.cos(a) * len, ey = shooter.y + Math.sin(a) * len;
+    ctx.fillStyle = ctx.strokeStyle; ctx.beginPath(); ctx.moveTo(ex + Math.cos(a) * 10, ey + Math.sin(a) * 10); ctx.lineTo(ex + Math.cos(a + 2.5) * 10, ey + Math.sin(a + 2.5) * 10); ctx.lineTo(ex + Math.cos(a - 2.5) * 10, ey + Math.sin(a - 2.5) * 10); ctx.closePath(); ctx.fill();
+  };
+  const draw = (now) => {
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    drawGround();
+    balls.forEach((b) => { if (!b.out) drawMarble(b); else if (now - b.out < 500) drawMarble(b, 1 - (now - b.out) / 500); });
+    if (shooter) drawMarble(shooter, sunk ? Math.max(0.35, 1 - (now - sunk) / 600) : 1);
+    drawAim();
+    if (state === 'aim' && !aiming && shooter && shotsLeft === LEVELS[level].shots) {
+      ctx.fillStyle = 'rgba(59,42,20,0.85)'; ctx.font = '700 14px "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", Inter, sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(LEVELS[level].mode === 'ring' ? t('goalRing')(need) : t('goalHole'), W / 2, Math.min(H - 14, LINE + 34));
+    }
+    pops = pops.filter((p) => now - p.t0 < 900);
+    pops.forEach((p) => {
+      const a = 1 - (now - p.t0) / 900;
+      ctx.globalAlpha = a; ctx.fillStyle = p.col; ctx.font = `800 16px "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", Inter, sans-serif`; ctx.textAlign = 'center';
+      ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(255,255,255,0.95)';
+      const hw = ctx.measureText(p.text).width / 2 + 6, y = Math.max(56, p.y - (1 - a) * 24), x = Math.min(W - hw, Math.max(hw, p.x));
+      ctx.strokeText(p.text, x, y); ctx.fillText(p.text, x, y);
+      ctx.globalAlpha = 1;
+    });
+  };
+
+  let lastT = 0, settle = 0;
+  const frame = (now) => {
+    const dt = Math.min(0.033, lastT ? (now - lastT) / 1000 : 0.016);
+    lastT = now;
+    if (state === 'roll') {
+      for (let k = 0; k < 6; k += 1) physics(dt / 6, now);
+      if (!moving()) { settle += dt; if (settle > 0.25) { settle = 0; afterShot(); } } else settle = 0;
+    }
+    draw(now);
+    requestAnimationFrame(frame);
+  };
+
+  // ---------- start / end
+  const hideOverlays = () => ['startScreen', 'endScreen'].forEach((id) => $(id).classList.add('hidden'));
+  const play = (i) => {
+    initAudio();
+    playerName = cleanName($('name').value);
+    store.set('kc-name', playerName);
+    hideOverlays();
+    $('menuBtn').classList.remove('hidden');
+    $('shareOther').textContent = t('shareOther');
+    loadLevel(i);
+    if (debug) setTimeout(botShot, 300);
+  };
+  const finish = (won) => {
+    state = 'over';
+    const got = won ? (shotsLeft >= 2 ? 3 : shotsLeft === 1 ? 2 : 1) : 0;
+    if (got > stars[level]) { stars[level] = got; store.set('kc-stars', JSON.stringify(stars)); }
+    (won ? sfx.win : sfx.lose)();
+    last = { won, got, level, left: shotsLeft, name: playerName, fact: FACT_KEYS[Math.floor(Math.random() * FACT_KEYS.length)] };
+    fillEnd();
+    renderLevels();
+    setTimeout(() => $('endScreen').classList.remove('hidden'), won ? 500 : 200);
+  };
+  const fillEnd = () => {
+    $('endTitle').textContent = last.won ? t('winTitle')(last.name) : t('loseTitle');
+    $('endStars').textContent = last.won ? `${'★'.repeat(last.got)}${'☆'.repeat(3 - last.got)}` : '☆☆☆';
+    $('endNote').textContent = `${last.won ? t('winNote')(last.level + 1, last.left) : t('loseNote')(last.level + 1)} · ${t('starLine')(totalStars(), LEVELS.length * 3)}`;
+    $('endFact').textContent = `💡 ${t('facts')[last.fact]}`;
+    $('nextBtn').classList.toggle('hidden', !(last.won && last.level + 1 < LEVELS.length));
+  };
+  const toMenu = () => {
+    state = 'menu'; aiming = false;
+    hideOverlays(); renderLevels();
+    $('menuBtn').classList.add('hidden');
+    $('startScreen').classList.remove('hidden');
+  };
+
+  // ---------- input: pull back from the marble to aim; touch the line elsewhere to slide
+  const point = (e) => { const rc = cv.getBoundingClientRect(); return { x: e.clientX - rc.left, y: e.clientY - rc.top }; };
+  cv.addEventListener('pointerdown', (e) => {
+    if (state !== 'aim') return;
+    e.preventDefault();
+    initAudio();
+    const p = point(e);
+    if (Math.hypot(p.x - shooter.x, p.y - shooter.y) < Math.max(36, shooter.r * 3)) { aiming = true; pull = { x: 0, y: 0 }; }
+    else if (Math.abs(p.y - LINE) < 46) { sliding = true; lineX = Math.min(W * 0.88, Math.max(W * 0.12, p.x)); shooter.x = lineX; }
+    else return;
+    try { cv.setPointerCapture(e.pointerId); } catch (err) { /* old browsers */ }
+  });
+  cv.addEventListener('pointermove', (e) => {
+    if (state !== 'aim') return;
+    const p = point(e);
+    if (aiming) pull = { x: shooter.x - p.x, y: shooter.y - p.y };
+    else if (sliding) { lineX = Math.min(W * 0.88, Math.max(W * 0.12, p.x)); shooter.x = lineX; }
+  });
+  const release = () => {
+    if (aiming && state === 'aim') {
+      const len = Math.hypot(pull.x, pull.y), p = Math.min(1, len / (RC * 1.1));
+      if (p >= 0.05) shoot((pull.x / len) * p * VMAX(), (pull.y / len) * p * VMAX());
+    }
+    aiming = false; sliding = false;
+  };
+  cv.addEventListener('pointerup', release);
+  cv.addEventListener('pointercancel', () => { aiming = false; sliding = false; });
+
+  $('levels').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b && !b.disabled) play(+b.dataset.l); });
+  $('nextBtn').addEventListener('click', () => play(Math.min(LEVELS.length - 1, level + 1)));
+  $('retryBtn').addEventListener('click', () => play(level));
+  $('toLevels').addEventListener('click', toMenu);
+  $('menuBtn').addEventListener('click', toMenu);
+
+  // ---------- share
+  const shareText = () => {
+    const u = new URL(SITE);
+    if (playerName) u.searchParams.set('from', playerName);
+    u.searchParams.set('score', String(totalStars()));
+    u.searchParams.set('lang', lang);
+    return t('shareText')(playerName, totalStars(), u.toString());
+  };
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => window.prompt(t('copyPrompt'), text));
+  });
+
+  if ('ResizeObserver' in window) new ResizeObserver(resize).observe($('stage'));
+  window.addEventListener('resize', resize);
+  resize();
+  loadLevel(0); state = 'menu';
+  applyLang();
+  requestAnimationFrame(frame);
+  if (debug && params.has('auto')) play(Math.max(0, Math.min(LEVELS.length - 1, (parseInt(params.get('level'), 10) || 1) - 1)));
+  window.__kc = { get state() { return state; }, get level() { return level; }, get stars() { return stars.slice(); }, get last() { return last; }, get out() { return `${outCount}/${need}`; } };
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>

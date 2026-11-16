@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Raja Mantri Chor Sipahi 👑 — Chit Game | NextGrade</title>
+<meta name="description" content="Raja Mantri Chor Sipahi: the classic Indian chit game, free in Hinglish, Hindi, English and Bengali. Play with 4 friends on one phone — pass it round to see your secret chit — or against 3 computer players. The Mantri must catch the Chor! Points table, 5 or 10 rounds.">
+<link rel="canonical" href="https://nextgrade.in/games/raja-mantri-chor-sipahi/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Raja Mantri Chor Sipahi 👑 — Chit Game">
+<meta property="og:description" content="Bachpan wala chitthi ka khel, ab ek phone par! 4 dost ya computer ke saath — Mantri ji, chor kaun hai?">
+<meta property="og:url" content="https://nextgrade.in/games/raja-mantri-chor-sipahi/">
+<meta property="og:image" content="https://nextgrade.in/games/raja-mantri-chor-sipahi/icons/icon-512.png">
+<meta name="theme-color" content="#c92a2a">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Raja Mantri Chor Sipahi","url":"https://nextgrade.in/games/raja-mantri-chor-sipahi/","genre":"Party","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","numberOfPlayers":"4","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #2a0d0d; --gold: #ffd43b; --ink: #f8f9fa; --muted: #e8cfcf; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #7a1f1f, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .scr h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #c92a2a, #e8590c); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.45); min-height: 500px; background: radial-gradient(600px 400px at 50% 30%, #2b8a3e, #14532d); padding: 16px; display: flex; }
+.stage::before { content: ""; position: absolute; inset: 8px; border: 2px dashed rgba(255,255,255,0.18); border-radius: 12px; pointer-events: none; }
+.scr { position: relative; width: min(440px, 100%); margin: auto; text-align: center; }
+.scr h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 8px; font-size: 24px; line-height: 1.2; }
+.scr p { margin: 6px 0; color: #e6f2e9; }
+.say { background: rgba(0,0,0,0.25); border-radius: 12px; padding: 8px 12px; font-weight: 700; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0; }
+.seg button { font: inherit; font-weight: 800; font-size: 15px; padding: 10px 6px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08); color: var(--ink); cursor: pointer; line-height: 1.25; }
+.seg button.on { border-color: var(--gold); background: rgba(255,212,59,0.18); }
+.names { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 4px 0; }
+input::placeholder { color: #bcd4c2; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 10px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #f59f00, #e8590c); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.pick { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.pick button { font: inherit; font-weight: 800; font-size: 18px; padding: 18px 8px; border-radius: 14px; border: 0; background: #fff4e6; color: #5c2d0e; cursor: pointer; box-shadow: 0 4px 0 rgba(0,0,0,0.3); }
+.pick button span { display: block; font-size: 34px; }
+.chit { width: 200px; height: 240px; margin: 12px auto; border-radius: 16px; background: #fff9db; color: #5c2d0e; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.4); transform: rotate(-2deg); }
+.chit.folded { background: repeating-linear-gradient(45deg, #fff3bf, #fff3bf 10px, #ffec99 10px, #ffec99 20px); }
+.chit b { font-size: 70px; line-height: 1.1; font-family: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif; }
+.chit strong { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: 30px; line-height: 1.1; }
+.chit em { font-style: normal; font-weight: 700; font-size: 18px; color: #c92a2a; }
+.table { width: 100%; border-collapse: collapse; margin: 10px 0; background: rgba(0,0,0,0.22); border-radius: 12px; overflow: hidden; }
+.table td, .table th { padding: 7px 8px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.table th { font-size: 13px; color: var(--muted); font-weight: 600; }
+.table td.n { text-align: right; font-variant-numeric: tabular-nums; font-weight: 800; }
+.table tr.win td { color: var(--gold); }
+.rnd { font-size: 13px; color: var(--muted); }
+.big { font-family: "Baloo 2", sans-serif; font-size: 50px; font-weight: 800; color: var(--gold); line-height: 1; margin: 6px 0; }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+.pts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; text-align: center; }
+.pts div { background: var(--card); border-radius: 12px; padding: 8px 4px; font-weight: 700; }
+.pts div b { display: block; font-size: 28px; font-family: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+@media (max-width: 480px) { .scr h2 { font-size: 21px; } .scr p { font-size: 14px; line-height: 1.45; } .chit { width: 170px; height: 210px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">👑 NextGrade<small>Bachpan</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage" aria-live="polite">
+    <!-- setup -->
+    <div class="scr" id="setup">
+      <h2 data-i18n="setupTitle"></h2>
+      <div class="seg" id="modeSeg"><button type="button" data-m="friends" data-i18n="modeFriends"></button><button type="button" data-m="cpu" data-i18n="modeCpu"></button></div>
+      <p id="modeNote"></p>
+      <div class="names" id="names"></div>
+      <div class="seg" id="roundSeg"><button type="button" data-r="5" data-i18n="rounds5"></button><button type="button" data-r="10" data-i18n="rounds10"></button></div>
+      <button class="btn btn-main" id="startBtn" type="button" data-i18n="start"></button>
+    </div>
+
+    <!-- pass the phone / see your chit -->
+    <div class="scr hidden" id="pass">
+      <p class="rnd" id="passRound"></p>
+      <h2 id="passTitle"></h2>
+      <div class="chit folded" id="passChit"><b>📜</b></div>
+      <p id="passNote"></p>
+      <button class="btn btn-main" id="seeBtn" type="button" data-i18n="see"></button>
+    </div>
+
+    <div class="scr hidden" id="mine">
+      <p class="rnd" id="mineFor"></p>
+      <div class="chit" id="mineChit"></div>
+      <p id="mineNote"></p>
+      <button class="btn btn-main" id="hideBtn" type="button"></button>
+    </div>
+
+    <!-- Raja calls the Mantri, Mantri catches the Chor -->
+    <div class="scr hidden" id="court">
+      <p class="rnd" id="courtRound"></p>
+      <h2 id="courtRaja"></h2>
+      <p class="say" id="courtSay1"></p>
+      <h2 id="courtMantri"></h2>
+      <p class="say" id="courtSay2"></p>
+      <p id="courtAsk"></p>
+      <div class="pick" id="pickBox"></div>
+    </div>
+
+    <!-- result of the round -->
+    <div class="scr hidden" id="result">
+      <p class="rnd" id="resRound"></p>
+      <h2 id="resTitle"></h2>
+      <p id="resNote"></p>
+      <table class="table" id="resTable"></table>
+      <button class="btn btn-main" id="nextBtn" type="button"></button>
+    </div>
+
+    <!-- final -->
+    <div class="scr hidden" id="final">
+      <h2 id="finTitle"></h2>
+      <div class="big" id="finScore"></div>
+      <table class="table" id="finTable"></table>
+      <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+      <button class="btn btn-main" id="againBtn" type="button" data-i18n="again"></button>
+      <button class="btn btn-ghost" id="setupBtn" type="button" data-i18n="newPlayers"></button>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="pointsTitle"></h2>
+    <div class="pts" id="ptsBox"></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card2"><ol id="howList"></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="factsTitle"></h2>
+    <div class="card2"><ul id="factList"></ul></div>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/raja-mantri-chor-sipahi/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const RAJA = 0, MANTRI = 1, SIPAHI = 2, CHOR = 3;
+  const EMO = ['👑', '📜', '🛡️', '🦹'];
+  const PTS = [1000, 800, 500, 0];
+  const FACT_KEYS = ['f1', 'f2', 'f3', 'f4', 'f5'];
+
+  const T = {
+    hinglish: {
+      title: 'Raja Mantri Chor Sipahi 👑',
+      sub: 'Bachpan wala chitthi ka khel, ab ek phone par! Chaar parchiyan — Raja, Mantri, Sipahi aur Chor. Mantri ko chehre dekh kar Chor pakadna hai. 4 dost ek phone ghuma kar khelo, ya computer ke 3 khiladiyon ke saath.',
+      roles: ['Raja', 'Mantri', 'Sipahi', 'Chor'],
+      cpuNames: ['Bablu', 'Pinky', 'Golu'],
+      setupTitle: 'Kaun-kaun khel raha hai?',
+      modeFriends: '👥 4 dost, ek phone',
+      modeCpu: '🤖 Computer ke saath',
+      noteFriends: 'Phone ghumate raho: har khiladi chupke se apni chitthi dekhega.',
+      noteCpu: 'Aap aur computer ke 3 khiladi. Apna naam likho.',
+      playerPh: (i) => `Khiladi ${i}`,
+      youPh: 'Aapka naam',
+      rounds5: '5 round',
+      rounds10: '10 round',
+      start: '▶ Chitthi daalo',
+      round: (n, of) => `Round ${n} / ${of}`,
+      passTo: (name) => `📱 Phone ${name} ko do`,
+      passNote: 'Baaki log aankh band karo! 🙈',
+      yourChit: 'Aapki chitthi',
+      see: '👀 Meri chitthi dekho',
+      mineFor: (name) => `${name}, sirf aap dekho:`,
+      mineNote: ['Raja ho! Sabse zyada points aapke. Jab bole to sabko batana: "Main Raja hoon!"', 'Mantri ho! Raja ke bulane par batana. Phir aapko Chor pakadna hai.', 'Sipahi ho! Chup-chaap raho, Mantri sahi pakde to points pakke.', 'Chor ho! 🤫 Chehra seedha rakho — Mantri ne galat pakda to uske points aapke.'],
+      hideNext: (name) => `🙈 Chhupao — phone ${name} ko do`,
+      hideDone: '🙈 Chhupao — darbar lagao',
+      hideCpu: '👑 Darbar lagao',
+      rajaIs: (name) => `👑 Raja: ${name}`,
+      rajaSays: '"Mera Mantri kaun hai?"',
+      mantriIs: (name) => `📜 Mantri: ${name}`,
+      mantriSays: '"Hazir hoon, Maharaj!"',
+      ask: (name) => `Raja ka hukm: "${name}, Chor ka pata lagao!" — in dono mein Chor kaun hai?`,
+      askYou: 'Aap Mantri ho! In dono ke chehre dekho — Chor kaun hai?',
+      cpuThinking: (name) => `${name} soch rahe hain… 🤔`,
+      caught: (name) => `Sahi pakda! 🎉 ${name} hi Chor tha`,
+      escaped: (name) => `Galat! 🏃 Chor ${name} bach gaya`,
+      noteCaught: 'Mantri ko 800, Sipahi ko 500, Raja ko 1000, Chor ko 0.',
+      noteEscaped: 'Mantri ke 800 points Chor ko mil gaye — Mantri ko 0.',
+      thisRound: 'Is round',
+      total: 'Kul',
+      next: '▶ Agla round',
+      seeResult: '🏆 Natija dekho',
+      winner: (name) => `🏆 ${name} jeete!`,
+      draw: '🤝 Barabar!',
+      again: '🔁 Phir se khelo',
+      newPlayers: '👥 Naye khiladi',
+      challenge: (name, n) => `👑 ${name} ne Raja Mantri Chor Sipahi mein ${n} points banaye! Aapke dost kitne banayenge?`,
+      shareWa: '📲 WhatsApp pe natija bhejo',
+      shareOther: '🔗 Link share / copy karo',
+      copied: '✅ Copy ho gaya',
+      copyPrompt: 'Yeh text copy karo:',
+      shareText: (name, n, url) => `👑 Raja Mantri Chor Sipahi mein ${name} ne ${n} points ke saath baazi maari! Bachpan wala chitthi ka khel, ab phone par — aap bhi khelo: ${url}`,
+      pointsTitle: 'Chitthi ke points',
+      howTitle: 'Kaise khelein',
+      how: ['<b>4 dost, ek phone</b> chuno aur chaaron ke naam likho — ya <b>computer ke saath</b> akele khelo. 5 ya 10 round chuno.', 'Har round mein chaar chitthiyan bat-ti hain. Phone jis ke haath mein ho, <b>sirf wahi apni chitthi dekhe</b> — baaki aankh band karein. Dekh kar chhupao aur aage do.', 'Darbar lagta hai: <b>Raja</b> apna naam batata hai aur poochta hai "Mera Mantri kaun?" — <b>Mantri</b> saamne aata hai.', 'Raja hukm deta hai: "Chor ka pata lagao!" Baaki do mein se ek Sipahi hai aur ek Chor. <b>Mantri chehre dekh kar Chor chunta hai</b> (phone par us naam ko dabao).', 'Sahi pakda to sabko apne points; galat pakda to <b>Mantri ke 800 points Chor ko</b> mil jaate hain. Saare round ke baad sabse zyada points wala jeeta!'],
+      aboutTitle: 'Raja Mantri Chor Sipahi ka khel',
+      aboutText: 'Raja-Mantri-Chor-Sipahi Bharat ke gharon ka purana chitthi wala khel hai — garmi ki chhuttiyon, train ke safar ya bijli jaane par chaar log baith jaate, kaagaz ki chaar parchiyon par Raja 1000, Mantri 800, Sipahi 500 aur Chor 0 likhte, mod kar uchhaalte aur sab ek-ek utha lete. Phir shuru hota asli maza: Mantri ka sabke chehre padhna aur Chor ka bhola banna.',
+      aboutText2: 'Ghar-ghar mein niyam thode alag hote hain — kahin Mantri galat ho to uske aur Chor ke points badal jaate hain (yahi niyam is game mein hai), kahin Sipahi Chor pakadta hai, kahin points alag hote hain. Points sirf khel ke hain; inka paise ya shart se koi lena-dena nahi.',
+      factsTitle: 'Mantri ke liye tips',
+      facts: {
+        f1: 'Chitthi dekhte waqt sabke chehre dekho — Chor aksar ya to zyada muskurata hai ya nazar churata hai.',
+        f2: 'Sipahi ko darr nahi hota, isliye woh aksar aaram se baitha rehta hai.',
+        f3: 'Aap Chor ho to Sipahi jaisa bartaav karo — befikr aur thoda bore!',
+        f4: 'Ek hi khiladi baar-baar Chor nikle to chitthiyan theek se mila lo — is game mein har round chitthiyan nayi milti hain.',
+        f5: 'Haar-jeet mazaak hai — 10 round ka khel lagbhag 10–15 minute chalta hai, chai ke saath perfect.',
+      },
+      moreGames: 'Aur games khelo →',
+      privacyTitle: 'Aapka data',
+      privacyText: 'Khiladiyon ke naam sirf aapke phone mein rehte hain. Share link mein sirf jeetne wale ka naam aur points jaate hain. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'राजा मंत्री चोर सिपाही 👑',
+      sub: 'बचपन वाला चिट्ठी का खेल, अब एक फ़ोन पर! चार पर्चियाँ — राजा, मंत्री, सिपाही और चोर। मंत्री को चेहरे देखकर चोर पकड़ना है। 4 दोस्त एक फ़ोन घुमाकर खेलो, या कंप्यूटर के 3 खिलाड़ियों के साथ।',
+      roles: ['राजा', 'मंत्री', 'सिपाही', 'चोर'],
+      cpuNames: ['बबलू', 'पिंकी', 'गोलू'],
+      setupTitle: 'कौन-कौन खेल रहा है?',
+      modeFriends: '👥 4 दोस्त, एक फ़ोन',
+      modeCpu: '🤖 कंप्यूटर के साथ',
+      noteFriends: 'फ़ोन घुमाते रहो: हर खिलाड़ी चुपके से अपनी चिट्ठी देखेगा।',
+      noteCpu: 'आप और कंप्यूटर के 3 खिलाड़ी। अपना नाम लिखो।',
+      playerPh: (i) => `खिलाड़ी ${i}`,
+      youPh: 'आपका नाम',
+      rounds5: '5 राउंड',
+      rounds10: '10 राउंड',
+      start: '▶ चिट्ठी डालो',
+      round: (n, of) => `राउंड ${n} / ${of}`,
+      passTo: (name) => `📱 फ़ोन ${name} को दो`,
+      passNote: 'बाक़ी लोग आँख बंद करो! 🙈',
+      yourChit: 'आपकी चिट्ठी',
+      see: '👀 मेरी चिट्ठी देखो',
+      mineFor: (name) => `${name}, सिर्फ़ आप देखो:`,
+      mineNote: ['राजा हो! सबसे ज़्यादा पॉइंट आपके। जब बोलें तो सबको बताना: "मैं राजा हूँ!"', 'मंत्री हो! राजा के बुलाने पर बताना। फिर आपको चोर पकड़ना है।', 'सिपाही हो! चुपचाप रहो, मंत्री सही पकड़े तो पॉइंट पक्के।', 'चोर हो! 🤫 चेहरा सीधा रखो — मंत्री ने ग़लत पकड़ा तो उसके पॉइंट आपके।'],
+      hideNext: (name) => `🙈 छुपाओ — फ़ोन ${name} को दो`,
+      hideDone: '🙈 छुपाओ — दरबार लगाओ',
+      hideCpu: '👑 दरबार लगाओ',
+      rajaIs: (name) => `👑 राजा: ${name}`,
+      rajaSays: '"मेरा मंत्री कौन है?"',
+      mantriIs: (name) => `📜 मंत्री: ${name}`,
+      mantriSays: '"हाज़िर हूँ, महाराज!"',
+      ask: (name) => `राजा का हुक्म: "${name}, चोर का पता लगाओ!" — इन दोनों में चोर कौन है?`,
+      askYou: 'आप मंत्री हो! इन दोनों के चेहरे देखो — चोर कौन है?',
+      cpuThinking: (name) => `${name} सोच रहे हैं… 🤔`,
+      caught: (name) => `सही पकड़ा! 🎉 ${name} ही चोर था`,
+      escaped: (name) => `ग़लत! 🏃 चोर ${name} बच गया`,
+      noteCaught: 'मंत्री को 800, सिपाही को 500, राजा को 1000, चोर को 0।',
+      noteEscaped: 'मंत्री के 800 पॉइंट चोर को मिल गए — मंत्री को 0।',
+      thisRound: 'इस राउंड',
+      total: 'कुल',
+      next: '▶ अगला राउंड',
+      seeResult: '🏆 नतीजा देखो',
+      winner: (name) => `🏆 ${name} जीते!`,
+      draw: '🤝 बराबर!',
+      again: '🔁 फिर से खेलो',
+      newPlayers: '👥 नए खिलाड़ी',
+      challenge: (name, n) => `👑 ${name} ने राजा मंत्री चोर सिपाही में ${n} पॉइंट बनाए! आपके दोस्त कितने बनाएँगे?`,
+      shareWa: '📲 WhatsApp पर नतीजा भेजो',
+      shareOther: '🔗 लिंक शेयर / कॉपी करो',
+      copied: '✅ कॉपी हो गया',
+      copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareText: (name, n, url) => `👑 राजा मंत्री चोर सिपाही में ${name} ने ${n} पॉइंट के साथ बाज़ी मारी! बचपन वाला चिट्ठी का खेल, अब फ़ोन पर — आप भी खेलो: ${url}`,
+      pointsTitle: 'चिट्ठी के पॉइंट',
+      howTitle: 'कैसे खेलें',
+      how: ['<b>4 दोस्त, एक फ़ोन</b> चुनो और चारों के नाम लिखो — या <b>कंप्यूटर के साथ</b> अकेले खेलो। 5 या 10 राउंड चुनो।', 'हर राउंड में चार चिट्ठियाँ बँटती हैं। फ़ोन जिसके हाथ में हो, <b>सिर्फ़ वही अपनी चिट्ठी देखे</b> — बाक़ी आँख बंद करें। देखकर छुपाओ और आगे दो।', 'दरबार लगता है: <b>राजा</b> अपना नाम बताता है और पूछता है "मेरा मंत्री कौन?" — <b>मंत्री</b> सामने आता है।', 'राजा हुक्म देता है: "चोर का पता लगाओ!" बाक़ी दो में से एक सिपाही है और एक चोर। <b>मंत्री चेहरे देखकर चोर चुनता है</b> (फ़ोन पर उस नाम को दबाओ)।', 'सही पकड़ा तो सबको अपने पॉइंट; ग़लत पकड़ा तो <b>मंत्री के 800 पॉइंट चोर को</b> मिल जाते हैं। सारे राउंड के बाद सबसे ज़्यादा पॉइंट वाला जीता!'],
+      aboutTitle: 'राजा मंत्री चोर सिपाही का खेल',
+      aboutText: 'राजा-मंत्री-चोर-सिपाही भारत के घरों का पुराना चिट्ठी वाला खेल है — गर्मी की छुट्टियों, ट्रेन के सफ़र या बिजली जाने पर चार लोग बैठ जाते, काग़ज़ की चार पर्चियों पर राजा 1000, मंत्री 800, सिपाही 500 और चोर 0 लिखते, मोड़कर उछालते और सब एक-एक उठा लेते। फिर शुरू होता असली मज़ा: मंत्री का सबके चेहरे पढ़ना और चोर का भोला बनना।',
+      aboutText2: 'घर-घर में नियम थोड़े अलग होते हैं — कहीं मंत्री ग़लत हो तो उसके और चोर के पॉइंट बदल जाते हैं (यही नियम इस गेम में है), कहीं सिपाही चोर पकड़ता है, कहीं पॉइंट अलग होते हैं। पॉइंट सिर्फ़ खेल के हैं; इनका पैसे या शर्त से कोई लेना-देना नहीं।',
+      factsTitle: 'मंत्री के लिए टिप्स',
+      facts: {
+        f1: 'चिट्ठी देखते वक़्त सबके चेहरे देखो — चोर अक्सर या तो ज़्यादा मुस्कुराता है या नज़र चुराता है।',
+        f2: 'सिपाही को डर नहीं होता, इसलिए वह अक्सर आराम से बैठा रहता है।',
+        f3: 'आप चोर हो तो सिपाही जैसा बर्ताव करो — बेफ़िक्र और थोड़ा बोर!',
+        f4: 'एक ही खिलाड़ी बार-बार चोर निकले तो चिट्ठियाँ ठीक से मिला लो — इस गेम में हर राउंड चिट्ठियाँ नई मिलती हैं।',
+        f5: 'हार-जीत मज़ाक़ है — 10 राउंड का खेल लगभग 10–15 मिनट चलता है, चाय के साथ परफ़ेक्ट।',
+      },
+      moreGames: 'और गेम खेलो →',
+      privacyTitle: 'आपका डेटा',
+      privacyText: 'खिलाड़ियों के नाम सिर्फ़ आपके फ़ोन में रहते हैं। शेयर लिंक में सिर्फ़ जीतने वाले का नाम और पॉइंट जाते हैं। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Raja Mantri Chor Sipahi 👑',
+      sub: 'The childhood chit game, now on one phone! Four chits — King, Minister, Soldier and Thief. The Mantri must read faces and catch the Chor. Play with 4 friends passing one phone, or with 3 computer players.',
+      roles: ['Raja (King)', 'Mantri (Minister)', 'Sipahi (Soldier)', 'Chor (Thief)'],
+      cpuNames: ['Bablu', 'Pinky', 'Golu'],
+      setupTitle: 'Who is playing?',
+      modeFriends: '👥 4 friends, one phone',
+      modeCpu: '🤖 With the computer',
+      noteFriends: 'Pass the phone round: each player secretly looks at their own chit.',
+      noteCpu: 'You and 3 computer players. Type your name.',
+      playerPh: (i) => `Player ${i}`,
+      youPh: 'Your name',
+      rounds5: '5 rounds',
+      rounds10: '10 rounds',
+      start: '▶ Deal the chits',
+      round: (n, of) => `Round ${n} / ${of}`,
+      passTo: (name) => `📱 Give the phone to ${name}`,
+      passNote: 'Everyone else, close your eyes! 🙈',
+      yourChit: 'Your chit',
+      see: '👀 Show my chit',
+      mineFor: (name) => `${name}, only you look:`,
+      mineNote: ['You are the Raja! The most points are yours. When it is time, tell everyone: "I am the Raja!"', 'You are the Mantri! Speak up when the Raja calls. Then you must catch the Chor.', 'You are the Sipahi! Keep quiet — if the Mantri guesses right, your points are safe.', 'You are the Chor! 🤫 Keep a straight face — if the Mantri guesses wrong, their points are yours.'],
+      hideNext: (name) => `🙈 Hide it — give the phone to ${name}`,
+      hideDone: '🙈 Hide it — call the court',
+      hideCpu: '👑 Call the court',
+      rajaIs: (name) => `👑 Raja: ${name}`,
+      rajaSays: '"Who is my Mantri?"',
+      mantriIs: (name) => `📜 Mantri: ${name}`,
+      mantriSays: '"At your service, Maharaj!"',
+      ask: (name) => `The Raja orders: "${name}, find the Chor!" — which of these two is the Chor?`,
+      askYou: 'You are the Mantri! Look at their faces — who is the Chor?',
+      cpuThinking: (name) => `${name} is thinking… 🤔`,
+      caught: (name) => `Caught! 🎉 ${name} was the Chor`,
+      escaped: (name) => `Wrong! 🏃 Chor ${name} got away`,
+      noteCaught: 'Mantri 800, Sipahi 500, Raja 1000, Chor 0.',
+      noteEscaped: 'The Mantri\'s 800 points go to the Chor — the Mantri gets 0.',
+      thisRound: 'This round',
+      total: 'Total',
+      next: '▶ Next round',
+      seeResult: '🏆 See the result',
+      winner: (name) => `🏆 ${name} wins!`,
+      draw: '🤝 It\'s a tie!',
+      again: '🔁 Play again',
+      newPlayers: '👥 New players',
+      challenge: (name, n) => `👑 ${name} scored ${n} points in Raja Mantri Chor Sipahi! How many will your friends score?`,
+      shareWa: '📲 Send the result on WhatsApp',
+      shareOther: '🔗 Share / copy link',
+      copied: '✅ Copied',
+      copyPrompt: 'Copy this text:',
+      shareText: (name, n, url) => `👑 ${name} won Raja Mantri Chor Sipahi with ${n} points! The childhood chit game, now on a phone — play it too: ${url}`,
+      pointsTitle: 'Points on the chits',
+      howTitle: 'How to play',
+      how: ['Choose <b>4 friends, one phone</b> and type all four names — or play alone <b>with the computer</b>. Pick 5 or 10 rounds.', 'Each round four chits are dealt. Whoever holds the phone <b>looks only at their own chit</b> — the others close their eyes. Then hide it and pass the phone on.', 'The court meets: the <b>Raja</b> reveals himself and asks "Who is my Mantri?" — the <b>Mantri</b> steps forward.', 'The Raja orders: "Find the Chor!" Of the other two, one is the Sipahi and one is the Chor. <b>The Mantri reads their faces and picks the Chor</b> (tap that name on the phone).', 'A right guess and everyone keeps their points; a wrong guess and <b>the Mantri\'s 800 points go to the Chor</b>. After all rounds, the highest total wins!'],
+      aboutTitle: 'The game of Raja Mantri Chor Sipahi',
+      aboutText: 'Raja-Mantri-Chor-Sipahi is an old chit game played in Indian homes — on summer holidays, long train journeys or when the power went out. Four people would write Raja 1000, Mantri 800, Sipahi 500 and Chor 0 on four slips of paper, fold them, toss them and each pick one. Then came the real fun: the Mantri reading everyone\'s face and the Chor trying to look innocent.',
+      aboutText2: 'Every home has slightly different rules — in some, a wrong guess swaps the Mantri\'s and the Chor\'s points (the rule used here); in others the Sipahi catches the Chor, or the points differ. The points are only for the game; they have nothing to do with money or bets.',
+      factsTitle: 'Tips for the Mantri',
+      facts: {
+        f1: 'Watch everyone\'s face while they look at their chit — the Chor often smiles too much or avoids your eyes.',
+        f2: 'The Sipahi has nothing to fear, so they usually sit back relaxed.',
+        f3: 'If you are the Chor, act like the Sipahi — relaxed and a little bored!',
+        f4: 'In real life, mix the chits well; in this game they are shuffled fresh every round.',
+        f5: 'Winning and losing is just for fun — a 10-round game takes about 10–15 minutes, perfect with tea.',
+      },
+      moreGames: 'Play more games →',
+      privacyTitle: 'Your data',
+      privacyText: 'Player names stay only on your phone. The share link carries only the winner\'s name and points. No login, no server.',
+    },
+    bn: {
+      title: 'রাজা মন্ত্রী চোর সিপাই 👑',
+      sub: 'ছোটবেলার চিরকুটের খেলা, এবার এক ফোনে! চারটে চিরকুট — রাজা, মন্ত্রী, সিপাই আর চোর। মন্ত্রীকে মুখ দেখে চোর ধরতে হবে। ৪ বন্ধু এক ফোন ঘুরিয়ে খেলো, বা কম্পিউটারের ৩ জনের সঙ্গে।',
+      roles: ['রাজা', 'মন্ত্রী', 'সিপাই', 'চোর'],
+      cpuNames: ['বাবলু', 'পিঙ্কি', 'গোলু'],
+      setupTitle: 'কে কে খেলছে?',
+      modeFriends: '👥 ৪ বন্ধু, এক ফোন',
+      modeCpu: '🤖 কম্পিউটারের সঙ্গে',
+      noteFriends: 'ফোন ঘোরাতে থাকো: প্রত্যেকে চুপিচুপি নিজের চিরকুট দেখবে।',
+      noteCpu: 'তুমি আর কম্পিউটারের ৩ জন। তোমার নাম লেখো।',
+      playerPh: (i) => `খেলোয়াড় ${i}`,
+      youPh: 'তোমার নাম',
+      rounds5: '৫ রাউন্ড',
+      rounds10: '১০ রাউন্ড',
+      start: '▶ চিরকুট বাঁটো',
+      round: (n, of) => `রাউন্ড ${n} / ${of}`,
+      passTo: (name) => `📱 ফোনটা ${name}-কে দাও`,
+      passNote: 'বাকিরা চোখ বন্ধ করো! 🙈',
+      yourChit: 'তোমার চিরকুট',
+      see: '👀 আমার চিরকুট দেখাও',
+      mineFor: (name) => `${name}, শুধু তুমি দেখো:`,
+      mineNote: ['তুমি রাজা! সবচেয়ে বেশি পয়েন্ট তোমার। সময় হলে সবাইকে বলবে: "আমি রাজা!"', 'তুমি মন্ত্রী! রাজা ডাকলে সাড়া দেবে। তারপর চোর ধরতে হবে।', 'তুমি সিপাই! চুপ করে থাকো — মন্ত্রী ঠিক ধরলে পয়েন্ট পাকা।', 'তুমি চোর! 🤫 মুখ সোজা রাখো — মন্ত্রী ভুল ধরলে তার পয়েন্ট তোমার।'],
+      hideNext: (name) => `🙈 লুকোও — ফোন ${name}-কে দাও`,
+      hideDone: '🙈 লুকোও — দরবার বসাও',
+      hideCpu: '👑 দরবার বসাও',
+      rajaIs: (name) => `👑 রাজা: ${name}`,
+      rajaSays: '"আমার মন্ত্রী কে?"',
+      mantriIs: (name) => `📜 মন্ত্রী: ${name}`,
+      mantriSays: '"হাজির, মহারাজ!"',
+      ask: (name) => `রাজার হুকুম: "${name}, চোর খুঁজে বার করো!" — এই দুজনের মধ্যে চোর কে?`,
+      askYou: 'তুমি মন্ত্রী! এই দুজনের মুখ দেখো — চোর কে?',
+      cpuThinking: (name) => `${name} ভাবছে… 🤔`,
+      caught: (name) => `ধরা পড়েছে! 🎉 ${name}-ই চোর`,
+      escaped: (name) => `ভুল! 🏃 চোর ${name} পালিয়ে গেল`,
+      noteCaught: 'মন্ত্রী ৮০০, সিপাই ৫০০, রাজা ১০০০, চোর ০।',
+      noteEscaped: 'মন্ত্রীর ৮০০ পয়েন্ট চোর পেল — মন্ত্রী ০।',
+      thisRound: 'এই রাউন্ড',
+      total: 'মোট',
+      next: '▶ পরের রাউন্ড',
+      seeResult: '🏆 ফল দেখো',
+      winner: (name) => `🏆 ${name} জিতেছে!`,
+      draw: '🤝 সমান সমান!',
+      again: '🔁 আবার খেলো',
+      newPlayers: '👥 নতুন খেলোয়াড়',
+      challenge: (name, n) => `👑 ${name} রাজা মন্ত্রী চোর সিপাইয়ে ${n} পয়েন্ট পেয়েছে! তোমার বন্ধুরা কত পাবে?`,
+      shareWa: '📲 WhatsApp-এ ফল পাঠাও',
+      shareOther: '🔗 লিংক শেয়ার / কপি',
+      copied: '✅ কপি হয়েছে',
+      copyPrompt: 'এই লেখাটা কপি করো:',
+      shareText: (name, n, url) => `👑 রাজা মন্ত্রী চোর সিপাইয়ে ${name} ${n} পয়েন্ট নিয়ে জিতেছে! ছোটবেলার চিরকুটের খেলা, এবার ফোনে — তুমিও খেলো: ${url}`,
+      pointsTitle: 'চিরকুটের পয়েন্ট',
+      howTitle: 'কীভাবে খেলবে',
+      how: ['<b>৪ বন্ধু, এক ফোন</b> বাছো আর চারজনের নাম লেখো — বা <b>কম্পিউটারের সঙ্গে</b> একা খেলো। ৫ বা ১০ রাউন্ড বাছো।', 'প্রতি রাউন্ডে চারটে চিরকুট বাঁটা হয়। ফোন যার হাতে, <b>শুধু সে নিজের চিরকুট দেখবে</b> — বাকিরা চোখ বন্ধ। দেখে লুকিয়ে ফোন এগিয়ে দাও।', 'দরবার বসে: <b>রাজা</b> নিজের নাম বলে আর জিজ্ঞেস করে "আমার মন্ত্রী কে?" — <b>মন্ত্রী</b> সামনে আসে।', 'রাজা হুকুম দেয়: "চোর খুঁজে বার করো!" বাকি দুজনের একজন সিপাই, একজন চোর। <b>মন্ত্রী মুখ দেখে চোর বাছে</b> (ফোনে সেই নাম টিপো)।', 'ঠিক ধরলে সবাই নিজের পয়েন্ট পায়; ভুল ধরলে <b>মন্ত্রীর ৮০০ পয়েন্ট চোর পায়</b>। সব রাউন্ড শেষে যার পয়েন্ট সবচেয়ে বেশি, সে জেতে!'],
+      aboutTitle: 'রাজা মন্ত্রী চোর সিপাই খেলা',
+      aboutText: 'রাজা-মন্ত্রী-চোর-সিপাই ভারতের ঘরে ঘরে খেলা পুরোনো চিরকুটের খেলা — গরমের ছুটিতে, লম্বা ট্রেনযাত্রায় বা লোডশেডিংয়ে চারজন বসে যেত, চারটে কাগজে রাজা ১০০০, মন্ত্রী ৮০০, সিপাই ৫০০ আর চোর ০ লিখে ভাঁজ করে ছুঁড়ত, আর সবাই একটা করে তুলত। তারপর আসল মজা: মন্ত্রীর সবার মুখ পড়া আর চোরের ভালোমানুষ সাজা।',
+      aboutText2: 'বাড়ি বাড়ি নিয়ম একটু আলাদা — কোথাও মন্ত্রী ভুল করলে তার আর চোরের পয়েন্ট বদলে যায় (এই খেলায় এই নিয়ম), কোথাও সিপাই চোর ধরে, কোথাও পয়েন্ট আলাদা। পয়েন্ট শুধু খেলার জন্য; টাকা বা বাজির সঙ্গে কোনো সম্পর্ক নেই।',
+      factsTitle: 'মন্ত্রীর জন্য টিপস',
+      facts: {
+        f1: 'চিরকুট দেখার সময় সবার মুখ দেখো — চোর প্রায়ই বেশি হাসে বা চোখ সরিয়ে নেয়।',
+        f2: 'সিপাইয়ের ভয় নেই, তাই সে সাধারণত আরাম করে বসে থাকে।',
+        f3: 'তুমি চোর হলে সিপাইয়ের মতো থাকো — নিশ্চিন্ত আর একটু বিরক্ত!',
+        f4: 'আসল খেলায় চিরকুট ভালো করে মেশাও; এই খেলায় প্রতি রাউন্ডে নতুন করে মেশানো হয়।',
+        f5: 'হার-জিত শুধু মজা — ১০ রাউন্ডের খেলা মোটামুটি ১০–১৫ মিনিট, চায়ের সঙ্গে দারুণ।',
+      },
+      moreGames: 'আরও গেম খেলো →',
+      privacyTitle: 'তোমার ডেটা',
+      privacyText: 'খেলোয়াড়দের নাম শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু বিজয়ীর নাম আর পয়েন্ট। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const urlLang = params.get('lang');
+  const savedLang = store.get('rm-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 20);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(99999, parseInt(params.get('score'), 10) || 0));
+  const debug = params.has('debug') ? 1 : 0;
+  const fmt = (n) => n.toLocaleString(lang === 'bn' ? 'bn-IN' : lang === 'hi' ? 'hi-IN' : 'en-IN');
+
+  // ---------- state
+  let mode = store.get('rm-mode') === 'cpu' ? 'cpu' : 'friends';
+  let rounds = store.get('rm-rounds') === '10' ? 10 : 5;
+  let savedNames = (() => { try { const a = JSON.parse(store.get('rm-names') || '[]'); return Array.isArray(a) ? a.map(cleanName) : []; } catch (e) { return []; } })();
+  let players = [], round = 0, roles = [], totals = [], roundPts = [], seeIdx = 0, guess = -1, screen = 'setup', last = null;
+
+  const show = (id) => { screen = id; ['setup', 'pass', 'mine', 'court', 'result', 'final'].forEach((s) => $(s).classList.toggle('hidden', s !== id)); };
+  const nameOf = (i) => players[i].name;
+  const isCpu = (i) => players[i].cpu;
+  const human = () => players.findIndex((p) => !p.cpu);
+
+  // ---------- page texts
+  const renderSetup = () => {
+    document.querySelectorAll('#modeSeg button').forEach((b) => b.classList.toggle('on', b.dataset.m === mode));
+    document.querySelectorAll('#roundSeg button').forEach((b) => b.classList.toggle('on', +b.dataset.r === rounds));
+    $('modeNote').textContent = mode === 'cpu' ? t('noteCpu') : t('noteFriends');
+    const n = mode === 'cpu' ? 1 : 4;
+    const cur = [...document.querySelectorAll('#names input')].map((i) => i.value);
+    $('names').style.gridTemplateColumns = n === 1 ? '1fr' : '1fr 1fr';
+    $('names').innerHTML = Array.from({ length: n }, (_, i) => `<input maxlength="20" autocomplete="off" aria-label="${esc(n === 1 ? t('youPh') : t('playerPh')(i + 1))}" placeholder="${esc(n === 1 ? t('youPh') : t('playerPh')(i + 1))}" value="${esc(cur[i] ?? savedNames[i] ?? '')}">`).join('');
+  };
+  const renderPts = () => {
+    $('ptsBox').innerHTML = EMO.map((e, i) => `<div><b>${e}</b>${esc(t('roles')[i])}<br>${fmt(PTS[i])}</div>`).join('');
+  };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Chit Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const F = t('facts');
+    $('factList').innerHTML = FACT_KEYS.map((k) => `<li>${F[k]}</li>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    if (players.length) players.forEach((pl, i) => { if (pl.cpu) pl.name = t('cpuNames')[pl.cpuIdx]; });
+    renderPts();
+    if (screen === 'setup') renderSetup();
+    else redraw();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('rm-lang', lang); applyLang(); });
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- sound: paper and bells, no music
+  let muted = store.get('rm-muted') === '1';
+  let ac = null, master = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setIcons();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('rm-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.8; });
+  const initAudio = () => {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    ac = new AC();
+    master = ac.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(ac.destination);
+  };
+  const tone = (f, dur, type = 'sine', vol = 0.07, delay = 0, f2 = null) => {
+    if (!ac) return;
+    const w = ac.currentTime + delay;
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, w);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, w + dur);
+    g.gain.setValueAtTime(0.0001, w); g.gain.exponentialRampToValueAtTime(vol, w + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, w + dur);
+    o.connect(g); g.connect(master); o.start(w); o.stop(w + dur + 0.03);
+  };
+  const sfx = {
+    flip: () => tone(900, 0.06, 'triangle', 0.04, 0, 500),
+    court: () => { tone(392, 0.25, 'triangle', 0.05); tone(523, 0.35, 'triangle', 0.05, 0.15); },
+    caught: () => { [523, 659, 784].forEach((f, i) => tone(f, 0.4, 'sine', 0.06, i * 0.12)); },
+    escaped: () => { tone(500, 0.12, 'square', 0.03); tone(380, 0.12, 'square', 0.03, 0.12); tone(260, 0.2, 'square', 0.03, 0.24); },
+    end: () => { [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.6, 'sine', 0.06, i * 0.15)); },
+  };
+
+  // ---------- game
+  const shuffle = (a) => { for (let i = a.length - 1; i > 0; i -= 1) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const startGame = () => {
+    initAudio();
+    const typed = [...document.querySelectorAll('#names input')].map((i) => cleanName(i.value));
+    if (mode === 'cpu') {
+      players = [{ name: typed[0] || t('youPh'), cpu: false }].concat(t('cpuNames').map((n, k) => ({ name: n, cpu: true, cpuIdx: k })));
+    } else {
+      players = typed.map((n, i) => ({ name: n || t('playerPh')(i + 1), cpu: false }));
+      // two players with the same name would be confusing: number them
+      players.forEach((p, i) => { if (players.findIndex((q) => q.name === p.name) !== i) p.name = `${p.name} ${i + 1}`; });
+    }
+    savedNames = mode === 'cpu' ? [typed[0] || '', ...savedNames.slice(1)] : typed;
+    store.set('rm-names', JSON.stringify(savedNames)); store.set('rm-mode', mode); store.set('rm-rounds', String(rounds));
+    totals = players.map(() => 0); round = 0; last = null;
+    $('shareOther').textContent = t('shareOther');
+    nextRound();
+  };
+  const nextRound = () => {
+    round += 1;
+    roles = shuffle([RAJA, MANTRI, SIPAHI, CHOR]);
+    guess = -1; roundPts = [];
+    sfx.flip();
+    if (mode === 'cpu') { seeIdx = human(); renderMine(); show('mine'); if (debug) setTimeout(() => $('hideBtn').click(), 60); }
+    else { seeIdx = 0; renderPass(); show('pass'); if (debug) setTimeout(() => $('seeBtn').click(), 30); }
+  };
+  const renderPass = () => {
+    $('passRound').textContent = t('round')(round, rounds);
+    $('passTitle').textContent = t('passTo')(nameOf(seeIdx));
+    $('passNote').textContent = t('passNote');
+  };
+  const renderMine = () => {
+    const r = roles[seeIdx];
+    $('mineFor').textContent = `${t('round')(round, rounds)} · ${t('mineFor')(nameOf(seeIdx))}`;
+    $('mineChit').innerHTML = `<b>${EMO[r]}</b><strong>${esc(t('roles')[r])}</strong><em>${fmt(PTS[r])}</em>`;
+    $('mineNote').textContent = t('mineNote')[r];
+    $('hideBtn').textContent = mode === 'cpu' ? t('hideCpu') : seeIdx < 3 ? t('hideNext')(nameOf(seeIdx + 1)) : t('hideDone');
+  };
+  const who = (role) => roles.indexOf(role);
+  const renderCourt = () => {
+    const raja = who(RAJA), mantri = who(MANTRI);
+    $('courtRound').textContent = t('round')(round, rounds);
+    $('courtRaja').textContent = t('rajaIs')(nameOf(raja));
+    $('courtSay1').textContent = `${nameOf(raja)}: ${t('rajaSays')}`;
+    $('courtMantri').textContent = t('mantriIs')(nameOf(mantri));
+    $('courtSay2').textContent = `${nameOf(mantri)}: ${t('mantriSays')}`;
+    const two = [0, 1, 2, 3].filter((i) => roles[i] === SIPAHI || roles[i] === CHOR);
+    const cpuMantri = isCpu(mantri);
+    $('courtAsk').textContent = cpuMantri ? t('cpuThinking')(nameOf(mantri)) : mode === 'cpu' ? t('askYou') : t('ask')(nameOf(mantri));
+    $('pickBox').innerHTML = two.map((i) => `<button type="button" data-p="${i}" ${cpuMantri ? 'disabled' : ''}><span>${['🤔', '😐'][two.indexOf(i)]}</span>${esc(nameOf(i))}</button>`).join('');
+  };
+  const goCourt = () => {
+    renderCourt(); show('court'); sfx.court();
+    const mantri = who(MANTRI);
+    // a computer Mantri can't read faces, so it guesses (50:50)
+    if (isCpu(mantri)) { const two = [0, 1, 2, 3].filter((i) => roles[i] === SIPAHI || roles[i] === CHOR); setTimeout(() => decide(two[Math.floor(Math.random() * 2)]), debug ? 30 : 1400); }
+    else if (debug) setTimeout(() => { const b = $('pickBox').querySelector('button'); if (b) b.click(); }, 30);
+  };
+  const decide = (p) => {
+    if (screen !== 'court' || guess >= 0) return;
+    guess = p;
+    const right = roles[p] === CHOR;
+    roundPts = roles.map((r) => PTS[r]);
+    if (!right) { roundPts[who(MANTRI)] = 0; roundPts[who(CHOR)] = PTS[MANTRI]; }
+    roundPts.forEach((v, i) => { totals[i] += v; });
+    (right ? sfx.caught : sfx.escaped)();
+    renderResult(); show('result');
+    if (debug) setTimeout(() => $('nextBtn').click(), 30);
+  };
+  const tableHtml = (withRound) => {
+    const order = players.map((_, i) => i).sort((a, b) => totals[b] - totals[a]);
+    const top = totals[order[0]];
+    return `<tr><th></th>${withRound ? `<th>${esc(t('thisRound'))}</th>` : ''}<th style="text-align:right">${esc(t('total'))}</th></tr>`
+      + order.map((i) => `<tr class="${totals[i] === top ? 'win' : ''}"><td>${withRound ? `${EMO[roles[i]]} ` : ''}${esc(nameOf(i))}</td>${withRound ? `<td class="n">${fmt(roundPts[i])}</td>` : ''}<td class="n">${fmt(totals[i])}</td></tr>`).join('');
+  };
+  const renderResult = () => {
+    const right = roles[guess] === CHOR, chor = who(CHOR);
+    $('resRound').textContent = t('round')(round, rounds);
+    $('resTitle').textContent = right ? t('caught')(nameOf(chor)) : t('escaped')(nameOf(chor));
+    $('resNote').textContent = right ? t('noteCaught') : t('noteEscaped');
+    $('resTable').innerHTML = tableHtml(true);
+    $('nextBtn').textContent = round >= rounds ? t('seeResult') : t('next');
+  };
+  const finish = () => {
+    sfx.end();
+    const order = players.map((_, i) => i).sort((a, b) => totals[b] - totals[a]);
+    const tie = totals[order[0]] === totals[order[1]];
+    last = { winner: order[0], score: totals[order[0]], tie };
+    renderFinal(); show('final');
+  };
+  const renderFinal = () => {
+    $('finTitle').textContent = last.tie ? t('draw') : t('winner')(nameOf(last.winner));
+    $('finScore').textContent = fmt(last.score);
+    $('finTable').innerHTML = tableHtml(false);
+  };
+  const redraw = () => {
+    if (screen === 'pass') renderPass();
+    else if (screen === 'mine') renderMine();
+    else if (screen === 'court' && guess < 0) renderCourt();
+    else if (screen === 'result') renderResult();
+    else if (screen === 'final') renderFinal();
+  };
+
+  // ---------- input
+  $('modeSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; mode = b.dataset.m; renderSetup(); });
+  $('roundSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; rounds = +b.dataset.r; renderSetup(); });
+  $('startBtn').addEventListener('click', startGame);
+  $('seeBtn').addEventListener('click', () => { initAudio(); sfx.flip(); renderMine(); show('mine'); if (debug) setTimeout(() => $('hideBtn').click(), 30); });
+  $('hideBtn').addEventListener('click', () => {
+    sfx.flip();
+    if (mode === 'friends' && seeIdx < 3) { seeIdx += 1; renderPass(); show('pass'); if (debug) setTimeout(() => $('seeBtn').click(), 30); return; }
+    goCourt();
+  });
+  $('pickBox').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b && !b.disabled) decide(+b.dataset.p); });
+  $('nextBtn').addEventListener('click', () => { if (round >= rounds) finish(); else nextRound(); });
+  $('againBtn').addEventListener('click', () => { totals = players.map(() => 0); round = 0; last = null; nextRound(); });
+  $('setupBtn').addEventListener('click', () => { renderSetup(); show('setup'); });
+
+  // ---------- share
+  const shareText = () => {
+    const u = new URL(SITE);
+    const name = last ? nameOf(last.winner) : '';
+    const score = last ? last.score : 0;
+    if (name) u.searchParams.set('from', name);
+    u.searchParams.set('score', String(score));
+    u.searchParams.set('lang', lang);
+    return t('shareText')(name, fmt(score), u.toString());
+  };
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => window.prompt(t('copyPrompt'), text));
+  });
+
+  renderSetup();
+  applyLang();
+  if (debug && params.has('auto')) { if (params.get('mode') === 'cpu') mode = 'cpu'; renderSetup(); startGame(); }
+  window.__rm = { get screen() { return screen; }, get totals() { return totals.slice(); }, get round() { return round; } };
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>

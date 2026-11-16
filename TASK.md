@@ -44,6 +44,10 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 | 6 Dec | game: Chaand Dhundo (Ramzan) |
 | 7 Dec | game: Chidiya Udd |
 | 8 Dec | game: Saanp-Seedhi |
+| 9 Dec | game: Basant ki Sargam (Vasant Panchami, ~11 Feb 2027) |
+| 10 Dec | game: Rang Barsao (Holi, ~22 Mar 2027) |
+| 11 Dec | game: Kanche |
+| 12 Dec | game: Raja Mantri Chor Sipahi |
 
 Extra (festival first, same day as another page is fine): **18 Nov — game: Langar Seva (Gurpurab, 24 Nov)**.
 
@@ -90,6 +94,13 @@ Extra (festival first, same day as another page is fine): **18 Nov — game: Lan
 **11. Hisab Kitab app** — separate repo `~/www/hisab` (own TASK.md). Edit `index.html`, **bump `VERSION` in `sw.js`**, push → live in ~1 min (no schedule there). Its video page here is `/apps/hisab-kitab/` (`src/hisab-video.mjs`, video in `src/static/media/`).
 
 **12. Promo videos** — `~/www/videos/` (not in this repo): Hisab Kitab videos, 6 wish Reels (`wishes/`: `capture.js` → `compose.js`), post texts `POSTS.md`.
+
+## 16 Nov 2026: 4 games (home laptop; user: "yeh 4 bana ke scheduled kar do")
+- [x] `/games/basant-sargam/` **Basant ki Sargam** (Vasant Panchami): 7-petal flower = Sa Re Ga Ma Pa Dha Ni (C major / Bilawal), Simon-style: tune grows by one note per round, one "ek mauka aur" per game, then over. Score = longest tune. 🎶 free-play practice mode. Playable muted (petals glow). Keys 1–7. CACHE `ng-basant-sargam-v1`, storage `bs-*`.
+- [x] `/games/rang-barsao/` **Rang Barsao** (Holi): Braj lane, 6/8 windows+doors; tap friends with dry gulal (10, favourite colour 20); 🙅 people who said no and 🐄🐕 animals = −10; 🥟 gujiya +5. 60 s, no music. Message: consent, no colour on animals, herbal gulal, save water. CACHE `ng-rang-barsao-v1`, storage `rb-*`.
+- [x] `/games/kanche/` **Kanche** (marbles): pull back from the blue marble to flick (slingshot), slide it along the line; 6 levels (ring 3/5, gucchi, ring 9 X, ring 7 hex, gucchi with stones), stars by shots left, unlock in order (`kc-stars`). Physics: equal-mass elastic hits (shooter 1.6×), friction + drag. "No daav/shart" note. CACHE `ng-kanche-v1`.
+- [x] `/games/raja-mantri-chor-sipahi/` **Raja Mantri Chor Sipahi**: pass-and-play (4 names) or vs 3 computer players; secret chit per player, court (Raja → Mantri → guess Chor), wrong guess = Mantri's 800 to Chor. 5/10 rounds, totals table, WhatsApp result. DOM only (no canvas). CACHE `ng-raja-mantri-chor-sipahi-v1`, storage `rm-*`.
+- Tested 16 Nov: headless Chrome auto-play (`?debug&auto`) in all 4 languages, no console errors; Sargam bot reaches the set length; Rang Barsao 60 s round ends; Kanche bot wins all 6 levels (`&level=N`); RMCS finishes 5 rounds in both modes. Test helpers: `?debug=N&auto` (Sargam), `?debug&auto` (Rang Barsao), `?debug&auto&level=N` (Kanche), `?debug&auto[&mode=cpu]` (RMCS).
 
 ## 15 Nov 2026: 10 more stories (40 total)
 - [x] `src/stories-more3.mjs` (pushed onto `stories` in stories.mjs): Neela Siyaar, Bagula aur Kekda (Panchatantra; crab only grips, no killing), Do Billiyan aur Bandar (folk), Hawa aur Suraj, Shehar ka Chooha–Gaanv ka Chooha (Aesop), Sher ki Khaal mein Gadha (Jataka), Birbal: Andhon ki Ginti, Tenali Raman aur Kuen ka Khazaana, Mulla Nasruddin ki Degchi, Chidiya ka Ghar–Kauwe ka Ghar (dadi-nani; kind ending). All 4 languages, 5 paras + seekh each. Checked: 40 pages load (10 × 4 languages), /kahani/ lists 40. Site now 309 pages.
