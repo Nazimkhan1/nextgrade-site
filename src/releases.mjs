@@ -4,7 +4,7 @@
  * A GitHub Action (.github/workflows/daily-release.yml) rebuilds and pushes every day at 06:00 IST,
  * so each page goes live on its own. User's rule (15 Nov 2026): one new page per day, not in bulk —
  * keeps the site growing steadily while the AdSense review runs.
- * Keys: 'game:<slug>' or 'story:<slug>'. To delay a page, move its date; to publish now, delete its line.
+ * Keys: 'game:<slug>', 'story:<slug>' or 'celebrate:<slug>' (animated wish). To delay a page, move its date; to publish now, delete its line.
  */
 const releases = {
   'game:meenar': '2026-11-16',
@@ -25,11 +25,13 @@ const releases = {
   'story:mulla-ki-degchi': '2026-12-01',
   'story:chidiya-kauwa-ghar': '2026-12-02',
   // Festival games first, nearest festival first (user, 16 Nov); evergreen games after them.
+  'game:langar-seva': '2026-11-18', // Gurpurab, 24 Nov 2026
   'game:saal-ka-safar': '2026-12-03', // New Year, 31 Dec
   'game:parade-ki-taal': '2026-12-04', // Republic Day, 26 Jan
-  'game:chaand-dhundo': '2026-12-05', // Ramzan, ~8 Feb
-  'game:chidiya-udd': '2026-12-06',
-  'game:saanp-seedhi': '2026-12-07',
+  'celebrate:republic-day': '2026-12-05', // Republic Day animated wish
+  'game:chaand-dhundo': '2026-12-06', // Ramzan, ~8 Feb
+  'game:chidiya-udd': '2026-12-07',
+  'game:saanp-seedhi': '2026-12-08',
 };
 
 // today's date in India (the release day changes at midnight IST)

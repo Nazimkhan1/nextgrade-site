@@ -445,6 +445,7 @@ const games = {
   'saanp-seedhi': { name: 'Saanp-Seedhi', desc: 'Bachpan wala board game: computer se ya ek hi phone pe 2–4 doston ke saath khelo. Har seedhi ek achhi aadat, har saanp ek buri.' },
   'parade-ki-taal': { name: 'Parade ki Taal', desc: 'Dhol ki taal pe tap karo, parade kadam se kadam milake chale: fauj, BSF oont, NCC band aur tiranga flypast.' },
   'chaand-dhundo': { name: 'Chaand Dhundo', desc: 'Doorbeen se shaam ke aasmaan mein patla sa naya chaand dhundo, chhupne se pehle — sitara, jahaz aur patang dhoka denge! 10 shaamein.' },
+  'langar-seva': { name: 'Langar Seva', desc: 'Gurpurab par langar ki seva: pangat mein baithi sangat ko prashada, dal, kheer aur jal parosiye. 60 second, bina music, Guru Nanak Dev Ji ki seekhon ke saath.' },
 };
 
 const apps = {

@@ -1,0 +1,16 @@
+{
+  "name": "Langar Seva — Gurpurab Game",
+  "short_name": "Langar Seva",
+  "description": "Serve prashada, dal, kheer and water to the sangat in the langar hall. A Gurpurab game in 4 languages.",
+  "start_url": "/games/langar-seva/",
+  "scope": "/games/langar-seva/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#141238",
+  "theme_color": "#e8590c",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

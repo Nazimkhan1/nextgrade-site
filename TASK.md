@@ -40,9 +40,12 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 | 2 Dec | story: Chidiya ka Ghar, Kauwe ka Ghar |
 | 3 Dec | game: Saal ka Safar 2026 → 2027 (New Year) |
 | 4 Dec | game: Parade ki Taal (Republic Day) |
-| 5 Dec | game: Chaand Dhundo (Ramzan) |
-| 6 Dec | game: Chidiya Udd |
-| 7 Dec | game: Saanp-Seedhi |
+| 5 Dec | wish: /celebrate/republic-day/ (Republic Day animated wish) |
+| 6 Dec | game: Chaand Dhundo (Ramzan) |
+| 7 Dec | game: Chidiya Udd |
+| 8 Dec | game: Saanp-Seedhi |
+
+Extra (festival first, same day as another page is fine): **18 Nov — game: Langar Seva (Gurpurab, 24 Nov)**.
 
 - User decided (15 Nov): everything live until 14 Nov stays (incl. the 30 stories of 14 Nov); only from now on, no bulk.
 - A held page that was live before gets a tiny "moved" stub at its URL (noindex + redirect to /games/ or /kahani/, not in the sitemap) instead of a 404; the real page replaces it on its release day.
@@ -58,7 +61,7 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 **2. Add a new game** — folder `src/static/games/<slug>/` with `index.html`, `manifest.json`, `sw.js` (CACHE `ng-<slug>-v1`), `icons/` (192, 512, maskable-512, apple-touch). Puzzle-type games: copy a kit game (e.g. `matke/`) — load `/games/kit/puzzle.js` + `puzzle.css`, call `PuzzleKit({...})`, write only the game logic + texts. Then add it to `src/games.mjs` (Hindi name/desc) and `games: {}` in `src/i18n/en.mjs`, `hinglish.mjs`, `bn.mjs`. Rules: 4 languages, sound on with 🔇, hint/undo for puzzles, "how to play" + "about" text (prerender puts it into the HTML).
 
-**3. Schedule it (never publish directly)** — add `'game:<slug>': 'YYYY-MM-DD'` or `'story:<slug>': 'YYYY-MM-DD'` to `src/releases.mjs` on the **next free day** after the last date in the list. Only `game:` and `story:` keys are supported; to schedule wishes/festival/celebrate pages, first add the same filtering for them in `build.mjs`.
+**3. Schedule it (never publish directly)** — add `'game:<slug>': 'YYYY-MM-DD'` or `'story:<slug>': 'YYYY-MM-DD'` to `src/releases.mjs` on the **next free day** after the last date in the list. Keys: `game:`, `story:` and `celebrate:` (animated wishes, added 16 Nov); festival pages are not schedulable yet.
 
 **4. Test locally**
 - `node build.mjs` → must print `Built N pages` and `Held back until release: …`.

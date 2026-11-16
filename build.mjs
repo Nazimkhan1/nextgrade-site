@@ -244,7 +244,7 @@ const storyCard = (L) => (st) => {
 };
 
 // Animated name wishes (standalone pages in src/static/celebrate/<slug>/). [title, card text, button text]
-const CELEBRATE = [
+const ALL_CELEBRATE = [
   { slug: 'makar-sankranti', emoji: '🪁', festival: 'makar-sankranti',
     hi: ['मकर संक्रांति — पतंगों वाला एनिमेटेड विश', 'नीले आसमान में उड़ती पतंगें, छतें और तिल-गुड़ — अपनों के नाम की बधाई आवाज़ के साथ WhatsApp पर भेजो।', '🪁 नाम के साथ एनिमेटेड संक्रांति बधाई भेजो'],
     en: ['Makar Sankranti — animated kite wish', 'Kites in a blue sky, rooftops and til-gud — send a greeting with their name, read aloud, on WhatsApp.', '🪁 Send an animated Sankranti wish with a name'],
@@ -255,6 +255,11 @@ const CELEBRATE = [
     en: ['Happy Lohri — animated bonfire wish', 'A blazing bonfire, flying sparks, bhangra and rewri — send a greeting with their name, read aloud, on WhatsApp.', '🔥 Send an animated Lohri wish with a name'],
     hinglish: ['Lohri — alaav wala animated wish', 'Jalta alaav, udti chingaariyan, bhangra aur rewri — apnon ke naam ki badhaai awaaz ke saath WhatsApp pe bhejo.', '🔥 Naam ke saath animated Lohri badhaai bhejo'],
     bn: ['লোহরি — আগুনের অ্যানিমেটেড উইশ', 'জ্বলন্ত আগুন, উড়ন্ত স্ফুলিঙ্গ, ভাংড়া আর রেউড়ি — প্রিয়জনের নামে শুভেচ্ছা, পড়ে শোনানো সহ WhatsApp-এ পাঠাও।', '🔥 নাম দিয়ে অ্যানিমেটেড লোহরির উইশ পাঠাও'] },
+  { slug: 'republic-day', emoji: '🇮🇳', festival: 'republic-day',
+    hi: ['गणतंत्र दिवस — लहराते तिरंगे वाला एनिमेटेड विश', 'इंडिया गेट के ऊपर लहराता तिरंगा, फूलों की बारिश और तिरंगा फ़्लाईपास्ट — अपनों के नाम की बधाई आवाज़ के साथ WhatsApp पर भेजो।', '🇮🇳 नाम के साथ एनिमेटेड गणतंत्र दिवस बधाई भेजो'],
+    en: ['Happy Republic Day — animated tricolour wish', 'The tricolour unfurling over India Gate, falling petals and a tricolour flypast — send a greeting with their name, read aloud, on WhatsApp.', '🇮🇳 Send an animated Republic Day wish with a name'],
+    hinglish: ['Republic Day — lehrate tirange wala animated wish', 'India Gate ke upar lehrata tiranga, phoolon ki baarish aur tiranga flypast — apnon ke naam ki badhaai awaaz ke saath WhatsApp pe bhejo.', '🇮🇳 Naam ke saath animated Republic Day badhaai bhejo'],
+    bn: ['প্রজাতন্ত্র দিবস — তেরঙার অ্যানিমেটেড উইশ', 'ইন্ডিয়া গেটের ওপর উড়ন্ত তেরঙা, ফুলের বৃষ্টি আর তেরঙা ফ্লাইপাস্ট — প্রিয়জনের নামে শুভেচ্ছা, পড়ে শোনানো সহ WhatsApp-এ পাঠাও।', '🇮🇳 নাম দিয়ে অ্যানিমেটেড প্রজাতন্ত্র দিবসের উইশ পাঠাও'] },
   { slug: 'birthday', emoji: '🎂', wish: 'birthday',
     hi: ['जन्मदिन मुबारक — मोमबत्तियों वाला एनिमेटेड विश', 'गुब्बारे, झंडियाँ और मोमबत्तियों वाला केक जो फूँक से बुझता है — अपनों के नाम की बधाई आवाज़ के साथ WhatsApp पर भेजो।', '🎂 नाम के साथ एनिमेटेड जन्मदिन विश भेजो'],
     en: ['Happy Birthday — animated wish with candles', 'Balloons, bunting and a cake whose candles blow out — send a greeting with their name, read aloud, on WhatsApp.', '🎂 Send an animated birthday wish with a name'],
@@ -296,6 +301,9 @@ const CELEBRATE = [
     hinglish: ['Jumma Mubarak — naam wali dua', 'Roshan masjid, chaand-taare aur apnon ke naam ki dua — har Jumme WhatsApp pe bhejo.', '🕌 Naam ke saath animated Jumma Mubarak bhejo'],
     bn: ['জুম্মা মুবারক — নামের দোয়া', 'আলোকিত মসজিদ, চাঁদ-তারা আর প্রিয়জনের নামে দোয়া — প্রতি জুম্মায় WhatsApp-এ পাঠাও।', '🕌 নাম দিয়ে অ্যানিমেটেড জুম্মা মুবারক পাঠাও'] },
 ];
+// Animated wishes can be scheduled too ('celebrate:<slug>' in src/releases.mjs)
+const CELEBRATE = ALL_CELEBRATE.filter((c) => isLive(`celebrate:${c.slug}`));
+const heldCelebrate = ALL_CELEBRATE.filter((c) => !isLive(`celebrate:${c.slug}`)).map((c) => c.slug);
 const celebrateHref = (L, c) => `/celebrate/${c.slug}/?lang=${L.code}`;
 const celebrateCards = (L) => CELEBRATE.map((c) => `<a class="card" href="${celebrateHref(L, c)}">
 <span class="emoji" aria-hidden="true">${c.emoji}</span>
@@ -829,8 +837,8 @@ const CONTENT_DATE = '2026-11-15';
 const lastRelease = Object.values(releases).filter((d) => d <= todayIST()).sort().pop() || CONTENT_DATE;
 const lastmodFor = (url) => {
   const path = url.replace(/^\/(en|hinglish|bn)(?=\/)/, '');
-  const m = path.match(/^\/(games|kahani)\/([^/]+)\/$/);
-  const rel = m && releases[`${m[1] === 'games' ? 'game' : 'story'}:${m[2]}`];
+  const m = path.match(/^\/(games|kahani|celebrate)\/([^/]+)\/$/);
+  const rel = m && releases[`${{ games: 'game', kahani: 'story', celebrate: 'celebrate' }[m[1]]}:${m[2]}`];
   if (rel) return rel;
   if (['/', '/games/', '/kahani/'].includes(path)) return [CONTENT_DATE, lastRelease].sort().pop();
   return CONTENT_DATE;
@@ -850,6 +858,7 @@ cpSync('src/assets', join(OUT, 'assets'), { recursive: true });
 cpSync('src/static', OUT, { recursive: true });
 // games that are not released yet: remove their copied folders
 heldGames.forEach((slug) => rmSync(join(OUT, 'games', slug), { recursive: true, force: true }));
+heldCelebrate.forEach((slug) => rmSync(join(OUT, 'celebrate', slug), { recursive: true, force: true }));
 
 // Cloudflare Web Analytics beacon on every page (only when a token is set)
 if (CF_BEACON) {
@@ -883,10 +892,11 @@ if (GA_ID) {
 // sends people to the index and tells search engines not to index it (no sitemap entry either).
 const holdStub = (to, title) => `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${title} | NextGrade</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="${SITE}${to}"><meta http-equiv="refresh" content="0; url=${to}"></head><body><p><a href="${to}">${title} →</a></p></body></html>\n`;
 heldGames.forEach((slug) => { mkdirSync(join(OUT, 'games', slug), { recursive: true }); writeFileSync(join(OUT, 'games', slug, 'index.html'), holdStub('/games/', 'Games')); });
+heldCelebrate.forEach((slug) => { mkdirSync(join(OUT, 'celebrate', slug), { recursive: true }); writeFileSync(join(OUT, 'celebrate', slug, 'index.html'), holdStub('/', 'NextGrade')); });
 LANGS.forEach((L) => heldStories.forEach((slug) => { const dir = join(OUT, `${L.prefix}/kahani/${slug}`.replace(/^\//, '')); mkdirSync(dir, { recursive: true }); writeFileSync(join(dir, 'index.html'), holdStub(`${L.prefix}/kahani/`, ui[L.code].stories.h1)); }));
 
 // Links on live pages that point at not-yet-released pages: drop "· <a data-game=…>" links, send the rest to the index
-if (heldGames.length || heldStories.length) {
+if (heldGames.length || heldStories.length || heldCelebrate.length) {
   const walk = (dir) => readdirSync(dir, { withFileTypes: true }).forEach((d) => {
     const f = join(dir, d.name);
     if (d.isDirectory()) { walk(f); return; }
@@ -898,11 +908,12 @@ if (heldGames.length || heldStories.length) {
       html = html.split(`https://nextgrade.in/games/${slug}/`).join('https://nextgrade.in/games/').split(`"/games/${slug}/`).join('"/games/');
     });
     heldStories.forEach((slug) => { html = html.split(`/kahani/${slug}/`).join('/kahani/'); });
+    heldCelebrate.forEach((slug) => { html = html.split(`https://nextgrade.in/celebrate/${slug}/`).join('https://nextgrade.in/').split(`"/celebrate/${slug}/`).join('"/'); });
     if (html !== before) writeFileSync(f, html);
   });
   walk(OUT);
 }
-console.log(`Held back until release: ${[...heldGames.map((s) => `game:${s}`), ...heldStories.map((s) => `story:${s}`)].map((k) => `${k} (${releases[k]})`).join(', ') || 'none'}`);
+console.log(`Held back until release: ${[...heldGames.map((s) => `game:${s}`), ...heldStories.map((s) => `story:${s}`), ...heldCelebrate.map((s) => `celebrate:${s}`)].map((k) => `${k} (${releases[k]})`).join(', ') || 'none'}`);
 
 console.log(`Built ${allUrls.length} pages in ${LANGS.map((l) => l.code).join(', ')} into ${OUT}/`);
 
