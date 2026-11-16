@@ -24,6 +24,9 @@ const releases = {
   'story:tenali-kuen-ka-khazana': '2026-11-30',
   'story:mulla-ki-degchi': '2026-12-01',
   'story:chidiya-kauwa-ghar': '2026-12-02',
+  'game:saal-ka-safar': '2026-12-03',
+  'game:chidiya-udd': '2026-12-04',
+  'game:saanp-seedhi': '2026-12-05',
 };
 
 // today's date in India (the release day changes at midnight IST)

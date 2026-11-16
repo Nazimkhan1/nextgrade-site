@@ -440,6 +440,9 @@ const games = {
   chhath: { name: 'Chhath Ghat', desc: 'Bhor mein nadi mein dupki lagao, ugte suraj ko sahi pal pe arghya do, phir soop mein thekua-kela-ganna pakad ke vrat kholo. Teen stage, ghanti aur paani ki awaaz, WhatsApp challenge.' },
   'new-year': { name: 'Aatishbaazi Pop', desc: 'Neeche se uthte rockets tap karke aasmaan mein phodo — sabse upar phodo to Perfect, jaldi-jaldi phodo to combo. Saath mein naye saal ka live countdown.' },
   christmas: { name: 'Santa ke Gift Pakdo', desc: 'Santa ki sleigh chalao, girte gifts pakdo, koyle se bacho aur doston ko WhatsApp pe score ka challenge bhejo. Hindi, Hinglish, English aur Bangla mein.' },
+  'saal-ka-safar': { name: 'Saal ka Safar 2026 → 2027', desc: 'Saal bhar ki yaadein chhoo kar daudo, 10…1 countdown ke baad 2027 ke gate se niklo — aatishbaazi aur dhol pe naach-gaane ke saath.' },
+  'chidiya-udd': { name: 'Chidiya Udd', desc: 'Bachpan wala khel: tota udd, kabootar udd… bhains udd? 😂 Sirf udne wali cheez pe tap karo. 48 cheezein, 3 jaan, har baar thoda tez.' },
+  'saanp-seedhi': { name: 'Saanp-Seedhi', desc: 'Bachpan wala board game: computer se ya ek hi phone pe 2–4 doston ke saath khelo. Har seedhi ek achhi aadat, har saanp ek buri.' },
 };
 
 const apps = {

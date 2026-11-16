@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Saanp-Seedhi 🐍🪜 — Bachpan ka Game | NextGrade</title>
+<meta name="description" content="Saanp-Seedhi (Snakes and Ladders), the classic Indian board game, free on your phone in Hinglish, Hindi, English and Bengali. Play against the computer or with 2–4 friends on one phone. Good deeds climb ladders, bad habits get bitten by snakes!">
+<link rel="canonical" href="https://nextgrade.in/games/saanp-seedhi/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Saanp-Seedhi 🐍🪜 — Bachpan ka Game">
+<meta property="og:description" content="Paasa phenko, seedhi chadho, saanp se bacho! Computer ya doston ke saath khelo — ek hi phone pe.">
+<meta property="og:url" content="https://nextgrade.in/games/saanp-seedhi/">
+<meta property="og:image" content="https://nextgrade.in/games/saanp-seedhi/icons/icon-512.png">
+<meta name="theme-color" content="#2f9e44">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Saanp-Seedhi","alternateName":"Snakes and Ladders","url":"https://nextgrade.in/games/saanp-seedhi/","genre":"Board game","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","numberOfPlayers":{"@type":"QuantitativeValue","minValue":1,"maxValue":4},"inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #141238; --bg2: #2b1d6b; --gold: #ffd43b; --pink: #f06595; --ink: #f8f9fa; --muted: #c5c3e6; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #3b2a8c, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #e8590c, #f59f00); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+
+/* ---- stage */
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.45); background: linear-gradient(180deg, #2b8a3e 0%, #237032 100%); padding: 10px 10px 12px; min-height: 480px; user-select: none; -webkit-user-select: none; touch-action: manipulation; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 8px; min-height: 30px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; background: rgba(0,0,0,0.22); border: 2px solid transparent; border-radius: 20px; padding: 2px 10px 2px 4px; font-weight: 700; font-size: 14px; transition: transform 0.15s; max-width: 48%; }
+.chip .dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid #fff; flex: none; }
+.chip .nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chip .ps { opacity: 0.85; font-weight: 600; }
+.chip.on { border-color: var(--gold); background: rgba(255,212,59,0.18); transform: scale(1.06); }
+.boardwrap { position: relative; width: min(100%, 64vh, 600px); min-width: 280px; aspect-ratio: 1 / 1; margin: 0 auto; border-radius: 10px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.35); }
+#board { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: pointer; }
+.toast { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.8); background: rgba(16, 20, 40, 0.88); color: #fff; padding: 10px 16px; border-radius: 14px; font-weight: 800; font-size: clamp(16px, 4.6vw, 22px); text-align: center; max-width: 86%; opacity: 0; transition: opacity 0.2s, transform 0.2s; pointer-events: none; line-height: 1.3; }
+.toast.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.toast.good { border: 3px solid #51cf66; } .toast.bad { border: 3px solid #ff6b6b; }
+.ctrl { display: flex; align-items: center; gap: 12px; max-width: 600px; margin: 10px auto 0; }
+.dice { flex: none; width: 66px; height: 66px; border-radius: 14px; background: #fff; border: 0; box-shadow: 0 5px 0 #c9c9c9, 0 8px 16px rgba(0,0,0,0.3); display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); padding: 9px; gap: 2px; cursor: pointer; }
+.dice i { border-radius: 50%; background: #c92a2a; transform: scale(0.82); visibility: hidden; }
+.dice.roll { animation: roll 0.12s linear infinite; }
+@keyframes roll { 0% { transform: rotate(0); } 50% { transform: rotate(12deg) translateY(-3px); } 100% { transform: rotate(0); } }
+.dice:disabled { opacity: 0.55; cursor: default; }
+.dice:not(:disabled) { animation: nudge 1.4s ease-in-out infinite; }
+.dice.roll:not(:disabled) { animation: roll 0.12s linear infinite; }
+@keyframes nudge { 0%, 85%, 100% { transform: none; } 90% { transform: rotate(-8deg); } 95% { transform: rotate(8deg); } }
+.status { flex: 1; min-width: 0; }
+.turn { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-weight: 800; font-size: 20px; line-height: 1.2; }
+.msg { font-size: 15px; color: #e6fcf5; min-height: 22px; line-height: 1.35; }
+
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(8, 6, 30, 0.74); padding: 16px; overflow-y: auto; z-index: 10; cursor: default; }
+.panel { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 18px; width: min(420px, 100%); text-align: center; margin: auto; color: var(--ink); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: var(--muted); }
+.unit { font-size: 15px; color: var(--muted); font-weight: 700; margin-top: -4px; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 54px; font-weight: 800; color: var(--gold); line-height: 1; margin: 6px 0; }
+.seg { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 10px 0 6px; }
+.seg button { font: inherit; font-weight: 800; font-size: 15px; padding: 9px 4px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); cursor: pointer; line-height: 1.2; }
+.seg button.on { background: linear-gradient(90deg, #f06595, #ff922b); border-color: transparent; }
+.names input { margin: 4px 0; }
+.opt { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; margin: 8px 0 2px; cursor: pointer; }
+.opt input { width: 20px; height: 20px; margin: 0; accent-color: #f06595; }
+.stats { display: flex; justify-content: center; gap: 16px; font-weight: 700; margin: 6px 0; }
+input[type=text] { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); }
+input::placeholder { color: #a9a6d6; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #f06595, #ff922b); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.two ul { margin: 0; padding-left: 18px; }
+.two h3 { margin: 0 0 4px; font-size: 17px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+@media (max-width: 480px) { .stage { padding: 8px 6px 10px; } .panel { padding: 14px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .turn { font-size: 18px; } .msg { font-size: 14px; } .dice { width: 58px; height: 58px; padding: 8px; } .two { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🐍 NextGrade<small>Bachpan ka Game</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <div class="chips" id="chips"></div>
+    <div class="boardwrap" id="boardwrap">
+      <canvas id="board" aria-label="Board"></canvas>
+      <div class="toast" id="toast" aria-live="polite"></div>
+    </div>
+    <div class="ctrl">
+      <button class="dice" id="dice" type="button" aria-label="Roll the dice"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></button>
+      <div class="status">
+        <div class="turn" id="turn"></div>
+        <div class="msg" id="msg" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle"></h2>
+        <p data-i18n="modeQ"></p>
+        <div class="seg" id="modes">
+          <button type="button" data-mode="1">🤖<br><span data-i18n="modeComp"></span></button>
+          <button type="button" data-mode="2">👥<br>2</button>
+          <button type="button" data-mode="3">👥<br>3</button>
+          <button type="button" data-mode="4">👥<br>4</button>
+        </div>
+        <div class="names" id="names"></div>
+        <label class="opt"><input type="checkbox" id="sixRule"> <span data-i18n="sixRule"></span></label>
+        <button class="btn btn-main" id="play" type="button" data-i18n="play"></button>
+        <p id="bestLine"></p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big" id="finalScore">0</div>
+        <div class="unit" id="endUnit"></div>
+        <p id="endNote"></p>
+        <div class="stats" id="endStats"></div>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
+        <button class="btn btn-ghost" id="setup" type="button" data-i18n="setup"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card2"><ol id="howList"></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="lessonsTitle"></h2>
+    <div class="card2 two">
+      <div><h3 data-i18n="ladderHead"></h3><ul id="ladderList"></ul></div>
+      <div><h3 data-i18n="snakeHead"></h3><ul id="snakeList"></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/saanp-seedhi/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+
+  // Board: ladders [bottom, top], snakes [head, tail]. The label index matches the lesson lists below.
+  const LADDERS = [[3, 22], [8, 26], [20, 41], [28, 55], [36, 57], [51, 72], [63, 81], [71, 90]];
+  const SNAKES = [[17, 7], [39, 19], [48, 27], [62, 43], [69, 49], [87, 66], [93, 73], [98, 78]];
+  const L_EMOJI = ['📚', '🙏', '🌳', '🤝', '💪', '💧', '😊', '🎯'];
+  const S_EMOJI = ['📝', '🤥', '😴', '📱', '😡', '🗑️', '💸', '🦷'];
+  const SNAKE_COL = [['#e8590c', '#ffa94d'], ['#5f3dc4', '#9775fa'], ['#c2255c', '#f783ac'], ['#2b8a3e', '#8ce99a'], ['#1864ab', '#74c0fc'], ['#e67700', '#ffd43b'], ['#a61e4d', '#ff8787'], ['#0b7285', '#66d9e8']];
+  const P_COL = ['#fa5252', '#339af0', '#fcc419', '#9c36b5'];
+
+  const T = {
+    hinglish: {
+      title: 'Saanp-Seedhi 🐍🪜',
+      sub: 'Bachpan wala board game, ab phone pe! Paasa phenko, seedhi chadho, saanp se bacho — sabse pehle 100 pe pahuncho. Computer se khelo ya ek hi phone pe 2–4 doston ke saath.',
+      startTitle: 'Saanp-Seedhi khelein? 🎲',
+      modeQ: 'Kiske saath khelna hai?',
+      modeComp: 'Computer',
+      you: 'Aap',
+      comp: 'Computer',
+      playerPh: (i) => `Khiladi ${i} ka naam`,
+      yourPh: 'Aapka naam (optional)',
+      sixRule: '6 aane par hi goti khulegi',
+      play: '▶ Khelo',
+      turnOf: (n) => `${n} ki baari`,
+      tapRoll: 'Paasa phenkne ke liye 🎲 dabao',
+      compThink: '🤖 soch raha hai…',
+      rolled: (n, v) => `${n} ka paasa: ${v}`,
+      needSix: '6 nahi aaya — goti abhi band hai 🔒',
+      opened: '6 aaya! Goti khul gayi 🔓 Ek aur baari!',
+      overshoot: (k) => `100 ke liye theek ${k} chahiye — is baar ruk gaye`,
+      six: 'Chhakka! 🎉 Ek aur baari',
+      ladder: (lab, a, b) => `🪜 ${lab}! ${a} → ${b}`,
+      snake: (lab, a, b) => `🐍 ${lab}! ${a} → ${b}`,
+      win: (n) => `🏆 ${n} jeet gaye!`,
+      endTitle: (n, comp) => (comp ? 'Computer jeet gaya! 🤖' : `${n} jeet gaye! 🎉`),
+      endUnit: 'chaal mein jeete',
+      endNoteComp: 'Koi baat nahi — agli baar seedhi aapki! 😄',
+      endNote: (best, isNew) => (isNew ? '🏅 Naya record — sabse kam chaal!' : best ? `Aapka best: ${best} chaal` : ''),
+      best: (n) => `Aapka best: ${n} chaal mein jeet`,
+      challenge: (name, n) => `🏆 ${name} ne Saanp-Seedhi sirf ${n} chaal mein jeeti! Kya aap jaldi jeet sakte ho?`,
+      shareWa: '📲 WhatsApp pe challenge bhejo',
+      shareOther: '🔗 Link share / copy karo',
+      copied: '✅ Copy ho gaya',
+      copyPrompt: 'Yeh text copy karo:',
+      again: '🔁 Phir se khelo',
+      setup: '⚙️ Khiladi badlo',
+      shareText: (name, n, url) => (n ? `🐍🪜 ${name ? `${name} ne` : 'Maine'} Saanp-Seedhi ${n} chaal mein jeeti! Bachpan wala khel yaad hai? Aao khelo: ${url}` : `🐍🪜 Bachpan wala Saanp-Seedhi ab phone pe! Computer ya doston ke saath khelo: ${url}`),
+      howTitle: 'Kaise khelein',
+      how: ['Chuno: <b>Computer</b> ke saath ya <b>2–4 khiladi</b> ek hi phone pe (baari-baari phone pakdao).', '<b>🎲 paasa</b> dabao (ya board pe tap karo / Space). Jitna number aaye, goti utne ghar aage chalegi.', '<b>Seedhi 🪜</b> ke neeche ruke to upar chadh jaoge. <b>Saanp 🐍</b> ke munh pe ruke to neeche uski poonchh tak aa jaoge.', '<b>6</b> aaya to ek aur baari. 100 pe pahunchne ke liye <b>theek</b> number chahiye — zyada aaya to wahin ruko.', 'Chaho to "6 aane par hi goti khulegi" wala purana niyam on kar lo.', 'Jeetne ke baad WhatsApp pe doston ko challenge bhejo!'],
+      lessonsTitle: 'Har seedhi ek achhi aadat, har saanp ek buri',
+      ladderHead: '🪜 Seedhiyan (upar le jaati hain)',
+      snakeHead: '🐍 Saanp (neeche le aate hain)',
+      L: ['Padhai ki', 'Maa-baap ki seva ki', 'Ped lagaya', 'Dost ki madad ki', 'Roz khele-kude', 'Paani bachaya', 'Sach bola', 'Mehnat ki'],
+      S: ['Homework bhool gaye', 'Jhooth bola', 'Aalas kiya', 'Mobile mein khoye rahe', 'Gussa kiya', 'Kachra phenka', 'Fizool kharch kiya', 'Daant saaf nahi kiye'],
+      aboutTitle: 'Saanp-Seedhi ki kahani',
+      aboutText: 'Saanp-Seedhi Bharat ka bahut purana khel hai. Pehle ise "Moksha Patam" ya "Gyan Chaupar" kehte the. Kaha jaata hai ki yeh bachchon ko achhe aur bure karmon ki seekh dene ke liye banaya gaya tha — seedhiyan achhe kaam (sach, daya, mehnat) aur saanp bure kaam (jhooth, gussa, laalach). Aakhri ghar matlab moksha.',
+      aboutText2: 'Angrezon ke zamane mein yeh khel England pahuncha aur "Snakes and Ladders" ban gaya. Hum sabne garmi ki chhuttiyon mein zameen pe board bichha ke, kaudi ya paasa phenk ke ise khela hai. Yahan wahi khel hai — 8 seedhiyan, 8 saanp, aur har ek pe ek chhoti si seekh.',
+      moreGames: 'Aur games khelo →',
+      privacyTitle: 'Aapka data',
+      privacyText: 'Naam aur best score sirf aapke phone mein rehte hain. Share link mein sirf naam aur chaal ki ginti jaati hai. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'साँप-सीढ़ी 🐍🪜',
+      sub: 'बचपन वाला बोर्ड गेम, अब फ़ोन पर! पासा फेंको, सीढ़ी चढ़ो, साँप से बचो — सबसे पहले 100 पर पहुँचो। कंप्यूटर से खेलो या एक ही फ़ोन पर 2–4 दोस्तों के साथ।',
+      startTitle: 'साँप-सीढ़ी खेलें? 🎲',
+      modeQ: 'किसके साथ खेलना है?',
+      modeComp: 'कंप्यूटर',
+      you: 'आप',
+      comp: 'कंप्यूटर',
+      playerPh: (i) => `खिलाड़ी ${i} का नाम`,
+      yourPh: 'आपका नाम (ज़रूरी नहीं)',
+      sixRule: '6 आने पर ही गोटी खुलेगी',
+      play: '▶ खेलो',
+      turnOf: (n) => `${n} की बारी`,
+      tapRoll: 'पासा फेंकने के लिए 🎲 दबाओ',
+      compThink: '🤖 सोच रहा है…',
+      rolled: (n, v) => `${n} का पासा: ${v}`,
+      needSix: '6 नहीं आया — गोटी अभी बंद है 🔒',
+      opened: '6 आया! गोटी खुल गई 🔓 एक और बारी!',
+      overshoot: (k) => `100 के लिए ठीक ${k} चाहिए — इस बार रुक गए`,
+      six: 'छक्का! 🎉 एक और बारी',
+      ladder: (lab, a, b) => `🪜 ${lab}! ${a} → ${b}`,
+      snake: (lab, a, b) => `🐍 ${lab}! ${a} → ${b}`,
+      win: (n) => `🏆 ${n} जीत गए!`,
+      endTitle: (n, comp) => (comp ? 'कंप्यूटर जीत गया! 🤖' : `${n} जीत गए! 🎉`),
+      endUnit: 'चाल में जीते',
+      endNoteComp: 'कोई बात नहीं — अगली बार सीढ़ी आपकी! 😄',
+      endNote: (best, isNew) => (isNew ? '🏅 नया रिकॉर्ड — सबसे कम चाल!' : best ? `आपका बेस्ट: ${best} चाल` : ''),
+      best: (n) => `आपका बेस्ट: ${n} चाल में जीत`,
+      challenge: (name, n) => `🏆 ${name} ने साँप-सीढ़ी सिर्फ़ ${n} चाल में जीती! क्या आप जल्दी जीत सकते हो?`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो',
+      shareOther: '🔗 लिंक शेयर / कॉपी करो',
+      copied: '✅ कॉपी हो गया',
+      copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      again: '🔁 फिर से खेलो',
+      setup: '⚙️ खिलाड़ी बदलो',
+      shareText: (name, n, url) => (n ? `🐍🪜 ${name ? `${name} ने` : 'मैंने'} साँप-सीढ़ी ${n} चाल में जीती! बचपन वाला खेल याद है? आओ खेलो: ${url}` : `🐍🪜 बचपन वाला साँप-सीढ़ी अब फ़ोन पर! कंप्यूटर या दोस्तों के साथ खेलो: ${url}`),
+      howTitle: 'कैसे खेलें',
+      how: ['चुनो: <b>कंप्यूटर</b> के साथ या <b>2–4 खिलाड़ी</b> एक ही फ़ोन पर (बारी-बारी फ़ोन पकड़ाओ)।', '<b>🎲 पासा</b> दबाओ (या बोर्ड पर टैप करो / Space)। जितना नंबर आए, गोटी उतने घर आगे चलेगी।', '<b>सीढ़ी 🪜</b> के नीचे रुके तो ऊपर चढ़ जाओगे। <b>साँप 🐍</b> के मुँह पर रुके तो नीचे उसकी पूँछ तक आ जाओगे।', '<b>6</b> आया तो एक और बारी। 100 पर पहुँचने के लिए <b>ठीक</b> नंबर चाहिए — ज़्यादा आया तो वहीं रुको।', 'चाहो तो "6 आने पर ही गोटी खुलेगी" वाला पुराना नियम चालू कर लो।', 'जीतने के बाद WhatsApp पर दोस्तों को चैलेंज भेजो!'],
+      lessonsTitle: 'हर सीढ़ी एक अच्छी आदत, हर साँप एक बुरी',
+      ladderHead: '🪜 सीढ़ियाँ (ऊपर ले जाती हैं)',
+      snakeHead: '🐍 साँप (नीचे ले आते हैं)',
+      L: ['पढ़ाई की', 'माँ-बाप की सेवा की', 'पेड़ लगाया', 'दोस्त की मदद की', 'रोज़ खेले-कूदे', 'पानी बचाया', 'सच बोला', 'मेहनत की'],
+      S: ['होमवर्क भूल गए', 'झूठ बोला', 'आलस किया', 'मोबाइल में खोए रहे', 'गुस्सा किया', 'कचरा फेंका', 'फ़िज़ूल ख़र्च किया', 'दाँत साफ़ नहीं किए'],
+      aboutTitle: 'साँप-सीढ़ी की कहानी',
+      aboutText: 'साँप-सीढ़ी भारत का बहुत पुराना खेल है। पहले इसे "मोक्ष पटम" या "ज्ञान चौपड़" कहते थे। कहा जाता है कि यह बच्चों को अच्छे और बुरे कर्मों की सीख देने के लिए बनाया गया था — सीढ़ियाँ अच्छे काम (सच, दया, मेहनत) और साँप बुरे काम (झूठ, गुस्सा, लालच)। आख़िरी घर यानी मोक्ष।',
+      aboutText2: 'अंग्रेज़ों के ज़माने में यह खेल इंग्लैंड पहुँचा और "Snakes and Ladders" बन गया। हम सबने गर्मी की छुट्टियों में ज़मीन पर बोर्ड बिछाकर, कौड़ी या पासा फेंककर इसे खेला है। यहाँ वही खेल है — 8 सीढ़ियाँ, 8 साँप, और हर एक पर एक छोटी-सी सीख।',
+      moreGames: 'और गेम खेलो →',
+      privacyTitle: 'आपका डेटा',
+      privacyText: 'नाम और बेस्ट स्कोर सिर्फ़ आपके फ़ोन में रहते हैं। शेयर लिंक में सिर्फ़ नाम और चाल की गिनती जाती है। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Saanp-Seedhi 🐍🪜 (Snakes & Ladders)',
+      sub: 'The childhood board game, now on your phone! Roll the dice, climb the ladders, dodge the snakes — be the first to reach 100. Play the computer or 2–4 friends on one phone.',
+      startTitle: 'Ready for Snakes & Ladders? 🎲',
+      modeQ: 'Who are you playing with?',
+      modeComp: 'Computer',
+      you: 'You',
+      comp: 'Computer',
+      playerPh: (i) => `Player ${i} name`,
+      yourPh: 'Your name (optional)',
+      sixRule: 'Need a 6 to start',
+      play: '▶ Play',
+      turnOf: (n) => (n === 'You' ? 'Your turn' : `${n}'s turn`),
+      tapRoll: 'Tap 🎲 to roll',
+      compThink: '🤖 thinking…',
+      rolled: (n, v) => `${n} rolled ${v}`,
+      needSix: 'No 6 — the token is still locked 🔒',
+      opened: 'A 6! The token is out 🔓 Roll again!',
+      overshoot: (k) => `You need exactly ${k} to reach 100 — stay put this time`,
+      six: 'A six! 🎉 Roll again',
+      ladder: (lab, a, b) => `🪜 ${lab}! ${a} → ${b}`,
+      snake: (lab, a, b) => `🐍 ${lab}! ${a} → ${b}`,
+      win: (n) => `🏆 ${n} won!`,
+      endTitle: (n, comp) => (comp ? 'The computer won! 🤖' : `${n} won! 🎉`),
+      endUnit: 'moves to win',
+      endNoteComp: 'Never mind — the ladders are yours next time! 😄',
+      endNote: (best, isNew) => (isNew ? '🏅 New record — fewest moves!' : best ? `Your best: ${best} moves` : ''),
+      best: (n) => `Your best: a win in ${n} moves`,
+      challenge: (name, n) => `🏆 ${name} won Snakes & Ladders in just ${n} moves! Can you win faster?`,
+      shareWa: '📲 Challenge on WhatsApp',
+      shareOther: '🔗 Share / copy link',
+      copied: '✅ Copied',
+      copyPrompt: 'Copy this text:',
+      again: '🔁 Play again',
+      setup: '⚙️ Change players',
+      shareText: (name, n, url) => (n ? `🐍🪜 ${name || 'I'} won Snakes & Ladders in ${n} moves! Remember this childhood game? Come play: ${url}` : `🐍🪜 The childhood game Snakes & Ladders, now on your phone! Play the computer or friends: ${url}`),
+      howTitle: 'How to play',
+      how: ['Choose: play the <b>computer</b> or <b>2–4 players</b> on one phone (pass it around).', 'Tap the <b>🎲 dice</b> (or tap the board / press Space). Your token moves that many squares.', 'Stop at the foot of a <b>ladder 🪜</b> and you climb up. Stop on a <b>snake\'s 🐍</b> head and you slide down to its tail.', 'A <b>6</b> gives you another turn. You need the <b>exact</b> number to land on 100 — roll too high and you stay put.', 'Turn on the old "need a 6 to start" rule if you like.', 'After a win, challenge your friends on WhatsApp!'],
+      lessonsTitle: 'Every ladder a good habit, every snake a bad one',
+      ladderHead: '🪜 Ladders (take you up)',
+      snakeHead: '🐍 Snakes (bring you down)',
+      L: ['Studied hard', 'Helped your parents', 'Planted a tree', 'Helped a friend', 'Played outdoors', 'Saved water', 'Told the truth', 'Worked hard'],
+      S: ['Forgot the homework', 'Told a lie', 'Was lazy', 'Lost in the phone', 'Got angry', 'Littered', 'Wasted money', 'Skipped brushing'],
+      aboutTitle: 'The story of Saanp-Seedhi',
+      aboutText: 'Snakes and Ladders began in India, where it was called "Moksha Patam" or "Gyan Chaupar". It is said to have been made to teach children about good and bad deeds — the ladders were virtues (truth, kindness, hard work) and the snakes were vices (lies, anger, greed). The last square stood for moksha.',
+      aboutText2: 'During British rule the game travelled to England and became "Snakes and Ladders". Many of us played it in summer holidays on a board spread on the floor, throwing cowries or dice. This is the same game — 8 ladders, 8 snakes, and a small lesson on each.',
+      moreGames: 'Play more games →',
+      privacyTitle: 'Your data',
+      privacyText: 'Names and your best score stay only on your phone. The share link carries only a name and the number of moves. No login, no server.',
+    },
+    bn: {
+      title: 'সাপ-লুডো 🐍🪜',
+      sub: 'ছোটবেলার বোর্ড গেম, এখন ফোনে! ছক্কা চালো, মই বেয়ে ওঠো, সাপ থেকে বাঁচো — সবার আগে ১০০-তে পৌঁছাও। কম্পিউটার বা এক ফোনেই ২–৪ বন্ধুর সঙ্গে খেলো।',
+      startTitle: 'সাপ-লুডো খেলবে? 🎲',
+      modeQ: 'কার সঙ্গে খেলবে?',
+      modeComp: 'কম্পিউটার',
+      you: 'তুমি',
+      comp: 'কম্পিউটার',
+      playerPh: (i) => `খেলোয়াড় ${i}-এর নাম`,
+      yourPh: 'তোমার নাম (ঐচ্ছিক)',
+      sixRule: '৬ পড়লে তবেই ঘুঁটি খুলবে',
+      play: '▶ খেলো',
+      turnOf: (n) => (n === 'তুমি' ? 'তোমার পালা' : `${n}-এর পালা`),
+      tapRoll: 'ছক্কা চালতে 🎲 টিপো',
+      compThink: '🤖 ভাবছে…',
+      rolled: (n, v) => `${n}: ছক্কায় ${v}`,
+      needSix: '৬ পড়েনি — ঘুঁটি এখনও বন্ধ 🔒',
+      opened: '৬ পড়েছে! ঘুঁটি খুলে গেল 🔓 আরেকবার চালো!',
+      overshoot: (k) => `১০০-র জন্য ঠিক ${k} চাই — এবার এখানেই থাকো`,
+      six: 'ছয়! 🎉 আরেকবার চালো',
+      ladder: (lab, a, b) => `🪜 ${lab}! ${a} → ${b}`,
+      snake: (lab, a, b) => `🐍 ${lab}! ${a} → ${b}`,
+      win: (n) => `🏆 ${n} জিতেছে!`,
+      endTitle: (n, comp) => (comp ? 'কম্পিউটার জিতেছে! 🤖' : `${n} জিতেছে! 🎉`),
+      endUnit: 'চালে জয়',
+      endNoteComp: 'কোনো ব্যাপার না — পরের বার মই তোমার! 😄',
+      endNote: (best, isNew) => (isNew ? '🏅 নতুন রেকর্ড — সবচেয়ে কম চাল!' : best ? `তোমার সেরা: ${best} চাল` : ''),
+      best: (n) => `তোমার সেরা: ${n} চালে জয়`,
+      challenge: (name, n) => `🏆 ${name} মাত্র ${n} চালে সাপ-লুডো জিতেছে! তুমি কি তাড়াতাড়ি জিততে পারবে?`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও',
+      shareOther: '🔗 লিংক শেয়ার / কপি',
+      copied: '✅ কপি হয়েছে',
+      copyPrompt: 'এই লেখাটা কপি করো:',
+      again: '🔁 আবার খেলো',
+      setup: '⚙️ খেলোয়াড় বদলাও',
+      shareText: (name, n, url) => (n ? (name ? `🐍🪜 ${name} ${n} চালে সাপ-লুডো জিতেছে! ছোটবেলার খেলাটা মনে আছে? এসো খেলো: ${url}` : `🐍🪜 আমি ${n} চালে সাপ-লুডো জিতেছি! ছোটবেলার খেলাটা মনে আছে? এসো খেলো: ${url}`) : `🐍🪜 ছোটবেলার সাপ-লুডো এখন ফোনে! কম্পিউটার বা বন্ধুদের সঙ্গে খেলো: ${url}`),
+      howTitle: 'কীভাবে খেলবে',
+      how: ['বেছে নাও: <b>কম্পিউটার</b>-এর সঙ্গে, বা এক ফোনেই <b>২–৪ জন</b> (পালা করে ফোন দাও)।', '<b>🎲 ছক্কা</b> টিপো (বা বোর্ডে ট্যাপ / Space)। যত পড়বে, ঘুঁটি তত ঘর এগোবে।', '<b>মই 🪜</b>-এর গোড়ায় থামলে উপরে উঠবে। <b>সাপের 🐍</b> মুখে থামলে নিচে তার লেজে নেমে আসবে।', '<b>৬</b> পড়লে আরেকবার চাল। ১০০-তে পৌঁছাতে <b>ঠিক</b> সংখ্যা চাই — বেশি পড়লে ওখানেই থাকো।', 'চাইলে পুরনো নিয়ম "৬ পড়লে তবেই ঘুঁটি খুলবে" চালু করো।', 'জেতার পর WhatsApp-এ বন্ধুদের চ্যালেঞ্জ পাঠাও!'],
+      lessonsTitle: 'প্রতিটা মই একটা ভালো অভ্যাস, প্রতিটা সাপ একটা খারাপ',
+      ladderHead: '🪜 মই (উপরে তোলে)',
+      snakeHead: '🐍 সাপ (নিচে নামায়)',
+      L: ['মন দিয়ে পড়েছ', 'মা-বাবার সেবা করেছ', 'গাছ লাগিয়েছ', 'বন্ধুকে সাহায্য করেছ', 'রোজ খেলাধুলো করেছ', 'জল বাঁচিয়েছ', 'সত্যি বলেছ', 'পরিশ্রম করেছ'],
+      S: ['হোমওয়ার্ক ভুলে গেছ', 'মিথ্যে বলেছ', 'আলস্য করেছ', 'মোবাইলে ডুবে ছিলে', 'রাগ করেছ', 'ময়লা ফেলেছ', 'অকারণে খরচ করেছ', 'দাঁত মাজোনি'],
+      aboutTitle: 'সাপ-লুডোর গল্প',
+      aboutText: 'সাপ-লুডো (সাপ-সিঁড়ি) ভারতের খুব পুরনো খেলা। আগে একে "মোক্ষ পটম" বা "জ্ঞান চৌপড়" বলা হত। বলা হয়, ছোটদের ভালো আর খারাপ কাজের শিক্ষা দিতে এটা বানানো হয়েছিল — মই মানে ভালো কাজ (সত্য, দয়া, পরিশ্রম), সাপ মানে খারাপ কাজ (মিথ্যে, রাগ, লোভ)। শেষ ঘর মানে মোক্ষ।',
+      aboutText2: 'ব্রিটিশ আমলে খেলাটা ইংল্যান্ডে গিয়ে "Snakes and Ladders" হয়ে যায়। আমরা সবাই গরমের ছুটিতে মেঝেতে বোর্ড পেতে, কড়ি বা ছক্কা চেলে এটা খেলেছি। এখানে সেই খেলাই — ৮টা মই, ৮টা সাপ, আর প্রতিটায় একটা ছোট্ট শিক্ষা।',
+      moreGames: 'আরও গেম খেলো →',
+      privacyTitle: 'তোমার ডেটা',
+      privacyText: 'নাম আর সেরা স্কোর শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর চালের সংখ্যা। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const urlLang = params.get('lang');
+  const savedLang = store.get('sp-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 20);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(999, parseInt(params.get('score'), 10) || 0));
+  const best = () => parseInt(store.get('sp-best'), 10) || 0;
+  const debug = params.has('debug') ? (parseInt(params.get('debug'), 10) || 1) : 0;
+  const FAST = debug > 0;
+  const sleep = (ms) => new Promise((r) => setTimeout(r, FAST ? Math.min(ms, 40) : ms));
+
+  // ---------- options
+  let mode = parseInt(store.get('sp-mode'), 10) || 1;
+  if (![1, 2, 3, 4].includes(mode)) mode = 1;
+  let savedNames = [];
+  try { savedNames = JSON.parse(store.get('sp-names') || '[]').map(cleanName); } catch (e) { savedNames = []; }
+  $('sixRule').checked = store.get('sp-six') === '1';
+
+  const renderNames = () => {
+    document.querySelectorAll('#modes button').forEach((b) => b.classList.toggle('on', +b.dataset.mode === mode));
+    const n = mode === 1 ? 1 : mode;
+    const box = $('names');
+    const old = [...box.querySelectorAll('input')].map((i) => i.value);
+    box.innerHTML = '';
+    for (let i = 0; i < n; i += 1) {
+      const inp = document.createElement('input');
+      inp.type = 'text'; inp.maxLength = 20; inp.autocomplete = 'off';
+      inp.placeholder = mode === 1 ? t('yourPh') : t('playerPh')(i + 1);
+      inp.value = old[i] !== undefined ? old[i] : (savedNames[i] || '');
+      inp.style.borderLeft = `6px solid ${P_COL[i]}`;
+      inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
+      box.appendChild(inp);
+    }
+  };
+  $('modes').addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    mode = +b.dataset.mode; store.set('sp-mode', String(mode)); renderNames();
+  });
+
+  // ---------- page texts
+  let last = null;
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Bachpan ka Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    $('ladderList').innerHTML = LADDERS.map((l, i) => `<li>${L_EMOJI[i]} ${t('L')[i]} <small>(${l[0]} → ${l[1]})</small></li>`).join('');
+    $('snakeList').innerHTML = SNAKES.map((s, i) => `<li>${S_EMOJI[i]} ${t('S')[i]} <small>(${s[0]} → ${s[1]})</small></li>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+    renderNames();
+    players.forEach((pl) => { if (pl.auto) pl.name = pl.comp ? t('comp') : t('you'); });
+    renderChips(); renderTurn();
+    if (last) fillEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('sp-lang', lang); applyLang(); });
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- sound
+  let muted = store.get('sp-muted') === '1';
+  let ac = null, master = null, noiseBuf = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setIcons();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('sp-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.9; });
+  const initAudio = () => {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    ac = new AC();
+    master = ac.createGain(); master.gain.value = muted ? 0 : 0.9; master.connect(ac.destination);
+    noiseBuf = ac.createBuffer(1, ac.sampleRate, ac.sampleRate);
+    const d = noiseBuf.getChannelData(0);
+    for (let i = 0; i < d.length; i += 1) d[i] = Math.random() * 2 - 1;
+  };
+  const tone = (f, dur, type = 'sine', vol = 0.1, f2 = null, delay = 0) => {
+    if (!ac || FAST) return;
+    const when = ac.currentTime + delay;
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, when);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, when + dur);
+    g.gain.setValueAtTime(0.0001, when); g.gain.exponentialRampToValueAtTime(vol, when + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+    o.connect(g); g.connect(master); o.start(when); o.stop(when + dur + 0.02);
+  };
+  const noise = (dur, vol, ftype, ff, delay = 0, ff2 = null) => {
+    if (!ac || FAST) return;
+    const when = ac.currentTime + delay;
+    const s = ac.createBufferSource(), f = ac.createBiquadFilter(), g = ac.createGain();
+    s.buffer = noiseBuf; f.type = ftype; f.frequency.setValueAtTime(ff, when);
+    if (ff2) f.frequency.exponentialRampToValueAtTime(ff2, when + dur);
+    g.gain.setValueAtTime(vol, when); g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+    s.connect(f); f.connect(g); g.connect(master); s.start(when, Math.random() * 0.5); s.stop(when + dur + 0.02);
+  };
+  const sfx = {
+    rattle: () => { for (let i = 0; i < 6; i += 1) noise(0.04, 0.14, 'bandpass', 2400 + Math.random() * 1500, i * 0.075); },
+    land: () => { tone(180, 0.09, 'sine', 0.25, 90); noise(0.05, 0.1, 'lowpass', 900); },
+    hop: () => tone(520 + Math.random() * 60, 0.06, 'triangle', 0.06),
+    ladder: () => { [523, 587, 659, 784, 880, 1047].forEach((f, i) => tone(f, 0.14, 'triangle', 0.09, null, i * 0.08)); },
+    snake: () => { noise(0.9, 0.12, 'highpass', 5000, 0, 2500); tone(392, 0.8, 'sawtooth', 0.04, 98, 0.05); },
+    locked: () => tone(200, 0.2, 'square', 0.05, 150),
+    six: () => { tone(880, 0.1, 'triangle', 0.1); tone(1320, 0.16, 'triangle', 0.1, null, 0.08); },
+    win: () => { [523, 659, 784, 1047, 784, 1047, 1319].forEach((f, i) => tone(f, i === 6 ? 0.5 : 0.16, 'triangle', 0.11, null, i * 0.13)); },
+  };
+
+  // ---------- board geometry (in cell units: x,y in 0..10, y=0 at the top)
+  const cellXY = (n) => {
+    const r = Math.floor((n - 1) / 10);
+    let c = (n - 1) % 10;
+    if (r % 2 === 1) c = 9 - c;
+    return { x: c + 0.5, y: 9 - r + 0.5 };
+  };
+  const snakeCurve = (i) => {
+    const [h, tl] = SNAKES[i];
+    const a = cellXY(h), b = cellXY(tl);
+    const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1;
+    const px = -dy / len, py = dx / len, k = Math.min(1.4, len * 0.32) * (i % 2 ? 1 : -1);
+    const p1 = { x: a.x + dx * 0.33 + px * k, y: a.y + dy * 0.33 + py * k };
+    const p2 = { x: a.x + dx * 0.66 - px * k, y: a.y + dy * 0.66 - py * k };
+    return (t) => {
+      const u = 1 - t;
+      return {
+        x: u * u * u * a.x + 3 * u * u * t * p1.x + 3 * u * t * t * p2.x + t * t * t * b.x,
+        y: u * u * u * a.y + 3 * u * u * t * p1.y + 3 * u * t * t * p2.y + t * t * t * b.y,
+      };
+    };
+  };
+  const CURVES = SNAKES.map((_, i) => snakeCurve(i));
+  const ladderAt = (n) => LADDERS.findIndex((l) => l[0] === n);
+  const snakeAt = (n) => SNAKES.findIndex((s) => s[0] === n);
+
+  // ---------- drawing
+  const cv = $('board');
+  const ctx = cv.getContext('2d');
+  let S = 0, C = 0, dpr = 1, bg = null;
+  const CELL_COL = ['#fff3bf', '#d3f9d8', '#ffe3e3', '#d0ebff', '#f3d9fa'];
+  const resize = () => {
+    const r = $('boardwrap').getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+    S = Math.max(200, Math.round(r.width));
+    C = S / 10;
+    cv.width = Math.round(S * dpr); cv.height = Math.round(S * dpr);
+    drawBg();
+  };
+  const drawBg = () => {
+    bg = document.createElement('canvas');
+    bg.width = cv.width; bg.height = cv.height;
+    const g = bg.getContext('2d');
+    g.scale(dpr, dpr);
+    for (let n = 1; n <= 100; n += 1) {
+      const p = cellXY(n);
+      const x = (p.x - 0.5) * C, y = (p.y - 0.5) * C;
+      const row = Math.floor((n - 1) / 10), col = Math.floor(p.x);
+      g.fillStyle = CELL_COL[(row + col) % 5];
+      g.fillRect(x, y, C, C);
+      g.strokeStyle = 'rgba(0,0,0,0.08)'; g.lineWidth = 1; g.strokeRect(x + 0.5, y + 0.5, C - 1, C - 1);
+      g.fillStyle = 'rgba(40,40,70,0.75)';
+      g.font = `700 ${Math.max(8, C * 0.24)}px Inter, system-ui, sans-serif`;
+      g.textAlign = 'left'; g.textBaseline = 'top';
+      g.fillText(String(n), x + C * 0.07, y + C * 0.05);
+    }
+    // finish and start marks
+    const fin = cellXY(100);
+    g.font = `${C * 0.5}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`;
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillText('🏆', fin.x * C, fin.y * C + C * 0.08);
+    const st = cellXY(1);
+    g.font = `${C * 0.38}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`;
+    g.fillText('🏁', st.x * C + C * 0.12, st.y * C + C * 0.12);
+    // ladders
+    LADDERS.forEach(([a, b], i) => {
+      const p = cellXY(a), q = cellXY(b);
+      const ax = p.x * C, ay = p.y * C + C * 0.15, bx = q.x * C, by = q.y * C - C * 0.1;
+      const dx = bx - ax, dy = by - ay, len = Math.hypot(dx, dy);
+      const nx = -dy / len, ny = dx / len, w = C * 0.2;
+      g.lineCap = 'round';
+      g.strokeStyle = 'rgba(0,0,0,0.25)'; g.lineWidth = C * 0.13;
+      [-1, 1].forEach((s) => { g.beginPath(); g.moveTo(ax + nx * w * s + 2, ay + ny * w * s + 3); g.lineTo(bx + nx * w * s + 2, by + ny * w * s + 3); g.stroke(); });
+      g.strokeStyle = '#9c6b30'; g.lineWidth = C * 0.07;
+      const steps = Math.max(2, Math.floor(len / (C * 0.34)));
+      for (let k = 1; k < steps; k += 1) {
+        const tt = k / steps, cx = ax + dx * tt, cy = ay + dy * tt;
+        g.beginPath(); g.moveTo(cx - nx * w, cy - ny * w); g.lineTo(cx + nx * w, cy + ny * w); g.stroke();
+      }
+      g.strokeStyle = '#7a4a12'; g.lineWidth = C * 0.1;
+      [-1, 1].forEach((s) => { g.beginPath(); g.moveTo(ax + nx * w * s, ay + ny * w * s); g.lineTo(bx + nx * w * s, by + ny * w * s); g.stroke(); });
+      g.strokeStyle = '#d9a35b'; g.lineWidth = C * 0.035;
+      [-1, 1].forEach((s) => { g.beginPath(); g.moveTo(ax + nx * w * s, ay + ny * w * s); g.lineTo(bx + nx * w * s, by + ny * w * s); g.stroke(); });
+      g.font = `${C * 0.3}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`;
+      g.fillText(L_EMOJI[i], p.x * C + C * 0.3, p.y * C + C * 0.3);
+    });
+    // snakes (tapered body from sampled curve)
+    SNAKES.forEach((sn, i) => {
+      const f = CURVES[i];
+      const N = 70, pts = [];
+      for (let k = 0; k <= N; k += 1) pts.push(f(k / N));
+      const [dark, light] = SNAKE_COL[i];
+      const W = C * 0.2;
+      g.fillStyle = 'rgba(0,0,0,0.22)';
+      for (let k = N; k >= 0; k -= 1) { const r = W * (1 - 0.75 * (k / N)); g.beginPath(); g.arc(pts[k].x * C + 2, pts[k].y * C + 3, r, 0, Math.PI * 2); g.fill(); }
+      for (let k = N; k >= 0; k -= 1) {
+        const r = W * (1 - 0.75 * (k / N));
+        g.fillStyle = k % 8 < 4 ? dark : light;
+        g.beginPath(); g.arc(pts[k].x * C, pts[k].y * C, r, 0, Math.PI * 2); g.fill();
+      }
+      // head
+      const h = pts[0], h2 = pts[3];
+      const ang = Math.atan2(h.y - h2.y, h.x - h2.x);
+      g.save(); g.translate(h.x * C, h.y * C); g.rotate(ang);
+      g.fillStyle = '#d6336c'; g.strokeStyle = '#d6336c'; g.lineWidth = Math.max(1, C * 0.03);
+      g.beginPath(); g.moveTo(W * 1.1, 0); g.lineTo(W * 1.7, 0); g.moveTo(W * 1.7, 0); g.lineTo(W * 1.95, -W * 0.25); g.moveTo(W * 1.7, 0); g.lineTo(W * 1.95, W * 0.25); g.stroke();
+      g.fillStyle = dark; g.beginPath(); g.ellipse(W * 0.3, 0, W * 1.25, W * 0.95, 0, 0, Math.PI * 2); g.fill();
+      [-1, 1].forEach((s) => {
+        g.fillStyle = '#fff'; g.beginPath(); g.arc(W * 0.6, s * W * 0.45, W * 0.32, 0, Math.PI * 2); g.fill();
+        g.fillStyle = '#111'; g.beginPath(); g.arc(W * 0.7, s * W * 0.45, W * 0.16, 0, Math.PI * 2); g.fill();
+      });
+      g.restore();
+    });
+  };
+
+  // ---------- players and tokens
+  let players = [];
+  let turn = 0;
+  let busy = false;
+  let state = 'idle'; // idle | play | over
+  let gameId = 0;
+  let confetti = [];
+  const tokenXY = (pl, idx) => {
+    if (pl.anim) return pl.anim;
+    if (pl.pos === 0) return null;
+    const p = cellXY(pl.pos);
+    const same = players.filter((o) => o.pos === pl.pos && !o.anim);
+    if (same.length < 2) return p;
+    const j = same.indexOf(pl);
+    const off = [[-0.2, -0.17], [0.2, -0.17], [-0.2, 0.2], [0.2, 0.2]][j % 4];
+    return { x: p.x + off[0], y: p.y + off[1] };
+  };
+  const drawToken = (pl, idx, p, active) => {
+    const x = p.x * C, y = p.y * C, r = C * 0.27;
+    ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.beginPath(); ctx.ellipse(x + 1, y + r * 0.85, r * 0.85, r * 0.3, 0, 0, Math.PI * 2); ctx.fill();
+    if (active) { ctx.strokeStyle = 'rgba(255,212,59,0.95)'; ctx.lineWidth = C * 0.06; ctx.beginPath(); ctx.arc(x, y, r + C * 0.07 + Math.sin(performance.now() / 180) * C * 0.02, 0, Math.PI * 2); ctx.stroke(); }
+    const grd = ctx.createRadialGradient(x - r * 0.35, y - r * 0.4, r * 0.1, x, y, r);
+    grd.addColorStop(0, '#fff'); grd.addColorStop(0.35, pl.color); grd.addColorStop(1, pl.color);
+    ctx.fillStyle = grd; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = Math.max(1.5, C * 0.045); ctx.stroke();
+    ctx.fillStyle = '#fff'; ctx.font = `800 ${C * 0.26}px Inter, sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(pl.comp ? '🤖' : String(idx + 1), x, y + 1);
+  };
+  const render = () => {
+    if (!bg) return;
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    ctx.drawImage(bg, 0, 0);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const order = players.map((pl, i) => i).sort((a, b) => (players[a].anim ? 1 : 0) - (players[b].anim ? 1 : 0) || (a === turn ? 1 : 0) - (b === turn ? 1 : 0));
+    order.forEach((i) => { const p = tokenXY(players[i], i); if (p) drawToken(players[i], i, p, state === 'play' && i === turn); });
+    if (confetti.length) {
+      const now = performance.now();
+      confetti = confetti.filter((c) => now - c.t0 < 3200);
+      confetti.forEach((c) => {
+        const tt = (now - c.t0) / 1000;
+        const x = (c.x + c.vx * tt) * C, y = (c.y + c.vy * tt + 4.5 * tt * tt) * C;
+        ctx.save(); ctx.translate(x, y); ctx.rotate(c.r + tt * c.vr); ctx.fillStyle = c.col; ctx.fillRect(-C * 0.08, -C * 0.04, C * 0.16, C * 0.08); ctx.restore();
+      });
+    }
+  };
+  const loop = () => { render(); requestAnimationFrame(loop); };
+
+  const animate = (pl, path, ms) => new Promise((res) => {
+    const dur = FAST ? Math.min(ms, 30) : ms;
+    const t0 = performance.now();
+    const step = () => {
+      const k = Math.min(1, (performance.now() - t0) / dur);
+      pl.anim = path(k);
+      if (k < 1) requestAnimationFrame(step); else res();
+    };
+    pl.anim = path(0);
+    requestAnimationFrame(step);
+  });
+  const hopPath = (a, b) => {
+    const p = a === 0 ? { x: -0.6, y: 9.5 } : cellXY(a), q = cellXY(b);
+    return (k) => ({ x: p.x + (q.x - p.x) * k, y: p.y + (q.y - p.y) * k - Math.sin(Math.PI * k) * 0.45 });
+  };
+  const ease = (k) => (k < 0.5 ? 2 * k * k : 1 - ((-2 * k + 2) ** 2) / 2);
+
+  // ---------- UI
+  const renderChips = () => {
+    $('chips').innerHTML = '';
+    players.forEach((pl, i) => {
+      const el = document.createElement('span');
+      el.className = `chip${state === 'play' && i === turn ? ' on' : ''}`;
+      const dot = document.createElement('span'); dot.className = 'dot'; dot.style.background = pl.color;
+      const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = pl.name;
+      const ps = document.createElement('span'); ps.className = 'ps'; ps.textContent = pl.pos ? `· ${pl.pos}` : (pl.open ? '· 0' : '· 🔒');
+      el.append(dot, nm, ps);
+      $('chips').appendChild(el);
+    });
+  };
+  const cur = () => players[turn];
+  const humanTurn = () => state === 'play' && players[turn] && !players[turn].comp;
+  const renderTurn = () => {
+    const pl = cur();
+    if (!pl || state !== 'play') { $('turn').textContent = ''; $('dice').disabled = true; return; }
+    $('turn').textContent = t('turnOf')(pl.name);
+    $('turn').style.color = pl.color === '#fcc419' ? '#ffe066' : '#fff';
+    $('dice').disabled = busy || pl.comp;
+  };
+  const setMsg = (s) => { $('msg').textContent = s; };
+  let toastTimer = 0;
+  const toast = (s, kind) => {
+    const el = $('toast');
+    el.textContent = s; el.className = `toast show ${kind || ''}`;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { el.className = 'toast'; }, FAST ? 200 : 1700);
+  };
+  const PIPS = { 1: [4], 2: [0, 8], 3: [0, 4, 8], 4: [0, 2, 6, 8], 5: [0, 2, 4, 6, 8], 6: [0, 2, 3, 5, 6, 8] };
+  const showDice = (v) => { [...$('dice').children].forEach((el, i) => { el.style.visibility = PIPS[v].includes(i) ? 'visible' : 'hidden'; }); $('dice').setAttribute('aria-label', `Dice ${v}`); };
+  showDice(6);
+
+  // ---------- game flow
+  const rollDice = async () => {
+    const d = $('dice');
+    d.classList.add('roll');
+    sfx.rattle();
+    const n = FAST ? 1 : 7;
+    for (let i = 0; i < n; i += 1) { showDice(1 + Math.floor(Math.random() * 6)); await sleep(70); }
+    const v = 1 + Math.floor(Math.random() * 6);
+    showDice(v);
+    d.classList.remove('roll');
+    sfx.land();
+    return v;
+  };
+
+  const play = async () => {
+    if (busy || state !== 'play') return;
+    const id = gameId;
+    busy = true; renderTurn();
+    const pl = cur();
+    const v = await rollDice();
+    if (id !== gameId) return;
+    pl.turns += 1;
+    setMsg(t('rolled')(pl.name, v));
+    let again = v === 6;
+    if (!pl.open) {
+      if (v === 6) { pl.open = true; sfx.six(); setMsg(t('opened')); renderChips(); }
+      else { sfx.locked(); setMsg(t('needSix')); }
+      await sleep(v === 6 ? 500 : 700);
+    } else if (pl.pos + v > 100) {
+      setMsg(t('overshoot')(100 - pl.pos));
+      sfx.locked();
+      again = false;
+      await sleep(900);
+    } else {
+      await sleep(180);
+      for (let s = 1; s <= v; s += 1) {
+        const from = pl.pos;
+        await animate(pl, hopPath(from, from + 1), 170);
+        if (id !== gameId) return;
+        pl.pos = from + 1; sfx.hop();
+      }
+      pl.anim = null; renderChips();
+      const li = ladderAt(pl.pos), si = snakeAt(pl.pos);
+      if (li >= 0) {
+        const [a, b] = LADDERS[li];
+        await sleep(150);
+        toast(`${L_EMOJI[li]} ${t('ladder')(t('L')[li], a, b)}`, 'good'); setMsg(t('ladder')(t('L')[li], a, b));
+        sfx.ladder();
+        const p = cellXY(a), q = cellXY(b);
+        await animate(pl, (k) => { const e = ease(k); return { x: p.x + (q.x - p.x) * e, y: p.y + (q.y - p.y) * e }; }, 750);
+        pl.pos = b; pl.ladders += 1;
+      } else if (si >= 0) {
+        const [a, b] = SNAKES[si];
+        await sleep(150);
+        toast(`${S_EMOJI[si]} ${t('snake')(t('S')[si], a, b)}`, 'bad'); setMsg(t('snake')(t('S')[si], a, b));
+        sfx.snake();
+        if (navigator.vibrate && !pl.comp) try { navigator.vibrate(150); } catch (e) { /* ignore */ }
+        await animate(pl, (k) => CURVES[si](ease(k)), 1000);
+        pl.pos = b; pl.snakes += 1;
+      } else if (v === 6) { sfx.six(); }
+      if (id !== gameId) return;
+      pl.anim = null; renderChips();
+      if (pl.pos === 100) { win(pl); return; }
+      if (again) { await sleep(250); setMsg(t('six')); }
+      await sleep(li >= 0 || si >= 0 ? 500 : 350);
+    }
+    if (id !== gameId) return;
+    if (!again) turn = (turn + 1) % players.length;
+    busy = false;
+    renderChips(); renderTurn();
+    nextTurn();
+  };
+
+  const nextTurn = () => {
+    if (state !== 'play') return;
+    const pl = cur();
+    if (pl.comp) { if (!$('msg').textContent) setMsg(t('compThink')); setTimeout(play, FAST ? 10 : 650); }
+    else if (debug) setTimeout(play, 10);
+  };
+
+  const win = (pl) => {
+    state = 'over'; busy = false;
+    sfx.win();
+    toast(t('win')(pl.name), 'good');
+    const now = performance.now();
+    const cols = ['#ff6b6b', '#ffd43b', '#51cf66', '#339af0', '#cc5de8', '#ff922b'];
+    for (let i = 0; i < 90; i += 1) confetti.push({ t0: now + Math.random() * 400, x: 5 + (Math.random() - 0.5) * 2, y: 4, vx: (Math.random() - 0.5) * 9, vy: -4 - Math.random() * 5, r: Math.random() * 6, vr: (Math.random() - 0.5) * 12, col: cols[i % cols.length] });
+    renderChips(); renderTurn();
+    const prev = best();
+    const humanWin = !pl.comp;
+    let isNew = false;
+    if (humanWin && mode === 1) { if (!prev || pl.turns < prev) { store.set('sp-best', String(pl.turns)); isNew = !!prev; } }
+    last = { idx: players.indexOf(pl), turns: pl.turns, comp: pl.comp, name: pl.name, auto: pl.auto, snakes: pl.snakes, ladders: pl.ladders, isNew, vsComp: mode === 1 };
+    setTimeout(() => { fillEnd(); $('endScreen').classList.remove('hidden'); }, FAST ? 50 : 1800);
+  };
+  const fillEnd = () => {
+    const nm = last.auto ? (last.comp ? t('comp') : t('you')) : last.name;
+    $('endTitle').textContent = t('endTitle')(nm, last.comp);
+    $('finalScore').textContent = String(last.turns);
+    $('endUnit').textContent = t('endUnit');
+    $('endNote').textContent = last.comp ? t('endNoteComp') : (last.vsComp ? t('endNote')(best(), last.isNew) : '');
+    $('endStats').textContent = `🪜 ${last.ladders}   🐍 ${last.snakes}`;
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+  };
+
+  const start = () => {
+    initAudio();
+    gameId += 1;
+    const inputs = [...$('names').querySelectorAll('input')];
+    const names = inputs.map((i) => cleanName(i.value));
+    if (names.some(Boolean)) { savedNames = names; store.set('sp-names', JSON.stringify(names)); }
+    store.set('sp-six', $('sixRule').checked ? '1' : '0');
+    const six = $('sixRule').checked;
+    players = [];
+    if (mode === 1) {
+      players.push({ name: names[0] || t('you'), auto: !names[0], comp: false, color: P_COL[0] });
+      players.push({ name: t('comp'), auto: true, comp: true, color: P_COL[1] });
+    } else {
+      for (let i = 0; i < mode; i += 1) players.push({ name: names[i] || `${t('playerPh')(i + 1).split(' ').slice(0, 2).join(' ')}`, auto: false, comp: false, color: P_COL[i] });
+      if (lang === 'en') players.forEach((p, i) => { if (!names[i]) p.name = `Player ${i + 1}`; });
+      if (lang === 'hinglish') players.forEach((p, i) => { if (!names[i]) p.name = `Khiladi ${i + 1}`; });
+      if (lang === 'hi') players.forEach((p, i) => { if (!names[i]) p.name = `खिलाड़ी ${i + 1}`; });
+      if (lang === 'bn') players.forEach((p, i) => { if (!names[i]) p.name = `খেলোয়াড় ${i + 1}`; });
+    }
+    players.forEach((p) => Object.assign(p, { pos: 0, open: !six, turns: 0, snakes: 0, ladders: 0, anim: null }));
+    turn = 0; busy = false; state = 'play'; last = null; confetti = [];
+    ['startScreen', 'endScreen'].forEach((id) => $(id).classList.add('hidden'));
+    $('shareOther').textContent = t('shareOther');
+    setMsg(debug ? '' : t('tapRoll'));
+    renderChips(); renderTurn();
+    nextTurn();
+  };
+
+  // ---------- input
+  $('dice').addEventListener('click', () => { if (humanTurn()) { initAudio(); play(); } });
+  cv.addEventListener('pointerdown', (e) => { if (humanTurn()) { e.preventDefault(); initAudio(); play(); } });
+  window.addEventListener('keydown', (e) => {
+    if (e.target && e.target.tagName === 'INPUT') return;
+    if ((e.code === 'Space' || e.code === 'Enter') && humanTurn()) { e.preventDefault(); initAudio(); play(); }
+  });
+
+  // ---------- share
+  const shareText = () => {
+    const u = new URL(SITE);
+    const humanWon = last && !last.comp;
+    const name = humanWon && !last.auto ? last.name : '';
+    if (name) u.searchParams.set('from', name);
+    if (humanWon) u.searchParams.set('score', String(last.turns));
+    u.searchParams.set('lang', lang);
+    return t('shareText')(name, humanWon ? last.turns : 0, u.toString());
+  };
+  $('play').addEventListener('click', start);
+  $('again').addEventListener('click', start);
+  $('setup').addEventListener('click', () => { gameId += 1; state = 'idle'; $('endScreen').classList.add('hidden'); $('startScreen').classList.remove('hidden'); });
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => window.prompt(t('copyPrompt'), text));
+  });
+
+  if ('ResizeObserver' in window) new ResizeObserver(resize).observe($('boardwrap'));
+  window.addEventListener('resize', resize);
+  resize();
+  applyLang();
+  requestAnimationFrame(loop);
+  if (debug && params.has('auto')) {
+    if (debug >= 2) { mode = 4; renderNames(); }
+    start();
+  }
+  window.__sp = { get state() { return state; }, get players() { return players.map((p) => ({ name: p.name, pos: p.pos, turns: p.turns, snakes: p.snakes, ladders: p.ladders })); }, get last() { return last; } };
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>

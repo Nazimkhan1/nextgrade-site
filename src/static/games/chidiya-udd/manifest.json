@@ -1,0 +1,16 @@
+{
+  "name": "Chidiya Udd — Bachpan ka Game",
+  "short_name": "Chidiya Udd",
+  "description": "The classic childhood game: tap only if it really flies! Tota udd, kabootar udd… bhains udd?",
+  "start_url": "/games/chidiya-udd/",
+  "scope": "/games/chidiya-udd/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#141238",
+  "theme_color": "#1c7ed6",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

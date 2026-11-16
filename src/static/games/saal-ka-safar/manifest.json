@@ -1,0 +1,16 @@
+{
+  "name": "Saal ka Safar 2026 → 2027 — New Year Game",
+  "short_name": "Saal ka Safar",
+  "description": "Run through 2026 touching the year's memories and enter 2027 with fireworks, dhol and dancing.",
+  "start_url": "/games/saal-ka-safar/",
+  "scope": "/games/saal-ka-safar/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#141238",
+  "theme_color": "#141238",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

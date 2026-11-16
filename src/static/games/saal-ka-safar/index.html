@@ -1,0 +1,1222 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Saal ka Safar 2026 → 2027 🎆 — New Year Game | NextGrade</title>
+<meta name="description" content="Free New Year game in Hindi, Hinglish, English and Bengali: run through all 12 months of 2026, touch the year's memories (kites, Holi, Eid, monsoon, Diwali, Christmas), count down 10…1 and enter 2027 with fireworks, dhol and dancing.">
+<link rel="canonical" href="https://nextgrade.in/games/saal-ka-safar/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Saal ka Safar 2026 → 2027 🎆">
+<meta property="og:description" content="Poore 2026 ki yaadein chhoo kar 2027 mein pahuncho — aatishbaazi aur naach-gaana tumhara intezaar kar raha hai!">
+<meta property="og:url" content="https://nextgrade.in/games/saal-ka-safar/">
+<meta property="og:image" content="https://nextgrade.in/games/saal-ka-safar/icons/icon-512.png">
+<meta name="theme-color" content="#141238">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Saal ka Safar 2026 → 2027","url":"https://nextgrade.in/games/saal-ka-safar/","genre":"Casual","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #141238; --bg2: #2b1d6b; --gold: #ffd43b; --pink: #f06595; --ink: #f8f9fa; --muted: #c5c3e6; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #3b2a8c, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #e8590c, #f59f00); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.45); background: #0b0a24; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
+canvas { display: block; width: 100%; height: min(74vh, 640px, 135vw); touch-action: none; cursor: pointer; }
+.hud { position: absolute; top: 10px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: center; pointer-events: none; font-weight: 800; font-size: 17px; text-shadow: 0 2px 6px rgba(0,0,0,0.65); }
+.bar { position: absolute; top: 40px; left: 12px; right: 12px; height: 6px; border-radius: 4px; background: rgba(0,0,0,0.25); pointer-events: none; overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #ffd43b, #f06595); border-radius: 4px; }
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(8, 6, 30, 0.72); padding: 16px; overflow-y: auto; }
+.overlay.low { align-items: flex-end; background: linear-gradient(180deg, rgba(8,6,30,0) 0%, rgba(8,6,30,0.35) 45%, rgba(8,6,30,0.8) 100%); }
+.panel { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 18px; width: min(420px, 100%); text-align: center; margin: auto; }
+.overlay.low .panel { margin: 0 auto; background: rgba(20,18,56,0.78); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: var(--muted); }
+.panel .memt { font-size: 14px; margin: 4px 0; text-align: left; }
+details { text-align: left; margin: 4px 0; }
+summary { cursor: pointer; font-weight: 700; color: var(--gold); padding: 6px 0; font-size: 15px; }
+@media (max-width: 480px) { .panel { padding: 14px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } input { padding: 9px 11px; } .btn { padding: 11px 14px; font-size: 16px; } .big { font-size: 42px; } }
+.big { font-family: "Baloo 2", sans-serif; font-size: 50px; font-weight: 800; color: var(--gold); line-height: 1; margin: 6px 0; }
+.stars { font-size: 28px; letter-spacing: 4px; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 6px 0; }
+input::placeholder { color: #a9a6d6; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #f06595, #ff922b); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.row2 .btn { font-size: 15px; padding: 11px 8px; }
+.floatbtn { position: absolute; right: 12px; bottom: 12px; }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🎆 NextGrade<small>New Year Game</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="game" aria-label="Saal ka Safar game"></canvas>
+    <div class="hud" aria-hidden="true"><span id="hudMonth"></span><span id="hudStars">⭐ 0</span></div>
+    <div class="bar" aria-hidden="true"><i id="barFill"></i></div>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle"></h2>
+        <p data-i18n="controls"></p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <details id="memBox">
+          <summary data-i18n="memSum"></summary>
+          <p class="memt" data-i18n="memTitle"></p>
+          <input id="mem0" maxlength="28" aria-label="Memory 1">
+          <input id="mem1" maxlength="28" aria-label="Memory 2">
+          <input id="mem2" maxlength="28" aria-label="Memory 3">
+        </details>
+        <button class="btn btn-main" id="play" type="button" data-i18n="play"></button>
+        <p id="bestLine"></p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="pauseScreen">
+      <div class="panel">
+        <h2 data-i18n="paused"></h2>
+        <button class="btn btn-main" id="resume" type="button" data-i18n="resume"></button>
+      </div>
+    </div>
+
+    <div class="overlay low hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big" id="finalScore">0</div>
+        <div class="stars" id="finalStars"></div>
+        <p id="endNote"></p>
+        <p id="memRecap"></p>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <div class="row2">
+          <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+          <button class="btn btn-ghost" id="watch" type="button" data-i18n="watch"></button>
+        </div>
+        <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
+        <a class="btn btn-ghost" id="wishCard" href="https://nextgrade.in/wish-card/" data-i18n="wishCard"></a>
+      </div>
+    </div>
+    <button class="iconbtn floatbtn hidden" id="showResult" type="button" data-i18n="showResult"></button>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card"><ol id="howList"></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="monthsTitle"></h2>
+    <div class="card"><ul id="monthList"></ul></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="safety"></p>
+    <p><span data-i18n="readMore"></span> <a id="guideLink" href="https://nextgrade.in/festivals/new-year/" data-i18n="guideLink"></a> · <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const OLD = 2026;
+  const NEW = 2027;
+  const SITE = 'https://nextgrade.in/games/saal-ka-safar/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+
+  // ---------- memories: 4 per month. [emoji, hinglish, hindi, english, bengali]
+  const MEM = [
+    [['🪁', 'Patang udayi', 'पतंग उड़ाई', 'Flew kites', 'ঘুড়ি ওড়ালাম'], ['🔥', 'Lohri ki aag', 'लोहड़ी की आग', 'Lohri bonfire', 'লোহরির আগুন'], ['🇮🇳', 'Gantantra Diwas', 'गणतंत्र दिवस', 'Republic Day', 'প্রজাতন্ত্র দিবস'], ['☕', 'Sardi ki chai', 'सर्दी की चाय', 'Winter chai', 'শীতের চা']],
+    [['🌼', 'Basant ke phool', 'बसंत के फूल', 'Spring flowers', 'বসন্তের ফুল'], ['🌙', 'Ramzan ka chaand', 'रमज़ान का चाँद', 'Ramzan moon', 'রমজানের চাঁদ'], ['❤️', 'Pyaar bhara din', 'प्यार भरा दिन', 'A day of love', 'ভালোবাসার দিন'], ['🏏', 'Gali cricket', 'गली क्रिकेट', 'Street cricket', 'পাড়ার ক্রিকেট']],
+    [['🎨', 'Holi ke rang', 'होली के रंग', 'Holi colours', 'দোলের রং'], ['🕌', 'Eid Mubarak', 'ईद मुबारक', 'Eid Mubarak', 'ঈদ মোবারক'], ['📚', 'Exam khatam!', 'परीक्षा ख़त्म!', 'Exams over!', 'পরীক্ষা শেষ!'], ['🍬', 'Gujiya-sewaiyan', 'गुजिया-सेवइयाँ', 'Gujiya & sewaiyan', 'গুজিয়া-সেমাই']],
+    [['🌾', 'Baisakhi ki fasal', 'बैसाखी की फ़सल', 'Baisakhi harvest', 'বৈশাখের ফসল'], ['🎓', 'Result aaya', 'रिज़ल्ट आया', 'Results day', 'রেজাল্ট বেরোল'], ['🍦', 'Pehli kulfi', 'पहली कुल्फ़ी', 'First kulfi', 'প্রথম কুলফি'], ['☀️', 'Garmi shuru', 'गर्मी शुरू', 'Summer begins', 'গরম শুরু']],
+    [['🥭', 'Aam ka mausam', 'आम का मौसम', 'Mango season', 'আমের মরসুম'], ['🕌', 'Bakrid Mubarak', 'बकरीद मुबारक', 'Bakrid Mubarak', 'বকরি ঈদ মোবারক'], ['🍉', 'Thanda tarbooz', 'ठंडा तरबूज़', 'Cold watermelon', 'ঠান্ডা তরমুজ'], ['🌀', 'Cooler ki hawa', 'कूलर की हवा', 'Cooler breeze', 'কুলারের হাওয়া']],
+    [['🏡', 'Naani ka ghar', 'नानी का घर', "Grandma's house", 'মামার বাড়ি'], ['🚂', 'Chhuttiyon ki train', 'छुट्टियों की ट्रेन', 'Holiday train', 'ছুটির ট্রেন'], ['☔', 'Pehli barish', 'पहली बारिश', 'First rain', 'প্রথম বৃষ্টি'], ['🧘', 'Yoga Day', 'योग दिवस', 'Yoga Day', 'যোগ দিবস']],
+    [['⛵', 'Kaagaz ki naav', 'काग़ज़ की नाव', 'Paper boat', 'কাগজের নৌকা'], ['🫖', 'Chai-pakode', 'चाय-पकौड़े', 'Chai & pakode', 'চা-তেলেভাজা'], ['🌈', 'Indradhanush', 'इंद्रधनुष', 'Rainbow', 'রামধনু'], ['🎒', 'School khula', 'स्कूल खुला', 'School reopened', 'স্কুল খুলল']],
+    [['🇮🇳', '15 August', '15 अगस्त', 'Independence Day', 'স্বাধীনতা দিবস'], ['🧵', 'Raksha Bandhan', 'रक्षाबंधन', 'Raksha Bandhan', 'রাখি বন্ধন'], ['🤝', 'Dosti ka din', 'दोस्ती का दिन', 'Friendship Day', 'বন্ধুত্ব দিবস'], ['🌿', 'Saawan ki hariyali', 'सावन की हरियाली', 'Green monsoon', 'শ্রাবণের সবুজ']],
+    [['🦚', 'Janmashtami', 'जन्माष्टमी', 'Janmashtami', 'জন্মাষ্টমী'], ['🍎', 'Teachers\' Day', 'शिक्षक दिवस', 'Teachers\' Day', 'শিক্ষক দিবস'], ['🐘', 'Ganpati Bappa', 'गणपति बप्पा', 'Ganpati Bappa', 'গণপতি বাপ্পা'], ['🎂', 'Birthday party', 'बर्थडे पार्टी', 'Birthday party', 'জন্মদিনের পার্টি']],
+    [['🕊️', 'Gandhi Jayanti', 'गांधी जयंती', 'Gandhi Jayanti', 'গান্ধী জয়ন্তী'], ['💃', 'Garba-Dandiya', 'गरबा-डांडिया', 'Garba nights', 'গরবা-ডান্ডিয়া'], ['🪷', 'Durga Puja', 'दुर्गा पूजा', 'Durga Puja', 'দুর্গাপুজো'], ['🏹', 'Dussehra', 'दशहरा', 'Dussehra', 'দশেরা']],
+    [['🧹', 'Ghar ki safai', 'घर की सफ़ाई', 'Festive cleaning', 'ঘর সাফাই'], ['🪔', 'Diwali ke diye', 'दिवाली के दीये', 'Diwali lamps', 'দীপাবলির প্রদীপ'], ['🌅', 'Chhath ka suraj', 'छठ का सूरज', 'Chhath sunrise', 'ছটের সূর্য'], ['🙏', 'Gurpurab', 'गुरपुरब', 'Gurpurab', 'গুরু নানক জয়ন্তী']],
+    [['🧣', 'Rajai-muffler', 'रज़ाई-मफ़लर', 'Quilts & mufflers', 'লেপ-মাফলার'], ['🍊', 'Dhoop mein santre', 'धूप में संतरे', 'Oranges in the sun', 'রোদে কমলালেবু'], ['🎄', 'Christmas', 'क्रिसमस', 'Christmas', 'বড়দিন'], ['🎁', 'Saal ka tohfa', 'साल का तोहफ़ा', 'Year-end gifts', 'বছর শেষের উপহার']],
+  ];
+  const LI = { hinglish: 1, hi: 2, en: 3, bn: 4 };
+
+  // ---------- texts
+  const T = {
+    hinglish: {
+      title: `Saal ka Safar ${OLD} → ${NEW}`,
+      sub: `Poore saal ki yaadein chhoote-chhoote 12 mahine daudo — patang, Holi, Eid, barish, Diwali… aur 31 December ki raat ${NEW} mein pahuncho, jahan aatishbaazi aur naach-gaana aapka intezaar kar raha hai!`,
+      months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      startTitle: `Chalo, ${OLD} ka safar shuru karein! 🏃`,
+      controls: 'Screen pe tap = kood. Hawa mein dobara tap = double kood. Yaadein chhuo ⭐, patthar aur gaddhe se bacho 🪨.',
+      namePh: 'Aapka naam (optional)',
+      memSum: '✨ Apni 3 khaas baatein jodo (optional)',
+      memTitle: `${OLD} ki aapki khaas baatein — ye raaste mein sunehre ⭐ ban kar milengi:`,
+      memPh: ['jaise: Nayi naukri', 'jaise: Goa trip', 'jaise: Bhai ki shaadi'],
+      play: '▶ Safar shuru',
+      paused: '⏸ Safar ruka hua hai',
+      resume: '▶ Aage chalo',
+      best: (n) => `Aapka best: ${n} yaadein`,
+      challenge: (name, n) => `🏆 ${name} ne ${OLD} ki ${n} yaadein sameti! Kya aap unse zyada sameth paoge?`,
+      countLine: '31 December, raat 11:59… ulti ginti!',
+      happy: 'Naya Saal Mubarak',
+      lyrics: ['🎶 Naya saal aaya, khushiyaan laaya! 🎶', '🎶 Naacho gaao, dhoom machao! 🎶', `🎶 Swagat hai ${NEW}! 🎶`],
+      endTitle: (name) => (name ? `${name}, Naya Saal Mubarak! 🎉` : 'Naya Saal Mubarak! 🎉'),
+      endNote: (n, total, hits) => `${OLD} ki ${n}/${total} yaadein sameti · ${hits} thokar`,
+      memRecap: (list) => `Aapke ${OLD} ke khaas pal: ${list}`,
+      newBest: '🏅 Naya best score!',
+      shareWa: '📲 WhatsApp pe bhejo',
+      shareOther: '🔗 Share / copy',
+      copied: '✅ Copy ho gaya',
+      copyPrompt: 'Ye text copy karein:',
+      watch: '🎆 Aatishbaazi',
+      showResult: '📋 Result',
+      again: '🔁 Phir se khelo',
+      wishCard: '💌 Naye saal ka wish card banao',
+      tapHint: 'Tap karo = rocket 🚀',
+      shareText: (name, n, total, url) => `🎆 ${name ? `${name} ne` : 'Maine'} ${OLD} ka poora safar tay kiya — ${n}/${total} yaadein sameti aur ${NEW} mein dhoom se entry li! Aap bhi khelo "Saal ka Safar": ${url}`,
+      howTitle: 'Kaise khelein',
+      how: ['<b>▶ Safar shuru</b> dabao. Aapka khiladi January se daudna shuru karega.', 'Screen pe <b>tap = kood</b>, hawa mein dobara tap = <b>double kood</b> (sabse upar wali yaadon ke liye). Computer pe Space ya ↑ bhi chalega.', 'Har mahine 4 yaadein hain — unhe chhuo ⭐. Patthar 🪨 aur paani ke gaddhe se kood kar bacho.', 'Shuru mein apni 3 khaas baatein likho — wo sunehre ⭐ ban kar raaste mein milengi.', `31 December ko 10…1 ki ulti ginti, phir ${NEW} ke darwaze ke paar aatishbaazi aur naach-gaana! Tap karke apne rocket chhodo aur score WhatsApp pe bhejo.`],
+      monthsTitle: 'Raaste ki yaadein, mahine-dar-mahine',
+      aboutTitle: 'Is game ke baare mein',
+      aboutText: `Saal ka Safar ek chhota, free runner game hai jo beete saal ko mazedaar tareeke se yaad dilata hai. Har mahine ke raaste mein us mahine ki jaani-pehchaani yaadein milti hain — January ki patang aur Gantantra Diwas, March ki Holi aur Eid, June mein naani ka ghar, July ki kaagaz ki naav, November ke Diwali ke diye aur December ka Christmas. Mausam bhi badalta hai: sardi ki subah, basant, garmi ki dhoop, monsoon ki barish aur aakhir mein December ki taaron bhari raat. Aap apni 3 khaas baatein bhi daal sakte ho, jo raaste mein sunehre taare ban kar aati hain. 31 December ki raat 10 se 1 tak ulti ginti hoti hai aur ${NEW} ke darwaze ke paar aatishbaazi, dhol aur naach-gaana shuru ho jaata hai. Game phone ke browser mein chalta hai, install ki zaroorat nahi.`,
+      safety: 'Asli patakhe chalate waqt bado ke saath rahein, paani ki balti paas rakhein aur janwaron ka dhyan rakhein. Is game ki aatishbaazi bilkul dhuaan-free hai! 🎆',
+      readMore: 'Naye saal ke baare mein padhein:',
+      guideLink: 'Naya Saal — mahatva aur shubhkamnayein',
+      moreGames: 'Aur games',
+      privacyTitle: 'Aapka data',
+      privacyText: 'Naam aur 3 khaas baatein sirf aapke phone mein rehti hain. Share link mein sirf naam aur score jaata hai — aapki khaas baatein kabhi nahi. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: `साल का सफ़र ${OLD} → ${NEW}`,
+      sub: `पूरे साल की यादें छूते-छूते 12 महीने दौड़ो — पतंग, होली, ईद, बारिश, दिवाली… और 31 दिसंबर की रात ${NEW} में पहुँचो, जहाँ आतिशबाज़ी और नाच-गाना आपका इंतज़ार कर रहा है!`,
+      months: ['जनवरी', 'फ़रवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितंबर', 'अक्टूबर', 'नवंबर', 'दिसंबर'],
+      startTitle: `चलो, ${OLD} का सफ़र शुरू करें! 🏃`,
+      controls: 'स्क्रीन पर टैप = कूद। हवा में दोबारा टैप = डबल कूद। यादें छुओ ⭐, पत्थर और गड्ढे से बचो 🪨।',
+      namePh: 'आपका नाम (वैकल्पिक)',
+      memSum: '✨ अपनी 3 ख़ास बातें जोड़ो (वैकल्पिक)',
+      memTitle: `${OLD} की आपकी ख़ास बातें — ये रास्ते में सुनहरे ⭐ बनकर मिलेंगी:`,
+      memPh: ['जैसे: नई नौकरी', 'जैसे: गोवा ट्रिप', 'जैसे: भाई की शादी'],
+      play: '▶ सफ़र शुरू',
+      paused: '⏸ सफ़र रुका हुआ है',
+      resume: '▶ आगे चलो',
+      best: (n) => `आपका बेस्ट: ${n} यादें`,
+      challenge: (name, n) => `🏆 ${name} ने ${OLD} की ${n} यादें समेटीं! क्या आप उनसे ज़्यादा समेट पाओगे?`,
+      countLine: '31 दिसंबर, रात 11:59… उल्टी गिनती!',
+      happy: 'नया साल मुबारक',
+      lyrics: ['🎶 नया साल आया, ख़ुशियाँ लाया! 🎶', '🎶 नाचो गाओ, धूम मचाओ! 🎶', `🎶 स्वागत है ${NEW}! 🎶`],
+      endTitle: (name) => (name ? `${name}, नया साल मुबारक! 🎉` : 'नया साल मुबारक! 🎉'),
+      endNote: (n, total, hits) => `${OLD} की ${n}/${total} यादें समेटीं · ${hits} ठोकर`,
+      memRecap: (list) => `आपके ${OLD} के ख़ास पल: ${list}`,
+      newBest: '🏅 नया बेस्ट स्कोर!',
+      shareWa: '📲 WhatsApp पर भेजो',
+      shareOther: '🔗 शेयर / कॉपी',
+      copied: '✅ कॉपी हो गया',
+      copyPrompt: 'यह टेक्स्ट कॉपी करें:',
+      watch: '🎆 आतिशबाज़ी',
+      showResult: '📋 रिज़ल्ट',
+      again: '🔁 फिर से खेलो',
+      wishCard: '💌 नए साल का विश कार्ड बनाओ',
+      tapHint: 'टैप करो = रॉकेट 🚀',
+      shareText: (name, n, total, url) => `🎆 ${name ? `${name} ने` : 'मैंने'} ${OLD} का पूरा सफ़र तय किया — ${n}/${total} यादें समेटीं और ${NEW} में धूम से एंट्री ली! आप भी खेलो "साल का सफ़र": ${url}`,
+      howTitle: 'कैसे खेलें',
+      how: ['<b>▶ सफ़र शुरू</b> दबाओ। आपका खिलाड़ी जनवरी से दौड़ना शुरू करेगा।', 'स्क्रीन पर <b>टैप = कूद</b>, हवा में दोबारा टैप = <b>डबल कूद</b> (सबसे ऊपर वाली यादों के लिए)। कंप्यूटर पर Space या ↑ भी चलेगा।', 'हर महीने 4 यादें हैं — उन्हें छुओ ⭐। पत्थर 🪨 और पानी के गड्ढे से कूदकर बचो।', 'शुरू में अपनी 3 ख़ास बातें लिखो — वे सुनहरे ⭐ बनकर रास्ते में मिलेंगी।', `31 दिसंबर को 10…1 की उल्टी गिनती, फिर ${NEW} के दरवाज़े के पार आतिशबाज़ी और नाच-गाना! टैप करके अपने रॉकेट छोड़ो और स्कोर WhatsApp पर भेजो।`],
+      monthsTitle: 'रास्ते की यादें, महीने-दर-महीने',
+      aboutTitle: 'इस गेम के बारे में',
+      aboutText: `साल का सफ़र एक छोटा, मुफ़्त रनर गेम है जो बीते साल को मज़ेदार तरीक़े से याद दिलाता है। हर महीने के रास्ते में उस महीने की जानी-पहचानी यादें मिलती हैं — जनवरी की पतंग और गणतंत्र दिवस, मार्च की होली और ईद, जून में नानी का घर, जुलाई की काग़ज़ की नाव, नवंबर के दिवाली के दीये और दिसंबर का क्रिसमस। मौसम भी बदलता है: सर्दी की सुबह, बसंत, गर्मी की धूप, मानसून की बारिश और आख़िर में दिसंबर की तारों भरी रात। आप अपनी 3 ख़ास बातें भी डाल सकते हैं, जो रास्ते में सुनहरे तारे बनकर आती हैं। 31 दिसंबर की रात 10 से 1 तक उल्टी गिनती होती है और ${NEW} के दरवाज़े के पार आतिशबाज़ी, ढोल और नाच-गाना शुरू हो जाता है। गेम फ़ोन के ब्राउज़र में चलता है, इंस्टॉल की ज़रूरत नहीं।`,
+      safety: 'असली पटाख़े चलाते समय बड़ों के साथ रहें, पानी की बाल्टी पास रखें और जानवरों का ध्यान रखें। इस गेम की आतिशबाज़ी बिल्कुल धुआँ-मुक्त है! 🎆',
+      readMore: 'नए साल के बारे में पढ़ें:',
+      guideLink: 'नया साल — महत्व और शुभकामनाएँ',
+      moreGames: 'और गेम्स',
+      privacyTitle: 'आपका डेटा',
+      privacyText: 'नाम और 3 ख़ास बातें सिर्फ़ आपके फ़ोन में रहती हैं। शेयर लिंक में सिर्फ़ नाम और स्कोर जाता है — आपकी ख़ास बातें कभी नहीं। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: `Journey of the Year ${OLD} → ${NEW}`,
+      sub: `Run through all 12 months of ${OLD} touching the year's memories — kites, Holi, Eid, monsoon, Diwali… and reach ${NEW} on the night of 31 December, where fireworks, music and dancing are waiting!`,
+      months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      startTitle: `Let's start the ${OLD} journey! 🏃`,
+      controls: 'Tap the screen = jump. Tap again in the air = double jump. Touch the memories ⭐, avoid stones and puddles 🪨.',
+      namePh: 'Your name (optional)',
+      memSum: '✨ Add 3 special things from your year (optional)',
+      memTitle: `Your special moments of ${OLD} — they'll appear on the road as golden ⭐:`,
+      memPh: ['e.g. New job', 'e.g. Goa trip', "e.g. Brother's wedding"],
+      play: '▶ Start the journey',
+      paused: '⏸ Journey paused',
+      resume: '▶ Resume',
+      best: (n) => `Your best: ${n} memories`,
+      challenge: (name, n) => `🏆 ${name} collected ${n} memories of ${OLD}! Can you beat that?`,
+      countLine: '31 December, 11:59 pm… countdown!',
+      happy: 'Happy New Year',
+      lyrics: ["🎶 New year's here, bringing cheer! 🎶", '🎶 Dance and sing, let the bells ring! 🎶', `🎶 Welcome ${NEW}! 🎶`],
+      endTitle: (name) => (name ? `Happy New Year, ${name}! 🎉` : 'Happy New Year! 🎉'),
+      endNote: (n, total, hits) => `${n}/${total} memories of ${OLD} collected · ${hits} stumbles`,
+      memRecap: (list) => `Your special moments of ${OLD}: ${list}`,
+      newBest: '🏅 New best score!',
+      shareWa: '📲 Share on WhatsApp',
+      shareOther: '🔗 Share / copy',
+      copied: '✅ Copied',
+      copyPrompt: 'Copy this text:',
+      watch: '🎆 Fireworks',
+      showResult: '📋 Result',
+      again: '🔁 Play again',
+      wishCard: '💌 Make a New Year wish card',
+      tapHint: 'Tap = rocket 🚀',
+      shareText: (name, n, total, url) => `🎆 ${name || 'I'} ran through all of ${OLD} — collected ${n}/${total} memories and made a grand entry into ${NEW}! Play "Journey of the Year" too: ${url}`,
+      howTitle: 'How to play',
+      how: ['Press <b>▶ Start the journey</b>. Your runner starts in January.', 'Tap the screen to <b>jump</b>; tap again in the air to <b>double jump</b> (for the highest memories). On a computer, Space or ↑ works too.', 'Each month has 4 memories — touch them ⭐. Jump over stones 🪨 and puddles.', 'At the start, type 3 special things from your year — they appear on the road as golden ⭐.', `On 31 December comes the 10…1 countdown, then fireworks and dancing beyond the ${NEW} gate! Tap to launch your own rockets and share your score on WhatsApp.`],
+      monthsTitle: 'Memories on the road, month by month',
+      aboutTitle: 'About this game',
+      aboutText: `Journey of the Year is a small, free runner game that looks back on the year in a fun way. Each month's stretch of road has that month's familiar memories — January kites and Republic Day, March Holi and Eid, a June visit to grandma's house, July paper boats, November Diwali lamps and December Christmas. The weather changes too: a winter morning, spring, summer sun, monsoon rain and finally a starry December night. You can add 3 special things from your own year, which appear on the road as golden stars. On the night of 31 December there's a 10-to-1 countdown, and beyond the ${NEW} gate the fireworks, dhol and dancing begin. The game runs in your phone's browser, no install needed.`,
+      safety: 'With real firecrackers, stay with an adult, keep a bucket of water close and look out for animals. The fireworks in this game are completely smoke-free! 🎆',
+      readMore: 'Read about the New Year:',
+      guideLink: 'New Year — meaning and wishes',
+      moreGames: 'More games',
+      privacyTitle: 'Your data',
+      privacyText: 'Your name and 3 special things stay only on your phone. The share link carries only your name and score — never your special things. No login, no server.',
+    },
+    bn: {
+      title: `বছরের সফর ${OLD} → ${NEW}`,
+      sub: `সারা বছরের স্মৃতি ছুঁয়ে ছুঁয়ে ১২ মাস দৌড়াও — ঘুড়ি, দোল, ঈদ, বর্ষা, দীপাবলি… আর ৩১ ডিসেম্বরের রাতে পৌঁছে যাও ${NEW}-এ, যেখানে আতশবাজি আর নাচ-গান তোমার অপেক্ষায়!`,
+      months: ['জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'],
+      startTitle: `চলো, ${OLD}-এর সফর শুরু করি! 🏃`,
+      controls: 'স্ক্রিনে ট্যাপ = লাফ। হাওয়ায় আবার ট্যাপ = ডাবল লাফ। স্মৃতি ছোঁও ⭐, পাথর আর জলের গর্ত এড়াও 🪨।',
+      namePh: 'তোমার নাম (ঐচ্ছিক)',
+      memSum: '✨ নিজের ৩টে বিশেষ কথা যোগ করো (ঐচ্ছিক)',
+      memTitle: `তোমার ${OLD}-এর বিশেষ কথা — পথে সোনালি ⭐ হয়ে আসবে:`,
+      memPh: ['যেমন: নতুন চাকরি', 'যেমন: দার্জিলিং ট্রিপ', 'যেমন: দাদার বিয়ে'],
+      play: '▶ সফর শুরু',
+      paused: '⏸ সফর থেমে আছে',
+      resume: '▶ আবার চলো',
+      best: (n) => `তোমার সেরা: ${n}টি স্মৃতি`,
+      challenge: (name, n) => `🏆 ${name} ${OLD}-এর ${n}টি স্মৃতি কুড়িয়েছে! তুমি কি বেশি পারবে?`,
+      countLine: '৩১ ডিসেম্বর, রাত ১১:৫৯… কাউন্টডাউন!',
+      happy: 'নতুন বছরের শুভেচ্ছা',
+      lyrics: ['🎶 নতুন বছর এল, খুশি নিয়ে এল! 🎶', '🎶 নাচো গাও, আনন্দে মাতো! 🎶', `🎶 স্বাগত ${NEW}! 🎶`],
+      endTitle: (name) => (name ? `${name}, নতুন বছরের শুভেচ্ছা! 🎉` : 'নতুন বছরের শুভেচ্ছা! 🎉'),
+      endNote: (n, total, hits) => `${OLD}-এর ${n}/${total}টি স্মৃতি কুড়োনো হল · ${hits}বার হোঁচট`,
+      memRecap: (list) => `তোমার ${OLD}-এর বিশেষ মুহূর্ত: ${list}`,
+      newBest: '🏅 নতুন সেরা স্কোর!',
+      shareWa: '📲 WhatsApp-এ পাঠাও',
+      shareOther: '🔗 শেয়ার / কপি',
+      copied: '✅ কপি হয়েছে',
+      copyPrompt: 'এই লেখাটা কপি করো:',
+      watch: '🎆 আতশবাজি',
+      showResult: '📋 ফলাফল',
+      again: '🔁 আবার খেলো',
+      wishCard: '💌 নতুন বছরের উইশ কার্ড বানাও',
+      tapHint: 'ট্যাপ = রকেট 🚀',
+      shareText: (name, n, total, url) => (name
+        ? `🎆 ${name} ${OLD}-এর পুরো সফর শেষ করে ${n}/${total}টি স্মৃতি কুড়িয়ে ধুমধাম করে ${NEW}-এ ঢুকল! তুমিও খেলো "বছরের সফর": ${url}`
+        : `🎆 আমি ${OLD}-এর পুরো সফর শেষ করে ${n}/${total}টি স্মৃতি কুড়িয়ে ধুমধাম করে ${NEW}-এ ঢুকলাম! তুমিও খেলো "বছরের সফর": ${url}`),
+      howTitle: 'কীভাবে খেলবে',
+      how: ['<b>▶ সফর শুরু</b> টিপো। তোমার খেলোয়াড় জানুয়ারি থেকে দৌড় শুরু করবে।', 'স্ক্রিনে <b>ট্যাপ = লাফ</b>, হাওয়ায় আবার ট্যাপ = <b>ডাবল লাফ</b> (সবচেয়ে উঁচু স্মৃতির জন্য)। কম্পিউটারে Space বা ↑-ও চলবে।', 'প্রতি মাসে ৪টে স্মৃতি — ছুঁয়ে নাও ⭐। পাথর 🪨 আর জলের গর্ত লাফিয়ে পেরোও।', 'শুরুতে তোমার বছরের ৩টে বিশেষ কথা লেখো — পথে সোনালি ⭐ হয়ে দেখা দেবে।', `৩১ ডিসেম্বর ১০…১ কাউন্টডাউন, তারপর ${NEW}-এর দরজা পেরোলেই আতশবাজি আর নাচ-গান! ট্যাপ করে নিজের রকেট ছাড়ো আর স্কোর WhatsApp-এ পাঠাও।`],
+      monthsTitle: 'পথের স্মৃতি, মাসে মাসে',
+      aboutTitle: 'এই গেম সম্পর্কে',
+      aboutText: `বছরের সফর একটা ছোট, বিনামূল্যের রানার গেম, যা মজার ভাবে ফেলে আসা বছরটা মনে করিয়ে দেয়। প্রতি মাসের পথে সেই মাসের চেনা স্মৃতি — জানুয়ারির ঘুড়ি আর প্রজাতন্ত্র দিবস, মার্চের দোল আর ঈদ, জুনে মামার বাড়ি, জুলাইয়ের কাগজের নৌকা, নভেম্বরের দীপাবলির প্রদীপ আর ডিসেম্বরের বড়দিন। আবহাওয়াও বদলায়: শীতের সকাল, বসন্ত, গরমের রোদ, বর্ষার বৃষ্টি আর শেষে ডিসেম্বরের তারাভরা রাত। নিজের বছরের ৩টে বিশেষ কথাও যোগ করতে পারো, যা পথে সোনালি তারা হয়ে আসে। ৩১ ডিসেম্বরের রাতে ১০ থেকে ১ কাউন্টডাউন, আর ${NEW}-এর দরজার ওপারে শুরু হয় আতশবাজি, ঢোল আর নাচ-গান। গেমটা ফোনের ব্রাউজারেই চলে, ইনস্টল করতে হয় না।`,
+      safety: 'আসল বাজি পোড়ানোর সময় বড়দের সঙ্গে থাকো, কাছে এক বালতি জল রাখো আর পশুপাখির খেয়াল রাখো। এই গেমের আতশবাজি একদম ধোঁয়াহীন! 🎆',
+      readMore: 'নতুন বছর নিয়ে পড়ো:',
+      guideLink: 'নতুন বছর — তাৎপর্য আর শুভেচ্ছা',
+      moreGames: 'আরও গেম',
+      privacyTitle: 'তোমার ডেটা',
+      privacyText: 'নাম আর ৩টে বিশেষ কথা শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর স্কোর — বিশেষ কথাগুলো কখনও না। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const urlLang = params.get('lang');
+  const savedLang = store.get('ss-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s, n = 30) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, n);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(999, parseInt(params.get('score'), 10) || 0));
+  const best = () => parseInt(store.get('ss-best'), 10) || 0;
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const lerp = (a, b, k) => a + (b - a) * k;
+  const hash = (n) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+  const hexRgb = (h) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+  const mix = (h1, h2, k) => { const a = hexRgb(h1), b = hexRgb(h2); return `rgb(${Math.round(lerp(a[0], b[0], k))},${Math.round(lerp(a[1], b[1], k))},${Math.round(lerp(a[2], b[2], k))})`; };
+  const pick = (arr, f) => { const i = clamp(Math.floor(f), 0, arr.length - 1); const j = clamp(i + 1, 0, arr.length - 1); return [arr[i], arr[j], clamp(f - i, 0, 1)]; };
+  const FONT = '"Baloo 2", "Baloo Da 2", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif';
+  const EMOJI = '"Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif';
+
+  // ---------- page texts
+  let lastResult = null;
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} 🎆 — New Year Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    t('memPh').forEach((ph, i) => { $(`mem${i}`).placeholder = ph; });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const li = LI[lang];
+    $('monthList').innerHTML = MEM.map((m, i) => `<li><b>${t('months')[i]}:</b> ${m.map((x) => `${x[0]} ${x[li]}`).join(', ')}</li>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('guideLink').href = `https://nextgrade.in${p}/festivals/new-year/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    $('wishCard').href = `https://nextgrade.in${p}/wish-card/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+    if (lastResult) fillEnd();
+    updateHud();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('ss-lang', lang); applyLang(); });
+  $('name').value = store.get('ss-name') || '';
+  try { const m = JSON.parse(store.get('ss-mem') || '[]'); [0, 1, 2].forEach((i) => { $(`mem${i}`).value = cleanName(m[i], 28); }); if (m.length) $('memBox').open = true; } catch (e) { /* ignore */ }
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- sound (all synthesised; original tunes)
+  let muted = store.get('ss-muted') === '1';
+  let ac = null, master = null, noiseBuf = null;
+  let musicMode = null, nextT = 0, step = 0;
+  const setMuteIcon = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setMuteIcon();
+  $('mute').addEventListener('click', () => {
+    muted = !muted; store.set('ss-muted', muted ? '1' : '0'); setMuteIcon();
+    if (master) master.gain.setTargetAtTime(muted ? 0 : 0.9, ac.currentTime, 0.05);
+  });
+  const initAudio = () => {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    ac = new AC();
+    master = ac.createGain(); master.gain.value = muted ? 0 : 0.9; master.connect(ac.destination);
+    noiseBuf = ac.createBuffer(1, ac.sampleRate, ac.sampleRate);
+    const d = noiseBuf.getChannelData(0);
+    for (let i = 0; i < d.length; i += 1) d[i] = Math.random() * 2 - 1;
+  };
+  const tone = (f, when, dur, type = 'sine', vol = 0.1, f2 = null) => {
+    if (!ac) return;
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, when);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, when + dur);
+    g.gain.setValueAtTime(0.0001, when);
+    g.gain.exponentialRampToValueAtTime(vol, when + 0.012);
+    g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+    o.connect(g); g.connect(master); o.start(when); o.stop(when + dur + 0.02);
+  };
+  const noise = (when, dur, vol, ftype = 'lowpass', ff = 1000) => {
+    if (!ac) return;
+    const s = ac.createBufferSource(), f = ac.createBiquadFilter(), g = ac.createGain();
+    s.buffer = noiseBuf; f.type = ftype; f.frequency.value = ff;
+    g.gain.setValueAtTime(vol, when); g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+    s.connect(f); f.connect(g); g.connect(master); s.start(when, Math.random() * 0.5); s.stop(when + dur + 0.02);
+  };
+  const now = () => (ac ? ac.currentTime : 0);
+  const PENTA = [523.25, 587.33, 659.25, 783.99, 880, 1046.5, 1174.66, 1318.51];
+  const sfx = {
+    jump: () => tone(330, now(), 0.16, 'sine', 0.07, 620),
+    collect: (k) => { const n = now(); tone(PENTA[k % 8], n, 0.18, 'triangle', 0.12); tone(PENTA[(k + 2) % 8] * 2, n + 0.06, 0.2, 'sine', 0.05); },
+    gold: () => { const n = now(); [0, 2, 4, 5].forEach((k, i) => tone(PENTA[k] * 1.5, n + i * 0.07, 0.3, 'triangle', 0.1)); },
+    hit: () => { const n = now(); noise(n, 0.18, 0.25, 'lowpass', 500); tone(160, n, 0.22, 'sine', 0.18, 70); },
+    month: () => { const n = now(); tone(1046.5, n, 0.5, 'sine', 0.06); tone(1568, n + 0.12, 0.6, 'sine', 0.04); },
+    tick: (last) => { const n = now(); tone(last ? 1320 : 880, n, 0.16, 'square', 0.05); },
+    boom: () => { const n = now(); noise(n, 1.2, 0.5, 'lowpass', 900); tone(90, n, 0.9, 'sine', 0.4, 40); [523.25, 659.25, 783.99, 1046.5].forEach((f) => tone(f, n + 0.05, 1.4, 'triangle', 0.06)); },
+    launch: () => tone(500 + Math.random() * 200, now(), 0.6, 'sine', 0.025, 1500 + Math.random() * 400),
+    pop: () => { const n = now(); noise(n, 0.7, 0.28, 'lowpass', 700 + Math.random() * 900); for (let i = 0; i < 5; i += 1) noise(n + 0.15 + Math.random() * 0.5, 0.04, 0.06, 'highpass', 4000); },
+  };
+  const D = 293.66;
+  const nt = (s) => D * 2 ** (s / 12);
+  const RUN_MEL = [7, null, 9, 7, 4, null, 2, 4, 7, null, 9, 12, 9, null, 7, null, 4, null, 7, 9, 12, null, 9, 7, 4, null, 2, 4, 0, null, null, null];
+  const PARTY_MEL = [12, 12, 14, 12, 9, null, 7, 9, 12, 12, 14, 16, 14, null, 12, null, 16, 16, 14, 12, 9, null, 7, 9, 12, 9, 7, 4, 7, null, null, null];
+  const BASS = [0, 5, 7, 0];
+  const playStep = (s, when) => {
+    const bar = Math.floor(s / 8) % 4;
+    if (musicMode === 'run') {
+      const m = RUN_MEL[s];
+      if (m !== null) tone(nt(m), when, 0.28, 'triangle', 0.045);
+      if (s % 8 === 0) tone(nt(BASS[bar] - 12), when, 0.5, 'sine', 0.08);
+      if (s % 2 === 1) noise(when, 0.03, 0.015, 'highpass', 6000);
+    } else if (musicMode === 'party') {
+      const k = s % 8;
+      if (k === 0 || k === 3 || k === 6) { tone(75, when, 0.3, 'sine', 0.38, 48); noise(when, 0.08, 0.12, 'lowpass', 300); }
+      if (k === 2 || k === 5 || k === 7) noise(when, 0.07, 0.14, 'bandpass', 2600);
+      if (k === 4) noise(when, 0.05, 0.06, 'bandpass', 1800);
+      noise(when, 0.025, 0.02, 'highpass', 7000);
+      const m = PARTY_MEL[s];
+      if (m !== null) { tone(nt(m), when, 0.16, 'square', 0.028); tone(nt(m) * 2, when, 0.1, 'triangle', 0.02); }
+      if (k === 0 || k === 4) tone(nt(BASS[bar] - 12), when, 0.25, 'triangle', 0.09);
+    }
+  };
+  setInterval(() => {
+    if (!ac || !musicMode || ac.state !== 'running') return;
+    const spb = 60 / (musicMode === 'party' ? 132 : 116) / 2;
+    if (nextT < ac.currentTime) nextT = ac.currentTime + 0.05;
+    while (nextT < ac.currentTime + 0.15) { playStep(step, nextT); nextT += spb; step = (step + 1) % 32; }
+  }, 30);
+  const setMusic = (m) => { musicMode = m; step = 0; nextT = ac ? ac.currentTime + 0.08 : 0; };
+
+  // ---------- world
+  const LH = 700, GROUND = 560, SPEED = 300, MONTH_LEN = 2400, LEAD = 400;
+  const END_X = LEAD + 12 * MONTH_LEN;
+  const GC = END_X + 900;            // gate centre
+  const STOP_X = GC - 250;           // where the countdown happens
+  const PARTY_X = GC + 230;          // where the party happens
+  const OFFS = [500, 950, 1400, 1850];
+  const LEVEL_Y = [GROUND - 50, GROUND - 170, GROUND - 330];
+  const PAT = [0, 1, 2, 1];
+  const GAPS = [725, 1175, 1625, 2250];
+  const GOLD_M = [3, 7, 10];
+  const START_X = 120;
+  const PX0 = 150;
+
+  const canvas = $('game');
+  const ctx = canvas.getContext('2d');
+  // logical world: at least 560 wide (so a phone sees enough road ahead) and 700 high; extra height goes to the sky.
+  let W = 0, H = 0, scale = 1, LW = 640, VH = LH, OY = 0, TOP = 0, dpr = 1;
+  const resize = () => {
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+    scale = Math.min(H / LH, W / 560); LW = W / scale; VH = H / scale; OY = VH - LH; TOP = -OY;
+  };
+
+  let items = [], rocks = [], floats = [], sparks = [], rockets = [], confetti = [];
+  let state = 'idle'; // idle | run | count | cross | party
+  let paused = false;
+  let px = START_X, py = GROUND, vy = 0, jumps = 0, hurt = 0, runPhase = 0;
+  let camX = 0, time = 0, shake = 0, flash = 0;
+  let got = 0, hits = 0, total = 0, curMonth = -1, banner = 0, combo = 0;
+  let countT = 0, lastTick = -1, partyT = 0, fwT = 0, endShown = false, gateLit = false;
+  let playerName = '', personal = [];
+  const debugM = params.has('debug') ? clamp(parseInt(params.get('debug'), 10) || 0, 0, 11) : null;
+  const bot = debugM !== null;
+
+  const buildWorld = () => {
+    items = []; rocks = [];
+    for (let m = 0; m < 12; m += 1) {
+      const x0 = LEAD + m * MONTH_LEN;
+      const lv = [];
+      MEM[m].forEach((mm, i) => {
+        const level = PAT[(m + i) % 4];
+        lv.push(level);
+        items.push({ x: x0 + OFFS[i], y: LEVEL_Y[level], level, e: mm[0], mem: mm, m, got: false, gold: false, pop: 0 });
+      });
+      const gi = GOLD_M.indexOf(m);
+      if (gi >= 0 && personal[gi]) items.push({ x: x0 + 2150, y: LEVEL_Y[1], level: 1, e: '⭐', text: personal[gi], m, got: false, gold: true, pop: 0 });
+      let placed = 0;
+      GAPS.forEach((g, k) => {
+        if (placed >= 2) return;
+        if (k < 3 && lv[k] === 2) return;
+        if (gi >= 0 && personal[gi] && k === 3) return;
+        const type = (m >= 5 && m <= 7) ? 'puddle' : 'rock';
+        rocks.push({ x: x0 + g, type, m });
+        placed += 1;
+      });
+    }
+    total = items.length;
+  };
+
+  const monthAt = (x) => clamp(Math.floor((x - LEAD) / MONTH_LEN), 0, 11);
+  const monthF = (x) => clamp((x - LEAD) / MONTH_LEN, 0, 11.999);
+
+  // ---------- HUD
+  const updateHud = () => {
+    if (state === 'idle') { $('hudMonth').textContent = `📅 ${t('months')[0]} ${OLD}`; $('hudStars').textContent = `⭐ 0`; $('barFill').style.width = '0%'; return; }
+    if (state === 'count' || state === 'cross' || state === 'party') $('hudMonth').textContent = state === 'party' ? `🎆 ${NEW}` : `📅 31 ${t('months')[11]}`;
+    else $('hudMonth').textContent = `📅 ${t('months')[monthAt(px)]} ${OLD}`;
+    $('hudStars').textContent = `⭐ ${got}/${total}`;
+    $('barFill').style.width = `${clamp((px - START_X) / (STOP_X - START_X), 0, 1) * 100}%`;
+  };
+
+  // ---------- game flow
+  const start = () => {
+    initAudio();
+    playerName = cleanName($('name').value);
+    personal = [0, 1, 2].map((i) => cleanName($(`mem${i}`).value, 28)).filter(Boolean);
+    store.set('ss-name', playerName);
+    store.set('ss-mem', JSON.stringify(personal));
+    buildWorld();
+    px = debugM ? LEAD + debugM * MONTH_LEN - 150 : START_X;
+    py = GROUND; vy = 0; jumps = 0; hurt = 0;
+    camX = px - PX0; got = 0; hits = 0; combo = 0; curMonth = -1; banner = 0;
+    floats = []; sparks = []; rockets = []; confetti = [];
+    countT = 0; lastTick = -1; partyT = 0; fwT = 0; endShown = false; gateLit = false; flash = 0;
+    lastResult = null;
+    $('startScreen').classList.add('hidden'); $('endScreen').classList.add('hidden'); $('pauseScreen').classList.add('hidden'); $('showResult').classList.add('hidden');
+    $('shareOther').textContent = t('shareOther');
+    state = 'run'; paused = false;
+    setMusic('run');
+    updateHud();
+  };
+
+  const jump = () => {
+    if (state !== 'run' || paused) return;
+    if (jumps >= 2) return;
+    vy = jumps === 0 ? -950 : -860;
+    jumps += 1;
+    sfx.jump();
+  };
+
+  const launchRocket = (tx, ty) => {
+    const hue = Math.floor(Math.random() * 360);
+    const x0 = tx + (Math.random() - 0.5) * 60;
+    rockets.push({ x: x0, y: LH + 10, tx, ty, vy: -(620 + Math.random() * 120), hue, life: 0 });
+    sfx.launch();
+  };
+
+  const explode = (r) => {
+    const n = 80 + Math.floor(Math.random() * 40);
+    const ring = Math.random() < 0.35;
+    const hue2 = (r.hue + 40 + Math.random() * 80) % 360;
+    for (let i = 0; i < n; i += 1) {
+      const a = (i / n) * Math.PI * 2 + Math.random() * 0.1;
+      const sp = ring ? 260 + Math.random() * 25 : 80 + Math.random() * 300;
+      sparks.push({ x: r.x, y: r.y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp, life: 1.3 + Math.random() * 0.8, max: 2.1, hue: i % 3 === 0 ? hue2 : r.hue, size: 3.4 + Math.random() * 2.2, fw: true });
+    }
+    if (sparks.length > 1800) sparks.splice(0, sparks.length - 1800);
+    sfx.pop();
+  };
+
+  const skyY = () => TOP + 70 + Math.random() * Math.max(140, GROUND - 230 - (TOP + 70));
+  const addFloat = (x, y, text, gold) => floats.push({ x, y, text, life: 1.4, gold });
+
+  const burst = (x, y, gold) => {
+    for (let i = 0; i < 14; i += 1) {
+      const a = Math.random() * Math.PI * 2, sp = 80 + Math.random() * 160;
+      sparks.push({ x, y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 60, life: 0.6, max: 0.6, hue: gold ? 45 : 200 + Math.random() * 140, size: 3, fw: false });
+    }
+  };
+
+  const showEnd = () => {
+    endShown = true;
+    const prevBest = best();
+    if (got > prevBest) store.set('ss-best', String(got));
+    lastResult = { got, total, hits, newBest: got > prevBest && prevBest > 0, name: playerName, personal: personal.slice() };
+    fillEnd();
+    $('endScreen').classList.remove('hidden');
+  };
+  const fillEnd = () => {
+    const r = lastResult;
+    $('endTitle').textContent = t('endTitle')(r.name);
+    $('finalScore').textContent = `${r.got}/${r.total}`;
+    const ratio = r.got / r.total;
+    const s = ratio >= 0.9 ? 3 : ratio >= 0.6 ? 2 : 1;
+    $('finalStars').textContent = '★'.repeat(s) + '☆'.repeat(3 - s);
+    $('endNote').textContent = t('endNote')(r.got, r.total, r.hits) + (r.newBest ? ` · ${t('newBest')}` : '');
+    $('memRecap').textContent = r.personal.length ? t('memRecap')(r.personal.join(' · ')) : '';
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+  };
+
+  // ---------- input
+  const toLogical = (e) => { const rc = canvas.getBoundingClientRect(); return [(e.clientX - rc.left) / scale, (e.clientY - rc.top) / scale - OY]; };
+  canvas.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    initAudio();
+    if (state === 'run') jump();
+    else if (state === 'party' || state === 'cross') { const [x, y] = toLogical(e); launchRocket(camX + x, clamp(y, TOP + 60, GROUND - 120)); }
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.target && e.target.tagName === 'INPUT') return;
+    if (e.code === 'Space' || e.code === 'ArrowUp') {
+      if (state === 'run') { e.preventDefault(); jump(); }
+      else if (state === 'party') { e.preventDefault(); launchRocket(camX + LW * (0.2 + Math.random() * 0.6), skyY()); }
+    }
+  });
+
+  // ---------- update
+  const pBox = () => ({ l: px - 20, r: px + 20, t: py - 96, b: py });
+  const hitCircle = (b, cx, cy, rr) => { const nx = clamp(cx, b.l, b.r), ny = clamp(cy, b.t, b.b); return (nx - cx) ** 2 + (ny - cy) ** 2 < rr * rr; };
+
+  const runBot = () => {
+    const ahead = (x) => x - px;
+    const rock = rocks.find((r) => ahead(r.x) > 0 && ahead(r.x) < 95);
+    if (rock && jumps === 0) { jump(); return; }
+    const it = items.find((i) => !i.got && ahead(i.x) > -10 && ahead(i.x) < 150);
+    if (!it) return;
+    const d = ahead(it.x);
+    if (it.level === 1 && jumps === 0 && d < 95) jump();
+    if (it.level === 2) { if (jumps === 0 && d < 140) jump(); else if (jumps === 1 && vy > -250) jump(); }
+  };
+
+  const update = (dt) => {
+    time += dt;
+    if (state === 'run' || state === 'cross') {
+      px += SPEED * dt;
+      runPhase += dt * 14;
+    }
+    if (state === 'run' && bot) runBot();
+    vy += 2400 * dt; py += vy * dt;
+    if (py >= GROUND) { py = GROUND; vy = 0; jumps = 0; }
+    hurt = Math.max(0, hurt - dt); shake = Math.max(0, shake - dt); flash = Math.max(0, flash - dt); banner = Math.max(0, banner - dt);
+
+    if (state === 'run') {
+      camX = px - PX0;
+      const m = monthAt(px);
+      if (m !== curMonth) { curMonth = m; banner = 2.4; if (m > 0) sfx.month(); updateHud(); }
+      const b = pBox();
+      items.forEach((it) => {
+        if (it.got) return;
+        const bob = Math.sin(time * 3 + it.x) * 6;
+        if (hitCircle(b, it.x, it.y + bob, it.gold ? 32 : 28)) {
+          it.got = true; got += 1; combo += 1;
+          addFloat(it.x, it.y + bob - 30, it.gold ? `⭐ ${it.text}` : `${it.e} ${it.mem[LI[lang]]}`, it.gold);
+          burst(it.x, it.y + bob, it.gold);
+          if (it.gold) sfx.gold(); else sfx.collect(combo);
+          updateHud();
+        } else if (it.x < px - 60 && !it.missed) { it.missed = true; combo = 0; }
+      });
+      if (hurt <= 0) {
+        rocks.forEach((r) => {
+          const rb = r.type === 'rock' ? { l: r.x - 22, r: r.x + 22, t: GROUND - 38 } : { l: r.x - 34, r: r.x + 34, t: GROUND - 10 };
+          if (b.r > rb.l && b.l < rb.r && b.b > rb.t + 4 && hurt <= 0) { hits += 1; hurt = 1.0; shake = 0.3; combo = 0; sfx.hit(); }
+        });
+      }
+      if (px >= STOP_X) { px = STOP_X; state = 'count'; countT = 0; lastTick = -1; musicMode = null; updateHud(); }
+      $('barFill').style.width = `${clamp((px - START_X) / (STOP_X - START_X), 0, 1) * 100}%`;
+    } else if (state === 'count') {
+      countT += dt;
+      const target = (px + GC) / 2 - LW / 2;
+      camX = lerp(camX, target, 1 - Math.exp(-dt * 2));
+      const n = Math.floor(countT);
+      if (n !== lastTick && n < 10) { lastTick = n; sfx.tick(n === 9); }
+      if (countT >= 10) {
+        state = 'cross'; gateLit = true; flash = 0.5; sfx.boom(); setMusic('party'); updateHud();
+        for (let i = 0; i < 6; i += 1) setTimeout(() => launchRocket(camX + LW * (0.15 + i * 0.14), skyY()), i * 160);
+      }
+    } else if (state === 'cross') {
+      camX = lerp(camX, PARTY_X - LW / 2, 1 - Math.exp(-dt * 2.5));
+      if (px >= PARTY_X) { px = PARTY_X; state = 'party'; partyT = 0; updateHud(); }
+    } else if (state === 'party') {
+      partyT += dt;
+      camX = lerp(camX, PARTY_X - LW / 2, 1 - Math.exp(-dt * 2.5));
+      fwT -= dt;
+      if (fwT <= 0) { fwT = 0.4 + Math.random() * 0.45; launchRocket(camX + LW * (0.1 + Math.random() * 0.8), skyY()); if (Math.random() < 0.3) launchRocket(camX + LW * (0.1 + Math.random() * 0.8), skyY()); }
+      if (partyT < 6 && Math.random() < 0.6) confetti.push({ x: camX + Math.random() * LW, y: TOP - 10, vx: (Math.random() - 0.5) * 40, vy: 60 + Math.random() * 80, r: Math.random() * 6, hue: Math.floor(Math.random() * 360), spin: Math.random() * 6 });
+      if (partyT > 4 && !endShown) showEnd();
+    } else if (state === 'idle') {
+      camX = px - PX0;
+    }
+
+    rockets.forEach((r) => {
+      r.life += dt; r.y += r.vy * dt; r.x += (r.tx - r.x) * Math.min(1, dt * 1.5); r.vy *= 0.995;
+      if (r.y <= r.ty || r.life > 2) { r.dead = true; explode(r); }
+    });
+    rockets = rockets.filter((r) => !r.dead);
+    sparks.forEach((s) => { s.life -= dt; s.vx *= 0.985; s.vy = s.vy * 0.985 + (s.fw ? 90 : 400) * dt; s.x += s.vx * dt; s.y += s.vy * dt; });
+    sparks = sparks.filter((s) => s.life > 0);
+    floats.forEach((f) => { f.life -= dt; f.y -= 50 * dt; });
+    floats = floats.filter((f) => f.life > 0);
+    confetti.forEach((c) => { c.y += c.vy * dt; c.x += c.vx * dt; c.spin += dt * 5; });
+    confetti = confetti.filter((c) => c.y < LH + 20);
+  };
+
+  // ---------- drawing
+  const SKY = [['#a9d6f5', '#eaf4fb'], ['#8fd0ff', '#fff3c4'], ['#86ccff', '#ffe3f1'], ['#74c3ff', '#fff1b8'], ['#5fb8ff', '#ffd59e'], ['#7f9fbf', '#d8e3ee'], ['#62809f', '#c3d1e0'], ['#7aa3c8', '#d4eacd'], ['#82c3ff', '#fff4d0'], ['#f0a35e', '#ffd9a8'], ['#4a3a8a', '#ee8a5c'], ['#0d1033', '#2a2a6a']];
+  const GRASS = ['#8cbf5a', '#94c95e', '#9cd06a', '#b0c95a', '#c9b45a', '#78b35a', '#5e9e4e', '#5f9d4c', '#76ae55', '#a3ad55', '#6f7f46', '#2b3a36'];
+  const DIRT = ['#b98e5e', '#bf945f', '#c69b62', '#cc9f5f', '#d4a65c', '#9c7a52', '#86684a', '#8a6b4b', '#a2805a', '#a88158', '#6e5640', '#3a3030'];
+  const STARS = Array.from({ length: 80 }, (_, i) => [hash(i) , hash(i + 99) * 0.6, 0.6 + hash(i + 7) * 1.6, hash(i + 3) * 6]);
+
+  const nightness = () => {
+    if (state === 'count' || state === 'cross' || state === 'party') return 1;
+    const f = monthF(px);
+    return clamp((f - 9.6) / 1.6, 0, 1);
+  };
+
+  const drawSky = (f, night) => {
+    const [a, b, k] = pick(SKY, f);
+    const g = ctx.createLinearGradient(0, TOP, 0, GROUND);
+    if (night >= 1) { g.addColorStop(0, '#0b0d2e'); g.addColorStop(1, '#2c2468'); }
+    else { g.addColorStop(0, mix(a[0], b[0], k)); g.addColorStop(1, mix(a[1], b[1], k)); }
+    ctx.fillStyle = g; ctx.fillRect(0, TOP, LW, VH);
+    if (night > 0) {
+      ctx.globalAlpha = night;
+      ctx.fillStyle = '#fff';
+      STARS.forEach(([x, y, r, ph]) => { ctx.globalAlpha = night * (0.5 + 0.5 * Math.sin(time * 2 + ph)); ctx.beginPath(); ctx.arc(x * LW, TOP + y * (GROUND - TOP), r, 0, Math.PI * 2); ctx.fill(); });
+      ctx.globalAlpha = night;
+      ctx.fillStyle = '#fff6d6'; ctx.beginPath(); ctx.arc(LW * 0.82, TOP + 92, 30, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = night >= 1 ? '#0f1236' : mix('#0d1033', '#2a2a6a', 0.2); ctx.beginPath(); ctx.arc(LW * 0.82 + 12, TOP + 84, 26, 0, Math.PI * 2); ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+    if (night < 1) {
+      const sunY = TOP + 100 + clamp(f - 8.5, 0, 2.5) * (GROUND - TOP - 200) / 2.5;
+      const sunC = f > 9 ? '#ffb05c' : '#ffe066';
+      ctx.globalAlpha = 1 - night;
+      const sg = ctx.createRadialGradient(LW * 0.8, sunY, 10, LW * 0.8, sunY, 70);
+      sg.addColorStop(0, sunC); sg.addColorStop(0.45, sunC); sg.addColorStop(1, 'rgba(255,224,102,0)');
+      ctx.fillStyle = sg; ctx.beginPath(); ctx.arc(LW * 0.8, sunY, 70, 0, Math.PI * 2); ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+  };
+
+  const drawHills = (f, night) => {
+    const [a, b, k] = pick(GRASS, f);
+    ctx.fillStyle = night >= 1 ? '#1d2048' : mix(a, '#9fb6d6', 0.55 - 0.1 * k);
+    ctx.globalAlpha = 0.9;
+    ctx.beginPath(); ctx.moveTo(0, GROUND);
+    const off = camX * 0.15;
+    for (let x = 0; x <= LW + 20; x += 20) { const wx = x + off; ctx.lineTo(x, 420 + Math.sin(wx * 0.004) * 34 + Math.sin(wx * 0.011) * 16); }
+    ctx.lineTo(LW, GROUND); ctx.closePath(); ctx.fill();
+    ctx.globalAlpha = 1;
+  };
+
+  const drawMid = (m, night) => {
+    const P = 0.45, TILE = 260;
+    const base = camX * P;
+    const i0 = Math.floor(base / TILE) - 1;
+    for (let i = i0; i < i0 + Math.ceil(LW / TILE) + 3; i += 1) {
+      const x = i * TILE - base;
+      const h = hash(i);
+      if (h < 0.5) {
+        const w = 90 + hash(i + 1) * 50, hh = 70 + hash(i + 2) * 60, y = GROUND - 20 - hh;
+        const hue = Math.floor(hash(i + 3) * 360);
+        ctx.fillStyle = night >= 1 ? `hsl(${hue},25%,${22}%)` : `hsl(${hue},45%,${lerp(78, 30, night)}%)`;
+        ctx.fillRect(x, y, w, hh);
+        ctx.fillStyle = night >= 1 ? '#3a2d3a' : `hsl(${(hue + 20) % 360},40%,${lerp(55, 22, night)}%)`;
+        ctx.beginPath(); ctx.moveTo(x - 8, y); ctx.lineTo(x + w / 2, y - 34); ctx.lineTo(x + w + 8, y); ctx.closePath(); ctx.fill();
+        ctx.fillStyle = night > 0.5 ? '#ffd86b' : '#6aa9d8';
+        ctx.fillRect(x + 14, y + 18, 18, 18); ctx.fillRect(x + w - 32, y + 18, 18, 18);
+        ctx.fillStyle = '#7a4a2a'; ctx.fillRect(x + w / 2 - 10, y + hh - 34, 20, 34);
+        if (m === 10) {
+          for (let k = 0; k < 6; k += 1) { const fl = 0.6 + 0.4 * Math.sin(time * 9 + k + i); ctx.fillStyle = `rgba(255,${150 + 60 * fl},40,${fl})`; ctx.beginPath(); ctx.arc(x + 8 + k * (w - 16) / 5, y + hh - 4, 3.5, 0, Math.PI * 2); ctx.fill(); }
+        }
+        if (m === 11 || night >= 1) {
+          for (let k = 0; k < 9; k += 1) { const on = Math.sin(time * 4 + k * 1.3 + i) > 0; ctx.fillStyle = on ? `hsl(${(k * 47) % 360},90%,62%)` : 'rgba(255,255,255,0.25)'; const tx = x - 8 + k * (w + 16) / 8; const ty = y - (k <= 4 ? k : 8 - k) * 34 / 4 - 1; ctx.beginPath(); ctx.arc(tx, ty, 3, 0, Math.PI * 2); ctx.fill(); }
+        }
+      } else {
+        const tx = x + 40, th = 60 + hash(i + 5) * 40;
+        ctx.fillStyle = night >= 1 ? '#2a2020' : '#7a5232'; ctx.fillRect(tx - 6, GROUND - 20 - th, 12, th);
+        const cr = 36 + hash(i + 6) * 18;
+        ctx.fillStyle = night >= 1 ? '#1d3a2c' : (m === 1 || m === 2 ? '#f7a8c8' : m === 9 ? '#d9822b' : mix('#4f9a45', '#2f5d3a', night));
+        ctx.beginPath(); ctx.arc(tx, GROUND - 20 - th - cr * 0.5, cr, 0, Math.PI * 2); ctx.arc(tx - cr * 0.6, GROUND - 20 - th - cr * 0.1, cr * 0.7, 0, Math.PI * 2); ctx.arc(tx + cr * 0.6, GROUND - 20 - th - cr * 0.1, cr * 0.7, 0, Math.PI * 2); ctx.fill();
+        if (m === 4 && hash(i + 8) > 0.4) { ctx.fillStyle = '#ffb703'; for (let k = 0; k < 4; k += 1) { ctx.beginPath(); ctx.ellipse(tx - 20 + k * 13, GROUND - 20 - th - cr * 0.2 + (k % 2) * 10, 5, 7, 0, 0, Math.PI * 2); ctx.fill(); } }
+      }
+    }
+  };
+
+  const drawGround = (f, night) => {
+    const [a, b, k] = pick(GRASS, f);
+    const [c, d, k2] = pick(DIRT, f);
+    ctx.fillStyle = night >= 1 ? '#3a3030' : mix(c, d, k2);
+    ctx.fillRect(0, GROUND, LW, LH - GROUND);
+    ctx.fillStyle = night >= 1 ? '#2b3a36' : mix(a, b, k);
+    ctx.fillRect(0, GROUND - 4, LW, 14);
+    ctx.fillStyle = 'rgba(255,255,255,0.18)';
+    const off = camX % 90;
+    for (let x = -off; x < LW; x += 90) ctx.fillRect(x, GROUND + 52, 44, 6);
+    ctx.fillStyle = 'rgba(0,0,0,0.08)';
+    for (let x = -(camX * 1.0) % 37; x < LW; x += 37) ctx.fillRect(x, GROUND + 18 + ((x + camX) % 3) * 6, 6, 4);
+  };
+
+  const drawWeather = (m, f) => {
+    const sx = (wx, p) => wx - camX * p;
+    if (m === 0) {
+      [[0.2, TOP + 140, '#e63946'], [0.55, TOP + 90, '#ffb703'], [0.85, TOP + 170, '#3a86ff']].forEach(([p, y, c], i) => {
+        const x = ((LW * p - camX * 0.08 + i * 200) % (LW + 100) + LW + 100) % (LW + 100) - 50;
+        const yy = y + Math.sin(time * 1.5 + i) * 12;
+        ctx.fillStyle = c; ctx.beginPath(); ctx.moveTo(x, yy - 22); ctx.lineTo(x + 16, yy); ctx.lineTo(x, yy + 22); ctx.lineTo(x - 16, yy); ctx.closePath(); ctx.fill();
+        ctx.strokeStyle = 'rgba(60,60,60,0.5)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x, yy + 22); ctx.quadraticCurveTo(x + 10 + Math.sin(time * 3) * 8, yy + 50, x - 4, yy + 76); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(x, yy + 22); ctx.lineTo(x - 140, LH); ctx.strokeStyle = 'rgba(255,255,255,0.35)'; ctx.lineWidth = 0.8; ctx.stroke();
+      });
+    }
+    if (m === 1 || m === 2) {
+      for (let i = 0; i < 26; i += 1) {
+        const x = ((hash(i) * LW + time * 30 - camX * 0.3) % LW + LW) % LW;
+        const y = TOP + ((hash(i + 40) * VH + time * (40 + hash(i) * 30)) % (GROUND - TOP));
+        ctx.fillStyle = m === 2 ? `hsl(${Math.floor(hash(i + 5) * 360)},85%,62%)` : '#ffb3d1';
+        ctx.beginPath(); ctx.ellipse(x, y, 5, 3, time + i, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+    const rain = m === 5 ? clamp((f - 5.4) * 2, 0, 0.6) : m === 6 ? 1 : m === 7 ? 0.6 : 0;
+    if (rain > 0) {
+      ctx.strokeStyle = 'rgba(210,225,255,0.55)'; ctx.lineWidth = 1.5; ctx.beginPath();
+      const n = Math.floor(110 * rain * VH / LH);
+      for (let i = 0; i < n; i += 1) {
+        const x = ((hash(i) * (LW + 60) - time * 120) % (LW + 60) + LW + 60) % (LW + 60) - 30;
+        const y = TOP + ((hash(i + 77) * VH + time * 760) % VH);
+        ctx.moveTo(x, y); ctx.lineTo(x - 6, y + 16);
+      }
+      ctx.stroke();
+      if (m === 6) {
+        ctx.globalAlpha = 0.35; const cx0 = LW * 0.5;
+        ['#ff595e', '#ffca3a', '#8ac926', '#1982c4', '#6a4c93'].forEach((c, i) => { ctx.strokeStyle = c; ctx.lineWidth = 7; ctx.beginPath(); ctx.arc(cx0, GROUND + 60, 330 - i * 8, Math.PI * 1.08, Math.PI * 1.92); ctx.stroke(); });
+        ctx.globalAlpha = 1;
+      }
+    }
+    void sx;
+  };
+
+  const drawSign = (m) => {
+    const x = LEAD + m * MONTH_LEN + 160 - camX;
+    if (x < -120 || x > LW + 120) return;
+    ctx.fillStyle = '#6b4226'; ctx.fillRect(x - 5, GROUND - 120, 10, 120);
+    ctx.fillStyle = '#c8894c'; ctx.strokeStyle = '#6b4226'; ctx.lineWidth = 4;
+    ctx.beginPath(); ctx.roundRect ? ctx.roundRect(x - 78, GROUND - 170, 156, 58, 10) : ctx.rect(x - 78, GROUND - 170, 156, 58); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.font = `800 22px ${FONT}`; ctx.fillText(t('months')[m], x, GROUND - 148);
+    ctx.font = `700 14px ${FONT}`; ctx.fillStyle = '#ffe8c2'; ctx.fillText(String(OLD), x, GROUND - 125);
+  };
+
+  const drawRocks = () => {
+    rocks.forEach((r) => {
+      const x = r.x - camX;
+      if (x < -60 || x > LW + 60) return;
+      if (r.type === 'rock') {
+        ctx.fillStyle = '#7d7f86'; ctx.beginPath(); ctx.moveTo(x - 24, GROUND); ctx.quadraticCurveTo(x - 22, GROUND - 34, x - 4, GROUND - 38); ctx.quadraticCurveTo(x + 20, GROUND - 36, x + 24, GROUND); ctx.closePath(); ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,0.25)'; ctx.beginPath(); ctx.ellipse(x - 8, GROUND - 26, 7, 4, -0.5, 0, Math.PI * 2); ctx.fill();
+      } else {
+        ctx.fillStyle = '#3f6fa8'; ctx.beginPath(); ctx.ellipse(x, GROUND + 2, 36, 9, 0, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = 'rgba(255,255,255,0.6)'; ctx.lineWidth = 1.5;
+        const rr = (time * 30) % 26; ctx.beginPath(); ctx.ellipse(x, GROUND + 2, rr, rr / 4, 0, 0, Math.PI * 2); ctx.stroke();
+      }
+    });
+  };
+
+  const drawItems = () => {
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    items.forEach((it) => {
+      if (it.got) return;
+      const x = it.x - camX;
+      if (x < -80 || x > LW + 80) return;
+      const y = it.y + Math.sin(time * 3 + it.x) * 6;
+      const r = it.gold ? 30 : 26;
+      const glow = ctx.createRadialGradient(x, y, r * 0.4, x, y, r * 1.7);
+      glow.addColorStop(0, it.gold ? 'rgba(255,212,59,0.55)' : 'rgba(255,255,255,0.45)'); glow.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(x, y, r * 1.7, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = it.gold ? '#fff3bf' : 'rgba(255,255,255,0.92)';
+      ctx.strokeStyle = it.gold ? '#f59f00' : '#f06595'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.font = `${it.gold ? 30 : 28}px ${EMOJI}`; ctx.fillText(it.e, x, y + 2);
+      if (it.gold) {
+        ctx.font = `800 16px ${FONT}`;
+        const w = ctx.measureText(it.text).width + 16;
+        ctx.fillStyle = 'rgba(245,159,0,0.95)'; ctx.beginPath(); ctx.roundRect ? ctx.roundRect(x - w / 2, y - r - 34, w, 26, 13) : ctx.rect(x - w / 2, y - r - 34, w, 26); ctx.fill();
+        ctx.fillStyle = '#fff'; ctx.fillText(it.text, x, y - r - 21);
+      }
+    });
+  };
+
+  // a cartoon person; o = { shirt, pants, skin, hair, phase, air, dance, hat, scarf, alpha, s }
+  const drawKid = (x, feetY, o) => {
+    ctx.save();
+    ctx.translate(x, feetY);
+    const s = o.s || 1; ctx.scale(s, s);
+    if (o.alpha !== undefined) ctx.globalAlpha = o.alpha;
+    let bob = 0, la, ra, ll, rl;
+    if (o.dance) {
+      const b = time * 8.6 + (o.off || 0);
+      bob = -Math.abs(Math.sin(b)) * 10;
+      la = -2.5 + Math.sin(b) * 0.5; ra = -0.6 - Math.sin(b) * 0.5 - 0.3;
+      if (o.style === 1) { la = -2.9 + Math.sin(b * 0.5) * 0.3; ra = -0.25 - Math.sin(b * 0.5) * 0.3; }
+      ll = 0.25 + Math.max(0, Math.sin(b)) * 0.7; rl = -0.25 - Math.max(0, -Math.sin(b)) * 0.7;
+    } else if (o.air) { la = -2.3; ra = -0.8; ll = 0.9; rl = -0.4; }
+    else if (o.idle) { const b = time * 3 + (o.off || 0); bob = Math.sin(b) * 1.5; la = 0.25; ra = -0.25; ll = 0.08; rl = -0.08; }
+    else { const sw = Math.sin(o.phase) * 0.75; la = sw; ra = -sw; ll = -sw * 0.9; rl = sw * 0.9; }
+    ctx.translate(0, bob);
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    const leg = (a, bend) => { ctx.save(); ctx.translate(0, -40); ctx.rotate(a); ctx.strokeStyle = o.pants; ctx.lineWidth = 9; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, 20); ctx.lineTo(bend ? 8 : 0, 38); ctx.stroke(); ctx.fillStyle = '#333'; ctx.beginPath(); ctx.ellipse(bend ? 12 : 4, 40, 7, 4, 0, 0, Math.PI * 2); ctx.fill(); ctx.restore(); };
+    leg(ll, o.air); leg(rl, o.air);
+    const arm = (a) => { ctx.save(); ctx.translate(0, -72); ctx.rotate(a); ctx.strokeStyle = o.shirt; ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, 26); ctx.stroke(); ctx.fillStyle = o.skin; ctx.beginPath(); ctx.arc(0, 30, 5, 0, Math.PI * 2); ctx.fill(); ctx.restore(); };
+    arm(ra);
+    ctx.fillStyle = o.shirt;
+    ctx.beginPath(); ctx.roundRect ? ctx.roundRect(-15, -80, 30, 44, 10) : ctx.rect(-15, -80, 30, 44); ctx.fill();
+    if (o.scarf) { ctx.fillStyle = '#e03131'; ctx.fillRect(-15, -82, 30, 8); ctx.fillRect(8, -80, 7, 22); }
+    arm(la);
+    ctx.fillStyle = o.skin; ctx.beginPath(); ctx.arc(0, -96, 15, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = o.hair; ctx.beginPath(); ctx.arc(0, -99, 15, Math.PI * 1.05, Math.PI * 1.95); ctx.fill();
+    if (o.long) { ctx.beginPath(); ctx.ellipse(-12, -90, 5, 14, 0.2, 0, Math.PI * 2); ctx.fill(); }
+    ctx.fillStyle = '#222'; ctx.beginPath(); ctx.arc(5, -97, 1.8, 0, Math.PI * 2); ctx.arc(-4, -97, 1.8, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#8a2b2b'; ctx.lineWidth = 1.8; ctx.beginPath(); ctx.arc(1, -91, 4.5, 0.15 * Math.PI, 0.85 * Math.PI); ctx.stroke();
+    if (o.hat) { ctx.fillStyle = o.hat; ctx.beginPath(); ctx.moveTo(-10, -108); ctx.lineTo(10, -108); ctx.lineTo(2, -136); ctx.closePath(); ctx.fill(); ctx.fillStyle = '#ffd43b'; ctx.beginPath(); ctx.arc(2, -137, 4, 0, Math.PI * 2); ctx.fill(); }
+    ctx.restore();
+  };
+
+  const PLAYER = { shirt: '#f03e3e', pants: '#1c7ed6', skin: '#e0ac69', hair: '#2b1d16' };
+  const DANCERS = [
+    { shirt: '#e64980', pants: '#5f3dc4', skin: '#c68642', hair: '#1b1b1b', long: true, hat: '#4dabf7', style: 0 },
+    { shirt: '#ffd43b', pants: '#495057', skin: '#8d5524', hair: '#111', hat: '#e64980', style: 1 },
+    { shirt: '#69db7c', pants: '#343a40', skin: '#f1c27d', hair: '#3b2219', long: true, hat: '#ffd43b', style: 0 },
+    { shirt: '#4dabf7', pants: '#212529', skin: '#e0ac69', hair: '#1b1b1b', hat: '#69db7c', style: 1 },
+    { shirt: '#ff922b', pants: '#364fc7', skin: '#c68642', hair: '#2b1d16', long: true, hat: '#b197fc', style: 0 },
+    { shirt: '#b197fc', pants: '#2b2b2b', skin: '#8d5524', hair: '#111', hat: '#ff922b', style: 1 },
+  ];
+  const DOFF = [-1, -0.62, -0.3, 0.3, 0.62, 1];
+
+  const drawGate = () => {
+    const x = GC - camX;
+    if (x < -260 || x > LW + 260) return;
+    const top = GROUND - 200;
+    ctx.fillStyle = '#7b2d26'; ctx.fillRect(x - 128, top, 26, 200); ctx.fillRect(x + 102, top, 26, 200);
+    ctx.fillStyle = '#a8432f'; ctx.fillRect(x - 134, top - 10, 38, 14); ctx.fillRect(x + 96, top - 10, 38, 14);
+    // marigold garland
+    for (let k = 0; k <= 20; k += 1) {
+      const gx = x - 115 + k * 11.5, gy = top + 20 + Math.sin((k / 20) * Math.PI) * 46;
+      ctx.fillStyle = k % 2 ? '#ff922b' : '#ffd43b'; ctx.beginPath(); ctx.arc(gx, gy, 6, 0, Math.PI * 2); ctx.fill();
+    }
+    // banner
+    const bw = 220, bh = 56, by = top - 70;
+    ctx.fillStyle = gateLit ? '#3b1d6e' : '#2a2448';
+    ctx.strokeStyle = gateLit ? '#ffd43b' : '#6c5f9c'; ctx.lineWidth = 4;
+    ctx.beginPath(); ctx.roundRect ? ctx.roundRect(x - bw / 2, by, bw, bh, 12) : ctx.rect(x - bw / 2, by, bw, bh); ctx.fill(); ctx.stroke();
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.font = `800 40px ${FONT}`;
+    if (gateLit) { ctx.shadowColor = '#ffd43b'; ctx.shadowBlur = 18 + Math.sin(time * 6) * 6; }
+    ctx.fillStyle = gateLit ? '#ffe066' : '#8d83b8'; ctx.fillText(String(NEW), x, by + bh / 2 + 2);
+    ctx.shadowBlur = 0;
+    for (let k = 0; k < 14; k += 1) {
+      const on = gateLit ? Math.sin(time * 8 + k) > -0.2 : k % 3 === 0;
+      ctx.fillStyle = on ? `hsl(${(k * 37) % 360},95%,65%)` : 'rgba(255,255,255,0.15)';
+      ctx.beginPath(); ctx.arc(x - bw / 2 + 8 + k * ((bw - 16) / 13), by - 6, 4, 0, Math.PI * 2); ctx.fill();
+    }
+  };
+
+  const drawDancers = () => {
+    const spread = clamp(LW * 0.42, 140, 340);
+    DANCERS.forEach((d, i) => {
+      const wx = PARTY_X + DOFF[i] * spread;
+      const x = wx - camX;
+      if (x < -60 || x > LW + 60) return;
+      const party = state === 'party' || state === 'cross';
+      drawKid(x, GROUND, { ...d, dance: party, idle: !party, off: i * 0.9, alpha: party ? 1 : 0.85, s: 0.92 });
+    });
+  };
+
+  const drawPlayer = () => {
+    const x = px - camX;
+    const blink = hurt > 0 && Math.floor(hurt * 12) % 2 === 0;
+    if (blink) return;
+    const m = monthAt(px);
+    const party = state === 'party';
+    drawKid(x, py, { ...PLAYER, phase: runPhase, air: py < GROUND - 1, dance: party, idle: state === 'count' || state === 'idle', scarf: (m === 0 || m === 11) && !party, hat: party ? '#f06595' : null, off: 0.4 });
+  };
+
+  const drawFloats = () => {
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    floats.forEach((f) => {
+      ctx.globalAlpha = clamp(f.life / 0.6, 0, 1);
+      ctx.font = `800 ${f.gold ? 28 : 24}px ${FONT}`;
+      ctx.lineWidth = 5; ctx.strokeStyle = 'rgba(20,18,56,0.75)';
+      ctx.strokeText(f.text, f.x - camX, f.y);
+      ctx.fillStyle = f.gold ? '#ffd43b' : '#fff';
+      ctx.fillText(f.text, f.x - camX, f.y);
+    });
+    ctx.globalAlpha = 1;
+  };
+
+  const drawFireworks = () => {
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    rockets.forEach((r) => {
+      const x = r.x - camX;
+      ctx.fillStyle = `hsl(${r.hue},100%,80%)`; ctx.beginPath(); ctx.arc(x, r.y, 4.5, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = `hsla(${r.hue},100%,70%,0.55)`; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x, r.y); ctx.lineTo(x, r.y + 40); ctx.stroke();
+    });
+    ctx.lineCap = 'round';
+    sparks.forEach((s) => {
+      const a = clamp(s.life / s.max, 0, 1);
+      const x = s.x - camX;
+      if (s.fw) {
+        ctx.strokeStyle = `hsla(${s.hue},100%,62%,${a * 0.85})`; ctx.lineWidth = s.size * (0.5 + a * 0.6);
+        ctx.beginPath(); ctx.moveTo(x - s.vx * 0.06, s.y - s.vy * 0.06); ctx.lineTo(x, s.y); ctx.stroke();
+        ctx.fillStyle = `hsla(${s.hue},100%,85%,${a})`; ctx.beginPath(); ctx.arc(x, s.y, s.size * 0.55 * (0.5 + a), 0, Math.PI * 2); ctx.fill();
+      } else {
+        ctx.fillStyle = `hsla(${s.hue},100%,70%,${a})`; ctx.beginPath(); ctx.arc(x, s.y, s.size, 0, Math.PI * 2); ctx.fill();
+      }
+    });
+    ctx.restore();
+    confetti.forEach((c) => {
+      ctx.save(); ctx.translate(c.x - camX, c.y); ctx.rotate(c.spin);
+      ctx.fillStyle = `hsl(${c.hue},90%,60%)`; ctx.fillRect(-4, -2, 8, 4 + c.r * 0.3); ctx.restore();
+    });
+  };
+
+  const drawTexts = () => {
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    if (state === 'run' && banner > 0) {
+      const a = clamp(banner / 0.5, 0, 1) * clamp((2.4 - banner) / 0.3, 0, 1);
+      ctx.globalAlpha = a;
+      ctx.font = `800 48px ${FONT}`;
+      ctx.lineWidth = 8; ctx.strokeStyle = 'rgba(20,18,56,0.7)';
+      const txt = `${t('months')[curMonth]} ${OLD}`;
+      ctx.strokeText(txt, LW / 2, TOP + 130); ctx.fillStyle = '#fff'; ctx.fillText(txt, LW / 2, TOP + 130);
+      ctx.font = `34px ${EMOJI}`; ctx.fillText(MEM[curMonth].map((x) => x[0]).join(' '), LW / 2, TOP + 180);
+      ctx.globalAlpha = 1;
+    }
+    if (state === 'idle') {
+      ctx.font = `800 26px ${FONT}`; ctx.fillStyle = '#fff'; ctx.lineWidth = 6; ctx.strokeStyle = 'rgba(20,18,56,0.6)';
+      const txt = `${OLD} → ${NEW}`; ctx.strokeText(txt, LW / 2, TOP + 110); ctx.fillText(txt, LW / 2, TOP + 110);
+    }
+    if (state === 'count') {
+      ctx.fillStyle = 'rgba(5,5,25,0.35)'; ctx.fillRect(0, TOP, LW, VH);
+      ctx.font = `800 28px ${FONT}`; ctx.fillStyle = '#ffe8a3';
+      ctx.fillText(t('countLine'), LW / 2, TOP + 110);
+      const n = 10 - Math.floor(countT);
+      const fr = countT - Math.floor(countT);
+      const sc = 1.5 - Math.min(fr, 0.3) * 1.6;
+      ctx.save(); ctx.translate(LW / 2, TOP + 215); ctx.scale(sc, sc);
+      ctx.font = `800 130px ${FONT}`; ctx.shadowColor = '#f06595'; ctx.shadowBlur = 30;
+      ctx.fillStyle = n <= 3 ? '#ff6b6b' : '#ffd43b'; ctx.fillText(String(Math.max(1, n)), 0, 0);
+      ctx.restore(); ctx.shadowBlur = 0;
+    }
+    if (state === 'cross' || state === 'party') {
+      const k = state === 'party' ? 1 : 0.6;
+      const beat = 1 + Math.abs(Math.sin(time * 4.3)) * 0.06;
+      ctx.save(); ctx.translate(LW / 2, TOP + 140); ctx.scale(beat, beat);
+      ctx.font = `800 ${Math.min(110, LW * 0.24)}px ${FONT}`;
+      ctx.shadowColor = '#ffd43b'; ctx.shadowBlur = 30; ctx.globalAlpha = k;
+      const g = ctx.createLinearGradient(-150, -40, 150, 40); g.addColorStop(0, '#ffe066'); g.addColorStop(0.5, '#ff922b'); g.addColorStop(1, '#f06595');
+      ctx.fillStyle = g; ctx.fillText(String(NEW), 0, 0); ctx.restore(); ctx.shadowBlur = 0; ctx.globalAlpha = 1;
+      const hn = `${t('happy')}${playerName ? `, ${playerName}` : ''}! 🎉`;
+      ctx.font = `800 ${clamp(LW * 0.065, 26, 36)}px ${FONT}`; ctx.lineWidth = 6; ctx.strokeStyle = 'rgba(20,18,56,0.7)';
+      ctx.strokeText(hn, LW / 2, TOP + 215); ctx.fillStyle = '#fff'; ctx.fillText(hn, LW / 2, TOP + 215);
+      if (state === 'party') {
+        const L = t('lyrics'); const li = Math.floor(partyT / 2.6) % L.length;
+        ctx.font = `700 ${clamp(LW * 0.05, 22, 28)}px ${FONT}`; ctx.fillStyle = '#ffe8a3';
+        ctx.globalAlpha = clamp(((partyT % 2.6)) / 0.3, 0, 1);
+        ctx.fillText(L[li], LW / 2, TOP + 258); ctx.globalAlpha = 1;
+        if (!endShown || $('endScreen').classList.contains('hidden')) { ctx.font = `700 20px ${FONT}`; ctx.fillStyle = 'rgba(255,255,255,0.8)'; ctx.fillText(t('tapHint'), LW / 2, TOP + 294); }
+      }
+    }
+    if (flash > 0) { ctx.fillStyle = `rgba(255,255,255,${flash})`; ctx.fillRect(0, TOP, LW, VH); }
+  };
+
+  const draw = () => {
+    ctx.setTransform(dpr * scale, 0, 0, dpr * scale, 0, OY * scale * dpr);
+    ctx.save();
+    if (shake > 0) ctx.translate((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 8);
+    const f = state === 'idle' ? 0 : monthF(px);
+    const night = nightness();
+    const m = state === 'idle' ? 0 : monthAt(px);
+    drawSky(f, night);
+    drawHills(f, night);
+    drawMid(state === 'idle' ? 0 : (night >= 1 ? 11 : m), night);
+    drawWeather(state === 'run' ? m : -1, f);
+    drawGround(f, night);
+    for (let k = 0; k < 12; k += 1) drawSign(k);
+    drawRocks();
+    drawItems();
+    drawGate();
+    drawDancers();
+    drawPlayer();
+    drawFloats();
+    drawFireworks();
+    drawTexts();
+    ctx.restore();
+  };
+
+  // ---------- loop
+  let last = performance.now();
+  const frame = (ts) => {
+    const dt = Math.min(0.05, (ts - last) / 1000); last = ts;
+    if (!paused) update(dt);
+    draw();
+    requestAnimationFrame(frame);
+  };
+
+  const pause = () => {
+    if (!(state === 'run' || state === 'count' || state === 'cross') || paused) return;
+    paused = true; $('pauseScreen').classList.remove('hidden');
+    if (ac) ac.suspend();
+  };
+  const resume = () => { paused = false; $('pauseScreen').classList.add('hidden'); initAudio(); last = performance.now(); };
+
+  // ---------- share
+  const shareUrl = () => {
+    const u = new URL(SITE);
+    if (playerName) u.searchParams.set('from', playerName);
+    u.searchParams.set('score', String(got));
+    u.searchParams.set('lang', lang);
+    return u.toString();
+  };
+  const shareText = () => t('shareText')(playerName, got, total, shareUrl());
+
+  $('play').addEventListener('click', start);
+  $('again').addEventListener('click', start);
+  $('resume').addEventListener('click', resume);
+  ['name', 'mem0', 'mem1', 'mem2'].forEach((id) => $(id).addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); }));
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => window.prompt(t('copyPrompt'), text));
+  });
+  $('watch').addEventListener('click', () => { $('endScreen').classList.add('hidden'); $('showResult').classList.remove('hidden'); });
+  $('showResult').addEventListener('click', () => { $('showResult').classList.add('hidden'); $('endScreen').classList.remove('hidden'); });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { pause(); if (ac && state === 'party') ac.suspend(); }
+    else if (ac && state === 'party') ac.resume();
+  });
+  window.addEventListener('resize', resize);
+
+  applyLang();
+  resize();
+  requestAnimationFrame(frame);
+  if (bot && params.has('auto')) start();
+  window.__ss = { get state() { return state; }, get got() { return got; }, get total() { return total; }, get hits() { return hits; }, get px() { return px; } };
+
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>

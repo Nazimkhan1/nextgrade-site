@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chidiya Udd 🐦 — Bachpan ka Game | NextGrade</title>
+<meta name="description" content="Chidiya Udd — the classic childhood game, free on your phone in Hinglish, Hindi, English and Bengali. Tap only if it really flies! Tota udd, kabootar udd… bhains udd? It gets faster every round. Challenge friends on WhatsApp.">
+<link rel="canonical" href="https://nextgrade.in/games/chidiya-udd/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Chidiya Udd 🐦 — Bachpan ka Game">
+<meta property="og:description" content="Tota udd, kabootar udd… bhains udd? 😂 Sirf udne waali cheez pe tap karo! Mera score todo.">
+<meta property="og:url" content="https://nextgrade.in/games/chidiya-udd/">
+<meta property="og:image" content="https://nextgrade.in/games/chidiya-udd/icons/icon-512.png">
+<meta name="theme-color" content="#1c7ed6">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Chidiya Udd","url":"https://nextgrade.in/games/chidiya-udd/","genre":"Casual","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #141238; --bg2: #2b1d6b; --gold: #ffd43b; --pink: #f06595; --ink: #f8f9fa; --muted: #c5c3e6; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #3b2a8c, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2, :lang(bn) .call { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #e8590c, #f59f00); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+
+/* ---- stage */
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.45); height: min(72vh, 600px, 150vw); min-height: 440px; background: linear-gradient(180deg, #74c0fc 0%, #a5d8ff 55%, #d0ebff 100%); touch-action: manipulation; user-select: none; -webkit-user-select: none; cursor: pointer; }
+.cloud { position: absolute; background: #fff; border-radius: 60px; opacity: 0.85; animation: drift linear infinite; }
+.cloud::before, .cloud::after { content: ""; position: absolute; background: #fff; border-radius: 50%; }
+.cloud::before { width: 55%; height: 140%; left: 12%; top: -60%; }
+.cloud::after { width: 40%; height: 110%; right: 12%; top: -40%; }
+@keyframes drift { from { transform: translateX(-180px); } to { transform: translateX(900px); } }
+.hud { position: absolute; top: 10px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 19px; color: #10305a; pointer-events: none; z-index: 3; }
+.hud .score { background: rgba(255,255,255,0.75); border-radius: 12px; padding: 2px 12px; }
+.speed { position: absolute; top: 46px; left: 0; right: 0; text-align: center; font-size: 13px; font-weight: 700; color: #1c4a80; opacity: 0.8; pointer-events: none; z-index: 3; }
+.card { position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%); width: min(78%, 330px); background: rgba(255,255,255,0.92); border-radius: 26px; padding: 18px 12px 16px; text-align: center; box-shadow: 0 12px 30px rgba(16,48,90,0.25); z-index: 2; transition: transform 0.12s; }
+.card.pop { animation: pop 0.22s ease-out; }
+@keyframes pop { from { transform: translate(-50%, -50%) scale(0.75); opacity: 0.2; } to { transform: translate(-50%, -50%) scale(1); opacity: 1; } }
+.card.shake { animation: shake 0.4s; }
+@keyframes shake { 0%,100% { transform: translate(-50%, -50%); } 20% { transform: translate(-56%, -50%) rotate(-3deg); } 40% { transform: translate(-44%, -50%) rotate(3deg); } 60% { transform: translate(-54%, -50%); } 80% { transform: translate(-47%, -50%); } }
+.card.good { box-shadow: 0 0 0 6px #51cf66, 0 12px 30px rgba(16,48,90,0.25); }
+.card.bad { box-shadow: 0 0 0 6px #fa5252, 0 12px 30px rgba(16,48,90,0.25); }
+.em { font-size: 92px; line-height: 1.1; font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; min-height: 100px; }
+.em.idle { opacity: 0.35; }
+.call { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-weight: 800; font-size: clamp(26px, 7vw, 36px); color: #10305a; line-height: 1.15; min-height: 42px; }
+.timer { height: 10px; border-radius: 6px; background: #e7f0fb; margin: 10px 10px 0; overflow: hidden; }
+.timer i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, #51cf66, #fcc419, #ff6b6b); border-radius: 6px; transform-origin: left; }
+.flyer { position: absolute; font-size: 92px; font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; pointer-events: none; z-index: 4; animation: flyaway 0.9s ease-in forwards; }
+@keyframes flyaway { 0% { transform: translate(-50%, -50%) scale(1); opacity: 1; } 100% { transform: translate(160px, -380px) scale(0.4) rotate(-20deg); opacity: 0; } }
+.msg { position: absolute; left: 8px; right: 8px; top: 64%; text-align: center; font-weight: 800; font-size: 20px; color: #10305a; text-shadow: 0 1px 0 rgba(255,255,255,0.7); pointer-events: none; z-index: 3; min-height: 30px; }
+.msg.good { color: #2b8a3e; } .msg.bad { color: #c92a2a; }
+.table { position: absolute; left: 0; right: 0; bottom: 0; height: 26%; background: linear-gradient(180deg, #c08552 0%, #8b5a2b 100%); border-top: 6px solid #6f4518; z-index: 1; }
+.hands { position: absolute; left: 50%; bottom: calc(26% - 18px); transform: translateX(-50%); display: flex; gap: 70px; z-index: 2; pointer-events: none; }
+.hand { font-size: 54px; font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; transition: transform 0.08s; }
+.hand.l { transform: scaleX(-1); }
+.hand.tap { transform: translateY(10px) scaleY(0.85); }
+.hand.l.tap { transform: scaleX(-1) translateY(10px) scaleY(0.85); }
+.hand.up { transform: translateY(-46px) rotate(-8deg); }
+.hand.l.up { transform: scaleX(-1) translateY(-46px) rotate(-8deg); }
+.uddbtn { position: absolute; left: 50%; bottom: 4%; transform: translateX(-50%); width: min(78%, 330px); padding: 14px; border-radius: 18px; border: 0; font: inherit; font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-weight: 800; font-size: 26px; color: #fff; background: linear-gradient(90deg, #1c7ed6, #7048e8); box-shadow: 0 6px 0 #1b3e8f; cursor: pointer; z-index: 3; }
+.uddbtn:active { transform: translateX(-50%) translateY(4px); box-shadow: 0 2px 0 #1b3e8f; }
+
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(8, 6, 30, 0.72); padding: 16px; overflow-y: auto; z-index: 10; cursor: default; }
+.panel { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 18px; width: min(420px, 100%); text-align: center; margin: auto; color: var(--ink); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: var(--muted); }
+.panel .fact { background: rgba(255,212,59,0.12); border: 1px solid rgba(255,212,59,0.35); border-radius: 12px; padding: 8px 10px; color: #ffe8a3; font-size: 15px; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 54px; font-weight: 800; color: var(--gold); line-height: 1; margin: 6px 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: center; font-size: 15px; color: var(--ink); margin: 8px 0 4px; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 8px 0; }
+input::placeholder { color: #a9a6d6; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #f06595, #ff922b); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+@media (max-width: 480px) { .panel { padding: 14px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .em { font-size: 80px; } .hands { gap: 50px; } .hand { font-size: 46px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🐦 NextGrade<small>Bachpan ka Game</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="voice" type="button" aria-label="Voice on/off">🗣️</button>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <div class="cloud" style="width:120px;height:36px;top:16%;animation-duration:38s;animation-delay:-8s"></div>
+    <div class="cloud" style="width:90px;height:28px;top:30%;animation-duration:52s;animation-delay:-30s"></div>
+    <div class="cloud" style="width:150px;height:42px;top:8%;animation-duration:64s;animation-delay:-50s"></div>
+    <div class="hud" aria-hidden="true"><span id="hudLives">❤️❤️❤️</span><span class="score" id="hudScore">⭐ 0</span></div>
+    <div class="speed" id="hudSpeed" aria-hidden="true"></div>
+    <div class="card" id="card">
+      <div class="em idle" id="em">🐦</div>
+      <div class="call" id="call" aria-live="assertive"></div>
+      <div class="timer"><i id="tbar"></i></div>
+    </div>
+    <div class="msg" id="msg" aria-live="polite"></div>
+    <div class="table" aria-hidden="true"></div>
+    <div class="hands" aria-hidden="true"><span class="hand l" id="handL">✋</span><span class="hand" id="handR">✋</span></div>
+    <button class="uddbtn" id="udd" type="button" data-i18n="uddBtn"></button>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle"></h2>
+        <div class="legend"><span data-i18n="legendYes"></span><span data-i18n="legendNo"></span></div>
+        <p data-i18n="controls"></p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <button class="btn btn-main" id="play" type="button" data-i18n="play"></button>
+        <p id="bestLine"></p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="pauseScreen">
+      <div class="panel">
+        <h2 data-i18n="paused"></h2>
+        <button class="btn btn-main" id="resume" type="button" data-i18n="resume"></button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big" id="finalScore">0</div>
+        <p id="endNote"></p>
+        <p class="fact hidden" id="endFact"></p>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card2"><ol id="howList"></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="factsTitle"></h2>
+    <div class="card2"><ul id="factList"></ul></div>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/chidiya-udd/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+
+  // [emoji, flies?, hinglish, hindi, english, bengali, factKey?]
+  const ITEMS = [
+    ['🦜', 1, 'Tota', 'तोता', 'Parrot', 'টিয়া'],
+    ['🐦', 1, 'Chidiya', 'चिड़िया', 'Sparrow', 'চড়ুই'],
+    ['🕊️', 1, 'Kabootar', 'कबूतर', 'Pigeon', 'পায়রা'],
+    ['🦅', 1, 'Cheel', 'चील', 'Eagle', 'ঈগল'],
+    ['🦉', 1, 'Ullu', 'उल्लू', 'Owl', 'পেঁচা'],
+    ['🦢', 1, 'Hans', 'हंस', 'Swan', 'রাজহাঁস'],
+    ['🦩', 1, 'Flamingo', 'फ़्लेमिंगो', 'Flamingo', 'ফ্লেমিংগো', 'flamingo'],
+    ['🦇', 1, 'Chamgaadad', 'चमगादड़', 'Bat', 'বাদুড়', 'bat'],
+    ['🐝', 1, 'Madhumakkhi', 'मधुमक्खी', 'Bee', 'মৌমাছি'],
+    ['🦋', 1, 'Titli', 'तितली', 'Butterfly', 'প্রজাপতি'],
+    ['🦟', 1, 'Machchhar', 'मच्छर', 'Mosquito', 'মশা'],
+    ['🪰', 1, 'Makkhi', 'मक्खी', 'Housefly', 'মাছি'],
+    ['🐞', 1, 'Ladybird', 'लेडीबर्ड', 'Ladybird', 'লেডিবার্ড', 'ladybird'],
+    ['✈️', 1, 'Hawai jahaz', 'हवाई जहाज़', 'Aeroplane', 'উড়োজাহাজ'],
+    ['🚁', 1, 'Helicopter', 'हेलिकॉप्टर', 'Helicopter', 'হেলিকপ্টার'],
+    ['🚀', 1, 'Rocket', 'रॉकेट', 'Rocket', 'রকেট'],
+    ['🪁', 1, 'Patang', 'पतंग', 'Kite', 'ঘুড়ি'],
+    ['🎈', 1, 'Gubbara', 'गुब्बारा', 'Balloon', 'বেলুন'],
+    ['🐃', 0, 'Bhains', 'भैंस', 'Buffalo', 'মোষ'],
+    ['🐘', 0, 'Haathi', 'हाथी', 'Elephant', 'হাতি'],
+    ['🐄', 0, 'Gaay', 'गाय', 'Cow', 'গরু'],
+    ['🐐', 0, 'Bakri', 'बकरी', 'Goat', 'ছাগল'],
+    ['🐕', 0, 'Kutta', 'कुत्ता', 'Dog', 'কুকুর'],
+    ['🐈', 0, 'Billi', 'बिल्ली', 'Cat', 'বিড়াল'],
+    ['🦁', 0, 'Sher', 'शेर', 'Lion', 'সিংহ'],
+    ['🐒', 0, 'Bandar', 'बंदर', 'Monkey', 'বাঁদর'],
+    ['🐎', 0, 'Ghoda', 'घोड़ा', 'Horse', 'ঘোড়া'],
+    ['🐪', 0, 'Oont', 'ऊँट', 'Camel', 'উট'],
+    ['🦒', 0, 'Giraffe', 'जिराफ़', 'Giraffe', 'জিরাফ'],
+    ['🐸', 0, 'Mendhak', 'मेंढक', 'Frog', 'ব্যাঙ'],
+    ['🐢', 0, 'Kachhua', 'कछुआ', 'Tortoise', 'কচ্ছপ'],
+    ['🐍', 0, 'Saanp', 'साँप', 'Snake', 'সাপ'],
+    ['🐊', 0, 'Magarmachh', 'मगरमच्छ', 'Crocodile', 'কুমির'],
+    ['🐟', 0, 'Machhli', 'मछली', 'Fish', 'মাছ'],
+    ['🐧', 0, 'Penguin', 'पेंगुइन', 'Penguin', 'পেঙ্গুইন', 'penguin'],
+    ['🦤', 0, 'Dodo', 'डोडो', 'Dodo', 'ডোডো', 'dodo'],
+    ['🌳', 0, 'Ped', 'पेड़', 'Tree', 'গাছ'],
+    ['🏠', 0, 'Ghar', 'घर', 'House', 'বাড়ি'],
+    ['🪑', 0, 'Kursi', 'कुर्सी', 'Chair', 'চেয়ার'],
+    ['🛺', 0, 'Auto', 'ऑटो', 'Auto rickshaw', 'অটো'],
+    ['🚂', 0, 'Rail', 'रेल', 'Train', 'রেলগাড়ি'],
+    ['🚲', 0, 'Cycle', 'साइकिल', 'Bicycle', 'সাইকেল'],
+    ['🥭', 0, 'Aam', 'आम', 'Mango', 'আম'],
+    ['🍌', 0, 'Kela', 'केला', 'Banana', 'কলা'],
+    ['🥛', 0, 'Doodh', 'दूध', 'Milk', 'দুধ'],
+    ['📱', 0, 'Mobile', 'मोबाइल', 'Mobile', 'মোবাইল'],
+    ['☂️', 0, 'Chhatri', 'छतरी', 'Umbrella', 'ছাতা'],
+    ['🪨', 0, 'Patthar', 'पत्थर', 'Stone', 'পাথর'],
+  ];
+  const LI = { hinglish: 2, hi: 3, en: 4, bn: 5 };
+
+  const T = {
+    hinglish: {
+      title: 'Chidiya Udd 🐦',
+      sub: 'Bachpan wala khel, ab phone pe! Jo cheez sach mein udti hai, uspe tap karo — tota udd, kabootar udd… bhains udd? 😂 Har baar thoda tez.',
+      call: (n) => `${n} udd!`,
+      drum: 'dhap… dhap…',
+      uddBtn: '🕊️ UDD!',
+      startTitle: 'Taiyaar? Ungli table pe rakho! ✋',
+      legendYes: '🦜 Udta hai → tap karo',
+      legendNo: '🐃 Nahi udta → ruk jao',
+      controls: 'Screen ya UDD! button pe tap karo, ya Space dabao. Galti pe ek ❤️ jaayega — 3 galti, game khatam.',
+      namePh: 'Aapka naam (optional)',
+      play: '▶ Khelo',
+      paused: '⏸ Game ruka hua hai',
+      resume: '▶ Aage khelo',
+      best: (n) => `Aapka best: ${n}`,
+      challenge: (name, n) => `🏆 ${name} ne Chidiya Udd mein ${n} sahi jawab diye! Kya aap unhe hara paoge?`,
+      speed: (n) => `Speed ${n}`,
+      good: ['Shabaash! 👏', 'Sahi! ✅', 'Ekdum sahi! 🎯', 'Wah! ⭐'],
+      badFly: (n) => `${n} aur udna? 😂 Nahi!`,
+      badMiss: (n) => `Arre! ${n} to udd sakte hain! 🕊️`,
+      streak: (n) => `🔥 ${n} sahi lagatar!`,
+      endTitle: (name) => (name ? `Shabaash ${name}! 🎉` : 'Game khatam! 🎉'),
+      endNote: (best, isNew) => (isNew ? '🏅 Naya best score!' : `Aapka best: ${best}`),
+      lastWrong: (msg) => `Aakhri galti: ${msg}`,
+      shareWa: '📲 WhatsApp pe challenge bhejo',
+      shareOther: '🔗 Link share / copy karo',
+      copied: '✅ Copy ho gaya',
+      copyPrompt: 'Ye text copy karein:',
+      again: '🔁 Phir se khelo',
+      shareText: (name, n, url) => `🐦 ${name ? `${name} ne` : 'Maine'} Chidiya Udd mein ${n} sahi jawab diye! Bachpan wala khel yaad hai? Mera score todke dikhao: ${url}`,
+      howTitle: 'Kaise khelein',
+      how: ['<b>▶ Khelo</b> dabao. Haath table pe "dhap-dhap" bajayenge, phir ek naam aayega — jaise "Tota udd!"', 'Agar wo cheez <b>sach mein udti hai</b> (pakshi, keede, hawai jahaz, patang, gubbara…) to jaldi se <b>tap karo</b>.', 'Agar <b>nahi udti</b> (bhains, haathi, ped, kursi…) to <b>kuch mat dabao</b> — bas ruk jao.', 'Har sahi jawab +1. Galti pe ek ❤️ jaata hai; 3 galti pe game khatam. Har baar thoda tez hota jaata hai!', 'Score WhatsApp pe bhejo aur doston ko challenge karo.'],
+      aboutTitle: 'Chidiya Udd — bachpan ka khel',
+      aboutText: 'Chidiya Udd bharat ke gharon aur school ki chhuttiyon ka purana khel hai. Sab bachche apni ungli table ya zameen pe rakhte the, ek bachcha "dhap-dhap" bajate hue bolta tha — "Chidiya udd! Tota udd! Kauwa udd!" — aur sab ungli upar uthate the. Phir achanak bolta "Bhains udd!" aur jo galti se ungli utha deta, wo hasi ka paatra ban jaata aur game se bahar ho jaata.',
+      aboutText2: 'Is game mein wahi mazaa hai, bas ab phone pe: 48 cheezein (pakshi, keede, jaanwar, gaadiyan, phal aur ghar ka saamaan), 4 bhashayein, aur har sahi jawab ke saath badhti speed. Kuch cheezein jaan-boojh kar mushkil rakhi hain — jaise penguin aur dodo, jo pakshi to hain par udte nahi; aur chamgaadad, jo pakshi nahi par udta hai!',
+      factsTitle: 'Mazedaar baatein',
+      facts: { penguin: 'Penguin pakshi hai, par udta nahi — uske pankh paani mein tairne ke liye chappu jaise kaam karte hain.', dodo: 'Dodo Mauritius ka pakshi tha jo udd nahi sakta tha. Ab ye duniya mein nahi raha (vilupt ho gaya).', bat: 'Chamgaadad pakshi nahi, stanpaayi (mammal) hai — phir bhi ye asli udaan bharne wala akela stanpaayi hai!', flamingo: 'Flamingo ek pair pe khade rehte hain, par lambi udaan bhi bharte hain.', ladybird: 'Ladybird ek chhota keeda hai jiske laal khol ke neeche patle pankh chhupe hote hain — haan, ye udta hai!' },
+      moreGames: 'Aur games khelo →',
+      privacyTitle: 'Aapka data',
+      privacyText: 'Naam aur best score sirf aapke phone mein rehte hain. Share link mein sirf naam aur score jaata hai. Koi login nahi, koi server nahi. Awaaz aapke phone ki apni boli (text-to-speech) se aati hai.',
+    },
+    hi: {
+      title: 'चिड़िया उड़ 🐦',
+      sub: 'बचपन वाला खेल, अब फ़ोन पर! जो चीज़ सच में उड़ती है, उस पर टैप करो — तोता उड़, कबूतर उड़… भैंस उड़? 😂 हर बार थोड़ा तेज़।',
+      call: (n) => `${n} उड़!`,
+      drum: 'धप… धप…',
+      uddBtn: '🕊️ उड़!',
+      startTitle: 'तैयार? उँगली टेबल पर रखो! ✋',
+      legendYes: '🦜 उड़ता है → टैप करो',
+      legendNo: '🐃 नहीं उड़ता → रुक जाओ',
+      controls: 'स्क्रीन या उड़! बटन पर टैप करो, या Space दबाओ। ग़लती पर एक ❤️ जाएगा — 3 ग़लती, खेल ख़त्म।',
+      namePh: 'आपका नाम (वैकल्पिक)',
+      play: '▶ खेलो',
+      paused: '⏸ खेल रुका हुआ है',
+      resume: '▶ आगे खेलो',
+      best: (n) => `आपका बेस्ट: ${n}`,
+      challenge: (name, n) => `🏆 ${name} ने चिड़िया उड़ में ${n} सही जवाब दिए! क्या आप उन्हें हरा पाओगे?`,
+      speed: (n) => `स्पीड ${n}`,
+      good: ['शाबाश! 👏', 'सही! ✅', 'एकदम सही! 🎯', 'वाह! ⭐'],
+      badFly: (n) => `${n} और उड़ना? 😂 नहीं!`,
+      badMiss: (n) => `अरे! ${n} तो उड़ सकते हैं! 🕊️`,
+      streak: (n) => `🔥 लगातार ${n} सही!`,
+      endTitle: (name) => (name ? `शाबाश ${name}! 🎉` : 'खेल ख़त्म! 🎉'),
+      endNote: (best, isNew) => (isNew ? '🏅 नया बेस्ट स्कोर!' : `आपका बेस्ट: ${best}`),
+      lastWrong: (msg) => `आख़िरी ग़लती: ${msg}`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो',
+      shareOther: '🔗 लिंक शेयर / कॉपी करो',
+      copied: '✅ कॉपी हो गया',
+      copyPrompt: 'यह टेक्स्ट कॉपी करें:',
+      again: '🔁 फिर से खेलो',
+      shareText: (name, n, url) => `🐦 ${name ? `${name} ने` : 'मैंने'} चिड़िया उड़ में ${n} सही जवाब दिए! बचपन वाला खेल याद है? मेरा स्कोर तोड़कर दिखाओ: ${url}`,
+      howTitle: 'कैसे खेलें',
+      how: ['<b>▶ खेलो</b> दबाओ। हाथ टेबल पर "धप-धप" बजाएँगे, फिर एक नाम आएगा — जैसे "तोता उड़!"', 'अगर वह चीज़ <b>सच में उड़ती है</b> (पक्षी, कीड़े, हवाई जहाज़, पतंग, गुब्बारा…) तो जल्दी से <b>टैप करो</b>।', 'अगर <b>नहीं उड़ती</b> (भैंस, हाथी, पेड़, कुर्सी…) तो <b>कुछ मत दबाओ</b> — बस रुक जाओ।', 'हर सही जवाब +1। ग़लती पर एक ❤️ जाता है; 3 ग़लती पर खेल ख़त्म। हर बार थोड़ा तेज़ होता जाता है!', 'स्कोर WhatsApp पर भेजो और दोस्तों को चैलेंज करो।'],
+      aboutTitle: 'चिड़िया उड़ — बचपन का खेल',
+      aboutText: 'चिड़िया उड़ भारत के घरों और स्कूल की छुट्टियों का पुराना खेल है। सब बच्चे अपनी उँगली टेबल या ज़मीन पर रखते थे, एक बच्चा "धप-धप" बजाते हुए बोलता था — "चिड़िया उड़! तोता उड़! कौआ उड़!" — और सब उँगली ऊपर उठाते थे। फिर अचानक बोलता "भैंस उड़!" और जो ग़लती से उँगली उठा देता, वह हँसी का पात्र बन जाता और खेल से बाहर हो जाता।',
+      aboutText2: 'इस गेम में वही मज़ा है, बस अब फ़ोन पर: 48 चीज़ें (पक्षी, कीड़े, जानवर, गाड़ियाँ, फल और घर का सामान), 4 भाषाएँ, और हर सही जवाब के साथ बढ़ती स्पीड। कुछ चीज़ें जान-बूझकर मुश्किल रखी हैं — जैसे पेंगुइन और डोडो, जो पक्षी तो हैं पर उड़ते नहीं; और चमगादड़, जो पक्षी नहीं पर उड़ता है!',
+      factsTitle: 'मज़ेदार बातें',
+      facts: { penguin: 'पेंगुइन पक्षी है, पर उड़ता नहीं — उसके पंख पानी में तैरने के लिए चप्पू जैसे काम करते हैं।', dodo: 'डोडो मॉरीशस का पक्षी था जो उड़ नहीं सकता था। अब यह दुनिया में नहीं रहा (विलुप्त हो गया)।', bat: 'चमगादड़ पक्षी नहीं, स्तनपायी है — फिर भी यह असली उड़ान भरने वाला अकेला स्तनपायी है!', flamingo: 'फ़्लेमिंगो एक पैर पर खड़े रहते हैं, पर लंबी उड़ान भी भरते हैं।', ladybird: 'लेडीबर्ड एक छोटा कीड़ा है जिसके लाल खोल के नीचे पतले पंख छिपे होते हैं — हाँ, यह उड़ता है!' },
+      moreGames: 'और गेम्स खेलो →',
+      privacyTitle: 'आपका डेटा',
+      privacyText: 'नाम और बेस्ट स्कोर सिर्फ़ आपके फ़ोन में रहते हैं। शेयर लिंक में सिर्फ़ नाम और स्कोर जाता है। कोई लॉगिन नहीं, कोई सर्वर नहीं। आवाज़ आपके फ़ोन की अपनी बोली (text-to-speech) से आती है।',
+    },
+    en: {
+      title: 'Chidiya Udd 🐦 (Birdie, Fly!)',
+      sub: 'The childhood game, now on your phone! Tap only if the thing really flies — parrot, fly! pigeon, fly!… buffalo, fly? 😂 A little faster every round.',
+      call: (n) => `${n}, fly!`,
+      drum: 'dhap… dhap…',
+      uddBtn: '🕊️ FLY!',
+      startTitle: 'Ready? Finger on the table! ✋',
+      legendYes: '🦜 It flies → tap',
+      legendNo: "🐃 It doesn't → wait",
+      controls: 'Tap the screen or the FLY! button, or press Space. A mistake costs one ❤️ — 3 mistakes and the game ends.',
+      namePh: 'Your name (optional)',
+      play: '▶ Play',
+      paused: '⏸ Game paused',
+      resume: '▶ Resume',
+      best: (n) => `Your best: ${n}`,
+      challenge: (name, n) => `🏆 ${name} got ${n} right in Chidiya Udd! Can you beat that?`,
+      speed: (n) => `Speed ${n}`,
+      good: ['Well done! 👏', 'Right! ✅', 'Spot on! 🎯', 'Wow! ⭐'],
+      badFly: (n) => `A flying ${n.toLowerCase()}? 😂 No!`,
+      badMiss: (n) => `Oops! The ${n.toLowerCase()} can fly! 🕊️`,
+      streak: (n) => `🔥 ${n} in a row!`,
+      endTitle: (name) => (name ? `Well played, ${name}! 🎉` : 'Game over! 🎉'),
+      endNote: (best, isNew) => (isNew ? '🏅 New best score!' : `Your best: ${best}`),
+      lastWrong: (msg) => `Last mistake: ${msg}`,
+      shareWa: '📲 Challenge on WhatsApp',
+      shareOther: '🔗 Share / copy link',
+      copied: '✅ Copied',
+      copyPrompt: 'Copy this text:',
+      again: '🔁 Play again',
+      shareText: (name, n, url) => `🐦 ${name || 'I'} got ${n} right in Chidiya Udd! Remember this childhood game? Beat my score: ${url}`,
+      howTitle: 'How to play',
+      how: ['Press <b>▶ Play</b>. The hands drum "dhap-dhap" on the table, then a name appears — like "Parrot, fly!"', 'If it <b>really flies</b> (birds, insects, planes, kites, balloons…) <b>tap</b> quickly.', "If it <b>doesn't fly</b> (buffalo, elephant, tree, chair…) <b>don't press anything</b> — just wait.", 'Each right answer is +1. A mistake costs a ❤️; 3 mistakes end the game. It gets faster every round!', 'Send your score on WhatsApp and challenge your friends.'],
+      aboutTitle: 'Chidiya Udd — a childhood game',
+      aboutText: 'Chidiya Udd ("birdie, fly") is an old game from Indian homes and school holidays. All the children kept a finger on the table or the floor while one child drummed "dhap-dhap" and called out — "Sparrow, fly! Parrot, fly! Crow, fly!" — and everyone raised a finger. Then suddenly: "Buffalo, fly!" — and whoever raised a finger by mistake got laughed at and was out.',
+      aboutText2: 'This game keeps the same fun, now on a phone: 48 things (birds, insects, animals, vehicles, fruit and household items), 4 languages, and a speed that rises with every right answer. Some are tricky on purpose — like the penguin and the dodo, which are birds but cannot fly, and the bat, which is not a bird but does fly!',
+      factsTitle: 'Fun facts',
+      facts: { penguin: "The penguin is a bird but doesn't fly — its wings work like paddles for swimming.", dodo: 'The dodo was a bird from Mauritius that could not fly. It is now extinct.', bat: 'The bat is not a bird but a mammal — and the only mammal capable of true flight!', flamingo: 'Flamingos stand on one leg, but they also fly long distances.', ladybird: 'The ladybird is a small beetle with thin wings hidden under its red shell — yes, it flies!' },
+      moreGames: 'Play more games →',
+      privacyTitle: 'Your data',
+      privacyText: 'Your name and best score stay only on your phone. The share link carries only your name and score. No login, no server. The voice comes from your phone\'s own text-to-speech.',
+    },
+    bn: {
+      title: 'পাখি ওড়ে 🐦 (চিড়িয়া উড়)',
+      sub: 'ছোটবেলার খেলা, এখন ফোনে! যেটা সত্যিই ওড়ে, শুধু তাতেই ট্যাপ করো — টিয়া ওড়ে, পায়রা ওড়ে… মোষ ওড়ে? 😂 প্রতিবার একটু জোরে।',
+      call: (n) => `${n} ওড়ে!`,
+      drum: 'ধপ… ধপ…',
+      uddBtn: '🕊️ ওড়ে!',
+      startTitle: 'তৈরি? আঙুল টেবিলে রাখো! ✋',
+      legendYes: '🦜 ওড়ে → ট্যাপ করো',
+      legendNo: '🐃 ওড়ে না → থামো',
+      controls: 'স্ক্রিন বা ওড়ে! বোতামে ট্যাপ করো, বা Space চাপো। ভুল হলে একটা ❤️ যাবে — ৩টে ভুলে খেলা শেষ।',
+      namePh: 'তোমার নাম (ঐচ্ছিক)',
+      play: '▶ খেলো',
+      paused: '⏸ খেলা থেমে আছে',
+      resume: '▶ আবার খেলো',
+      best: (n) => `তোমার সেরা: ${n}`,
+      challenge: (name, n) => `🏆 ${name} পাখি ওড়ে খেলায় ${n}টা ঠিক উত্তর দিয়েছে! তুমি কি হারাতে পারবে?`,
+      speed: (n) => `স্পিড ${n}`,
+      good: ['সাবাশ! 👏', 'ঠিক! ✅', 'একদম ঠিক! 🎯', 'বাহ! ⭐'],
+      badFly: (n) => `${n} উড়বে? 😂 না!`,
+      badMiss: (n) => `আরে! ${n} তো উড়তে পারে! 🕊️`,
+      streak: (n) => `🔥 টানা ${n}টা ঠিক!`,
+      endTitle: (name) => (name ? `সাবাশ ${name}! 🎉` : 'খেলা শেষ! 🎉'),
+      endNote: (best, isNew) => (isNew ? '🏅 নতুন সেরা স্কোর!' : `তোমার সেরা: ${best}`),
+      lastWrong: (msg) => `শেষ ভুল: ${msg}`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও',
+      shareOther: '🔗 লিংক শেয়ার / কপি',
+      copied: '✅ কপি হয়েছে',
+      copyPrompt: 'এই লেখাটা কপি করো:',
+      again: '🔁 আবার খেলো',
+      shareText: (name, n, url) => (name ? `🐦 ${name} পাখি ওড়ে খেলায় ${n}টা ঠিক উত্তর দিয়েছে! ছোটবেলার খেলাটা মনে আছে? স্কোর ভেঙে দেখাও: ${url}` : `🐦 আমি পাখি ওড়ে খেলায় ${n}টা ঠিক উত্তর দিয়েছি! ছোটবেলার খেলাটা মনে আছে? আমার স্কোর ভেঙে দেখাও: ${url}`),
+      howTitle: 'কীভাবে খেলবে',
+      how: ['<b>▶ খেলো</b> টিপো। হাত টেবিলে "ধপ-ধপ" বাজাবে, তারপর একটা নাম আসবে — যেমন "টিয়া ওড়ে!"', 'যদি সেটা <b>সত্যিই ওড়ে</b> (পাখি, পোকা, উড়োজাহাজ, ঘুড়ি, বেলুন…) তাহলে তাড়াতাড়ি <b>ট্যাপ করো</b>।', 'যদি <b>না ওড়ে</b> (মোষ, হাতি, গাছ, চেয়ার…) তাহলে <b>কিছুই টিপো না</b> — শুধু থামো।', 'প্রতিটা ঠিক উত্তরে +1। ভুল হলে একটা ❤️ যায়; ৩টে ভুলে খেলা শেষ। প্রতিবার একটু জোরে হয়!', 'স্কোর WhatsApp-এ পাঠাও আর বন্ধুদের চ্যালেঞ্জ করো।'],
+      aboutTitle: 'পাখি ওড়ে — ছোটবেলার খেলা',
+      aboutText: '"চিড়িয়া উড়" বা "পাখি ওড়ে" ভারতের ঘরে ঘরে আর স্কুলের ছুটিতে খেলা পুরনো খেলা। সবাই আঙুল টেবিল বা মেঝেতে রাখত, একজন "ধপ-ধপ" বাজিয়ে বলত — "চড়ুই ওড়ে! টিয়া ওড়ে! কাক ওড়ে!" — আর সবাই আঙুল তুলত। তারপর হঠাৎ: "মোষ ওড়ে!" — যে ভুল করে আঙুল তুলত, সবাই তাকে নিয়ে হাসত আর সে খেলা থেকে বাদ।',
+      aboutText2: 'এই গেমে সেই মজাটাই, এখন ফোনে: ৪৮টা জিনিস (পাখি, পোকা, প্রাণী, গাড়ি, ফল আর ঘরের জিনিস), ৪টে ভাষা, আর প্রতিটা ঠিক উত্তরে বাড়তে থাকা স্পিড। কয়েকটা ইচ্ছে করে কঠিন রাখা — যেমন পেঙ্গুইন আর ডোডো, যারা পাখি কিন্তু উড়তে পারে না; আর বাদুড়, যে পাখি নয় কিন্তু ওড়ে!',
+      factsTitle: 'মজার তথ্য',
+      facts: { penguin: 'পেঙ্গুইন পাখি, কিন্তু ওড়ে না — ওর ডানা জলে সাঁতার কাটার দাঁড়ের মতো কাজ করে।', dodo: 'ডোডো ছিল মরিশাসের একটা পাখি যে উড়তে পারত না। এখন সে আর পৃথিবীতে নেই (বিলুপ্ত)।', bat: 'বাদুড় পাখি নয়, স্তন্যপায়ী — তবু সত্যিকারের উড়তে পারা একমাত্র স্তন্যপায়ী!', flamingo: 'ফ্লেমিংগো এক পায়ে দাঁড়িয়ে থাকে, কিন্তু অনেক দূর উড়েও যায়।', ladybird: 'লেডিবার্ড একটা ছোট পোকা, যার লাল খোলার নিচে পাতলা ডানা লুকোনো থাকে — হ্যাঁ, এটা ওড়ে!' },
+      moreGames: 'আরও গেম খেলো →',
+      privacyTitle: 'তোমার ডেটা',
+      privacyText: 'নাম আর সেরা স্কোর শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর স্কোর। কোনো লগইন নেই, কোনো সার্ভার নেই। আওয়াজ আসে তোমার ফোনের নিজের text-to-speech থেকে।',
+    },
+  };
+  const VOICE_LANG = { hinglish: 'hi-IN', hi: 'hi-IN', en: 'en-IN', bn: 'bn-IN' };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const urlLang = params.get('lang');
+  const savedLang = store.get('cu-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(9999, parseInt(params.get('score'), 10) || 0));
+  const best = () => parseInt(store.get('cu-best'), 10) || 0;
+  const nameOf = (it) => it[LI[lang]];
+  const bot = params.has('debug');
+
+  // ---------- page texts
+  let last = null;
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Bachpan ka Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const F = t('facts');
+    const factEmoji = { penguin: '🐧', dodo: '🦤', bat: '🦇', flamingo: '🦩', ladybird: '🐞' };
+    $('factList').innerHTML = Object.keys(F).map((k) => `<li>${factEmoji[k]} ${F[k]}</li>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+    if (cur && state !== 'idle') $('call').textContent = t('call')(nameOf(cur));
+    if (last) fillEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('cu-lang', lang); applyLang(); });
+  $('name').value = store.get('cu-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- sound + voice
+  let muted = store.get('cu-muted') === '1';
+  let voiceOn = store.get('cu-voice') !== '0';
+  let ac = null, master = null, noiseBuf = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; $('voice').textContent = voiceOn ? '🗣️' : '🤐'; $('voice').style.opacity = voiceOn ? 1 : 0.6; };
+  setIcons();
+  $('mute').addEventListener('click', (e) => { e.stopPropagation(); muted = !muted; store.set('cu-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.9; });
+  $('voice').addEventListener('click', (e) => { e.stopPropagation(); voiceOn = !voiceOn; store.set('cu-voice', voiceOn ? '1' : '0'); setIcons(); if (!voiceOn && window.speechSynthesis) speechSynthesis.cancel(); });
+  const initAudio = () => {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    ac = new AC();
+    master = ac.createGain(); master.gain.value = muted ? 0 : 0.9; master.connect(ac.destination);
+    noiseBuf = ac.createBuffer(1, ac.sampleRate, ac.sampleRate);
+    const d = noiseBuf.getChannelData(0);
+    for (let i = 0; i < d.length; i += 1) d[i] = Math.random() * 2 - 1;
+  };
+  const tone = (f, dur, type = 'sine', vol = 0.1, f2 = null, delay = 0) => {
+    if (!ac) return;
+    const when = ac.currentTime + delay;
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, when);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, when + dur);
+    g.gain.setValueAtTime(0.0001, when); g.gain.exponentialRampToValueAtTime(vol, when + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+    o.connect(g); g.connect(master); o.start(when); o.stop(when + dur + 0.02);
+  };
+  const noise = (dur, vol, ftype, ff, delay = 0, ff2 = null) => {
+    if (!ac) return;
+    const when = ac.currentTime + delay;
+    const s = ac.createBufferSource(), f = ac.createBiquadFilter(), g = ac.createGain();
+    s.buffer = noiseBuf; f.type = ftype; f.frequency.setValueAtTime(ff, when);
+    if (ff2) f.frequency.exponentialRampToValueAtTime(ff2, when + dur);
+    g.gain.setValueAtTime(vol, when); g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+    s.connect(f); f.connect(g); g.connect(master); s.start(when, Math.random() * 0.5); s.stop(when + dur + 0.02);
+  };
+  const sfx = {
+    dhap: () => { tone(110, 0.14, 'sine', 0.35, 60); noise(0.06, 0.12, 'lowpass', 500); },
+    good: () => { tone(784, 0.12, 'triangle', 0.12); tone(1175, 0.18, 'triangle', 0.1, null, 0.08); },
+    flap: () => { for (let i = 0; i < 4; i += 1) noise(0.07, 0.07, 'bandpass', 1400, i * 0.09, 700); },
+    bad: () => { tone(220, 0.35, 'sawtooth', 0.08, 110); tone(160, 0.35, 'square', 0.04, 90); },
+    over: () => { [523, 440, 349, 262].forEach((f, i) => tone(f, 0.25, 'triangle', 0.1, null, i * 0.16)); },
+    streak: () => { [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.15, 'triangle', 0.09, null, i * 0.07)); },
+  };
+  let voices = [];
+  const loadVoices = () => { try { voices = window.speechSynthesis ? speechSynthesis.getVoices() : []; } catch (e) { voices = []; } };
+  if (window.speechSynthesis) { loadVoices(); speechSynthesis.onvoiceschanged = loadVoices; }
+  const say = (text) => {
+    if (!voiceOn || muted || !window.speechSynthesis || bot) return;
+    try {
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text.replace(/[!😂🕊️]/gu, ''));
+      const vl = VOICE_LANG[lang];
+      u.lang = vl;
+      const v = voices.find((x) => x.lang === vl) || voices.find((x) => x.lang && x.lang.startsWith(vl.slice(0, 2)));
+      if (v) u.voice = v;
+      u.rate = Math.min(1.6, 1.15 + level * 0.03);
+      speechSynthesis.speak(u);
+    } catch (e) { /* no voice */ }
+  };
+
+  // ---------- game
+  let state = 'idle'; // idle | drum | call | feedback | over
+  let paused = false;
+  let score = 0, lives = 3, streak = 0, level = 1, win = 1900;
+  let cur = null, recent = [], typeRun = [], tapped = false, botMistake = null;
+  let timers = [];
+  let callStart = 0, rafId = 0, lastWrong = null, playerName = '';
+  const later = (fn, ms) => { const id = setTimeout(fn, ms); timers.push(id); return id; };
+  const clearTimers = () => { timers.forEach(clearTimeout); timers = []; cancelAnimationFrame(rafId); };
+
+  const updateHud = () => {
+    $('hudLives').textContent = '❤️'.repeat(lives) + '🤍'.repeat(3 - lives);
+    $('hudScore').textContent = `⭐ ${score}`;
+    $('hudSpeed').textContent = state === 'idle' ? '' : t('speed')(level);
+  };
+
+  const pickItem = () => {
+    // about half fly; never more than 3 of the same kind in a row; no repeats among the last 8
+    let wantFly = Math.random() < 0.52;
+    if (typeRun.length >= 3 && typeRun.slice(-3).every((x) => x === typeRun[typeRun.length - 1])) wantFly = !typeRun[typeRun.length - 1];
+    const pool = ITEMS.filter((it) => !!it[1] === wantFly && !recent.includes(it[0]));
+    const it = pool[Math.floor(Math.random() * pool.length)];
+    recent.push(it[0]); if (recent.length > 8) recent.shift();
+    typeRun.push(!!it[1]); if (typeRun.length > 6) typeRun.shift();
+    return it;
+  };
+
+  const handAnim = (cls, ms) => {
+    ['handL', 'handR'].forEach((h) => { $(h).classList.remove('tap', 'up'); if (cls) $(h).classList.add(cls); });
+    if (ms) later(() => ['handL', 'handR'].forEach((h) => $(h).classList.remove(cls)), ms);
+  };
+
+  const showMsg = (text, cls) => { const m = $('msg'); m.textContent = text; m.className = `msg ${cls || ''}`; };
+
+  const nextRound = () => {
+    if (state === 'over') return;
+    state = 'drum';
+    const card = $('card');
+    card.classList.remove('good', 'bad', 'shake', 'pop');
+    $('em').textContent = '✋'; $('em').classList.add('idle');
+    $('call').textContent = t('drum');
+    $('tbar').style.transform = 'scaleX(1)';
+    showMsg('');
+    const beat = Math.max(170, Math.min(380, win * 0.24));
+    sfx.dhap(); handAnim('tap', beat * 0.5);
+    later(() => { sfx.dhap(); handAnim('tap', beat * 0.5); }, beat);
+    later(showCall, beat * 2);
+  };
+
+  const showCall = () => {
+    if (state === 'over') return;
+    cur = pickItem();
+    tapped = false; botMistake = null;
+    state = 'call';
+    const card = $('card');
+    void card.offsetWidth; card.classList.add('pop');
+    $('em').textContent = cur[0]; $('em').classList.remove('idle');
+    const text = t('call')(nameOf(cur));
+    $('call').textContent = text;
+    say(text);
+    callStart = performance.now();
+    const tick = () => {
+      if (state !== 'call') return;
+      const k = Math.max(0, 1 - (performance.now() - callStart) / win);
+      $('tbar').style.transform = `scaleX(${k})`;
+      if (bot) botMove(k);
+      if (k <= 0) { timeUp(); return; }
+      rafId = requestAnimationFrame(tick);
+    };
+    rafId = requestAnimationFrame(tick);
+  };
+
+  const botMove = (k) => {
+    if (tapped || k > 0.55) return;
+    if (botMistake === null) botMistake = Math.random() < (params.get('debug') === '2' ? 0.6 : 0.06);
+    if ((cur[1] && !botMistake) || (!cur[1] && botMistake)) udd();
+  };
+
+  const correct = (flew) => {
+    score += 1; streak += 1;
+    if (score % 5 === 0) { level += 1; }
+    win = Math.max(720, win * 0.965);
+    $('card').classList.add('good');
+    if (flew) {
+      const r = $('em').getBoundingClientRect(), sr = $('stage').getBoundingClientRect();
+      const f = document.createElement('div');
+      f.className = 'flyer'; f.textContent = cur[0];
+      f.style.left = `${r.left - sr.left + r.width / 2}px`; f.style.top = `${r.top - sr.top + r.height / 2}px`;
+      $('stage').appendChild(f); setTimeout(() => f.remove(), 950);
+      $('em').classList.add('idle');
+      sfx.flap(); handAnim('up', 380);
+    }
+    sfx.good();
+    if (streak > 0 && streak % 10 === 0) { showMsg(t('streak')(streak), 'good'); sfx.streak(); }
+    else { const g = t('good'); showMsg(g[Math.floor(Math.random() * g.length)], 'good'); }
+    updateHud();
+    state = 'feedback';
+    later(nextRound, 520);
+  };
+
+  const wrong = (kind) => {
+    lives -= 1; streak = 0;
+    const n = nameOf(cur);
+    const msg = kind === 'fly' ? t('badFly')(n) : t('badMiss')(n);
+    lastWrong = { item: cur, kind };
+    $('card').classList.add('bad', 'shake');
+    showMsg(msg, 'bad');
+    sfx.bad();
+    if (navigator.vibrate) try { navigator.vibrate(120); } catch (e) { /* ignore */ }
+    updateHud();
+    state = 'feedback';
+    if (lives <= 0) later(gameOver, 1100);
+    else later(nextRound, 1200);
+  };
+
+  const timeUp = () => {
+    if (state !== 'call') return;
+    if (cur[1]) wrong('miss'); else correct(false);
+  };
+
+  const udd = () => {
+    if (state !== 'call' || tapped || paused) return;
+    tapped = true;
+    cancelAnimationFrame(rafId);
+    if (cur[1]) correct(true); else { handAnim('up', 600); wrong('fly'); }
+  };
+
+  const start = () => {
+    initAudio();
+    clearTimers();
+    playerName = cleanName($('name').value);
+    store.set('cu-name', playerName);
+    score = 0; lives = 3; streak = 0; level = 1; win = 1900; recent = []; typeRun = []; lastWrong = null; last = null;
+    ['startScreen', 'endScreen', 'pauseScreen'].forEach((id) => $(id).classList.add('hidden'));
+    $('shareOther').textContent = t('shareOther');
+    paused = false;
+    state = 'feedback';
+    updateHud();
+    later(nextRound, 350);
+  };
+
+  const gameOver = () => {
+    clearTimers();
+    state = 'over';
+    sfx.over();
+    const prev = best();
+    if (score > prev) store.set('cu-best', String(score));
+    last = { score, isNew: score > prev && prev > 0, name: playerName, wrong: lastWrong };
+    fillEnd();
+    $('endScreen').classList.remove('hidden');
+  };
+  const fillEnd = () => {
+    $('endTitle').textContent = t('endTitle')(last.name);
+    $('finalScore').textContent = String(last.score);
+    let note = t('endNote')(best(), last.isNew);
+    if (last.wrong) { const n = nameOf(last.wrong.item); note += ` · ${t('lastWrong')(`${last.wrong.item[0]} ${last.wrong.kind === 'fly' ? t('badFly')(n) : t('badMiss')(n)}`)}`; }
+    $('endNote').textContent = note;
+    const fk = last.wrong && last.wrong.item[6];
+    if (fk) { $('endFact').textContent = `💡 ${t('facts')[fk]}`; $('endFact').classList.remove('hidden'); } else $('endFact').classList.add('hidden');
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+  };
+
+  const pause = () => {
+    if (state === 'idle' || state === 'over' || paused) return;
+    paused = true; clearTimers();
+    if (window.speechSynthesis) speechSynthesis.cancel();
+    $('pauseScreen').classList.remove('hidden');
+  };
+  const resume = () => { paused = false; $('pauseScreen').classList.add('hidden'); initAudio(); state = 'feedback'; later(nextRound, 300); };
+
+  // ---------- input
+  $('stage').addEventListener('pointerdown', (e) => {
+    if (e.target.closest('.overlay')) return;
+    e.preventDefault();
+    initAudio();
+    udd();
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.target && e.target.tagName === 'INPUT') return;
+    if (e.code === 'Space' || e.code === 'Enter' || e.code === 'ArrowUp') { if (state === 'call') { e.preventDefault(); udd(); } }
+  });
+
+  // ---------- share
+  const shareText = () => {
+    const u = new URL(SITE);
+    if (playerName) u.searchParams.set('from', playerName);
+    u.searchParams.set('score', String(score));
+    u.searchParams.set('lang', lang);
+    return t('shareText')(playerName, score, u.toString());
+  };
+  $('play').addEventListener('click', start);
+  $('again').addEventListener('click', start);
+  $('resume').addEventListener('click', resume);
+  $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => window.prompt(t('copyPrompt'), text));
+  });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
+
+  applyLang();
+  updateHud();
+  if (bot && params.has('auto')) start();
+  window.__cu = { get state() { return state; }, get score() { return score; }, get lives() { return lives; }, get level() { return level; } };
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>

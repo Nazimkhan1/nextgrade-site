@@ -309,6 +309,9 @@ const games = {
   chhath: { name: 'Chhath Ghat', desc: 'Take the holy dip at dawn, offer arghya to the rising sun at the right moment, then catch thekua, bananas and sugarcane in your soop to break the fast. Three stages, temple bells and splashes, WhatsApp challenge.' },
   'new-year': { name: 'Fireworks Pop', desc: 'Tap the rockets rising into the sky and burst them — at the very top for a Perfect, quickly for combos. With a live countdown to the new year.' },
   christmas: { name: 'Catch Santa\'s Gifts', desc: 'Steer Santa\'s sleigh, catch the falling gifts, dodge the coal and challenge friends on WhatsApp. In Hindi, Hinglish, English and Bengali.' },
+  'saal-ka-safar': { name: 'Journey of the Year 2026 → 2027', desc: 'Run through 2026 touching the year\'s memories, count down 10…1 and enter 2027 with fireworks, dhol and dancing.' },
+  'chidiya-udd': { name: 'Chidiya Udd (Birdie, Fly!)', desc: 'The childhood game: tap only if it really flies! Parrot, fly… buffalo, fly? 48 things, 3 lives, faster every round, with a voice caller.' },
+  'saanp-seedhi': { name: 'Saanp-Seedhi (Snakes & Ladders)', desc: 'The childhood board game: play the computer or 2–4 friends on one phone. Every ladder a good habit, every snake a bad one.' },
 };
 
 const apps = {
