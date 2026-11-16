@@ -24,9 +24,12 @@ const releases = {
   'story:tenali-kuen-ka-khazana': '2026-11-30',
   'story:mulla-ki-degchi': '2026-12-01',
   'story:chidiya-kauwa-ghar': '2026-12-02',
-  'game:saal-ka-safar': '2026-12-03',
-  'game:chidiya-udd': '2026-12-04',
-  'game:saanp-seedhi': '2026-12-05',
+  // Festival games first, nearest festival first (user, 16 Nov); evergreen games after them.
+  'game:saal-ka-safar': '2026-12-03', // New Year, 31 Dec
+  'game:parade-ki-taal': '2026-12-04', // Republic Day, 26 Jan
+  'game:chaand-dhundo': '2026-12-05', // Ramzan, ~8 Feb
+  'game:chidiya-udd': '2026-12-06',
+  'game:saanp-seedhi': '2026-12-07',
 };
 
 // today's date in India (the release day changes at midnight IST)

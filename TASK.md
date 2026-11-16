@@ -38,13 +38,16 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 | 30 Nov | story: Tenali Raman aur Kuen ka Khazaana |
 | 1 Dec | story: Mulla Nasruddin ki Degchi |
 | 2 Dec | story: Chidiya ka Ghar, Kauwe ka Ghar |
-| 3 Dec | game: Saal ka Safar 2026 → 2027 |
-| 4 Dec | game: Chidiya Udd |
-| 5 Dec | game: Saanp-Seedhi |
+| 3 Dec | game: Saal ka Safar 2026 → 2027 (New Year) |
+| 4 Dec | game: Parade ki Taal (Republic Day) |
+| 5 Dec | game: Chaand Dhundo (Ramzan) |
+| 6 Dec | game: Chidiya Udd |
+| 7 Dec | game: Saanp-Seedhi |
 
 - User decided (15 Nov): everything live until 14 Nov stays (incl. the 30 stories of 14 Nov); only from now on, no bulk.
 - A held page that was live before gets a tiny "moved" stub at its URL (noindex + redirect to /games/ or /kahani/, not in the sitemap) instead of a 404; the real page replaces it on its release day.
 - Anything new written after this: add it to the END of the schedule (next free day), don't push it live directly.
+- User (16 Nov): **festival pages go first, nearest festival first**; evergreen pages after them. Daily release is not required (gaps or reordering are fine).
 
 
 ## HOW TO — step by step (read this first)

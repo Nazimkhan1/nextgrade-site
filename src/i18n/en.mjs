@@ -312,6 +312,8 @@ const games = {
   'saal-ka-safar': { name: 'Journey of the Year 2026 → 2027', desc: 'Run through 2026 touching the year\'s memories, count down 10…1 and enter 2027 with fireworks, dhol and dancing.' },
   'chidiya-udd': { name: 'Chidiya Udd (Birdie, Fly!)', desc: 'The childhood game: tap only if it really flies! Parrot, fly… buffalo, fly? 48 things, 3 lives, faster every round, with a voice caller.' },
   'saanp-seedhi': { name: 'Saanp-Seedhi (Snakes & Ladders)', desc: 'The childhood board game: play the computer or 2–4 friends on one phone. Every ladder a good habit, every snake a bad one.' },
+  'parade-ki-taal': { name: 'Parade ki Taal (Parade Beat)', desc: 'Tap on the drum beat so the Republic Day parade marches in step: Army, BSF camels, NCC band, then the tricolour flypast.' },
+  'chaand-dhundo': { name: 'Chaand Dhundo (Find the Crescent)', desc: 'Use the telescope to find the thin new crescent in the evening sky before it sets — Venus, planes and kites will try to fool you! 10 evenings.' },
 };
 
 const apps = {

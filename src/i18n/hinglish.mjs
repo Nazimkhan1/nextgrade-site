@@ -443,6 +443,8 @@ const games = {
   'saal-ka-safar': { name: 'Saal ka Safar 2026 → 2027', desc: 'Saal bhar ki yaadein chhoo kar daudo, 10…1 countdown ke baad 2027 ke gate se niklo — aatishbaazi aur dhol pe naach-gaane ke saath.' },
   'chidiya-udd': { name: 'Chidiya Udd', desc: 'Bachpan wala khel: tota udd, kabootar udd… bhains udd? 😂 Sirf udne wali cheez pe tap karo. 48 cheezein, 3 jaan, har baar thoda tez.' },
   'saanp-seedhi': { name: 'Saanp-Seedhi', desc: 'Bachpan wala board game: computer se ya ek hi phone pe 2–4 doston ke saath khelo. Har seedhi ek achhi aadat, har saanp ek buri.' },
+  'parade-ki-taal': { name: 'Parade ki Taal', desc: 'Dhol ki taal pe tap karo, parade kadam se kadam milake chale: fauj, BSF oont, NCC band aur tiranga flypast.' },
+  'chaand-dhundo': { name: 'Chaand Dhundo', desc: 'Doorbeen se shaam ke aasmaan mein patla sa naya chaand dhundo, chhupne se pehle — sitara, jahaz aur patang dhoka denge! 10 shaamein.' },
 };
 
 const apps = {

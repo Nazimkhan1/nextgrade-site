@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chaand Dhundo 🌙 — Ramzan Moon Sighting Game | NextGrade</title>
+<meta name="description" content="Chaand Dhundo: a free Ramzan game in Hinglish, Hindi, English and Bengali. Use the doorbeen (telescope) to find the thin new crescent in the evening sky before it sets — don't be fooled by Venus, planes or kites! 10 evenings, Ramzan facts and a WhatsApp challenge.">
+<link rel="canonical" href="https://nextgrade.in/games/chaand-dhundo/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Chaand Dhundo 🌙 — Ramzan ka Chaand Game">
+<meta property="og:description" content="Doorbeen uthao, aasmaan mein patla sa chaand dhundo — chhupne se pehle! Ramzan Mubarak 🌙">
+<meta property="og:url" content="https://nextgrade.in/games/chaand-dhundo/">
+<meta property="og:image" content="https://nextgrade.in/games/chaand-dhundo/icons/icon-512.png">
+<meta name="theme-color" content="#1b3a5c">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Chaand Dhundo","url":"https://nextgrade.in/games/chaand-dhundo/","genre":"Casual","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #141238; --bg2: #2b1d6b; --gold: #ffd43b; --pink: #f06595; --ink: #f8f9fa; --muted: #c5c3e6; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #1f3b63, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2, :lang(bn) .banner { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #1971c2, #5f3dc4); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.45); height: min(74vh, 620px, 150vw); min-height: 460px; background: #1b3a5c; touch-action: none; user-select: none; -webkit-user-select: none; cursor: crosshair; }
+#cv { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hud { position: absolute; top: 10px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 17px; color: #fff; pointer-events: none; z-index: 3; gap: 8px; }
+.hud span { background: rgba(0,0,0,0.35); border-radius: 12px; padding: 2px 10px; white-space: nowrap; }
+.tbar { position: absolute; top: 48px; left: 14px; right: 14px; height: 8px; border-radius: 5px; background: rgba(255,255,255,0.18); overflow: hidden; z-index: 3; pointer-events: none; }
+.tbar i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, #ff8787, #ffd43b, #8ce99a); transform-origin: left; }
+.banner { position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%); background: rgba(10, 16, 40, 0.85); color: #fff; padding: 12px 18px; border-radius: 16px; font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-weight: 800; font-size: clamp(20px, 5.5vw, 28px); text-align: center; line-height: 1.25; max-width: 88%; pointer-events: none; z-index: 4; opacity: 0; transition: opacity 0.25s; }
+.banner small { display: block; font-family: Inter, "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: 14px; font-weight: 600; color: #ffe8a3; margin-top: 2px; }
+.banner.show { opacity: 1; }
+.hint { position: absolute; left: 0; right: 0; bottom: 10px; text-align: center; color: #e7f5ff; font-size: 14px; font-weight: 600; text-shadow: 0 1px 3px rgba(0,0,0,0.7); pointer-events: none; z-index: 3; padding: 0 12px; }
+
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(6, 10, 30, 0.74); padding: 16px; overflow-y: auto; z-index: 10; cursor: default; }
+.panel { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 18px; width: min(420px, 100%); text-align: center; margin: auto; color: var(--ink); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: var(--muted); }
+.panel .fact { background: rgba(255,212,59,0.12); border: 1px solid rgba(255,212,59,0.35); border-radius: 12px; padding: 8px 10px; color: #ffe8a3; font-size: 15px; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 54px; font-weight: 800; color: var(--gold); line-height: 1; margin: 6px 0; }
+.moons { font-size: 18px; letter-spacing: 0; margin: 4px 0; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 8px 0; }
+input::placeholder { color: #a9a6d6; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #1971c2, #7048e8); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+@media (max-width: 480px) { .panel { padding: 14px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .hud { font-size: 15px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🌙 NextGrade<small>Ramzan</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="cv" aria-hidden="true"></canvas>
+    <div class="hud" aria-hidden="true"><span id="hudNight"></span><span id="hudScore">⭐ 0</span><span id="hudLives"></span></div>
+    <div class="tbar" aria-hidden="true"><i id="tbar"></i></div>
+    <div class="banner" id="banner" aria-live="polite"></div>
+    <div class="hint" id="hint" data-i18n="hint"></div>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle"></h2>
+        <p data-i18n="controls"></p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <button class="btn btn-main" id="play" type="button" data-i18n="play"></button>
+        <p id="bestLine"></p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="pauseScreen">
+      <div class="panel">
+        <h2 data-i18n="paused"></h2>
+        <button class="btn btn-main" id="resume" type="button" data-i18n="resume"></button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="moons" id="endMoons"></div>
+        <div class="big" id="finalScore">0</div>
+        <p id="endNote"></p>
+        <p class="fact" id="endFact"></p>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card2"><ol id="howList"></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+    <p><a id="guideLink" href="https://nextgrade.in/islamic-calendar/" data-i18n="readMore"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="factsTitle"></h2>
+    <div class="card2"><ul id="factList"></ul></div>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/chaand-dhundo/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const NIGHTS = 10;
+  const FACT_KEYS = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8'];
+
+  const T = {
+    hinglish: {
+      title: 'Chaand Dhundo 🌙',
+      sub: 'Ramzan ka chaand dekhne ki khushi! Doorbeen se shaam ke aasmaan mein patla sa naya chaand dhundo — chhupne se pehle. Par dhyaan se: chamakta sitara, hawai jahaz aur patang bhi dhoka de sakte hain!',
+      hint: '👆 Ungli ghuma ke doorbeen chalao, chaand pe thodi der roko',
+      startTitle: 'Chaand raat ki taiyaari 🔭',
+      controls: 'Screen pe ungli (ya mouse) ghumao — doorbeen saath chalegi. Doorbeen ke andar sab saaf dikhta hai. Chaand pe doorbeen ek pal roko to woh mil jaayega! 10 shaamein, har shaam chaand aur patla aur halka.',
+      namePh: 'Aapka naam (optional)',
+      play: '▶ Chaand dhundo',
+      paused: '⏸ Game ruka hua hai',
+      resume: '▶ Aage khelo',
+      again: '🔁 Phir se khelo',
+      night: (n) => `🌆 Shaam ${n}/${NIGHTS}`,
+      best: (n) => `Aapka best: ${n}`,
+      challenge: (name, n) => `🌙 ${name} ne Chaand Dhundo mein ${n} score kiya! Kya aap jaldi chaand dhund paoge?`,
+      ready: (n) => `Shaam ${n}<small>Maghrib ke baad, pashchim ke aasmaan mein dekho…</small>`,
+      found: '🌙 Chaand dikh gaya! Mubarak ho!',
+      lost: '☁️ Aaj chaand nahi dikha<small>Koi baat nahi — kal phir dekhenge</small>',
+      decoy: { venus: '✨ Yeh to sitara hai — asal mein Zuhra (Venus) grah!', plane: '✈️ Yeh to hawai jahaz ki batti hai!', kite: '🪁 Arre, yeh to patang hai!' },
+      endTitle: (name, all) => (all ? `Chaand Mubarak${name ? `, ${name}` : ''}! 🌙` : `Shaabaash${name ? `, ${name}` : ''}! 🌙`),
+      endNote: (found, best, isNew) => `${found}/${NIGHTS} shaam chaand mila · ${isNew ? '🏅 Naya best!' : `Aapka best: ${best}`}`,
+      shareWa: '📲 WhatsApp pe challenge bhejo',
+      shareOther: '🔗 Link share / copy karo',
+      copied: '✅ Copy ho gaya',
+      copyPrompt: 'Yeh text copy karo:',
+      shareText: (name, n, url) => `🌙 ${name ? `${name} ne` : 'Maine'} Chaand Dhundo mein ${n} score kiya! Doorbeen uthao aur Ramzan ka chaand dhundo: ${url}`,
+      howTitle: 'Kaise khelein',
+      how: ['<b>▶ Chaand dhundo</b> dabao. Suraj doob chuka hai, aasmaan dheere-dheere andhera ho raha hai.', 'Screen pe <b>ungli ghumao</b> (computer pe mouse) — gol <b>doorbeen</b> saath chalti hai. Bahar chaand mushkil se dikhta hai, doorbeen ke andar saaf.', 'Patla sa <b>naya chaand</b> dikhe to doorbeen usi pe <b>ek pal roko</b> — ghera bhar jaayega aur chaand mil jaayega.', 'Dhoka mat khao: chamakta <b>sitara (Zuhra / Venus)</b>, <b>hawai jahaz</b> ki batti aur <b>patang</b> pe roka to kuch second kam ho jaate hain.', 'Chaand dheere-dheere neeche jaata hai — ufaq (horizon) pe chhup gaya to us shaam ka ek 🌙 gaya. 10 shaamein, jitna jaldi, utne zyada points!'],
+      aboutTitle: 'Chaand dekhne ki parampara',
+      aboutText: 'Islami (Hijri) calendar chaand pe chalta hai. Har mahina tab shuru hota hai jab suraj doobne ke baad pashchim mein naya, patla sa chaand (hilal) dikhta hai. Isiliye Ramzan ki shuruaat aur Eid ka din chaand dekhne se tay hota hai — aur "chaand dikh gaya!" sunte hi ghar-ghar mein khushi ki lehar daud jaati hai.',
+      aboutText2: 'Naya chaand bahut patla aur halka hota hai, suraj doobne ke thodi hi der baad ufaq ke paas dikhta hai aur jaldi chhup jaata hai. Badal, dhool aur roshni use aur mushkil bana dete hain. Is game mein wahi talaash hai — doorbeen, dhalti shaam aur dhoka dene wale sitare ke saath.',
+      readMore: 'Islami calendar aur Ramzan ki tareekhein dekhein →',
+      factsTitle: 'Ramzan aur chaand ke tathya',
+      facts: {
+        f1: 'Ramzan Islami (Hijri) calendar ka 9vaan mahina hai.',
+        f2: 'Hijri mahine chaand pe chalte hain: naya mahina tab shuru hota hai jab suraj doobne ke baad naya chaand (hilal) dikhta hai.',
+        f3: 'Chaand ka saal lagbhag 354–355 din ka hota hai, isliye Ramzan har saal kareeb 11 din pehle aata hai.',
+        f4: 'Ramzan mein roza fajr se pehle sehri ke baad shuru hota hai aur suraj doobne par iftar se khulta hai.',
+        f5: 'Ramzan ke baad Shawwal ka chaand dikhne par Eid-ul-Fitr manaayi jaati hai.',
+        f6: 'Naya chaand pashchim (west) ke aasmaan mein, ufaq ke paas, suraj doobne ke thodi der baad dikhta hai aur jaldi doob jaata hai.',
+        f7: 'Shaam ko chaand ke paas dikhne wala bahut chamakta "sitara" aksar Zuhra (Venus) grah hota hai.',
+        f8: 'Iftar aksar khajoor aur paani se khola jaata hai.',
+      },
+      moreGames: 'Aur games khelo →',
+      privacyTitle: 'Aapka data',
+      privacyText: 'Naam aur best score sirf aapke phone mein rehte hain. Share link mein sirf naam aur score jaata hai. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'चाँद ढूँढो 🌙',
+      sub: 'रमज़ान का चाँद देखने की ख़ुशी! दूरबीन से शाम के आसमान में पतला-सा नया चाँद ढूँढो — छिपने से पहले। पर ध्यान से: चमकता सितारा, हवाई जहाज़ और पतंग भी धोखा दे सकते हैं!',
+      hint: '👆 उँगली घुमाकर दूरबीन चलाओ, चाँद पर थोड़ी देर रोको',
+      startTitle: 'चाँद रात की तैयारी 🔭',
+      controls: 'स्क्रीन पर उँगली (या माउस) घुमाओ — दूरबीन साथ चलेगी। दूरबीन के अंदर सब साफ़ दिखता है। चाँद पर दूरबीन एक पल रोको तो वह मिल जाएगा! 10 शामें, हर शाम चाँद और पतला और हल्का।',
+      namePh: 'आपका नाम (ज़रूरी नहीं)',
+      play: '▶ चाँद ढूँढो',
+      paused: '⏸ गेम रुका हुआ है',
+      resume: '▶ आगे खेलो',
+      again: '🔁 फिर से खेलो',
+      night: (n) => `🌆 शाम ${n}/${NIGHTS}`,
+      best: (n) => `आपका बेस्ट: ${n}`,
+      challenge: (name, n) => `🌙 ${name} ने चाँद ढूँढो में ${n} स्कोर किया! क्या आप जल्दी चाँद ढूँढ पाओगे?`,
+      ready: (n) => `शाम ${n}<small>मग़रिब के बाद, पश्चिम के आसमान में देखो…</small>`,
+      found: '🌙 चाँद दिख गया! मुबारक हो!',
+      lost: '☁️ आज चाँद नहीं दिखा<small>कोई बात नहीं — कल फिर देखेंगे</small>',
+      decoy: { venus: '✨ यह तो सितारा है — असल में ज़ुहरा (शुक्र) ग्रह!', plane: '✈️ यह तो हवाई जहाज़ की बत्ती है!', kite: '🪁 अरे, यह तो पतंग है!' },
+      endTitle: (name, all) => (all ? `चाँद मुबारक${name ? `, ${name}` : ''}! 🌙` : `शाबाश${name ? `, ${name}` : ''}! 🌙`),
+      endNote: (found, best, isNew) => `${found}/${NIGHTS} शाम चाँद मिला · ${isNew ? '🏅 नया बेस्ट!' : `आपका बेस्ट: ${best}`}`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो',
+      shareOther: '🔗 लिंक शेयर / कॉपी करो',
+      copied: '✅ कॉपी हो गया',
+      copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareText: (name, n, url) => `🌙 ${name ? `${name} ने` : 'मैंने'} चाँद ढूँढो में ${n} स्कोर किया! दूरबीन उठाओ और रमज़ान का चाँद ढूँढो: ${url}`,
+      howTitle: 'कैसे खेलें',
+      how: ['<b>▶ चाँद ढूँढो</b> दबाओ। सूरज डूब चुका है, आसमान धीरे-धीरे अँधेरा हो रहा है।', 'स्क्रीन पर <b>उँगली घुमाओ</b> (कंप्यूटर पर माउस) — गोल <b>दूरबीन</b> साथ चलती है। बाहर चाँद मुश्किल से दिखता है, दूरबीन के अंदर साफ़।', 'पतला-सा <b>नया चाँद</b> दिखे तो दूरबीन उसी पर <b>एक पल रोको</b> — घेरा भर जाएगा और चाँद मिल जाएगा।', 'धोखा मत खाओ: चमकता <b>सितारा (ज़ुहरा / शुक्र)</b>, <b>हवाई जहाज़</b> की बत्ती और <b>पतंग</b> पर रोका तो कुछ सेकंड कम हो जाते हैं।', 'चाँद धीरे-धीरे नीचे जाता है — क्षितिज पर छिप गया तो उस शाम का एक 🌙 गया। 10 शामें, जितना जल्दी, उतने ज़्यादा पॉइंट!'],
+      aboutTitle: 'चाँद देखने की परंपरा',
+      aboutText: 'इस्लामी (हिजरी) कैलेंडर चाँद पर चलता है। हर महीना तब शुरू होता है जब सूरज डूबने के बाद पश्चिम में नया, पतला-सा चाँद (हिलाल) दिखता है। इसीलिए रमज़ान की शुरुआत और ईद का दिन चाँद देखने से तय होता है — और "चाँद दिख गया!" सुनते ही घर-घर में ख़ुशी की लहर दौड़ जाती है।',
+      aboutText2: 'नया चाँद बहुत पतला और हल्का होता है, सूरज डूबने के थोड़ी ही देर बाद क्षितिज के पास दिखता है और जल्दी छिप जाता है। बादल, धूल और रोशनी उसे और मुश्किल बना देते हैं। इस गेम में वही तलाश है — दूरबीन, ढलती शाम और धोखा देने वाले सितारे के साथ।',
+      readMore: 'इस्लामी कैलेंडर और रमज़ान की तारीख़ें देखें →',
+      factsTitle: 'रमज़ान और चाँद के तथ्य',
+      facts: {
+        f1: 'रमज़ान इस्लामी (हिजरी) कैलेंडर का 9वाँ महीना है।',
+        f2: 'हिजरी महीने चाँद पर चलते हैं: नया महीना तब शुरू होता है जब सूरज डूबने के बाद नया चाँद (हिलाल) दिखता है।',
+        f3: 'चाँद का साल लगभग 354–355 दिन का होता है, इसलिए रमज़ान हर साल क़रीब 11 दिन पहले आता है।',
+        f4: 'रमज़ान में रोज़ा फ़ज्र से पहले सहरी के बाद शुरू होता है और सूरज डूबने पर इफ़्तार से खुलता है।',
+        f5: 'रमज़ान के बाद शव्वाल का चाँद दिखने पर ईद-उल-फ़ित्र मनाई जाती है।',
+        f6: 'नया चाँद पश्चिम के आसमान में, क्षितिज के पास, सूरज डूबने के थोड़ी देर बाद दिखता है और जल्दी डूब जाता है।',
+        f7: 'शाम को चाँद के पास दिखने वाला बहुत चमकता "सितारा" अक्सर ज़ुहरा (शुक्र) ग्रह होता है।',
+        f8: 'इफ़्तार अक्सर खजूर और पानी से खोला जाता है।',
+      },
+      moreGames: 'और गेम खेलो →',
+      privacyTitle: 'आपका डेटा',
+      privacyText: 'नाम और बेस्ट स्कोर सिर्फ़ आपके फ़ोन में रहते हैं। शेयर लिंक में सिर्फ़ नाम और स्कोर जाता है। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Chaand Dhundo 🌙 (Find the Crescent)',
+      sub: 'The joy of sighting the Ramzan moon! Use the doorbeen (telescope) to find the thin new crescent in the evening sky before it sets. But careful: a bright "star", a plane and a kite can fool you!',
+      hint: '👆 Move your finger to steer the telescope, hold it on the moon',
+      startTitle: 'Getting ready for moon night 🔭',
+      controls: 'Move your finger (or mouse) over the sky — the telescope follows. Inside it everything is clear. Hold the telescope on the moon for a moment to find it! 10 evenings, each moon thinner and fainter.',
+      namePh: 'Your name (optional)',
+      play: '▶ Find the moon',
+      paused: '⏸ Game paused',
+      resume: '▶ Continue',
+      again: '🔁 Play again',
+      night: (n) => `🌆 Evening ${n}/${NIGHTS}`,
+      best: (n) => `Your best: ${n}`,
+      challenge: (name, n) => `🌙 ${name} scored ${n} in Chaand Dhundo! Can you spot the moon faster?`,
+      ready: (n) => `Evening ${n}<small>After sunset, look at the western sky…</small>`,
+      found: '🌙 The moon is sighted! Mubarak!',
+      lost: '☁️ No moon tonight<small>Never mind — we\'ll look again tomorrow</small>',
+      decoy: { venus: '✨ That\'s a "star" — really the planet Venus (Zuhra)!', plane: '✈️ That\'s an aeroplane\'s light!', kite: '🪁 Oops, that\'s a kite!' },
+      endTitle: (name, all) => (all ? `Chaand Mubarak${name ? `, ${name}` : ''}! 🌙` : `Well done${name ? `, ${name}` : ''}! 🌙`),
+      endNote: (found, best, isNew) => `Moon found on ${found}/${NIGHTS} evenings · ${isNew ? '🏅 New best!' : `Your best: ${best}`}`,
+      shareWa: '📲 Challenge on WhatsApp',
+      shareOther: '🔗 Share / copy link',
+      copied: '✅ Copied',
+      copyPrompt: 'Copy this text:',
+      shareText: (name, n, url) => `🌙 ${name || 'I'} scored ${n} in Chaand Dhundo! Pick up the telescope and find the Ramzan moon: ${url}`,
+      howTitle: 'How to play',
+      how: ['Tap <b>▶ Find the moon</b>. The sun has set and the sky is slowly getting dark.', '<b>Move your finger</b> over the screen (or the mouse) — the round <b>telescope</b> follows. Outside it the moon is hard to see; inside it, clear.', 'When you see the thin <b>new crescent</b>, <b>hold</b> the telescope on it for a moment — the ring fills and the moon is found.', 'Don\'t be fooled: the bright <b>"star" (Venus)</b>, a <b>plane\'s</b> light and a <b>kite</b> cost you a few seconds.', 'The moon slowly sinks — if it sets below the horizon, you lose a 🌙 for that evening. 10 evenings; the faster you are, the more points!'],
+      aboutTitle: 'The tradition of moon sighting',
+      aboutText: 'The Islamic (Hijri) calendar follows the moon. Each month begins when the new, thin crescent (hilal) is seen in the west after sunset. That is why the start of Ramzan and the day of Eid depend on sighting the moon — and the words "the moon is sighted!" bring joy to every home.',
+      aboutText2: 'The new crescent is very thin and faint, appears low near the horizon shortly after sunset and soon sets. Clouds, dust and city lights make it harder. This game is that search — with a telescope, a fading evening and a "star" that tries to fool you.',
+      readMore: 'See the Islamic calendar and Ramzan dates →',
+      factsTitle: 'Facts about Ramzan and the moon',
+      facts: {
+        f1: 'Ramzan (Ramadan) is the 9th month of the Islamic (Hijri) calendar.',
+        f2: 'Hijri months follow the moon: a new month begins when the new crescent (hilal) is seen after sunset.',
+        f3: 'A lunar year is about 354–355 days, so Ramzan comes about 11 days earlier every year.',
+        f4: 'In Ramzan the fast begins after sehri, before dawn (fajr), and is opened at sunset with iftar.',
+        f5: 'Eid-ul-Fitr is celebrated when the moon of Shawwal is sighted at the end of Ramzan.',
+        f6: 'The new crescent appears in the western sky, close to the horizon, shortly after sunset, and soon sets.',
+        f7: 'The very bright "star" often seen near the evening moon is usually the planet Venus (Zuhra).',
+        f8: 'Iftar is often opened with dates (khajoor) and water.',
+      },
+      moreGames: 'Play more games →',
+      privacyTitle: 'Your data',
+      privacyText: 'Your name and best score stay only on your phone. The share link carries only your name and score. No login, no server.',
+    },
+    bn: {
+      title: 'চাঁদ খোঁজো 🌙',
+      sub: 'রমজানের চাঁদ দেখার আনন্দ! দূরবিন দিয়ে সন্ধ্যার আকাশে সরু নতুন চাঁদ খোঁজো — ডুবে যাওয়ার আগে। তবে সাবধান: উজ্জ্বল তারা, উড়োজাহাজ আর ঘুড়িও ধোঁকা দিতে পারে!',
+      hint: '👆 আঙুল ঘুরিয়ে দূরবিন চালাও, চাঁদের ওপর একটু থামাও',
+      startTitle: 'চাঁদ রাতের প্রস্তুতি 🔭',
+      controls: 'স্ক্রিনে আঙুল (বা মাউস) ঘোরাও — দূরবিন সঙ্গে চলবে। দূরবিনের ভেতরে সব পরিষ্কার। চাঁদের ওপর দূরবিন এক মুহূর্ত থামালেই চাঁদ পাওয়া যাবে! ১০টা সন্ধ্যা, প্রতিবার চাঁদ আরও সরু আর ফিকে।',
+      namePh: 'তোমার নাম (ঐচ্ছিক)',
+      play: '▶ চাঁদ খোঁজো',
+      paused: '⏸ খেলা থেমে আছে',
+      resume: '▶ আবার খেলো',
+      again: '🔁 আবার খেলো',
+      night: (n) => `🌆 সন্ধ্যা ${n}/${NIGHTS}`,
+      best: (n) => `তোমার সেরা: ${n}`,
+      challenge: (name, n) => `🌙 ${name} চাঁদ খোঁজো খেলায় ${n} স্কোর করেছে! তুমি কি তাড়াতাড়ি চাঁদ খুঁজে পাবে?`,
+      ready: (n) => `সন্ধ্যা ${n}<small>মাগরিবের পর পশ্চিম আকাশে তাকাও…</small>`,
+      found: '🌙 চাঁদ দেখা গেছে! মোবারক!',
+      lost: '☁️ আজ চাঁদ দেখা গেল না<small>কোনো ব্যাপার না — কাল আবার দেখব</small>',
+      decoy: { venus: '✨ এটা তো তারা — আসলে শুক্র (জোহরা) গ্রহ!', plane: '✈️ এটা তো উড়োজাহাজের আলো!', kite: '🪁 আরে, এটা তো ঘুড়ি!' },
+      endTitle: (name, all) => (all ? `চাঁদ মোবারক${name ? `, ${name}` : ''}! 🌙` : `সাবাশ${name ? `, ${name}` : ''}! 🌙`),
+      endNote: (found, best, isNew) => `${found}/${NIGHTS} সন্ধ্যায় চাঁদ পাওয়া গেছে · ${isNew ? '🏅 নতুন সেরা!' : `তোমার সেরা: ${best}`}`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও',
+      shareOther: '🔗 লিংক শেয়ার / কপি',
+      copied: '✅ কপি হয়েছে',
+      copyPrompt: 'এই লেখাটা কপি করো:',
+      shareText: (name, n, url) => (name ? `🌙 ${name} চাঁদ খোঁজো খেলায় ${n} স্কোর করেছে! দূরবিন তোলো আর রমজানের চাঁদ খোঁজো: ${url}` : `🌙 আমি চাঁদ খোঁজো খেলায় ${n} স্কোর করেছি! দূরবিন তোলো আর রমজানের চাঁদ খোঁজো: ${url}`),
+      howTitle: 'কীভাবে খেলবে',
+      how: ['<b>▶ চাঁদ খোঁজো</b> টিপো। সূর্য ডুবে গেছে, আকাশ ধীরে ধীরে অন্ধকার হচ্ছে।', 'স্ক্রিনে <b>আঙুল ঘোরাও</b> (কম্পিউটারে মাউস) — গোল <b>দূরবিন</b> সঙ্গে চলে। বাইরে চাঁদ প্রায় দেখা যায় না, দূরবিনের ভেতরে পরিষ্কার।', 'সরু <b>নতুন চাঁদ</b> দেখলে দূরবিন তার ওপর <b>এক মুহূর্ত থামাও</b> — রিং ভরে যাবে আর চাঁদ পাওয়া যাবে।', 'ধোঁকা খেও না: উজ্জ্বল <b>তারা (শুক্র)</b>, <b>উড়োজাহাজের</b> আলো আর <b>ঘুড়ি</b>তে থামালে কয়েক সেকেন্ড কমে যায়।', 'চাঁদ ধীরে ধীরে নামে — দিগন্তে ডুবে গেলে সেই সন্ধ্যার একটা 🌙 যায়। ১০টা সন্ধ্যা; যত তাড়াতাড়ি, তত বেশি পয়েন্ট!'],
+      aboutTitle: 'চাঁদ দেখার রীতি',
+      aboutText: 'ইসলামি (হিজরি) ক্যালেন্ডার চাঁদ মেনে চলে। প্রতিটা মাস শুরু হয় যখন সূর্য ডোবার পর পশ্চিমে নতুন, সরু চাঁদ (হিলাল) দেখা যায়। তাই রমজানের শুরু আর ঈদের দিন চাঁদ দেখার ওপর নির্ভর করে — আর "চাঁদ দেখা গেছে!" শুনলেই ঘরে ঘরে খুশির ঢেউ।',
+      aboutText2: 'নতুন চাঁদ খুব সরু আর ফিকে, সূর্য ডোবার একটু পরেই দিগন্তের কাছে দেখা যায় আর তাড়াতাড়ি ডুবে যায়। মেঘ, ধুলো আর আলো তাকে আরও কঠিন করে তোলে। এই গেমে সেই খোঁজ — দূরবিন, ঢলে পড়া সন্ধ্যা আর ধোঁকা দেওয়া তারার সঙ্গে।',
+      readMore: 'ইসলামি ক্যালেন্ডার আর রমজানের তারিখ দেখো →',
+      factsTitle: 'রমজান আর চাঁদের তথ্য',
+      facts: {
+        f1: 'রমজান ইসলামি (হিজরি) ক্যালেন্ডারের ৯ নম্বর মাস।',
+        f2: 'হিজরি মাস চাঁদ মেনে চলে: সূর্য ডোবার পর নতুন চাঁদ (হিলাল) দেখা গেলে নতুন মাস শুরু হয়।',
+        f3: 'চাঁদের বছর প্রায় ৩৫৪–৩৫৫ দিনের, তাই রমজান প্রতি বছর প্রায় ১১ দিন আগে আসে।',
+        f4: 'রমজানে রোজা শুরু হয় ফজরের আগে সেহরির পর, আর খোলা হয় সূর্য ডোবার সময় ইফতারে।',
+        f5: 'রমজানের শেষে শাওয়ালের চাঁদ দেখা গেলে ঈদুল ফিতর পালিত হয়।',
+        f6: 'নতুন চাঁদ সূর্য ডোবার একটু পরে পশ্চিম আকাশে, দিগন্তের কাছে দেখা যায় আর তাড়াতাড়ি ডুবে যায়।',
+        f7: 'সন্ধ্যায় চাঁদের কাছে যে খুব উজ্জ্বল "তারা" দেখা যায়, সেটা প্রায়ই শুক্র (জোহরা) গ্রহ।',
+        f8: 'ইফতার প্রায়ই খেজুর আর জল দিয়ে খোলা হয়।',
+      },
+      moreGames: 'আরও গেম খেলো →',
+      privacyTitle: 'তোমার ডেটা',
+      privacyText: 'নাম আর সেরা স্কোর শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর স্কোর। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const urlLang = params.get('lang');
+  const savedLang = store.get('cd-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(99999, parseInt(params.get('score'), 10) || 0));
+  const best = () => parseInt(store.get('cd-best'), 10) || 0;
+  const debug = params.has('debug') ? (parseInt(params.get('debug'), 10) || 1) : 0;
+  const rand = (a, b) => a + Math.random() * (b - a);
+
+  // ---------- page texts
+  let last = null;
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Ramzan Moon Sighting Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const F = t('facts');
+    $('factList').innerHTML = FACT_KEYS.map((k) => `<li>${F[k]}</li>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    $('guideLink').href = `https://nextgrade.in${p}/islamic-calendar/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+    updateHud();
+    if (last) fillEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('cd-lang', lang); applyLang(); });
+  $('name').value = store.get('cd-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- sound: soft effects only, no music
+  let muted = store.get('cd-muted') === '1';
+  let ac = null, master = null, noiseBuf = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setIcons();
+  $('mute').addEventListener('click', (e) => { e.stopPropagation(); muted = !muted; store.set('cd-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.8; });
+  const initAudio = () => {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    ac = new AC();
+    master = ac.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(ac.destination);
+    noiseBuf = ac.createBuffer(1, ac.sampleRate, ac.sampleRate);
+    const d = noiseBuf.getChannelData(0);
+    for (let i = 0; i < d.length; i += 1) d[i] = Math.random() * 2 - 1;
+  };
+  const tone = (f, dur, type = 'sine', vol = 0.08, delay = 0, f2 = null) => {
+    if (!ac) return;
+    const w = ac.currentTime + delay;
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, w);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, w + dur);
+    g.gain.setValueAtTime(0.0001, w); g.gain.exponentialRampToValueAtTime(vol, w + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, w + dur);
+    o.connect(g); g.connect(master); o.start(w); o.stop(w + dur + 0.03);
+  };
+  const sfx = {
+    found: () => { [784, 988, 1175, 1568].forEach((f, i) => tone(f, 0.9, 'sine', 0.07, i * 0.12)); },
+    decoy: () => tone(330, 0.3, 'triangle', 0.06, 0, 220),
+    lost: () => { tone(392, 0.5, 'sine', 0.06); tone(330, 0.7, 'sine', 0.06, 0.25); },
+    tick: () => tone(1200, 0.04, 'sine', 0.025),
+  };
+
+  // ---------- state
+  const cv = $('cv');
+  const ctx = cv.getContext('2d');
+  let W = 400, H = 600, dpr = 1;
+  let state = 'idle'; // idle | play | pause | between | over
+  let night = 0, lives = 3, score = 0, found = 0, nightsLog = [];
+  let T0 = 0, dur = 25000, penalty = 0, pausedAt = 0;
+  let moon = null, decoys = [], clouds = [], stars = [], houses = [];
+  let lens = { x: 200, y: 200, r: 60 }, target = { x: 200, y: 200 };
+  let dwell = 0, dwellOn = null, lastFrame = 0, msgCool = 0;
+  let playerName = '', timers = [], sparkles = [];
+  const later = (fn, ms) => { const id = setTimeout(fn, ms); timers.push(id); return id; };
+  const clearTimers = () => { timers.forEach(clearTimeout); timers = []; };
+  const DWELL = 650;
+
+  const resize = () => {
+    const r = $('stage').getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+    W = Math.max(280, r.width); H = Math.max(400, r.height);
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    lens.r = Math.max(48, Math.min(W, H) * 0.15);
+    buildCity();
+  };
+  const horizonY = () => H * 0.8;
+
+  const buildCity = () => {
+    houses = [];
+    let x = -10;
+    let seed = 7;
+    const rnd = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+    while (x < W + 20) {
+      const w = 40 + rnd() * 60, h = 30 + rnd() * 70;
+      houses.push({ x, w, h, win: rnd() > 0.4 });
+      x += w - 2;
+    }
+  };
+
+  const updateHud = () => {
+    $('hudNight').textContent = state === 'idle' ? '' : t('night')(Math.min(night + 1, NIGHTS));
+    $('hudScore').textContent = `⭐ ${score}`;
+    $('hudLives').textContent = '🌙'.repeat(lives) + '🌑'.repeat(3 - lives);
+  };
+  let bannerTimer = 0;
+  const banner = (html, ms) => {
+    const b = $('banner'); b.innerHTML = html; b.classList.add('show');
+    clearTimeout(bannerTimer);
+    if (ms) bannerTimer = setTimeout(() => b.classList.remove('show'), ms);
+  };
+
+  // ---------- a night
+  const startNight = (n) => {
+    night = n;
+    const k = n / (NIGHTS - 1); // 0..1 difficulty
+    dur = Math.round(26000 - k * 11000);
+    penalty = 0; dwell = 0; dwellOn = null; sparkles = [];
+    const hy = horizonY();
+    const mr = Math.max(12, Math.min(W, H) * (0.05 - k * 0.012));
+    moon = {
+      x: rand(W * 0.15, W * 0.85), y0: rand(H * 0.3, H * 0.55), r: mr,
+      thin: 0.62 - k * 0.32, // how much of the disc is cut away (bigger = fatter crescent)
+      faint: Math.max(0.035, 0.2 - k * 0.17), tilt: rand(-0.5, 0.5), found: false,
+    };
+    moon.x1 = moon.x + rand(-W * 0.06, W * 0.06);
+    moon.y1 = hy + mr * 1.2;
+    // decoys away from the moon
+    decoys = [];
+    const away = (x, y) => Math.hypot(x - moon.x, y - moon.y0) > lens.r * 1.6;
+    const place = (type) => { for (let i = 0; i < 30; i += 1) { const x = rand(W * 0.08, W * 0.92), y = rand(H * 0.16, hy - 40); if (away(x, y)) return decoys.push({ type, x, y, vx: 0 }); } return null; };
+    if (n >= 1) place('venus');
+    if (n >= 3) { place('plane'); decoys[decoys.length - 1].vx = (Math.random() < 0.5 ? -1 : 1) * W * 0.03; }
+    if (n >= 5) place('kite');
+    if (n >= 7) place('venus');
+    clouds = [];
+    const nc = 2 + Math.floor(n * 0.6);
+    for (let i = 0; i < nc; i += 1) clouds.push({ x: rand(-W * 0.2, W), y: rand(H * 0.2, hy - 30), w: rand(80, 170), h: rand(18, 34), vx: rand(6, 16) * (Math.random() < 0.5 ? 1 : -1), a: rand(0.35, 0.65) });
+    stars = [];
+    for (let i = 0; i < 70; i += 1) stars.push({ x: Math.random() * W, y: Math.random() * hy * 0.85, r: Math.random() * 1.3 + 0.3, tw: Math.random() * 6 });
+    lens.x = target.x = W / 2; lens.y = target.y = H * 0.4;
+    state = 'between';
+    updateHud();
+    banner(t('ready')(n + 1), 1800);
+    later(() => { state = 'play'; T0 = performance.now(); }, debug ? 200 : 1700);
+  };
+
+  const elapsed = () => (state === 'play' ? performance.now() - T0 + penalty : 0);
+  const moonPos = () => {
+    const f = Math.min(1, elapsed() / dur);
+    return { x: moon.x + (moon.x1 - moon.x) * f, y: moon.y0 + (moon.y1 - moon.y0) * f * f };
+  };
+
+  const endNight = (ok) => {
+    state = 'between';
+    clearTimers();
+    if (ok) {
+      const left = Math.max(0, 1 - elapsed() / dur);
+      const pts = 100 + Math.round(left * 200) + night * 20;
+      score += pts; found += 1; nightsLog.push('🌙');
+      const mp = moonPos();
+      moon.found = true; moon.fx = mp.x; moon.fy = mp.y;
+      sfx.found();
+      for (let i = 0; i < 30; i += 1) sparkles.push({ x: mp.x, y: mp.y, vx: rand(-60, 60), vy: rand(-60, 60), t0: performance.now() });
+      banner(`${t('found')}<small>+${pts}</small>`, 1600);
+    } else {
+      lives -= 1; nightsLog.push('☁️');
+      sfx.lost();
+      banner(t('lost'), 1800);
+    }
+    updateHud();
+    if (lives <= 0 || night >= NIGHTS - 1) later(gameOver, debug ? 300 : 2000);
+    else later(() => startNight(night + 1), debug ? 300 : 2000);
+  };
+
+  // ---------- frame
+  const step = (now) => {
+    const dt = Math.min(50, now - (lastFrame || now)); lastFrame = now;
+    if (debug && state === 'play') {
+      // bot: debug=1 goes straight to the moon; debug=2 visits a decoy first and is slow
+      let goal = moonPos();
+      if (debug >= 2 && decoys.length && elapsed() < dur * 0.5) goal = decoys[0];
+      const sp = debug >= 2 ? 0.0012 : 0.004;
+      target.x += (goal.x - target.x) * Math.min(1, sp * dt * 2);
+      target.y += (goal.y - target.y) * Math.min(1, sp * dt * 2);
+    }
+    lens.x += (target.x - lens.x) * Math.min(1, dt / 70);
+    lens.y += (target.y - lens.y) * Math.min(1, dt / 70);
+    clouds.forEach((c) => { c.x += (c.vx * dt) / 1000; if (c.x > W + 120) c.x = -c.w - 40; if (c.x < -c.w - 140) c.x = W + 40; });
+    decoys.forEach((d) => { if (d.vx) { d.x += (d.vx * dt) / 1000; if (d.x > W + 20) d.x = -20; if (d.x < -20) d.x = W + 20; } });
+    if (state === 'play') {
+      const mp = moonPos();
+      const inLens = (p, extra = 0) => Math.hypot(p.x - lens.x, p.y - lens.y) < lens.r * 0.45 + extra;
+      let on = null;
+      if (inLens(mp, moon.r * 0.6)) on = 'moon';
+      else { const d = decoys.find((dd) => inLens(dd)); if (d) on = d; }
+      if (on && on === dwellOn) dwell += dt; else { dwell = 0; dwellOn = on; }
+      if (on && dwell >= DWELL) {
+        if (on === 'moon') { endNight(true); }
+        else {
+          penalty += 3000; dwell = -500; sfx.decoy();
+          if (now > msgCool) { banner(t('decoy')[on.type], 1500); msgCool = now + 1500; }
+        }
+      }
+      const f = elapsed() / dur;
+      $('tbar').style.transform = `scaleX(${Math.max(0, 1 - f)})`;
+      if (f >= 1 && state === 'play') endNight(false);
+    }
+    draw(now);
+    requestAnimationFrame(step);
+  };
+
+  // ---------- drawing
+  const skyGrad = (f) => {
+    // f: 0 just after sunset → 1 dark
+    const g = ctx.createLinearGradient(0, 0, 0, horizonY());
+    const top = [Math.round(40 - f * 30), Math.round(70 - f * 50), Math.round(120 - f * 60)];
+    const mid = [Math.round(90 - f * 60), Math.round(110 - f * 70), Math.round(160 - f * 80)];
+    const low = [Math.round(250 - f * 150), Math.round(160 - f * 90), Math.round(110 - f * 50)];
+    g.addColorStop(0, `rgb(${top})`); g.addColorStop(0.6, `rgb(${mid})`); g.addColorStop(1, `rgb(${low})`);
+    return g;
+  };
+  const drawCrescent = (x, y, r, thin, tilt, alpha) => {
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.translate(x, y); ctx.rotate(Math.PI / 2 + tilt); // lit side faces the set sun (down)
+    // glow
+    const gl = ctx.createRadialGradient(0, 0, r * 0.5, 0, 0, r * 2.2);
+    gl.addColorStop(0, 'rgba(255, 244, 200, 0.35)'); gl.addColorStop(1, 'rgba(255,244,200,0)');
+    ctx.fillStyle = gl; ctx.beginPath(); ctx.arc(0, 0, r * 2.2, 0, Math.PI * 2); ctx.fill();
+    // crescent as one path: outer half-circle on the lit side + inner ellipse arc back
+    ctx.fillStyle = '#fff6d6';
+    ctx.beginPath();
+    ctx.arc(0, 0, r, -Math.PI / 2, Math.PI / 2, false);
+    ctx.ellipse(0, 0, r * Math.min(0.9, 0.5 + (0.62 - thin) * 1.2), r, 0, Math.PI / 2, -Math.PI / 2, true);
+    ctx.closePath(); ctx.fill();
+    ctx.restore();
+  };
+  const drawScene = (now, inside) => {
+    const f = state === 'play' ? Math.min(1, elapsed() / dur) : (state === 'over' ? 1 : 0.15);
+    const hy = horizonY();
+    ctx.fillStyle = skyGrad(f); ctx.fillRect(0, 0, W, hy + 2);
+    // sun glow on the western horizon
+    const sg = ctx.createRadialGradient(W * 0.5, hy + 10, 10, W * 0.5, hy + 10, W * 0.7);
+    sg.addColorStop(0, `rgba(255, 170, 90, ${0.5 - f * 0.4})`); sg.addColorStop(1, 'rgba(255,170,90,0)');
+    ctx.fillStyle = sg; ctx.fillRect(0, 0, W, hy);
+    // stars fade in
+    stars.forEach((s) => { ctx.globalAlpha = Math.max(0, f * 1.2 - 0.25) * (0.6 + 0.4 * Math.sin(now / 500 + s.tw)) * (inside ? 1 : 0.8); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill(); });
+    ctx.globalAlpha = 1;
+    // moon
+    if (moon && (state === 'play' || state === 'between' || state === 'over')) {
+      const mp = state === 'play' ? moonPos() : (moon.found ? { x: moon.fx, y: moon.fy } : { x: moon.x, y: moon.y1 + 50 });
+      const a = moon.found ? 1 : (inside ? 0.95 : moon.faint);
+      drawCrescent(mp.x, mp.y, moon.r, moon.thin, moon.tilt, a);
+    }
+    // decoys
+    decoys.forEach((d) => {
+      if (d.type === 'venus') {
+        const a = inside ? 1 : 0.8;
+        const g = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, 9);
+        g.addColorStop(0, `rgba(255,255,255,${a})`); g.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(d.x, d.y, 9, 0, Math.PI * 2); ctx.fill();
+      } else if (d.type === 'plane') {
+        const on = Math.floor(now / 450) % 2 === 0;
+        ctx.fillStyle = on ? '#ff6b6b' : '#fff'; ctx.beginPath(); ctx.arc(d.x, d.y, inside ? 3.5 : 2.5, 0, Math.PI * 2); ctx.fill();
+        if (inside) { ctx.fillStyle = 'rgba(200,210,230,0.9)'; ctx.fillRect(d.x - 10, d.y - 1, 20, 2); ctx.fillRect(d.x - 2, d.y - 6, 3, 12); }
+      } else if (d.type === 'kite') {
+        ctx.save(); ctx.translate(d.x, d.y + Math.sin(now / 600) * 3); ctx.rotate(Math.sin(now / 900) * 0.2);
+        ctx.fillStyle = inside ? '#f783ac' : 'rgba(20,20,40,0.6)';
+        ctx.beginPath(); ctx.moveTo(0, -11); ctx.lineTo(9, 0); ctx.lineTo(0, 11); ctx.lineTo(-9, 0); ctx.closePath(); ctx.fill();
+        ctx.strokeStyle = 'rgba(255,255,255,0.35)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(0, 11); ctx.quadraticCurveTo(20, 60, 0, hy - d.y); ctx.stroke();
+        ctx.restore();
+      }
+    });
+    // clouds (dim the sky behind them)
+    clouds.forEach((c) => {
+      ctx.fillStyle = `rgba(${Math.round(80 - f * 40)}, ${Math.round(80 - f * 40)}, ${Math.round(110 - f * 40)}, ${c.a})`;
+      ctx.beginPath(); ctx.ellipse(c.x + c.w / 2, c.y, c.w / 2, c.h / 2, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(c.x + c.w * 0.35, c.y - c.h * 0.35, c.w * 0.25, c.h * 0.45, 0, 0, Math.PI * 2); ctx.fill();
+    });
+  };
+  const drawCity = (now) => {
+    const hy = horizonY();
+    ctx.fillStyle = '#0d1b2a'; ctx.fillRect(0, hy, W, H - hy);
+    houses.forEach((h) => {
+      ctx.fillStyle = '#10223a'; ctx.fillRect(h.x, hy - h.h, h.w, h.h + 2);
+      if (h.win) { ctx.fillStyle = 'rgba(255, 212, 120, 0.85)'; ctx.fillRect(h.x + h.w * 0.3, hy - h.h * 0.6, 7, 9); }
+    });
+    // a dome and minarets in the middle
+    const cx = W * 0.5, dw = Math.min(W, H) * 0.12;
+    ctx.fillStyle = '#10223a';
+    ctx.fillRect(cx - dw * 1.2, hy - dw * 0.9, dw * 2.4, dw * 0.9 + 2);
+    ctx.beginPath(); ctx.ellipse(cx, hy - dw * 0.9, dw * 0.75, dw * 0.85, 0, Math.PI, 0); ctx.fill();
+    [-1, 1].forEach((s) => {
+      const mx = cx + s * dw * 1.45;
+      ctx.fillRect(mx - 5, hy - dw * 2.1, 10, dw * 2.1);
+      ctx.beginPath(); ctx.moveTo(mx - 7, hy - dw * 2.1); ctx.lineTo(mx, hy - dw * 2.45); ctx.lineTo(mx + 7, hy - dw * 2.1); ctx.fill();
+      ctx.fillRect(mx - 8, hy - dw * 1.5, 16, 4);
+    });
+    // children on a rooftop, pointing up
+    ctx.font = `${Math.round(dw * 0.5)}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    ctx.fillText('🧒', W * 0.16, hy - 30); ctx.fillText('👧', W * 0.22, hy - 30);
+    ctx.fillText('🔭', W * 0.82, hy - 26);
+  };
+  const draw = (now) => {
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    drawScene(now, false);
+    drawCity(now);
+    if (state === 'play' || state === 'between') {
+      // telescope view: same sky, everything clearer
+      ctx.save();
+      ctx.beginPath(); ctx.arc(lens.x, lens.y, lens.r, 0, Math.PI * 2); ctx.clip();
+      drawScene(now, true);
+      drawCity(now);
+      ctx.fillStyle = 'rgba(180, 220, 255, 0.06)'; ctx.fillRect(lens.x - lens.r, lens.y - lens.r, lens.r * 2, lens.r * 2);
+      ctx.restore();
+      ctx.strokeStyle = '#c99a2e'; ctx.lineWidth = 6; ctx.beginPath(); ctx.arc(lens.x, lens.y, lens.r, 0, Math.PI * 2); ctx.stroke();
+      ctx.strokeStyle = 'rgba(255,255,255,0.35)'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(lens.x - 8, lens.y); ctx.lineTo(lens.x + 8, lens.y); ctx.moveTo(lens.x, lens.y - 8); ctx.lineTo(lens.x, lens.y + 8); ctx.stroke();
+      if (dwell > 0 && dwellOn) {
+        ctx.strokeStyle = dwellOn === 'moon' ? '#8ce99a' : '#ffd43b'; ctx.lineWidth = 5;
+        ctx.beginPath(); ctx.arc(lens.x, lens.y, lens.r + 6, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * Math.min(1, dwell / DWELL)); ctx.stroke();
+      }
+    }
+    sparkles = sparkles.filter((s) => now - s.t0 < 1200);
+    sparkles.forEach((s) => {
+      const tt = (now - s.t0) / 1000;
+      ctx.globalAlpha = 1 - tt / 1.2; ctx.fillStyle = '#ffe066';
+      ctx.beginPath(); ctx.arc(s.x + s.vx * tt, s.y + s.vy * tt, 2.2, 0, Math.PI * 2); ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+  };
+
+  // ---------- start / end
+  const start = () => {
+    initAudio();
+    clearTimers();
+    playerName = cleanName($('name').value);
+    store.set('cd-name', playerName);
+    lives = 3; score = 0; found = 0; nightsLog = []; last = null;
+    ['startScreen', 'endScreen', 'pauseScreen'].forEach((id) => $(id).classList.add('hidden'));
+    $('shareOther').textContent = t('shareOther');
+    $('hint').classList.remove('hidden');
+    startNight(0);
+  };
+  const gameOver = () => {
+    clearTimers();
+    state = 'over';
+    const prev = best();
+    if (score > prev) store.set('cd-best', String(score));
+    last = { score, found, log: nightsLog.join(' '), isNew: score > prev && prev > 0, name: playerName, fact: FACT_KEYS[Math.floor(Math.random() * FACT_KEYS.length)] };
+    fillEnd();
+    $('endScreen').classList.remove('hidden');
+    updateHud();
+  };
+  const fillEnd = () => {
+    $('endTitle').textContent = t('endTitle')(last.name, last.found >= 1);
+    $('endMoons').textContent = last.log;
+    $('finalScore').textContent = String(last.score);
+    $('endNote').textContent = t('endNote')(last.found, best(), last.isNew);
+    $('endFact').textContent = `💡 ${t('facts')[last.fact]}`;
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+  };
+  const pause = () => {
+    if (state !== 'play' && state !== 'between') return;
+    pausedAt = performance.now();
+    clearTimers();
+    state = 'pause';
+    $('pauseScreen').classList.remove('hidden');
+  };
+  const resume = () => {
+    $('pauseScreen').classList.add('hidden');
+    initAudio();
+    startNight(night); // restart this evening fresh
+  };
+
+  // ---------- input
+  const toLocal = (e) => { const r = cv.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+  const aim = (e) => {
+    if (e.target.closest && e.target.closest('.overlay')) return;
+    const p = toLocal(e);
+    // on touch, keep the lens a little above the finger so it stays visible
+    const lift = e.pointerType === 'touch' ? lens.r * 0.9 : 0;
+    target.x = Math.max(0, Math.min(W, p.x)); target.y = Math.max(0, Math.min(H, p.y - lift));
+  };
+  $('stage').addEventListener('pointerdown', (e) => { if (e.target.closest('.overlay')) return; initAudio(); aim(e); $('hint').classList.add('hidden'); });
+  $('stage').addEventListener('pointermove', aim);
+  window.addEventListener('keydown', (e) => {
+    if (e.target && e.target.tagName === 'INPUT') return;
+    const d = 26;
+    const k = { ArrowLeft: [-d, 0], ArrowRight: [d, 0], ArrowUp: [0, -d], ArrowDown: [0, d] }[e.code];
+    if (k && state === 'play') { e.preventDefault(); target.x = Math.max(0, Math.min(W, target.x + k[0])); target.y = Math.max(0, Math.min(H, target.y + k[1])); }
+  });
+
+  // ---------- share
+  const shareText = () => {
+    const u = new URL(SITE);
+    if (playerName) u.searchParams.set('from', playerName);
+    u.searchParams.set('score', String(score));
+    u.searchParams.set('lang', lang);
+    return t('shareText')(playerName, score, u.toString());
+  };
+  $('play').addEventListener('click', start);
+  $('again').addEventListener('click', start);
+  $('resume').addEventListener('click', resume);
+  $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => window.prompt(t('copyPrompt'), text));
+  });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
+
+  if ('ResizeObserver' in window) new ResizeObserver(resize).observe($('stage'));
+  window.addEventListener('resize', resize);
+  resize();
+  applyLang();
+  requestAnimationFrame(step);
+  if (debug && params.has('auto')) start();
+  window.__cd = { get state() { return state; }, get score() { return score; }, get night() { return night; }, get lives() { return lives; }, get found() { return found; } };
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>
