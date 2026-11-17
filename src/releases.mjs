@@ -4,7 +4,7 @@
  * A GitHub Action (.github/workflows/daily-release.yml) rebuilds and pushes every day at 06:00 IST,
  * so each page goes live on its own. User's rule (15 Nov 2026): no bulk; since 16 Nov: 2 new pages a week (Tue + Fri) —
  * keeps the site growing steadily while the AdSense review runs.
- * Keys: 'game:<slug>', 'story:<slug>' or 'celebrate:<slug>' (animated wish). To delay a page, move its date; to publish now, delete its line.
+ * Keys: 'game:<slug>', 'story:<slug>', 'celebrate:<slug>' (animated wish) or 'tool:<slug>' (free tool). To delay a page, move its date; to publish now, delete its line.
  */
 const releases = {
   'game:meenar': '2026-11-16', // already live
@@ -36,6 +36,11 @@ const releases = {
   'game:kanche': '2027-02-09',
   'story:chidiya-kauwa-ghar': '2027-02-12',
   'game:raja-mantri-chor-sipahi': '2027-02-16',
+  // Free tools (/tools/): evergreen, so after the festival pages; Tue + Fri slots
+  'tool:passport-photo': '2027-02-19',
+  'tool:doc-scanner': '2027-02-23',
+  'tool:bg-remover': '2027-02-26',
+  'tool:hair-tryon': '2027-03-02',
 };
 
 // today's date in India (the release day changes at midnight IST)

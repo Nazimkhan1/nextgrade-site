@@ -325,3 +325,14 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 
 ## Sound rule (user, 14 Nov)
 - Sound is ALWAYS optional on wish pages: nothing plays by itself. Voice reading only on the "🗣️ Suno" button; Shaadi band-baaja only on "🥁 Band-baaja suno" (off by default). Jumma: no music/ambient at all.
+
+---
+
+## Free tools section /tools/ (17 Nov 2026, user: "nextgrade.in/tools/ scheduled")
+- 4 tools from the **private repo github.com/Nazimkhan1/nextgrade-tools** (self-contained, run in the browser, photos/documents never uploaded): copied into `src/static/tools/<slug>/` (README dropped) with the site's AdSense tag, canonical, footer links (Tools, About, Contact, Privacy, Terms) and the brand linking to /tools/. List + 4-language names/descriptions: `src/tools.mjs`.
+- Scheduled with `'tool:<slug>'` in `src/releases.mjs` (evergreen, after the festival pages, Tue + Fri): **Fri 19 Feb passport-photo, Tue 23 Feb doc-scanner, Fri 26 Feb bg-remover, Tue 2 Mar hair-tryon**. Move a date earlier to publish sooner.
+- **Until the first tool is live nothing changes on the site**: no /tools/ page, no "Tools" menu link, no new Privacy Policy paragraph (all three appear automatically with the first live tool). Held tools are removed from docs/ and links to them rewritten.
+- prerender: now also walks /tools/ (if present), reads `data-t` keys, and serves .mjs/.wasm with the right types (the module-based tools rendered 0 words before). Words added: 237–303 per tool.
+- **To update a tool:** change it in nextgrade-tools (branch → main), then copy `<slug>/` again into `src/static/tools/` (keep the AdSense/canonical/footer edits; the copy script used: scratch `ng/step3.py` logic) and bump that tool's `CACHE` in its sw.js.
+- Size: the tools add ~110 MB to the repo (AI models, OpenCV).
+- Not yet tested on a real phone.

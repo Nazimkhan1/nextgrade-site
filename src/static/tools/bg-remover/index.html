@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Background Remover — free, photo stays on your phone | NextGrade Tools</title>
+<meta name="description" content="Remove a photo's background for free and put a white, blue (ID), colour, blurred or your own background behind it. Free HD download, no watermark, no login. Everything runs on your phone: the photo is never uploaded.">
+<meta name="theme-color" content="#5f3dc4">
+<link rel="canonical" href="https://nextgrade.in/tools/bg-remover/">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #f4f1fb; --card: #ffffff; --ink: #1f1a33; --muted: #6b6485; --brand: #5f3dc4; --brand2: #7950f2; --line: #e3ddf5; --ok: #2b8a3e; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; }
+a { color: var(--brand); }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 8px; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 21px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand small { display: block; font-family: Inter, sans-serif; font-size: 12px; font-weight: 600; color: var(--muted); }
+select, button, input { font: inherit; }
+.langsel { padding: 6px 8px; border-radius: 10px; border: 1px solid var(--line); background: #fff; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(26px, 6vw, 36px); line-height: 1.15; margin: 4px 0 4px; }
+.sub { color: var(--muted); margin: 0 0 10px; }
+.privacy { display: flex; gap: 8px; align-items: flex-start; background: #ebfbee; border: 1px solid #b2f2bb; color: #1b5e20; border-radius: 12px; padding: 8px 12px; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 4px 18px rgba(60, 40, 120, 0.06); }
+.drop { border: 2px dashed #b9aef0; border-radius: 16px; padding: 28px 16px; text-align: center; background: #faf8ff; cursor: pointer; }
+.drop.over { background: #efe9ff; }
+.drop b { display: block; font-size: 18px; margin-bottom: 6px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 16px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 700; cursor: pointer; }
+.btn:disabled { opacity: 0.5; cursor: default; }
+.btn-main { background: linear-gradient(90deg, var(--brand), var(--brand2)); color: #fff; border: 0; }
+.btn-ok { background: var(--ok); color: #fff; border: 0; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.editor { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 14px; margin-top: 12px; }
+@media (max-width: 760px) { .editor { grid-template-columns: 1fr; } }
+.stagebox { position: relative; border-radius: 14px; overflow: hidden; background-color: #fff; background-image: linear-gradient(45deg, #e9ecef 25%, transparent 25%), linear-gradient(-45deg, #e9ecef 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e9ecef 75%), linear-gradient(-45deg, transparent 75%, #e9ecef 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0; display: flex; align-items: center; justify-content: center; min-height: 260px; touch-action: none; }
+#view { display: block; max-width: 100%; max-height: 70vh; cursor: crosshair; }
+.busy { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.85); font-weight: 700; color: var(--brand); text-align: center; padding: 16px; }
+.spin { width: 34px; height: 34px; border-radius: 50%; border: 4px solid #d0bfff; border-top-color: var(--brand); animation: sp 0.9s linear infinite; }
+@keyframes sp { to { transform: rotate(360deg); } }
+.side h3 { margin: 12px 0 6px; font-size: 15px; }
+.side h3:first-child { margin-top: 0; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+#brushSeg { grid-template-columns: 1fr 1fr 1fr; }
+.seg button { padding: 8px; border-radius: 10px; border: 1px solid var(--line); background: #fff; font-weight: 700; cursor: pointer; font-size: 14px; }
+.seg button.on { background: #efe9ff; border-color: var(--brand); color: var(--brand); }
+.swatches { display: flex; flex-wrap: wrap; gap: 6px; }
+.sw { width: 34px; height: 34px; border-radius: 10px; border: 2px solid var(--line); cursor: pointer; padding: 0; font-size: 15px; }
+.sw.on { border-color: var(--brand); box-shadow: 0 0 0 2px #d0bfff; }
+.sw.trans { background-color: #fff; background-image: linear-gradient(45deg, #ced4da 25%, transparent 25%), linear-gradient(-45deg, #ced4da 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ced4da 75%), linear-gradient(-45deg, transparent 75%, #ced4da 75%); background-size: 10px 10px; background-position: 0 0, 0 5px, 5px -5px, -5px 0; }
+label.sl { display: block; font-size: 13px; color: var(--muted); margin-top: 6px; }
+input[type=range] { width: 100%; }
+.hint { font-size: 13px; color: var(--muted); margin: 4px 0 0; }
+.hidden { display: none !important; }
+section.info { margin: 28px 0; }
+section.info h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 22px; margin: 0 0 6px; }
+footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top: 1px solid var(--line); margin-top: 24px; }
+.toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: #1f1a33; color: #fff; padding: 10px 16px; border-radius: 12px; font-weight: 600; z-index: 20; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://nextgrade.in/tools/">🖼️ NextGrade Tools<small data-t="brandSub"></small></a>
+    <select class="langsel" id="lang" aria-label="Language"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+  </header>
+
+  <h1 data-t="title"></h1>
+  <p class="sub" data-t="sub"></p>
+  <div class="privacy">🔒 <span data-t="privacy"></span></div>
+
+  <div class="card" id="pickCard">
+    <div class="drop" id="drop" role="button" tabindex="0">
+      <b data-t="pickTitle"></b>
+      <span class="hint" data-t="pickHint"></span>
+      <div class="row" style="justify-content:center;margin-top:12px">
+        <button class="btn btn-main" id="pickBtn" type="button" data-t="pickBtn"></button>
+        <button class="btn" id="camBtn" type="button" data-t="camBtn"></button>
+      </div>
+    </div>
+    <input type="file" id="file" accept="image/*" class="hidden">
+    <input type="file" id="cam" accept="image/*" capture="user" class="hidden">
+  </div>
+
+  <div class="editor hidden" id="editor">
+    <div class="card">
+      <div class="stagebox" id="stagebox">
+        <canvas id="view" aria-label="Preview"></canvas>
+        <div class="busy hidden" id="busy"><div class="spin"></div><div id="busyText"></div></div>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <button class="btn" id="newBtn" type="button" data-t="newPhoto"></button>
+        <button class="btn" id="compareBtn" type="button" data-t="compare"></button>
+        <button class="btn" id="undoBtn" type="button" data-t="undo" disabled></button>
+      </div>
+    </div>
+
+    <div class="card side">
+      <h3 data-t="modeH"></h3>
+      <div class="seg" id="modeSeg">
+        <button type="button" data-mode="person" class="on" data-t="modePerson"></button>
+        <button type="button" data-mode="object" data-t="modeObject"></button>
+      </div>
+      <p class="hint" id="modeHint"></p>
+
+      <h3 data-t="bgH"></h3>
+      <div class="swatches" id="swatches"></div>
+      <div class="row" style="margin-top:6px">
+        <input type="color" id="customColor" value="#ffd43b" aria-label="Colour">
+        <button class="btn" id="bgImgBtn" type="button" data-t="bgImage"></button>
+        <input type="file" id="bgFile" accept="image/*" class="hidden">
+      </div>
+
+      <h3 data-t="edgeH"></h3>
+      <label class="sl"><span data-t="soft"></span> <b id="softVal"></b></label>
+      <input type="range" id="soft" min="0" max="8" step="1" value="2">
+
+      <h3 data-t="brushH"></h3>
+      <div class="seg" id="brushSeg">
+        <button type="button" data-brush="off" class="on" data-t="brushOff"></button>
+        <button type="button" data-brush="erase" data-t="brushErase"></button>
+        <button type="button" data-brush="restore" data-t="brushRestore"></button>
+      </div>
+      <label class="sl"><span data-t="brushSize"></span> <b id="sizeVal"></b></label>
+      <input type="range" id="brushSize" min="6" max="120" step="2" value="30">
+
+      <h3 data-t="saveH"></h3>
+      <div class="row">
+        <button class="btn btn-ok" id="dlPng" type="button" data-t="dlPng"></button>
+        <button class="btn" id="dlJpg" type="button" data-t="dlJpg"></button>
+        <button class="btn" id="shareBtn" type="button" data-t="share"></button>
+      </div>
+      <p class="hint" id="sizeInfo"></p>
+    </div>
+  </div>
+
+  <section class="info">
+    <h2 data-t="howH"></h2>
+    <ol id="howList"></ol>
+  </section>
+  <section class="info">
+    <h2 data-t="tipsH"></h2>
+    <ul id="tipList"></ul>
+  </section>
+  <section class="info">
+    <h2 data-t="privH"></h2>
+    <p data-t="privText"></p>
+  </section>
+
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer"></span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+</div>
+
+<script type="module">
+import { FilesetResolver, ImageSegmenter, InteractiveSegmenter } from './lib/vision_bundle.mjs';
+
+const WASM = new URL('./lib/wasm', location.href).href; // MediaPipe tasks-vision 0.10.14 (Apache-2.0), kept in this folder
+const MODEL_PERSON = 'models/selfie_multiclass_256x256.tflite';
+const MODEL_OBJECT = 'models/magic_touch.tflite';
+const MAX_SIDE = 2048; // longest side we work at (memory on budget phones)
+
+const T = {
+  hinglish: {
+    brandSub: 'Free · photo phone se bahar nahi jaati', title: 'Photo ka background hatao — free',
+    sub: 'Background hatao, phir safed, neela (ID photo), koi bhi rang, blur ya apni photo lagao. HD download, koi watermark nahi, koi login nahi.',
+    privacy: 'Aapki photo kahin upload nahi hoti. Saara kaam aapke phone/browser mein hi hota hai, aur download bhi phone mein hi.',
+    pickTitle: 'Photo chuno ya yahan chhodo', pickHint: 'JPG, PNG, HEIC (jo phone khole). Badi photo apne aap 2048px tak chhoti ki jaati hai.',
+    pickBtn: '🖼️ Photo chuno', camBtn: '📷 Camera', newPhoto: '↺ Nayi photo', compare: '👁️ Asli dekho', undo: '↶ Undo',
+    modeH: 'Kya kaatna hai?', modePerson: '🧑 Insaan', modeObject: '📦 Cheez (tap karo)',
+    hintPerson: 'Photo mein insaan apne aap pehchaana jaata hai.', hintObject: 'Jis cheez ko rakhna hai, uske beech mein ek baar tap karo.',
+    bgH: 'Naya background', bgImage: '🖼️ Apni photo', edgeH: 'Kinaare', soft: 'Naram kinaare:',
+    brushH: 'Haath se sudhaaro', brushOff: '✋ Band', brushErase: '🧽 Mitao', brushRestore: '🖌️ Wapas lao', brushSize: 'Brush ka size:',
+    saveH: 'Save karo', dlPng: '⬇️ PNG (transparent)', dlJpg: '⬇️ JPG', share: '📲 Share',
+    loading: 'AI model aa raha hai… (pehli baar thoda samay, phir offline bhi chalega)', working: 'Background hata rahe hain… (phone par hi)',
+    tapFirst: 'Ab jis cheez ko rakhna hai, uspe tap karo', noPerson: 'Insaan nahi mila — "Cheez" mode se tap karke try karo', failed: 'Yeh photo nahi khul payi. Doosri photo try karo.',
+    saved: '✅ Phone mein save ho gaya', sizeInfo: (w, h) => `Size: ${w} × ${h} px`,
+    howH: 'Kaise use karein', how: ['<b>Photo chuno</b> ya camera se lo.', 'Insaan wali photo mein background <b>apne aap</b> hat jaata hai. Kisi cheez (product, bartan, kapde) ke liye <b>"Cheez"</b> chuno aur us par <b>tap</b> karo.', 'Naya background chuno: <b>safed, neela (ID), rang, blur</b> ya apni photo.', 'Kinaare sahi nahi lage? <b>Mitao / Wapas lao</b> brush se sudhaaro.', '<b>PNG</b> (transparent) ya <b>JPG</b> download karo, ya seedha share karo.'],
+    tipsH: 'Achhe result ke liye', tips: ['Roshni wali jagah, saada deewar ke saamne photo lo.', 'ID / passport photo: safed ya halka neela background, chehra seedha.', 'Product photo (Meesho, OLX, Instagram): safed background sabse saaf dikhta hai.', 'Baalon ke kinaare: "Naram kinaare" 2–4 rakho.'],
+    privH: 'Aapki photo, aapke paas', privText: 'Yeh tool AI model ko ek baar download karke aapke phone/browser mein hi chalata hai. Aapki photo kisi server par nahi jaati, kahin save nahi hoti, aur hum use dekh bhi nahi sakte. Page band karte hi sab mit jaata hai.',
+    footer: 'Free tool · photo upload nahi hoti',
+  },
+  hi: {
+    brandSub: 'मुफ़्त · फ़ोटो फ़ोन से बाहर नहीं जाती', title: 'फ़ोटो का बैकग्राउंड हटाओ — मुफ़्त',
+    sub: 'बैकग्राउंड हटाओ, फिर सफ़ेद, नीला (ID फ़ोटो), कोई भी रंग, ब्लर या अपनी फ़ोटो लगाओ। HD डाउनलोड, कोई वॉटरमार्क नहीं, कोई लॉगिन नहीं।',
+    privacy: 'आपकी फ़ोटो कहीं अपलोड नहीं होती। सारा काम आपके फ़ोन/ब्राउज़र में ही होता है, और डाउनलोड भी फ़ोन में ही।',
+    pickTitle: 'फ़ोटो चुनो या यहाँ छोड़ो', pickHint: 'JPG, PNG, HEIC (जो फ़ोन खोले)। बड़ी फ़ोटो अपने आप 2048px तक छोटी की जाती है।',
+    pickBtn: '🖼️ फ़ोटो चुनो', camBtn: '📷 कैमरा', newPhoto: '↺ नई फ़ोटो', compare: '👁️ असली देखो', undo: '↶ वापस',
+    modeH: 'क्या काटना है?', modePerson: '🧑 इंसान', modeObject: '📦 चीज़ (टैप करो)',
+    hintPerson: 'फ़ोटो में इंसान अपने आप पहचाना जाता है।', hintObject: 'जिस चीज़ को रखना है, उसके बीच में एक बार टैप करो।',
+    bgH: 'नया बैकग्राउंड', bgImage: '🖼️ अपनी फ़ोटो', edgeH: 'किनारे', soft: 'नरम किनारे:',
+    brushH: 'हाथ से सुधारो', brushOff: '✋ बंद', brushErase: '🧽 मिटाओ', brushRestore: '🖌️ वापस लाओ', brushSize: 'ब्रश का साइज़:',
+    saveH: 'सेव करो', dlPng: '⬇️ PNG (पारदर्शी)', dlJpg: '⬇️ JPG', share: '📲 शेयर',
+    loading: 'AI मॉडल आ रहा है… (पहली बार थोड़ा समय, फिर ऑफ़लाइन भी चलेगा)', working: 'बैकग्राउंड हटा रहे हैं… (फ़ोन पर ही)',
+    tapFirst: 'अब जिस चीज़ को रखना है, उस पर टैप करो', noPerson: 'इंसान नहीं मिला — "चीज़" मोड से टैप करके देखो', failed: 'यह फ़ोटो नहीं खुल पाई। दूसरी फ़ोटो आज़माओ।',
+    saved: '✅ फ़ोन में सेव हो गया', sizeInfo: (w, h) => `साइज़: ${w} × ${h} px`,
+    howH: 'कैसे इस्तेमाल करें', how: ['<b>फ़ोटो चुनो</b> या कैमरे से लो।', 'इंसान वाली फ़ोटो में बैकग्राउंड <b>अपने आप</b> हट जाता है। किसी चीज़ (प्रोडक्ट, बर्तन, कपड़े) के लिए <b>"चीज़"</b> चुनो और उस पर <b>टैप</b> करो।', 'नया बैकग्राउंड चुनो: <b>सफ़ेद, नीला (ID), रंग, ब्लर</b> या अपनी फ़ोटो।', 'किनारे ठीक नहीं लगे? <b>मिटाओ / वापस लाओ</b> ब्रश से सुधारो।', '<b>PNG</b> (पारदर्शी) या <b>JPG</b> डाउनलोड करो, या सीधे शेयर करो।'],
+    tipsH: 'अच्छे नतीजे के लिए', tips: ['रोशनी वाली जगह, सादी दीवार के सामने फ़ोटो लो।', 'ID / पासपोर्ट फ़ोटो: सफ़ेद या हल्का नीला बैकग्राउंड, चेहरा सीधा।', 'प्रोडक्ट फ़ोटो (Meesho, OLX, Instagram): सफ़ेद बैकग्राउंड सबसे साफ़ दिखता है।', 'बालों के किनारे: "नरम किनारे" 2–4 रखो।'],
+    privH: 'आपकी फ़ोटो, आपके पास', privText: 'यह टूल AI मॉडल को एक बार डाउनलोड करके आपके फ़ोन/ब्राउज़र में ही चलाता है। आपकी फ़ोटो किसी सर्वर पर नहीं जाती, कहीं सेव नहीं होती, और हम उसे देख भी नहीं सकते। पेज बंद करते ही सब मिट जाता है।',
+    footer: 'मुफ़्त टूल · फ़ोटो अपलोड नहीं होती',
+  },
+  en: {
+    brandSub: 'Free · your photo never leaves your phone', title: 'Remove a photo background — free',
+    sub: 'Remove the background, then put white, blue (ID photo), any colour, blur or your own photo behind it. HD download, no watermark, no login.',
+    privacy: 'Your photo is never uploaded. Everything happens on your phone/browser, and the download stays on your phone.',
+    pickTitle: 'Choose a photo or drop it here', pickHint: 'JPG, PNG, HEIC (whatever your phone opens). Large photos are scaled to 2048px.',
+    pickBtn: '🖼️ Choose photo', camBtn: '📷 Camera', newPhoto: '↺ New photo', compare: '👁️ Original', undo: '↶ Undo',
+    modeH: 'What to cut out?', modePerson: '🧑 Person', modeObject: '📦 Object (tap it)',
+    hintPerson: 'People in the photo are found automatically.', hintObject: 'Tap once in the middle of the thing you want to keep.',
+    bgH: 'New background', bgImage: '🖼️ My photo', edgeH: 'Edges', soft: 'Soft edges:',
+    brushH: 'Fix by hand', brushOff: '✋ Off', brushErase: '🧽 Erase', brushRestore: '🖌️ Restore', brushSize: 'Brush size:',
+    saveH: 'Save', dlPng: '⬇️ PNG (transparent)', dlJpg: '⬇️ JPG', share: '📲 Share',
+    loading: 'Loading the AI model… (a moment the first time, then it works offline too)', working: 'Removing the background… (on your phone)',
+    tapFirst: 'Now tap the thing you want to keep', noPerson: 'No person found — try "Object" mode and tap', failed: 'This photo could not be opened. Try another one.',
+    saved: '✅ Saved to your phone', sizeInfo: (w, h) => `Size: ${w} × ${h} px`,
+    howH: 'How to use', how: ['<b>Choose a photo</b> or take one with the camera.', 'For a person the background is removed <b>automatically</b>. For a thing (product, utensil, clothes) choose <b>"Object"</b> and <b>tap</b> it.', 'Pick a new background: <b>white, blue (ID), a colour, blur</b> or your own photo.', 'Edges not right? Fix them with the <b>Erase / Restore</b> brush.', 'Download <b>PNG</b> (transparent) or <b>JPG</b>, or share directly.'],
+    tipsH: 'For the best result', tips: ['Take the photo in good light, in front of a plain wall.', 'ID / passport photo: white or light blue background, face straight.', 'Product photos (Meesho, OLX, Instagram): a white background looks cleanest.', 'Hair edges: keep "Soft edges" at 2–4.'],
+    privH: 'Your photo stays with you', privText: 'This tool downloads the AI model once and runs it inside your phone/browser. Your photo is not sent to any server, not saved anywhere, and we cannot see it. Closing the page clears everything.',
+    footer: 'Free tool · no photo upload',
+  },
+  bn: {
+    brandSub: 'বিনামূল্যে · ছবি ফোনের বাইরে যায় না', title: 'ছবির ব্যাকগ্রাউন্ড সরাও — বিনামূল্যে',
+    sub: 'ব্যাকগ্রাউন্ড সরাও, তারপর সাদা, নীল (ID ছবি), যেকোনো রং, ব্লার বা নিজের ছবি বসাও। HD ডাউনলোড, কোনো ওয়াটারমার্ক নেই, লগইন নেই।',
+    privacy: 'তোমার ছবি কোথাও আপলোড হয় না। সব কাজ তোমার ফোন/ব্রাউজারেই হয়, ডাউনলোডও ফোনেই।',
+    pickTitle: 'ছবি বাছো বা এখানে ছাড়ো', pickHint: 'JPG, PNG, HEIC (ফোন যা খোলে)। বড় ছবি নিজে থেকেই 2048px করা হয়।',
+    pickBtn: '🖼️ ছবি বাছো', camBtn: '📷 ক্যামেরা', newPhoto: '↺ নতুন ছবি', compare: '👁️ আসল দেখো', undo: '↶ আগের মতো',
+    modeH: 'কী কাটবে?', modePerson: '🧑 মানুষ', modeObject: '📦 জিনিস (ট্যাপ করো)',
+    hintPerson: 'ছবিতে মানুষ নিজে থেকেই চেনা যায়।', hintObject: 'যে জিনিসটা রাখবে, তার মাঝখানে একবার ট্যাপ করো।',
+    bgH: 'নতুন ব্যাকগ্রাউন্ড', bgImage: '🖼️ নিজের ছবি', edgeH: 'কিনারা', soft: 'নরম কিনারা:',
+    brushH: 'হাতে ঠিক করো', brushOff: '✋ বন্ধ', brushErase: '🧽 মোছো', brushRestore: '🖌️ ফিরিয়ে আনো', brushSize: 'ব্রাশের মাপ:',
+    saveH: 'সেভ করো', dlPng: '⬇️ PNG (স্বচ্ছ)', dlJpg: '⬇️ JPG', share: '📲 শেয়ার',
+    loading: 'AI মডেল আসছে… (প্রথমবার একটু সময়, তারপর অফলাইনেও চলবে)', working: 'ব্যাকগ্রাউন্ড সরানো হচ্ছে… (ফোনেই)',
+    tapFirst: 'এবার যে জিনিসটা রাখবে, তাতে ট্যাপ করো', noPerson: 'মানুষ পাওয়া গেল না — "জিনিস" মোডে ট্যাপ করে দেখো', failed: 'এই ছবিটা খোলা গেল না। অন্য ছবি দেখো।',
+    saved: '✅ ফোনে সেভ হয়েছে', sizeInfo: (w, h) => `মাপ: ${w} × ${h} px`,
+    howH: 'কীভাবে ব্যবহার করবে', how: ['<b>ছবি বাছো</b> বা ক্যামেরায় তোলো।', 'মানুষের ছবিতে ব্যাকগ্রাউন্ড <b>নিজে থেকেই</b> সরে যায়। কোনো জিনিসের (প্রোডাক্ট, বাসন, জামা) জন্য <b>"জিনিস"</b> বেছে তাতে <b>ট্যাপ</b> করো।', 'নতুন ব্যাকগ্রাউন্ড বাছো: <b>সাদা, নীল (ID), রং, ব্লার</b> বা নিজের ছবি।', 'কিনারা ঠিক নয়? <b>মোছো / ফিরিয়ে আনো</b> ব্রাশে ঠিক করো।', '<b>PNG</b> (স্বচ্ছ) বা <b>JPG</b> ডাউনলোড করো, বা সরাসরি শেয়ার করো।'],
+    tipsH: 'ভালো ফলের জন্য', tips: ['আলোয়, সাদা দেওয়ালের সামনে ছবি তোলো।', 'ID / পাসপোর্ট ছবি: সাদা বা হালকা নীল ব্যাকগ্রাউন্ড, মুখ সোজা।', 'প্রোডাক্ট ছবি (Meesho, OLX, Instagram): সাদা ব্যাকগ্রাউন্ড সবচেয়ে পরিষ্কার লাগে।', 'চুলের কিনারা: "নরম কিনারা" 2–4 রাখো।'],
+    privH: 'তোমার ছবি তোমার কাছেই', privText: 'এই টুল AI মডেল একবার ডাউনলোড করে তোমার ফোন/ব্রাউজারের ভেতরেই চালায়। তোমার ছবি কোনো সার্ভারে যায় না, কোথাও সেভ হয় না, আমরা দেখতেও পাই না। পেজ বন্ধ করলেই সব মুছে যায়।',
+    footer: 'বিনামূল্যের টুল · ছবি আপলোড হয় না',
+  },
+};
+const BGS = [
+  { key: 'none', cls: 'trans', label: '∅' },
+  { key: '#ffffff', label: '' },
+  { key: '#4dabf7', label: '' }, // ID blue
+  { key: '#d0ebff', label: '' },
+  { key: '#f1f3f5', label: '' },
+  { key: '#ffe066', label: '' },
+  { key: '#ff8787', label: '' },
+  { key: '#63e6be', label: '' },
+  { key: 'grad', label: '', style: 'background:linear-gradient(135deg,#7950f2,#f06595)' },
+  { key: 'blur', label: '💧' },
+];
+
+// ---------- helpers
+const $ = (id) => document.getElementById(id);
+const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+const params = new URLSearchParams(location.search);
+const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('bg-lang')) ? store.get('bg-lang') : deviceLang();
+const t = (k) => T[lang][k];
+let toastTimer = 0;
+const toast = (msg) => { let el = document.querySelector('.toast'); if (!el) { el = document.createElement('div'); el.className = 'toast'; document.body.appendChild(el); } el.textContent = msg; el.classList.remove('hidden'); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.add('hidden'), 2600); };
+const busy = (msg) => { $('busy').classList.toggle('hidden', !msg); $('busyText').textContent = msg || ''; };
+const mk = (w, h) => { const c = document.createElement('canvas'); c.width = w; c.height = h; return c; };
+
+const applyLang = () => {
+  document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+  $('lang').value = lang;
+  document.querySelectorAll('[data-t]').forEach((el) => { el.textContent = t(el.dataset.t); });
+  $('howList').innerHTML = t('how').map((x) => `<li>${x}</li>`).join('');
+  $('tipList').innerHTML = t('tips').map((x) => `<li>${x}</li>`).join('');
+  $('modeHint').textContent = mode === 'person' ? t('hintPerson') : t('hintObject');
+  if (img) $('sizeInfo').textContent = t('sizeInfo')(W, H);
+};
+$('lang').addEventListener('change', (e) => { lang = e.target.value; store.set('bg-lang', lang); applyLang(); });
+$('year').textContent = new Date().getFullYear();
+
+// ---------- state
+let vision = null, personSeg = null, objectSeg = null;
+let img = null, W = 0, H = 0;          // working image (canvas) at <= MAX_SIDE
+let mask = null;                       // full-res mask canvas: alpha = keep
+let bg = '#ffffff', bgImg = null;
+let mode = 'person', brush = 'off', soft = 2, comparing = false;
+const undoStack = [];
+
+const getVision = async () => {
+  if (!vision) vision = await FilesetResolver.forVisionTasks(WASM);
+  return vision;
+};
+const createWithFallback = async (Cls, path, extra) => {
+  const v = await getVision();
+  const opts = (delegate) => ({ baseOptions: { modelAssetPath: path, delegate }, outputCategoryMask: false, outputConfidenceMasks: true, ...extra });
+  return Cls.createFromOptions(v, opts('GPU')).catch(() => Cls.createFromOptions(v, opts('CPU')));
+};
+const getPersonSeg = async () => { if (!personSeg) personSeg = await createWithFallback(ImageSegmenter, MODEL_PERSON, { runningMode: 'IMAGE' }); return personSeg; };
+const getObjectSeg = async () => { if (!objectSeg) objectSeg = await createWithFallback(InteractiveSegmenter, MODEL_OBJECT, {}); return objectSeg; };
+
+// confidence (0..1, mw x mh) -> full-res mask canvas
+const maskFromConfidence = (data, mw, mh) => {
+  const small = mk(mw, mh), sctx = small.getContext('2d');
+  const id = sctx.createImageData(mw, mh);
+  for (let i = 0; i < mw * mh; i += 1) {
+    const c = data[i];
+    const a = c <= 0.35 ? 0 : c >= 0.65 ? 1 : (c - 0.35) / 0.3; // sharpen the transition a little
+    id.data[i * 4] = 255; id.data[i * 4 + 1] = 255; id.data[i * 4 + 2] = 255; id.data[i * 4 + 3] = Math.round(a * 255);
+  }
+  sctx.putImageData(id, 0, 0);
+  const full = mk(W, H), fctx = full.getContext('2d');
+  fctx.imageSmoothingEnabled = true; fctx.imageSmoothingQuality = 'high';
+  fctx.drawImage(small, 0, 0, W, H);
+  return full;
+};
+
+// The model sees 256x256. A full-length person in a big photo then gets only a few pixels, so the
+// edges come out rough and people in the background are picked up too. So: pass 1 on the whole photo
+// finds the main person (largest connected blob); pass 2 runs on a crop around that person only, split
+// into overlapping tiles along its long side, and the tiles are blended back together.
+const personConf = (seg, source) => {
+  let out = null;
+  seg.segment(source, (res) => {
+    // selfie_multiclass: 0 background, 1 hair, 2 body-skin, 3 face-skin, 4 clothes, 5 others
+    const bgm = res.confidenceMasks[0];
+    const b = bgm.getAsFloat32Array();
+    const keep = new Float32Array(b.length);
+    for (let i = 0; i < b.length; i += 1) keep[i] = 1 - b[i];
+    out = { keep, mw: bgm.width, mh: bgm.height };
+  });
+  return out;
+};
+const mainBlobBox = ({ keep, mw, mh }) => {
+  // largest 4-connected blob above 0.5 -> its box in 0..1 coordinates, or null
+  const seen = new Uint8Array(mw * mh); let best = null;
+  const stack = [];
+  for (let s0 = 0; s0 < mw * mh; s0 += 1) {
+    if (seen[s0] || keep[s0] < 0.5) continue;
+    let n = 0, x0 = mw, y0 = mh, x1 = 0, y1 = 0;
+    stack.push(s0); seen[s0] = 1;
+    while (stack.length) {
+      const i = stack.pop(), x = i % mw, y = (i - x) / mw; n += 1;
+      if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y;
+      const nb = [x > 0 ? i - 1 : -1, x < mw - 1 ? i + 1 : -1, y > 0 ? i - mw : -1, y < mh - 1 ? i + mw : -1];
+      for (const j of nb) if (j >= 0 && !seen[j] && keep[j] >= 0.5) { seen[j] = 1; stack.push(j); }
+    }
+    if (!best || n > best.n) best = { n, x0, y0, x1, y1 };
+  }
+  if (!best || best.n < mw * mh * 0.002) return null;
+  return { x0: best.x0 / mw, y0: best.y0 / mh, x1: (best.x1 + 1) / mw, y1: (best.y1 + 1) / mh };
+};
+const runPerson = async () => {
+  busy(personSeg ? t('working') : t('loading'));
+  const seg = await getPersonSeg();
+  busy(t('working'));
+  await new Promise((r) => setTimeout(r, 30));
+  const first = personConf(seg, img);
+  const box = mainBlobBox(first);
+  if (!box) { busy(''); toast(t('noPerson')); setMode('object'); return; }
+  // crop around the person with a margin
+  const padX = (box.x1 - box.x0) * 0.12 + 0.02, padY = (box.y1 - box.y0) * 0.06 + 0.02;
+  const cx0 = Math.max(0, Math.floor((box.x0 - padX) * W)), cy0 = Math.max(0, Math.floor((box.y0 - padY) * H));
+  const cx1 = Math.min(W, Math.ceil((box.x1 + padX) * W)), cy1 = Math.min(H, Math.ceil((box.y1 + padY) * H));
+  const cw = cx1 - cx0, ch = cy1 - cy0;
+  // work at up to 1024 px on the crop's long side
+  const k = Math.min(1, 1024 / Math.max(cw, ch)), aw = Math.max(1, Math.round(cw * k)), ah = Math.max(1, Math.round(ch * k));
+  const acc = new Float32Array(aw * ah), wsum = new Float32Array(aw * ah);
+  const vertical = ah >= aw;
+  const long = vertical ? ah : aw, short = vertical ? aw : ah;
+  const n = Math.min(4, Math.max(1, Math.round(long / (short * 1.15))));
+  const tileLen = n === 1 ? long : Math.min(long, Math.round((long / n) * 1.35));
+  const ramp = Math.max(1, Math.round(tileLen * 0.15));
+  for (let ti = 0; ti < n; ti += 1) {
+    const start = n === 1 ? 0 : Math.round((long - tileLen) * (ti / (n - 1)));
+    const tw = vertical ? aw : tileLen, th = vertical ? tileLen : ah;
+    const sx = vertical ? 0 : start, sy = vertical ? start : 0;
+    const tile = mk(tw, th);
+    tile.getContext('2d').drawImage(img, cx0 + sx / k, cy0 + sy / k, tw / k, th / k, 0, 0, tw, th);
+    const r = personConf(seg, tile);
+    // model mask -> tile size
+    const sm = mk(r.mw, r.mh), sx2 = sm.getContext('2d'), sd = sx2.createImageData(r.mw, r.mh);
+    for (let i = 0; i < r.mw * r.mh; i += 1) sd.data[i * 4 + 3] = Math.round(Math.min(1, Math.max(0, r.keep[i])) * 255);
+    sx2.putImageData(sd, 0, 0);
+    const up = mk(tw, th), ux = up.getContext('2d'); ux.imageSmoothingQuality = 'high'; ux.drawImage(sm, 0, 0, tw, th);
+    const ud = ux.getImageData(0, 0, tw, th).data;
+    for (let y = 0; y < th; y += 1) {
+      for (let x = 0; x < tw; x += 1) {
+        const along = vertical ? y : x;
+        // fade weights near a tile edge that overlaps the next tile
+        let w = 1;
+        if (ti > 0) w = Math.min(w, (along + 0.5) / ramp);
+        if (ti < n - 1) w = Math.min(w, (tileLen - along - 0.5) / ramp);
+        w = Math.max(0.001, Math.min(1, w));
+        const gi = (sy + y) * aw + (sx + x);
+        acc[gi] += (ud[(y * tw + x) * 4 + 3] / 255) * w; wsum[gi] += w;
+      }
+    }
+  }
+  // blended crop mask -> full-size mask (outside the crop stays background)
+  const am = mk(aw, ah), ax = am.getContext('2d'), ad = ax.createImageData(aw, ah);
+  for (let i = 0; i < aw * ah; i += 1) {
+    const c = wsum[i] ? acc[i] / wsum[i] : 0;
+    const a = c <= 0.35 ? 0 : c >= 0.65 ? 1 : (c - 0.35) / 0.3;
+    ad.data[i * 4] = 255; ad.data[i * 4 + 1] = 255; ad.data[i * 4 + 2] = 255; ad.data[i * 4 + 3] = Math.round(a * 255);
+  }
+  ax.putImageData(ad, 0, 0);
+  pushUndo();
+  mask = mk(W, H);
+  const mx = mask.getContext('2d'); mx.imageSmoothingQuality = 'high'; mx.drawImage(am, cx0, cy0, cw, ch);
+  busy(''); render();
+};
+
+const runObject = async (nx, ny) => {
+  busy(objectSeg ? t('working') : t('loading'));
+  const seg = await getObjectSeg();
+  busy(t('working'));
+  await new Promise((r) => setTimeout(r, 30));
+  let out = null;
+  seg.segment(img, { keypoint: { x: nx, y: ny } }, (res) => {
+    const m = res.confidenceMasks[0];
+    out = { keep: Float32Array.from(m.getAsFloat32Array()), mw: m.width, mh: m.height };
+  });
+  pushUndo();
+  mask = maskFromConfidence(out.keep, out.mw, out.mh);
+  busy(''); render();
+};
+
+// ---------- compositing
+const softMask = () => {
+  if (!soft) return mask;
+  const c = mk(W, H), x = c.getContext('2d');
+  if ('filter' in x) { x.filter = `blur(${soft * Math.max(1, Math.round(Math.max(W, H) / 1000))}px)`; x.drawImage(mask, 0, 0); x.filter = 'none'; return c; }
+  // fallback: down/up scale
+  const s = mk(Math.max(1, Math.round(W / (soft + 1))), Math.max(1, Math.round(H / (soft + 1))));
+  s.getContext('2d').drawImage(mask, 0, 0, s.width, s.height);
+  x.imageSmoothingQuality = 'high'; x.drawImage(s, 0, 0, W, H);
+  return c;
+};
+const blurredOriginal = () => {
+  const k = 24, s = mk(Math.max(1, Math.round(W / k)), Math.max(1, Math.round(H / k)));
+  s.getContext('2d').drawImage(img, 0, 0, s.width, s.height);
+  const c = mk(W, H), x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(s, 0, 0, W, H);
+  return c;
+};
+const drawBackground = (x) => {
+  if (bg === 'none') return;
+  if (bg === 'blur') { x.drawImage(blurredOriginal(), 0, 0); return; }
+  if (bg === 'image' && bgImg) {
+    const r = Math.max(W / bgImg.width, H / bgImg.height), bw = bgImg.width * r, bh = bgImg.height * r;
+    x.drawImage(bgImg, (W - bw) / 2, (H - bh) / 2, bw, bh); return;
+  }
+  if (bg === 'grad') { const g = x.createLinearGradient(0, 0, W, H); g.addColorStop(0, '#7950f2'); g.addColorStop(1, '#f06595'); x.fillStyle = g; x.fillRect(0, 0, W, H); return; }
+  x.fillStyle = bg; x.fillRect(0, 0, W, H);
+};
+const composite = () => {
+  const out = mk(W, H), x = out.getContext('2d');
+  drawBackground(x);
+  const cut = mk(W, H), cx = cut.getContext('2d');
+  cx.drawImage(img, 0, 0);
+  cx.globalCompositeOperation = 'destination-in';
+  cx.drawImage(softMask(), 0, 0);
+  x.drawImage(cut, 0, 0);
+  return out;
+};
+const view = $('view');
+const render = () => {
+  if (!img) return;
+  view.width = W; view.height = H;
+  const x = view.getContext('2d');
+  x.clearRect(0, 0, W, H);
+  if (comparing || !mask) { x.drawImage(img, 0, 0); return; }
+  x.drawImage(composite(), 0, 0);
+};
+
+// ---------- undo + brush
+const pushUndo = () => {
+  if (!mask) return;
+  const c = mk(W, H); c.getContext('2d').drawImage(mask, 0, 0);
+  undoStack.push(c); if (undoStack.length > 6) undoStack.shift();
+  $('undoBtn').disabled = false;
+};
+$('undoBtn').addEventListener('click', () => {
+  const c = undoStack.pop(); if (!c) return;
+  mask = c; $('undoBtn').disabled = undoStack.length === 0; render();
+});
+const toImg = (e) => { const r = view.getBoundingClientRect(); return { x: ((e.clientX - r.left) / r.width) * W, y: ((e.clientY - r.top) / r.height) * H, scale: W / r.width }; };
+let painting = false, lastPt = null;
+const paint = (p) => {
+  const x = mask.getContext('2d');
+  const size = Number($('brushSize').value) * p.scale;
+  x.save();
+  x.globalCompositeOperation = brush === 'erase' ? 'destination-out' : 'source-over';
+  x.strokeStyle = '#fff'; x.lineCap = 'round'; x.lineJoin = 'round'; x.lineWidth = size;
+  x.beginPath(); x.moveTo((lastPt || p).x, (lastPt || p).y); x.lineTo(p.x, p.y); x.stroke();
+  x.restore();
+  lastPt = p;
+};
+let rafPending = false;
+const renderSoon = () => { if (rafPending) return; rafPending = true; requestAnimationFrame(() => { rafPending = false; render(); }); };
+view.addEventListener('pointerdown', (e) => {
+  if (!img) return;
+  const p = toImg(e);
+  if (mode === 'object' && brush === 'off') { runObject(Math.min(1, Math.max(0, p.x / W)), Math.min(1, Math.max(0, p.y / H))).catch(fail); return; }
+  if (brush === 'off' || !mask) return;
+  e.preventDefault(); view.setPointerCapture(e.pointerId);
+  pushUndo(); painting = true; lastPt = null; paint(p); renderSoon();
+});
+view.addEventListener('pointermove', (e) => { if (!painting) return; paint(toImg(e)); renderSoon(); });
+const stopPaint = () => { painting = false; lastPt = null; };
+view.addEventListener('pointerup', stopPaint); view.addEventListener('pointercancel', stopPaint);
+
+// ---------- controls
+const setMode = (m) => {
+  mode = m;
+  document.querySelectorAll('#modeSeg button').forEach((b) => b.classList.toggle('on', b.dataset.mode === m));
+  $('modeHint').textContent = m === 'person' ? t('hintPerson') : t('hintObject');
+  if (m === 'person' && img) runPerson().catch(fail);
+  if (m === 'object' && img) { setBrush('off'); toast(t('tapFirst')); }
+};
+$('modeSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) setMode(b.dataset.mode); });
+const setBrush = (b) => { brush = b; document.querySelectorAll('#brushSeg button').forEach((x) => x.classList.toggle('on', x.dataset.brush === b)); };
+$('brushSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) setBrush(b.dataset.brush); });
+$('soft').addEventListener('input', (e) => { soft = Number(e.target.value); $('softVal').textContent = soft; renderSoon(); });
+$('brushSize').addEventListener('input', (e) => { $('sizeVal').textContent = e.target.value; });
+$('softVal').textContent = soft; $('sizeVal').textContent = $('brushSize').value;
+const drawSwatches = () => {
+  $('swatches').innerHTML = BGS.map((b) => `<button type="button" class="sw ${b.cls || ''} ${bg === b.key ? 'on' : ''}" data-bg="${b.key}" style="${b.style || (b.key.startsWith('#') ? `background:${b.key}` : '')}" aria-label="${b.key}">${b.label}</button>`).join('');
+};
+$('swatches').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; bg = b.dataset.bg; drawSwatches(); render(); });
+$('customColor').addEventListener('input', (e) => { bg = e.target.value; drawSwatches(); render(); });
+$('bgImgBtn').addEventListener('click', () => $('bgFile').click());
+$('bgFile').addEventListener('change', async (e) => { const f = e.target.files[0]; if (!f) return; bgImg = await loadBitmap(f); bg = 'image'; drawSwatches(); render(); e.target.value = ''; });
+const holdCompare = (on) => { comparing = on; render(); };
+$('compareBtn').addEventListener('pointerdown', () => holdCompare(true));
+['pointerup', 'pointerleave', 'pointercancel'].forEach((ev) => $('compareBtn').addEventListener(ev, () => holdCompare(false)));
+$('newBtn').addEventListener('click', () => $('file').click());
+
+// ---------- load
+const loadBitmap = (file) => new Promise((resolve, reject) => {
+  const url = URL.createObjectURL(file);
+  const im = new Image();
+  im.onload = () => { URL.revokeObjectURL(url); resolve(im); };
+  im.onerror = () => { URL.revokeObjectURL(url); reject(new Error('load')); };
+  im.src = url;
+});
+const fail = (err) => { busy(''); console.error(err); toast(t('failed')); };
+const useImage = async (im) => {
+  const r = Math.min(1, MAX_SIDE / Math.max(im.naturalWidth || im.width, im.naturalHeight || im.height));
+  W = Math.round((im.naturalWidth || im.width) * r); H = Math.round((im.naturalHeight || im.height) * r);
+  img = mk(W, H); img.getContext('2d').drawImage(im, 0, 0, W, H);
+  mask = null; undoStack.length = 0; $('undoBtn').disabled = true;
+  $('pickCard').classList.add('hidden'); $('editor').classList.remove('hidden');
+  $('sizeInfo').textContent = t('sizeInfo')(W, H);
+  render();
+  if (mode === 'person') await runPerson(); else toast(t('tapFirst'));
+};
+const onFile = (f) => { if (!f) return; loadBitmap(f).then(useImage).catch(fail); };
+$('pickBtn').addEventListener('click', (e) => { e.stopPropagation(); $('file').click(); });
+$('camBtn').addEventListener('click', (e) => { e.stopPropagation(); $('cam').click(); });
+$('drop').addEventListener('click', () => $('file').click());
+$('file').addEventListener('change', (e) => { onFile(e.target.files[0]); e.target.value = ''; });
+$('cam').addEventListener('change', (e) => { onFile(e.target.files[0]); e.target.value = ''; });
+['dragover', 'dragenter'].forEach((ev) => $('drop').addEventListener(ev, (e) => { e.preventDefault(); $('drop').classList.add('over'); }));
+['dragleave', 'drop'].forEach((ev) => $('drop').addEventListener(ev, (e) => { e.preventDefault(); $('drop').classList.remove('over'); }));
+$('drop').addEventListener('drop', (e) => onFile(e.dataTransfer.files[0]));
+
+// ---------- save (all on the device)
+const toBlob = (type, q) => new Promise((r) => (mask ? composite() : img).toBlob(r, type, q));
+const download = (blob, name) => { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500); toast(t('saved')); };
+const stamp = () => new Date().toISOString().slice(0, 10);
+$('dlPng').addEventListener('click', async () => download(await toBlob('image/png'), `no-background-${stamp()}.png`));
+$('dlJpg').addEventListener('click', async () => {
+  // JPG has no transparency: a transparent choice is saved on white
+  const keep = bg; if (bg === 'none') bg = '#ffffff';
+  const blob = await toBlob('image/jpeg', 0.92); bg = keep;
+  download(blob, `new-background-${stamp()}.jpg`);
+});
+$('shareBtn').addEventListener('click', async () => {
+  const blob = await toBlob('image/png');
+  const file = new File([blob], `photo-${stamp()}.png`, { type: 'image/png' });
+  if (navigator.canShare && navigator.canShare({ files: [file] })) { navigator.share({ files: [file] }).catch(() => {}); } else download(blob, file.name);
+});
+
+drawSwatches();
+applyLang();
+// local testing: ?test=<image url> loads that image (same-origin or CORS-enabled)
+if (params.get('test')) { const im = new Image(); im.crossOrigin = 'anonymous'; im.onload = () => useImage(im).catch(fail); im.src = params.get('test'); }
+window.__bg = { get state() { return { hasImg: Boolean(img), hasMask: Boolean(mask), W, H, mode, bg }; }, setBg: (b) => { bg = b; drawSwatches(); render(); }, tapObject: (x, y) => runObject(x, y) };
+if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+</script>
+</body>
+</html>

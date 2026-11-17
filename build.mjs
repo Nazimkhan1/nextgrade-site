@@ -16,12 +16,16 @@ import { hisabVideo, APP_URL, VIDEO } from './src/hisab-video.mjs';
 import { wishes } from './src/wishes.mjs';
 import { games as allGames } from './src/games.mjs';
 import { stories as allStories } from './src/stories.mjs';
+import { tools as allTools } from './src/tools.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
 const games = allGames.filter((g) => isLive(`game:${g.slug}`));
 const stories = allStories.filter((st) => isLive(`story:${st.slug}`));
 const heldGames = allGames.filter((g) => !isLive(`game:${g.slug}`)).map((g) => g.slug);
 const heldStories = allStories.filter((st) => !isLive(`story:${st.slug}`)).map((st) => st.slug);
+// Free tools (/tools/<slug>/): the section, its menu link and its Privacy Policy paragraph appear only once a tool is live
+const tools = allTools.filter((tl) => isLive(`tool:${tl.slug}`));
+const heldTools = allTools.filter((tl) => !isLive(`tool:${tl.slug}`)).map((tl) => tl.slug);
 import * as islamic from './src/islamic.mjs';
 import { ui } from './src/i18n/ui.mjs';
 
@@ -106,8 +110,8 @@ const lapp = (a, L) => {
 
 // ---- Page shell
 const P = (L, path) => `${L.prefix}${path}`;
-const NAV = ['/', '/kahani/', '/wishes/', '/festivals/', '/games/', '/wish-card/', '/apps/', '/about/'];
-const NAV_KEYS = ['home', 'stories', 'wishes', 'festivals', 'games', 'card', 'apps', 'about'];
+const NAV = ['/', '/kahani/', '/wishes/', '/festivals/', '/games/', ...(tools.length ? ['/tools/'] : []), '/wish-card/', '/apps/', '/about/'];
+const NAV_KEYS = ['home', 'stories', 'wishes', 'festivals', 'games', ...(tools.length ? ['tools'] : []), 'card', 'apps', 'about'];
 // Voice used by the browser to read stories aloud.
 const SPEECH = { hi: 'hi-IN', en: 'en-IN', hinglish: 'en-IN', bn: 'bn-IN' };
 
@@ -320,6 +324,15 @@ const islamicCard = (L) => `<a class="card" href="${P(L, '/islamic-calendar/')}"
 <h3>${esc(islamic.text[L.code].h1.replace('🌙 ', ''))}</h3>
 <p>${esc(firstSentence(islamic.text[L.code].lead))}</p>
 </a>`;
+
+const toolCard = (L) => (tl) => {
+  const [name, desc] = tl[L.code] || tl.en;
+  return `<a class="card" href="/tools/${tl.slug}/?lang=${L.game}">
+<span class="emoji" aria-hidden="true">${tl.emoji}</span>
+<h3>${esc(name)}</h3>
+<p>${esc(desc)}</p>
+</a>`;
+};
 
 const gameCard = (L) => (g) => {
   const x = lgame(g, L);
@@ -668,6 +681,27 @@ ${T.games.more || ''}
     }),
   );
 
+  // Free tools index (each tool is a static app in src/static/tools/<slug>/)
+  if (tools.length) {
+    write(
+      L,
+      '/tools/',
+      page(L, {
+        path: '/tools/',
+        title: T.tools.title,
+        description: T.tools.desc,
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.tools, '/tools/']])],
+        body: `<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(T.nav.tools)}</p>
+<h1>${esc(T.tools.h1)}</h1>
+<p class="lead">${esc(T.tools.lead)}</p>
+<div class="grid">${tools.map(toolCard(L)).join('')}</div>
+${T.tools.more}
+</div>`,
+      }),
+    );
+  }
+
   // Apps
   write(
     L,
@@ -777,7 +811,7 @@ policyPage(
 <h2>Visitor statistics</h2>
 <p>To understand which pages are useful, we use Cloudflare Web Analytics. It does not use cookies or local storage, does not track you across websites and does not collect personal information — it only counts page views, the country, the type of device and browser, and page load speed, in aggregate. See <a href="https://www.cloudflare.com/web-analytics/" rel="nofollow">Cloudflare Web Analytics</a>.</p>
 <p>We also use <strong>Google Analytics</strong> to count how many different people visit (for example: number of users, city or country, phone or computer, and which pages they read). Google Analytics uses cookies for this. It does not receive the names or messages you type into wish links, cards or games. You can block it with your browser's privacy settings, an ad blocker or the <a href="https://tools.google.com/dlpage/gaoptout" rel="nofollow">Google Analytics opt-out add-on</a>; the site works the same. Learn more about <a href="https://policies.google.com/technologies/partner-sites" rel="nofollow">how Google uses this data</a>.</p>
-<h2>Children</h2>
+${tools.length ? '<h2>Photo and document tools</h2>\n<p>The tools under nextgrade.in/tools/ (passport photo, document scanner, background remover, hair colour try-on) run entirely inside your browser. The photos and documents you choose are processed on your device and are never uploaded to us or to any server; the result is saved only to your device. The tools download their AI model files from nextgrade.in once and may keep them for offline use.</p>\n' : ''}<h2>Children</h2>
 <p>This website is meant for a general audience and is not directed at children under 13. We do not knowingly collect personal information from children.</p>
 <h2>Links to other sites</h2>
 <p>Our pages may link to other websites. We are not responsible for their content or privacy practices.</p>
@@ -837,14 +871,14 @@ const CONTENT_DATE = '2026-11-15';
 const lastRelease = Object.values(releases).filter((d) => d <= todayIST()).sort().pop() || CONTENT_DATE;
 const lastmodFor = (url) => {
   const path = url.replace(/^\/(en|hinglish|bn)(?=\/)/, '');
-  const m = path.match(/^\/(games|kahani|celebrate)\/([^/]+)\/$/);
-  const rel = m && releases[`${{ games: 'game', kahani: 'story', celebrate: 'celebrate' }[m[1]]}:${m[2]}`];
+  const m = path.match(/^\/(games|kahani|celebrate|tools)\/([^/]+)\/$/);
+  const rel = m && releases[`${{ games: 'game', kahani: 'story', celebrate: 'celebrate', tools: 'tool' }[m[1]]}:${m[2]}`];
   if (rel) return rel;
   if (['/', '/games/', '/kahani/'].includes(path)) return [CONTENT_DATE, lastRelease].sort().pop();
   return CONTENT_DATE;
 };
 const gameUrls = games.map((g) => `/games/${g.slug}/`);
-const allUrls = [...urls, ...gameUrls, ...CELEBRATE.map((c) => `/celebrate/${c.slug}/`)];
+const allUrls = [...urls, ...gameUrls, ...CELEBRATE.map((c) => `/celebrate/${c.slug}/`), ...tools.map((tl) => `/tools/${tl.slug}/`)];
 writeFileSync(
   join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${allUrls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${lastmodFor(u)}</lastmod></url>`).join('\n')}\n</urlset>\n`,
@@ -859,6 +893,8 @@ cpSync('src/static', OUT, { recursive: true });
 // games that are not released yet: remove their copied folders
 heldGames.forEach((slug) => rmSync(join(OUT, 'games', slug), { recursive: true, force: true }));
 heldCelebrate.forEach((slug) => rmSync(join(OUT, 'celebrate', slug), { recursive: true, force: true }));
+heldTools.forEach((slug) => rmSync(join(OUT, 'tools', slug), { recursive: true, force: true }));
+if (!tools.length) rmSync(join(OUT, 'tools'), { recursive: true, force: true });
 
 // Cloudflare Web Analytics beacon on every page (only when a token is set)
 if (CF_BEACON) {
@@ -896,7 +932,7 @@ heldCelebrate.forEach((slug) => { mkdirSync(join(OUT, 'celebrate', slug), { recu
 LANGS.forEach((L) => heldStories.forEach((slug) => { const dir = join(OUT, `${L.prefix}/kahani/${slug}`.replace(/^\//, '')); mkdirSync(dir, { recursive: true }); writeFileSync(join(dir, 'index.html'), holdStub(`${L.prefix}/kahani/`, ui[L.code].stories.h1)); }));
 
 // Links on live pages that point at not-yet-released pages: drop "· <a data-game=…>" links, send the rest to the index
-if (heldGames.length || heldStories.length || heldCelebrate.length) {
+if (heldGames.length || heldStories.length || heldCelebrate.length || heldTools.length) {
   const walk = (dir) => readdirSync(dir, { withFileTypes: true }).forEach((d) => {
     const f = join(dir, d.name);
     if (d.isDirectory()) { walk(f); return; }
@@ -908,12 +944,13 @@ if (heldGames.length || heldStories.length || heldCelebrate.length) {
       html = html.split(`https://nextgrade.in/games/${slug}/`).join('https://nextgrade.in/games/').split(`"/games/${slug}/`).join('"/games/');
     });
     heldStories.forEach((slug) => { html = html.split(`/kahani/${slug}/`).join('/kahani/'); });
+    heldTools.forEach((slug) => { html = html.split(`https://nextgrade.in/tools/${slug}/`).join(tools.length ? 'https://nextgrade.in/tools/' : 'https://nextgrade.in/').split(`"/tools/${slug}/`).join(tools.length ? '"/tools/' : '"/'); });
     heldCelebrate.forEach((slug) => { html = html.split(`https://nextgrade.in/celebrate/${slug}/`).join('https://nextgrade.in/').split(`"/celebrate/${slug}/`).join('"/'); });
     if (html !== before) writeFileSync(f, html);
   });
   walk(OUT);
 }
-console.log(`Held back until release: ${[...heldGames.map((s) => `game:${s}`), ...heldStories.map((s) => `story:${s}`), ...heldCelebrate.map((s) => `celebrate:${s}`)].map((k) => `${k} (${releases[k]})`).join(', ') || 'none'}`);
+console.log(`Held back until release: ${[...heldGames.map((s) => `game:${s}`), ...heldStories.map((s) => `story:${s}`), ...heldCelebrate.map((s) => `celebrate:${s}`), ...heldTools.map((s) => `tool:${s}`)].map((k) => `${k} (${releases[k]})`).join(', ') || 'none'}`);
 
 console.log(`Built ${allUrls.length} pages in ${LANGS.map((l) => l.code).join(', ')} into ${OUT}/`);
 

@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hair Colour & Beard Try-On — free, photo stays on your phone | NextGrade Tools</title>
+<meta name="description" content="Try hair colours, beard and moustache styles on your own photo for free. Before/after slider, download and share. Everything runs on your phone: the photo is never uploaded.">
+<meta name="theme-color" content="#a61e4d">
+<link rel="canonical" href="https://nextgrade.in/tools/hair-tryon/">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #fbf1f4; --card: #fff; --ink: #2b1420; --muted: #7a5c69; --brand: #a61e4d; --brand2: #d6336c; --line: #f0d7e0; --ok: #2b8a3e; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 8px; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 21px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand small { display: block; font-family: Inter, sans-serif; font-size: 12px; font-weight: 600; color: var(--muted); }
+select, button, input { font: inherit; }
+.langsel { padding: 6px 8px; border-radius: 10px; border: 1px solid var(--line); background: #fff; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(26px, 6vw, 36px); line-height: 1.15; margin: 4px 0; }
+.sub { color: var(--muted); margin: 0 0 10px; }
+.privacy { background: #ebfbee; border: 1px solid #b2f2bb; color: #1b5e20; border-radius: 12px; padding: 8px 12px; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 4px 18px rgba(166, 30, 77, 0.06); }
+.drop { border: 2px dashed #f1a7c0; border-radius: 16px; padding: 28px 16px; text-align: center; background: #fff8fa; cursor: pointer; }
+.drop b { display: block; font-size: 18px; margin-bottom: 6px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 16px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 700; cursor: pointer; }
+.btn-main { background: linear-gradient(90deg, var(--brand), var(--brand2)); color: #fff; border: 0; }
+.btn-ok { background: var(--ok); color: #fff; border: 0; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.editor { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 14px; margin-top: 12px; }
+@media (max-width: 760px) { .editor { grid-template-columns: 1fr; } }
+.stagebox { position: relative; border-radius: 14px; overflow: hidden; background: #222; display: flex; align-items: center; justify-content: center; min-height: 260px; touch-action: none; user-select: none; -webkit-user-select: none; }
+#view { display: block; max-width: 100%; max-height: 72vh; }
+.split { position: absolute; top: 0; bottom: 0; width: 0; border-left: 2px solid #fff; box-shadow: 0 0 6px rgba(0,0,0,.5); pointer-events: none; }
+.split b { position: absolute; top: 50%; left: -18px; width: 36px; height: 36px; margin-top: -18px; border-radius: 50%; background: #fff; color: var(--brand); display: flex; align-items: center; justify-content: center; font-size: 15px; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+.tag { position: absolute; top: 8px; padding: 2px 8px; border-radius: 8px; background: rgba(0,0,0,.55); color: #fff; font-size: 12px; font-weight: 700; pointer-events: none; }
+.busy { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.88); font-weight: 700; color: var(--brand); text-align: center; padding: 16px; }
+.spin { width: 34px; height: 34px; border-radius: 50%; border: 4px solid #fcc2d7; border-top-color: var(--brand); animation: sp 0.9s linear infinite; }
+@keyframes sp { to { transform: rotate(360deg); } }
+.tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px; }
+.tabs button { padding: 9px 4px; border-radius: 10px; border: 1px solid var(--line); background: #fff; font-weight: 700; cursor: pointer; font-size: 14px; }
+.tabs button.on { background: #ffe3ec; border-color: var(--brand); color: var(--brand); }
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(62px, 1fr)); gap: 8px; }
+.sw { border: 2px solid var(--line); border-radius: 12px; background: #fff; padding: 6px 4px; cursor: pointer; font-size: 11px; font-weight: 600; color: var(--ink); line-height: 1.2; }
+.sw i { display: block; width: 30px; height: 30px; border-radius: 50%; margin: 0 auto 4px; border: 1px solid rgba(0,0,0,.15); }
+.sw.on { border-color: var(--brand); box-shadow: 0 0 0 2px #fcc2d7; }
+.styles { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 8px; }
+.st { border: 2px solid var(--line); border-radius: 12px; background: #fff; padding: 8px 4px; cursor: pointer; font-size: 13px; font-weight: 700; color: var(--ink); }
+.st.on { border-color: var(--brand); background: #fff0f5; color: var(--brand); }
+.st:disabled { opacity: .45; cursor: default; }
+label.sl { display: block; font-size: 13px; color: var(--muted); margin-top: 10px; }
+input[type=range] { width: 100%; }
+.hint { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+.warnmsg { font-size: 13px; color: #c92a2a; font-weight: 600; margin: 6px 0 0; }
+.hidden { display: none !important; }
+section.info { margin: 26px 0; }
+section.info h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 22px; margin: 0 0 6px; }
+footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top: 1px solid var(--line); margin-top: 24px; }
+.toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: #2b1420; color: #fff; padding: 10px 16px; border-radius: 12px; font-weight: 600; z-index: 20; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://nextgrade.in/tools/">💇 NextGrade Tools<small data-t="brandSub"></small></a>
+    <select class="langsel" id="lang" aria-label="Language"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+  </header>
+
+  <h1 data-t="title"></h1>
+  <p class="sub" data-t="sub"></p>
+  <div class="privacy">🔒 <span data-t="privacy"></span></div>
+
+  <div class="card" id="pickCard">
+    <div class="drop" id="drop" role="button" tabindex="0">
+      <b data-t="pickTitle"></b>
+      <span class="hint" data-t="pickHint"></span>
+      <div class="row" style="justify-content:center;margin-top:12px">
+        <button class="btn btn-main" id="pickBtn" type="button" data-t="pickBtn"></button>
+        <button class="btn" id="camBtn" type="button" data-t="camBtn"></button>
+      </div>
+    </div>
+    <input type="file" id="file" accept="image/*" class="hidden">
+    <input type="file" id="cam" accept="image/*" capture="user" class="hidden">
+  </div>
+
+  <div class="editor hidden" id="editor">
+    <div class="card">
+      <div class="stagebox" id="stagebox">
+        <canvas id="view" aria-label="Preview"></canvas>
+        <div class="split" id="split"><b>⇆</b></div>
+        <span class="tag" style="left:8px" data-t="before"></span>
+        <span class="tag" style="right:8px" data-t="after"></span>
+        <div class="busy hidden" id="busy"><div class="spin"></div><div id="busyText"></div></div>
+      </div>
+      <p class="hint" data-t="slideHint"></p>
+      <div class="row" style="margin-top:8px">
+        <button class="btn" id="newBtn" type="button" data-t="newPhoto"></button>
+        <button class="btn" id="resetBtn" type="button" data-t="reset"></button>
+        <button class="btn btn-ok" id="dlBtn" type="button" data-t="download"></button>
+        <button class="btn" id="shareBtn" type="button" data-t="share"></button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tabs" id="tabs">
+        <button type="button" data-tab="colour" class="on" data-t="tabColour"></button>
+        <button type="button" data-tab="beard" data-t="tabBeard"></button>
+        <button type="button" data-tab="mous" data-t="tabMous"></button>
+      </div>
+      <div id="paneColour">
+        <div class="swatches" id="shades"></div>
+        <label class="sl"><span data-t="strength"></span> <b id="strVal"></b></label>
+        <input type="range" id="strength" min="20" max="100" step="5" value="60">
+        <p class="warnmsg hidden" id="noHair" data-t="noHair"></p>
+      </div>
+      <div id="paneBeard" class="hidden">
+        <div class="styles" id="beards"></div>
+      </div>
+      <div id="paneMous" class="hidden">
+        <div class="styles" id="mouss"></div>
+      </div>
+      <div id="faceColour" class="hidden">
+        <label class="sl" data-t="faceHairColour"></label>
+        <div class="swatches" id="beardShades" style="margin-top:6px"></div>
+        <label class="sl"><span data-t="density"></span> <b id="denVal"></b></label>
+        <input type="range" id="density" min="30" max="100" step="5" value="75">
+      </div>
+      <p class="warnmsg hidden" id="noFace" data-t="noFace"></p>
+      <p class="hint" data-t="realNote"></p>
+    </div>
+  </div>
+
+  <section class="info"><h2 data-t="howH"></h2><ol id="howList"></ol></section>
+  <section class="info"><h2 data-t="tipsH"></h2><ul id="tipList"></ul></section>
+  <section class="info"><h2 data-t="privH"></h2><p data-t="privText"></p></section>
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer"></span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+</div>
+
+<script type="module">
+import { FilesetResolver, ImageSegmenter, FaceLandmarker } from './lib/vision_bundle.mjs';
+
+const WASM = new URL('./lib/wasm', location.href).href; // MediaPipe tasks-vision 0.10.14 (Apache-2.0), kept in this folder
+const MODEL_HAIR = 'models/hair_segmenter.tflite';
+const MODEL_FACE = 'models/face_landmarker.task';
+const MAX_SIDE = 1600;
+
+// [id, colour, soft-light lift, screen lift] — the 'color' blend keeps the hair's own light and shade
+const SHADES = [
+  ['none', null, 0, 0], ['black', '#161616', 0, 0], ['darkbrown', '#4a2c1a', 0.1, 0], ['chocolate', '#5c3317', 0.12, 0],
+  ['burgundy', '#6b1630', 0.12, 0], ['wine', '#561428', 0.1, 0], ['mehendi', '#9c3415', 0.18, 0.04], ['copper', '#a8501c', 0.2, 0.06],
+  ['caramel', '#94602f', 0.22, 0.08], ['golden', '#a87a36', 0.25, 0.12], ['honey', '#c09a5c', 0.28, 0.18], ['ash', '#858585', 0.2, 0.16],
+  ['silver', '#c4c4cc', 0.3, 0.26], ['blue', '#1f4a94', 0.15, 0.04], ['purple', '#5c2684', 0.15, 0.04], ['pink', '#b8557a', 0.22, 0.1], ['green', '#2a6b45', 0.15, 0.04],
+];
+const FACE_SHADES = [['black', '#151210'], ['darkbrown', '#3b2416'], ['brown', '#5e3b22'], ['grey', '#7d7a77'], ['white', '#d9d6d2']];
+const BEARDS = ['none', 'stubble', 'short', 'full', 'goatee', 'french'];
+const MOUSS = ['none', 'classic', 'thick', 'handlebar', 'pencil'];
+
+const T = {
+  hinglish: {
+    brandSub: 'Free · photo phone se bahar nahi jaati', title: 'Naya look try karo — baal ka rang, daadhi, moonchh',
+    sub: 'Apni photo par baalon ke 16 rang, daadhi aur moonchh ke style lagao. Pehle/baad mein slider se dekho, download ya share karo. Bilkul free.',
+    privacy: 'Aapki photo kahin upload nahi hoti. Saara kaam aapke phone/browser mein hota hai, download bhi phone mein hi.',
+    pickTitle: 'Apni photo chuno', pickHint: 'Seedha chehra, achhi roshni. Badi photo apne aap chhoti ho jaati hai.',
+    pickBtn: '🖼️ Photo chuno', camBtn: '🤳 Selfie lo', before: 'Pehle', after: 'Baad', slideHint: 'Photo par ungli ghuma kar pehle aur baad ka fark dekho.',
+    newPhoto: '↺ Nayi photo', reset: '✕ Sab hatao', download: '⬇️ Download', share: '📲 Share',
+    tabColour: '🎨 Baal ka rang', tabBeard: '🧔 Daadhi', tabMous: '👨 Moonchh', strength: 'Rang kitna gehra:', faceHairColour: 'Daadhi-moonchh ka rang', density: 'Kitni ghani:',
+    noHair: 'Is photo mein baal saaf nahi mile. Doosri photo try karo.', noFace: 'Chehra nahi mila — seedhi, saaf chehre wali photo lo.',
+    realNote: 'Yeh sirf andaza lagane ke liye hai — asli rang aur daadhi thodi alag dikh sakti hai.',
+    loading: 'AI taiyaar ho raha hai… (pehli baar thoda samay, phir offline bhi)', working: 'Chehra aur baal dhund rahe hain… (phone par hi)', failed: 'Yeh photo nahi khul payi. Doosri try karo.', saved: '✅ Phone mein save ho gaya',
+    shades: { none: 'Asli', black: 'Kaala', darkbrown: 'Gehra bhura', chocolate: 'Chocolate', burgundy: 'Burgundy', wine: 'Wine', mehendi: 'Mehendi', copper: 'Copper', caramel: 'Caramel', golden: 'Golden', honey: 'Honey blonde', ash: 'Ash grey', silver: 'Silver', blue: 'Neela', purple: 'Baingani', pink: 'Gulabi', green: 'Hara' },
+    faceShades: { black: 'Kaala', darkbrown: 'Gehra bhura', brown: 'Bhura', grey: 'Grey', white: 'Safed' },
+    beards: { none: 'Nahi', stubble: 'Halki (stubble)', short: 'Chhoti', full: 'Poori', goatee: 'Goatee', french: 'French' },
+    mouss: { none: 'Nahi', classic: 'Classic', thick: 'Ghani', handlebar: 'Handlebar', pencil: 'Patli (pencil)' },
+    howH: 'Kaise use karein', how: ['<b>Photo chuno</b> ya <b>selfie lo</b> — seedha chehra, achhi roshni.', '<b>🎨 Baal ka rang</b> mein rang chuno aur "Rang kitna gehra" se kam-zyada karo.', '<b>🧔 Daadhi</b> aur <b>👨 Moonchh</b> mein style chuno; rang aur ghanapan bhi badlo.', 'Photo par <b>ungli ghumao</b> — baayein pehle, daayein baad.', '<b>Download</b> karo ya WhatsApp par <b>share</b> karke doston se poocho!'],
+    tipsH: 'Achhe result ke liye', tips: ['Chehra camera ki taraf seedha, baal aur chehra dono frame mein.', 'Din ki roshni sabse achhi; andhere mein rang ajeeb lag sakta hai.', 'Halka rang (golden, honey, silver) kaale baalon par kam dikhta hai — asli mein bhi bleach ke bina aisa hi hota hai.', 'Baal rangne se pehle patch test zaroor karo.'],
+    privH: 'Aapki photo, aapke paas', privText: 'Yeh tool AI model ek baar download karke aapke phone/browser mein hi chalata hai. Aapki photo kisi server par nahi jaati, kahin save nahi hoti, aur hum use dekh bhi nahi sakte. Page band karte hi sab mit jaata hai.',
+    footer: 'Free tool · photo upload nahi hoti', shareText: 'Mera naya look kaisa hai? 😄',
+  },
+  hi: {
+    brandSub: 'मुफ़्त · फ़ोटो फ़ोन से बाहर नहीं जाती', title: 'नया लुक आज़माओ — बालों का रंग, दाढ़ी, मूँछ',
+    sub: 'अपनी फ़ोटो पर बालों के 16 रंग, दाढ़ी और मूँछ के स्टाइल लगाओ। पहले/बाद में स्लाइडर से देखो, डाउनलोड या शेयर करो। बिल्कुल मुफ़्त।',
+    privacy: 'आपकी फ़ोटो कहीं अपलोड नहीं होती। सारा काम आपके फ़ोन/ब्राउज़र में होता है, डाउनलोड भी फ़ोन में ही।',
+    pickTitle: 'अपनी फ़ोटो चुनो', pickHint: 'सीधा चेहरा, अच्छी रोशनी। बड़ी फ़ोटो अपने आप छोटी हो जाती है।',
+    pickBtn: '🖼️ फ़ोटो चुनो', camBtn: '🤳 सेल्फ़ी लो', before: 'पहले', after: 'बाद', slideHint: 'फ़ोटो पर उँगली घुमाकर पहले और बाद का फ़र्क देखो।',
+    newPhoto: '↺ नई फ़ोटो', reset: '✕ सब हटाओ', download: '⬇️ डाउनलोड', share: '📲 शेयर',
+    tabColour: '🎨 बालों का रंग', tabBeard: '🧔 दाढ़ी', tabMous: '👨 मूँछ', strength: 'रंग कितना गहरा:', faceHairColour: 'दाढ़ी-मूँछ का रंग', density: 'कितनी घनी:',
+    noHair: 'इस फ़ोटो में बाल साफ़ नहीं मिले। दूसरी फ़ोटो आज़माओ।', noFace: 'चेहरा नहीं मिला — सीधे, साफ़ चेहरे वाली फ़ोटो लो।',
+    realNote: 'यह सिर्फ़ अंदाज़ा लगाने के लिए है — असली रंग और दाढ़ी थोड़ी अलग दिख सकती है।',
+    loading: 'AI तैयार हो रहा है… (पहली बार थोड़ा समय, फिर ऑफ़लाइन भी)', working: 'चेहरा और बाल ढूँढ रहे हैं… (फ़ोन पर ही)', failed: 'यह फ़ोटो नहीं खुल पाई। दूसरी आज़माओ।', saved: '✅ फ़ोन में सेव हो गया',
+    shades: { none: 'असली', black: 'काला', darkbrown: 'गहरा भूरा', chocolate: 'चॉकलेट', burgundy: 'बरगंडी', wine: 'वाइन', mehendi: 'मेहंदी', copper: 'कॉपर', caramel: 'कैरमल', golden: 'गोल्डन', honey: 'हनी ब्लॉन्ड', ash: 'ऐश ग्रे', silver: 'सिल्वर', blue: 'नीला', purple: 'बैंगनी', pink: 'गुलाबी', green: 'हरा' },
+    faceShades: { black: 'काला', darkbrown: 'गहरा भूरा', brown: 'भूरा', grey: 'ग्रे', white: 'सफ़ेद' },
+    beards: { none: 'नहीं', stubble: 'हल्की', short: 'छोटी', full: 'पूरी', goatee: 'गोटी', french: 'फ़्रेंच' },
+    mouss: { none: 'नहीं', classic: 'क्लासिक', thick: 'घनी', handlebar: 'हैंडलबार', pencil: 'पतली' },
+    howH: 'कैसे इस्तेमाल करें', how: ['<b>फ़ोटो चुनो</b> या <b>सेल्फ़ी लो</b> — सीधा चेहरा, अच्छी रोशनी।', '<b>🎨 बालों का रंग</b> में रंग चुनो और "रंग कितना गहरा" से कम-ज़्यादा करो।', '<b>🧔 दाढ़ी</b> और <b>👨 मूँछ</b> में स्टाइल चुनो; रंग और घनापन भी बदलो।', 'फ़ोटो पर <b>उँगली घुमाओ</b> — बाएँ पहले, दाएँ बाद।', '<b>डाउनलोड</b> करो या WhatsApp पर <b>शेयर</b> करके दोस्तों से पूछो!'],
+    tipsH: 'अच्छे नतीजे के लिए', tips: ['चेहरा कैमरे की तरफ़ सीधा, बाल और चेहरा दोनों फ़्रेम में।', 'दिन की रोशनी सबसे अच्छी; अँधेरे में रंग अजीब लग सकता है।', 'हल्के रंग (गोल्डन, हनी, सिल्वर) काले बालों पर कम दिखते हैं — असल में भी ब्लीच के बिना ऐसा ही होता है।', 'बाल रंगने से पहले पैच टेस्ट ज़रूर करो।'],
+    privH: 'आपकी फ़ोटो, आपके पास', privText: 'यह टूल AI मॉडल एक बार डाउनलोड करके आपके फ़ोन/ब्राउज़र में ही चलाता है। आपकी फ़ोटो किसी सर्वर पर नहीं जाती, कहीं सेव नहीं होती, और हम उसे देख भी नहीं सकते। पेज बंद करते ही सब मिट जाता है।',
+    footer: 'मुफ़्त टूल · फ़ोटो अपलोड नहीं होती', shareText: 'मेरा नया लुक कैसा है? 😄',
+  },
+  en: {
+    brandSub: 'Free · your photo never leaves your phone', title: 'Try a new look — hair colour, beard, moustache',
+    sub: 'Try 16 hair colours plus beard and moustache styles on your own photo. Compare before/after with a slider, download or share. Completely free.',
+    privacy: 'Your photo is never uploaded. Everything happens on your phone/browser, and the download stays on your phone.',
+    pickTitle: 'Choose your photo', pickHint: 'Face straight on, good light. Large photos are scaled down automatically.',
+    pickBtn: '🖼️ Choose photo', camBtn: '🤳 Take a selfie', before: 'Before', after: 'After', slideHint: 'Drag across the photo to compare before and after.',
+    newPhoto: '↺ New photo', reset: '✕ Clear all', download: '⬇️ Download', share: '📲 Share',
+    tabColour: '🎨 Hair colour', tabBeard: '🧔 Beard', tabMous: '👨 Moustache', strength: 'Colour strength:', faceHairColour: 'Beard & moustache colour', density: 'Thickness:',
+    noHair: 'No clear hair found in this photo. Try another one.', noFace: 'No face found — use a clear, straight-on photo.',
+    realNote: 'This is only a preview — real colour and beard can look a little different.',
+    loading: 'Getting the AI ready… (a moment the first time, then it works offline)', working: 'Finding the face and hair… (on your phone)', failed: 'This photo could not be opened. Try another.', saved: '✅ Saved to your phone',
+    shades: { none: 'Natural', black: 'Black', darkbrown: 'Dark brown', chocolate: 'Chocolate', burgundy: 'Burgundy', wine: 'Wine', mehendi: 'Henna', copper: 'Copper', caramel: 'Caramel', golden: 'Golden', honey: 'Honey blonde', ash: 'Ash grey', silver: 'Silver', blue: 'Blue', purple: 'Purple', pink: 'Pink', green: 'Green' },
+    faceShades: { black: 'Black', darkbrown: 'Dark brown', brown: 'Brown', grey: 'Grey', white: 'White' },
+    beards: { none: 'None', stubble: 'Stubble', short: 'Short', full: 'Full', goatee: 'Goatee', french: 'French' },
+    mouss: { none: 'None', classic: 'Classic', thick: 'Thick', handlebar: 'Handlebar', pencil: 'Pencil' },
+    howH: 'How to use', how: ['<b>Choose a photo</b> or <b>take a selfie</b> — face straight on, good light.', 'In <b>🎨 Hair colour</b> pick a shade and adjust "Colour strength".', 'In <b>🧔 Beard</b> and <b>👨 Moustache</b> pick a style; change its colour and thickness too.', '<b>Drag across the photo</b> — left is before, right is after.', '<b>Download</b> it or <b>share</b> it on WhatsApp and ask your friends!'],
+    tipsH: 'For the best result', tips: ['Face the camera straight, with hair and face both in the frame.', 'Daylight is best; in dim light colours can look odd.', 'Light shades (golden, honey, silver) show less on black hair — in real life too, without bleach.', 'Always do a patch test before colouring your hair.'],
+    privH: 'Your photo stays with you', privText: 'This tool downloads the AI model once and runs it inside your phone/browser. Your photo is not sent to any server, not saved anywhere, and we cannot see it. Closing the page clears everything.',
+    footer: 'Free tool · no photo upload', shareText: 'How does my new look look? 😄',
+  },
+  bn: {
+    brandSub: 'বিনামূল্যে · ছবি ফোনের বাইরে যায় না', title: 'নতুন লুক ট্রাই করো — চুলের রং, দাড়ি, গোঁফ',
+    sub: 'নিজের ছবিতে চুলের ১৬টা রং, দাড়ি আর গোঁফের স্টাইল লাগাও। আগে/পরে স্লাইডারে দেখো, ডাউনলোড বা শেয়ার করো। একদম বিনামূল্যে।',
+    privacy: 'তোমার ছবি কোথাও আপলোড হয় না। সব কাজ তোমার ফোন/ব্রাউজারেই হয়, ডাউনলোডও ফোনেই।',
+    pickTitle: 'নিজের ছবি বাছো', pickHint: 'সোজা মুখ, ভালো আলো। বড় ছবি নিজে থেকেই ছোট হয়।',
+    pickBtn: '🖼️ ছবি বাছো', camBtn: '🤳 সেলফি তোলো', before: 'আগে', after: 'পরে', slideHint: 'ছবির ওপর আঙুল টেনে আগে আর পরের তফাত দেখো।',
+    newPhoto: '↺ নতুন ছবি', reset: '✕ সব মোছো', download: '⬇️ ডাউনলোড', share: '📲 শেয়ার',
+    tabColour: '🎨 চুলের রং', tabBeard: '🧔 দাড়ি', tabMous: '👨 গোঁফ', strength: 'রং কতটা গাঢ়:', faceHairColour: 'দাড়ি-গোঁফের রং', density: 'কতটা ঘন:',
+    noHair: 'এই ছবিতে চুল পরিষ্কার পাওয়া গেল না। অন্য ছবি দেখো।', noFace: 'মুখ পাওয়া গেল না — সোজা, পরিষ্কার মুখের ছবি নাও।',
+    realNote: 'এটা শুধু আন্দাজ করার জন্য — আসল রং আর দাড়ি একটু আলাদা দেখাতে পারে।',
+    loading: 'AI তৈরি হচ্ছে… (প্রথমবার একটু সময়, তারপর অফলাইনেও)', working: 'মুখ আর চুল খোঁজা হচ্ছে… (ফোনেই)', failed: 'এই ছবিটা খোলা গেল না। অন্যটা দেখো।', saved: '✅ ফোনে সেভ হয়েছে',
+    shades: { none: 'আসল', black: 'কালো', darkbrown: 'গাঢ় বাদামি', chocolate: 'চকোলেট', burgundy: 'বারগান্ডি', wine: 'ওয়াইন', mehendi: 'মেহেন্দি', copper: 'কপার', caramel: 'ক্যারামেল', golden: 'গোল্ডেন', honey: 'হানি ব্লন্ড', ash: 'অ্যাশ গ্রে', silver: 'সিলভার', blue: 'নীল', purple: 'বেগুনি', pink: 'গোলাপি', green: 'সবুজ' },
+    faceShades: { black: 'কালো', darkbrown: 'গাঢ় বাদামি', brown: 'বাদামি', grey: 'ধূসর', white: 'সাদা' },
+    beards: { none: 'না', stubble: 'হালকা', short: 'ছোট', full: 'পুরো', goatee: 'গোটি', french: 'ফ্রেঞ্চ' },
+    mouss: { none: 'না', classic: 'ক্লাসিক', thick: 'ঘন', handlebar: 'হ্যান্ডেলবার', pencil: 'সরু' },
+    howH: 'কীভাবে ব্যবহার করবে', how: ['<b>ছবি বাছো</b> বা <b>সেলফি তোলো</b> — সোজা মুখ, ভালো আলো।', '<b>🎨 চুলের রং</b>-এ রং বাছো আর "রং কতটা গাঢ়" দিয়ে কম-বেশি করো।', '<b>🧔 দাড়ি</b> আর <b>👨 গোঁফ</b>-এ স্টাইল বাছো; রং আর ঘনত্বও বদলাও।', 'ছবির ওপর <b>আঙুল টানো</b> — বাঁদিকে আগে, ডানদিকে পরে।', '<b>ডাউনলোড</b> করো বা WhatsApp-এ <b>শেয়ার</b> করে বন্ধুদের জিজ্ঞেস করো!'],
+    tipsH: 'ভালো ফলের জন্য', tips: ['ক্যামেরার দিকে সোজা মুখ, চুল আর মুখ দুটোই ফ্রেমে।', 'দিনের আলো সবচেয়ে ভালো; অন্ধকারে রং অদ্ভুত লাগতে পারে।', 'হালকা রং (গোল্ডেন, হানি, সিলভার) কালো চুলে কম দেখায় — আসলেও ব্লিচ ছাড়া এমনই হয়।', 'চুলে রং করার আগে প্যাচ টেস্ট অবশ্যই করো।'],
+    privH: 'তোমার ছবি তোমার কাছেই', privText: 'এই টুল AI মডেল একবার ডাউনলোড করে তোমার ফোন/ব্রাউজারের ভেতরেই চালায়। তোমার ছবি কোনো সার্ভারে যায় না, কোথাও সেভ হয় না, আমরা দেখতেও পাই না। পেজ বন্ধ করলেই সব মুছে যায়।',
+    footer: 'বিনামূল্যের টুল · ছবি আপলোড হয় না', shareText: 'আমার নতুন লুক কেমন? 😄',
+  },
+};
+
+// ---------- helpers
+const $ = (id) => document.getElementById(id);
+const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+const params = new URLSearchParams(location.search);
+const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('ht-lang')) ? store.get('ht-lang') : deviceLang();
+const t = (k) => T[lang][k];
+const mk = (w, h) => { const c = document.createElement('canvas'); c.width = Math.max(1, Math.round(w)); c.height = Math.max(1, Math.round(h)); return c; };
+let toastTimer = 0;
+const toast = (msg) => { let el = document.querySelector('.toast'); if (!el) { el = document.createElement('div'); el.className = 'toast'; document.body.appendChild(el); } el.textContent = msg; el.classList.remove('hidden'); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.add('hidden'), 2600); };
+const busy = (msg) => { $('busy').classList.toggle('hidden', !msg); $('busyText').textContent = msg || ''; };
+// small seeded random so strokes stay the same between redraws
+const rng = (seed) => () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+
+// ---------- state
+let vision = null, hairSeg = null, faceLm = null;
+let img = null, W = 0, H = 0, hairMask = null, face = null;
+let shade = 'none', strength = 0.6, beard = 'none', mous = 'none', faceShade = 'black', density = 0.75, split = 0.5, tab = 'colour';
+
+const getVision = async () => { if (!vision) vision = await FilesetResolver.forVisionTasks(WASM); return vision; };
+const withFallback = async (Cls, opts) => { const v = await getVision(); return Cls.createFromOptions(v, { ...opts, baseOptions: { ...opts.baseOptions, delegate: 'GPU' } }).catch(() => Cls.createFromOptions(v, { ...opts, baseOptions: { ...opts.baseOptions, delegate: 'CPU' } })); };
+const getHair = async () => { if (!hairSeg) hairSeg = await withFallback(ImageSegmenter, { baseOptions: { modelAssetPath: MODEL_HAIR }, runningMode: 'IMAGE', outputCategoryMask: false, outputConfidenceMasks: true }); return hairSeg; };
+const getFace = async () => { if (!faceLm) faceLm = await withFallback(FaceLandmarker, { baseOptions: { modelAssetPath: MODEL_FACE }, runningMode: 'IMAGE', numFaces: 1 }); return faceLm; };
+
+// ---------- analysis (once per photo)
+const analyse = async () => {
+  busy(hairSeg ? t('working') : t('loading'));
+  const [hs, fl] = await Promise.all([getHair(), getFace()]);
+  busy(t('working'));
+  await new Promise((r) => setTimeout(r, 30));
+  // hair: confidence -> full-size soft mask
+  let conf = null, mw = 0, mh = 0;
+  hs.segment(img, (res) => { const ms = res.confidenceMasks; const m = ms[ms.length > 1 ? 1 : 0]; conf = Float32Array.from(m.getAsFloat32Array()); mw = m.width; mh = m.height; });
+  let hairPx = 0;
+  const sm = mk(mw, mh), sx = sm.getContext('2d'), sd = sx.createImageData(mw, mh);
+  for (let i = 0; i < mw * mh; i += 1) { const c = conf[i]; const a = c <= 0.3 ? 0 : c >= 0.7 ? 1 : (c - 0.3) / 0.4; if (a > 0.5) hairPx += 1; sd.data[i * 4 + 3] = Math.round(a * 255); }
+  sx.putImageData(sd, 0, 0);
+  hairMask = mk(W, H); const hx = hairMask.getContext('2d'); hx.imageSmoothingQuality = 'high'; hx.drawImage(sm, 0, 0, W, H);
+  if (hairPx < mw * mh * 0.005) hairMask = null;
+  // face landmarks (pixel coordinates)
+  const r = fl.detect(img);
+  face = r.faceLandmarks && r.faceLandmarks[0] ? r.faceLandmarks[0].map((p) => ({ x: p.x * W, y: p.y * H })) : null;
+  busy('');
+  $('noHair').classList.toggle('hidden', Boolean(hairMask));
+  $('noFace').classList.toggle('hidden', Boolean(face) || tab === 'colour');
+  drawStyles();
+  render();
+};
+
+// ---------- hair colour
+const colourLayer = (hex, alpha) => {
+  const c = mk(W, H), x = c.getContext('2d');
+  x.fillStyle = hex; x.fillRect(0, 0, W, H);
+  x.globalCompositeOperation = 'destination-in'; x.globalAlpha = alpha; x.drawImage(hairMask, 0, 0);
+  return c;
+};
+const applyColour = (x) => {
+  const s = SHADES.find((v) => v[0] === shade);
+  if (!s || !s[1] || !hairMask) return;
+  const layer = colourLayer(s[1], strength);
+  x.save();
+  x.globalCompositeOperation = 'color'; x.globalAlpha = 0.85; x.drawImage(layer, 0, 0); x.globalAlpha = 1;
+  if (s[2]) { x.globalCompositeOperation = 'soft-light'; x.globalAlpha = s[2]; x.drawImage(layer, 0, 0); }
+  if (s[3]) { x.globalCompositeOperation = 'screen'; x.globalAlpha = s[3] * strength; x.drawImage(layer, 0, 0); }
+  x.restore();
+};
+
+// ---------- beard & moustache, drawn on the face points
+// Face frame: origin under the nose (point 2), u along the eyes, v down the face, 1 unit = face width.
+const frame = () => {
+  const L = face[33], R = face[263], N = face[2];
+  const ex = { x: R.x - L.x, y: R.y - L.y }; const el = Math.hypot(ex.x, ex.y) || 1; ex.x /= el; ex.y /= el;
+  const ey = { x: -ex.y, y: ex.x };
+  const fw = Math.hypot(face[454].x - face[234].x, face[454].y - face[234].y) || 1;
+  const toUV = (p) => ({ u: ((p.x - N.x) * ex.x + (p.y - N.y) * ex.y) / fw, v: ((p.x - N.x) * ey.x + (p.y - N.y) * ey.y) / fw });
+  const toXY = (q) => ({ x: N.x + (q.u * ex.x + q.v * ey.x) * fw, y: N.y + (q.u * ex.y + q.v * ey.y) * fw });
+  return { toUV, toXY, fw, ex, ey };
+};
+const JAW = [234, 93, 132, 58, 172, 136, 150, 149, 176, 148, 152, 377, 400, 378, 379, 365, 397, 288, 361, 323, 454];
+const pathOf = (x, pts) => { x.beginPath(); pts.forEach((p, i) => (i ? x.lineTo(p.x, p.y) : x.moveTo(p.x, p.y))); x.closePath(); };
+// fill a region with short hair strokes (direction mostly down the face)
+const fillHair = (region, colour, dens, len, width, seed, f) => {
+  const c = mk(W, H), x = c.getContext('2d');
+  const xs = region.map((p) => p.x), ys = region.map((p) => p.y);
+  const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+  pathOf(x, region); x.save(); x.clip();
+  // soft base tone
+  x.fillStyle = colour; x.globalAlpha = 0.22 * dens; x.fillRect(x0, y0, x1 - x0, y1 - y0); x.globalAlpha = 1;
+  const r = rng(seed), area = (x1 - x0) * (y1 - y0);
+  const n = Math.min(26000, Math.round((area / (width * len)) * 2.2 * dens));
+  x.strokeStyle = colour; x.lineCap = 'round';
+  for (let i = 0; i < n; i += 1) {
+    const px = x0 + r() * (x1 - x0), py = y0 + r() * (y1 - y0);
+    const ang = (r() - 0.5) * 0.9, l = len * (0.6 + r() * 0.8);
+    const dx = (f.ey.x * Math.cos(ang) - f.ex.x * Math.sin(ang)) * l, dy = (f.ey.y * Math.cos(ang) - f.ex.y * Math.sin(ang)) * l;
+    x.globalAlpha = (0.25 + r() * 0.5) * dens; x.lineWidth = width * (0.6 + r() * 0.8);
+    x.beginPath(); x.moveTo(px, py); x.lineTo(px + dx, py + dy); x.stroke();
+  }
+  x.restore();
+  // soften the outline
+  const out = mk(W, H), ox = out.getContext('2d');
+  const m = mk(W, H), mx = m.getContext('2d'); pathOf(mx, region); mx.fillStyle = '#000'; mx.fill();
+  const soft = Math.max(2, f.fw * 0.012);
+  const sm2 = mk(W, H), s2 = sm2.getContext('2d');
+  if ('filter' in s2) { s2.filter = `blur(${soft}px)`; s2.drawImage(m, 0, 0); s2.filter = 'none'; } else s2.drawImage(m, 0, 0);
+  ox.drawImage(c, 0, 0); ox.globalCompositeOperation = 'destination-in'; ox.drawImage(sm2, 0, 0);
+  return out;
+};
+const lipsHole = (x, f) => {
+  // keep the lips visible
+  const c = { x: (face[0].x + face[17].x) / 2, y: (face[0].y + face[17].y) / 2 };
+  const w = Math.hypot(face[291].x - face[61].x, face[291].y - face[61].y) * 0.56, h = Math.hypot(face[17].x - face[0].x, face[17].y - face[0].y) * 0.62;
+  x.save(); x.globalCompositeOperation = 'destination-out'; x.beginPath();
+  x.ellipse(c.x, c.y, w, h, Math.atan2(f.ex.y, f.ex.x), 0, Math.PI * 2); x.fill(); x.restore();
+};
+const beardRegion = (f, kind) => {
+  const uv = (i) => f.toUV(face[i]);
+  const ml = uv(61), mr = uv(291), up = uv(0), lo = uv(17), chin = uv(152);
+  if (kind === 'goatee' || kind === 'french') {
+    const w = Math.abs(mr.u - ml.u) * 0.5, top = lo.v - 0.005, bot = chin.v + 0.035;
+    const pts = [];
+    for (let a = 0; a <= Math.PI; a += Math.PI / 16) pts.push({ u: Math.cos(a) * w, v: top + Math.sin(a) * (bot - top) });
+    pts.push({ u: -w * 0.9, v: top - 0.01 }, { u: w * 0.9, v: top - 0.01 });
+    return pts.map(f.toXY);
+  }
+  const grow = kind === 'full' ? 1.07 : 1.0, drop = kind === 'full' ? 0.06 : 0.012;
+  const cy = (up.v + chin.v) / 2;
+  const jaw = JAW.map((i) => { const p = uv(i); return { u: p.u * grow, v: cy + (p.v - cy) * grow + drop * Math.max(0, (p.v - up.v) / (chin.v - up.v)) }; });
+  const midV = (up.v + mr.v) / 2;
+  const upper = [
+    { u: mr.u + 0.17, v: midV - 0.05 }, { u: mr.u + 0.05, v: up.v - 0.015 }, { u: 0, v: up.v * 0.45 },
+    { u: ml.u - 0.05, v: up.v - 0.015 }, { u: ml.u - 0.17, v: midV - 0.05 },
+  ];
+  return [...jaw, ...upper].map(f.toXY);
+};
+const mousRegion = (f, kind) => {
+  const uv = (i) => f.toUV(face[i]);
+  const ml = uv(61), mr = uv(291), up = uv(0);
+  const top = kind === 'pencil' ? up.v - 0.022 : kind === 'thick' ? up.v * 0.08 : up.v * 0.3;
+  const droop = kind === 'thick' ? 0.07 : kind === 'pencil' ? 0.004 : 0.025;
+  const ext = kind === 'pencil' ? 0.0 : 0.025;
+  const R = mr.u + ext, L = ml.u - ext;
+  const pts = [
+    { u: L - 0.01, v: up.v + droop }, { u: L + 0.03, v: top + 0.02 }, { u: L * 0.4, v: top }, { u: 0, v: top + 0.008 },
+    { u: R * 0.4, v: top }, { u: R - 0.03, v: top + 0.02 }, { u: R + 0.01, v: up.v + droop },
+    { u: R - 0.02, v: up.v + 0.004 }, { u: 0, v: up.v - 0.004 }, { u: L + 0.02, v: up.v + 0.004 },
+  ];
+  return pts.map(f.toXY);
+};
+const applyFaceHair = (x) => {
+  if (!face || (beard === 'none' && mous === 'none')) return;
+  const f = frame(), col = (FACE_SHADES.find((s) => s[0] === faceShade) || FACE_SHADES[0])[1];
+  const unit = f.fw;
+  if (beard !== 'none') {
+    const kind = beard;
+    const stubble = kind === 'stubble';
+    const layer = fillHair(beardRegion(f, kind), col, stubble ? density * 0.55 : density, unit * (stubble ? 0.008 : kind === 'full' ? 0.035 : 0.022), Math.max(1, unit * (stubble ? 0.0035 : 0.004)), 7, f);
+    if (kind !== 'goatee' && kind !== 'french') lipsHole(layer.getContext('2d'), f);
+    x.save(); x.globalCompositeOperation = stubble ? 'multiply' : 'source-over'; x.drawImage(layer, 0, 0); x.restore();
+  }
+  const m = beard === 'french' && mous === 'none' ? 'classic' : mous;
+  if (m !== 'none') {
+    const layer = fillHair(mousRegion(f, m), col, Math.min(1, density * 1.1), unit * 0.02, Math.max(1, unit * 0.0045), 11, f);
+    x.drawImage(layer, 0, 0);
+    if (m === 'handlebar') {
+      // curled tips
+      const uv = (i) => f.toUV(face[i]); const up = uv(0), ml = uv(61), mr = uv(291);
+      x.save(); x.strokeStyle = col; x.lineCap = 'round'; x.globalAlpha = 0.85 * density; x.lineWidth = Math.max(2, unit * 0.014);
+      [[mr.u + 0.035, 1], [ml.u - 0.035, -1]].forEach(([u0, s]) => {
+        const a = f.toXY({ u: u0, v: up.v + 0.02 }), b = f.toXY({ u: u0 + s * 0.05, v: up.v - 0.005 }), c2 = f.toXY({ u: u0 + s * 0.045, v: up.v - 0.045 });
+        x.beginPath(); x.moveTo(a.x, a.y); x.quadraticCurveTo(b.x, b.y, c2.x, c2.y); x.stroke();
+      });
+      x.restore();
+    }
+  }
+};
+
+// ---------- render (before | after split)
+const view = $('view');
+let resultCache = null, cacheKey = '';
+const result = () => {
+  const key = [shade, strength, beard, mous, faceShade, density].join('|');
+  if (resultCache && key === cacheKey) return resultCache;
+  const c = mk(W, H), x = c.getContext('2d');
+  x.drawImage(img, 0, 0);
+  applyColour(x);
+  applyFaceHair(x);
+  resultCache = c; cacheKey = key;
+  return c;
+};
+const render = () => {
+  if (!img) return;
+  view.width = W; view.height = H;
+  const x = view.getContext('2d'), sx = Math.round(W * split);
+  x.drawImage(img, 0, 0);
+  const r = result();
+  x.drawImage(r, sx, 0, W - sx, H, sx, 0, W - sx, H);
+  const vr = view.getBoundingClientRect(), br = $('stagebox').getBoundingClientRect();
+  $('split').style.left = `${vr.left - br.left + vr.width * split}px`;
+};
+const setSplitFrom = (e) => { const r = view.getBoundingClientRect(); split = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)); render(); };
+let dragging = false;
+$('stagebox').addEventListener('pointerdown', (e) => { if (!img) return; dragging = true; $('stagebox').setPointerCapture(e.pointerId); setSplitFrom(e); });
+$('stagebox').addEventListener('pointermove', (e) => { if (dragging) setSplitFrom(e); });
+['pointerup', 'pointercancel'].forEach((ev) => $('stagebox').addEventListener(ev, () => { dragging = false; }));
+window.addEventListener('resize', render);
+
+// ---------- controls
+const drawStyles = () => {
+  $('shades').innerHTML = SHADES.map(([id, hex]) => `<button type="button" class="sw ${shade === id ? 'on' : ''}" data-v="${id}"><i style="background:${hex || 'linear-gradient(135deg,#ccc,#fff)'}"></i>${t('shades')[id]}</button>`).join('');
+  $('beardShades').innerHTML = FACE_SHADES.map(([id, hex]) => `<button type="button" class="sw ${faceShade === id ? 'on' : ''}" data-v="${id}"><i style="background:${hex}"></i>${t('faceShades')[id]}</button>`).join('');
+  $('beards').innerHTML = BEARDS.map((id) => `<button type="button" class="st ${beard === id ? 'on' : ''}" data-v="${id}" ${face || id === 'none' ? '' : 'disabled'}>${t('beards')[id]}</button>`).join('');
+  $('mouss').innerHTML = MOUSS.map((id) => `<button type="button" class="st ${mous === id ? 'on' : ''}" data-v="${id}" ${face || id === 'none' ? '' : 'disabled'}>${t('mouss')[id]}</button>`).join('');
+  $('strVal').textContent = `${Math.round(strength * 100)}%`; $('denVal').textContent = `${Math.round(density * 100)}%`;
+};
+const pick = (id, fn) => $(id).addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b || b.disabled) return; fn(b.dataset.v); drawStyles(); render(); });
+pick('shades', (v) => { shade = v; });
+pick('beardShades', (v) => { faceShade = v; });
+pick('beards', (v) => { beard = v; });
+pick('mouss', (v) => { mous = v; });
+$('strength').addEventListener('input', (e) => { strength = Number(e.target.value) / 100; drawStyles(); render(); });
+$('density').addEventListener('input', (e) => { density = Number(e.target.value) / 100; drawStyles(); render(); });
+$('tabs').addEventListener('click', (e) => {
+  const b = e.target.closest('button'); if (!b) return; tab = b.dataset.tab;
+  document.querySelectorAll('#tabs button').forEach((x) => x.classList.toggle('on', x === b));
+  $('paneColour').classList.toggle('hidden', tab !== 'colour'); $('paneBeard').classList.toggle('hidden', tab !== 'beard'); $('paneMous').classList.toggle('hidden', tab !== 'mous');
+  $('faceColour').classList.toggle('hidden', tab === 'colour');
+  $('noFace').classList.toggle('hidden', Boolean(face) || tab === 'colour' || !img);
+});
+$('resetBtn').addEventListener('click', () => { shade = 'none'; beard = 'none'; mous = 'none'; drawStyles(); render(); });
+
+// ---------- load
+const loadBitmap = (file) => new Promise((resolve, reject) => { const url = URL.createObjectURL(file); const im = new Image(); im.onload = () => { URL.revokeObjectURL(url); resolve(im); }; im.onerror = () => { URL.revokeObjectURL(url); reject(new Error('load')); }; im.src = url; });
+const fail = (err) => { busy(''); console.error(err); toast(t('failed')); };
+const useImage = async (im) => {
+  const w0 = im.naturalWidth || im.width, h0 = im.naturalHeight || im.height, k = Math.min(1, MAX_SIDE / Math.max(w0, h0));
+  W = Math.round(w0 * k); H = Math.round(h0 * k);
+  img = mk(W, H); img.getContext('2d').drawImage(im, 0, 0, W, H);
+  hairMask = null; face = null; resultCache = null; split = 0.5;
+  $('pickCard').classList.add('hidden'); $('editor').classList.remove('hidden');
+  render();
+  await analyse();
+};
+const onFile = (f) => { if (f) loadBitmap(f).then(useImage).catch(fail); };
+$('pickBtn').addEventListener('click', (e) => { e.stopPropagation(); $('file').click(); });
+$('camBtn').addEventListener('click', (e) => { e.stopPropagation(); $('cam').click(); });
+$('drop').addEventListener('click', () => $('file').click());
+$('file').addEventListener('change', (e) => { onFile(e.target.files[0]); e.target.value = ''; });
+$('cam').addEventListener('change', (e) => { onFile(e.target.files[0]); e.target.value = ''; });
+$('newBtn').addEventListener('click', () => $('file').click());
+
+// ---------- save (on the device): the "after" picture
+const resultBlob = () => new Promise((r) => result().toBlob(r, 'image/jpeg', 0.92));
+const stamp = () => new Date().toISOString().slice(0, 10);
+$('dlBtn').addEventListener('click', async () => {
+  const blob = await resultBlob(); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `new-look-${stamp()}.jpg`;
+  document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 600); toast(t('saved'));
+});
+$('shareBtn').addEventListener('click', async () => {
+  const blob = await resultBlob(); const file = new File([blob], `new-look-${stamp()}.jpg`, { type: 'image/jpeg' });
+  if (navigator.canShare && navigator.canShare({ files: [file] })) navigator.share({ files: [file], text: t('shareText') }).catch(() => {}); else $('dlBtn').click();
+});
+
+// ---------- language
+const applyLang = () => {
+  document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+  $('lang').value = lang;
+  document.querySelectorAll('[data-t]').forEach((el) => { el.textContent = t(el.dataset.t); });
+  $('howList').innerHTML = t('how').map((x) => `<li>${x}</li>`).join('');
+  $('tipList').innerHTML = t('tips').map((x) => `<li>${x}</li>`).join('');
+  drawStyles();
+};
+$('lang').addEventListener('change', (e) => { lang = e.target.value; store.set('ht-lang', lang); applyLang(); });
+$('year').textContent = new Date().getFullYear();
+applyLang();
+
+// local testing: ?test=<image url>
+if (params.get('test')) { const im = new Image(); im.crossOrigin = 'anonymous'; im.onload = () => useImage(im).catch(fail); im.src = params.get('test'); }
+window.__ht = {
+  get state() { return { img: Boolean(img), hair: Boolean(hairMask), face: Boolean(face), W, H, shade, beard, mous }; },
+  set: (o) => { if (o.shade) shade = o.shade; if (o.beard) beard = o.beard; if (o.mous) mous = o.mous; if (o.faceShade) faceShade = o.faceShade; if (o.split != null) split = o.split; drawStyles(); render(); },
+  resultUrl: (maxW) => { const r = result(), k = Math.min(1, (maxW || 600) / r.width), c = mk(r.width * k, r.height * k); c.getContext('2d').drawImage(r, 0, 0, c.width, c.height); return c.toDataURL('image/jpeg', 0.85); },
+};
+if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+</script>
+</body>
+</html>

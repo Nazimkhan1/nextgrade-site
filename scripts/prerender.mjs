@@ -19,13 +19,13 @@ const CHROME = [
   '/usr/bin/google-chrome',
   '/usr/bin/chromium',
 ].filter(Boolean).find((p) => existsSync(p));
-const FOLDERS = ['celebrate', 'games'];
+const FOLDERS = ['celebrate', 'games', 'tools'];
 const VOID = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr']);
 const SKIP_TAGS = new Set(['canvas', 'script', 'style', 'select', 'svg', 'textarea', 'button', 'option']);
-const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.json': 'application/json', '.ico': 'image/x-icon', '.jpg': 'image/jpeg' };
+const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.mjs': 'text/javascript', '.wasm': 'application/wasm', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.json': 'application/json', '.ico': 'image/x-icon', '.jpg': 'image/jpeg' };
 const MARK = 'data-prerendered';
 
-const pages = () => FOLDERS.flatMap((f) => readdirSync(join(OUT, f), { withFileTypes: true })
+const pages = () => FOLDERS.filter((f) => existsSync(join(OUT, f))).flatMap((f) => readdirSync(join(OUT, f), { withFileTypes: true })
   .filter((d) => d.isDirectory() && existsSync(join(OUT, f, d.name, 'index.html')))
   .map((d) => `/${f}/${d.name}/`));
 
@@ -69,7 +69,7 @@ const elements = (html) => {
     return !tag ? null
       : whole.startsWith('</') ? close(tag, m.index)
         : VOID.has(tag) || whole.endsWith('/>') ? null
-          : stack.push({ tag, id: (attrs.match(/\sid="([^"]+)"/) || [])[1] || ((m2) => m2 && `i18n:${m2[1]}`)(attrs.match(/\sdata-i18n="([^"]+)"/)), start: m.index + whole.length, hidden: isHidden(attrs) || stack.some((s) => s.hidden) });
+          : stack.push({ tag, id: (attrs.match(/\sid="([^"]+)"/) || [])[1] || ((m2) => m2 && `i18n:${m2[1]}`)(attrs.match(/\sdata-(?:i18n|t)="([^"]+)"/)), start: m.index + whole.length, hidden: isHidden(attrs) || stack.some((s) => s.hidden) });
   };
   [...html.matchAll(re)].forEach(step);
   return found;
