@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Holi Hai! 🎨 — Animated Holi Wish with Name | NextGrade</title>
+<meta name="description" content="Send an animated Holi wish with a name: clouds of gulal in every colour, pichkari streams and splashes — read aloud and shared on WhatsApp. Free, in Hinglish, Hindi, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/celebrate/holi/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="🎨 Holi Hai! Aapke liye rangon bhara paigaam hai">
+<meta property="og:description" content="Tap karke kholo — udta gulal, pichkari aur aapke naam ki Holi ki badhaai.">
+<meta property="og:url" content="https://nextgrade.in/celebrate/holi/">
+<meta name="theme-color" content="#5f1d4a">
+<meta property="og:image" content="https://nextgrade.in/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&family=Noto+Nastaliq+Urdu:wght@600&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/celebrate/engine.css?v=2">
+<style>
+:root { --bg: #1d0b24; --bg2: #8a1f6a; --gate1: #d6336c; --showbg: #fff0f6; --gold: #ffd43b; --muted: #f3d9fa; --btn1: #e64980; --btn2: #7048e8; }
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<div class="wrap"><footer>
+  © 2026 NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+  <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/disclaimer/">Disclaimer</a>
+</footer></div>
+<script>
+window.CELEBRATE = {
+  base: 'https://nextgrade.in/celebrate/holi/',
+  key: 'ho',
+  gateEmoji: '🎨',
+  top: {"text": "होली है!", "lang": "hi"},
+  T: {
+    hinglish: {
+      title: "Happy Holi!",
+      gate: (f) => (f ? `${f} ne aapke liye Holi ke rang bheje hain!` : 'Aapke liye Holi ke rang aaye hain!'),
+      hello: (to) => `Holi mubarak, ${to}`,
+      from: (f) => `— ${f} ki taraf se 🎨`,
+      defaultTo: "Ji",
+      msgs: ["Rangon ki tarah aapki zindagi bhi khushiyon se rangeen rahe. Holi ki haardik shubhkamnayein!", "Gulal ki khushboo, gujiya ki mithaas aur apnon ka pyaar — aapko aur aapke parivaar ko Happy Holi!", "Bura na mano, Holi hai! Purani naraazgi bhoolo, gale milo aur khoob rang lagao.", "Is Holi har rang aapke liye ek nayi khushi laaye — laal pyaar ka, hara khushhaali ka, peela sehat ka!"],
+      listen: "🗣️ Badhaai suno",
+      makeH: "🎨 Apnon ko Holi ke rang bhejo",
+      makeP: "Naam likho, message chuno ya apne shabdon mein likho, aur link WhatsApp pe bhejo. Kholne wale ko udta gulal, pichkari ki dhaar aur uske naam ki badhaai dikhegi.",
+      toLabel: "Kisko bhejna hai (naam)",
+      fromLabel: "Aapka naam",
+      toPh: "Jaise: Riya, Bhaiya",
+      fromPh: "Jaise: Aman",
+      customPh: "Jaise: Is saal har din rangeen ho…",
+      share: (to, f, url) => `🎨 Holi Hai ${to}! ${f ? f + ' ne ' : ''}aapke liye rangon bhari badhaai bheji hai 🌈 Kholo 👉 ${url}`,
+      aboutH: "Holi ke baare mein",
+      about: ["Holi Phalgun mahine ki Purnima ko aati hai, aam taur pe March mein (sahi tareekh apne panchang mein dekhein). Purnima ki raat Holika Dahan hota hai — Bhakt Prahlad ki kahani, buraai pe achhaai ki jeet. Agle din rang-gulal khela jaata hai.", "Holi basant ki khushi ka bhi tyohar hai. Log purani naraazgi bhool kar gale milte hain, gujiya, thandai aur dahi-bade khaate hain.", "Holi ki kuch achhi aadatein:"],
+      list: ["Sookha aur herbal gulal lagao, paani bachao", "Jo mana kare usse zabardasti mat karo", "Jaanwaron pe rang kabhi mat daalo", "Aankh aur muh ko rang se bachao"],
+      aboutNote: "Rang Barsao game bhi khelo — neeche link hai.",
+      links: [["Holi ki poori jaankari", "/festivals/holi/"], ["🎨 Rang Barsao game", "/games/rang-barsao/"], ["Aur wishes", "/wishes/"]],
+    },
+    hi: {
+      title: "होली की शुभकामनाएँ!",
+      gate: (f) => (f ? `${f} ने आपके लिए होली के रंग भेजे हैं!` : 'आपके लिए होली के रंग आए हैं!'),
+      hello: (to) => `होली मुबारक, ${to}`,
+      from: (f) => `— ${f} की तरफ़ से 🎨`,
+      defaultTo: "जी",
+      msgs: ["रंगों की तरह आपकी ज़िंदगी भी ख़ुशियों से रंगीन रहे। होली की हार्दिक शुभकामनाएँ!", "गुलाल की ख़ुशबू, गुझिया की मिठास और अपनों का प्यार — आपको और आपके परिवार को हैप्पी होली!", "बुरा न मानो, होली है! पुरानी नाराज़गी भूलो, गले मिलो और ख़ूब रंग लगाओ।", "इस होली हर रंग आपके लिए एक नई ख़ुशी लाए — लाल प्यार का, हरा ख़ुशहाली का, पीला सेहत का!"],
+      listen: "🗣️ बधाई सुनो",
+      makeH: "🎨 अपनों को होली के रंग भेजो",
+      makeP: "नाम लिखो, संदेश चुनो या अपने शब्दों में लिखो, और लिंक WhatsApp पर भेजो। खोलने वाले को उड़ता गुलाल, पिचकारी की धार और उसके नाम की बधाई दिखेगी।",
+      toLabel: "किसको भेजना है (नाम)",
+      fromLabel: "आपका नाम",
+      toPh: "जैसे: रिया, भैया",
+      fromPh: "जैसे: अमन",
+      customPh: "जैसे: इस साल हर दिन रंगीन हो…",
+      share: (to, f, url) => `🎨 होली है ${to}! ${f ? f + ' ने ' : ''}आपके लिए रंगों भरी बधाई भेजी है 🌈 खोलो 👉 ${url}`,
+      aboutH: "होली के बारे में",
+      about: ["होली फाल्गुन महीने की पूर्णिमा को आती है, आमतौर पर मार्च में (सही तारीख़ अपने पंचांग में देखें)। पूर्णिमा की रात होलिका दहन होता है — भक्त प्रह्लाद की कथा, बुराई पर अच्छाई की जीत। अगले दिन रंग-गुलाल खेला जाता है।", "होली बसंत की ख़ुशी का भी त्योहार है। लोग पुरानी नाराज़गी भूलकर गले मिलते हैं, गुझिया, ठंडाई और दही-बड़े खाते हैं।", "होली की कुछ अच्छी आदतें:"],
+      list: ["सूखा और हर्बल गुलाल लगाओ, पानी बचाओ", "जो मना करे उससे ज़बरदस्ती मत करो", "जानवरों पर रंग कभी मत डालो", "आँख और मुँह को रंग से बचाओ"],
+      aboutNote: "रंग बरसाओ गेम भी खेलो — नीचे लिंक है।",
+      links: [["होली की पूरी जानकारी", "/festivals/holi/"], ["🎨 रंग बरसाओ गेम", "/games/rang-barsao/"], ["और शुभकामनाएँ", "/wishes/"]],
+    },
+    en: {
+      title: "Happy Holi!",
+      gate: (f) => (f ? `${f} has sent you the colours of Holi!` : 'The colours of Holi for you!'),
+      hello: (to) => `Happy Holi, ${to}`,
+      from: (f) => `— with love from ${f} 🎨`,
+      defaultTo: "Ji",
+      msgs: ["May your life be as colourful and joyful as Holi itself. Happy Holi!", "The scent of gulal, sweet gujiya and the love of family — Happy Holi to you and yours!", "Bura na mano, Holi hai! Forget old quarrels, hug it out and splash the colours.", "This Holi may every colour bring you a new joy — red for love, green for plenty, yellow for health!"],
+      listen: "🗣️ Listen",
+      makeH: "🎨 Send the colours of Holi to your loved ones",
+      makeP: "Type a name, pick a message or write your own, and send the link on WhatsApp. They will see clouds of gulal, pichkari streams and a greeting with their name.",
+      toLabel: "Who is it for (name)",
+      fromLabel: "Your name",
+      toPh: "e.g. Riya, Bhaiya",
+      fromPh: "e.g. Aman",
+      customPh: "e.g. May every day this year be colourful…",
+      share: (to, f, url) => `🎨 Happy Holi ${to}! ${f ? f + ' has' : 'Someone has'} sent you a colourful greeting 🌈 Open 👉 ${url}`,
+      aboutH: "About Holi",
+      about: ["Holi falls on the full moon of Phalgun, usually in March (check your local panchang for the date). On the night of the full moon, Holika Dahan recalls the story of Prahlad — the victory of good over evil. The next day is the festival of colours.", "Holi also welcomes spring. People forget old quarrels, hug each other, and share gujiya, thandai and dahi vada.", "Some good Holi habits:"],
+      list: ["Use dry, herbal gulal and save water", "Never force colour on someone who says no", "Never put colour on animals", "Keep colour away from eyes and mouth"],
+      aboutNote: "Play the Rang Barsao game too — link below.",
+      links: [["All about Holi", "/festivals/holi/"], ["🎨 Rang Barsao game", "/games/rang-barsao/"], ["More wishes", "/wishes/"]],
+    },
+    bn: {
+      title: "শুভ দোলযাত্রা!",
+      gate: (f) => (f ? `${f} তোমার জন্য দোলের রং পাঠিয়েছে!` : 'তোমার জন্য দোলের রং এসেছে!'),
+      hello: (to) => `শুভ দোল, ${to}`,
+      from: (f) => `— ${f}-এর পক্ষ থেকে 🎨`,
+      defaultTo: "জি",
+      msgs: ["রঙের মতো তোমার জীবনও আনন্দে রঙিন হোক। দোলযাত্রার অনেক শুভেচ্ছা!", "আবিরের গন্ধ, মিষ্টির স্বাদ আর আপনজনের ভালোবাসা — তোমাকে ও তোমার পরিবারকে শুভ দোল!", "বুরা না মানো, হোলি হ্যায়! পুরোনো রাগ ভুলে কোলাকুলি করো আর রং মাখাও।", "এই দোলে প্রতিটি রং তোমার জন্য নতুন আনন্দ আনুক — লাল ভালোবাসার, সবুজ সমৃদ্ধির, হলুদ সুস্বাস্থ্যের!"],
+      listen: "🗣️ শুভেচ্ছা শোনো",
+      makeH: "🎨 প্রিয়জনকে দোলের রং পাঠাও",
+      makeP: "নাম লেখো, বার্তা বাছো বা নিজের ভাষায় লেখো, আর লিংক WhatsApp-এ পাঠাও। যে খুলবে সে দেখবে আবিরের মেঘ, পিচকারির ধারা আর তার নামে শুভেচ্ছা।",
+      toLabel: "কাকে পাঠাবে (নাম)",
+      fromLabel: "তোমার নাম",
+      toPh: "যেমন: রিয়া, দাদা",
+      fromPh: "যেমন: অমন",
+      customPh: "যেমন: এ বছর প্রতিটা দিন রঙিন হোক…",
+      share: (to, f, url) => `🎨 শুভ দোল ${to}! ${f ? f + ' ' : ''}তোমার জন্য রঙিন শুভেচ্ছা পাঠিয়েছে 🌈 খোলো 👉 ${url}`,
+      aboutH: "দোলযাত্রা সম্পর্কে",
+      about: ["দোল আসে ফাল্গুনী পূর্ণিমায়, সাধারণত মার্চে (সঠিক তারিখ পঞ্জিকায় দেখে নাও)। আগের রাতে ন্যাড়াপোড়া বা হোলিকা দহন হয় — অশুভের ওপর শুভের জয়। বাংলায় রাধা-কৃষ্ণকে দোলায় চড়িয়ে আবির খেলা হয়।", "শান্তিনিকেতনের বসন্ত উৎসব বিখ্যাত — হলুদ পোশাক, গান আর আবির।", "দোলের কিছু ভালো অভ্যাস:"],
+      list: ["শুকনো, ভেষজ আবির দাও, জল বাঁচাও", "কেউ না বললে জোর কোরো না", "পশুদের গায়ে কখনো রং দিও না", "চোখ আর মুখ রং থেকে বাঁচাও"],
+      aboutNote: "রং বরষাও খেলাটাও খেলো — নিচে লিংক আছে।",
+      links: [["দোল নিয়ে পুরোটা", "/festivals/holi/"], ["🎨 রং বরষাও খেলা", "/games/rang-barsao/"], ["আরও শুভেচ্ছা", "/wishes/"]],
+    },
+  },
+  scene: (() => {
+    const COLS = ['#e64980', '#fab005', '#40c057', '#228be6', '#be4bdb', '#fd7e14', '#15aabf'];
+    let puffs = [], drops = [], acc = 0;
+    const resize = () => { puffs = []; drops = []; };
+    const draw = (ctx, S, now, dt) => {
+      const sky = ctx.createLinearGradient(0, 0, 0, S.H); sky.addColorStop(0, '#fff0f6'); sky.addColorStop(1, '#fff9db');
+      ctx.fillStyle = sky; ctx.fillRect(0, 0, S.W, S.H);
+      const s = Math.max(0.7, Math.min(S.W, 640) / 640), base = S.H - 26;
+      // houses of a lane
+      const n = S.W < 500 ? 4 : 6;
+      for (let i = 0; i < n; i += 1) { const w = S.W / n, x = i * w, h = S.H * (0.22 + (i % 3) * 0.05); ctx.fillStyle = ['#ffd8a8', '#d0ebff', '#ffdeeb', '#d3f9d8', '#fff3bf', '#e5dbff'][i % 6]; ctx.fillRect(x, base - h, w + 1, h); ctx.fillStyle = 'rgba(0,0,0,0.12)'; ctx.fillRect(x + w * 0.35, base - h * 0.55, w * 0.3, h * 0.55); }
+      ctx.fillStyle = '#e9d8c4'; ctx.fillRect(0, base, S.W, S.H - base);
+      // darker top so the white and gold greeting text stays readable on the light sky
+      const sh = ctx.createLinearGradient(0, 0, 0, S.H * 0.7); sh.addColorStop(0, 'rgba(45, 12, 40, 0.62)'); sh.addColorStop(1, 'rgba(45, 12, 40, 0)'); ctx.fillStyle = sh; ctx.fillRect(0, 0, S.W, S.H * 0.7);
+      // gulal clouds rising from below, more after the envelope opens
+      acc += dt; const rate = S.playing ? 0.22 : 0.45;
+      while (acc > rate) { acc -= rate; if (puffs.length > 26) break; puffs.push({ x: Math.random() * S.W, y: base, r: (14 + Math.random() * 22) * s, vy: -(30 + Math.random() * 40), vx: (Math.random() - 0.5) * 30, c: COLS[Math.floor(Math.random() * COLS.length)], life: 4 + Math.random() * 2 }); }
+      puffs.forEach((p) => { p.x += p.vx * dt; p.y += p.vy * dt; p.r += 6 * dt * s; p.life -= dt; ctx.globalAlpha = Math.max(0, Math.min(0.45, p.life / 4)); ctx.fillStyle = p.c; for (let k = 0; k < 5; k += 1) { const a = k * 1.26 + now / 900; ctx.beginPath(); ctx.arc(p.x + Math.cos(a) * p.r * 0.5, p.y + Math.sin(a) * p.r * 0.4, p.r * 0.7, 0, Math.PI * 2); ctx.fill(); } });
+      puffs = puffs.filter((p) => p.life > 0);
+      // pichkari streams from both sides after opening
+      if (S.playing && Math.random() < dt * 3) { const side = Math.random() < 0.5 ? 0 : 1; const c = COLS[Math.floor(Math.random() * COLS.length)]; for (let k = 0; k < 14; k += 1) drops.push({ x: side ? S.W : 0, y: base - S.H * 0.25, vx: (side ? -1 : 1) * (160 + Math.random() * 120) * s, vy: -140 - Math.random() * 80 + k * 4, c, life: 2 }); }
+      drops.forEach((d) => { d.vy += 300 * dt; d.x += d.vx * dt; d.y += d.vy * dt; d.life -= dt; ctx.globalAlpha = Math.max(0, Math.min(1, d.life)); ctx.fillStyle = d.c; ctx.beginPath(); ctx.arc(d.x, d.y, 3.5 * s, 0, Math.PI * 2); ctx.fill(); });
+      drops = drops.filter((d) => d.life > 0 && d.y < base);
+      ctx.globalAlpha = 1;
+    };
+    return { resize, draw };
+  })(),
+};
+</script>
+<script src="/assets/voice.js?v=1"></script>
+<script src="/celebrate/engine.js?v=6"></script>
+</body>
+</html>

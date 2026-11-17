@@ -36,6 +36,12 @@ const releases = {
   'game:kanche': '2027-02-09',
   'story:chidiya-kauwa-ghar': '2027-02-12',
   'game:raja-mantri-chor-sipahi': '2027-02-16',
+  // Animated wishes (17 Nov), festival order. Provisional dates on this branch — redo when merging with
+  // feat/festival-guides and feat/new-stories (each branch edits this file).
+  'celebrate:vasant-panchami': '2027-01-22', // Vasant Panchami ~11 Feb 2027
+  'celebrate:maha-shivratri': '2027-02-05', // Maha Shivratri ~Mar 2027
+  'celebrate:eid-mubarak': '2027-02-19', // Eid ul-Fitr ~10 Mar 2027
+  'celebrate:holi': '2027-02-23', // Holi ~22 Mar 2027
 };
 
 // today's date in India (the release day changes at midnight IST)
