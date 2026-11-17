@@ -365,6 +365,173 @@ const festivals = {
       }
     ]
   },
+  "janmashtami": {
+    "name": "Janmashtami",
+    "when": "Bhadrapada Krishna Ashtami — usually August or September (the Smarta and Vaishnava dates sometimes differ by a day; check your panchang)",
+    "where": "All over India; especially Mathura, Vrindavan, Dwarka and ISKCON temples",
+    "intro": "Janmashtami celebrates the birth of Lord Krishna. He is said to have been born at midnight in Kansa's prison in Mathura, so on this day people fast and celebrate Kanha's birth at 12 midnight.",
+    "sections": [
+      {
+        "h": "The story of Krishna's birth",
+        "p": [
+          "Kansa, king of Mathura, feared the eighth son of his sister Devaki, so he locked Devaki and Vasudeva in prison. On the night Krishna, the eighth son, was born, the guards fell asleep, the locks opened, and Vasudeva carried the baby across the flooded Yamuna to Nanda and Yashoda's home in Gokul.",
+          "Krishna's childhood in Gokul and Vrindavan — stealing butter, dancing the raas with the gopis, lifting Govardhan hill — lives on in songs and tableaux."
+        ]
+      },
+      {
+        "h": "How it is celebrated",
+        "p": [
+          "People fast all day, decorate jhankis in temples and homes, dress Laddu Gopal in new clothes and rock him in a swing. At midnight the birth aarti is sung with conches and bells, and panjiri, makhan-mishri and panchamrit are shared as prasad.",
+          "In Maharashtra the next day is \"Dahi Handi\" — a pot hung high up is broken by forming a human pyramid, in memory of Krishna stealing butter."
+        ]
+      }
+    ],
+    "moreWishes": [
+      "Radhe Radhe! May Lord Krishna give you the wisdom of the Gita and the courage of Govardhan."
+    ],
+    "faq": [
+      {
+        "q": "When is Janmashtami celebrated?",
+        "a": "On Krishna Ashtami of Bhadrapada, usually in August or September. Sometimes it is celebrated over two days, so check your panchang."
+      },
+      {
+        "q": "What is Dahi Handi?",
+        "a": "On the day after Janmashtami, a pot of curd and butter hung high up is broken by forming a human pyramid, recalling Krishna stealing butter."
+      }
+    ]
+  },
+  "onam": {
+    "name": "Onam",
+    "when": "In the Malayalam month of Chingam, on Thiruvonam — usually August or September; ten days from Atham",
+    "where": "Kerala and Malayali families around the world",
+    "intro": "Onam is Kerala's biggest festival — a harvest celebration and the welcome of King Mahabali. For ten days flower rangolis (pookalam) are made in front of homes, and on Thiruvonam families share the Onasadya feast on banana leaves.",
+    "sections": [
+      {
+        "h": "The story of King Mahabali",
+        "p": [
+          "According to legend, Mahabali (Maveli) was a very kind king in whose kingdom everyone was equal and happy. Lord Vishnu's Vamana avatar asked him for three steps of land and sent him to the netherworld, but granted him a wish to visit his people once a year. Onam welcomes his return."
+        ]
+      },
+      {
+        "h": "Pookalam, Onasadya and Vallam Kali",
+        "p": [
+          "From Atham the flower pookalam in front of the house grows bigger every day. On Thiruvonam the Onasadya is served on a banana leaf — more than twenty dishes, including rice, sambar, avial, olan, pappadam, banana chips and several kinds of payasam.",
+          "Snake-boat races (Vallam Kali), the tiger dance Pulikali and the women's circle dance Kaikottikali are the signs of Onam."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "When is Onam celebrated?",
+        "a": "On Thiruvonam in the Malayalam month of Chingam, usually in August or September. The celebrations start on Atham and last ten days."
+      },
+      {
+        "q": "What is Onasadya?",
+        "a": "The vegetarian Thiruvonam feast served on a banana leaf — more than twenty dishes including rice, sambar, avial, olan, pappadam, chips and payasam."
+      }
+    ]
+  },
+  "ganesh-chaturthi": {
+    "name": "Ganesh Chaturthi",
+    "when": "Bhadrapada Shukla Chaturthi — usually late August or September; immersion ten days later on Anant Chaturdashi",
+    "where": "All over India; celebrated in a big way in Maharashtra, Goa, Karnataka, Telangana and Andhra Pradesh",
+    "intro": "Ganesh Chaturthi celebrates the birth of Lord Ganesha, remover of obstacles and god of wisdom. Idols are installed in homes and pandals, modak is offered, and after one and a half, three, five, seven or ten days the idol is immersed to the chant of \"Ganpati Bappa Morya, pudhchya varshi lavkar ya\" (come back soon next year).",
+    "sections": [
+      {
+        "h": "The public Ganeshotsav",
+        "p": [
+          "Ganesh puja at home is centuries old, but in 1893 Lokmanya Bal Gangadhar Tilak made it a public festival in Pune so that people could come together for the freedom movement. Today lakhs of people visit pandals such as Mumbai's Lalbaugcha Raja."
+        ]
+      },
+      {
+        "h": "Modak and the puja",
+        "p": [
+          "Ganpati's favourite offering is modak — rice-flour dumplings filled with coconut and jaggery and steamed. Durva grass, red flowers and laddoos are also offered.",
+          "It is believed one should not look at the moon on the night of Ganesh Chaturthi, which is why it is also called \"Kalank Chaturthi\"."
+        ]
+      },
+      {
+        "h": "Eco-friendly Ganpati",
+        "p": [
+          "Idols of plaster of Paris and chemical paint pollute rivers and the sea. A clay (shadu) idol, natural colours and immersion at home in a bucket or an artificial pond — that is true devotion and respect for nature."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "When is Ganesh Chaturthi celebrated?",
+        "a": "On Shukla Chaturthi of Bhadrapada, usually in late August or September. Check your panchang for the exact date and muhurat."
+      },
+      {
+        "q": "When is the Ganpati immersion?",
+        "a": "Depending on family tradition, after one and a half, three, five or seven days; public pandals usually immerse on the tenth day, Anant Chaturdashi."
+      }
+    ]
+  },
+  "navratri": {
+    "name": "Navratri",
+    "when": "Sharad Navratri runs from Ashwin Shukla Pratipada to Navami — usually late September or October (Chaitra Navratri comes in March–April)",
+    "where": "All over India; garba and dandiya in Gujarat, Durga Puja in Bengal",
+    "intro": "Navratri means \"nine nights\" — a festival of worshipping the nine forms of Goddess Durga. People fast, install the kalash (ghatasthapana), and on the tenth day Vijayadashami (Dussehra) is celebrated.",
+    "sections": [
+      {
+        "h": "The nine forms of Maa Durga",
+        "p": [
+          "Over the nine days these forms are worshipped in order: Shailputri, Brahmacharini, Chandraghanta, Kushmanda, Skandamata, Katyayani, Kalaratri, Mahagauri and Siddhidatri.",
+          "On Ashtami or Navami, kanya pujan is done — young girls are honoured as forms of the Goddess and served halwa, puri and chana."
+        ]
+      },
+      {
+        "h": "Garba, dandiya and Durga Puja",
+        "p": [
+          "In Gujarat, every night people dance garba in circles around the Goddess's lamp (garbo) and play dandiya raas with colourful sticks.",
+          "In Bengal, Assam and Odisha, Durga Puja is celebrated from Shashthi to Dashami — huge pandals, the beat of the dhak, the dhunuchi dance, and immersion on Dashami."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How many times a year does Navratri come?",
+        "a": "Mainly twice: Chaitra Navratri (March–April) and Sharad Navratri (September–October). Dussehra follows Sharad Navratri. There are also less-known Gupt Navratris."
+      },
+      {
+        "q": "When is kanya pujan done?",
+        "a": "Usually on Ashtami or Navami, according to family tradition. Young girls are honoured as the Goddess and given food and gifts."
+      }
+    ]
+  },
+  "dussehra": {
+    "name": "Dussehra (Vijayadashami)",
+    "when": "Ashwin Shukla Dashami — the day after Sharad Navratri, usually in October; Diwali comes about 20 days later",
+    "where": "All over India; Delhi's Ramlilas, Mysuru Dasara, Kullu Dussehra and Bengal's Bijoya Dashami are famous",
+    "intro": "Dussehra or Vijayadashami is the festival of the victory of good over evil. On this day Lord Rama defeated Ravana, and Goddess Durga slew Mahishasura. In the evening, effigies of Ravana, Kumbhakarna and Meghnad are burned.",
+    "sections": [
+      {
+        "h": "Ramlila and Ravan Dahan",
+        "p": [
+          "During Navratri, towns stage the Ramlila, the story of Rama from his birth to the victory over Lanka. On Dussehra evening the effigies are burned in open grounds with fireworks.",
+          "If you go to watch, keep children away from the fire and stay careful in the crowd."
+        ]
+      },
+      {
+        "h": "One festival, many colours",
+        "p": [
+          "Mysuru (Karnataka) celebrates a ten-day Dasara that ends with the royal \"Jamboo Savari\" procession. In Kullu, Himachal Pradesh, Dussehra begins on this day and lasts a week, with deities from across the valley arriving on chariots.",
+          "In Bengal it is Bijoya Dashami — married women play sindoor khela, Maa Durga is immersed, and people embrace saying \"Shubho Bijoya\". South India celebrates Ayudha Puja, and in Maharashtra apta leaves are exchanged as \"gold\"."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "When is Dussehra celebrated?",
+        "a": "On Ashwin Shukla Dashami, the day after Sharad Navratri, usually in October. Check your panchang for the exact date."
+      },
+      {
+        "q": "How many days are there between Dussehra and Diwali?",
+        "a": "About 20 days. Diwali is believed to celebrate Lord Rama's return to Ayodhya after the victory over Lanka."
+      }
+    ]
+  },
 };
 
 const wishes = {
