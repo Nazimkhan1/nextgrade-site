@@ -40,6 +40,7 @@ const releases = {
   // When approved: set a real Tue/Fri date here, add the page to sitemap/home links and 'tools' to scripts/prerender.mjs FOLDERS.
   'tool:photo-frame': '2099-12-31',
   'tool:stylish-name': '2099-12-31',
+  'tool:krutidev': '2099-12-31',
 };
 
 // today's date in India (the release day changes at midnight IST)
