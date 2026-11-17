@@ -305,6 +305,178 @@ const festivals = {
       { q: 'Diwali pe kiski puja hoti hai?', a: 'Mukhya roop se Maa Lakshmi (dhan aur samriddhi ki devi) aur Bhagwan Ganesh (shubh shuruaat ke devta) ki.' },
     ],
   },
+  "guru-gobind-singh-jayanti": {
+    "name": "Guru Gobind Singh Jayanti",
+    "when": "Paush mahine ke shukla paksh ki saptami — aam taur pe December ke aakhir ya January mein (sahi tareekh gurudwara ya calendar mein dekhein)",
+    "where": "Poore Bharat aur duniya ke gurudwaron mein; khaas kar Patna Sahib, Anandpur Sahib aur Hazur Sahib (Nanded)",
+    "intro": "Guru Gobind Singh Ji Sikhon ke dasvein Guru the. Unke janamdin ko Prakash Purab ya Gurpurab kehte hain. Is din gurudwaron mein kirtan, Akhand Path, Nagar Kirtan aur langar hota hai, aur sangat unki seekh — himmat, barabari aur seva — ko yaad karti hai.",
+    "sections": [
+      {
+        "h": "Guru Gobind Singh Ji ka jeevan",
+        "p": [
+          "Unka janm 1666 mein Patna Sahib (Bihar) mein hua. Unke pita Guru Tegh Bahadur Ji nauvein Guru the. 1675 mein pita ki shahadat ke baad sirf nau saal ki umar mein unhone guru gaddi sambhaali.",
+          "Woh yoddha bhi the aur kavi bhi; Punjabi, Braj, Farsi aur Sanskrit jaante the. Unke chaaron bete — chaar Sahibzade — dharam ki raksha mein shaheed hue; chhote Sahibzadon ki yaad mein 26 December ko \"Veer Baal Diwas\" manaya jaata hai."
+        ]
+      },
+      {
+        "h": "Khalsa Panth ki sthapna",
+        "p": [
+          "1699 ki Baisakhi par Anandpur Sahib mein Guru Ji ne Khalsa Panth ki sthapna ki. Unhone paanch Sikhon — Panj Pyaron — ko amrit chhakaya aur phir khud bhi unse amrit liya, taaki Guru aur Sikh ki barabari dikhe.",
+          "Khalsa ke paanch kakaar hain: kesh, kangha, kada, kachhera aur kirpan. Har Sikh purush ke naam ke saath \"Singh\" aur mahila ke saath \"Kaur\" juda."
+        ]
+      },
+      {
+        "h": "Guru Granth Sahib — sada ke Guru",
+        "p": [
+          "1708 mein Hazur Sahib (Nanded, Maharashtra) mein Guru Ji ne kaha ki unke baad koi dehdhaari guru nahi hoga; Guru Granth Sahib hi hamesha ke liye Guru hain. Isiliye gurudware mein Guru Granth Sahib ko Guru ki tarah samman diya jaata hai."
+        ]
+      }
+    ],
+    "wishes": [
+      "Guru Gobind Singh Ji de Prakash Purab diyan lakh-lakh vadhaiyan! Unki seekh hamein himmat, sachchai aur seva ke raaste pe chalaye.",
+      "Waheguru Ji Ka Khalsa, Waheguru Ji Ki Fateh! Prakash Purab ki haardik shubhkamnayein.",
+      "Dashmesh Pita ki kirpa aapke parivaar pe sada bani rahe. Gurpurab mubarak!",
+      "Sawa lakh se ek ladaun — Guru Ji ki himmat har mushkil mein aapka saath de. Prakash Purab ki badhaai!"
+    ],
+    "faq": [
+      {
+        "q": "Guru Gobind Singh Jayanti kab manayi jaati hai?",
+        "a": "Paush mahine ke shukla paksh ki saptami ko, jo aam taur pe December ke aakhir ya January mein padti hai. Tareekh har saal badalti hai, isliye gurudware ya calendar mein dekh lein."
+      },
+      {
+        "q": "Panj Pyare kaun the?",
+        "a": "1699 mein amrit chhakne wale pehle paanch Sikh: Bhai Daya Singh, Bhai Dharam Singh, Bhai Himmat Singh, Bhai Mohkam Singh aur Bhai Sahib Singh."
+      }
+    ]
+  },
+  "pongal": {
+    "name": "Pongal",
+    "when": "Aam taur pe 14 ya 15 January se chaar din — Tamil mahine \"Thai\" ki shuruaat pe",
+    "where": "Tamil Nadu, Puducherry aur duniya bhar mein rehne wale Tamil parivaar",
+    "intro": "Pongal Tamil Nadu ka fasal ka tyohar hai, jo Surya, dharti, baarish aur kheton mein saath dene wale pashuon ko shukriya kehne ke liye manaya jaata hai. Uttar Bharat mein isi mausam mein Makar Sankranti aur Lohri aati hai.",
+    "sections": [
+      {
+        "h": "\"Pongal\" ka matlab",
+        "p": [
+          "Tamil mein \"pongal\" ka arth hai ubal kar uphanna. Naye mitti ke bartan mein naye chawal, doodh aur gud pakaaye jaate hain, aur jab doodh uphan kar bahar aata hai to sab milkar \"Pongalo Pongal!\" bolte hain — yaani ghar mein khushhaali bhar-bhar ke aaye.",
+          "Meethe sakkarai pongal ke alawa namkeen ven pongal bhi banta hai. Ghar ke aangan mein chawal ke aate se sundar kolam (rangoli) banayi jaati hai aur ganna zaroor hota hai."
+        ]
+      },
+      {
+        "h": "Pongal ke chaar din",
+        "p": [
+          "Bhogi: purani, bekaar cheezein hata kar ghar ki safaai aur nayi shuruaat.",
+          "Thai Pongal: mukhya din, Surya Dev ko pongal ka bhog lagaya jaata hai.",
+          "Mattu Pongal: kheti mein saath dene wali gaay-bailon ko nehla kar sajaya jaata hai aur unki pooja hoti hai.",
+          "Kaanum Pongal: rishtedaaron se milna, ghoomne jaana aur badon ka aashirvaad lena."
+        ]
+      }
+    ],
+    "wishes": [
+      "Pongalo Pongal! Aapke ghar mein khushiyan usi tarah uphnein jaise Pongal ka doodh. Happy Pongal!",
+      "Nayi fasal, nayi mithaas aur nayi shuruaat — aapko aur aapke parivaar ko Happy Pongal!",
+      "Surya Dev ki kirpa se aapka saal dhan-dhaanya aur sehat se bhara rahe. Pongal mubarak!",
+      "Kolam ke rang aur ganne ki mithaas aapki zindagi mein bani rahe. Happy Pongal!"
+    ],
+    "faq": [
+      {
+        "q": "Pongal ka kya matlab hai?",
+        "a": "Tamil mein \"pongal\" ka matlab hai ubal kar uphanna. Naye bartan mein chawal-doodh-gud ka uphanna ghar mein khushhaali aane ka prateek maana jaata hai."
+      },
+      {
+        "q": "Mattu Pongal kya hai?",
+        "a": "Pongal ka teesra din, jab kheti mein madad karne wali gaayon aur bailon ko nehla kar, seeng rang kar aur maala pehna kar unki pooja ki jaati hai."
+      }
+    ]
+  },
+  "baisakhi": {
+    "name": "Baisakhi (Vaisakhi)",
+    "when": "Aam taur pe 13 April (kuch saalon mein 14 April)",
+    "where": "Punjab, Haryana aur poore Uttar Bharat mein; isi din desh ke kai hisson mein naya saal bhi manaya jaata hai",
+    "intro": "Baisakhi rabi ki fasal — khaas kar gehun — pakne ki khushi ka tyohar hai. Punjab mein dhol ki thaap pe bhangra-giddha hota hai, mele lagte hain, aur Sikh dharam mein yeh din Khalsa Panth ki sthapna ki yaad ke roop mein bahut khaas hai.",
+    "sections": [
+      {
+        "h": "Fasal ki khushi",
+        "p": [
+          "Baisakhi tak gehun ki sunehri fasal katne ko taiyaar hoti hai. Kisaan mehnat ka phal milne pe Bhagwan ka shukriya karte hain, naye kapde pehente hain aur gaon-gaon mein mele lagte hain."
+        ]
+      },
+      {
+        "h": "Khalsa Panth ki sthapna (1699)",
+        "p": [
+          "1699 ki Baisakhi pe Guru Gobind Singh Ji ne Anandpur Sahib mein Khalsa Panth ki sthapna ki aur Panj Pyaron ko amrit chhakaya. Isliye gurudwaron mein is din kirtan, ardaas, Nagar Kirtan aur langar hota hai."
+        ]
+      },
+      {
+        "h": "Ek din, kai naam",
+        "p": [
+          "Isi samay Bengal mein Poila Boishakh (Bangla naya saal), Assam mein Bohag Bihu (Rongali Bihu), Tamil Nadu mein Puthandu (Tamil naya saal) aur Kerala mein Vishu manaya jaata hai.",
+          "13 April 1919 ko Baisakhi ke din hi Amritsar ke Jallianwala Bagh mein angrezi hukoomat ne nihatthe logon pe goliyan chalayi thi. Is din un shaheedon ko bhi yaad kiya jaata hai."
+        ]
+      }
+    ],
+    "wishes": [
+      "Sunehri fasal ki tarah aapki zindagi bhi khushiyon se lehlahaaye. Baisakhi diyan lakh-lakh vadhaiyan!",
+      "Dhol ki thaap, bhangre ki dhamak aur apno ka saath — aapko Happy Baisakhi!",
+      "Mehnat ka phal meetha ho aur har khet-ghar mein barkat aaye. Baisakhi ki haardik shubhkamnayein.",
+      "Khalsa Sajna Diwas aur Baisakhi ki badhaai! Waheguru aapke parivaar pe sada mehar karein."
+    ],
+    "faq": [
+      {
+        "q": "Baisakhi kab manayi jaati hai?",
+        "a": "Aam taur pe 13 April ko, aur kuch saalon mein 14 April ko. Yeh saur calendar se tay hoti hai, isliye tareekh lagbhag wahi rehti hai."
+      },
+      {
+        "q": "Baisakhi ka Khalsa se kya sambandh hai?",
+        "a": "1699 ki Baisakhi pe Guru Gobind Singh Ji ne Anandpur Sahib mein Khalsa Panth ki sthapna ki thi, isliye Sikhon ke liye yeh Khalsa Sajna Diwas bhi hai."
+      }
+    ]
+  },
+  "eid-ul-adha": {
+    "name": "Eid ul-Adha (Bakrid)",
+    "when": "Islami (Hijri) calendar ke 12vein mahine Zilhijja ki 10 tareekh — English tareekh har saal lagbhag 10-11 din pehle aati hai (chaand ke elaan pe tay)",
+    "where": "Poore Bharat aur duniya bhar mein",
+    "intro": "Eid ul-Adha, jise Bakrid bhi kehte hain, tyaag aur Allah pe bharose ki Eid hai. Yeh Hazrat Ibrahim (alaihissalam) ki us qurbani ki yaad dilaati hai, jab woh Allah ke hukm pe apni sabse pyaari cheez qurbaan karne ko taiyaar ho gaye the. Yahi samay Hajj ka bhi hota hai.",
+    "sections": [
+      {
+        "h": "Qurbani ki kahani",
+        "p": [
+          "Islami parampara ke mutabiq Hazrat Ibrahim (AS) ne khwaab mein dekha ki woh apne bete Hazrat Ismail (AS) ko Allah ki raah mein qurbaan kar rahe hain. Baap aur beta dono Allah ke hukm ke liye taiyaar ho gaye. Tab Allah ne Ismail ki jagah ek mendha bhej diya.",
+          "Yeh kahani sikhaati hai ki Allah pe poora bharosa rakho aur uski raah mein apni pyaari cheez dene se bhi peeche mat hato."
+        ]
+      },
+      {
+        "h": "Eid kaise manayi jaati hai",
+        "p": [
+          "Subah naha kar, naye ya saaf kapde pehen kar log Eidgah ya masjid mein Eid ul-Adha ki namaaz padhte hain aur ek-doosre ko gale laga kar \"Eid Mubarak\" kehte hain.",
+          "Jin pe qurbani wajib hoti hai, woh jaanwar ki qurbani karte hain. Gosht teen hisson mein baanta jaata hai — ek apne parivaar ke liye, ek rishtedaaron-doston ke liye aur ek zaroorat-mandon ke liye.",
+          "Qurbani karte waqt saaf-safaai aur local kanoonon ka dhyaan rakhna aur padosiyon ki bhavnaon ki izzat karna bhi Eid ki seekh ka hissa hai."
+        ]
+      },
+      {
+        "h": "Hajj aur Zilhijja",
+        "p": [
+          "Zilhijja Islami saal ka aakhri mahina hai. Iski 8 se 12 tareekh ke beech Makka mein Hajj hota hai, aur 9 tareekh ko Arafat ka din hota hai. Eid ul-Adha Hajj ke inhi dinon mein aati hai."
+        ]
+      }
+    ],
+    "wishes": [
+      "Eid ul-Adha Mubarak! Allah aapki qurbani aur duaayein qubool farmaaye.",
+      "Tyaag aur bharose ka yeh din aapke ghar mein barkat aur sukoon laaye. Bakrid Mubarak!",
+      "Allah aapko aur aapke parivaar ko hamesha khush, sehatmand aur mehfooz rakhe. Eid Mubarak!",
+      "Is Eid pe aapki har nek dua qubool ho. Eid ul-Adha ki dili mubarakbaad."
+    ],
+    "faq": [
+      {
+        "q": "Bakrid kab manayi jaati hai?",
+        "a": "Islami calendar ke Zilhijja mahine ki 10 tareekh ko, jo Eid ul-Fitr ke lagbhag do mahine das din baad aati hai. Sahi tareekh chaand dikhne ke elaan se tay hoti hai."
+      },
+      {
+        "q": "Eid ul-Fitr aur Eid ul-Adha mein kya farq hai?",
+        "a": "Eid ul-Fitr Ramzan ke rozon ke baad aati hai (Meethi Eid). Eid ul-Adha Hajj ke dinon mein qurbani ki Eid hai."
+      }
+    ]
+  },
 };
 
 const wishes = {

@@ -217,6 +217,154 @@ const festivals = {
       { q: 'Who is worshipped on Diwali?', a: 'Mainly Goddess Lakshmi (goddess of wealth and prosperity) and Lord Ganesha (god of auspicious beginnings).' },
     ],
   },
+  "guru-gobind-singh-jayanti": {
+    "name": "Guru Gobind Singh Jayanti",
+    "when": "Paush Shukla Saptami — usually late December or January (check the exact date with your gurdwara)",
+    "where": "Gurdwaras across India and the world; especially Patna Sahib, Anandpur Sahib and Hazur Sahib (Nanded)",
+    "intro": "Guru Gobind Singh Ji was the tenth Sikh Guru. His birthday is celebrated as Prakash Purab or Gurpurab with kirtan, Akhand Path, Nagar Kirtan and langar, and the sangat remembers his teachings of courage, equality and seva.",
+    "sections": [
+      {
+        "h": "The life of Guru Gobind Singh Ji",
+        "p": [
+          "He was born in 1666 at Patna Sahib, Bihar. His father, Guru Tegh Bahadur Ji, was the ninth Guru. After his father's martyrdom in 1675 he became Guru at just nine years of age.",
+          "He was both a warrior and a poet, and knew Punjabi, Braj, Persian and Sanskrit. All four of his sons, the Sahibzade, were martyred; the younger Sahibzade are remembered on 26 December as \"Veer Baal Diwas\"."
+        ]
+      },
+      {
+        "h": "Founding the Khalsa",
+        "p": [
+          "On Baisakhi 1699 at Anandpur Sahib, the Guru founded the Khalsa. He gave amrit to the first five Sikhs, the Panj Pyare, and then took amrit from them himself — showing that the Guru and the Sikh are equal.",
+          "The five Ks of the Khalsa are kesh (uncut hair), kanga (comb), kara (steel bangle), kachera (undergarment) and kirpan. Every Sikh man took the name \"Singh\" and every woman \"Kaur\"."
+        ]
+      },
+      {
+        "h": "Guru Granth Sahib — the eternal Guru",
+        "p": [
+          "In 1708 at Hazur Sahib (Nanded, Maharashtra), the Guru declared that there would be no human Guru after him; the Guru Granth Sahib is the Guru forever. That is why it is honoured as the Guru in every gurdwara."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "When is Guru Gobind Singh Jayanti celebrated?",
+        "a": "On Paush Shukla Saptami, which usually falls in late December or January. The date changes every year, so check with your gurdwara or calendar."
+      },
+      {
+        "q": "Who were the Panj Pyare?",
+        "a": "The first five Sikhs to take amrit in 1699: Bhai Daya Singh, Bhai Dharam Singh, Bhai Himmat Singh, Bhai Mohkam Singh and Bhai Sahib Singh."
+      }
+    ]
+  },
+  "pongal": {
+    "name": "Pongal",
+    "when": "Usually four days from 14 or 15 January — the start of the Tamil month of Thai",
+    "where": "Tamil Nadu, Puducherry and Tamil families around the world",
+    "intro": "Pongal is the harvest festival of Tamil Nadu, a thank-you to the Sun, the earth, the rain and the animals that help in the fields. In North India the same season brings Makar Sankranti and Lohri.",
+    "sections": [
+      {
+        "h": "What \"Pongal\" means",
+        "p": [
+          "In Tamil, \"pongal\" means to boil over. New rice, milk and jaggery are cooked in a new clay pot, and when the milk bubbles over everyone shouts \"Pongalo Pongal!\" — may prosperity overflow in the home.",
+          "Besides sweet sakkarai pongal, savoury ven pongal is also made. Beautiful kolam designs are drawn with rice flour at the doorstep, and sugarcane is a must."
+        ]
+      },
+      {
+        "h": "The four days of Pongal",
+        "p": [
+          "Bhogi: clearing out old, unused things and starting fresh.",
+          "Thai Pongal: the main day, when pongal is offered to the Sun.",
+          "Mattu Pongal: the cows and bullocks that help on the farm are bathed, decorated and honoured.",
+          "Kaanum Pongal: visiting relatives, going out together and taking the blessings of elders."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What does Pongal mean?",
+        "a": "In Tamil, \"pongal\" means boiling over. Rice, milk and jaggery boiling over in a new pot is a sign of plenty coming into the home."
+      },
+      {
+        "q": "What is Mattu Pongal?",
+        "a": "The third day of Pongal, when cows and bullocks that help with farming are bathed, their horns painted and garlanded, and they are honoured."
+      }
+    ]
+  },
+  "baisakhi": {
+    "name": "Baisakhi (Vaisakhi)",
+    "when": "Usually 13 April (14 April in some years)",
+    "where": "Punjab, Haryana and across North India; the same day is New Year in several parts of the country",
+    "intro": "Baisakhi celebrates the ripening of the rabi harvest, especially wheat. Punjab dances bhangra and giddha to the dhol, fairs are held, and for Sikhs the day is very special as the founding day of the Khalsa.",
+    "sections": [
+      {
+        "h": "The joy of the harvest",
+        "p": [
+          "By Baisakhi the golden wheat is ready to be cut. Farmers thank God for the fruit of their hard work, wear new clothes, and fairs are held in village after village."
+        ]
+      },
+      {
+        "h": "Founding of the Khalsa (1699)",
+        "p": [
+          "On Baisakhi 1699, Guru Gobind Singh Ji founded the Khalsa at Anandpur Sahib and gave amrit to the Panj Pyare. So gurdwaras hold kirtan, ardas, Nagar Kirtan and langar on this day."
+        ]
+      },
+      {
+        "h": "One day, many names",
+        "p": [
+          "Around the same time Bengal celebrates Poila Boishakh (Bengali New Year), Assam Bohag (Rongali) Bihu, Tamil Nadu Puthandu (Tamil New Year) and Kerala Vishu.",
+          "On Baisakhi day, 13 April 1919, British troops fired on unarmed people at Jallianwala Bagh in Amritsar. Those martyrs are remembered on this day too."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "When is Baisakhi celebrated?",
+        "a": "Usually on 13 April, and on 14 April in some years. It follows the solar calendar, so the date stays almost the same."
+      },
+      {
+        "q": "How is Baisakhi connected to the Khalsa?",
+        "a": "On Baisakhi 1699, Guru Gobind Singh Ji founded the Khalsa at Anandpur Sahib, so for Sikhs it is also Khalsa Sajna Diwas."
+      }
+    ]
+  },
+  "eid-ul-adha": {
+    "name": "Eid ul-Adha (Bakrid)",
+    "when": "10 Dhul Hijjah, the 12th month of the Islamic (Hijri) calendar — about 10–11 days earlier every year, fixed by the moon sighting",
+    "where": "All over India and the world",
+    "intro": "Eid ul-Adha, also called Bakrid, is the Eid of sacrifice and trust in Allah. It remembers the sacrifice of Prophet Ibrahim (peace be upon him), who was ready to give up what he loved most at Allah's command. It falls during the days of Hajj.",
+    "sections": [
+      {
+        "h": "The story of the sacrifice",
+        "p": [
+          "According to Islamic tradition, Prophet Ibrahim (AS) saw in a dream that he was sacrificing his son, Prophet Ismail (AS), for Allah. Father and son were both ready to obey. Then Allah sent a ram in Ismail's place.",
+          "The story teaches complete trust in Allah and the readiness to give up even what we love in His way."
+        ]
+      },
+      {
+        "h": "How Eid is celebrated",
+        "p": [
+          "In the morning people bathe, wear new or clean clothes and offer the Eid ul-Adha prayer at the Eidgah or mosque, then embrace each other saying \"Eid Mubarak\".",
+          "Those for whom it is required perform qurbani (animal sacrifice). The meat is shared in three parts — one for the family, one for relatives and friends, and one for people in need.",
+          "Keeping things clean, following local laws and respecting the feelings of neighbours while doing qurbani is also part of the spirit of Eid."
+        ]
+      },
+      {
+        "h": "Hajj and Dhul Hijjah",
+        "p": [
+          "Dhul Hijjah is the last month of the Islamic year. Hajj takes place in Makkah between the 8th and 12th of the month, and the 9th is the Day of Arafah. Eid ul-Adha comes in these days of Hajj."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "When is Bakrid celebrated?",
+        "a": "On 10 Dhul Hijjah in the Islamic calendar, about two months and ten days after Eid ul-Fitr. The exact date is fixed by the moon-sighting announcement."
+      },
+      {
+        "q": "What is the difference between Eid ul-Fitr and Eid ul-Adha?",
+        "a": "Eid ul-Fitr comes after the fasts of Ramzan (the \"sweet Eid\"). Eid ul-Adha is the Eid of sacrifice during the days of Hajj."
+      }
+    ]
+  },
 };
 
 const wishes = {

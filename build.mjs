@@ -10,7 +10,7 @@
  */
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { festivals } from './src/festivals.mjs';
+import { festivals as allFestivals } from './src/festivals.mjs';
 import { apps } from './src/apps.mjs';
 import { hisabVideo, APP_URL, VIDEO } from './src/hisab-video.mjs';
 import { wishes } from './src/wishes.mjs';
@@ -22,6 +22,9 @@ const games = allGames.filter((g) => isLive(`game:${g.slug}`));
 const stories = allStories.filter((st) => isLive(`story:${st.slug}`));
 const heldGames = allGames.filter((g) => !isLive(`game:${g.slug}`)).map((g) => g.slug);
 const heldStories = allStories.filter((st) => !isLive(`story:${st.slug}`)).map((st) => st.slug);
+// Festival guides can be scheduled too ('festival:<slug>'); held ones get no page, card, wish-card entry or sitemap URL
+const festivals = allFestivals.filter((f) => isLive(`festival:${f.slug}`));
+const heldFestivals = allFestivals.filter((f) => !isLive(`festival:${f.slug}`)).map((f) => f.slug);
 import * as islamic from './src/islamic.mjs';
 import { ui } from './src/i18n/ui.mjs';
 
@@ -837,8 +840,8 @@ const CONTENT_DATE = '2026-11-15';
 const lastRelease = Object.values(releases).filter((d) => d <= todayIST()).sort().pop() || CONTENT_DATE;
 const lastmodFor = (url) => {
   const path = url.replace(/^\/(en|hinglish|bn)(?=\/)/, '');
-  const m = path.match(/^\/(games|kahani|celebrate)\/([^/]+)\/$/);
-  const rel = m && releases[`${{ games: 'game', kahani: 'story', celebrate: 'celebrate' }[m[1]]}:${m[2]}`];
+  const m = path.match(/^\/(games|kahani|celebrate|festivals)\/([^/]+)\/$/);
+  const rel = m && releases[`${{ games: 'game', kahani: 'story', celebrate: 'celebrate', festivals: 'festival' }[m[1]]}:${m[2]}`];
   if (rel) return rel;
   if (['/', '/games/', '/kahani/'].includes(path)) return [CONTENT_DATE, lastRelease].sort().pop();
   return CONTENT_DATE;
@@ -913,7 +916,7 @@ if (heldGames.length || heldStories.length || heldCelebrate.length) {
   });
   walk(OUT);
 }
-console.log(`Held back until release: ${[...heldGames.map((s) => `game:${s}`), ...heldStories.map((s) => `story:${s}`), ...heldCelebrate.map((s) => `celebrate:${s}`)].map((k) => `${k} (${releases[k]})`).join(', ') || 'none'}`);
+console.log(`Held back until release: ${[...heldGames.map((s) => `game:${s}`), ...heldStories.map((s) => `story:${s}`), ...heldCelebrate.map((s) => `celebrate:${s}`), ...heldFestivals.map((s) => `festival:${s}`)].map((k) => `${k} (${releases[k]})`).join(', ') || 'none'}`);
 
 console.log(`Built ${allUrls.length} pages in ${LANGS.map((l) => l.code).join(', ')} into ${OUT}/`);
 
