@@ -36,6 +36,14 @@ const releases = {
   'game:kanche': '2027-02-09',
   'story:chidiya-kauwa-ghar': '2027-02-12',
   'game:raja-mantri-chor-sipahi': '2027-02-16',
+  // New stories (17 Nov). Idgah first: it is an Eid story (Eid ul-Fitr ~10 Mar 2027).
+  // NOTE: when merging with feat/festival-guides, redo these dates after that branch's schedule (two branches, one file).
+  'story:idgah': '2027-02-19',
+  'story:kabuliwala': '2027-02-23',
+  'story:do-bailon-ki-katha': '2027-02-26',
+  'story:phir-se-chooha': '2027-03-02',
+  'story:chaand-par-khargosh': '2027-03-05',
+  'story:sachcha-dost-kauwa': '2027-03-09',
 };
 
 // today's date in India (the release day changes at midnight IST)
