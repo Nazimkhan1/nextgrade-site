@@ -1,1 +1,689 @@
-<!doctype html><html data-prerendered="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Games | NextGrade</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://nextgrade.in/games/"><meta http-equiv="refresh" content="0; url=/games/"></head><body><p><a href="/games/">Games →</a></p></body></html>
+<!doctype html>
+<html data-prerendered="hi" lang="hi">
+<head>
+<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Langar Seva 🙏 — Gurpurab Game | NextGrade</title>
+<meta name="description" content="Langar Seva: a free Gurpurab (Guru Nanak Jayanti) game in Hinglish, Hindi, English and Bengali. Serve the sangat sitting in pangat — prashada, dal, kheer and water — before they wait too long. Learn about langar, seva and Guru Nanak Dev Ji's teachings.">
+<link rel="canonical" href="https://nextgrade.in/games/langar-seva/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Langar Seva 🙏 — Gurpurab Game">
+<meta property="og:description" content="Pangat mein baithi sangat ko prashada, dal, kheer aur jal parosiye — 60 second ki seva! Gurpurab ki lakh lakh vadhaiyan.">
+<meta property="og:url" content="https://nextgrade.in/games/langar-seva/">
+<meta property="og:image" content="https://nextgrade.in/games/langar-seva/icons/icon-512.png">
+<meta name="theme-color" content="#e8590c">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Langar Seva","url":"https://nextgrade.in/games/langar-seva/","genre":"Casual","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #141238; --bg2: #2b1d6b; --gold: #ffd43b; --pink: #f06595; --ink: #f8f9fa; --muted: #c5c3e6; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #5c2d0e, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #e8590c, #f59f00); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.45); height: min(74vh, 620px, 150vw); min-height: 470px; background: #fff4e6; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
+#cv { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: pointer; }
+.hud { position: absolute; top: 10px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 17px; color: #5c2d0e; pointer-events: none; z-index: 3; gap: 8px; }
+.hud span { background: rgba(255,255,255,0.85); border-radius: 12px; padding: 2px 10px; white-space: nowrap; }
+.tray { position: absolute; left: 8px; right: 8px; bottom: 8px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; z-index: 3; }
+.tray button { font: inherit; font-weight: 800; font-size: 13px; line-height: 1.15; padding: 6px 2px 5px; border-radius: 14px; border: 3px solid transparent; background: rgba(255,255,255,0.92); color: #5c2d0e; cursor: pointer; box-shadow: 0 3px 0 rgba(92,45,14,0.35); }
+.tray button b { display: block; font-size: 28px; line-height: 1.1; font-family: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif; }
+.tray button.on { border-color: #e8590c; background: #ffe8cc; transform: translateY(-3px); }
+
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(30, 14, 4, 0.72); padding: 16px; overflow-y: auto; z-index: 10; cursor: default; }
+.panel { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 18px; width: min(420px, 100%); text-align: center; margin: auto; color: var(--ink); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: #f1e3d3; }
+.panel .fact { background: rgba(255,212,59,0.12); border: 1px solid rgba(255,212,59,0.35); border-radius: 12px; padding: 8px 10px; color: #ffe8a3; font-size: 15px; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 54px; font-weight: 800; color: var(--gold); line-height: 1; margin: 6px 0; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 8px 0; }
+input::placeholder { color: #d9c3ae; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #f76707, #e8590c); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+@media (max-width: 480px) { .panel { padding: 14px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .hud { font-size: 15px; } .tray button { font-size: 12px; } }
+</style>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🙏 NextGrade<small>Gurpurab</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title">लंगर सेवा 🙏</h1>
+  <p class="sub" data-i18n="sub">गुरपुरब पर लंगर की सेवा कीजिए! पंगत में बैठी संगत को जो चाहिए — प्रशादा, दाल, खीर या जल — जल्दी से परोसिए। 60 सेकंड, जितनी ज़्यादा सेवा उतना अच्छा।</p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="cv" aria-label="Langar hall"></canvas>
+    <div class="hud" aria-hidden="true"><span id="hudScore">🙏 0</span><span id="hudTime">⏱ 60</span></div>
+    <div class="tray" id="tray"><button type="button" data-i="0" class="on"><b>🫓</b>प्रशादा</button><button type="button" data-i="1" class=""><b>🍲</b>दाल</button><button type="button" data-i="2" class=""><b>🥣</b>खीर</button><button type="button" data-i="3" class=""><b>💧</b>जल</button></div>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle">लंगर हॉल में स्वागत है 🙏</h2>
+        <p data-i18n="controls">नीचे से चीज़ चुनो (प्रशादा, दाल, खीर या जल), फिर जिसके ऊपर वही चीज़ दिखे उस पर टैप करो। देर हो गई तो वे इंतज़ार करते रहते हैं — कोई बात नहीं, अगले की सेवा करो!</p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <button class="btn btn-main" id="play" type="button" data-i18n="play"></button>
+        <p id="bestLine"></p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="pauseScreen">
+      <div class="panel">
+        <h2 data-i18n="paused"></h2>
+        <button class="btn btn-main" id="restart" type="button" data-i18n="again"></button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big" id="finalScore">0</div>
+        <p id="endNote"></p>
+        <p class="fact" id="endFact"></p>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle">कैसे खेलें</h2>
+    <div class="card2"><ol id="howList"><li><b>▶ सेवा शुरू करें</b> दबाओ। लंगर हॉल में संगत पंगत (क़तार) में बैठी है।</li><li>किसी के ऊपर गोला दिखेगा — उसमें जो चीज़ है वही उन्हें चाहिए: <b>🫓 प्रशादा, 🍲 दाल, 🥣 खीर या 💧 जल</b>।</li><li>नीचे वाली <b>पट्टी से चीज़ चुनो</b>, फिर <b>उस व्यक्ति पर टैप</b> करो। चुनी हुई चीज़ तब तक हाथ में रहती है जब तक बदलो नहीं।</li><li>गोले के चारों ओर का घेरा समय बताता है। जल्दी परोसोगे तो ज़्यादा पॉइंट। देर हो गई तो वे इंतज़ार करते हैं — कोई सज़ा नहीं, बस अगले की सेवा करो।</li><li>60 सेकंड में जितनी ज़्यादा सेवा, उतना अच्छा स्कोर। WhatsApp पर दोस्तों को भी सेवा का चैलेंज भेजो!</li></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle">लंगर और गुरपुरब</h2>
+    <p data-i18n="aboutText">गुरपुरब (गुरु नानक जयंती / प्रकाश पर्व) सिख धर्म के संस्थापक और पहले गुरु, गुरु नानक देव जी के जन्म का उत्सव है। इस दिन गुरुद्वारों में कीर्तन होता है और लंगर लगता है। लंगर एक मुफ़्त साझी रसोई है जहाँ हर धर्म, जाति, अमीर-ग़रीब सब एक साथ ज़मीन पर पंगत में बैठकर एक जैसा सादा खाना खाते हैं — यह परंपरा गुरु नानक देव जी ने शुरू की थी।</p>
+    <p data-i18n="aboutText2">एक मशहूर साखी है: पिता जी ने बचपन में नानक जी को 20 रुपये देकर "सच्चा सौदा" (अच्छा व्यापार) करने भेजा, और उन्होंने उन पैसों से भूखे साधुओं को खाना खिला दिया — यही था उनका सच्चा सौदा। इस गेम में वही भाव है: सेवा और वंड छकना (मिलकर बाँटना)। इसमें कोई संगीत नहीं है।</p>
+    <p><a id="guideLink" href="https://nextgrade.in/festivals/guru-nanak-jayanti/" data-i18n="readMore">गुरु नानक जयंती की पूरी जानकारी →</a> · <a id="wishLink" href="https://nextgrade.in/celebrate/gurpurab/" data-i18n="wishMore">🙏 नाम के साथ गुरपुरब की बधाई भेजो</a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="factsTitle">गुरपुरब और लंगर के तथ्य</h2>
+    <div class="card2"><ul id="factList"><li>गुरु नानक देव जी का जन्म 1469 में राय भोई दी तलवंडी में हुआ, जो आज पाकिस्तान में ननकाना साहिब कहलाता है।</li><li>गुरु नानक देव जी सिख धर्म के संस्थापक और दस सिख गुरुओं में पहले गुरु थे।</li><li>उनका प्रकाश पर्व (गुरपुरब) कार्तिक पूर्णिमा को मनाया जाता है।</li><li>उनकी तीन मूल सीखें: नाम जपना (वाहेगुरु का सिमरन), किरत करनी (ईमानदारी की कमाई) और वंड छकना (मिलकर बाँटना)।</li><li>लंगर में सब एक साथ ज़मीन पर पंगत में बैठते हैं — कोई छोटा-बड़ा नहीं। खाना सादा और शाकाहारी होता है।</li><li>गुरपुरब से पहले गुरुद्वारों में अखंड पाठ होता है — गुरु ग्रंथ साहिब का लगभग 48 घंटे का लगातार पाठ।</li><li>गुरपुरब से एक दिन पहले नगर कीर्तन निकलता है, जिसकी अगुवाई पंज प्यारे करते हैं।</li><li>गुरपुरब से पहले के दिनों में सुबह-सुबह प्रभात फेरी निकलती है, जिसमें संगत शबद गाते हुए मोहल्लों में घूमती है।</li></ul></div>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames">और गेम खेलो →</a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle">आपका डेटा</h2>
+    <p data-i18n="privacyText">नाम और बेस्ट स्कोर सिर्फ़ आपके फ़ोन में रहते हैं। शेयर लिंक में सिर्फ़ नाम और स्कोर जाता है। कोई लॉगिन नहीं, कोई सर्वर नहीं।</p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/langar-seva/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const GAME_MS = 60000;
+  const ITEMS = ['🫓', '🍲', '🥣', '💧'];
+  const FACT_KEYS = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8'];
+
+  const T = {
+    hinglish: {
+      title: 'Langar Seva 🙏',
+      sub: 'Gurpurab par langar ki seva kijiye! Pangat mein baithi sangat ko jo chahiye — prashada, dal, kheer ya jal — jaldi se parosiye. 60 second, jitni zyada seva utna achha.',
+      items: ['Prashada', 'Dal', 'Kheer', 'Jal'],
+      startTitle: 'Langar hall mein swagat hai 🙏',
+      controls: 'Neeche se cheez chuno (prashada, dal, kheer ya jal), phir jis ke upar wahi cheez dikhe us par tap karo. Der ho gayi to woh intezaar karte rehte hain — koi baat nahi, agle ki seva karo!',
+      namePh: 'Aapka naam (optional)',
+      play: '▶ Seva shuru karein',
+      paused: '⏸ Game ruka hua hai',
+      again: '🔁 Phir se seva',
+      best: (n) => `Aapka best: ${n} seva`,
+      challenge: (name, n) => `🙏 ${name} ne Langar Seva mein ${n} logon ko parosa! Aap kitni seva kar paoge?`,
+      served: 'Seva 🙏',
+      thanks: ['Shukriya ji! 🙏', 'Bahut achha! ✨', 'Seva safal! 🙏'],
+      wrongItem: (x) => `Inhe ${x} chahiye`,
+      endTitle: (name) => `Seva ke liye shukriya${name ? `, ${name}` : ''}! 🙏`,
+      endNote: (n, missed, best, isNew) => `${n} logon ko parosa · ${missed} ne intezaar kiya · ${isNew ? '🏅 Naya best!' : `Aapka best: ${best}`}`,
+      shareWa: '📲 WhatsApp pe challenge bhejo',
+      shareOther: '🔗 Link share / copy karo',
+      copied: '✅ Copy ho gaya',
+      copyPrompt: 'Yeh text copy karo:',
+      shareText: (name, n, url) => `🙏 ${name ? `${name} ne` : 'Maine'} Langar Seva game mein ${n} logon ko parosa! Gurpurab ki vadhaiyan — aap bhi seva karo: ${url}`,
+      howTitle: 'Kaise khelein',
+      how: ['<b>▶ Seva shuru karein</b> dabao. Langar hall mein sangat pangat (qataar) mein baithi hai.', 'Kisi ke upar gola dikhega — usme jo cheez hai wahi unhe chahiye: <b>🫓 prashada, 🍲 dal, 🥣 kheer ya 💧 jal</b>.', 'Neeche wali <b>patti se cheez chuno</b>, phir <b>us insaan par tap</b> karo. Chuni hui cheez tab tak haath mein rehti hai jab tak badlo nahi.', 'Gole ke chaaron taraf ka ghera samay batata hai. Jaldi parosoge to zyada points. Der ho gayi to woh intezaar karte hain — koi saza nahi, bas agle ki seva karo.', '60 second mein jitni zyada seva, utna achha score. WhatsApp pe doston ko bhi seva ka challenge bhejo!'],
+      aboutTitle: 'Langar aur Gurpurab',
+      aboutText: 'Gurpurab (Guru Nanak Jayanti / Prakash Purab) Sikh dharam ke sansthapak aur pehle Guru, Guru Nanak Dev Ji ke janm ka utsav hai. Is din gurdwaron mein kirtan hota hai aur langar lagta hai. Langar ek muft saanjhi rasoi hai jahan har dharam, jaati, ameer-gareeb sab ek saath zameen par pangat mein baith kar ek jaisa saada khaana khaate hain — yeh parampara Guru Nanak Dev Ji ne shuru ki thi.',
+      aboutText2: 'Ek mashhoor sakhi hai: pita ji ne bachpan mein Nanak ji ko 20 rupaye dekar "sacha sauda" (achha vyapaar) karne bheja, aur unhone un paison se bhookhe saadhuon ko khaana khila diya — yahi tha unka sacha sauda. Is game mein wahi bhaav hai: seva aur vand chhakna (milkar baantna). Isme koi music nahi hai.',
+      readMore: 'Guru Nanak Jayanti ki poori jaankari →',
+      wishMore: '🙏 Naam ke saath Gurpurab ki badhaai bhejo',
+      factsTitle: 'Gurpurab aur langar ke tathya',
+      facts: {
+        f1: 'Guru Nanak Dev Ji ka janm 1469 mein Rai Bhoi di Talwandi mein hua, jo aaj Pakistan mein Nankana Sahib kehlata hai.',
+        f2: 'Guru Nanak Dev Ji Sikh dharam ke sansthapak aur das Sikh Guruon mein pehle Guru the.',
+        f3: 'Unka Prakash Purab (Gurpurab) Kartik Purnima ko manaya jaata hai.',
+        f4: 'Unki teen mool seekhein: Naam Japna (Waheguru ka simran), Kirat Karni (imaandari ki kamaai) aur Vand Chhakna (milkar baantna).',
+        f5: 'Langar mein sab ek saath zameen par pangat mein baithte hain — koi chhota-bada nahi. Khaana saada aur shakahaari hota hai.',
+        f6: 'Gurpurab se pehle gurdwaron mein Akhand Path hota hai — Guru Granth Sahib ka lagbhag 48 ghante ka lagaataar paath.',
+        f7: 'Gurpurab se ek din pehle Nagar Kirtan nikalta hai, jiski agvaai Panj Pyare karte hain.',
+        f8: 'Gurpurab se pehle ke dinon mein subah-subah Prabhat Pheri nikalti hai, jismein sangat shabad gaate hue mohallon mein ghoomti hai.',
+      },
+      moreGames: 'Aur games khelo →',
+      privacyTitle: 'Aapka data',
+      privacyText: 'Naam aur best score sirf aapke phone mein rehte hain. Share link mein sirf naam aur score jaata hai. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'लंगर सेवा 🙏',
+      sub: 'गुरपुरब पर लंगर की सेवा कीजिए! पंगत में बैठी संगत को जो चाहिए — प्रशादा, दाल, खीर या जल — जल्दी से परोसिए। 60 सेकंड, जितनी ज़्यादा सेवा उतना अच्छा।',
+      items: ['प्रशादा', 'दाल', 'खीर', 'जल'],
+      startTitle: 'लंगर हॉल में स्वागत है 🙏',
+      controls: 'नीचे से चीज़ चुनो (प्रशादा, दाल, खीर या जल), फिर जिसके ऊपर वही चीज़ दिखे उस पर टैप करो। देर हो गई तो वे इंतज़ार करते रहते हैं — कोई बात नहीं, अगले की सेवा करो!',
+      namePh: 'आपका नाम (ज़रूरी नहीं)',
+      play: '▶ सेवा शुरू करें',
+      paused: '⏸ गेम रुका हुआ है',
+      again: '🔁 फिर से सेवा',
+      best: (n) => `आपका बेस्ट: ${n} सेवा`,
+      challenge: (name, n) => `🙏 ${name} ने लंगर सेवा में ${n} लोगों को परोसा! आप कितनी सेवा कर पाओगे?`,
+      served: 'सेवा 🙏',
+      thanks: ['शुक्रिया जी! 🙏', 'बहुत अच्छा! ✨', 'सेवा सफल! 🙏'],
+      wrongItem: (x) => `इन्हें ${x} चाहिए`,
+      endTitle: (name) => `सेवा के लिए शुक्रिया${name ? `, ${name}` : ''}! 🙏`,
+      endNote: (n, missed, best, isNew) => `${n} लोगों को परोसा · ${missed} ने इंतज़ार किया · ${isNew ? '🏅 नया बेस्ट!' : `आपका बेस्ट: ${best}`}`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो',
+      shareOther: '🔗 लिंक शेयर / कॉपी करो',
+      copied: '✅ कॉपी हो गया',
+      copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareText: (name, n, url) => `🙏 ${name ? `${name} ने` : 'मैंने'} लंगर सेवा गेम में ${n} लोगों को परोसा! गुरपुरब की बधाई — आप भी सेवा करो: ${url}`,
+      howTitle: 'कैसे खेलें',
+      how: ['<b>▶ सेवा शुरू करें</b> दबाओ। लंगर हॉल में संगत पंगत (क़तार) में बैठी है।', 'किसी के ऊपर गोला दिखेगा — उसमें जो चीज़ है वही उन्हें चाहिए: <b>🫓 प्रशादा, 🍲 दाल, 🥣 खीर या 💧 जल</b>।', 'नीचे वाली <b>पट्टी से चीज़ चुनो</b>, फिर <b>उस व्यक्ति पर टैप</b> करो। चुनी हुई चीज़ तब तक हाथ में रहती है जब तक बदलो नहीं।', 'गोले के चारों ओर का घेरा समय बताता है। जल्दी परोसोगे तो ज़्यादा पॉइंट। देर हो गई तो वे इंतज़ार करते हैं — कोई सज़ा नहीं, बस अगले की सेवा करो।', '60 सेकंड में जितनी ज़्यादा सेवा, उतना अच्छा स्कोर। WhatsApp पर दोस्तों को भी सेवा का चैलेंज भेजो!'],
+      aboutTitle: 'लंगर और गुरपुरब',
+      aboutText: 'गुरपुरब (गुरु नानक जयंती / प्रकाश पर्व) सिख धर्म के संस्थापक और पहले गुरु, गुरु नानक देव जी के जन्म का उत्सव है। इस दिन गुरुद्वारों में कीर्तन होता है और लंगर लगता है। लंगर एक मुफ़्त साझी रसोई है जहाँ हर धर्म, जाति, अमीर-ग़रीब सब एक साथ ज़मीन पर पंगत में बैठकर एक जैसा सादा खाना खाते हैं — यह परंपरा गुरु नानक देव जी ने शुरू की थी।',
+      aboutText2: 'एक मशहूर साखी है: पिता जी ने बचपन में नानक जी को 20 रुपये देकर "सच्चा सौदा" (अच्छा व्यापार) करने भेजा, और उन्होंने उन पैसों से भूखे साधुओं को खाना खिला दिया — यही था उनका सच्चा सौदा। इस गेम में वही भाव है: सेवा और वंड छकना (मिलकर बाँटना)। इसमें कोई संगीत नहीं है।',
+      readMore: 'गुरु नानक जयंती की पूरी जानकारी →',
+      wishMore: '🙏 नाम के साथ गुरपुरब की बधाई भेजो',
+      factsTitle: 'गुरपुरब और लंगर के तथ्य',
+      facts: {
+        f1: 'गुरु नानक देव जी का जन्म 1469 में राय भोई दी तलवंडी में हुआ, जो आज पाकिस्तान में ननकाना साहिब कहलाता है।',
+        f2: 'गुरु नानक देव जी सिख धर्म के संस्थापक और दस सिख गुरुओं में पहले गुरु थे।',
+        f3: 'उनका प्रकाश पर्व (गुरपुरब) कार्तिक पूर्णिमा को मनाया जाता है।',
+        f4: 'उनकी तीन मूल सीखें: नाम जपना (वाहेगुरु का सिमरन), किरत करनी (ईमानदारी की कमाई) और वंड छकना (मिलकर बाँटना)।',
+        f5: 'लंगर में सब एक साथ ज़मीन पर पंगत में बैठते हैं — कोई छोटा-बड़ा नहीं। खाना सादा और शाकाहारी होता है।',
+        f6: 'गुरपुरब से पहले गुरुद्वारों में अखंड पाठ होता है — गुरु ग्रंथ साहिब का लगभग 48 घंटे का लगातार पाठ।',
+        f7: 'गुरपुरब से एक दिन पहले नगर कीर्तन निकलता है, जिसकी अगुवाई पंज प्यारे करते हैं।',
+        f8: 'गुरपुरब से पहले के दिनों में सुबह-सुबह प्रभात फेरी निकलती है, जिसमें संगत शबद गाते हुए मोहल्लों में घूमती है।',
+      },
+      moreGames: 'और गेम खेलो →',
+      privacyTitle: 'आपका डेटा',
+      privacyText: 'नाम और बेस्ट स्कोर सिर्फ़ आपके फ़ोन में रहते हैं। शेयर लिंक में सिर्फ़ नाम और स्कोर जाता है। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Langar Seva 🙏',
+      sub: 'Do seva in the langar this Gurpurab! Serve the sangat sitting in pangat whatever they need — prashada, dal, kheer or water — quickly. 60 seconds: the more seva, the better.',
+      items: ['Prashada', 'Dal', 'Kheer', 'Water'],
+      startTitle: 'Welcome to the langar hall 🙏',
+      controls: 'Pick an item at the bottom (prashada, dal, kheer or water), then tap the person who is asking for that item. If you are late, they simply keep waiting — no problem, serve the next one!',
+      namePh: 'Your name (optional)',
+      play: '▶ Start seva',
+      paused: '⏸ Game paused',
+      again: '🔁 Seva again',
+      best: (n) => `Your best: ${n} served`,
+      challenge: (name, n) => `🙏 ${name} served ${n} people in Langar Seva! How much seva can you do?`,
+      served: 'Seva 🙏',
+      thanks: ['Thank you ji! 🙏', 'Very good! ✨', 'Seva done! 🙏'],
+      wrongItem: (x) => `They need ${x}`,
+      endTitle: (name) => `Thank you for the seva${name ? `, ${name}` : ''}! 🙏`,
+      endNote: (n, missed, best, isNew) => `${n} people served · ${missed} kept waiting · ${isNew ? '🏅 New best!' : `Your best: ${best}`}`,
+      shareWa: '📲 Challenge on WhatsApp',
+      shareOther: '🔗 Share / copy link',
+      copied: '✅ Copied',
+      copyPrompt: 'Copy this text:',
+      shareText: (name, n, url) => `🙏 ${name || 'I'} served ${n} people in the Langar Seva game! Happy Gurpurab — come and do seva too: ${url}`,
+      howTitle: 'How to play',
+      how: ['Tap <b>▶ Start seva</b>. The sangat is sitting in pangat (rows) in the langar hall.', 'A bubble appears over someone — the item in it is what they need: <b>🫓 prashada, 🍲 dal, 🥣 kheer or 💧 water</b>.', '<b>Pick the item</b> from the strip at the bottom, then <b>tap that person</b>. The chosen item stays in your hand until you change it.', 'The ring around the bubble shows the time. Serve quickly for more points. If you are late they simply wait — no penalty, just serve the next person.', 'Serve as many as you can in 60 seconds. Challenge your friends to do seva on WhatsApp!'],
+      aboutTitle: 'Langar and Gurpurab',
+      aboutText: 'Gurpurab (Guru Nanak Jayanti / Prakash Purab) celebrates the birth of Guru Nanak Dev Ji, the founder of Sikhism and the first Sikh Guru. On this day there is kirtan in gurdwaras and langar is served. Langar is a free community kitchen where people of every faith and caste, rich and poor, sit together on the floor in pangat and eat the same simple meal — a tradition started by Guru Nanak Dev Ji.',
+      aboutText2: 'A well-known sakhi: as a boy, Nanak was given 20 rupees by his father to make a "sacha sauda" (a good bargain), and he used the money to feed hungry sadhus — that was his true bargain. This game carries the same spirit: seva and vand chhakna (sharing with others). It has no music.',
+      readMore: 'All about Guru Nanak Jayanti →',
+      wishMore: '🙏 Send a Gurpurab greeting with a name',
+      factsTitle: 'Facts about Gurpurab and langar',
+      facts: {
+        f1: 'Guru Nanak Dev Ji was born in 1469 at Rai Bhoi di Talwandi, now called Nankana Sahib, in Pakistan.',
+        f2: 'Guru Nanak Dev Ji founded Sikhism and was the first of the ten Sikh Gurus.',
+        f3: 'His Prakash Purab (Gurpurab) is celebrated on Kartik Purnima.',
+        f4: 'His three core teachings: Naam Japna (remembering God), Kirat Karni (honest work) and Vand Chhakna (sharing with others).',
+        f5: 'In langar everyone sits together on the floor in pangat — no one is higher or lower. The food is simple and vegetarian.',
+        f6: 'Before Gurpurab, gurdwaras hold an Akhand Path — a continuous reading of the Guru Granth Sahib over about 48 hours.',
+        f7: 'A day before Gurpurab a Nagar Kirtan procession is taken out, led by the Panj Pyare.',
+        f8: 'In the days before Gurpurab, early-morning Prabhat Pheris go through neighbourhoods singing shabads.',
+      },
+      moreGames: 'Play more games →',
+      privacyTitle: 'Your data',
+      privacyText: 'Your name and best score stay only on your phone. The share link carries only your name and score. No login, no server.',
+    },
+    bn: {
+      title: 'লঙ্গর সেবা 🙏',
+      sub: 'গুরপরবে লঙ্গরে সেবা করো! পঙ্গতে বসা সঙ্গতের যা দরকার — প্রসাদা, ডাল, পায়েস বা জল — তাড়াতাড়ি পরিবেশন করো। ৬০ সেকেন্ড, যত বেশি সেবা তত ভালো।',
+      items: ['প্রসাদা', 'ডাল', 'পায়েস', 'জল'],
+      startTitle: 'লঙ্গর হলে স্বাগত 🙏',
+      controls: 'নিচ থেকে একটা জিনিস বাছো (প্রসাদা, ডাল, পায়েস বা জল), তারপর যার মাথার ওপর সেই জিনিস দেখা যাচ্ছে তাকে ট্যাপ করো। দেরি হলে তাঁরা অপেক্ষা করেন — কোনো ব্যাপার না, পরের জনের সেবা করো!',
+      namePh: 'তোমার নাম (ঐচ্ছিক)',
+      play: '▶ সেবা শুরু করো',
+      paused: '⏸ খেলা থেমে আছে',
+      again: '🔁 আবার সেবা',
+      best: (n) => `তোমার সেরা: ${n} জনকে সেবা`,
+      challenge: (name, n) => `🙏 ${name} লঙ্গর সেবায় ${n} জনকে পরিবেশন করেছে! তুমি কত সেবা করতে পারবে?`,
+      served: 'সেবা 🙏',
+      thanks: ['ধন্যবাদ জি! 🙏', 'খুব ভালো! ✨', 'সেবা সফল! 🙏'],
+      wrongItem: (x) => `এঁর ${x} চাই`,
+      endTitle: (name) => `সেবার জন্য ধন্যবাদ${name ? `, ${name}` : ''}! 🙏`,
+      endNote: (n, missed, best, isNew) => `${n} জনকে পরিবেশন · ${missed} জন অপেক্ষা করেছেন · ${isNew ? '🏅 নতুন সেরা!' : `তোমার সেরা: ${best}`}`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও',
+      shareOther: '🔗 লিংক শেয়ার / কপি',
+      copied: '✅ কপি হয়েছে',
+      copyPrompt: 'এই লেখাটা কপি করো:',
+      shareText: (name, n, url) => (name ? `🙏 ${name} লঙ্গর সেবা খেলায় ${n} জনকে পরিবেশন করেছে! গুরপরবের শুভেচ্ছা — তুমিও সেবা করো: ${url}` : `🙏 আমি লঙ্গর সেবা খেলায় ${n} জনকে পরিবেশন করেছি! গুরপরবের শুভেচ্ছা — তুমিও সেবা করো: ${url}`),
+      howTitle: 'কীভাবে খেলবে',
+      how: ['<b>▶ সেবা শুরু করো</b> টিপো। লঙ্গর হলে সঙ্গত পঙ্গতে (সারিতে) বসে আছে।', 'কারও মাথার ওপর একটা বুদবুদ আসবে — তাতে যা আছে সেটাই তাঁর দরকার: <b>🫓 প্রসাদা, 🍲 ডাল, 🥣 পায়েস বা 💧 জল</b>।', 'নিচের <b>পট্টি থেকে জিনিস বাছো</b>, তারপর <b>সেই মানুষটিকে ট্যাপ</b> করো। বাছা জিনিস হাতে থাকে যতক্ষণ না বদলাও।', 'বুদবুদের চারপাশের রিং সময় দেখায়। তাড়াতাড়ি দিলে বেশি পয়েন্ট। দেরি হলে তাঁরা অপেক্ষা করেন — কোনো শাস্তি নেই, পরের জনকে সেবা করো।', '৬০ সেকেন্ডে যত বেশি সেবা, তত ভালো স্কোর। WhatsApp-এ বন্ধুদের সেবার চ্যালেঞ্জ পাঠাও!'],
+      aboutTitle: 'লঙ্গর আর গুরপরব',
+      aboutText: 'গুরপরব (গুরু নানক জয়ন্তী / প্রকাশ পর্ব) শিখ ধর্মের প্রতিষ্ঠাতা ও প্রথম গুরু, গুরু নানক দেব জির জন্মোৎসব। এই দিন গুরুদ্বারে কীর্তন হয় আর লঙ্গর হয়। লঙ্গর এক বিনামূল্যের সাঝা রান্নাঘর, যেখানে সব ধর্ম, জাত, ধনী-গরিব সবাই একসঙ্গে মেঝেতে পঙ্গতে বসে একই সাধারণ খাবার খায় — এই প্রথা গুরু নানক দেব জি শুরু করেছিলেন।',
+      aboutText2: 'একটা বিখ্যাত সাখি: ছোটবেলায় বাবা নানককে ২০ টাকা দিয়ে "সাচা সৌদা" (ভালো ব্যবসা) করতে পাঠান, আর তিনি সেই টাকায় ক্ষুধার্ত সাধুদের খাওয়ান — সেটাই ছিল তাঁর সাচা সৌদা। এই খেলায় সেই ভাবটাই: সেবা আর ভন্ড ছকনা (ভাগ করে নেওয়া)। এতে কোনো গান-বাজনা নেই।',
+      readMore: 'গুরু নানক জয়ন্তী নিয়ে পুরোটা পড়ো →',
+      wishMore: '🙏 নাম দিয়ে গুরপরবের শুভেচ্ছা পাঠাও',
+      factsTitle: 'গুরপরব আর লঙ্গরের তথ্য',
+      facts: {
+        f1: 'গুরু নানক দেব জি ১৪৬৯ সালে রায় ভোই দি তলওয়ান্ডিতে জন্মান, যা আজ পাকিস্তানের ননকানা সাহিব।',
+        f2: 'গুরু নানক দেব জি শিখ ধর্মের প্রতিষ্ঠাতা আর দশ শিখ গুরুর মধ্যে প্রথম গুরু।',
+        f3: 'তাঁর প্রকাশ পর্ব (গুরপরব) কার্তিক পূর্ণিমায় পালিত হয়।',
+        f4: 'তাঁর তিনটি মূল শিক্ষা: নাম জপনা (ঈশ্বরের স্মরণ), কিরত করনি (সৎ উপার্জন) আর ভন্ড ছকনা (ভাগ করে নেওয়া)।',
+        f5: 'লঙ্গরে সবাই একসঙ্গে মেঝেতে পঙ্গতে বসে — কেউ ছোট-বড় নয়। খাবার সাধারণ আর নিরামিষ।',
+        f6: 'গুরপরবের আগে গুরুদ্বারে অখণ্ড পাঠ হয় — গুরু গ্রন্থ সাহিবের প্রায় ৪৮ ঘণ্টার একটানা পাঠ।',
+        f7: 'গুরপরবের আগের দিন নগর কীর্তন বেরোয়, যার নেতৃত্বে থাকেন পঞ্চ পিয়ারে।',
+        f8: 'গুরপরবের আগের দিনগুলোয় ভোরবেলা প্রভাত ফেরি বেরোয়, সঙ্গত শবদ গাইতে গাইতে পাড়ায় ঘোরে।',
+      },
+      moreGames: 'আরও গেম খেলো →',
+      privacyTitle: 'তোমার ডেটা',
+      privacyText: 'নাম আর সেরা স্কোর শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর স্কোর। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const urlLang = params.get('lang');
+  const savedLang = store.get('ls-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(9999, parseInt(params.get('score'), 10) || 0));
+  const best = () => parseInt(store.get('ls-best'), 10) || 0;
+  const debug = params.has('debug') ? (parseInt(params.get('debug'), 10) || 1) : 0;
+
+  // ---------- page texts
+  let last = null, selected = 0;
+  const renderTray = () => {
+    $('tray').innerHTML = ITEMS.map((e, i) => `<button type="button" data-i="${i}" class="${i === selected ? 'on' : ''}"><b>${e}</b>${t('items')[i]}</button>`).join('');
+  };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Gurpurab Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const F = t('facts');
+    $('factList').innerHTML = FACT_KEYS.map((k) => `<li>${F[k]}</li>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    $('guideLink').href = `https://nextgrade.in${p}/festivals/guru-nanak-jayanti/`;
+    $('wishLink').href = `https://nextgrade.in/celebrate/gurpurab/?lang=${lang}`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+    renderTray();
+    if (last) fillEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('ls-lang', lang); applyLang(); });
+  $('name').value = store.get('ls-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- sound: soft effects only, no music
+  let muted = store.get('ls-muted') === '1';
+  let ac = null, master = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setIcons();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('ls-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.8; });
+  const initAudio = () => {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    ac = new AC();
+    master = ac.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(ac.destination);
+  };
+  const tone = (f, dur, type = 'sine', vol = 0.07, delay = 0, f2 = null) => {
+    if (!ac) return;
+    const w = ac.currentTime + delay;
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, w);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, w + dur);
+    g.gain.setValueAtTime(0.0001, w); g.gain.exponentialRampToValueAtTime(vol, w + 0.015); g.gain.exponentialRampToValueAtTime(0.0001, w + dur);
+    o.connect(g); g.connect(master); o.start(w); o.stop(w + dur + 0.03);
+  };
+  const sfx = {
+    pick: () => tone(660, 0.08, 'triangle', 0.05),
+    serve: () => { tone(784, 0.25, 'sine', 0.07); tone(1175, 0.35, 'sine', 0.05, 0.08); },
+    wrong: () => tone(300, 0.18, 'triangle', 0.05, 0, 240),
+    wait: () => tone(440, 0.3, 'sine', 0.035, 0, 392),
+    end: () => { [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.6, 'sine', 0.06, i * 0.15)); },
+  };
+
+  // ---------- state
+  const cv = $('cv');
+  const ctx = cv.getContext('2d');
+  let W = 400, H = 600, dpr = 1;
+  let state = 'idle'; // idle | play | over
+  let seats = [], T0 = 0, nextSpawn = 0, score = 0, served = 0, missed = 0, streak = 0;
+  let pops = [], playerName = '', lastFrame = 0, pausedLeft = 0;
+  const COAT = ['#1c7ed6', '#e8590c', '#2f9e44', '#ae3ec9', '#f59f00', '#c92a2a', '#0c8599', '#5f3dc4'];
+  const COVER = ['#f76707', '#1971c2', '#fab005', '#e64980', '#2b8a3e', '#ffffff', '#7048e8', '#f03e3e'];
+
+  const layout = () => {
+    const cols = W < 520 ? 3 : 4;
+    const rows = 2;
+    const top = H * 0.38, bottom = H - 96;
+    const rowH = (bottom - top) / rows;
+    const old = seats;
+    seats = [];
+    for (let r = 0; r < rows; r += 1) {
+      for (let c = 0; c < cols; c += 1) {
+        const i = r * cols + c;
+        const o = old[i] || { want: -1, born: 0, life: 0, flash: 0, wait: 0, coat: COAT[i % COAT.length], cover: COVER[(i * 3) % COVER.length], kid: Math.random() < 0.3 };
+        seats.push(Object.assign(o, { x: ((c + 0.5) / cols) * W, y: top + rowH * (r + 0.72), size: Math.min(W / cols, rowH) * 0.42 }));
+      }
+    }
+  };
+  const resize = () => {
+    const r = $('stage').getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+    W = Math.max(280, r.width); H = Math.max(420, r.height);
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    layout();
+  };
+
+  const elapsed = (now) => (state === 'play' ? now - T0 : 0);
+  const patience = (now) => 7000 - (elapsed(now) / GAME_MS) * 3200; // 7 s → 3.8 s
+  const spawnGap = (now) => 1300 - (elapsed(now) / GAME_MS) * 650; // 1.3 s → 0.65 s
+  const updateHud = (now = performance.now()) => {
+    $('hudScore').textContent = `🙏 ${served}`;
+    $('hudTime').textContent = `⏱ ${state === 'play' ? Math.max(0, Math.ceil((GAME_MS - elapsed(now)) / 1000)) : 60}`;
+  };
+  const pop = (x, y, text, col) => { pops.push({ x, y, text, col, t0: performance.now() }); };
+
+  const spawn = (now) => {
+    const free = seats.filter((s) => s.want < 0 && now - s.wait > 900);
+    if (!free.length) return;
+    const s = free[Math.floor(Math.random() * free.length)];
+    s.want = Math.floor(Math.random() * ITEMS.length); s.born = now; s.life = patience(now);
+  };
+
+  const serveSeat = (s, now) => {
+    if (state !== 'play' || s.want < 0) return;
+    if (s.want === selected) {
+      const left = Math.max(0, 1 - (now - s.born) / s.life);
+      const pts = 10 + Math.round(left * 10);
+      score += pts; served += 1; streak += 1;
+      s.want = -1; s.flash = now; s.wait = now;
+      const th = t('thanks');
+      pop(s.x, s.y - s.size * 1.6, th[served % th.length], '#2b8a3e');
+      sfx.serve();
+    } else {
+      pop(s.x, s.y - s.size * 1.6, t('wrongItem')(t('items')[s.want]), '#c92a2a');
+      sfx.wrong(); streak = 0;
+    }
+    updateHud(now);
+  };
+
+  // ---------- frame
+  const step = (now) => {
+    lastFrame = now;
+    if (state === 'play') {
+      if (now >= nextSpawn) { spawn(now); nextSpawn = now + spawnGap(now); }
+      seats.forEach((s) => {
+        if (s.want >= 0 && now - s.born > s.life) { s.want = -1; s.wait = now; missed += 1; streak = 0; pop(s.x, s.y - s.size * 1.6, '⌛', '#868e96'); sfx.wait(); }
+      });
+      if (debug) {
+        const target = seats.filter((s) => s.want >= 0 && now - s.born > (debug >= 2 ? s.life * 0.95 : 450)).sort((a, b) => a.born - b.born)[0];
+        if (target && !target.botAt) target.botAt = now;
+        if (target && now - target.botAt > 120) { target.botAt = 0; selected = target.want; renderTray(); serveSeat(target, now); }
+      }
+      if (elapsed(now) >= GAME_MS) gameOver();
+      updateHud(now);
+    }
+    draw(now);
+    requestAnimationFrame(step);
+  };
+
+  // ---------- drawing
+  const drawHall = () => {
+    // wall and windows
+    const wall = ctx.createLinearGradient(0, 0, 0, H * 0.34);
+    wall.addColorStop(0, '#fff9db'); wall.addColorStop(1, '#ffe8cc');
+    ctx.fillStyle = wall; ctx.fillRect(0, 0, W, H * 0.34);
+    // gurdwara silhouette seen through a wide window: white building, golden domes, Nishan Sahib
+    const wx = W * 0.08, wy = H * 0.09, ww = W * 0.84, wh = H * 0.21;
+    ctx.fillStyle = '#a5d8ff'; ctx.fillRect(wx, wy, ww, wh);
+    const cx = W / 2, base = wy + wh, gw = Math.min(ww * 0.5, 230);
+    ctx.fillStyle = '#ffffff'; ctx.fillRect(cx - gw / 2, base - wh * 0.45, gw, wh * 0.45);
+    ctx.fillStyle = '#fcc419';
+    ctx.beginPath(); ctx.ellipse(cx, base - wh * 0.45, gw * 0.16, wh * 0.28, 0, Math.PI, 0); ctx.fill();
+    [-1, 1].forEach((k) => { ctx.beginPath(); ctx.ellipse(cx + k * gw * 0.38, base - wh * 0.45, gw * 0.07, wh * 0.14, 0, Math.PI, 0); ctx.fill(); });
+    ctx.fillStyle = '#f08c00'; ctx.fillRect(cx - 1.5, base - wh * 0.45 - wh * 0.36, 3, wh * 0.1);
+    ctx.fillStyle = '#e7f5ff';
+    for (let i = 0; i < 5; i += 1) { const ax = cx - gw * 0.34 + i * gw * 0.17; ctx.beginPath(); ctx.moveTo(ax - 7, base); ctx.lineTo(ax - 7, base - wh * 0.22); ctx.arc(ax, base - wh * 0.22, 7, Math.PI, 0); ctx.lineTo(ax + 7, base); ctx.fill(); }
+    // Nishan Sahib: tall pole with a saffron triangular flag
+    const nx = wx + ww * 0.12;
+    ctx.strokeStyle = '#495057'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(nx, base); ctx.lineTo(nx, wy + wh * 0.08); ctx.stroke();
+    ctx.fillStyle = '#ff922b'; ctx.beginPath(); ctx.moveTo(nx, wy + wh * 0.08); ctx.lineTo(nx + 24, wy + wh * 0.18); ctx.lineTo(nx, wy + wh * 0.28); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = '#e8a87c'; ctx.lineWidth = 5; ctx.strokeRect(wx, wy, ww, wh);
+    // floor with long darri mats (pangat)
+    ctx.fillStyle = '#f1d9b5'; ctx.fillRect(0, H * 0.34, W, H * 0.66);
+    const top = H * 0.38, bottom = H - 96, rowH = (bottom - top) / 2;
+    for (let r = 0; r < 2; r += 1) {
+      const y = top + rowH * (r + 0.72);
+      ctx.fillStyle = r % 2 ? '#c92a2a' : '#1864ab';
+      ctx.fillRect(0, y - 4, W, rowH * 0.3);
+      ctx.fillStyle = 'rgba(255,255,255,0.35)';
+      for (let x = 0; x < W; x += 16) ctx.fillRect(x, y - 4, 6, rowH * 0.3);
+    }
+  };
+  const drawPerson = (s, now) => {
+    const z = s.size, x = s.x, y = s.y;
+    const k = s.kid ? 0.8 : 1;
+    const flash = now - s.flash < 500;
+    // body (seated, cross-legged)
+    ctx.fillStyle = s.coat;
+    ctx.beginPath(); ctx.ellipse(x, y + z * 0.15 * k, z * 0.55 * k, z * 0.22 * k, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(x - z * 0.32 * k, y + z * 0.1); ctx.lineTo(x + z * 0.32 * k, y + z * 0.1); ctx.lineTo(x + z * 0.24 * k, y - z * 0.55 * k); ctx.lineTo(x - z * 0.24 * k, y - z * 0.55 * k); ctx.closePath(); ctx.fill();
+    // head with covering (everyone covers the head in the langar hall)
+    const hy = y - z * 0.78 * k, hr = z * 0.22 * k;
+    ctx.fillStyle = '#e0a370'; ctx.beginPath(); ctx.arc(x, hy, hr, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = s.cover; ctx.beginPath(); ctx.ellipse(x, hy - hr * 0.35, hr * 1.2, hr * 0.95, 0, Math.PI, 0); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(x, hy - hr * 0.45, hr * 1.12, hr * 0.3, 0, 0, Math.PI); ctx.fill();
+    ctx.fillStyle = '#212529'; [-1, 1].forEach((d) => { ctx.beginPath(); ctx.arc(x + d * hr * 0.38, hy + hr * 0.05, hr * 0.09, 0, Math.PI * 2); ctx.fill(); });
+    ctx.strokeStyle = '#7a3e1d'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(x, hy + hr * 0.25, hr * 0.32, 0.15 * Math.PI, 0.85 * Math.PI); ctx.stroke();
+    // steel thali in front
+    ctx.fillStyle = '#dee2e6'; ctx.beginPath(); ctx.ellipse(x, y + z * 0.42, z * 0.4, z * 0.12, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#adb5bd'; ctx.lineWidth = 2; ctx.stroke();
+    if (flash) {
+      ctx.font = `${z * 0.28}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText('🫓', x - z * 0.15, y + z * 0.38); ctx.fillText('🍲', x + z * 0.15, y + z * 0.4);
+    }
+    // request bubble with a time ring
+    if (s.want >= 0) {
+      const br = Math.max(18, z * 0.34), bx = x, by = hy - hr * 1.3 - br * 1.45;
+      const left = Math.max(0, 1 - (now - s.born) / s.life);
+      ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(bx, by, br, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(bx - br * 0.25, by + br * 0.9); ctx.lineTo(bx, by + br * 1.35); ctx.lineTo(bx + br * 0.25, by + br * 0.9); ctx.fill();
+      ctx.strokeStyle = left > 0.5 ? '#40c057' : left > 0.25 ? '#fab005' : '#fa5252'; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.arc(bx, by, br + 3, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * left); ctx.stroke();
+      ctx.font = `${br * 1.15}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(ITEMS[s.want], bx, by + 1);
+    }
+  };
+  const draw = (now) => {
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    drawHall();
+    seats.forEach((s) => drawPerson(s, now));
+    pops = pops.filter((p) => now - p.t0 < 900);
+    pops.forEach((p) => {
+      const a = 1 - (now - p.t0) / 900;
+      ctx.globalAlpha = a; ctx.fillStyle = p.col; ctx.font = `800 15px "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", Inter, sans-serif`; ctx.textAlign = 'center';
+      ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(255,255,255,0.9)';
+      const y = p.y - (1 - a) * 24;
+      ctx.strokeText(p.text, p.x, y); ctx.fillText(p.text, p.x, y);
+      ctx.globalAlpha = 1;
+    });
+  };
+
+  // ---------- start / end
+  const start = () => {
+    initAudio();
+    playerName = cleanName($('name').value);
+    store.set('ls-name', playerName);
+    score = 0; served = 0; missed = 0; streak = 0; pops = []; last = null;
+    seats.forEach((s) => { s.want = -1; s.wait = 0; s.flash = 0; });
+    ['startScreen', 'endScreen', 'pauseScreen'].forEach((id) => $(id).classList.add('hidden'));
+    $('shareOther').textContent = t('shareOther');
+    state = 'play'; T0 = performance.now(); nextSpawn = T0 + 300;
+    updateHud();
+  };
+  const gameOver = () => {
+    state = 'over';
+    seats.forEach((s) => { s.want = -1; });
+    sfx.end();
+    const prev = best();
+    if (served > prev) store.set('ls-best', String(served));
+    last = { served, missed, isNew: served > prev && prev > 0, name: playerName, fact: FACT_KEYS[Math.floor(Math.random() * FACT_KEYS.length)] };
+    fillEnd();
+    $('endScreen').classList.remove('hidden');
+  };
+  const fillEnd = () => {
+    $('endTitle').textContent = t('endTitle')(last.name);
+    $('finalScore').textContent = String(last.served);
+    $('endNote').textContent = t('endNote')(last.served, last.missed, best(), last.isNew);
+    $('endFact').textContent = `💡 ${t('facts')[last.fact]}`;
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+  };
+  const pause = () => {
+    if (state !== 'play') return;
+    state = 'idle';
+    seats.forEach((s) => { s.want = -1; });
+    $('pauseScreen').classList.remove('hidden');
+  };
+
+  // ---------- input
+  $('tray').addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    initAudio();
+    selected = +b.dataset.i; renderTray(); sfx.pick();
+  });
+  cv.addEventListener('pointerdown', (e) => {
+    if (state !== 'play') return;
+    e.preventDefault();
+    const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+    let bestS = null, bd = 1e9;
+    seats.forEach((s) => {
+      const hy = s.y - s.size * 0.78, by = hy - s.size * 0.75;
+      const d = Math.min(Math.hypot(x - s.x, y - s.y + s.size * 0.3), Math.hypot(x - s.x, y - by));
+      if (d < bd) { bd = d; bestS = s; }
+    });
+    if (bestS && bd < bestS.size * 1.3) serveSeat(bestS, performance.now());
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.target && e.target.tagName === 'INPUT') return;
+    const n = { Digit1: 0, Digit2: 1, Digit3: 2, Digit4: 3 }[e.code];
+    if (n !== undefined) { selected = n; renderTray(); }
+  });
+
+  // ---------- share
+  const shareText = () => {
+    const u = new URL(SITE);
+    if (playerName) u.searchParams.set('from', playerName);
+    u.searchParams.set('score', String(served));
+    u.searchParams.set('lang', lang);
+    return t('shareText')(playerName, served, u.toString());
+  };
+  $('play').addEventListener('click', start);
+  $('again').addEventListener('click', start);
+  $('restart').addEventListener('click', start);
+  $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => window.prompt(t('copyPrompt'), text));
+  });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
+
+  if ('ResizeObserver' in window) new ResizeObserver(resize).observe($('stage'));
+  window.addEventListener('resize', resize);
+  resize();
+  applyLang();
+  requestAnimationFrame(step);
+  if (debug && params.has('auto')) start();
+  window.__ls = { get state() { return state; }, get served() { return served; }, get missed() { return missed; } };
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>
