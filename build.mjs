@@ -22,6 +22,8 @@ const games = allGames.filter((g) => isLive(`game:${g.slug}`));
 const stories = allStories.filter((st) => isLive(`story:${st.slug}`));
 const heldGames = allGames.filter((g) => !isLive(`game:${g.slug}`)).map((g) => g.slug);
 const heldStories = allStories.filter((st) => !isLive(`story:${st.slug}`)).map((st) => st.slug);
+// Tools (src/static/tools/<slug>/) are held the same way with 'tool:<slug>' keys in src/releases.mjs
+const heldTools = Object.keys(releases).filter((k) => k.startsWith('tool:') && !isLive(k)).map((k) => k.slice(5));
 import * as islamic from './src/islamic.mjs';
 import { ui } from './src/i18n/ui.mjs';
 
@@ -859,6 +861,7 @@ cpSync('src/static', OUT, { recursive: true });
 // games that are not released yet: remove their copied folders
 heldGames.forEach((slug) => rmSync(join(OUT, 'games', slug), { recursive: true, force: true }));
 heldCelebrate.forEach((slug) => rmSync(join(OUT, 'celebrate', slug), { recursive: true, force: true }));
+heldTools.forEach((slug) => rmSync(join(OUT, 'tools', slug), { recursive: true, force: true }));
 
 // Cloudflare Web Analytics beacon on every page (only when a token is set)
 if (CF_BEACON) {
@@ -893,6 +896,7 @@ if (GA_ID) {
 const holdStub = (to, title) => `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${title} | NextGrade</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="${SITE}${to}"><meta http-equiv="refresh" content="0; url=${to}"></head><body><p><a href="${to}">${title} →</a></p></body></html>\n`;
 heldGames.forEach((slug) => { mkdirSync(join(OUT, 'games', slug), { recursive: true }); writeFileSync(join(OUT, 'games', slug, 'index.html'), holdStub('/games/', 'Games')); });
 heldCelebrate.forEach((slug) => { mkdirSync(join(OUT, 'celebrate', slug), { recursive: true }); writeFileSync(join(OUT, 'celebrate', slug, 'index.html'), holdStub('/', 'NextGrade')); });
+heldTools.forEach((slug) => { mkdirSync(join(OUT, 'tools', slug), { recursive: true }); writeFileSync(join(OUT, 'tools', slug, 'index.html'), holdStub('/', 'NextGrade')); });
 LANGS.forEach((L) => heldStories.forEach((slug) => { const dir = join(OUT, `${L.prefix}/kahani/${slug}`.replace(/^\//, '')); mkdirSync(dir, { recursive: true }); writeFileSync(join(dir, 'index.html'), holdStub(`${L.prefix}/kahani/`, ui[L.code].stories.h1)); }));
 
 // Links on live pages that point at not-yet-released pages: drop "· <a data-game=…>" links, send the rest to the index
@@ -913,7 +917,7 @@ if (heldGames.length || heldStories.length || heldCelebrate.length) {
   });
   walk(OUT);
 }
-console.log(`Held back until release: ${[...heldGames.map((s) => `game:${s}`), ...heldStories.map((s) => `story:${s}`), ...heldCelebrate.map((s) => `celebrate:${s}`)].map((k) => `${k} (${releases[k]})`).join(', ') || 'none'}`);
+console.log(`Held back until release: ${[...heldGames.map((s) => `game:${s}`), ...heldStories.map((s) => `story:${s}`), ...heldCelebrate.map((s) => `celebrate:${s}`), ...heldTools.map((s) => `tool:${s}`)].map((k) => `${k} (${releases[k]})`).join(', ') || 'none'}`);
 
 console.log(`Built ${allUrls.length} pages in ${LANGS.map((l) => l.code).join(', ')} into ${OUT}/`);
 

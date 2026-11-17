@@ -95,6 +95,11 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 **12. Promo videos** — `~/www/videos/` (not in this repo): Hisab Kitab videos, 6 wish Reels (`wishes/`: `capture.js` → `compose.js`), post texts `POSTS.md`.
 
+## 17 Nov 2026: Festival Photo Frame tool (built, HELD until AdSense approval)
+- [x] `/tools/photo-frame/` (`src/static/tools/photo-frame/index.html`): your photo in a festival frame — Diwali, Eid, Holi, Republic Day, 15 August, Birthday, Christmas, New Year. All frame art is drawn on the canvas by us (no image files, no copied art). Photo is read with an object URL and drawn on a canvas **in the browser; never uploaded** (user's data rule). Drag/pinch/zoom slider/rotate, editable greeting (per frame and language), optional name, Post 1080×1080 or Status/Story 1080×1920, JPEG download, Web Share with the file (falls back to download + WhatsApp link). 4 languages. Small "nextgrade.in" credit in the corner. No ad slot near the editor (INCOME-PLAN rule). Test: `?debug&frame=<id>&name=…&size=story`.
+- **Held:** `'tool:photo-frame': '2099-12-31'` in `src/releases.mjs`. New `tool:` hold in build.mjs (folder removed, noindex stub written, not in sitemap) — user (17 Nov): build now, go live only after AdSense approval.
+- **To release after approval:** set a real Tue/Fri date for `tool:photo-frame`; add `/tools/photo-frame/` to the sitemap list in build.mjs (`allUrls`) and a card/link on Home + festival pages; add `'tools'` to `FOLDERS` in `scripts/prerender.mjs`; then build, commit, push.
+
 ## 16 Nov 2026: 4 games (home laptop; user: "yeh 4 bana ke scheduled kar do")
 - [x] `/games/basant-sargam/` **Basant ki Sargam** (Vasant Panchami): 7-petal flower = Sa Re Ga Ma Pa Dha Ni (C major / Bilawal), Simon-style: tune grows by one note per round, one "ek mauka aur" per game, then over. Score = longest tune. 🎶 free-play practice mode. Playable muted (petals glow). Keys 1–7. CACHE `ng-basant-sargam-v1`, storage `bs-*`.
 - [x] `/games/rang-barsao/` **Rang Barsao** (Holi): Braj lane, 6/8 windows+doors; tap friends with dry gulal (10, favourite colour 20); 🙅 people who said no and 🐄🐕 animals = −10; 🥟 gujiya +5. 60 s, no music. Message: consent, no colour on animals, herbal gulal, save water. CACHE `ng-rang-barsao-v1`, storage `rb-*`.
