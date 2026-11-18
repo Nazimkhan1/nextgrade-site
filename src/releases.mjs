@@ -28,6 +28,7 @@ const DONE = { 'game:meenar': '2026-11-16', 'game:langar-seva': '2026-11-17', 'g
 // animated wishes: fixed dates before their festivals
 const FIXED = {
   'celebrate:republic-day': '2026-11-27', // 26 Jan
+  'celebrate:vasant-panchami': '2027-01-20', // 11 Feb (Saraswati Puja)
   'celebrate:maha-shivratri': '2027-02-05', // ~6 Mar
   'celebrate:eid-mubarak': '2027-02-09', // ~10 Mar
   'celebrate:holi': '2027-02-19', // ~22 Mar
