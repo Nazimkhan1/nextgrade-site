@@ -95,14 +95,14 @@ footer a { color: var(--muted); margin-right: 12px; }
     </div>
   </header>
 
-  <h1 data-i18n="title">नदी पार</h1>
-  <p class="sub" data-i18n="sub">पुरानी दिमाग़ी पहेली: सबको नदी के उस पार पहुँचाओ — पर ध्यान से!</p>
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
 
-  <div class="levels" id="levels"><button type="button" data-l="0" aria-pressed="true">लेवल 1</button><button type="button" data-l="1" aria-pressed="false" disabled="">🔒 लेवल 2</button><button type="button" data-l="2" aria-pressed="false" disabled="">🔒 लेवल 3</button></div>
-  <div class="rules" id="rules"><b>किसान</b> को शेर, बकरी और घास को पार ले जाना है। नाव में किसान के साथ <b>सिर्फ़ एक</b> चीज़ आती है, और नाव सिर्फ़ किसान चला सकता है। किसान न हो तो <b>शेर बकरी को</b>, और <b>बकरी घास को</b> खा जाएगी।</div>
+  <div class="levels" id="levels"></div>
+  <div class="rules" id="rules"></div>
 
   <div class="scene" id="scene">
-    <div class="bank" id="bankL"><button type="button" class="who" data-i="0" aria-label="किसान"><span class="e">👨‍🌾</span><span class="n">किसान</span></button><button type="button" class="who" data-i="1" aria-label="शेर"><span class="e">🐅</span><span class="n">शेर</span></button><button type="button" class="who" data-i="2" aria-label="बकरी"><span class="e">🐐</span><span class="n">बकरी</span></button><button type="button" class="who" data-i="3" aria-label="घास"><span class="e">🌿</span><span class="n">घास</span></button></div>
+    <div class="bank" id="bankL"></div>
     <div class="river"><div class="wave" style="top:46%"></div><div class="wave" style="top:70%;animation-duration:4s"></div>
       <div class="boat" id="boat"><div class="hull"></div><div class="seats" id="seats"></div></div>
     </div>
@@ -114,8 +114,8 @@ footer a { color: var(--muted); margin-right: 12px; }
     <button class="btn btn-ghost" id="hint" type="button"></button>
     <button class="btn btn-ghost" id="reset" type="button"></button>
   </div>
-  <div class="status"><span id="moves">चाल: 0</span><span id="best"></span></div>
-  <p class="msg" id="msg" role="status" aria-live="polite">किसी पर टैप करके नाव में बिठाओ, फिर "पार करो" दबाओ।</p>
+  <div class="status"><span id="moves"></span><span id="best"></span></div>
+  <p class="msg" id="msg" role="status" aria-live="polite"></p>
 
   <div class="win" id="win" hidden>
     <h2 id="winTitle"></h2>
@@ -132,19 +132,19 @@ footer a { color: var(--muted); margin-right: 12px; }
   <div class="ad" aria-hidden="true"></div>
 
   <section>
-    <h2 data-i18n="howTitle">कैसे खेलें</h2>
-    <ol id="howList"><li>जिस किनारे पर नाव है, वहाँ के किसी किरदार पर टैप करो — वो नाव में बैठ जाएगा। नाव में बैठे पर टैप करो तो वापस उतर जाएगा।</li><li>"⛵ पार करो" दबाओ — नाव दूसरे किनारे चली जाएगी।</li><li>हर लेवल के नियम ऊपर लिखे हैं। ग़लती हुई तो लेवल फिर से शुरू होगा।</li><li>अटक गए? "💡 हिंट" अगली सही चाल दिखाता है।</li><li>कम चाल = ज़्यादा स्टार। तीनों लेवल पूरे करो और दोस्तों को चैलेंज भेजो।</li></ol>
+    <h2 data-i18n="howTitle"></h2>
+    <ol id="howList"></ol>
   </section>
   <section>
-    <h2 data-i18n="aboutTitle">यह पहेली कहाँ से आई?</h2>
-    <p data-i18n="aboutText">नदी पार कराने वाली पहेलियाँ सदियों पुरानी हैं। किसान, जानवर और घास वाली पहेली 8वीं-9वीं सदी के यूरोप की एक पहेली-किताब में भी मिलती है, और इसके रूप दुनिया भर की लोक-कथाओं में सुने जाते हैं — कहीं भेड़िया, बकरी और गोभी, तो कहीं शेर, बकरी और घास।</p>
-    <p data-i18n="aboutText2">ऐसी पहेलियाँ "आगे की सोच" सिखाती हैं: कभी एक क़दम पीछे जाना (किसी को वापस लाना) ही आगे बढ़ने का रास्ता होता है। बच्चों और बड़ों दोनों के लिए यह तर्क और धैर्य का अच्छा अभ्यास है।</p>
-    <p><span data-i18n="readMore">और भी:</span> <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames">और गेम</a> · <a id="quizLink" href="https://nextgrade.in/games/quiz/" data-i18n="quizLink">भारत क्विज़</a> · <a id="storyLink" href="https://nextgrade.in/kahani/" data-i18n="storyLink">बच्चों की कहानियाँ</a></p>
-    <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+    <p><span data-i18n="readMore"></span> <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a> · <a id="quizLink" href="https://nextgrade.in/games/quiz/" data-i18n="quizLink"></a> · <a id="storyLink" href="https://nextgrade.in/kahani/" data-i18n="storyLink"></a></p>
+    <div id="topShare"></div>
   </section>
   <section>
-    <h2 data-i18n="privacyTitle">प्राइवेसी</h2>
-    <p data-i18n="privacyText">कोई लॉगिन नहीं। आपके लेवल और बेस्ट चाल सिर्फ़ इसी फ़ोन में सेव होते हैं।</p>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
   </section>
 
   <footer>

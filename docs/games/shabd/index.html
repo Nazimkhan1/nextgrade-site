@@ -98,14 +98,14 @@ footer a { color: var(--muted); margin-right: 12px; }
     </div>
   </header>
 
-  <h1 data-i18n="title">आज का शब्द</h1>
-  <p class="sub" data-i18n="sub">रोज़ एक नया 5 अक्षर का शब्द। 6 कोशिश में पहचानो!</p>
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
 
   <div class="modes" role="group">
     <button type="button" id="modeHi" aria-pressed="true" data-i18n="modeHi"></button>
     <button type="button" id="modeEn" aria-pressed="false" data-i18n="modeEn"></button>
   </div>
-  <div class="daybar"><span id="dayLabel">शब्द #4 · आज का</span><button type="button" id="practice" data-i18n="practice"></button></div>
+  <div class="daybar"><span id="dayLabel"></span><button type="button" id="practice" data-i18n="practice"></button></div>
 
   <div class="board" id="board" aria-label="Word grid"></div>
   <p class="msg" id="msg" role="status" aria-live="polite"></p>
@@ -125,27 +125,27 @@ footer a { color: var(--muted); margin-right: 12px; }
     <p class="next" id="next"></p>
   </div>
 
-  <div class="kb" id="kb"><div class="kr"><button type="button" class="key" data-k="Q" aria-label="Q">Q</button><button type="button" class="key" data-k="W" aria-label="W">W</button><button type="button" class="key" data-k="E" aria-label="E">E</button><button type="button" class="key" data-k="R" aria-label="R">R</button><button type="button" class="key" data-k="T" aria-label="T">T</button><button type="button" class="key" data-k="Y" aria-label="Y">Y</button><button type="button" class="key" data-k="U" aria-label="U">U</button><button type="button" class="key" data-k="I" aria-label="I">I</button><button type="button" class="key" data-k="O" aria-label="O">O</button><button type="button" class="key" data-k="P" aria-label="P">P</button></div><div class="kr"><button type="button" class="key" data-k="A" aria-label="A">A</button><button type="button" class="key" data-k="S" aria-label="S">S</button><button type="button" class="key" data-k="D" aria-label="D">D</button><button type="button" class="key" data-k="F" aria-label="F">F</button><button type="button" class="key" data-k="G" aria-label="G">G</button><button type="button" class="key" data-k="H" aria-label="H">H</button><button type="button" class="key" data-k="J" aria-label="J">J</button><button type="button" class="key" data-k="K" aria-label="K">K</button><button type="button" class="key" data-k="L" aria-label="L">L</button></div><div class="kr"><button type="button" class="key wide" data-k="↵" aria-label="Enter">ENTER</button><button type="button" class="key" data-k="Z" aria-label="Z">Z</button><button type="button" class="key" data-k="X" aria-label="X">X</button><button type="button" class="key" data-k="C" aria-label="C">C</button><button type="button" class="key" data-k="V" aria-label="V">V</button><button type="button" class="key" data-k="B" aria-label="B">B</button><button type="button" class="key" data-k="N" aria-label="N">N</button><button type="button" class="key" data-k="M" aria-label="M">M</button><button type="button" class="key wide" data-k="⌫" aria-label="Backspace">⌫</button></div></div>
+  <div class="kb" id="kb"></div>
 
   <div class="ad" aria-hidden="true"></div>
 
   <section>
-    <h2 data-i18n="howTitle">कैसे खेलें</h2>
-    <ol id="howList"><li>कोई भी 5 अक्षर का शब्द लिखो और Enter दबाओ।</li><li>हर अक्षर का रंग बदलेगा: हरा = सही अक्षर सही जगह, नारंगी = अक्षर शब्द में है पर जगह ग़लत, काला = अक्षर शब्द में नहीं।</li><li>रंगों से अंदाज़ा लगाओ और 6 कोशिश में शब्द पहचानो।</li><li>"हिंदी शब्द" में हिंदी के शब्द रोमन अक्षरों में हैं (जैसे PAANI = पानी, DOSTI = दोस्ती)। खेल के बाद मतलब भी दिखेगा।</li><li>हर दिन सबके लिए एक ही शब्द होता है। नतीजा WhatsApp पर भेजो — शब्द नहीं दिखेगा, सिर्फ़ रंग।</li></ol>
-    <div class="legend"><span><i style="background:var(--ok)"></i><span data-i18n="lgOk">सही जगह</span></span><span><i style="background:var(--near)"></i><span data-i18n="lgNear">शब्द में है, जगह ग़लत</span></span><span><i style="background:var(--no)"></i><span data-i18n="lgNo">शब्द में नहीं</span></span></div>
+    <h2 data-i18n="howTitle"></h2>
+    <ol id="howList"></ol>
+    <div class="legend"><span><i style="background:var(--ok)"></i><span data-i18n="lgOk"></span></span><span><i style="background:var(--near)"></i><span data-i18n="lgNear"></span></span><span><i style="background:var(--no)"></i><span data-i18n="lgNo"></span></span></div>
   </section>
 
   <section>
-    <h2 data-i18n="aboutTitle">आज का शब्द क्या है?</h2>
-    <p data-i18n="aboutText">आज का शब्द एक छोटा-सा रोज़ का दिमाग़ी खेल है। हर दिन एक नया 5 अक्षर का शब्द आता है — हिंदी के रोज़मर्रा के शब्द जैसे पानी, दोस्ती, सपना, या English के आम शब्द। सिर्फ़ 2–3 मिनट लगते हैं, पर दिमाग़ पूरा चलता है: कौन-से अक्षर हैं, कौन-से नहीं, और किस जगह।</p>
-    <p data-i18n="aboutText2">शब्दों के खेल याददाश्त, स्पेलिंग और ध्यान के लिए अच्छे माने जाते हैं। बच्चे नए शब्द सीखते हैं, बड़े अपनी रफ़्तार देखते हैं, और परिवार के WhatsApp ग्रुप में रोज़ का मुक़ाबला हो जाता है। हर दिन की स्ट्रीक बनाओ!</p>
-    <p><span data-i18n="readMore">और भी:</span> <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames">और गेम</a> · <a id="stories" href="https://nextgrade.in/kahani/" data-i18n="storiesLink">बच्चों की कहानियाँ</a></p>
-    <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+    <p><span data-i18n="readMore"></span> <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a> · <a id="stories" href="https://nextgrade.in/kahani/" data-i18n="storiesLink"></a></p>
+    <div id="topShare"></div>
   </section>
 
   <section>
-    <h2 data-i18n="privacyTitle">प्राइवेसी</h2>
-    <p data-i18n="privacyText">कोई लॉगिन नहीं। आपके खेल, स्ट्रीक और भाषा सिर्फ़ इसी फ़ोन में सेव होते हैं। कुछ भी हमारे पास नहीं आता।</p>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
   </section>
 
   <footer>
