@@ -104,7 +104,7 @@ const ui = {
       installP: 'Android पर Chrome में ऐप खोलें और मेनू (⋮) से <b>Install app / Add to Home screen</b> चुनें। iPhone पर Safari में Share बटन दबाकर <b>Add to Home Screen</b> चुनें।',
     },
     about: {
-      title: 'About NextGrade', desc: 'NextGrade के बारे में — हम कौन हैं, यह साइट क्यों बनाई और हमारी जानकारी कहाँ से आती है।',
+      title: 'हमारे बारे में', desc: 'NextGrade के बारे में — हम कौन हैं, यह साइट क्यों बनाई और हमारी जानकारी कहाँ से आती है।',
       html: (contact) => `<p class="lead">NextGrade (nextgrade.in) भारत में बनी एक छोटी, स्वतंत्र वेबसाइट है।</p>
 <h2>हम क्या करते हैं</h2>
 <p>हम तीन तरह की चीज़ें बनाते हैं: <b>त्योहारों की सरल और भरोसेमंद जानकारी</b> — कहानी, महत्व, परंपराएँ, पकवान और शुभकामनाएँ; <b>त्योहारों के छोटे गेम्स</b>; और <b>मुफ़्त वेब ऐप्स</b>, जैसे खर्च और उधार का हिसाब रखने वाला Hisab Kitab और Wish Card Maker। साइट हिंदी, English, Hinglish और বাংলা में है।</p>
@@ -127,7 +127,7 @@ const ui = {
 <p>हम हर साल त्योहारों की तारीख़ें और जानकारी दोबारा जाँचते हैं। अगर आपको कोई ग़लती, पुरानी जानकारी या कोई नई कहानी/त्योहार का सुझाव देना है, तो <a href="${contact}">संपर्क पेज</a> से हमें लिखें — हर ईमेल पढ़ा जाता है।</p>`,
     },
     contact: {
-      title: 'Contact', desc: 'NextGrade से संपर्क करें — सुझाव, गलती की सूचना या ऐप से जुड़ा सवाल।',
+      title: 'संपर्क करें', desc: 'NextGrade से संपर्क करें — सुझाव, गलती की सूचना या ऐप से जुड़ा सवाल।',
       html: (email) => `<p class="lead">सुझाव, किसी पेज में गलती, या किसी ऐप से जुड़ा सवाल — हमें ईमेल करें।</p>
 <p style="font-size:20px"><b>Email:</b> <a href="mailto:${email}">${email}</a></p>
 <p>हम आम तौर पर 2-3 कार्यदिवसों में जवाब देते हैं। कृपया ईमेल में पासवर्ड, OTP या बैंक की जानकारी कभी न भेजें।</p>
@@ -266,7 +266,7 @@ const ui = {
 <p>We re-check festival dates and facts every year. If you find a mistake or something out of date, or want to suggest a story or festival, write to us through the <a href="${contact}">contact page</a> — every email is read.</p>`,
     },
     contact: {
-      title: 'Contact', desc: 'Contact NextGrade — suggestions, corrections or questions about our apps.',
+      title: 'Contact us', desc: 'Contact NextGrade — suggestions, corrections or questions about our apps.',
       html: (email) => `<p class="lead">Suggestions, a mistake on a page or a question about one of our apps — email us.</p>
 <p style="font-size:20px"><b>Email:</b> <a href="mailto:${email}">${email}</a></p>
 <p>We usually reply within 2-3 working days. Please never send passwords, OTPs or bank details by email.</p>
@@ -382,7 +382,7 @@ const ui = {
       installP: 'Android pe Chrome mein app kholo aur menu (⋮) se <b>Install app / Add to Home screen</b> chuno. iPhone pe Safari mein Share button daba ke <b>Add to Home Screen</b> chuno.',
     },
     about: {
-      title: 'About NextGrade', desc: 'NextGrade ke baare mein — hum kaun hain, ye site kyun banayi aur hamari jaankari kahan se aati hai.',
+      title: 'NextGrade ke baare mein', desc: 'NextGrade ke baare mein — hum kaun hain, ye site kyun banayi aur hamari jaankari kahan se aati hai.',
       html: (contact) => `<p class="lead">NextGrade (nextgrade.in) Bharat mein bani ek chhoti, independent website hai.</p>
 <h2>Hum kya karte hain</h2>
 <p>Hum teen tarah ki cheezein banate hain: <b>tyoharon ki simple aur bharosemand jaankari</b> — kahani, mahatva, parampara, pakwan aur wishes; <b>tyoharon ke chhote games</b>; aur <b>free web apps</b>, jaise kharche aur udhaar ka hisaab rakhne wala Hisab Kitab aur Wish Card Maker. Site Hindi, English, Hinglish aur Bangla mein hai.</p>
@@ -405,7 +405,7 @@ const ui = {
 <p>Hum har saal tyoharon ki tareekhein aur jaankari dobara check karte hain. Agar aapko koi galti, purani jaankari ya kisi nayi kahani/tyohar ka sujhav dena hai, to <a href="${contact}">contact page</a> se hamein likho — har email padha jaata hai.</p>`,
     },
     contact: {
-      title: 'Contact', desc: 'NextGrade se sampark karo — sujhav, galti ki soochna ya app se juda sawaal.',
+      title: 'Sampark karein', desc: 'NextGrade se sampark karo — sujhav, galti ki soochna ya app se juda sawaal.',
       html: (email) => `<p class="lead">Sujhav, kisi page mein galti, ya kisi app se juda sawaal — hamein email karo.</p>
 <p style="font-size:20px"><b>Email:</b> <a href="mailto:${email}">${email}</a></p>
 <p>Hum aam taur pe 2-3 working days mein jawaab dete hain. Email mein password, OTP ya bank ki jaankari kabhi mat bhejna.</p>
