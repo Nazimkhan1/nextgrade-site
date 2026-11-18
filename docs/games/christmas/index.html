@@ -79,6 +79,7 @@ footer a { color: var(--muted); margin-right: 12px; }
 
   <h1 data-i18n="title">Santa ke Gift Pakdo 🎁</h1>
   <p class="sub" data-i18n="sub">सांता की स्लेज को चलाओ, गिरते तोहफ़े पकड़ो और कोयले से बचो। 45 सेकंड, जितने ज़्यादा पॉइंट उतना मज़ा!</p>
+  <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
   <p class="challenge" id="challenge" role="status"></p>
 
   <div class="stage" id="stage">
@@ -515,5 +516,6 @@ footer a { color: var(--muted); margin-right: 12px; }
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 })();
 </script>
+<script src="/assets/game-share.js?v=1" defer></script>
 </body>
 </html>

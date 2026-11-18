@@ -97,6 +97,7 @@ footer a { color: var(--muted); margin-right: 12px; }
 
   <h1 data-i18n="title">नदी पार</h1>
   <p class="sub" data-i18n="sub">पुरानी दिमाग़ी पहेली: सबको नदी के उस पार पहुँचाओ — पर ध्यान से!</p>
+  <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
 
   <div class="levels" id="levels"><button type="button" data-l="0" aria-pressed="true">लेवल 1</button><button type="button" data-l="1" aria-pressed="false" disabled="">🔒 लेवल 2</button><button type="button" data-l="2" aria-pressed="false" disabled="">🔒 लेवल 3</button></div>
   <div class="rules" id="rules"><b>किसान</b> को शेर, बकरी और घास को पार ले जाना है। नाव में किसान के साथ <b>सिर्फ़ एक</b> चीज़ आती है, और नाव सिर्फ़ किसान चला सकता है। किसान न हो तो <b>शेर बकरी को</b>, और <b>बकरी घास को</b> खा जाएगी।</div>
@@ -400,5 +401,6 @@ footer a { color: var(--muted); margin-right: 12px; }
   if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 })();
 </script>
+<script src="/assets/game-share.js?v=1" defer></script>
 </body>
 </html>
