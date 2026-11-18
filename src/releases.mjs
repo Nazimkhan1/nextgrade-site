@@ -7,7 +7,7 @@
  * User's rule (18 Nov 2026): every category has its OWN release line (games, stories, wishes, tools, and
  * any new category later gets its own line too), on varied days — not one shared list, not fixed weekdays —
  * so that something new goes out every few days. Gaps are "random" but come from a fixed seed, so the dates
- * stay the same on every build. Two pages never go out on the same day (a clash moves the later one a day).
+ * stay the same on every build. Lines are independent: a game and a story can go out on the same day.
  *   - games   : every 3–6 days, festival games first (nearest festival first)
  *   - stories : every 4–7 days
  *   - wishes  : fixed dates, well before each festival (these never move)
@@ -54,15 +54,13 @@ const LINES = [
 
 const build = () => {
   const out = { ...DONE, ...FIXED };
-  const taken = new Set(Object.values(out));
   LINES.forEach((L) => {
     if (!L.start) { L.slugs.forEach((s) => { out[`${L.prefix}:${s}`] = '9999-12-31'; }); return; } // waiting (e.g. tools before approval)
     const rnd = seeded(L.seed);
     let day = L.start;
     L.slugs.forEach((s, i) => {
       if (i) day = addDays(day, L.gap[0] + Math.floor(rnd() * (L.gap[1] - L.gap[0] + 1)));
-      while (taken.has(day)) day = addDays(day, 1); // one new page per day at most
-      taken.add(day); out[`${L.prefix}:${s}`] = day;
+      out[`${L.prefix}:${s}`] = day;
     });
   });
   return out;
