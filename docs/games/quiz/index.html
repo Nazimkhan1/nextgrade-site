@@ -129,8 +129,6 @@ footer a { color: var(--muted); margin-right: 12px; }
 
   <div class="ad" aria-hidden="true"></div>
 
-  <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
-
   <section>
     <h2 data-i18n="howTitle">कैसे खेलें</h2>
     <ol id="howList"><li>"आज का क्विज़" दबाओ — 10 सवाल आएँगे, सबके लिए एक जैसे।</li><li>हर सवाल के लिए 10 सेकंड। चार में से सही जवाब चुनो।</li><li>सही जवाब = 10 अंक, और जितने सेकंड बचे उतने बोनस अंक। एक सवाल से 20 तक, पूरे क्विज़ से 200 तक।</li><li>हर जवाब के बाद एक छोटी जानकारी दिखेगी — पढ़कर "आगे" दबाओ।</li><li>स्कोर WhatsApp पर भेजो; दोस्त लिंक खोलकर आपका स्कोर हराने की कोशिश करेंगे।</li></ol>
@@ -141,6 +139,7 @@ footer a { color: var(--muted); margin-right: 12px; }
     <p data-i18n="aboutText">भारत क्विज़ भारत के बारे में आम जानकारी (GK) का छोटा रोज़ का खेल है: राज्य और राजधानियाँ, राष्ट्रीय प्रतीक, इतिहास और स्मारक, नदियाँ और झीलें, विज्ञान, खेल, और त्योहार-नृत्य। सवाल ऐसे चुने गए हैं जिनके जवाब पक्के हैं और बदलते नहीं।</p>
     <p data-i18n="aboutText2">हर जवाब के बाद एक रोचक तथ्य मिलता है, इसलिए खेल के साथ कुछ नया सीखना भी हो जाता है। बच्चों के स्कूल GK, प्रतियोगी परीक्षा की शुरुआती तैयारी, या परिवार के साथ मज़ेदार मुक़ाबले के लिए अच्छा है।</p>
     <p><span data-i18n="readMore">और भी:</span> <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames">और गेम</a> · <a id="shabdLink" href="https://nextgrade.in/games/shabd/" data-i18n="shabdLink">आज का शब्द</a> · <a id="festLink" href="https://nextgrade.in/festivals/" data-i18n="festLink">त्योहारों की जानकारी</a></p>
+    <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
   </section>
 
   <section>
@@ -390,6 +389,6 @@ footer a { color: var(--muted); margin-right: 12px; }
   if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 })();
 </script>
-<script src="/assets/game-share.js?v=2" defer></script>
+<script src="/assets/game-share.js?v=3" defer></script>
 </body>
 </html>

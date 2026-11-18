@@ -123,8 +123,6 @@ footer a { color: var(--muted); margin-right: 12px; }
 
   <div class="ad" aria-hidden="true"></div>
 
-  <div id="topShare"></div>
-
   <section>
     <h2 data-i18n="howTitle"></h2>
     <div class="card2"><ol id="howList"></ol></div>
@@ -141,6 +139,7 @@ footer a { color: var(--muted); margin-right: 12px; }
     <h2 data-i18n="factsTitle"></h2>
     <div class="card2"><ul id="factList"></ul></div>
     <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+    <div id="topShare"></div>
   </section>
 
   <section>
@@ -688,6 +687,6 @@ footer a { color: var(--muted); margin-right: 12px; }
   if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
 })();
 </script>
-<script src="/assets/game-share.js?v=2" defer></script>
+<script src="/assets/game-share.js?v=3" defer></script>
 </body>
 </html>

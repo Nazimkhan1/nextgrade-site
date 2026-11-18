@@ -122,8 +122,6 @@ footer a { color: var(--muted); margin-right: 12px; }
 
   <div class="ad" aria-hidden="true"></div>
 
-  <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
-
   <section>
     <h2 data-i18n="howTitle">कैसे खेलें</h2>
     <ol id="howList"><li>जिस खंभे से थाली उठानी है, उस पर टैप करो — सबसे ऊपर वाली थाली ऊपर उठ जाएगी।</li><li>अब जिस खंभे पर रखनी है, उस पर टैप करो। वही खंभा दोबारा दबाओ तो थाली वापस बैठ जाएगी।</li><li>बड़ी थाली छोटी के ऊपर नहीं आ सकती।</li><li>सारी थालियाँ खंभा C पर पहुँचाओ। n थालियों के लिए सबसे कम चाल 2ⁿ − 1 होती है (3 थाली = 7, 4 = 15, 5 = 31)।</li><li>अटक गए? "💡 हिंट" अगली सही चाल दिखाता है, और "↶ वापस" पिछली चाल हटा देता है।</li></ol>
@@ -133,6 +131,7 @@ footer a { color: var(--muted); margin-right: 12px; }
     <p data-i18n="aboutText">यह पहेली 1883 में फ़्रांसीसी गणितज्ञ एदुआर्द लुकास ने "टावर ऑफ़ हनोई" नाम से बनाई। उसके साथ एक कहानी भी छपी: काशी के एक मंदिर में पुजारी 64 सोने की थालियों को तीन हीरे के खंभों पर इसी नियम से शिफ़्ट कर रहे हैं, और जिस दिन काम पूरा होगा, उस दिन प्रलय आएगी। कहानी गढ़ी हुई है, पर पहेली असली और बहुत मज़ेदार है।</p>
     <p data-i18n="aboutText2">64 थालियों के लिए 2⁶⁴ − 1 चाल चाहिए — अगर हर सेकंड एक चाल हो, तो भी लगभग 58,500 करोड़ साल लगेंगे! यह पहेली कंप्यूटर साइंस में "रिकर्शन" समझाने का सबसे मशहूर उदाहरण है: n थालियाँ शिफ़्ट करने के लिए पहले ऊपर की n−1 हटाओ, सबसे बड़ी रखो, फिर n−1 वापस उसके ऊपर।</p>
     <p><span data-i18n="readMore">और भी:</span> <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames">और गेम</a> · <a id="nadiLink" href="https://nextgrade.in/games/nadi-paar/" data-i18n="nadiLink">नदी पार पहेली</a> · <a id="quizLink" href="https://nextgrade.in/games/quiz/" data-i18n="quizLink">भारत क्विज़</a></p>
+    <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
   </section>
   <section>
     <h2 data-i18n="privacyTitle">प्राइवेसी</h2>
@@ -346,6 +345,6 @@ footer a { color: var(--muted); margin-right: 12px; }
   if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 })();
 </script>
-<script src="/assets/game-share.js?v=2" defer></script>
+<script src="/assets/game-share.js?v=3" defer></script>
 </body>
 </html>

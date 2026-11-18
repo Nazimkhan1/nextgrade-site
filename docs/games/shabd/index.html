@@ -129,8 +129,6 @@ footer a { color: var(--muted); margin-right: 12px; }
 
   <div class="ad" aria-hidden="true"></div>
 
-  <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
-
   <section>
     <h2 data-i18n="howTitle">कैसे खेलें</h2>
     <ol id="howList"><li>कोई भी 5 अक्षर का शब्द लिखो और Enter दबाओ।</li><li>हर अक्षर का रंग बदलेगा: हरा = सही अक्षर सही जगह, नारंगी = अक्षर शब्द में है पर जगह ग़लत, काला = अक्षर शब्द में नहीं।</li><li>रंगों से अंदाज़ा लगाओ और 6 कोशिश में शब्द पहचानो।</li><li>"हिंदी शब्द" में हिंदी के शब्द रोमन अक्षरों में हैं (जैसे PAANI = पानी, DOSTI = दोस्ती)। खेल के बाद मतलब भी दिखेगा।</li><li>हर दिन सबके लिए एक ही शब्द होता है। नतीजा WhatsApp पर भेजो — शब्द नहीं दिखेगा, सिर्फ़ रंग।</li></ol>
@@ -142,6 +140,7 @@ footer a { color: var(--muted); margin-right: 12px; }
     <p data-i18n="aboutText">आज का शब्द एक छोटा-सा रोज़ का दिमाग़ी खेल है। हर दिन एक नया 5 अक्षर का शब्द आता है — हिंदी के रोज़मर्रा के शब्द जैसे पानी, दोस्ती, सपना, या English के आम शब्द। सिर्फ़ 2–3 मिनट लगते हैं, पर दिमाग़ पूरा चलता है: कौन-से अक्षर हैं, कौन-से नहीं, और किस जगह।</p>
     <p data-i18n="aboutText2">शब्दों के खेल याददाश्त, स्पेलिंग और ध्यान के लिए अच्छे माने जाते हैं। बच्चे नए शब्द सीखते हैं, बड़े अपनी रफ़्तार देखते हैं, और परिवार के WhatsApp ग्रुप में रोज़ का मुक़ाबला हो जाता है। हर दिन की स्ट्रीक बनाओ!</p>
     <p><span data-i18n="readMore">और भी:</span> <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames">और गेम</a> · <a id="stories" href="https://nextgrade.in/kahani/" data-i18n="storiesLink">बच्चों की कहानियाँ</a></p>
+    <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
   </section>
 
   <section>
@@ -429,6 +428,6 @@ footer a { color: var(--muted); margin-right: 12px; }
   if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 })();
 </script>
-<script src="/assets/game-share.js?v=2" defer></script>
+<script src="/assets/game-share.js?v=3" defer></script>
 </body>
 </html>
