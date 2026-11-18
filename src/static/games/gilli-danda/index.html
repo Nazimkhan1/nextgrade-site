@@ -56,6 +56,7 @@ input::placeholder { color: #d9c4ad; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
 .btn-main { background: linear-gradient(90deg, #e8590c, #f08c00); color: #fff; }
 .btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
 .btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
 .hidden { display: none !important; }
 section { margin: 28px 0; }
@@ -105,6 +106,7 @@ details summary { font-weight: 700; cursor: pointer; }
         <p class="fact" id="endFact"></p>
         <button class="btn btn-main" id="againBtn" type="button" data-i18n="again"></button>
         <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
         <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
       </div>
     </div>
@@ -170,7 +172,7 @@ details summary { font-weight: 700; cursor: pointer; }
       endNote: (hits, best, badge) => `${hits} shot · sabse lamba ${best} danda${badge ? ` · ${badge}` : ''}`,
       newBest: '🏆 Naya record!',
       challenge: (name, n) => `🏏 ${name} ne Gilli-Danda mein ${n} danda door tak gilli bheji! Aap kitni door bhejoge?`,
-      shareWa: '📲 WhatsApp pe challenge bhejo', shareOther: '🔗 Link share / copy karo', copied: '✅ Copy ho gaya', copyPrompt: 'Yeh text copy karo:',
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo', shareOther: '🔗 Link share / copy karo', copied: '✅ Copy ho gaya', copyPrompt: 'Yeh text copy karo:',
       shareText: (name, n, url) => `🏏 ${name ? `${name} ne` : 'Maine'} Gilli-Danda mein ${n} danda score kiya! Bachpan wala khel — aap bhi khelo: ${url}`,
       howTitle: 'Kaise khelein',
       how: ['<b>Khelo</b> dabao. Neeche ek teer aage-peeche chalta hai — <b>hare hisse</b> mein ho tab tap karo, gilli achhi uchhalegi.', 'Gilli hawa mein ho to <b>doosra tap</b> — kamar ki oonchai par maaroge to sabse zor ki shot.', 'Upar jaati gilli ko maaro to <b>oonchi shot</b> (door jaati hai par lapakne ka time zyada). Girti gilli ko maaro to <b>neechi, seedhi shot</b>.', 'Gilli jitni door girti hai, utne <b>danda</b> milte hain. Koi bachcha lapak le, gilli gir jaaye ya chook jaao to ek ❤️ kam.', '3 ❤️ khatam, khel khatam. Apna score WhatsApp pe dosto ko challenge karo.'],
@@ -203,7 +205,7 @@ details summary { font-weight: 700; cursor: pointer; }
       endNote: (hits, best, badge) => `${hits} शॉट · सबसे लंबा ${best} डंडा${badge ? ` · ${badge}` : ''}`,
       newBest: '🏆 नया रिकॉर्ड!',
       challenge: (name, n) => `🏏 ${name} ने गिल्ली-डंडा में ${n} डंडा दूर तक गिल्ली भेजी! आप कितनी दूर भेजोगे?`,
-      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareOther: '🔗 लिंक शेयर / कॉपी करो', copied: '✅ कॉपी हो गया', copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो', shareOther: '🔗 लिंक शेयर / कॉपी करो', copied: '✅ कॉपी हो गया', copyPrompt: 'यह टेक्स्ट कॉपी करो:',
       shareText: (name, n, url) => `🏏 ${name ? `${name} ने` : 'मैंने'} गिल्ली-डंडा में ${n} डंडा स्कोर किया! बचपन वाला खेल — आप भी खेलो: ${url}`,
       howTitle: 'कैसे खेलें',
       how: ['<b>खेलो</b> दबाओ। नीचे एक तीर आगे-पीछे चलता है — <b>हरे हिस्से</b> में हो तब टैप करो, गिल्ली अच्छी उछलेगी।', 'गिल्ली हवा में हो तो <b>दूसरा टैप</b> — कमर की ऊँचाई पर मारोगे तो सबसे ज़ोर का शॉट।', 'ऊपर जाती गिल्ली को मारो तो <b>ऊँचा शॉट</b> (दूर जाता है पर लपकने का समय ज़्यादा)। गिरती गिल्ली को मारो तो <b>नीचा, सीधा शॉट</b>।', 'गिल्ली जितनी दूर गिरती है, उतने <b>डंडा</b> मिलते हैं। कोई बच्चा लपक ले, गिल्ली गिर जाए या चूक जाओ तो एक ❤️ कम।', '3 ❤️ ख़त्म, खेल ख़त्म। अपना स्कोर WhatsApp पर दोस्तों को चैलेंज करो।'],
@@ -236,7 +238,7 @@ details summary { font-weight: 700; cursor: pointer; }
       endNote: (hits, best, badge) => `${hits} shots · longest ${best} danda${badge ? ` · ${badge}` : ''}`,
       newBest: '🏆 New record!',
       challenge: (name, n) => `🏏 ${name} sent the gilli ${n} danda in Gilli-Danda! How far can you go?`,
-      shareWa: '📲 Send a WhatsApp challenge', shareOther: '🔗 Share / copy link', copied: '✅ Copied', copyPrompt: 'Copy this text:',
+      shareWa: '📲 Send a WhatsApp challenge', shareFb: 'Share on Facebook', shareOther: '🔗 Share / copy link', copied: '✅ Copied', copyPrompt: 'Copy this text:',
       shareText: (name, n, url) => `🏏 ${name ? `${name} scored` : 'I scored'} ${n} danda in Gilli-Danda! The childhood game — play too: ${url}`,
       howTitle: 'How to play',
       how: ['Tap <b>Play</b>. An arrow swings below — tap while it is in the <b>green</b> to flip the gilli up nicely.', 'While the gilli is in the air, <b>tap again</b> — striking at waist height gives the strongest shot.', 'Strike it while it rises for a <b>high shot</b> (goes far, but gives fielders time). Strike it as it falls for a <b>low, flat shot</b>.', 'You score as many <b>danda</b> lengths as the gilli travels. If a kid catches it, it drops or you miss, you lose a ❤️.', 'Lose 3 ❤️ and the game ends. Challenge your friends on WhatsApp.'],
@@ -269,7 +271,7 @@ details summary { font-weight: 700; cursor: pointer; }
       endNote: (hits, best, badge) => `${hits}টা শট · সবচেয়ে লম্বা ${best} ডাং${badge ? ` · ${badge}` : ''}`,
       newBest: '🏆 নতুন রেকর্ড!',
       challenge: (name, n) => `🏏 ${name} ডাংগুলিতে ${n} ডাং দূরে গুলি পাঠিয়েছে! তুমি কত দূর পারবে?`,
-      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: '🔗 লিংক শেয়ার / কপি করো', copied: '✅ কপি হয়েছে', copyPrompt: 'এই লেখাটা কপি করো:',
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো', shareOther: '🔗 লিংক শেয়ার / কপি করো', copied: '✅ কপি হয়েছে', copyPrompt: 'এই লেখাটা কপি করো:',
       shareText: (name, n, url) => `🏏 ${name ? `${name}` : 'আমি'} ডাংগুলিতে ${n} ডাং স্কোর করেছি! ছোটবেলার খেলা — তুমিও খেলো: ${url}`,
       howTitle: 'কীভাবে খেলবে',
       how: ['<b>খেলো</b> চাপো। নিচে একটা তির দোলে — <b>সবুজ অংশে</b> এলে ট্যাপ করো, গুলি ভালো উঠবে।', 'গুলি হাওয়ায় থাকতে <b>আবার ট্যাপ</b> — কোমরের উচ্চতায় মারলে সবচেয়ে জোরালো শট।', 'ওঠার সময় মারলে <b>উঁচু শট</b> (দূরে যায়, কিন্তু লোফার সময় বেশি)। নামার সময় মারলে <b>নিচু সোজা শট</b>।', 'গুলি যত দূরে পড়ে, তত <b>ডাং</b> পাবে। কেউ লুফে নিলে, গুলি পড়ে গেলে বা ফসকালে একটা ❤️ কমবে।', '৩টে ❤️ শেষ হলে খেলা শেষ। বন্ধুদের WhatsApp-এ চ্যালেঞ্জ করো।'],
@@ -566,6 +568,7 @@ details summary { font-weight: 700; cursor: pointer; }
   // ---------- share
   const shareText = () => { const u = new URL(SITE); if (playerName) u.searchParams.set('from', playerName); u.searchParams.set('score', String(score)); u.searchParams.set('lang', lang); return t('shareText')(playerName, score, u.toString()); };
   $('shareWa').addEventListener('click', (e) => { e.stopPropagation(); window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
   $('shareOther').addEventListener('click', (e) => {
     e.stopPropagation(); const text = shareText();
     if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }

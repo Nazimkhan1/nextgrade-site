@@ -66,6 +66,7 @@ input::placeholder { color: #a9a6d6; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
 .btn-main { background: linear-gradient(90deg, #f76707, #e03131); color: #fff; }
 .btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
 .btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
 .hidden { display: none !important; }
 section { margin: 28px 0; }
@@ -123,6 +124,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         <p id="endNote"></p>
         <p class="fact" id="endFact"></p>
         <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
         <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
         <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
       </div>
@@ -196,7 +198,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       medals: { gold: 'Gold medal — shaandaar parade! 🥇', silver: 'Silver medal — bahut badhiya! 🥈', bronze: 'Bronze medal — achhi koshish! 🥉', none: 'Thodi practice aur — agli baar medal pakka! 💪' },
       stats: (p, g, m, acc) => `🎯 ${acc}%  ·  ✨ ${p}  ·  👍 ${g}  ·  ❌ ${m}`,
       endNote: (best, isNew, combo) => `${isNew ? '🏅 Naya best score!' : `Aapka best: ${best}`} · Sabse lamba combo: ${combo}`,
-      shareWa: '📲 WhatsApp pe challenge bhejo',
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo',
       shareOther: '🔗 Link share / copy karo',
       copied: '✅ Copy ho gaya',
       copyPrompt: 'Yeh text copy karo:',
@@ -243,7 +245,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       medals: { gold: 'गोल्ड मेडल — शानदार परेड! 🥇', silver: 'सिल्वर मेडल — बहुत बढ़िया! 🥈', bronze: 'ब्रॉन्ज़ मेडल — अच्छी कोशिश! 🥉', none: 'थोड़ी प्रैक्टिस और — अगली बार मेडल पक्का! 💪' },
       stats: (p, g, m, acc) => `🎯 ${acc}%  ·  ✨ ${p}  ·  👍 ${g}  ·  ❌ ${m}`,
       endNote: (best, isNew, combo) => `${isNew ? '🏅 नया बेस्ट स्कोर!' : `आपका बेस्ट: ${best}`} · सबसे लंबा कॉम्बो: ${combo}`,
-      shareWa: '📲 WhatsApp पर चैलेंज भेजो',
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो',
       shareOther: '🔗 लिंक शेयर / कॉपी करो',
       copied: '✅ कॉपी हो गया',
       copyPrompt: 'यह टेक्स्ट कॉपी करो:',
@@ -290,7 +292,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       medals: { gold: 'Gold medal — a superb parade! 🥇', silver: 'Silver medal — very good! 🥈', bronze: 'Bronze medal — nice try! 🥉', none: 'A little more practice — a medal next time! 💪' },
       stats: (p, g, m, acc) => `🎯 ${acc}%  ·  ✨ ${p}  ·  👍 ${g}  ·  ❌ ${m}`,
       endNote: (best, isNew, combo) => `${isNew ? '🏅 New best score!' : `Your best: ${best}`} · Longest combo: ${combo}`,
-      shareWa: '📲 Challenge on WhatsApp',
+      shareWa: '📲 Challenge on WhatsApp', shareFb: 'Share on Facebook',
       shareOther: '🔗 Share / copy link',
       copied: '✅ Copied',
       copyPrompt: 'Copy this text:',
@@ -337,7 +339,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       medals: { gold: 'সোনার পদক — দারুণ প্যারেড! 🥇', silver: 'রুপোর পদক — খুব ভালো! 🥈', bronze: 'ব্রোঞ্জ পদক — ভালো চেষ্টা! 🥉', none: 'আরেকটু অনুশীলন — পরের বার পদক পাকা! 💪' },
       stats: (p, g, m, acc) => `🎯 ${acc}%  ·  ✨ ${p}  ·  👍 ${g}  ·  ❌ ${m}`,
       endNote: (best, isNew, combo) => `${isNew ? '🏅 নতুন সেরা স্কোর!' : `তোমার সেরা: ${best}`} · সবচেয়ে লম্বা কম্বো: ${combo}`,
-      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও',
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো',
       shareOther: '🔗 লিংক শেয়ার / কপি',
       copied: '✅ কপি হয়েছে',
       copyPrompt: 'এই লেখাটা কপি করো:',
@@ -841,6 +843,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   $('restart').addEventListener('click', start);
   $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
   $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
   $('shareOther').addEventListener('click', () => {
     const text = shareText();
     if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }

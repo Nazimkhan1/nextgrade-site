@@ -67,6 +67,7 @@ h1 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-s
 .btn-main { background: var(--gold); color: #3b2a00; flex: 2; font-size: 17px; }
 .btn-ghost { background: var(--card); color: var(--ink); border: 1px solid var(--line); flex: 1; }
 .btn-wa { background: #25d366; color: #063b1c; }
+.btn-fb { background: #1877f2; color: #fff; }
 .btn:disabled { opacity: .5; cursor: default; }
 .status { display: flex; justify-content: space-between; font-weight: 700; color: var(--muted); font-size: 14px; }
 .msg { min-height: 48px; margin: 8px 0; font-weight: 700; text-align: center; }
@@ -122,6 +123,7 @@ footer a { color: var(--muted); margin-right: 12px; }
     <p id="winLine"></p>
     <div class="btns">
       <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
       <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
       <button class="btn btn-main" id="nextLevel" type="button"></button>
     </div>
@@ -190,7 +192,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       fail: { sherBakri: '😱 Kisan ke bina sher ne bakri kha li! Phir se koshish karo.', bakriGhaas: '😱 Kisan ke bina bakri ghaas kha gayi! Phir se koshish karo.', chorMore: '😱 Chor sipahiyon se zyada ho gaye! Phir se koshish karo.' },
       hintSay: (names) => `💡 Agli chaal: naav mein ${names} bhejo.`, hintNone: '💡 Yahan se raasta nahi — "Phir se" dabao.',
       winTitle: '🎉 Shabaash! Sab paar pahunch gaye!', winLine: (m, min) => `Aapne ${m} chaal mein kiya. Sabse kam: ${min}.`, next: 'Agla level →', allDone: 'Phir se khelo ↺',
-      shareWa: 'WhatsApp par challenge bhejo', shareOther: 'Share', shareText: (lv, m) => `🛶 Nadi Paar level ${lv}: maine ${m} chaal mein sabko nadi paar karaya! Aap kitni chaal mein karoge? 👉 `,
+      shareWa: 'WhatsApp par challenge bhejo', shareFb: 'Facebook par share karo', shareOther: 'Share', shareText: (lv, m) => `🛶 Nadi Paar level ${lv}: maine ${m} chaal mein sabko nadi paar karaya! Aap kitni chaal mein karoge? 👉 `,
       howTitle: 'Kaise khelein', how: ['Jis kinare par naav hai, wahan ke kisi kirdaar par tap karo — wo naav mein baith jaayega. Naav mein baithe par tap karo to wapas utar jaayega.', '"⛵ Paar karo" dabao — naav doosre kinare chali jaayegi.', 'Har level ke niyam upar likhe hain. Galti hui to level phir se shuru hoga.', 'Atak gaye? "💡 Hint" agli sahi chaal dikhata hai.', 'Kam chaal = zyada star. Teeno level poore karo aur dosto ko challenge bhejo.'],
       aboutTitle: 'Yeh paheli kahan se aayi?', aboutText: 'Nadi paar karane wali paheliyan sadiyon purani hain. Kisan, jaanwar aur ghaas wali paheli 8vi-9vi sadi ke Europe ki ek paheli-kitaab mein bhi milti hai, aur iske roop duniya bhar ki lok-kathaon mein sune jaate hain — kahin bhediya, bakri aur gobhi, to kahin sher, bakri aur ghaas.',
       aboutText2: 'Aisi paheliyan "aage ki soch" sikhati hain: kabhi ek kadam peeche jaana (kisi ko wapas laana) hi aage badhne ka raasta hota hai. Bachchon aur badon dono ke liye yeh logic aur dhairya ka achha abhyaas hai.',
@@ -206,7 +208,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       fail: { sherBakri: '😱 किसान के बिना शेर ने बकरी खा ली! फिर से कोशिश करो।', bakriGhaas: '😱 किसान के बिना बकरी घास खा गई! फिर से कोशिश करो।', chorMore: '😱 चोर सिपाहियों से ज़्यादा हो गए! फिर से कोशिश करो।' },
       hintSay: (names) => `💡 अगली चाल: नाव में ${names} भेजो।`, hintNone: '💡 यहाँ से रास्ता नहीं — "फिर से" दबाओ।',
       winTitle: '🎉 शाबाश! सब पार पहुँच गए!', winLine: (m, min) => `आपने ${m} चाल में किया। सबसे कम: ${min}।`, next: 'अगला लेवल →', allDone: 'फिर से खेलो ↺',
-      shareWa: 'WhatsApp पर चैलेंज भेजो', shareOther: 'शेयर', shareText: (lv, m) => `🛶 नदी पार लेवल ${lv}: मैंने ${m} चाल में सबको नदी पार कराया! आप कितनी चाल में करोगे? 👉 `,
+      shareWa: 'WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो', shareOther: 'शेयर', shareText: (lv, m) => `🛶 नदी पार लेवल ${lv}: मैंने ${m} चाल में सबको नदी पार कराया! आप कितनी चाल में करोगे? 👉 `,
       howTitle: 'कैसे खेलें', how: ['जिस किनारे पर नाव है, वहाँ के किसी किरदार पर टैप करो — वो नाव में बैठ जाएगा। नाव में बैठे पर टैप करो तो वापस उतर जाएगा।', '"⛵ पार करो" दबाओ — नाव दूसरे किनारे चली जाएगी।', 'हर लेवल के नियम ऊपर लिखे हैं। ग़लती हुई तो लेवल फिर से शुरू होगा।', 'अटक गए? "💡 हिंट" अगली सही चाल दिखाता है।', 'कम चाल = ज़्यादा स्टार। तीनों लेवल पूरे करो और दोस्तों को चैलेंज भेजो।'],
       aboutTitle: 'यह पहेली कहाँ से आई?', aboutText: 'नदी पार कराने वाली पहेलियाँ सदियों पुरानी हैं। किसान, जानवर और घास वाली पहेली 8वीं-9वीं सदी के यूरोप की एक पहेली-किताब में भी मिलती है, और इसके रूप दुनिया भर की लोक-कथाओं में सुने जाते हैं — कहीं भेड़िया, बकरी और गोभी, तो कहीं शेर, बकरी और घास।',
       aboutText2: 'ऐसी पहेलियाँ "आगे की सोच" सिखाती हैं: कभी एक क़दम पीछे जाना (किसी को वापस लाना) ही आगे बढ़ने का रास्ता होता है। बच्चों और बड़ों दोनों के लिए यह तर्क और धैर्य का अच्छा अभ्यास है।',
@@ -222,7 +224,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       fail: { sherBakri: '😱 Without the farmer, the tiger ate the goat! Try again.', bakriGhaas: '😱 Without the farmer, the goat ate the grass! Try again.', chorMore: '😱 The thieves outnumbered the guards! Try again.' },
       hintSay: (names) => `💡 Next move: send ${names} in the boat.`, hintNone: '💡 No way forward from here — press "Restart".',
       winTitle: '🎉 Well done! Everyone is across!', winLine: (m, min) => `You did it in ${m} moves. Fewest possible: ${min}.`, next: 'Next level →', allDone: 'Play again ↺',
-      shareWa: 'Challenge on WhatsApp', shareOther: 'Share', shareText: (lv, m) => `🛶 Nadi Paar level ${lv}: I got everyone across the river in ${m} moves! How many will you need? 👉 `,
+      shareWa: 'Challenge on WhatsApp', shareFb: 'Share on Facebook', shareOther: 'Share', shareText: (lv, m) => `🛶 Nadi Paar level ${lv}: I got everyone across the river in ${m} moves! How many will you need? 👉 `,
       howTitle: 'How to play', how: ['Tap a character on the bank where the boat is — they get into the boat. Tap someone in the boat to get them out.', 'Press "⛵ Cross" — the boat goes to the other bank.', 'Each level\'s rules are shown above. Make a mistake and the level starts again.', 'Stuck? "💡 Hint" shows the next right move.', 'Fewer moves = more stars. Finish all three levels and challenge your friends.'],
       aboutTitle: 'Where does this puzzle come from?', aboutText: 'River-crossing puzzles are centuries old. The farmer, animal and grass puzzle appears in a European puzzle book from the 8th–9th century, and versions of it are told in folk tales around the world — a wolf, a goat and a cabbage in one place, a tiger, a goat and grass in another.',
       aboutText2: 'Puzzles like this teach thinking ahead: sometimes stepping back (bringing someone back) is the only way forward. They are good practice in logic and patience for children and adults alike.',
@@ -238,7 +240,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       fail: { sherBakri: '😱 কৃষক নেই, বাঘ ছাগলটা খেয়ে ফেলল! আবার চেষ্টা করো।', bakriGhaas: '😱 কৃষক নেই, ছাগল ঘাস খেয়ে ফেলল! আবার চেষ্টা করো।', chorMore: '😱 চোর সিপাইয়ের চেয়ে বেশি হয়ে গেল! আবার চেষ্টা করো।' },
       hintSay: (names) => `💡 পরের চাল: নৌকায় ${names} পাঠাও।`, hintNone: '💡 এখান থেকে পথ নেই — "আবার" টেপো।',
       winTitle: '🎉 শাবাশ! সবাই পার হয়ে গেছে!', winLine: (m, min) => `তুমি ${m} চালে করেছ। সবচেয়ে কম: ${min}।`, next: 'পরের লেভেল →', allDone: 'আবার খেলো ↺',
-      shareWa: 'WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: 'শেয়ার', shareText: (lv, m) => `🛶 নদী পার লেভেল ${lv}: আমি ${m} চালে সবাইকে নদী পার করিয়েছি! তুমি কত চালে পারবে? 👉 `,
+      shareWa: 'WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো', shareOther: 'শেয়ার', shareText: (lv, m) => `🛶 নদী পার লেভেল ${lv}: আমি ${m} চালে সবাইকে নদী পার করিয়েছি! তুমি কত চালে পারবে? 👉 `,
       howTitle: 'কীভাবে খেলবে', how: ['যে পাড়ে নৌকা আছে, সেখানকার কারও উপর ট্যাপ করো — সে নৌকায় উঠবে। নৌকায় বসা কারও উপর ট্যাপ করলে নেমে যাবে।', '"⛵ পার করো" টেপো — নৌকা অন্য পাড়ে যাবে।', 'প্রতিটা লেভেলের নিয়ম উপরে লেখা। ভুল হলে লেভেল আবার শুরু হবে।', 'আটকে গেলে? "💡 হিন্ট" পরের ঠিক চাল দেখায়।', 'কম চাল = বেশি তারা। তিনটে লেভেল শেষ করো আর বন্ধুদের চ্যালেঞ্জ পাঠাও।'],
       aboutTitle: 'এই ধাঁধা কোথা থেকে এল?', aboutText: 'নদী পার করানোর ধাঁধা বহু শতাব্দী পুরনো। কৃষক, পশু আর ঘাসের ধাঁধাটা ৮ম-৯ম শতকের ইউরোপের এক ধাঁধার বইয়েও আছে, আর এর নানা রূপ সারা পৃথিবীর লোককথায় শোনা যায় — কোথাও নেকড়ে, ছাগল আর বাঁধাকপি, কোথাও বাঘ, ছাগল আর ঘাস।',
       aboutText2: 'এমন ধাঁধা "আগে থেকে ভাবতে" শেখায়: কখনো এক পা পিছিয়ে যাওয়া (কাউকে ফেরত আনা)ই এগোনোর একমাত্র পথ। ছোট-বড় সবার জন্য এটা যুক্তি আর ধৈর্যের ভালো অনুশীলন।',
@@ -373,6 +375,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   $('levels').addEventListener('click', (e) => { const b = e.target.closest('[data-l]'); if (!b || b.disabled) return; lv = Number(b.dataset.l); store.set('np-level', String(lv)); levelTabs(); reset(); });
   const shareText = () => t('shareText')(lv + 1, moves) + `${SITE}?lang=${lang}`;
   $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
   $('shareOther').addEventListener('click', () => { const text = shareText(); if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; } (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).catch(() => window.prompt('Copy', text)); });
 
   // ---- language

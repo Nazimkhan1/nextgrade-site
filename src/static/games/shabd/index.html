@@ -69,7 +69,9 @@ h1 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-s
 .grid-share { font-size: 18px; line-height: 1.15; margin: 6px 0 10px; white-space: pre-line; }
 .btns { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 .btn { border: 0; border-radius: 12px; padding: 11px 16px; font: inherit; font-weight: 700; cursor: pointer; }
-.btn-wa { background: #25d366; color: #063b1c; } .btn-main { background: var(--gold); color: #3b2a00; } .btn-ghost { background: var(--card); color: var(--ink); border: 1px solid var(--line); }
+.btn-wa { background: #25d366; color: #063b1c; }
+.btn-fb { background: #1877f2; color: #fff; }
+ .btn-main { background: var(--gold); color: #3b2a00; } .btn-ghost { background: var(--card); color: var(--ink); border: 1px solid var(--line); }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 10px 0 6px; }
 .stats div { background: rgba(0,0,0,0.18); border-radius: 10px; padding: 6px 2px; }
 .stats b { display: block; font-size: 22px; } .stats span { font-size: 11px; color: var(--muted); }
@@ -113,6 +115,7 @@ footer a { color: var(--muted); margin-right: 12px; }
     <div class="grid-share" id="resGrid" aria-hidden="true"></div>
     <div class="btns">
       <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
       <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
       <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
     </div>
@@ -169,7 +172,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       modeHi: 'Hindi shabd', modeEn: 'English words', practice: 'Practice (aur khelo)',
       day: (n) => `Shabd #${n} · aaj ka`, practiceDay: 'Practice mode', tooShort: 'Poore 5 akshar likho', onlyAZ: 'Sirf A–Z akshar',
       win: ['Kamaal! 🤯', 'Shaandaar! 🌟', 'Bahut badhiya! 🎉', 'Badhiya! 👏', 'Achha khela! 🙂', 'Phew, bach gaye! 😅'], lose: 'Is baar nahi! Shabd tha:',
-      shareWa: 'WhatsApp par bhejo', shareOther: 'Share', again: 'Practice karo', copied: 'Copy ho gaya ✓',
+      shareWa: 'WhatsApp par bhejo', shareFb: 'Facebook par share karo', shareOther: 'Share', again: 'Practice karo', copied: 'Copy ho gaya ✓',
       stPlayed: 'Khele', stWin: 'Jeet %', stStreak: 'Streak', stMax: 'Best streak', next: (h, m) => `Agla shabd ${h} ghante ${m} minute mein`,
       shareText: (mode, n, score, grid) => `Aaj ka Shabd ${mode === 'hi' ? '(Hindi)' : '(English)'} #${n} ${score}/6\n${grid}\nKhud try karo 👉 `,
       meaning: (dev, gl) => `${dev} — ${gl}`,
@@ -185,7 +188,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       modeHi: 'हिंदी शब्द', modeEn: 'English शब्द', practice: 'प्रैक्टिस (और खेलो)',
       day: (n) => `शब्द #${n} · आज का`, practiceDay: 'प्रैक्टिस मोड', tooShort: 'पूरे 5 अक्षर लिखो', onlyAZ: 'सिर्फ़ A–Z अक्षर',
       win: ['कमाल! 🤯', 'शानदार! 🌟', 'बहुत बढ़िया! 🎉', 'बढ़िया! 👏', 'अच्छा खेला! 🙂', 'फ़्यू, बच गए! 😅'], lose: 'इस बार नहीं! शब्द था:',
-      shareWa: 'WhatsApp पर भेजो', shareOther: 'शेयर', again: 'प्रैक्टिस करो', copied: 'कॉपी हो गया ✓',
+      shareWa: 'WhatsApp पर भेजो', shareFb: 'Facebook पर शेयर करो', shareOther: 'शेयर', again: 'प्रैक्टिस करो', copied: 'कॉपी हो गया ✓',
       stPlayed: 'खेले', stWin: 'जीत %', stStreak: 'स्ट्रीक', stMax: 'सबसे लंबी', next: (h, m) => `अगला शब्द ${h} घंटे ${m} मिनट में`,
       shareText: (mode, n, score, grid) => `आज का शब्द ${mode === 'hi' ? '(हिंदी)' : '(English)'} #${n} ${score}/6\n${grid}\nख़ुद आज़माओ 👉 `,
       meaning: (dev, gl) => `${dev} — ${gl}`,
@@ -201,7 +204,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       modeHi: 'Hindi words', modeEn: 'English words', practice: 'Practice (play more)',
       day: (n) => `Word #${n} · today`, practiceDay: 'Practice mode', tooShort: 'Type all 5 letters', onlyAZ: 'Letters A–Z only',
       win: ['Genius! 🤯', 'Brilliant! 🌟', 'Great! 🎉', 'Nice! 👏', 'Good game! 🙂', 'Phew! 😅'], lose: 'Not this time! The word was:',
-      shareWa: 'Send on WhatsApp', shareOther: 'Share', again: 'Practice', copied: 'Copied ✓',
+      shareWa: 'Send on WhatsApp', shareFb: 'Share on Facebook', shareOther: 'Share', again: 'Practice', copied: 'Copied ✓',
       stPlayed: 'Played', stWin: 'Win %', stStreak: 'Streak', stMax: 'Best', next: (h, m) => `Next word in ${h}h ${m}m`,
       shareText: (mode, n, score, grid) => `Aaj ka Shabd ${mode === 'hi' ? '(Hindi)' : '(English)'} #${n} ${score}/6\n${grid}\nTry it 👉 `,
       meaning: (dev, gl) => `${dev} — ${gl}`,
@@ -217,7 +220,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       modeHi: 'হিন্দি শব্দ', modeEn: 'ইংরেজি শব্দ', practice: 'প্র্যাকটিস (আরও খেলো)',
       day: (n) => `শব্দ #${n} · আজকের`, practiceDay: 'প্র্যাকটিস মোড', tooShort: 'পুরো ৫টা অক্ষর লেখো', onlyAZ: 'শুধু A–Z অক্ষর',
       win: ['দারুণ! 🤯', 'অসাধারণ! 🌟', 'খুব ভালো! 🎉', 'বাহ! 👏', 'ভালো খেলেছ! 🙂', 'উফ, বাঁচলাম! 😅'], lose: 'এবার হলো না! শব্দটা ছিল:',
-      shareWa: 'WhatsApp-এ পাঠাও', shareOther: 'শেয়ার', again: 'প্র্যাকটিস করো', copied: 'কপি হয়েছে ✓',
+      shareWa: 'WhatsApp-এ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো', shareOther: 'শেয়ার', again: 'প্র্যাকটিস করো', copied: 'কপি হয়েছে ✓',
       stPlayed: 'খেলেছ', stWin: 'জয় %', stStreak: 'স্ট্রিক', stMax: 'সেরা', next: (h, m) => `পরের শব্দ ${h} ঘণ্টা ${m} মিনিটে`,
       shareText: (mode, n, score, grid) => `আজকের শব্দ ${mode === 'hi' ? '(হিন্দি)' : '(English)'} #${n} ${score}/6\n${grid}\nতুমিও খেলো 👉 `,
       meaning: (dev, gl) => `${dev} — ${gl}`,
@@ -394,6 +397,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   $('practice').addEventListener('click', () => start(true));
   $('again').addEventListener('click', () => start(true));
   $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
   $('shareOther').addEventListener('click', () => {
     const text = shareText();
     if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }

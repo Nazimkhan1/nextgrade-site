@@ -62,6 +62,7 @@ h1 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-s
 .btn-ghost { background: var(--card); color: var(--ink); border: 1px solid var(--line); flex: 1; }
 .btn-main { background: var(--gold); color: #3b2a00; }
 .btn-wa { background: #25d366; color: #063b1c; }
+.btn-fb { background: #1877f2; color: #fff; }
 .status { display: flex; justify-content: space-between; font-weight: 700; color: var(--muted); font-size: 14px; }
 .msg { min-height: 48px; margin: 8px 0; font-weight: 700; text-align: center; }
 .msg.bad { color: #ffa8a8; } .msg.good { color: #b2f2bb; }
@@ -113,6 +114,7 @@ footer a { color: var(--muted); margin-right: 12px; }
     <p id="winLine"></p>
     <div class="btns">
       <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
       <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
       <button class="btn btn-main" id="nextLevel" type="button"></button>
     </div>
@@ -162,7 +164,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       tap: 'Kisi khambe par tap karo — upar wali thaali uthegi. Phir doosre khambe par tap karo.', empty: 'Is khambe par koi thaali nahi.', bigOnSmall: '🚫 Badi thaali chhoti ke upar nahi rakh sakte!',
       hintSay: (from, to) => `💡 Agli chaal: khamba ${from} se ${to} par.`,
       winTitle: '🎉 Shabaash! Minaar poora ho gaya!', winLine: (m, min) => `Aapne ${m} chaal mein kiya. Sabse kam: ${min}.`, next: 'Agla level →', allDone: 'Phir se khelo ↺',
-      shareWa: 'WhatsApp par challenge bhejo', shareOther: 'Share', shareText: (n, m) => `🗼 Brahma ki Meenar: maine ${n} thaaliyon ka minaar ${m} chaal mein shift kiya! Aap kitni mein karoge? 👉 `,
+      shareWa: 'WhatsApp par challenge bhejo', shareFb: 'Facebook par share karo', shareOther: 'Share', shareText: (n, m) => `🗼 Brahma ki Meenar: maine ${n} thaaliyon ka minaar ${m} chaal mein shift kiya! Aap kitni mein karoge? 👉 `,
       howTitle: 'Kaise khelein', how: ['Jis khambe se thaali uthaani hai, us par tap karo — sabse upar wali thaali upar uth jaayegi.', 'Ab jis khambe par rakhni hai, us par tap karo. Wahi khamba dobara dabao to thaali wapas baith jaayegi.', 'Badi thaali chhoti ke upar nahi aa sakti.', 'Saari thaaliyan khamba C par pahunchao. n thaaliyon ke liye sabse kam chaal 2ⁿ − 1 hoti hai (3 thaali = 7, 4 = 15, 5 = 31).', 'Atak gaye? "💡 Hint" agli sahi chaal dikhata hai, aur "↶ Wapas" pichhli chaal hata deta hai.'],
       aboutTitle: 'Brahma ki Meenar ki kahani', aboutText: 'Yeh paheli 1883 mein French ganitagya Édouard Lucas ne "Tower of Hanoi" naam se banayi. Uske saath ek kahani bhi chhapi: Kashi ke ek mandir mein pujari 64 sone ki thaaliyon ko teen heere ke khambon par isi niyam se shift kar rahe hain, aur jis din kaam poora hoga, us din pralay aayegi. Kahani gadhi hui hai, par paheli asli aur bahut mazedaar hai.',
       aboutText2: '64 thaaliyon ke liye 2⁶⁴ − 1 chaal chahiye — agar har second ek chaal ho, to bhi lagbhag 58,500 crore saal lagenge! Yeh paheli computer science mein "recursion" samjhane ka sabse mashhoor udaharan hai: n thaaliyan shift karne ke liye pehle upar ki n−1 hatao, sabse badi rakho, phir n−1 wapas uske upar.',
@@ -176,7 +178,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       tap: 'किसी खंभे पर टैप करो — ऊपर वाली थाली उठेगी। फिर दूसरे खंभे पर टैप करो।', empty: 'इस खंभे पर कोई थाली नहीं।', bigOnSmall: '🚫 बड़ी थाली छोटी के ऊपर नहीं रख सकते!',
       hintSay: (from, to) => `💡 अगली चाल: खंभा ${from} से ${to} पर।`,
       winTitle: '🎉 शाबाश! मीनार पूरी हो गई!', winLine: (m, min) => `आपने ${m} चाल में किया। सबसे कम: ${min}।`, next: 'अगला लेवल →', allDone: 'फिर से खेलो ↺',
-      shareWa: 'WhatsApp पर चैलेंज भेजो', shareOther: 'शेयर', shareText: (n, m) => `🗼 ब्रह्मा की मीनार: मैंने ${n} थालियों की मीनार ${m} चाल में शिफ़्ट की! आप कितनी में करोगे? 👉 `,
+      shareWa: 'WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो', shareOther: 'शेयर', shareText: (n, m) => `🗼 ब्रह्मा की मीनार: मैंने ${n} थालियों की मीनार ${m} चाल में शिफ़्ट की! आप कितनी में करोगे? 👉 `,
       howTitle: 'कैसे खेलें', how: ['जिस खंभे से थाली उठानी है, उस पर टैप करो — सबसे ऊपर वाली थाली ऊपर उठ जाएगी।', 'अब जिस खंभे पर रखनी है, उस पर टैप करो। वही खंभा दोबारा दबाओ तो थाली वापस बैठ जाएगी।', 'बड़ी थाली छोटी के ऊपर नहीं आ सकती।', 'सारी थालियाँ खंभा C पर पहुँचाओ। n थालियों के लिए सबसे कम चाल 2ⁿ − 1 होती है (3 थाली = 7, 4 = 15, 5 = 31)।', 'अटक गए? "💡 हिंट" अगली सही चाल दिखाता है, और "↶ वापस" पिछली चाल हटा देता है।'],
       aboutTitle: 'ब्रह्मा की मीनार की कहानी', aboutText: 'यह पहेली 1883 में फ़्रांसीसी गणितज्ञ एदुआर्द लुकास ने "टावर ऑफ़ हनोई" नाम से बनाई। उसके साथ एक कहानी भी छपी: काशी के एक मंदिर में पुजारी 64 सोने की थालियों को तीन हीरे के खंभों पर इसी नियम से शिफ़्ट कर रहे हैं, और जिस दिन काम पूरा होगा, उस दिन प्रलय आएगी। कहानी गढ़ी हुई है, पर पहेली असली और बहुत मज़ेदार है।',
       aboutText2: '64 थालियों के लिए 2⁶⁴ − 1 चाल चाहिए — अगर हर सेकंड एक चाल हो, तो भी लगभग 58,500 करोड़ साल लगेंगे! यह पहेली कंप्यूटर साइंस में "रिकर्शन" समझाने का सबसे मशहूर उदाहरण है: n थालियाँ शिफ़्ट करने के लिए पहले ऊपर की n−1 हटाओ, सबसे बड़ी रखो, फिर n−1 वापस उसके ऊपर।',
@@ -190,7 +192,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       tap: 'Tap a peg to lift its top disc, then tap another peg to drop it.', empty: 'There is no disc on this peg.', bigOnSmall: '🚫 A bigger disc cannot go on a smaller one!',
       hintSay: (from, to) => `💡 Next move: peg ${from} to ${to}.`,
       winTitle: '🎉 Well done! The tower is complete!', winLine: (m, min) => `You did it in ${m} moves. Fewest possible: ${min}.`, next: 'Next level →', allDone: 'Play again ↺',
-      shareWa: 'Challenge on WhatsApp', shareOther: 'Share', shareText: (n, m) => `🗼 Brahma ki Meenar: I moved a ${n}-disc tower in ${m} moves! How many will you need? 👉 `,
+      shareWa: 'Challenge on WhatsApp', shareFb: 'Share on Facebook', shareOther: 'Share', shareText: (n, m) => `🗼 Brahma ki Meenar: I moved a ${n}-disc tower in ${m} moves! How many will you need? 👉 `,
       howTitle: 'How to play', how: ['Tap the peg you want to take a disc from — its top disc lifts up.', 'Now tap the peg to put it on. Tap the same peg again to put the disc back.', 'A bigger disc can never sit on a smaller one.', 'Move all discs to peg C. With n discs the fewest moves is 2ⁿ − 1 (3 discs = 7, 4 = 15, 5 = 31).', 'Stuck? "💡 Hint" shows the next right move, and "↶ Undo" takes back your last move.'],
       aboutTitle: 'The story of the tower', aboutText: 'The French mathematician Édouard Lucas created this puzzle in 1883 as the "Tower of Hanoi". It came with a legend: in a temple in Kashi (Benares), priests are moving 64 golden discs between three diamond needles by these same rules, and when they finish, the world will end. The legend was made up, but the puzzle is real — and great fun.',
       aboutText2: '64 discs need 2⁶⁴ − 1 moves — even at one move a second that is about 585 billion years! The puzzle is the best-known example for teaching "recursion" in computer science: to move n discs, first move the top n−1 out of the way, move the biggest, then put the n−1 back on top.',
@@ -204,7 +206,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       tap: 'কোনো খুঁটিতে ট্যাপ করো — উপরের থালা উঠবে। তারপর অন্য খুঁটিতে ট্যাপ করো।', empty: 'এই খুঁটিতে কোনো থালা নেই।', bigOnSmall: '🚫 বড় থালা ছোটর উপর রাখা যাবে না!',
       hintSay: (from, to) => `💡 পরের চাল: খুঁটি ${from} থেকে ${to}-তে।`,
       winTitle: '🎉 শাবাশ! মিনার সম্পূর্ণ!', winLine: (m, min) => `তুমি ${m} চালে করেছ। সবচেয়ে কম: ${min}।`, next: 'পরের লেভেল →', allDone: 'আবার খেলো ↺',
-      shareWa: 'WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: 'শেয়ার', shareText: (n, m) => `🗼 ব্রহ্মার মিনার: আমি ${n} থালার মিনার ${m} চালে সরিয়েছি! তুমি কত চালে পারবে? 👉 `,
+      shareWa: 'WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো', shareOther: 'শেয়ার', shareText: (n, m) => `🗼 ব্রহ্মার মিনার: আমি ${n} থালার মিনার ${m} চালে সরিয়েছি! তুমি কত চালে পারবে? 👉 `,
       howTitle: 'কীভাবে খেলবে', how: ['যে খুঁটি থেকে থালা তুলবে, সেটায় ট্যাপ করো — উপরের থালা উঠে যাবে।', 'এবার যে খুঁটিতে রাখবে, সেটায় ট্যাপ করো। একই খুঁটিতে আবার টাপলে থালা ফিরে বসবে।', 'বড় থালা কখনো ছোটর উপর বসতে পারে না।', 'সব থালা খুঁটি C-তে পৌঁছাও। n থালার জন্য সবচেয়ে কম চাল 2ⁿ − 1 (৩ থালা = ৭, ৪ = ১৫, ৫ = ৩১)।', 'আটকে গেলে? "💡 হিন্ট" পরের ঠিক চাল দেখায়, আর "↶ ফেরাও" আগের চাল মুছে দেয়।'],
       aboutTitle: 'মিনারের গল্প', aboutText: '১৮৮৩ সালে ফরাসি গণিতজ্ঞ এদুয়ার লুকা "টাওয়ার অফ হ্যানয়" নামে এই ধাঁধা বানান। সঙ্গে একটা গল্পও ছাপা হয়: কাশীর এক মন্দিরে পুরোহিতরা ৬৪টা সোনার থালা তিনটে হিরের খুঁটিতে এই নিয়মে সরাচ্ছেন, আর কাজ শেষ হলেই প্রলয় আসবে। গল্পটা বানানো, কিন্তু ধাঁধাটা সত্যিই দারুণ মজার।',
       aboutText2: '৬৪টা থালার জন্য 2⁶⁴ − 1 চাল লাগে — প্রতি সেকেন্ডে একটা চাল দিলেও প্রায় ৫৮,৫০০ কোটি বছর! কম্পিউটার বিজ্ঞানে "রিকার্শন" বোঝানোর সবচেয়ে বিখ্যাত উদাহরণ এটাই: n থালা সরাতে আগে উপরের n−1 সরাও, সবচেয়ে বড়টা রাখো, তারপর n−1 আবার তার উপরে।',
@@ -317,6 +319,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   $('levels').addEventListener('click', (e) => { const b = e.target.closest('[data-l]'); if (!b || b.disabled) return; lv = Number(b.dataset.l); store.set('mn-level', String(lv)); levelTabs(); reset(); });
   const shareText = () => t('shareText')(n(), moves) + `${SITE}?lang=${lang}`;
   $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
   $('shareOther').addEventListener('click', () => { const text = shareText(); if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; } (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).catch(() => window.prompt('Copy', text)); });
 
   // ---- language

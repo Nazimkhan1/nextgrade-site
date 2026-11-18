@@ -64,6 +64,7 @@ input::placeholder { color: #a9a6d6; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
 .btn-main { background: linear-gradient(90deg, #1971c2, #7048e8); color: #fff; }
 .btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
 .btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
 .hidden { display: none !important; }
 section { margin: 28px 0; }
@@ -121,6 +122,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         <p id="endNote"></p>
         <p class="fact" id="endFact"></p>
         <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
         <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
         <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
       </div>
@@ -187,7 +189,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       decoy: { venus: '✨ Yeh to sitara hai — asal mein Zuhra (Venus) grah!', plane: '✈️ Yeh to hawai jahaz ki batti hai!', kite: '🪁 Arre, yeh to patang hai!' },
       endTitle: (name, all) => (all ? `Chaand Mubarak${name ? `, ${name}` : ''}! 🌙` : `Shaabaash${name ? `, ${name}` : ''}! 🌙`),
       endNote: (found, best, isNew) => `${found}/${NIGHTS} shaam chaand mila · ${isNew ? '🏅 Naya best!' : `Aapka best: ${best}`}`,
-      shareWa: '📲 WhatsApp pe challenge bhejo',
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo',
       shareOther: '🔗 Link share / copy karo',
       copied: '✅ Copy ho gaya',
       copyPrompt: 'Yeh text copy karo:',
@@ -233,7 +235,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       decoy: { venus: '✨ यह तो सितारा है — असल में ज़ुहरा (शुक्र) ग्रह!', plane: '✈️ यह तो हवाई जहाज़ की बत्ती है!', kite: '🪁 अरे, यह तो पतंग है!' },
       endTitle: (name, all) => (all ? `चाँद मुबारक${name ? `, ${name}` : ''}! 🌙` : `शाबाश${name ? `, ${name}` : ''}! 🌙`),
       endNote: (found, best, isNew) => `${found}/${NIGHTS} शाम चाँद मिला · ${isNew ? '🏅 नया बेस्ट!' : `आपका बेस्ट: ${best}`}`,
-      shareWa: '📲 WhatsApp पर चैलेंज भेजो',
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो',
       shareOther: '🔗 लिंक शेयर / कॉपी करो',
       copied: '✅ कॉपी हो गया',
       copyPrompt: 'यह टेक्स्ट कॉपी करो:',
@@ -279,7 +281,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       decoy: { venus: '✨ That\'s a "star" — really the planet Venus (Zuhra)!', plane: '✈️ That\'s an aeroplane\'s light!', kite: '🪁 Oops, that\'s a kite!' },
       endTitle: (name, all) => (all ? `Chaand Mubarak${name ? `, ${name}` : ''}! 🌙` : `Well done${name ? `, ${name}` : ''}! 🌙`),
       endNote: (found, best, isNew) => `Moon found on ${found}/${NIGHTS} evenings · ${isNew ? '🏅 New best!' : `Your best: ${best}`}`,
-      shareWa: '📲 Challenge on WhatsApp',
+      shareWa: '📲 Challenge on WhatsApp', shareFb: 'Share on Facebook',
       shareOther: '🔗 Share / copy link',
       copied: '✅ Copied',
       copyPrompt: 'Copy this text:',
@@ -325,7 +327,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       decoy: { venus: '✨ এটা তো তারা — আসলে শুক্র (জোহরা) গ্রহ!', plane: '✈️ এটা তো উড়োজাহাজের আলো!', kite: '🪁 আরে, এটা তো ঘুড়ি!' },
       endTitle: (name, all) => (all ? `চাঁদ মোবারক${name ? `, ${name}` : ''}! 🌙` : `সাবাশ${name ? `, ${name}` : ''}! 🌙`),
       endNote: (found, best, isNew) => `${found}/${NIGHTS} সন্ধ্যায় চাঁদ পাওয়া গেছে · ${isNew ? '🏅 নতুন সেরা!' : `তোমার সেরা: ${best}`}`,
-      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও',
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো',
       shareOther: '🔗 লিংক শেয়ার / কপি',
       copied: '✅ কপি হয়েছে',
       copyPrompt: 'এই লেখাটা কপি করো:',
@@ -779,6 +781,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   $('resume').addEventListener('click', resume);
   $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
   $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
   $('shareOther').addEventListener('click', () => {
     const text = shareText();
     if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }

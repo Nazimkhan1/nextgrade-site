@@ -90,6 +90,7 @@ input::placeholder { color: #a9a6d6; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
 .btn-main { background: linear-gradient(90deg, #f06595, #ff922b); color: #fff; }
 .btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
 .btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
 .hidden { display: none !important; }
 section { margin: 28px 0; }
@@ -157,6 +158,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         <p id="endNote"></p>
         <p class="fact hidden" id="endFact"></p>
         <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
         <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
         <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
       </div>
@@ -277,7 +279,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endTitle: (name) => (name ? `Shabaash ${name}! 🎉` : 'Game khatam! 🎉'),
       endNote: (best, isNew) => (isNew ? '🏅 Naya best score!' : `Aapka best: ${best}`),
       lastWrong: (msg) => `Aakhri galti: ${msg}`,
-      shareWa: '📲 WhatsApp pe challenge bhejo',
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo',
       shareOther: '🔗 Link share / copy karo',
       copied: '✅ Copy ho gaya',
       copyPrompt: 'Ye text copy karein:',
@@ -318,7 +320,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endTitle: (name) => (name ? `शाबाश ${name}! 🎉` : 'खेल ख़त्म! 🎉'),
       endNote: (best, isNew) => (isNew ? '🏅 नया बेस्ट स्कोर!' : `आपका बेस्ट: ${best}`),
       lastWrong: (msg) => `आख़िरी ग़लती: ${msg}`,
-      shareWa: '📲 WhatsApp पर चैलेंज भेजो',
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो',
       shareOther: '🔗 लिंक शेयर / कॉपी करो',
       copied: '✅ कॉपी हो गया',
       copyPrompt: 'यह टेक्स्ट कॉपी करें:',
@@ -359,7 +361,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endTitle: (name) => (name ? `Well played, ${name}! 🎉` : 'Game over! 🎉'),
       endNote: (best, isNew) => (isNew ? '🏅 New best score!' : `Your best: ${best}`),
       lastWrong: (msg) => `Last mistake: ${msg}`,
-      shareWa: '📲 Challenge on WhatsApp',
+      shareWa: '📲 Challenge on WhatsApp', shareFb: 'Share on Facebook',
       shareOther: '🔗 Share / copy link',
       copied: '✅ Copied',
       copyPrompt: 'Copy this text:',
@@ -400,7 +402,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endTitle: (name) => (name ? `সাবাশ ${name}! 🎉` : 'খেলা শেষ! 🎉'),
       endNote: (best, isNew) => (isNew ? '🏅 নতুন সেরা স্কোর!' : `তোমার সেরা: ${best}`),
       lastWrong: (msg) => `শেষ ভুল: ${msg}`,
-      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও',
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো',
       shareOther: '🔗 লিংক শেয়ার / কপি',
       copied: '✅ কপি হয়েছে',
       copyPrompt: 'এই লেখাটা কপি করো:',
@@ -726,6 +728,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   $('resume').addEventListener('click', resume);
   $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
   $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
   $('shareOther').addEventListener('click', () => {
     const text = shareText();
     if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }

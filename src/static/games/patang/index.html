@@ -57,6 +57,7 @@ input::placeholder { color: #d9b9a3; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; }
 .btn-main { background: linear-gradient(90deg, #ff922b, #e8590c); color: #fff; }
 .btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
 .btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
 .hidden { display: none !important; }
 section { margin: 28px 0; }
@@ -103,6 +104,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         <p id="endBreak"></p>
         <p id="endNote"></p>
         <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
         <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
         <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
       </div>
@@ -150,7 +152,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endTitle: (n) => (n >= 300 ? 'Patang ke Badshah! 👑' : n >= 150 ? 'Kaai po che! 🎉' : 'Shabaash! 🪁'),
       breakdown: (c, l, b) => `✂️ Kaati: ${c} · 🟤 Laddoo: ${l} · 🐦 Takkar: ${b}`,
       record: 'Naya record! 🏆', beat: (name, n) => `Aapne ${name} (${n}) ko hara diya! 🥳`, notBeat: (name, n) => `${name} ka score ${n} hai — ek baar aur?`, bestNote: (n) => `Best score: ${n}`,
-      shareWa: '📲 WhatsApp pe challenge bhejo', shareOther: '📤 Aur kahin share karo', again: '🔁 Phir se khelo', copied: '✅ Link copy ho gaya', copyPrompt: 'Ye link copy karo',
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo', shareOther: '📤 Aur kahin share karo', again: '🔁 Phir se khelo', copied: '✅ Link copy ho gaya', copyPrompt: 'Ye link copy karo',
       shareText: (name, n, url) => `🪁 Kaai po che! ${name ? name + ' ne' : 'Maine'} "Patang Udao" mein ${n} points banaye. Meri patang kaat ke dikhao! Happy Makar Sankranti 🌞\n${url}`,
       howTitle: 'Kaise khelein',
       how: ['<b>▶ Patang udao</b> dabao. Aapki patang neeche chhat se udti hai.', 'Screen pe ungli ghumao — patang ungli ke peechhe chalti hai. Computer pe mouse.', 'Doosri patangon ki dor (patli safed line) ko apni patang se chhuo — wo kat jaayegi: +20. Sunehri patang +50. Jaldi-jaldi kaato to combo.', 'Dhyaan rakho: doosri patang aapki dor ko chhoo le to aapki patang kat jaati hai. 3 patangein khatam to game khatam.', 'Hawa mein tairte til-gud laddoo pakdo +5. Pakshiyon se door raho — takkar pe −10.'],
@@ -170,7 +172,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endTitle: (n) => (n >= 300 ? 'पतंग के बादशाह! 👑' : n >= 150 ? 'काई पो छे! 🎉' : 'शाबाश! 🪁'),
       breakdown: (c, l, b) => `✂️ काटी: ${c} · 🟤 लड्डू: ${l} · 🐦 टक्कर: ${b}`,
       record: 'नया रिकॉर्ड! 🏆', beat: (name, n) => `आपने ${name} (${n}) को हरा दिया! 🥳`, notBeat: (name, n) => `${name} का स्कोर ${n} है — एक बार और?`, bestNote: (n) => `बेस्ट स्कोर: ${n}`,
-      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareOther: '📤 और कहीं शेयर करो', again: '🔁 फिर से खेलो', copied: '✅ लिंक कॉपी हो गया', copyPrompt: 'यह लिंक कॉपी करें',
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो', shareOther: '📤 और कहीं शेयर करो', again: '🔁 फिर से खेलो', copied: '✅ लिंक कॉपी हो गया', copyPrompt: 'यह लिंक कॉपी करें',
       shareText: (name, n, url) => `🪁 काई पो छे! ${name ? name + ' ने' : 'मैंने'} "पतंग उड़ाओ" में ${n} पॉइंट बनाए। मेरी पतंग काटकर दिखाओ! मकर संक्रांति मुबारक 🌞\n${url}`,
       howTitle: 'कैसे खेलें',
       how: ['<b>▶ पतंग उड़ाओ</b> दबाओ। आपकी पतंग नीचे छत से उड़ती है।', 'स्क्रीन पर उँगली घुमाओ — पतंग उँगली के पीछे चलती है। कंप्यूटर पर माउस।', 'दूसरी पतंगों की डोर (पतली सफ़ेद लाइन) को अपनी पतंग से छुओ — वह कट जाएगी: +20। सुनहरी पतंग +50। जल्दी-जल्दी काटो तो कॉम्बो।', 'ध्यान रखो: दूसरी पतंग आपकी डोर को छू ले तो आपकी पतंग कट जाती है। 3 पतंगें ख़त्म तो गेम ख़त्म।', 'हवा में तैरते तिल-गुड़ लड्डू पकड़ो +5। पक्षियों से दूर रहो — टक्कर पर −10।'],
@@ -190,7 +192,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endTitle: (n) => (n >= 300 ? 'King of Kites! 👑' : n >= 150 ? 'Kai po che! 🎉' : 'Well flown! 🪁'),
       breakdown: (c, l, b) => `✂️ Cut: ${c} · 🟤 Laddoos: ${l} · 🐦 Bumps: ${b}`,
       record: 'New record! 🏆', beat: (name, n) => `You beat ${name} (${n})! 🥳`, notBeat: (name, n) => `${name} scored ${n} — one more try?`, bestNote: (n) => `Best score: ${n}`,
-      shareWa: '📲 Challenge on WhatsApp', shareOther: '📤 Share elsewhere', again: '🔁 Play again', copied: '✅ Link copied', copyPrompt: 'Copy this link',
+      shareWa: '📲 Challenge on WhatsApp', shareFb: 'Share on Facebook', shareOther: '📤 Share elsewhere', again: '🔁 Play again', copied: '✅ Link copied', copyPrompt: 'Copy this link',
       shareText: (name, n, url) => `🪁 Kai po che! ${name || 'I'} scored ${n} points in "Kite Fight". Try to cut my kite! Happy Makar Sankranti 🌞\n${url}`,
       howTitle: 'How to play',
       how: ['Tap <b>▶ Fly the kite</b>. Your kite flies up from the rooftop below.', 'Move your finger on the screen — the kite follows it. On a computer, use the mouse.', 'Touch another kite’s string (the thin white line) with your kite to cut it: +20. A golden kite is +50. Cut quickly for combos.', 'Careful: if another kite touches your string, your kite is cut. When all 3 kites are gone, the game ends.', 'Catch the floating til-gud laddoos +5. Keep away from birds — a bump is −10.'],
@@ -210,7 +212,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endTitle: (n) => (n >= 300 ? 'ঘুড়ির রাজা! 👑' : n >= 150 ? 'ভো-কাট্টা! 🎉' : 'শাবাশ! 🪁'),
       breakdown: (c, l, b) => `✂️ কাটা: ${c} · 🟤 নাড়ু: ${l} · 🐦 ধাক্কা: ${b}`,
       record: 'নতুন রেকর্ড! 🏆', beat: (name, n) => `তুমি ${name}-কে (${n}) হারিয়ে দিয়েছ! 🥳`, notBeat: (name, n) => `${name}-এর স্কোর ${n} — আরেকবার?`, bestNote: (n) => `সেরা স্কোর: ${n}`,
-      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: '📤 অন্য কোথাও শেয়ার করো', again: '🔁 আবার খেলো', copied: '✅ লিংক কপি হয়েছে', copyPrompt: 'এই লিংকটা কপি করো',
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো', shareOther: '📤 অন্য কোথাও শেয়ার করো', again: '🔁 আবার খেলো', copied: '✅ লিংক কপি হয়েছে', copyPrompt: 'এই লিংকটা কপি করো',
       shareText: (name, n, url) => `🪁 ভো-কাট্টা! ${name || 'আমি'} "ঘুড়ি ওড়াও" খেলায় ${n} পয়েন্ট পেয়েছি। আমার ঘুড়ি কেটে দেখাও! শুভ পৌষ সংক্রান্তি 🌞\n${url}`,
       howTitle: 'কীভাবে খেলবে',
       how: ['<b>▶ ঘুড়ি ওড়াও</b> চাপো। তোমার ঘুড়ি নিচের ছাদ থেকে ওড়ে।', 'স্ক্রিনে আঙুল ঘোরাও — ঘুড়ি আঙুলের পেছনে চলবে। কম্পিউটারে মাউস।', 'অন্য ঘুড়ির সুতো (সরু সাদা লাইন) নিজের ঘুড়ি দিয়ে ছুঁলে সেটা কেটে যাবে: +২০। সোনালি ঘুড়ি +৫০। তাড়াতাড়ি কাটলে কম্বো।', 'সাবধান: অন্য ঘুড়ি তোমার সুতো ছুঁলে তোমার ঘুড়ি কেটে যায়। ৩টে ঘুড়ি শেষ হলে খেলা শেষ।', 'ভাসমান তিলের নাড়ু ধরো +৫। পাখি থেকে দূরে থাকো — ধাক্কায় −১০।'],
@@ -426,6 +428,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   $('again').addEventListener('click', start);
   $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
   $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
   $('shareOther').addEventListener('click', () => { const text = shareText(); if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; } (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(() => { $('shareOther').textContent = t('copied'); }).catch(() => window.prompt(t('copyPrompt'), text)); });
   document.addEventListener('visibilitychange', () => { if (document.hidden && running) { running = false; $('startScreen').classList.remove('hidden'); $('play').textContent = t('resume'); } });
   window.addEventListener('resize', resize);

@@ -54,6 +54,7 @@ input::placeholder { color: #9fb3aa; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; }
 .btn-red { background: var(--red); color: #fff; }
 .btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
 .btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: center; font-size: 14px; color: var(--ink); margin: 8px 0 4px; }
 .hidden { display: none !important; }
@@ -101,6 +102,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         <div class="big" id="finalScore">0</div>
         <p id="endNote"></p>
         <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
         <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
         <button class="btn btn-red" id="again" type="button" data-i18n="again"></button>
       </div>
@@ -158,7 +160,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       beat: (name, n) => `Aapne ${name} (${n}) ko hara diya! 🥳`,
       notBeat: (name, n) => `${name} ka score ${n} hai — ek baar aur?`,
       bestNote: (n) => `Best score: ${n}`,
-      shareWa: '📲 WhatsApp pe challenge bhejo', shareOther: '📤 Aur kahin share karo', again: '🔁 Phir se khelo', copied: '✅ Link copy ho gaya', copyPrompt: 'Ye link copy karo',
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo', shareOther: '📤 Aur kahin share karo', again: '🔁 Phir se khelo', copied: '✅ Link copy ho gaya', copyPrompt: 'Ye link copy karo',
       shareText: (name, n, url) => `🎄 ${name ? name + ' ne' : 'Maine'} "Santa ke Gift Pakdo" mein ${n} points banaye! Kya aap hara sakte ho? 🎁\n${url}`,
       howTitle: 'Kaise khelein',
       how: ['<b>▶ Khelo</b> dabao. Upar se gifts, stars, candy aur koyla girenge.', 'Santa ki sleigh 🛷 ko ungli se khiskao (computer pe mouse ya ← → keys).', '🎁 gift +10, ⭐ star +25, 🍬 candy +5. 🪨 koyla pakda to −15!', 'Har kuch second mein cheezein tez girti hain. 45 second baad game khatam.', 'Apna score WhatsApp pe bhejo — dost usi link se khel ke aapko harane ki koshish karenge.'],
@@ -181,7 +183,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       beat: (name, n) => `आपने ${name} (${n}) को हरा दिया! 🥳`,
       notBeat: (name, n) => `${name} का स्कोर ${n} है — एक बार और?`,
       bestNote: (n) => `बेस्ट स्कोर: ${n}`,
-      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareOther: '📤 और कहीं शेयर करो', again: '🔁 फिर से खेलो', copied: '✅ लिंक कॉपी हो गया', copyPrompt: 'यह लिंक कॉपी करें',
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो', shareOther: '📤 और कहीं शेयर करो', again: '🔁 फिर से खेलो', copied: '✅ लिंक कॉपी हो गया', copyPrompt: 'यह लिंक कॉपी करें',
       shareText: (name, n, url) => `🎄 ${name ? name + ' ने' : 'मैंने'} "Santa ke Gift Pakdo" में ${n} पॉइंट बनाए! क्या आप हरा सकते हो? 🎁\n${url}`,
       howTitle: 'कैसे खेलें',
       how: ['<b>▶ खेलो</b> दबाओ। ऊपर से तोहफ़े, सितारे, कैंडी और कोयला गिरेंगे।', 'सांता की स्लेज 🛷 को उंगली से खिसकाओ (कंप्यूटर पर माउस या ← → कीज़)।', '🎁 तोहफ़ा +10, ⭐ सितारा +25, 🍬 कैंडी +5। 🪨 कोयला पकड़ा तो −15!', 'हर कुछ सेकंड में चीज़ें तेज़ गिरती हैं। 45 सेकंड बाद गेम खत्म।', 'अपना स्कोर WhatsApp पर भेजो — दोस्त उसी लिंक से खेलकर आपको हराने की कोशिश करेंगे।'],
@@ -204,7 +206,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       beat: (name, n) => `You beat ${name} (${n})! 🥳`,
       notBeat: (name, n) => `${name} scored ${n} — one more try?`,
       bestNote: (n) => `Best score: ${n}`,
-      shareWa: '📲 Challenge on WhatsApp', shareOther: '📤 Share elsewhere', again: '🔁 Play again', copied: '✅ Link copied', copyPrompt: 'Copy this link',
+      shareWa: '📲 Challenge on WhatsApp', shareFb: 'Share on Facebook', shareOther: '📤 Share elsewhere', again: '🔁 Play again', copied: '✅ Link copied', copyPrompt: 'Copy this link',
       shareText: (name, n, url) => `🎄 ${name || 'I'} scored ${n} points in "Catch Santa's Gifts"! Can you beat it? 🎁\n${url}`,
       howTitle: 'How to play',
       how: ['Tap <b>▶ Play</b>. Gifts, stars, candy and coal start falling from the sky.', 'Move Santa\'s sleigh 🛷 with your finger (mouse or ← → keys on a computer).', '🎁 gift +10, ⭐ star +25, 🍬 candy +5. Catch 🪨 coal and lose 15!', 'Things fall faster every few seconds. The game ends after 45 seconds.', 'Send your score on WhatsApp — friends play from the same link and try to beat you.'],
@@ -227,7 +229,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       beat: (name, n) => `তুমি ${name}-কে (${n}) হারিয়ে দিয়েছ! 🥳`,
       notBeat: (name, n) => `${name}-এর স্কোর ${n} — আরেকবার চেষ্টা করবে?`,
       bestNote: (n) => `সেরা স্কোর: ${n}`,
-      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: '📤 অন্য কোথাও শেয়ার করো', again: '🔁 আবার খেলো', copied: '✅ লিংক কপি হয়েছে', copyPrompt: 'এই লিংকটা কপি করো',
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো', shareOther: '📤 অন্য কোথাও শেয়ার করো', again: '🔁 আবার খেলো', copied: '✅ লিংক কপি হয়েছে', copyPrompt: 'এই লিংকটা কপি করো',
       shareText: (name, n, url) => `🎄 ${name ? name : 'আমি'} "সান্তার উপহার ধরো" খেলায় ${n} পয়েন্ট পেয়েছি! তুমি কি হারাতে পারবে? 🎁\n${url}`,
       howTitle: 'কীভাবে খেলবে',
       how: ['<b>▶ খেলো</b> চাপো। ওপর থেকে উপহার, তারা, ক্যান্ডি আর কয়লা পড়বে।', 'সান্তার স্লেজ 🛷 আঙুল দিয়ে সরাও (কম্পিউটারে মাউস বা ← → কি)।', '🎁 উপহার +১০, ⭐ তারা +২৫, 🍬 ক্যান্ডি +৫। 🪨 কয়লা ধরলে −১৫!', 'কয়েক সেকেন্ড পরপর জিনিস আরও জোরে পড়ে। ৪৫ সেকেন্ড পরে খেলা শেষ।', 'তোমার স্কোর WhatsApp-এ পাঠাও — বন্ধুরা একই লিংক থেকে খেলে তোমাকে হারানোর চেষ্টা করবে।'],
@@ -489,6 +491,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   $('again').addEventListener('click', start);
   $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
   $('shareWa').addEventListener('click', () => {
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
     window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener');
   });
   $('shareOther').addEventListener('click', () => {

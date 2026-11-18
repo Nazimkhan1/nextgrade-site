@@ -59,6 +59,7 @@ input::placeholder { color: #a9d3d8; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
 .btn-main { background: linear-gradient(90deg, #0b7285, #2b8a3e); color: #fff; }
 .btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
 .btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
 .hidden { display: none !important; }
 section { margin: 28px 0; }
@@ -109,6 +110,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         <p class="fact" id="endFact"></p>
         <button class="btn btn-main" id="againBtn" type="button" data-i18n="again"></button>
         <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
         <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
       </div>
     </div>
@@ -174,7 +176,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       round: (n) => `Round ${n}`, best: (n) => `Sabse achha: ${n} point`,
       endTitle: (name) => `Khel khatam${name ? `, ${name}` : ''}!`, endNote: (r) => `${r} round jeete`, newBest: '🏆 Naya record!', pts: 'point',
       challenge: (name, n) => `🪨 ${name} ne Pitthu mein ${n} point banaye! Aap kitne banaoge?`,
-      shareWa: '📲 WhatsApp pe challenge bhejo', shareOther: '🔗 Link share / copy karo', copied: '✅ Copy ho gaya', copyPrompt: 'Yeh text copy karo:',
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo', shareOther: '🔗 Link share / copy karo', copied: '✅ Copy ho gaya', copyPrompt: 'Yeh text copy karo:',
       shareText: (name, n, url) => `🪨 ${name ? `${name} ne` : 'Maine'} Pitthu (Lagori) game mein ${n} point banaye! Bachpan wala khel — aap bhi khelo: ${url}`,
       howTitle: 'Pitthu kaise khelein',
       how: ['<b>Khelo</b> dabao. Neeche aapki <b>gend</b> hai — use chhoo kar <b>peeche kheencho</b> aur chhod do. Teer dikhata hai gend kidhar jaayegi.', 'Pattharon ki dheri ko lagao to woh bikhar jaati hai. <b>3 mauke</b> milte hain; teeno chooke to ek ❤️ kam.', 'Ab bikhre pattharon ko <b>sabse bade se sabse chhote</b> tak ek-ek tap karke jamao — chamakta patthar agla hai.', 'Saamne wala bachcha gend phenkega: <b>laal ghera</b> dikhte hi <b>🙇 Jhuko!</b> dabao. Der ki to gend lagegi aur ek ❤️ jaayega.', 'Dheri poori jamaate hi "Pitthu!" — round jeeta. Har round mein patthar badhte hain aur gend tez aati hai. 3 ❤️ khatam, khel khatam.'],
@@ -207,7 +209,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       round: (n) => `राउंड ${n}`, best: (n) => `सबसे अच्छा: ${n} पॉइंट`,
       endTitle: (name) => `खेल ख़त्म${name ? `, ${name}` : ''}!`, endNote: (r) => `${r} राउंड जीते`, newBest: '🏆 नया रिकॉर्ड!', pts: 'पॉइंट',
       challenge: (name, n) => `🪨 ${name} ने पिट्ठू में ${n} पॉइंट बनाए! आप कितने बनाओगे?`,
-      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareOther: '🔗 लिंक शेयर / कॉपी करो', copied: '✅ कॉपी हो गया', copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो', shareOther: '🔗 लिंक शेयर / कॉपी करो', copied: '✅ कॉपी हो गया', copyPrompt: 'यह टेक्स्ट कॉपी करो:',
       shareText: (name, n, url) => `🪨 ${name ? `${name} ने` : 'मैंने'} पिट्ठू (लगोरी) गेम में ${n} पॉइंट बनाए! बचपन वाला खेल — आप भी खेलो: ${url}`,
       howTitle: 'पिट्ठू कैसे खेलें',
       how: ['<b>खेलो</b> दबाओ। नीचे आपकी <b>गेंद</b> है — उसे छूकर <b>पीछे खींचो</b> और छोड़ दो। तीर दिखाता है गेंद किधर जाएगी।', 'पत्थरों की ढेरी को लगाओ तो वह बिखर जाती है। <b>3 मौक़े</b> मिलते हैं; तीनों चूके तो एक ❤️ कम।', 'अब बिखरे पत्थरों को <b>सबसे बड़े से सबसे छोटे</b> तक एक-एक टैप करके जमाओ — चमकता पत्थर अगला है।', 'सामने वाला बच्चा गेंद फेंकेगा: <b>लाल घेरा</b> दिखते ही <b>🙇 झुको!</b> दबाओ। देर की तो गेंद लगेगी और एक ❤️ जाएगा।', 'ढेरी पूरी जमाते ही "पिट्ठू!" — राउंड जीता। हर राउंड में पत्थर बढ़ते हैं और गेंद तेज़ आती है। 3 ❤️ ख़त्म, खेल ख़त्म।'],
@@ -240,7 +242,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       round: (n) => `Round ${n}`, best: (n) => `Best: ${n} points`,
       endTitle: (name) => `Game over${name ? `, ${name}` : ''}!`, endNote: (r) => `${r} rounds won`, newBest: '🏆 New record!', pts: 'points',
       challenge: (name, n) => `🪨 ${name} scored ${n} points in Pitthu! How many can you score?`,
-      shareWa: '📲 Send a WhatsApp challenge', shareOther: '🔗 Share / copy link', copied: '✅ Copied', copyPrompt: 'Copy this text:',
+      shareWa: '📲 Send a WhatsApp challenge', shareFb: 'Share on Facebook', shareOther: '🔗 Share / copy link', copied: '✅ Copied', copyPrompt: 'Copy this text:',
       shareText: (name, n, url) => `🪨 ${name ? `${name} scored` : 'I scored'} ${n} points in the Pitthu (Lagori) game! The childhood game — play too: ${url}`,
       howTitle: 'How to play Pitthu',
       how: ['Tap <b>Play</b>. Your <b>ball</b> is at the bottom — touch it, <b>pull back</b> and let go. The arrow shows where it will go.', 'Hit the pile and the stones scatter. You get <b>3 throws</b>; miss all three and you lose a ❤️.', 'Now tap the scattered stones from the <b>biggest to the smallest</b>, one at a time — the glowing stone is next.', 'The other kid will throw the ball: as soon as the <b>red ring</b> appears, tap <b>🙇 Duck!</b>. Too late and the ball hits you — one ❤️ gone.', 'Finish the pile and it\'s "Pitthu!" — round won. Each round adds stones and faster throws. Lose 3 ❤️ and the game ends.'],
@@ -273,7 +275,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       round: (n) => `রাউন্ড ${n}`, best: (n) => `সেরা: ${n} পয়েন্ট`,
       endTitle: (name) => `খেলা শেষ${name ? `, ${name}` : ''}!`, endNote: (r) => `${r}টা রাউন্ড জিতেছ`, newBest: '🏆 নতুন রেকর্ড!', pts: 'পয়েন্ট',
       challenge: (name, n) => `🪨 ${name} পিট্টুতে ${n} পয়েন্ট করেছে! তুমি কত করবে?`,
-      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: '🔗 লিংক শেয়ার / কপি করো', copied: '✅ কপি হয়েছে', copyPrompt: 'এই লেখাটা কপি করো:',
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো', shareOther: '🔗 লিংক শেয়ার / কপি করো', copied: '✅ কপি হয়েছে', copyPrompt: 'এই লেখাটা কপি করো:',
       shareText: (name, n, url) => `🪨 ${name ? `${name}` : 'আমি'} পিট্টু (লাগোরি) খেলায় ${n} পয়েন্ট করেছি! ছোটবেলার খেলা — তুমিও খেলো: ${url}`,
       howTitle: 'পিট্টু কীভাবে খেলবে',
       how: ['<b>খেলো</b> চাপো। নিচে তোমার <b>বল</b> — ছুঁয়ে <b>পিছনে টানো</b> আর ছেড়ে দাও। তির দেখায় বল কোথায় যাবে।', 'স্তূপে লাগলে পাথর ছড়িয়ে পড়ে। <b>৩টে সুযোগ</b>; তিনটেই ফসকালে একটা ❤️ কমবে।', 'এবার ছড়ানো পাথর <b>সবচেয়ে বড় থেকে সবচেয়ে ছোট</b> — একটা একটা ট্যাপ করে সাজাও। ঝলমলে পাথরটা পরের।', 'অন্য দলের ছেলেটা বল ছুড়বে: <b>লাল বৃত্ত</b> দেখলেই <b>🙇 নিচু হও!</b> চাপো। দেরি করলে বল লাগবে, একটা ❤️ যাবে।', 'স্তূপ পুরো হলেই "পিট্টু!" — রাউন্ড জয়। প্রতি রাউন্ডে পাথর বাড়ে আর বল জোরে আসে। ৩টে ❤️ শেষ, খেলা শেষ।'],
@@ -582,6 +584,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   // ---------- share
   const shareText = () => { const u = new URL(SITE); if (playerName) u.searchParams.set('from', playerName); u.searchParams.set('score', String(score)); u.searchParams.set('lang', lang); return t('shareText')(playerName, score, u.toString()); };
   $('shareWa').addEventListener('click', (e) => { e.stopPropagation(); window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
   $('shareOther').addEventListener('click', (e) => {
     e.stopPropagation(); const text = shareText();
     if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
