@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tic Tac Toe in Hindi — Kattam Katti / Zero Kaata Game Online (Free) | NextGrade</title>
+<meta name="description" content="Play Kattam-Katti (Zero-Kaata, tic tac toe, noughts and crosses) free online on a school slate: against the computer (easy, medium, unbeatable hard) or with a friend on one phone. Best-of-5 matches, in Hinglish, Hindi, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/games/kattam-katti/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Kattam-Katti ❌⭕ — Tic Tac Toe on a school slate">
+<meta property="og:description" content="Bachpan wala Zero-Kaata: computer ke saath ya dost ke saath, slate par chalk se. Teen ek line mein milao!">
+<meta property="og:url" content="https://nextgrade.in/games/kattam-katti/">
+<meta property="og:image" content="https://nextgrade.in/games/kattam-katti/icons/icon-512.png">
+<meta name="theme-color" content="#1f3b2f">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Kattam-Katti (Tic Tac Toe)","alternateName":["Zero Kaata","Kaata Gola","Tic Tac Toe","Noughts and Crosses","Katakuti"],"url":"https://nextgrade.in/games/kattam-katti/","genre":["Puzzle","Traditional"],"gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you play Kattam-Katti (tic tac toe)?","acceptedAnswer":{"@type":"Answer","text":"Two players take turns marking a cross (X) or a circle (O) in a 3 by 3 grid. The first to get three of their marks in a row — across, down or diagonally — wins. If all nine boxes fill up with no line, it is a draw."}},{"@type":"Question","name":"Can you always beat the computer?","acceptedAnswer":{"@type":"Answer","text":"On Easy and Medium you can. On Hard the computer plays perfectly and never loses — the best you can do is a draw, because tic tac toe always ends in a draw when both sides play perfectly."}},{"@type":"Question","name":"What are the other names of tic tac toe?","acceptedAnswer":{"@type":"Answer","text":"Kattam-Katti, Zero-Kaata or Kaata-Gola in Hindi-speaking areas, Katakuti in Bengali, and Noughts and Crosses in British English."}}]}</script>
+<style>
+:root { --bg: #0f1f18; --gold: #ffd43b; --ink: #f8f9fa; --muted: #c9ddd2; --card: rgba(255,255,255,0.08); --x: #ffd8a8; --o: #a5d8ff; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #2f5d48, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #2f9e44, #1098ad); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+.slate { background: #23322b; border: 14px solid #8d5524; border-radius: 16px; box-shadow: inset 0 0 40px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.4); padding: 14px; }
+.modes { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 10px; }
+.chip { font: inherit; font-weight: 700; font-size: 14px; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); background: transparent; color: var(--ink); cursor: pointer; }
+.chip.on { background: rgba(255,255,255,0.9); color: #1f3b2f; }
+.score { display: flex; justify-content: space-around; font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 18px; margin: 4px 0 8px; }
+.score .x { color: var(--x); } .score .o { color: var(--o); }
+.status { text-align: center; font-weight: 800; font-size: 18px; min-height: 30px; font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; }
+.boardwrap { position: relative; width: min(84vw, 360px); aspect-ratio: 1; margin: 6px auto 10px; }
+.board { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; height: 100%; }
+.cell { background: transparent; border: 0; cursor: pointer; padding: 0; position: relative; }
+.cell:nth-child(-n+6) { border-bottom: 4px solid rgba(255,255,255,0.75); }
+.cell:not(:nth-child(3n)) { border-right: 4px solid rgba(255,255,255,0.75); }
+.cell svg { position: absolute; inset: 14%; width: 72%; height: 72%; }
+.cell svg path, .cell svg circle { fill: none; stroke-width: 9; stroke-linecap: round; stroke-dasharray: 300; stroke-dashoffset: 300; animation: draw 0.35s ease-out forwards; }
+.cell.x svg path { stroke: var(--x); } .cell.o svg circle { stroke: var(--o); }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.strike { position: absolute; inset: 0; pointer-events: none; }
+.strike line { stroke: #ffd43b; stroke-width: 6; stroke-linecap: round; stroke-dasharray: 600; stroke-dashoffset: 600; animation: draw 0.5s ease-out forwards; }
+.row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 16px; cursor: pointer; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #2f9e44, #099268); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.names { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 6px 0; }
+input { width: 100%; font: inherit; font-size: 15px; padding: 8px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); }
+input::placeholder { color: #a9c2b5; }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+details { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 10px 14px; margin: 8px 0; }
+details summary { font-weight: 700; cursor: pointer; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">❌⭕ NextGrade<small>Bachpan</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="slate">
+    <div class="modes" id="modes">
+      <button class="chip" type="button" data-mode="easy" data-i18n="easy"></button>
+      <button class="chip" type="button" data-mode="medium" data-i18n="medium"></button>
+      <button class="chip" type="button" data-mode="hard" data-i18n="hard"></button>
+      <button class="chip" type="button" data-mode="two" data-i18n="two"></button>
+    </div>
+    <div class="names hidden" id="namesBox"><input id="nameX" maxlength="20" data-i18n-ph="nameX"><input id="nameO" maxlength="20" data-i18n-ph="nameO"></div>
+    <div class="score"><span class="x" id="scX">❌ 0</span><span id="scD">🤝 0</span><span class="o" id="scO">⭕ 0</span></div>
+    <p class="status" id="status" role="status"></p>
+    <div class="boardwrap">
+      <div class="board" id="board"></div>
+      <svg class="strike" id="strike" viewBox="0 0 300 300" aria-hidden="true"></svg>
+    </div>
+    <div class="row">
+      <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
+      <button class="btn btn-ghost" id="reset" type="button" data-i18n="reset"></button>
+      <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section><h2 data-i18n="howTitle"></h2><div class="card2"><ol id="howList"></ol></div></section>
+  <section><h2 data-i18n="tipsTitle"></h2><div class="card2"><ul id="tipList"></ul></div></section>
+  <section><h2 data-i18n="aboutTitle"></h2><p data-i18n="aboutText"></p><p data-i18n="aboutText2"></p></section>
+  <section><h2 data-i18n="factsTitle"></h2><div class="card2"><ul id="factList"></ul></div></section>
+  <section><h2 data-i18n="faqTitle"></h2><div id="faqList"></div><p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p></section>
+  <section><h2 data-i18n="privacyTitle"></h2><p data-i18n="privacyText"></p></section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/kattam-katti/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const LINES = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+  const T = {
+    hinglish: {
+      title: 'Kattam-Katti ❌⭕ (Zero-Kaata)', sub: 'Bachpan wala Zero-Kaata, ab slate par! Computer ke saath khelo — aasaan, medium ya mushkil (jo kabhi nahi haarta) — ya ek hi phone par dost ke saath. Teen ek line mein milao aur jeeto.',
+      easy: '🙂 Aasaan', medium: '🤔 Medium', hard: '🧠 Mushkil', two: '👫 2 log', nameX: '❌ ka naam', nameO: '⭕ ka naam', you: 'Aap', cpu: 'Computer',
+      turn: (n, m) => (n === 'Aap' ? `${m} Aapki baari` : `${m} ${n} ki baari`), thinking: '🤔 Computer soch raha hai…', win: (n) => `🎉 ${n} jeet gaye!`, cpuWin: '🤖 Computer jeet gaya!', draw: '🤝 Barabar! Koi nahi jeeta.',
+      matchWin: (n) => `🏆 ${n} ne 5 game ka match jeet liya!`, again: '▶ Agla game', reset: '↺ Naya match', shareWa: '📲 WhatsApp pe challenge',
+      challenge: (name, n) => `❌⭕ ${name} ne Kattam-Katti mein mushkil computer ke khilaaf ${n} game barabar khele! Aap bhi try karo.`,
+      shareText: (url) => `❌⭕ Kattam-Katti (Zero-Kaata) khelo — computer ka "mushkil" level kabhi nahi haarta. Kya aap use rok paoge? ${url}`,
+      howTitle: 'Kaise khelein', how: ['Upar se chuno: computer ke saath (aasaan, medium, mushkil) ya <b>2 log</b>.', 'Pehle ❌ chalta hai. Khaali khaane par tap karke apna nishaan lagao.', 'Jo pehle <b>teen nishaan ek seedhi line</b> mein laga de — aadi, khadi ya tirchhi — woh jeetta hai.', 'Saare 9 khaane bhar jaayein aur line na bane to <b>barabar</b>.', '5 game ka match: pehle 3 jeetne wala match jeetta hai. Har game ke baad pehli chaal badal jaati hai.'],
+      tipsTitle: 'Jeetne ke tips', tips: ['Pehli chaal beech wale khaane mein sabse mazboot hoti hai.', 'Saamne wale ke do nishaan ek line mein hon to teesra khaana turant rok do.', 'Kone (corner) wale khaane beech ke kinaaron se zyada kaam ke hote hain.', '"Do raaste" banao — aisi chaal jisse ek saath do line jeetne ki dhamki ho; saamne wala ek hi rok paayega.'],
+      aboutTitle: 'Kattam-Katti — notebook ke peeche ka khel', aboutText: 'Class ke beech, notebook ke aakhri panne par ya slate par, do dost chupke se 3×3 khaane bana kar Kattam-Katti khelte the. Koi ❌ (kaata), koi ⭕ (gola). Na kuch kharidna, na koi taiyaari — bas pencil aur dimaag.', aboutText2: 'Yeh khel chhota hai par sikhaata bahut kuch hai: aage ki sochna, saamne wale ki chaal padhna aur dhamki ko pehle rokna. Computer ka "mushkil" level poori tarah sahi khelta hai — uske khilaaf barabari bhi badi baat hai!',
+      factsTitle: 'Kattam-Katti ke tathya', facts: ['Isko Zero-Kaata, Kaata-Gola, Bangla mein "Katakuti", angrezi mein "Tic Tac Toe" aur Britain mein "Noughts and Crosses" kehte hain.', 'Agar dono khiladi bina galti ke khelein, to har baar game barabar hota hai.', '3×3 khaanon mein Kattam-Katti ke kul 2,55,168 alag-alag game ho sakte hain.', '1952 mein Cambridge ke A. S. Douglas ne EDSAC computer par "OXO" naam ka tic-tac-toe banaya — ise duniya ke shuruaati video games mein gina jaata hai.', 'Milte-julte "teen ek line mein" khel bahut puraane hain — kaha jaata hai ki Rome mein "terni lapilli" naam ka aisa khel khela jaata tha.'],
+      faqTitle: 'Aksar pooche jaane wale sawaal', faq: [['Kattam-Katti kaise khelte hain?', 'Do khiladi baari-baari 3×3 khaanon mein ❌ ya ⭕ lagaate hain. Jo pehle teen nishaan ek line mein laga de — aadi, khadi ya tirchhi — woh jeetta hai. Line na bane to barabar.'], ['Kya computer ko hamesha haraaya ja sakta hai?', 'Aasaan aur medium par haan. Mushkil par computer bina galti khelta hai aur kabhi nahi haarta — wahan barabari hi sabse achha nateeja hai.'], ['Is game ke doosre naam kya hain?', 'Zero-Kaata, Kaata-Gola, Katakuti (Bangla), Tic Tac Toe aur Noughts and Crosses.']],
+      moreGames: 'Aur bachpan wale games khelo →', privacyTitle: 'Aapka data', privacyText: 'Naam aur score sirf aapke phone mein rehte hain. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'कट्टम-कट्टी ❌⭕ (ज़ीरो-काटा)', sub: 'बचपन वाला ज़ीरो-काटा, अब स्लेट पर! कंप्यूटर के साथ खेलो — आसान, मीडियम या मुश्किल (जो कभी नहीं हारता) — या एक ही फ़ोन पर दोस्त के साथ। तीन एक लाइन में मिलाओ और जीतो।',
+      easy: '🙂 आसान', medium: '🤔 मीडियम', hard: '🧠 मुश्किल', two: '👫 2 लोग', nameX: '❌ का नाम', nameO: '⭕ का नाम', you: 'आप', cpu: 'कंप्यूटर',
+      turn: (n, m) => (n === 'आप' ? `${m} आपकी बारी` : `${m} ${n} की बारी`), thinking: '🤔 कंप्यूटर सोच रहा है…', win: (n) => `🎉 ${n} जीत गए!`, cpuWin: '🤖 कंप्यूटर जीत गया!', draw: '🤝 बराबर! कोई नहीं जीता।',
+      matchWin: (n) => `🏆 ${n} ने 5 गेम का मैच जीत लिया!`, again: '▶ अगला गेम', reset: '↺ नया मैच', shareWa: '📲 WhatsApp पर चैलेंज',
+      challenge: (name, n) => `❌⭕ ${name} ने कट्टम-कट्टी में मुश्किल कंप्यूटर के ख़िलाफ़ ${n} गेम बराबर खेले! आप भी कोशिश करो।`,
+      shareText: (url) => `❌⭕ कट्टम-कट्टी (ज़ीरो-काटा) खेलो — कंप्यूटर का "मुश्किल" लेवल कभी नहीं हारता। क्या आप उसे रोक पाओगे? ${url}`,
+      howTitle: 'कैसे खेलें', how: ['ऊपर से चुनो: कंप्यूटर के साथ (आसान, मीडियम, मुश्किल) या <b>2 लोग</b>।', 'पहले ❌ चलता है। ख़ाली ख़ाने पर टैप करके अपना निशान लगाओ।', 'जो पहले <b>तीन निशान एक सीधी लाइन</b> में लगा दे — आड़ी, खड़ी या तिरछी — वह जीतता है।', 'सारे 9 ख़ाने भर जाएँ और लाइन न बने तो <b>बराबर</b>।', '5 गेम का मैच: पहले 3 जीतने वाला मैच जीतता है। हर गेम के बाद पहली चाल बदल जाती है।'],
+      tipsTitle: 'जीतने के टिप्स', tips: ['पहली चाल बीच वाले ख़ाने में सबसे मज़बूत होती है।', 'सामने वाले के दो निशान एक लाइन में हों तो तीसरा ख़ाना तुरंत रोक दो।', 'कोने वाले ख़ाने बीच के किनारों से ज़्यादा काम के होते हैं।', '"दो रास्ते" बनाओ — ऐसी चाल जिससे एक साथ दो लाइनें जीतने का ख़तरा हो; सामने वाला एक ही रोक पाएगा।'],
+      aboutTitle: 'कट्टम-कट्टी — नोटबुक के पीछे का खेल', aboutText: 'क्लास के बीच, नोटबुक के आख़िरी पन्ने पर या स्लेट पर, दो दोस्त चुपके से 3×3 ख़ाने बनाकर कट्टम-कट्टी खेलते थे। कोई ❌ (काटा), कोई ⭕ (गोला)। न कुछ ख़रीदना, न कोई तैयारी — बस पेंसिल और दिमाग़।', aboutText2: 'यह खेल छोटा है पर सिखाता बहुत कुछ है: आगे की सोचना, सामने वाले की चाल पढ़ना और ख़तरे को पहले रोकना। कंप्यूटर का "मुश्किल" लेवल पूरी तरह सही खेलता है — उसके ख़िलाफ़ बराबरी भी बड़ी बात है!',
+      factsTitle: 'कट्टम-कट्टी के तथ्य', facts: ['इसे ज़ीरो-काटा, काटा-गोला, बांग्ला में "काटाकुटि", अंग्रेज़ी में "टिक टैक टो" और ब्रिटेन में "नॉट्स एंड क्रॉसेज़" कहते हैं।', 'अगर दोनों खिलाड़ी बिना ग़लती के खेलें, तो हर बार गेम बराबर होता है।', '3×3 ख़ानों में कट्टम-कट्टी के कुल 2,55,168 अलग-अलग गेम हो सकते हैं।', '1952 में कैम्ब्रिज के ए. एस. डगलस ने EDSAC कंप्यूटर पर "OXO" नाम का टिक-टैक-टो बनाया — इसे दुनिया के शुरुआती वीडियो गेम में गिना जाता है।', 'मिलते-जुलते "तीन एक लाइन में" खेल बहुत पुराने हैं — कहा जाता है कि रोम में "टेर्नी लापिली" नाम का ऐसा खेल खेला जाता था।'],
+      faqTitle: 'अक्सर पूछे जाने वाले सवाल', faq: [['कट्टम-कट्टी कैसे खेलते हैं?', 'दो खिलाड़ी बारी-बारी 3×3 ख़ानों में ❌ या ⭕ लगाते हैं। जो पहले तीन निशान एक लाइन में लगा दे — आड़ी, खड़ी या तिरछी — वह जीतता है। लाइन न बने तो बराबर।'], ['क्या कंप्यूटर को हमेशा हराया जा सकता है?', 'आसान और मीडियम पर हाँ। मुश्किल पर कंप्यूटर बिना ग़लती खेलता है और कभी नहीं हारता — वहाँ बराबरी ही सबसे अच्छा नतीजा है।'], ['इस गेम के दूसरे नाम क्या हैं?', 'ज़ीरो-काटा, काटा-गोला, काटाकुटि (बांग्ला), टिक टैक टो और नॉट्स एंड क्रॉसेज़।']],
+      moreGames: 'और बचपन वाले गेम खेलो →', privacyTitle: 'आपका डेटा', privacyText: 'नाम और स्कोर सिर्फ़ आपके फ़ोन में रहते हैं। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Kattam-Katti ❌⭕ (Tic Tac Toe)', sub: 'The childhood game of noughts and crosses, now on a slate! Play the computer — easy, medium or hard (it never loses) — or a friend on one phone. Get three in a row to win.',
+      easy: '🙂 Easy', medium: '🤔 Medium', hard: '🧠 Hard', two: '👫 2 players', nameX: '❌ name', nameO: '⭕ name', you: 'You', cpu: 'Computer',
+      turn: (n, m) => (n === 'You' ? `${m} Your turn` : `${m} ${n}'s turn`), thinking: '🤔 The computer is thinking…', win: (n) => `🎉 ${n} win${n === 'You' ? '' : 's'}!`, cpuWin: '🤖 The computer wins!', draw: '🤝 A draw! Nobody won.',
+      matchWin: (n) => `🏆 ${n} won the best-of-5 match!`, again: '▶ Next game', reset: '↺ New match', shareWa: '📲 WhatsApp challenge',
+      challenge: (name, n) => `❌⭕ ${name} held the hard computer to ${n} draws in Kattam-Katti! Can you?`,
+      shareText: (url) => `❌⭕ Play Kattam-Katti (tic tac toe) — the computer's "hard" level never loses. Can you stop it? ${url}`,
+      howTitle: 'How to play', how: ['Choose at the top: against the computer (easy, medium, hard) or <b>2 players</b>.', '❌ moves first. Tap an empty box to place your mark.', 'The first to get <b>three marks in a straight line</b> — across, down or diagonally — wins.', 'If all 9 boxes fill up with no line, it is a <b>draw</b>.', 'Best of 5: the first to win 3 games wins the match. The first move switches after every game.'],
+      tipsTitle: 'Tips to win', tips: ['The centre box is the strongest first move.', 'If your opponent has two in a line, block the third box at once.', 'Corners are more useful than the middle edges.', 'Make a "fork" — a move that threatens two lines at once; your opponent can only block one.'],
+      aboutTitle: 'Kattam-Katti — the game at the back of the notebook', aboutText: 'In the middle of class, on the last page of a notebook or on a slate, two friends would quietly draw a 3×3 grid and play Kattam-Katti. One was ❌ (the cross), the other ⭕ (the circle). Nothing to buy, nothing to prepare — just a pencil and a sharp mind.', aboutText2: 'It is a small game that teaches a lot: thinking ahead, reading the other player\'s move and blocking a threat early. The computer\'s "hard" level plays perfectly — even a draw against it is an achievement!',
+      factsTitle: 'Kattam-Katti facts', facts: ['It is also called Zero-Kaata, Kaata-Gola, "Katakuti" in Bengali, "Tic Tac Toe" in English and "Noughts and Crosses" in Britain.', 'If both players make no mistakes, the game always ends in a draw.', 'There are 255,168 different possible games on the 3×3 grid.', 'In 1952, A. S. Douglas at Cambridge made "OXO", a tic-tac-toe on the EDSAC computer — counted among the earliest video games.', 'Similar "three in a row" games are very old — the Romans are said to have played one called "terni lapilli".'],
+      faqTitle: 'Frequently asked questions', faq: [['How do you play Kattam-Katti?', 'Two players take turns placing ❌ or ⭕ in a 3×3 grid. The first to get three marks in a line — across, down or diagonally — wins. With no line, it is a draw.'], ['Can you always beat the computer?', 'On easy and medium, yes. On hard the computer plays perfectly and never loses — a draw is the best result there.'], ['What are the other names of this game?', 'Zero-Kaata, Kaata-Gola, Katakuti (Bengali), Tic Tac Toe and Noughts and Crosses.']],
+      moreGames: 'Play more childhood games →', privacyTitle: 'Your data', privacyText: 'Names and scores stay only on your phone. No login, no server.',
+    },
+    bn: {
+      title: 'কাটাকুটি ❌⭕ (টিক ট্যাক টো)', sub: 'ছোটবেলার কাটাকুটি, এবার স্লেটে! কম্পিউটারের সঙ্গে খেলো — সহজ, মাঝারি বা কঠিন (যে কখনো হারে না) — বা এক ফোনে বন্ধুর সঙ্গে। এক লাইনে তিনটে মেলাও আর জেতো।',
+      easy: '🙂 সহজ', medium: '🤔 মাঝারি', hard: '🧠 কঠিন', two: '👫 ২ জন', nameX: '❌-এর নাম', nameO: '⭕-এর নাম', you: 'তুমি', cpu: 'কম্পিউটার',
+      turn: (n, m) => (n === 'তুমি' ? `${m} তোমার পালা` : `${m} ${n}-র পালা`), thinking: '🤔 কম্পিউটার ভাবছে…', win: (n) => `🎉 ${n} জিতেছে!`, cpuWin: '🤖 কম্পিউটার জিতেছে!', draw: '🤝 ড্র! কেউ জেতেনি।',
+      matchWin: (n) => `🏆 ${n} ৫ গেমের ম্যাচ জিতেছে!`, again: '▶ পরের গেম', reset: '↺ নতুন ম্যাচ', shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ',
+      challenge: (name, n) => `❌⭕ ${name} কাটাকুটিতে কঠিন কম্পিউটারের সঙ্গে ${n}টা গেম ড্র করেছে! তুমিও চেষ্টা করো।`,
+      shareText: (url) => `❌⭕ কাটাকুটি (টিক ট্যাক টো) খেলো — কম্পিউটারের "কঠিন" লেভেল কখনো হারে না। তুমি কি আটকাতে পারবে? ${url}`,
+      howTitle: 'কীভাবে খেলবে', how: ['ওপরে বাছো: কম্পিউটারের সঙ্গে (সহজ, মাঝারি, কঠিন) বা <b>২ জন</b>।', 'প্রথমে ❌ চলে। খালি ঘরে ট্যাপ করে নিজের চিহ্ন দাও।', 'যে আগে <b>এক সরলরেখায় তিনটে চিহ্ন</b> দেবে — আড়াআড়ি, লম্বালম্বি বা কোনাকুনি — সে জিতবে।', '৯টা ঘর ভরে গেলেও লাইন না হলে <b>ড্র</b>।', '৫ গেমের ম্যাচ: যে আগে ৩টে জিতবে, ম্যাচ তার। প্রতি গেমের পর প্রথম চাল বদলায়।'],
+      tipsTitle: 'জেতার টিপস', tips: ['প্রথম চাল মাঝের ঘরে সবচেয়ে শক্তিশালী।', 'প্রতিপক্ষের দুটো চিহ্ন এক লাইনে থাকলে তৃতীয় ঘরটা সঙ্গে সঙ্গে আটকাও।', 'কোণের ঘরগুলো মাঝের ধারের চেয়ে বেশি কাজের।', '"দু\'দিকের ফাঁদ" বানাও — এমন চাল যাতে একসঙ্গে দুটো লাইনের বিপদ; প্রতিপক্ষ একটাই আটকাতে পারবে।'],
+      aboutTitle: 'কাটাকুটি — খাতার পেছনের খেলা', aboutText: 'ক্লাসের ফাঁকে, খাতার শেষ পাতায় বা স্লেটে, দুই বন্ধু চুপিচুপি ৩×৩ ঘর এঁকে কাটাকুটি খেলত। কেউ ❌ (কাটা), কেউ ⭕ (গোল্লা)। কিছু কিনতে হয় না, তৈরিও লাগে না — শুধু পেনসিল আর বুদ্ধি।', aboutText2: 'ছোট্ট খেলা, কিন্তু অনেক কিছু শেখায়: আগে থেকে ভাবা, প্রতিপক্ষের চাল বোঝা আর বিপদ আগে আটকানো। কম্পিউটারের "কঠিন" লেভেল নিখুঁত খেলে — তার সঙ্গে ড্র করাও বড় ব্যাপার!',
+      factsTitle: 'কাটাকুটির কিছু কথা', facts: ['একে জিরো-কাটা, কাটা-গোলা, ইংরেজিতে "টিক ট্যাক টো" আর ব্রিটেনে "নটস অ্যান্ড ক্রসেস" বলে।', 'দুজনেই ভুল না করলে খেলা সবসময় ড্র হয়।', '৩×৩ ঘরে কাটাকুটির মোট ২,৫৫,১৬৮টা আলাদা খেলা হতে পারে।', '১৯৫২ সালে কেমব্রিজের এ. এস. ডগলাস EDSAC কম্পিউটারে "OXO" নামে টিক-ট্যাক-টো বানান — একে প্রথম দিকের ভিডিও গেমগুলোর একটা ধরা হয়।', '"এক লাইনে তিনটে" ধরনের খেলা খুব পুরোনো — বলা হয় রোমে "টের্নি লাপিল্লি" নামে এমন খেলা হত।'],
+      faqTitle: 'সাধারণ প্রশ্ন', faq: [['কাটাকুটি কীভাবে খেলে?', 'দুজন পালা করে ৩×৩ ঘরে ❌ বা ⭕ দেয়। যে আগে এক লাইনে তিনটে দেয় — আড়াআড়ি, লম্বালম্বি বা কোনাকুনি — সে জেতে। লাইন না হলে ড্র।'], ['কম্পিউটারকে কি সবসময় হারানো যায়?', 'সহজ আর মাঝারিতে হ্যাঁ। কঠিনে কম্পিউটার নিখুঁত খেলে, কখনো হারে না — সেখানে ড্রই সেরা ফল।'], ['এই খেলার অন্য নাম কী?', 'জিরো-কাটা, কাটা-গোলা, টিক ট্যাক টো আর নটস অ্যান্ড ক্রসেস।']],
+      moreGames: 'আরও ছোটবেলার গেম খেলো →', privacyTitle: 'তোমার ডেটা', privacyText: 'নাম আর স্কোর শুধু তোমার ফোনেই থাকে। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+  let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('kk-lang')) ? store.get('kk-lang') : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 20);
+  const fromName = cleanName(params.get('from')), fromScore = Math.max(0, Math.min(99, parseInt(params.get('score'), 10) || 0));
+
+  // ---------- state
+  let mode = ['easy', 'medium', 'hard', 'two'].includes(store.get('kk-mode')) ? store.get('kk-mode') : 'medium';
+  let board = Array(9).fill(''), turn = 'X', starter = 'X', over = false, score = { X: 0, O: 0, D: 0 }, matchOver = false, busy = false;
+  const human = () => (mode === 'two' ? null : 'X'); // vs computer you are always ❌; the computer is ⭕
+  const nameOf = (m) => (mode === 'two' ? (cleanName($(m === 'X' ? 'nameX' : 'nameO').value) || (m === 'X' ? '❌' : '⭕')) : m === 'X' ? t('you') : t('cpu'));
+
+  // ---------- AI
+  const winner = (b) => { for (const l of LINES) { const [a, c, d] = l; if (b[a] && b[a] === b[c] && b[a] === b[d]) return { m: b[a], line: l }; } return b.every(Boolean) ? { m: 'D' } : null; };
+  const free = (b) => b.map((v, i) => (v ? -1 : i)).filter((i) => i >= 0);
+  const minimax = (b, me, who) => { // returns [score, move]; perfect play
+    const w = winner(b); if (w) return [w.m === me ? 10 : w.m === 'D' ? 0 : -10, -1];
+    let best = who === me ? [-99, -1] : [99, -1];
+    for (const i of free(b)) {
+      b[i] = who; const [s] = minimax(b, me, who === 'X' ? 'O' : 'X'); b[i] = '';
+      const sc = s - Math.sign(s) * 0; // depth handled by tie-break below
+      if (who === me ? sc > best[0] : sc < best[0]) best = [sc, i];
+    }
+    return best;
+  };
+  const lineMove = (b, m) => { for (const l of LINES) { const vals = l.map((i) => b[i]); if (vals.filter((v) => v === m).length === 2 && vals.includes('')) return l[vals.indexOf('')]; } return -1; };
+  const cpuMove = () => {
+    const b = board.slice(), me = 'O', opp = 'X', f = free(b);
+    if (mode === 'easy') { const w = lineMove(b, me); return w >= 0 && Math.random() < 0.5 ? w : f[Math.floor(Math.random() * f.length)]; }
+    if (mode === 'medium') { const w = lineMove(b, me); if (w >= 0) return w; const bl = lineMove(b, opp); if (bl >= 0 && Math.random() < 0.85) return bl; if (b[4] === '' && Math.random() < 0.6) return 4; return f[Math.floor(Math.random() * f.length)]; }
+    // hard: win now, else perfect minimax (prefers quick wins)
+    const w = lineMove(b, me); if (w >= 0) return w;
+    if (f.length === 9) return 4;
+    return minimax(b, me, me)[1];
+  };
+
+  // ---------- drawing
+  const XSVG = '<svg viewBox="0 0 100 100"><path d="M18 18 L82 82 M82 18 L18 82"/></svg>';
+  const OSVG = '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34"/></svg>';
+  const render = () => {
+    $('board').innerHTML = board.map((v, i) => `<button class="cell ${v ? v.toLowerCase() : ''}" type="button" data-i="${i}" aria-label="${i + 1}${v ? ` ${v}` : ''}">${v === 'X' ? XSVG : v === 'O' ? OSVG : ''}</button>`).join('');
+    $('scX').textContent = `❌ ${score.X}`; $('scO').textContent = `⭕ ${score.O}`; $('scD').textContent = `🤝 ${score.D}`;
+  };
+  const strike = (line) => { const c = (i) => [50 + (i % 3) * 100, 50 + Math.floor(i / 3) * 100]; const [a, , d] = line, [x1, y1] = c(a), [x2, y2] = c(d); const ex = (x2 - x1) * 0.18, ey = (y2 - y1) * 0.18; $('strike').innerHTML = `<line x1="${x1 - ex}" y1="${y1 - ey}" x2="${x2 + ex}" y2="${y2 + ey}"/>`; };
+  const setStatus = (s) => { $('status').textContent = s; };
+  const statusTurn = () => setStatus(t('turn')(nameOf(turn), turn === 'X' ? '❌' : '⭕'));
+
+  // ---------- sound: chalk taps, no music
+  let muted = store.get('kk-muted') === '1', ac = null, master = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; }; setIcons();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('kk-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.8; });
+  const initAudio = () => { if (ac) { if (ac.state === 'suspended') ac.resume(); return; } const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return; ac = new AC(); master = ac.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(ac.destination); };
+  const tone = (f, dur, type = 'sine', vol = 0.06, delay = 0, f2 = null) => { if (!ac) return; const w = ac.currentTime + delay, o = ac.createOscillator(), g = ac.createGain(); o.type = type; o.frequency.setValueAtTime(f, w); if (f2) o.frequency.exponentialRampToValueAtTime(f2, w + dur); g.gain.setValueAtTime(0.0001, w); g.gain.exponentialRampToValueAtTime(vol, w + 0.004); g.gain.exponentialRampToValueAtTime(0.0001, w + dur); o.connect(g); g.connect(master); o.start(w); o.stop(w + dur + 0.03); };
+  const sfx = { tap: (m) => tone(m === 'X' ? 1400 : 1000, 0.07, 'triangle', 0.05, 0, m === 'X' ? 900 : 1300), win: () => [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.4, 'sine', 0.06, i * 0.1)), lose: () => tone(330, 0.4, 'triangle', 0.05, 0, 220), draw: () => { tone(440, 0.25, 'sine', 0.05); tone(440, 0.25, 'sine', 0.05, 0.25); } };
+
+  // ---------- game flow
+  const finish = (w) => {
+    over = true;
+    if (w.m === 'D') { score.D += 1; setStatus(t('draw')); sfx.draw(); if (mode === 'hard') store.set('kk-hard-draws', String((parseInt(store.get('kk-hard-draws'), 10) || 0) + 1)); }
+    else { score[w.m] += 1; strike(w.line); if (mode !== 'two' && w.m === 'O') { setStatus(t('cpuWin')); sfx.lose(); } else { setStatus(t('win')(nameOf(w.m))); sfx.win(); } }
+    if (score.X >= 3 || score.O >= 3) { matchOver = true; setTimeout(() => setStatus(t('matchWin')(nameOf(score.X >= 3 ? 'X' : 'O'))), 900); }
+    render();
+  };
+  const place = (i, m) => { board[i] = m; sfx.tap(m); render(); const w = winner(board); if (w) { finish(w); return true; } turn = m === 'X' ? 'O' : 'X'; return false; };
+  const cpuTurn = () => { busy = true; setStatus(t('thinking')); setTimeout(() => { busy = false; if (over) return; if (!place(cpuMove(), 'O')) statusTurn(); }, 380); };
+  const newGame = () => {
+    board = Array(9).fill(''); over = false; $('strike').innerHTML = ''; turn = starter; render(); statusTurn();
+    if (mode !== 'two' && turn === 'O') cpuTurn();
+  };
+  const newMatch = () => { score = { X: 0, O: 0, D: 0 }; matchOver = false; starter = 'X'; newGame(); };
+  $('board').addEventListener('click', (e) => {
+    const b = e.target.closest('.cell'); if (!b) return; initAudio();
+    const i = +b.dataset.i; if (over || busy || board[i]) return;
+    if (mode !== 'two' && turn !== human()) return;
+    if (place(i, turn)) return;
+    if (mode !== 'two') cpuTurn(); else statusTurn();
+  });
+  $('again').addEventListener('click', () => { if (matchOver) newMatch(); else { starter = starter === 'X' ? 'O' : 'X'; newGame(); } });
+  $('reset').addEventListener('click', newMatch);
+  $('modes').addEventListener('click', (e) => { const b = e.target.closest('.chip'); if (!b) return; mode = b.dataset.mode; store.set('kk-mode', mode); setModeUi(); newMatch(); });
+  ['nameX', 'nameO'].forEach((id) => { $(id).value = store.get(`kk-${id}`) || ''; $(id).addEventListener('input', () => { store.set(`kk-${id}`, $(id).value); if (!over) statusTurn(); }); });
+  const setModeUi = () => { document.querySelectorAll('.chip').forEach((c) => c.classList.toggle('on', c.dataset.mode === mode)); $('namesBox').classList.toggle('hidden', mode !== 'two'); };
+  $('shareWa').addEventListener('click', () => { const u = new URL(SITE); u.searchParams.set('lang', lang); window.open(`https://wa.me/?text=${encodeURIComponent(t('shareText')(u.toString()))}`, '_blank', 'noopener'); });
+
+  // ---------- page texts
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    $('tipList').innerHTML = t('tips').map((li) => `<li>${li}</li>`).join('');
+    $('factList').innerHTML = t('facts').map((li) => `<li>${li}</li>`).join('');
+    $('faqList').innerHTML = t('faq').map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+    const p = PREFIX[lang]; $('home').href = `https://nextgrade.in${p}/`; $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    const c = $('challenge'); if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    if (!over) statusTurn();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('kk-lang', lang); applyLang(); });
+  $('year').textContent = new Date().getFullYear();
+  setModeUi(); applyLang(); newMatch();
+  // test hook (local headless tests)
+  window.__kk = { get board() { return board.slice(); }, get over() { return over; }, get turn() { return turn; }, get score() { return { ...score }; }, setMode: (m) => { mode = m; setModeUi(); newMatch(); }, tap: (i) => $('board').children[i].click(), winner: () => winner(board), newGame };
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>

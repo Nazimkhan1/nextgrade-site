@@ -48,7 +48,7 @@ const LINES = [
     'basant-sargam', // Vasant Panchami, ~11 Feb
     'rang-barsao', // Holi, ~22 Mar
     'matke', 'pul', 'diye', 'gotiyan', 'jaadui-varg', 'khiskao', 'chidiya-udd', 'saanp-seedhi',
-    'raja-mantri-chor-sipahi', 'kanche', 'gilli-danda', 'pitthu', 'aam-todo',
+    'raja-mantri-chor-sipahi', 'kanche', 'gilli-danda', 'pitthu', 'aam-todo', 'kattam-katti',
   ] },
   { prefix: 'story', start: '2026-11-26', gap: [4, 7], seed: 11, slugs: [
     'neela-siyaar', 'bagula-aur-kekda', 'billiyan-aur-bandar', 'hawa-aur-suraj', 'shehar-gaon-chooha',

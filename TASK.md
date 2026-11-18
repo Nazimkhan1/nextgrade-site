@@ -398,3 +398,7 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 ## Aam Todo — gulel se (18 Nov 2026)
 - `game:aam-todo` → last in the games line (**5 Feb 2027**). `src/static/games/aam-todo/`: pull the slingshot back and release; knock down ripe yellow mangoes, leave green ones; wind (levels 4–6, arrow at the top), swaying branches, a beehive from level 5 (hit = level over, with a "never aim at a beehive" note). 6 levels, stars by stones left, dotted aiming guide that gets shorter each level, WhatsApp challenge, 4 languages, FAQ (FAQPage), facts, safety text; no music; offline sw.
 - Bot-tested: every level can be won (levels 1–5 with 3 stars, 6 with 2); fixed a stale "level over" timer that could end the next level.
+
+## Kattam-Katti / Zero-Kaata (18 Nov 2026)
+- `game:kattam-katti` → games line (after aam-todo). `src/static/games/kattam-katti/`: tic-tac-toe on a chalk slate (DOM + animated SVG marks, strike line), vs computer — easy (mostly random), medium (wins/blocks most of the time), hard (minimax, never loses) — or 2 players with names; best-of-5 match, first move alternates; 4 languages, tips, facts (255,168 games, OXO 1952), FAQ (FAQPage); no music; offline sw.
+- Tested: hard vs 150 random games = 0 losses; 2-player mode; all languages.
