@@ -13,7 +13,7 @@
  *   - wishes  : fixed dates, well before each festival (these never move)
  *   - tools   : every 3–6 days, starting only after AdSense approval (TOOLS_START). The first live tool also
  *               adds the /tools/ page, the menu link and a Privacy Policy paragraph — hence the wait.
- * Keys: 'game:<slug>', 'story:<slug>', 'celebrate:<slug>' (animated wish) or 'tool:<slug>' (free tool).
+ * Keys: 'game:<slug>', 'story:<slug>', 'collection:<slug>' (story collection page), 'celebrate:<slug>' (animated wish) or 'tool:<slug>' (free tool).
  * To add a page: append its slug to its line. New category: add a LINES entry. Publish now: take it out.
  */
 const addDays = (ymd, n) => new Date(Date.parse(`${ymd}T00:00:00Z`) + n * 864e5).toISOString().slice(0, 10);
@@ -48,6 +48,10 @@ const LINES = [
   { prefix: 'story', start: '2026-11-26', gap: [4, 7], seed: 11, slugs: [
     'neela-siyaar', 'bagula-aur-kekda', 'billiyan-aur-bandar', 'hawa-aur-suraj', 'shehar-gaon-chooha',
     'sher-ki-khaal-gadha', 'birbal-andhon-ki-ginti', 'tenali-kuen-ka-khazana', 'mulla-ki-degchi', 'chidiya-kauwa-ghar',
+  ] },
+  // story collection pages (/kahani/<slug>/), most stories first; Jataka last (only 2 live stories now)
+  { prefix: 'collection', start: '2026-11-21', gap: [3, 6], seed: 17, slugs: [
+    'panchatantra', 'aesop', 'lok-kathayein', 'akbar-birbal', 'tenali-raman', 'jataka',
   ] },
   { prefix: 'tool', start: TOOLS_START, gap: [3, 6], seed: 13, slugs: [
     'form-helper', // most searched, first

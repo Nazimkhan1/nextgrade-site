@@ -17,7 +17,8 @@ import { wishes } from './src/wishes.mjs';
 import { games as allGames } from './src/games.mjs';
 import { stories as allStories } from './src/stories.mjs';
 import { tools as allTools } from './src/tools.mjs';
-import { storyExtras } from './src/story-info.mjs';
+import { storyExtras, SOURCE_INFO } from './src/story-info.mjs';
+import { collections as allCollections, COLLECTION_UI } from './src/story-collections.mjs';
 import { NAAM_OCCASIONS, NAAM_UI } from './src/naam-image.mjs';
 import { LIST_YEAR, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
@@ -26,6 +27,12 @@ const games = allGames.filter((g) => isLive(`game:${g.slug}`));
 const stories = allStories.filter((st) => isLive(`story:${st.slug}`));
 const heldGames = allGames.filter((g) => !isLive(`game:${g.slug}`)).map((g) => g.slug);
 const heldStories = allStories.filter((st) => !isLive(`story:${st.slug}`)).map((st) => st.slug);
+// Story collections (/kahani/<slug>/): live when released AND at least one of their stories is live
+const srcEn = (st) => st.source.en.replace(/’/g, "'");
+const storiesOf = (col) => stories.filter((st) => col.sources.includes(srcEn(st)));
+const collections = allCollections.filter((c) => isLive(`collection:${c.slug}`) && storiesOf(c).length);
+const collectionOf = (st) => collections.find((c) => c.sources.includes(srcEn(st)));
+allCollections.forEach((c) => { if (allStories.some((st) => st.slug === c.slug)) throw new Error(`collection slug clashes with a story: ${c.slug}`); });
 // Free tools (/tools/<slug>/): the section, its menu link and its Privacy Policy paragraph appear only once a tool is live
 const tools = allTools.filter((tl) => isLive(`tool:${tl.slug}`));
 const NAAM_LIVE = isLive('page:naam-wali-image');
@@ -627,7 +634,11 @@ ${faqBlock(x.faq)}
 <h1>${esc(S.h1)}</h1>
 <p class="lead">${esc(S.lead)}</p>
 <div class="cta"><p><b>${esc(S.momH)}</b><br>${esc(S.momP)}</p></div>
-<div class="grid">${stories.map(storyCard(L)).join('')}</div>
+${collections.length ? `<h2>${esc(COLLECTION_UI[L.code].indexH)}</h2>
+<p>${esc(COLLECTION_UI[L.code].indexLead)}</p>
+<div class="btns">${collections.map((c) => `<a class="btn btn-ghost" href="${P(L, `/kahani/${c.slug}/`)}">${c.emoji} ${esc(c[L.code].name)} (${storiesOf(c).length})</a>`).join('')}</div>
+<h2>${esc(COLLECTION_UI[L.code].all)}</h2>
+` : ''}<div class="grid">${stories.map(storyCard(L)).join('')}</div>
 </div>`,
     }),
   );
@@ -649,7 +660,7 @@ ${faqBlock(x.faq)}
         scripts: ['/assets/voice.js', '/assets/story.js'],
         body: `<article class="wrap narrow article story-page" data-speech="${SPEECH[L.code]}" data-pause="${esc(S.pause)}" data-resume="${esc(S.resume)}" data-listen="${esc(S.listen)}" data-night="${esc(S.night)}" data-day="${esc(S.day)}" data-no-voice="${esc(S.noVoice)}" data-goodnight="${esc(S.goodnight)}" data-goodnight-sub="${esc(S.goodnightSub)}">
 <p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/kahani/')}">${esc(T.nav.stories)}</a> › ${esc(x.title)}</p>
-<p class="tag">${esc(st.source[L.code])} · ${esc(S.minutes(st.minutes))}</p>
+<p class="tag">${collectionOf(st) ? `<a href="${P(L, `/kahani/${collectionOf(st).slug}/`)}">${esc(st.source[L.code])}</a>` : esc(st.source[L.code])} · ${esc(S.minutes(st.minutes))}</p>
 <h1>${st.emoji} ${esc(x.title)}</h1>
 <div class="story-tools">
 <button class="btn btn-primary" type="button" id="listen">${esc(S.listen)}</button>
@@ -672,6 +683,50 @@ ${faqBlock(ex.faq)}
 <h2>${esc(S.moreH)}</h2>
 <div class="grid">${more.map(storyCard(L)).join('')}</div>
 </article>`,
+      }),
+    );
+  });
+
+  // Story collection pages: own intro, source note, the collection's live stories, FAQ, other collections
+  const CU = COLLECTION_UI[L.code];
+  collections.forEach((c) => {
+    const path = `/kahani/${c.slug}/`;
+    const x = c[L.code];
+    const list = storiesOf(c);
+    const about = c.sources.map((s) => SOURCE_INFO[s] && SOURCE_INFO[s][L.code]).filter(Boolean);
+    const faq = [
+      { q: CU.qCount(x.name), a: CU.aCount(list.length) },
+      { q: CU.qAge(x.name), a: CU.aAge },
+      { q: CU.qListen, a: CU.aListen },
+    ];
+    const others = collections.filter((o) => o !== c);
+    write(
+      L,
+      path,
+      page(L, {
+        path,
+        title: `${x.name} — ${CU.titleTail} | NextGrade`,
+        description: `${firstSentence(x.lead)} ${CU.listH(list.length)}.`,
+        jsonLd: [
+          breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.stories, '/kahani/'], [x.name, path]]),
+          { '@context': 'https://schema.org', '@type': 'CollectionPage', name: x.name, url: `${SITE}${P(L, path)}`, inLanguage: L.html,
+            mainEntity: { '@type': 'ItemList', numberOfItems: list.length, itemListElement: list.map((st, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}${P(L, `/kahani/${st.slug}/`)}`, name: st[L.code].title })) } },
+          faqLd(faq),
+        ],
+        body: `<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/kahani/')}">${esc(T.nav.stories)}</a> › ${esc(x.name)}</p>
+<h1>${c.emoji} ${esc(x.name)}</h1>
+<p class="lead">${esc(x.lead)}</p>
+<h2>${esc(CU.listH(list.length))}</h2>
+<div class="grid">${list.map(storyCard(L)).join('')}</div>
+${about.map((a) => `<p>${esc(a)}</p>`).join('\n')}
+<h2>${esc(CU.faqH)}</h2>
+${faqBlock(faq)}
+<div class="ad" aria-hidden="true"></div>
+${others.length ? `<h2>${esc(CU.otherH)}</h2>
+<div class="btns">${others.map((o) => `<a class="btn btn-ghost" href="${P(L, `/kahani/${o.slug}/`)}">${o.emoji} ${esc(o[L.code].name)}</a>`).join('')}</div>
+` : ''}<p><a href="${P(L, '/kahani/')}">${esc(CU.all)} →</a></p>
+</div>`,
       }),
     );
   });
@@ -987,7 +1042,7 @@ const lastRelease = Object.values(releases).filter((d) => d <= todayIST()).sort(
 const lastmodFor = (url) => {
   const path = url.replace(/^\/(en|hinglish|bn)(?=\/)/, '');
   const m = path.match(/^\/(games|kahani|celebrate|tools)\/([^/]+)\/$/);
-  const rel = m && releases[`${{ games: 'game', kahani: 'story', celebrate: 'celebrate', tools: 'tool' }[m[1]]}:${m[2]}`];
+  const rel = m && (releases[`${{ games: 'game', kahani: 'story', celebrate: 'celebrate', tools: 'tool' }[m[1]]}:${m[2]}`] || (m[1] === 'kahani' && releases[`collection:${m[2]}`]));
   if (rel) return rel;
   if (['/', '/games/', '/kahani/'].includes(path)) return [CONTENT_DATE, lastRelease].sort().pop();
   return CONTENT_DATE;
