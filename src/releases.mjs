@@ -52,6 +52,8 @@ const LINES = [
   { prefix: 'story', start: '2026-11-26', gap: [4, 7], seed: 11, slugs: [
     'neela-siyaar', 'bagula-aur-kekda', 'billiyan-aur-bandar', 'hawa-aur-suraj', 'shehar-gaon-chooha',
     'sher-ki-khaal-gadha', 'birbal-andhon-ki-ginti', 'tenali-kuen-ka-khazana', 'mulla-ki-degchi', 'chidiya-kauwa-ghar',
+    'kabuliwala', 'phir-se-chooha', 'do-bailon-ki-katha', 'chaand-par-khargosh', 'sachcha-dost-kauwa',
+    'idgah', // Premchand; in Ramzan, before Eid (~10 Mar 2027)
   ] },
   { prefix: 'tool', start: TOOLS_START, gap: [3, 6], seed: 13, slugs: [
     'form-helper', // most searched, first
