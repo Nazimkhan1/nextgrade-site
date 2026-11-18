@@ -203,3 +203,5 @@ table.dates th, table.dates td { border-bottom: 1px solid rgba(128,128,128,0.25)
   body { background: #fff !important; color: #000 !important; }
   .sp-block { border-left: 0; padding-left: 0; break-inside: avoid; }
 }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }

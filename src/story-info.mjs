@@ -118,4 +118,40 @@ const storyExtras = (st, code) => {
   };
 };
 
-export { storyExtras, SOURCE_INFO };
+
+/** Collection pages (/kahani/<slug>/) — one per source with enough stories. keys = story.source.en values. */
+const COLLECTIONS = [
+  { slug: 'panchatantra', emoji: '🦁', keys: ['Panchatantra'],
+    hi: ['पंचतंत्र की कहानियाँ', 'पंचतंत्र की कहानियाँ — नैतिक शिक्षा वाली छोटी कहानियाँ | NextGrade', 'बच्चों के लिए पंचतंत्र की छोटी कहानियाँ हिंदी में, हर कहानी के साथ सीख — सुनाने के लिए "सुनाओ" बटन भी।'],
+    en: ['Panchatantra stories', 'Panchatantra Stories with Moral — Short Stories for Kids | NextGrade', 'Short Panchatantra stories for children, each with its moral — and a read-aloud button.'],
+    hinglish: ['Panchatantra ki kahaniyan', 'Panchatantra ki Kahaniyan Hindi mein — Moral Stories | NextGrade', 'Bachchon ke liye Panchatantra ki chhoti kahaniyan, har kahani ke saath seekh — sunaane ke liye "Sunao" button bhi.'],
+    bn: ['পঞ্চতন্ত্রের গল্প', 'পঞ্চতন্ত্রের গল্প — নীতিকথার ছোট গল্প | NextGrade', 'ছোটদের জন্য পঞ্চতন্ত্রের ছোট গল্প, প্রতিটির সঙ্গে শিক্ষা — শোনানোর জন্য "শোনাও" বোতামও আছে।'] },
+  { slug: 'akbar-birbal', emoji: '👑', keys: ['Akbar and Birbal'],
+    hi: ['अकबर-बीरबल की कहानियाँ', 'अकबर बीरबल की कहानियाँ — बीरबल की चतुराई के मज़ेदार किस्से | NextGrade', 'बीरबल की हाज़िरजवाबी और समझदारी के मज़ेदार किस्से, बच्चों के लिए आसान हिंदी में।'],
+    en: ['Akbar and Birbal stories', 'Akbar Birbal Stories — Witty Tales of Birbal\'s Cleverness | NextGrade', 'Funny tales of Birbal\'s quick wit and wisdom, retold simply for children.'],
+    hinglish: ['Akbar-Birbal ki kahaniyan', 'Akbar Birbal ki Kahaniyan — Birbal ki Chaturaai ke Mazedaar Kisse | NextGrade', 'Birbal ki haazirjawaabi aur samajhdaari ke mazedaar kisse, bachchon ke liye aasaan bhasha mein.'],
+    bn: ['আকবর-বীরবলের গল্প', 'আকবর বীরবলের গল্প — বীরবলের বুদ্ধির মজার কাহিনি | NextGrade', 'বীরবলের উপস্থিত বুদ্ধি আর বিচক্ষণতার মজার কাহিনি, ছোটদের জন্য সহজ ভাষায়।'] },
+  { slug: 'tenali-raman', emoji: '🧠', keys: ['Tenali Raman'],
+    hi: ['तेनाली रामन की कहानियाँ', 'तेनाली रामन की कहानियाँ — तेनाली राम के चतुर किस्से | NextGrade', 'विजयनगर के कवि तेनाली रामन की चतुराई और हास्य के किस्से, बच्चों के लिए।'],
+    en: ['Tenali Raman stories', 'Tenali Raman Stories — Clever Tales of Tenali Rama | NextGrade', 'Tales of the wit and humour of Tenali Raman, the poet of Vijayanagara, for children.'],
+    hinglish: ['Tenali Raman ki kahaniyan', 'Tenali Raman ki Kahaniyan — Tenali Ram ke Chatur Kisse | NextGrade', 'Vijayanagar ke kavi Tenali Raman ki chaturaai aur hasya ke kisse, bachchon ke liye.'],
+    bn: ['তেনালি রামনের গল্প', 'তেনালি রামনের গল্প — তেনালি রামের বুদ্ধির কাহিনি | NextGrade', 'বিজয়নগরের কবি তেনালি রামনের বুদ্ধি আর রসিকতার কাহিনি, ছোটদের জন্য।'] },
+  { slug: 'jataka', emoji: '🪷', keys: ['Jataka tale'],
+    hi: ['जातक कथाएँ', 'जातक कथाएँ — बुद्ध की सीख वाली कहानियाँ | NextGrade', 'दया, ईमानदारी और समझदारी सिखाने वाली जातक कथाएँ, बच्चों के लिए आसान हिंदी में।'],
+    en: ['Jataka tales', 'Jataka Tales for Kids — Stories with a Moral | NextGrade', 'Jataka tales that teach kindness, honesty and wisdom, retold simply for children.'],
+    hinglish: ['Jataka kathaayein', 'Jataka Kathaayein — Buddh ki Seekh wali Kahaniyan | NextGrade', 'Daya, imaandaari aur samajhdaari sikhaane wali Jataka kathaayein, bachchon ke liye.'],
+    bn: ['জাতকের গল্প', 'জাতকের গল্প — বুদ্ধের শিক্ষার কাহিনি | NextGrade', 'দয়া, সততা আর বুদ্ধি শেখানো জাতকের গল্প, ছোটদের জন্য সহজ ভাষায়।'] },
+  { slug: 'aesop', emoji: '🦊', keys: ["Aesop's fable"],
+    hi: ['ईसप की कहानियाँ', 'ईसप की कहानियाँ — जानवरों वाली नैतिक कहानियाँ | NextGrade', 'ईसप की छोटी-छोटी कहानियाँ, जिनके अंत में साफ़ सीख होती है — बच्चों के लिए हिंदी में।'],
+    en: ["Aesop's fables", "Aesop's Fables for Kids — Short Stories with Morals | NextGrade", "Aesop's short animal fables, each ending with a clear lesson, retold for children."],
+    hinglish: ['Aesop ki kahaniyan', 'Aesop ki Kahaniyan — Jaanwaron wali Moral Stories | NextGrade', 'Aesop ki chhoti-chhoti kahaniyan, jinke ant mein saaf seekh hoti hai.'],
+    bn: ['ঈশপের গল্প', 'ঈশপের গল্প — পশুপাখির নীতিকথা | NextGrade', 'ঈশপের ছোট ছোট গল্প, যার শেষে থাকে স্পষ্ট শিক্ষা — ছোটদের জন্য।'] },
+  { slug: 'lok-katha', emoji: '🏡', keys: ['Folk tale', "Grandma's tale"],
+    hi: ['लोककथाएँ और दादी-नानी की कहानियाँ', 'दादी-नानी की कहानियाँ और लोककथाएँ — सोने से पहले की कहानियाँ | NextGrade', 'पीढ़ियों से सुनाई जा रही लोककथाएँ और दादी-नानी की कहानियाँ, सोने से पहले सुनाने के लिए।'],
+    en: ["Folk tales and grandma's tales", "Indian Folk Tales and Grandma's Stories — Bedtime Stories | NextGrade", "Folk tales and grandma's stories passed down for generations, for bedtime."],
+    hinglish: ['Lok-kathaayein aur Dadi-Naani ki kahaniyan', 'Dadi-Naani ki Kahaniyan aur Lok-kathaayein — Bedtime Stories | NextGrade', 'Peedhiyon se sunaayi ja rahi lok-kathaayein aur Dadi-Naani ki kahaniyan, sone se pehle sunaane ke liye.'],
+    bn: ['লোককথা আর ঠাকুমার গল্প', 'ঠাকুমা-দিদিমার গল্প আর লোককথা — ঘুমের আগের গল্প | NextGrade', 'প্রজন্ম ধরে বলা লোককথা আর ঠাকুমা-দিদিমার গল্প, ঘুমের আগে শোনানোর জন্য।'] },
+];
+const collectionOf = (st) => COLLECTIONS.find((c) => c.keys.includes(srcKey(st.source.en)));
+
+export { storyExtras, SOURCE_INFO, COLLECTIONS, collectionOf, srcKey };

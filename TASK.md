@@ -387,3 +387,7 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 - 🔊 Listen per block (NGVoice, `src/assets/speech.js`), 🖨️ print-friendly CSS. The Republic Day festival page links to it once live.
 - Next speeches in TRAFFIC-PLAN.md order: Netaji Jayanti, Holi, Ambedkar Jayanti … 15 August (add to `speeches` + a `'speech:<slug>'` date).
 - 18 Nov (later): + `netaji-jayanti` (Parakram Diwas, live **2 Jan 2027**) and `saraswati-puja` (Vasant Panchami 11 Feb 2027, live **15 Jan 2027**; Bengal details: hate-khori, pushpanjali, kul after the puja) in `src/speeches-more.mjs`. The Vasant Panchami festival page links to the Saraswati Puja speech once live. All our own writing.
+
+## Story collection pages (18 Nov 2026, traffic plan)
+- `/kahani/panchatantra/`, `/akbar-birbal/`, `/tenali-raman/`, `/jataka/`, `/aesop/`, `/lok-katha/` (folk + grandma's tales) × 4 languages: keyword title ("पंचतंत्र की कहानियाँ — नैतिक शिक्षा वाली छोटी कहानियाँ", "Aesop's Fables for Kids…"), the source intro, the live stories as cards, a "moral of each story" list, ItemList JSON-LD. Defined in `COLLECTIONS` in `src/story-info.mjs`; a collection shows once it has ≥2 live stories, and grows as scheduled stories go live.
+- Linked from the /kahani/ index (chips) and from each story's "About <source>" paragraph. Live with the next daily release (content only; no menu change).

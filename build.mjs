@@ -17,7 +17,7 @@ import { wishes } from './src/wishes.mjs';
 import { games as allGames } from './src/games.mjs';
 import { stories as allStories } from './src/stories.mjs';
 import { tools as allTools } from './src/tools.mjs';
-import { storyExtras } from './src/story-info.mjs';
+import { storyExtras, SOURCE_INFO, COLLECTIONS, collectionOf, srcKey } from './src/story-info.mjs';
 import { NAAM_OCCASIONS, NAAM_UI } from './src/naam-image.mjs';
 import { speeches as allSpeeches, SPEECH_UI } from './src/speeches.mjs';
 import { LIST_YEAR, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
@@ -630,10 +630,32 @@ ${faqBlock(x.faq)}
 <h1>${esc(S.h1)}</h1>
 <p class="lead">${esc(S.lead)}</p>
 <div class="cta"><p><b>${esc(S.momH)}</b><br>${esc(S.momP)}</p></div>
+<p class="chips">${COLLECTIONS.filter((c) => stories.filter((st) => c.keys.includes(srcKey(st.source.en))).length >= 2).map((c) => `<a class="btn btn-ghost" href="${P(L, `/kahani/${c.slug}/`)}">${c.emoji} ${esc(c[L.code][0])}</a>`).join(' ')}</p>
 <div class="grid">${stories.map(storyCard(L)).join('')}</div>
 </div>`,
     }),
   );
+  COLLECTIONS.forEach((c) => {
+    const list = stories.filter((st) => c.keys.includes(srcKey(st.source.en)));
+    if (list.length < 2) return;
+    const [name, title, desc] = c[L.code], path = `/kahani/${c.slug}/`;
+    const about = c.keys.map((k) => SOURCE_INFO[k] && SOURCE_INFO[k][L.code]).filter(Boolean);
+    write(L, path, page(L, {
+      path, title, description: desc,
+      jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.stories, '/kahani/'], [name, path]]), { '@context': 'https://schema.org', '@type': 'ItemList', name, itemListElement: list.map((st, k) => ({ '@type': 'ListItem', position: k + 1, name: st[L.code].title, url: `${SITE}${P(L, `/kahani/${st.slug}/`)}` })) }],
+      body: `<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/kahani/')}">${esc(T.nav.stories)}</a> › ${esc(name)}</p>
+<h1>${c.emoji} ${esc(name)}</h1>
+<p class="lead">${esc(desc)}</p>
+${paragraphs(about)}
+<div class="grid">${list.map(storyCard(L)).join('')}</div>
+<h2>${esc(S.seekh)}</h2>
+<ul>${list.map((st) => `<li><a href="${P(L, `/kahani/${st.slug}/`)}">${esc(st[L.code].title)}</a> — ${esc(st[L.code].seekh)}</li>`).join('')}</ul>
+<div class="ad" aria-hidden="true"></div>
+<p class="chips">${COLLECTIONS.filter((o) => o.slug !== c.slug && stories.filter((st) => o.keys.includes(srcKey(st.source.en))).length >= 2).map((o) => `<a class="btn btn-ghost" href="${P(L, `/kahani/${o.slug}/`)}">${o.emoji} ${esc(o[L.code][0])}</a>`).join(' ')}</p>
+</div>`,
+    }));
+  });
   stories.forEach((st, i) => {
     const path = `/kahani/${st.slug}/`;
     const x = st[L.code];
@@ -668,7 +690,7 @@ ${paragraphs(x.paras)}
 <div class="story-nav"><a class="btn btn-ghost" href="${P(L, `/kahani/${prev.slug}/`)}">${esc(S.prev)}</a><a class="btn btn-primary" href="${P(L, `/kahani/${next.slug}/`)}">${esc(S.next)}</a></div>
 <p><a class="btn btn-wa" href="https://wa.me/?text=${encodeURIComponent(S.shareText(x.title, `${SITE}${P(L, path)}`))}" target="_blank" rel="noopener">${esc(S.share)}</a></p>
 ${ex.about ? `<h2>${esc(ex.aboutH)}</h2>
-<p>${esc(ex.about)}</p>
+<p>${esc(ex.about)}${(() => { const c = collectionOf(st); return c && stories.filter((z) => c.keys.includes(srcKey(z.source.en))).length >= 2 ? ` <a href="${P(L, `/kahani/${c.slug}/`)}">${c.emoji} ${esc(c[L.code][0])} →</a>` : ''; })()}</p>
 ` : ''}<h2>${esc(ex.faqH)}</h2>
 ${faqBlock(ex.faq)}
 <div class="ad" aria-hidden="true"></div>
