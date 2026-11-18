@@ -380,3 +380,9 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 - `/naam-wali-image/` hub + one page per occasion: new-year, good-morning, good-night, birthday, christmas, lohri, makar-sankranti, republic-day (× 4 languages, 36 URLs, in the sitemap when live). Keyword h1/titles ("Happy New Year 2027 Image with Name"), FAQ (FAQPage), WebApplication JSON-LD.
 - Canvas drawing in `src/assets/naam-image.js`: 24 designs (3 per occasion), all our own drawings; square (WhatsApp) or tall (status); name, message (4 ready per occasion/language or own), "— from"; small "nextgrade.in" credit; download JPG or share. Data/texts: `src/naam-image.mjs`.
 - Live on **12 Dec 2026** (`'page:naam-wali-image'` in releases.mjs), before Christmas/New Year. Then the festival pages for those occasions and the Wish Card Maker link to it.
+
+## School speeches (18 Nov 2026, traffic plan)
+- `/speech/` hub + `/speech/<slug>/` pages from `src/speeches.mjs`, each scheduled as `'speech:<slug>'`. First: **republic-day → 28 Dec 2026** (26 Jan 2027 = 78th Republic Day).
+- Hindi/English: openings, short (Classes 1–4), medium (5–8), long (9–12) speeches, a ~250-word essay, 10 lines, slogans, tips, FAQ (~1,280 words). Hinglish/Bengali: the same without the long speech (~770–940 words). Our own writing; facts checked (Constitution adopted 26 Nov 1949, in force 26 Jan 1950; Dr Rajendra Prasad; Dr Ambedkar; Purna Swaraj 26 Jan 1930; Beating Retreat 29 Jan).
+- 🔊 Listen per block (NGVoice, `src/assets/speech.js`), 🖨️ print-friendly CSS. The Republic Day festival page links to it once live.
+- Next speeches in TRAFFIC-PLAN.md order: Netaji Jayanti, Holi, Ambedkar Jayanti … 15 August (add to `speeches` + a `'speech:<slug>'` date).

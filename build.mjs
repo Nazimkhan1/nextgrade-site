@@ -19,6 +19,7 @@ import { stories as allStories } from './src/stories.mjs';
 import { tools as allTools } from './src/tools.mjs';
 import { storyExtras } from './src/story-info.mjs';
 import { NAAM_OCCASIONS, NAAM_UI } from './src/naam-image.mjs';
+import { speeches as allSpeeches, SPEECH_UI } from './src/speeches.mjs';
 import { LIST_YEAR, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
@@ -29,6 +30,7 @@ const heldStories = allStories.filter((st) => !isLive(`story:${st.slug}`)).map((
 // Free tools (/tools/<slug>/): the section, its menu link and its Privacy Policy paragraph appear only once a tool is live
 const tools = allTools.filter((tl) => isLive(`tool:${tl.slug}`));
 const NAAM_LIVE = isLive('page:naam-wali-image');
+const SPEECHES = allSpeeches.filter((sp) => isLive(`speech:${sp.slug}`));
 const heldTools = allTools.filter((tl) => !isLive(`tool:${tl.slug}`)).map((tl) => tl.slug);
 import * as islamic from './src/islamic.mjs';
 import { ui } from './src/i18n/ui.mjs';
@@ -490,6 +492,7 @@ ${fromBanner(L, F.greet(x.name), f.emoji)}
 ${nd ? `<div class="when-box"><p class="when-q">📅 ${esc(nd.q)}</p><p class="when-a"><b>${esc(nd.date)}</b>, ${esc(nd.weekday)}${nd.approx ? ` (${esc(DT.approx)})` : ''} · <span class="when-left">${esc(nd.left)}</span></p><p class="when-note">${esc(nd.a)} <a href="${P(L, `/festivals/${LIST_YEAR}/`)}">${esc(DT.listLink(LIST_YEAR))}</a></p></div>` : ''}
 <p class="lead">${esc(x.intro)}</p>
 ${celebrateButton(L, 'festival', f.slug)}
+${SPEECHES.some((sp) => sp.festival === f.slug) ? `<div class="btns"><a class="btn btn-ghost" href="${P(L, `/speech/${SPEECHES.find((sp) => sp.festival === f.slug).slug}/`)}">🎤 ${esc(SPEECHES.find((sp) => sp.festival === f.slug)[L.code].h1.replace(/^\S+\s/, ''))}</a></div>` : ''}
 ${NAAM_LIVE && NAAM_OCCASIONS.some((o) => o.slug === f.slug) ? `<div class="btns"><a class="btn btn-ghost" href="${P(L, `/naam-wali-image/${f.slug}/`)}">🖼️ ${esc(NAAM_OCCASIONS.find((o) => o.slug === f.slug)[L.code][0])}</a></div>` : ''}
 <div class="facts">
 <div class="fact"><b>${esc(F.when)}</b>${esc(x.when)}</div>
@@ -771,6 +774,46 @@ ${faqBlock(faq)}
 <h2>${esc(N.more)}</h2>
 <div class="grid">${NAAM_OCCASIONS.filter((x) => x.slug !== o.slug).map(occLink).join('')}</div>
 </div>`,
+      }));
+    });
+  }
+
+  // School speeches and essays (/speech/<slug>/), each scheduled as 'speech:<slug>'
+  if (SPEECHES.length) {
+    const U = SPEECH_UI[L.code];
+    const card = (sp) => `<a class="card" href="${P(L, `/speech/${sp.slug}/`)}"><span class="emoji" aria-hidden="true">${sp.emoji}</span><h3>${esc(sp[L.code].h1.replace(/^\S+\s/, ''))}</h3><p>${esc(sp[L.code].lead)}</p></a>`;
+    write(L, '/speech/', page(L, {
+      path: '/speech/', title: U.hubTitle, description: U.hubLead,
+      jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.hub, '/speech/']])],
+      body: `<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(U.hub)}</p>
+<h1>🎤 ${esc(U.hub)}</h1>
+<p class="lead">${esc(U.hubLead)}</p>
+<div class="grid">${SPEECHES.map(card).join('')}</div>
+</div>`,
+    }));
+    SPEECHES.forEach((sp) => {
+      const x = sp[L.code], path = `/speech/${sp.slug}/`, faq = x.faq.map(([q, a]) => ({ q, a }));
+      const block = (id, h, inner) => `<section class="sp-block" id="${id}"><h2>${esc(h)}</h2>${inner}<p class="sp-tools no-print"><button class="btn btn-ghost sp-listen" type="button" data-target="${id}">${esc(U.listen)}</button></p></section>`;
+      write(L, path, page(L, {
+        path, title: x.title, description: x.desc,
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.hub, '/speech/'], [x.h1.replace(/^\S+\s/, ''), path]]), articleLd(L, x.h1.replace(/^\S+\s/, ''), path), faqLd(faq)],
+        scripts: ['/assets/voice.js', '/assets/speech.js'],
+        body: `<article class="wrap narrow article" data-speech-lang="${({ hi: 'hi-IN', en: 'en-IN', hinglish: 'en-IN', bn: 'bn-IN' })[L.code]}" data-listen="${esc(U.listen)}" data-stop="${esc(U.stop)}" data-no-voice="${esc(U.noVoice)}">
+<p class="crumbs no-print"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/speech/')}">${esc(U.hub)}</a> › ${esc(x.h1.replace(/^\S+\s/, ''))}</p>
+<h1>${esc(x.h1)}</h1>
+<p class="lead">${esc(x.lead)}</p>
+<p class="no-print"><button class="btn btn-ghost sp-print" type="button">${esc(U.print)}</button>${sp.festival ? ` <a class="btn btn-ghost" href="${P(L, `/festivals/${sp.festival}/`)}">${esc(U.festLink)}</a>` : ''}</p>
+${block('sp-open', x.openH, paragraphs(x.open))}
+${x.blocks.map((b, k) => block(`sp-${k}`, b.h, paragraphs(b.p))).join('\n')}
+<div class="ad no-print" aria-hidden="true"></div>
+${block('sp-lines', x.linesH, `<ol>${x.lines.map((l) => `<li>${esc(l)}</li>`).join('')}</ol>`)}
+${block('sp-slogans', x.slogansH, `<ul>${x.slogans.map((l) => `<li>${esc(l)}</li>`).join('')}</ul>`)}
+<h2>${esc(x.tipsH)}</h2>
+<ul>${x.tips.map((l) => `<li>${esc(l)}</li>`).join('')}</ul>
+<h2>${esc(x.faqH)}</h2>
+${faqBlock(faq)}
+</article>`,
       }));
     });
   }
