@@ -91,7 +91,6 @@ footer a { color: var(--muted); margin-right: 12px; }
 
   <h1 data-i18n="title">ब्रह्मा की मीनार</h1>
   <p class="sub" data-i18n="sub">सोने की थालियों की मीनार खंभा A से खंभा C पर ले जाओ। पुरानी पहेली — "टावर ऑफ़ हनोई"।</p>
-  <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
   <div class="levels" id="levels"><button type="button" data-l="0" aria-pressed="true">3 थाली</button><button type="button" data-l="1" aria-pressed="false" disabled="">🔒 4 थाली</button><button type="button" data-l="2" aria-pressed="false" disabled="">🔒 5 थाली</button><button type="button" data-l="3" aria-pressed="false" disabled="">🔒 6 थाली</button><button type="button" data-l="4" aria-pressed="false" disabled="">🔒 7 थाली</button></div>
   <div class="rules" id="rules"><b>एक बार में एक</b> थाली उठा सकते हो — सबसे ऊपर वाली। <b>बड़ी थाली कभी छोटी के ऊपर नहीं</b> रख सकते। सारी थालियाँ <b>खंभा C</b> पर इसी क्रम में पहुँचाओ।</div>
 
@@ -122,6 +121,8 @@ footer a { color: var(--muted); margin-right: 12px; }
   </div>
 
   <div class="ad" aria-hidden="true"></div>
+
+  <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
 
   <section>
     <h2 data-i18n="howTitle">कैसे खेलें</h2>
@@ -345,6 +346,6 @@ footer a { color: var(--muted); margin-right: 12px; }
   if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 })();
 </script>
-<script src="/assets/game-share.js?v=1" defer></script>
+<script src="/assets/game-share.js?v=2" defer></script>
 </body>
 </html>

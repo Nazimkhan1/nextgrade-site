@@ -1,5 +1,5 @@
 /*
- * Small "share this game" row near the top of every game (before playing): WhatsApp + Facebook.
+ * Small "share this game" row just above "How to play" in every game: WhatsApp + Facebook.
  * Needs <div id="topShare"></div> in the page. Uses the game's own <h1> and canonical link; follows
  * the game's language menu (#lang). No score here — the big challenge buttons after winning stay as they are.
  */
@@ -13,7 +13,7 @@
     bn: { lead: 'বন্ধুদের পাঠাও:', msg: (t, u) => `🎮 ${t} — এই গেমটা খেলো! 👉 ${u}` },
   };
   const css = document.createElement('style');
-  css.textContent = '.topshare{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin:2px 0 12px;font-size:14px}'
+  css.textContent = '.topshare{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin:22px 0 6px;font-size:15px}'
     + '.topshare .ts-lead{opacity:.8}'
     + '.topshare button{font:inherit;font-weight:700;font-size:14px;border:0;border-radius:999px;padding:6px 14px;cursor:pointer;line-height:1.2}'
     + '.topshare .ts-wa{background:#25d366;color:#073b1d}.topshare .ts-fb{background:#1877f2;color:#fff}';

@@ -110,7 +110,6 @@ footer a { color: var(--muted); margin-right: 12px; }
     <div class="screen" id="start">
       <div class="invite hidden" id="invite"></div>
       <h1 id="title"></h1>
-  <div id="topShare"></div>
       <p class="sub" id="sub"></p>
       <canvas id="preview" style="height:220px;max-width:320px" aria-hidden="true"></canvas>
       <div class="streak"><span class="fire">🔥</span><div><b id="streakN">0</b> <span id="streakLabel"></span></div></div>
@@ -167,6 +166,8 @@ footer a { color: var(--muted); margin-right: 12px; }
   </div>
 
   <div class="ad" aria-hidden="true"></div>
+
+  <div id="topShare"></div>
 
   <section>
     <h2 id="aboutH"></h2>
@@ -750,6 +751,6 @@ footer a { color: var(--muted); margin-right: 12px; }
   if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 })();
 </script>
-<script src="/assets/game-share.js?v=1" defer></script>
+<script src="/assets/game-share.js?v=2" defer></script>
 </body>
 </html>

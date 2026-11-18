@@ -100,7 +100,6 @@ footer a { color: var(--muted); margin-right: 12px; }
 
   <h1 data-i18n="title">आज का शब्द</h1>
   <p class="sub" data-i18n="sub">रोज़ एक नया 5 अक्षर का शब्द। 6 कोशिश में पहचानो!</p>
-  <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
 
   <div class="modes" role="group">
     <button type="button" id="modeHi" aria-pressed="true" data-i18n="modeHi"></button>
@@ -129,6 +128,8 @@ footer a { color: var(--muted); margin-right: 12px; }
   <div class="kb" id="kb"><div class="kr"><button type="button" class="key" data-k="Q" aria-label="Q">Q</button><button type="button" class="key" data-k="W" aria-label="W">W</button><button type="button" class="key" data-k="E" aria-label="E">E</button><button type="button" class="key" data-k="R" aria-label="R">R</button><button type="button" class="key" data-k="T" aria-label="T">T</button><button type="button" class="key" data-k="Y" aria-label="Y">Y</button><button type="button" class="key" data-k="U" aria-label="U">U</button><button type="button" class="key" data-k="I" aria-label="I">I</button><button type="button" class="key" data-k="O" aria-label="O">O</button><button type="button" class="key" data-k="P" aria-label="P">P</button></div><div class="kr"><button type="button" class="key" data-k="A" aria-label="A">A</button><button type="button" class="key" data-k="S" aria-label="S">S</button><button type="button" class="key" data-k="D" aria-label="D">D</button><button type="button" class="key" data-k="F" aria-label="F">F</button><button type="button" class="key" data-k="G" aria-label="G">G</button><button type="button" class="key" data-k="H" aria-label="H">H</button><button type="button" class="key" data-k="J" aria-label="J">J</button><button type="button" class="key" data-k="K" aria-label="K">K</button><button type="button" class="key" data-k="L" aria-label="L">L</button></div><div class="kr"><button type="button" class="key wide" data-k="↵" aria-label="Enter">ENTER</button><button type="button" class="key" data-k="Z" aria-label="Z">Z</button><button type="button" class="key" data-k="X" aria-label="X">X</button><button type="button" class="key" data-k="C" aria-label="C">C</button><button type="button" class="key" data-k="V" aria-label="V">V</button><button type="button" class="key" data-k="B" aria-label="B">B</button><button type="button" class="key" data-k="N" aria-label="N">N</button><button type="button" class="key" data-k="M" aria-label="M">M</button><button type="button" class="key wide" data-k="⌫" aria-label="Backspace">⌫</button></div></div>
 
   <div class="ad" aria-hidden="true"></div>
+
+  <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
 
   <section>
     <h2 data-i18n="howTitle">कैसे खेलें</h2>
@@ -428,6 +429,6 @@ footer a { color: var(--muted); margin-right: 12px; }
   if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 })();
 </script>
-<script src="/assets/game-share.js?v=1" defer></script>
+<script src="/assets/game-share.js?v=2" defer></script>
 </body>
 </html>

@@ -82,7 +82,6 @@ footer a { color: var(--muted); margin-right: 12px; }
 
   <h1 data-i18n="title">पतंग उड़ाओ 🪁</h1>
   <p class="sub" data-i18n="sub">अपनी पतंग आसमान में घुमाओ, दूसरों की डोर काटो और चिल्लाओ "वो काटा!" अपनी डोर बचाओ, लड्डू पकड़ो और पक्षियों को चोट मत पहुँचाओ। 60 सेकंड।</p>
-  <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
   <p class="challenge" id="challenge" role="status"></p>
 
   <div class="stage" id="stage">
@@ -115,6 +114,8 @@ footer a { color: var(--muted); margin-right: 12px; }
   </div>
 
   <div class="ad" aria-hidden="true"></div>
+
+  <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
 
   <section>
     <h2 data-i18n="howTitle">कैसे खेलें</h2>
@@ -440,6 +441,6 @@ footer a { color: var(--muted); margin-right: 12px; }
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 })();
 </script>
-<script src="/assets/game-share.js?v=1" defer></script>
+<script src="/assets/game-share.js?v=2" defer></script>
 </body>
 </html>
