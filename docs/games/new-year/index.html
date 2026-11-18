@@ -57,6 +57,7 @@ input::placeholder { color: #a9a6d6; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; }
 .btn-main { background: linear-gradient(90deg, #f06595, #ff922b); color: #fff; }
 .btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
 .btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: center; font-size: 14px; color: var(--ink); margin: 8px 0 4px; }
 .hidden { display: none !important; }
@@ -81,7 +82,7 @@ footer a { color: var(--muted); margin-right: 12px; }
 
   <h1 data-i18n="title">आतिशबाज़ी पॉप 🎆</h1>
   <p class="sub" data-i18n="sub">नीचे से उठते रॉकेटों को टैप करके हवा में फोड़ो। बिल्कुल ऊपर फोड़ो तो Perfect, जल्दी-जल्दी फोड़ो तो कॉम्बो! 45 सेकंड।</p>
-  <div class="countdown" role="timer" aria-live="off"><b id="cdLabel">नए साल 2027 में बाकी</b><span id="cdTime">43 दिन 04:19:04</span></div>
+  <div class="countdown" role="timer" aria-live="off"><b id="cdLabel">नए साल 2027 में बाकी</b><span id="cdTime">43 दिन 02:41:33</span></div>
   <p class="challenge" id="challenge" role="status"></p>
 
   <div class="stage" id="stage">
@@ -105,6 +106,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         <div class="big" id="finalScore">0</div>
         <p id="endNote"></p>
         <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
         <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
         <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
       </div>
@@ -157,7 +159,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       challenge: (name, n) => `🎯 ${name} ne ${n} points banaye hain — kya aap unhe hara sakte ho?`,
       perfect: 'Perfect!', record: 'Naya record! 🏆', great: 'Kamaal kar diya! 🎉', good: 'Shabaash! 🎆',
       beat: (name, n) => `Aapne ${name} (${n}) ko hara diya! 🥳`, notBeat: (name, n) => `${name} ka score ${n} hai — ek baar aur?`, bestNote: (n) => `Best score: ${n}`,
-      shareWa: '📲 WhatsApp pe challenge bhejo', shareOther: '📤 Aur kahin share karo', again: '🔁 Phir se khelo', copied: '✅ Link copy ho gaya', copyPrompt: 'Ye link copy karo',
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo', shareOther: '📤 Aur kahin share karo', again: '🔁 Phir se khelo', copied: '✅ Link copy ho gaya', copyPrompt: 'Ye link copy karo',
       shareText: (name, n, y, url) => `🎆 ${name ? name + ' ne' : 'Maine'} "Aatishbaazi Pop" mein ${n} points banaye! Kya aap hara sakte ho? Happy New Year ${y}! 🎉\n${url}`,
       howTitle: 'Kaise khelein',
       how: ['<b>▶ Khelo</b> dabao. Neeche se rockets upar uthenge.', 'Rocket pe tap karo — hawa mein phat jaayega: +10.', 'Rocket jab sabse upar ruke, tab phodo — <b>Perfect +20</b>.', '🌟 Sunehri rocket +30. Ek-ek second ke andar phodte raho to combo ×2, ×3…', '45 second baad score WhatsApp pe bhejo aur doston ko challenge karo.'],
@@ -179,7 +181,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       challenge: (name, n) => `🎯 ${name} ने ${n} पॉइंट बनाए हैं — क्या आप उन्हें हरा सकते हो?`,
       perfect: 'Perfect!', record: 'नया रिकॉर्ड! 🏆', great: 'कमाल कर दिया! 🎉', good: 'शाबाश! 🎆',
       beat: (name, n) => `आपने ${name} (${n}) को हरा दिया! 🥳`, notBeat: (name, n) => `${name} का स्कोर ${n} है — एक बार और?`, bestNote: (n) => `बेस्ट स्कोर: ${n}`,
-      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareOther: '📤 और कहीं शेयर करो', again: '🔁 फिर से खेलो', copied: '✅ लिंक कॉपी हो गया', copyPrompt: 'यह लिंक कॉपी करें',
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो', shareOther: '📤 और कहीं शेयर करो', again: '🔁 फिर से खेलो', copied: '✅ लिंक कॉपी हो गया', copyPrompt: 'यह लिंक कॉपी करें',
       shareText: (name, n, y, url) => `🎆 ${name ? name + ' ने' : 'मैंने'} "आतिशबाज़ी पॉप" में ${n} पॉइंट बनाए! क्या आप हरा सकते हो? नया साल ${y} मुबारक! 🎉\n${url}`,
       howTitle: 'कैसे खेलें',
       how: ['<b>▶ खेलो</b> दबाओ। नीचे से रॉकेट ऊपर उठेंगे।', 'रॉकेट पर टैप करो — वह हवा में फट जाएगा: +10।', 'जब रॉकेट सबसे ऊपर रुके, तभी फोड़ो — <b>Perfect +20</b>।', '🌟 सुनहरा रॉकेट +30। एक-एक सेकंड के अंदर फोड़ते रहो तो कॉम्बो ×2, ×3…', '45 सेकंड बाद स्कोर WhatsApp पर भेजो और दोस्तों को चैलेंज करो।'],
@@ -201,7 +203,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       challenge: (name, n) => `🎯 ${name} scored ${n} points — can you beat that?`,
       perfect: 'Perfect!', record: 'New record! 🏆', great: 'Amazing! 🎉', good: 'Well done! 🎆',
       beat: (name, n) => `You beat ${name} (${n})! 🥳`, notBeat: (name, n) => `${name} scored ${n} — one more try?`, bestNote: (n) => `Best score: ${n}`,
-      shareWa: '📲 Challenge on WhatsApp', shareOther: '📤 Share elsewhere', again: '🔁 Play again', copied: '✅ Link copied', copyPrompt: 'Copy this link',
+      shareWa: '📲 Challenge on WhatsApp', shareFb: 'Share on Facebook', shareOther: '📤 Share elsewhere', again: '🔁 Play again', copied: '✅ Link copied', copyPrompt: 'Copy this link',
       shareText: (name, n, y, url) => `🎆 ${name || 'I'} scored ${n} points in "Fireworks Pop"! Can you beat it? Happy New Year ${y}! 🎉\n${url}`,
       howTitle: 'How to play',
       how: ['Tap <b>▶ Play</b>. Rockets start rising from the bottom.', 'Tap a rocket to burst it in the sky: +10.', 'Burst it when it stops at the very top — <b>Perfect +20</b>.', '🌟 Golden rocket +30. Keep bursting within a second of each other for combos ×2, ×3…', 'After 45 seconds, send your score on WhatsApp and challenge your friends.'],
@@ -223,7 +225,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       challenge: (name, n) => `🎯 ${name} ${n} পয়েন্ট পেয়েছে — তুমি কি হারাতে পারবে?`,
       perfect: 'Perfect!', record: 'নতুন রেকর্ড! 🏆', great: 'দারুণ খেলেছ! 🎉', good: 'শাবাশ! 🎆',
       beat: (name, n) => `তুমি ${name}-কে (${n}) হারিয়ে দিয়েছ! 🥳`, notBeat: (name, n) => `${name}-এর স্কোর ${n} — আরেকবার চেষ্টা করবে?`, bestNote: (n) => `সেরা স্কোর: ${n}`,
-      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: '📤 অন্য কোথাও শেয়ার করো', again: '🔁 আবার খেলো', copied: '✅ লিংক কপি হয়েছে', copyPrompt: 'এই লিংকটা কপি করো',
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো', shareOther: '📤 অন্য কোথাও শেয়ার করো', again: '🔁 আবার খেলো', copied: '✅ লিংক কপি হয়েছে', copyPrompt: 'এই লিংকটা কপি করো',
       shareText: (name, n, y, url) => `🎆 ${name || 'আমি'} "আতশবাজি পপ" খেলায় ${n} পয়েন্ট পেয়েছি! তুমি কি হারাতে পারবে? শুভ নববর্ষ ${y}! 🎉\n${url}`,
       howTitle: 'কীভাবে খেলবে',
       how: ['<b>▶ খেলো</b> চাপো। নিচ থেকে রকেট উঠতে শুরু করবে।', 'রকেটে ট্যাপ করলে আকাশে ফেটে যাবে: +১০।', 'রকেট যখন একদম ওপরে থামে, তখন ফাটাও — <b>Perfect +২০</b>।', '🌟 সোনালি রকেট +৩০। এক সেকেন্ডের মধ্যে পরপর ফাটালে কম্বো ×২, ×৩…', '৪৫ সেকেন্ড পরে স্কোর WhatsApp-এ পাঠাও আর বন্ধুদের চ্যালেঞ্জ করো।'],
@@ -496,6 +498,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   $('again').addEventListener('click', start);
   $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
   $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
   $('shareOther').addEventListener('click', () => {
     const text = shareText();
     if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
