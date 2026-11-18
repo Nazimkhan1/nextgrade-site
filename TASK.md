@@ -394,3 +394,7 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 
 ## Paheliyan (18 Nov 2026, traffic plan)
 - `/paheliyan/` × 4 languages from `src/paheliyan.mjs`: Hindi/Hinglish 24 riddles, English/Bengali 20 each, in 3 groups (easy, fun, brain/maths), tap to see the answer (<details>, so the answers are in the HTML), plus a "riddle of the day" that changes with the daily build. Our own wording (old folk riddles retold + new ones). Linked from /kahani/. Live **25 Nov 2026** (`'page:paheliyan'`). Add more riddles to the lists any time.
+
+## Aam Todo — gulel se (18 Nov 2026)
+- `game:aam-todo` → last in the games line (**5 Feb 2027**). `src/static/games/aam-todo/`: pull the slingshot back and release; knock down ripe yellow mangoes, leave green ones; wind (levels 4–6, arrow at the top), swaying branches, a beehive from level 5 (hit = level over, with a "never aim at a beehive" note). 6 levels, stars by stones left, dotted aiming guide that gets shorter each level, WhatsApp challenge, 4 languages, FAQ (FAQPage), facts, safety text; no music; offline sw.
+- Bot-tested: every level can be won (levels 1–5 with 3 stars, 6 with 2); fixed a stale "level over" timer that could end the next level.

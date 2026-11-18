@@ -450,6 +450,7 @@ const games = {
   'kanche': { name: 'Kanche', desc: 'Bachpan wale kanche: apna kancha peeche kheench kar chhodo, ghere se saare kanche bahar nikaalo ya goli gucchi mein daalo. 6 level, star — koi daav nahi, sirf nishana.' },
   'gilli-danda': { name: 'Gilli-Danda', desc: 'Bachpan wala gilli-danda: pehle tap se gilli uchhalo, doosre se hawa mein zor se maaro. Oonchi shot ya neechi — gaon ke bachche lapakne ko taiyaar hain. Score dandon mein.' },
   'pitthu': { name: 'Pitthu (Lagori)', desc: 'Bachpan wala Pitthu: gend se saat pattharon ki dheri giraao, phir bade se chhote tak jaldi jamao — saamne wale gend maarenge, jhuk ke bacho. Dheri poori to "Pitthu!"' },
+  'aam-todo': { name: 'Aam Todo — Gulel se', desc: 'Bachpan wali gulel: patthar peeche kheencho aur ped se pake peele aam todo — kachche hare aam chhod do, hawa ka dhyan rakho aur madhumakkhi ke chhatte se bacho. 6 level, star.' },
   'raja-mantri-chor-sipahi': { name: 'Raja Mantri Chor Sipahi', desc: 'Chitthi wala purana khel, ab ek phone par: 4 dost phone ghuma kar apni chitthi dekhein, ya computer ke saath khelo. Mantri ji, chor kaun hai?' },
   'langar-seva': { name: 'Langar Seva', desc: 'Gurpurab par langar ki seva: pangat mein baithi sangat ko prashada, dal, kheer aur jal parosiye. 60 second, bina music, Guru Nanak Dev Ji ki seekhon ke saath.' },
 };
