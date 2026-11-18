@@ -36,6 +36,8 @@ const FIXED = {
   'page:naam-wali-image': '2026-12-12', // before Christmas and New Year
   // school speeches and essays (about 3–4 weeks before the day)
   'speech:republic-day': '2026-12-28', // 26 Jan
+  'speech:netaji-jayanti': '2027-01-02', // 23 Jan (Parakram Diwas)
+  'speech:saraswati-puja': '2027-01-15', // Vasant Panchami, 11 Feb 2027
 };
 
 const LINES = [

@@ -5,6 +5,8 @@
  * 26 Jan 2027 is the 78th Republic Day; Beating Retreat on 29 Jan.
  * Scheduled per page with 'speech:<slug>' in src/releases.mjs.
  */
+import { moreSpeeches } from './speeches-more.mjs';
+
 const speeches = [
   {
     slug: 'republic-day', emoji: '🇮🇳', festival: 'republic-day',
@@ -96,6 +98,8 @@ const speeches = [
     },
   },
 ];
+
+speeches.push(...moreSpeeches);
 
 const SPEECH_UI = {
   hi: { hub: 'स्कूल के लिए भाषण और निबंध', hubTitle: 'स्कूल के बच्चों के लिए भाषण और निबंध — 26 जनवरी, 15 अगस्त और ज़्यादा | NextGrade', hubLead: 'राष्ट्रीय पर्वों और ख़ास दिनों पर स्कूल के बच्चों के लिए आसान भाषण, निबंध और 10 लाइनें — हमारे अपने शब्दों में।', listen: '🔊 सुनाओ', stop: '⏹️ रोको', print: '🖨️ प्रिंट करें', noVoice: 'इस फ़ोन/ब्राउज़र में पढ़कर सुनाने की आवाज़ नहीं मिली।', festLink: 'त्योहार की पूरी जानकारी' },
