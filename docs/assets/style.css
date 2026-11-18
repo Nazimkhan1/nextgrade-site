@@ -177,3 +177,35 @@ table.months td[lang="ar"] { text-align: right; font-size: 18px; white-space: no
 .app-video video { display: block; margin: 0 auto; width: auto; max-width: 100%; max-height: 78vh; aspect-ratio: 9 / 16; height: auto; border-radius: 18px; background: #000; box-shadow: 0 12px 34px rgba(0,0,0,.25); }
 .app-video figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
 .video-share .vs-file:disabled { opacity: .7; }
+
+/* "Festival 2027 kab hai?" box and the year list */
+.when-box { background: linear-gradient(90deg, rgba(255,212,59,0.18), rgba(255,146,43,0.12)); border: 1px solid rgba(255,169,77,0.5); border-radius: 14px; padding: 12px 16px; margin: 10px 0 16px; }
+.when-box p { margin: 2px 0; }
+.when-q { font-weight: 800; font-size: 1.1em; }
+.when-a { font-size: 1.05em; }
+.when-left { font-weight: 700; color: #e8590c; }
+.when-note { font-size: 0.92em; opacity: 0.9; }
+.tblwrap { overflow-x: auto; }
+table.dates { width: 100%; border-collapse: collapse; margin: 12px 0; }
+table.dates th, table.dates td { border-bottom: 1px solid rgba(128,128,128,0.25); padding: 8px 6px; text-align: start; }
+
+/* Naam wali image */
+.ni-thumbs { display: flex; gap: 8px; flex-wrap: wrap; }
+.ni-thumb { width: 52px; height: 52px; border-radius: 12px; border: 2px solid rgba(128,128,128,0.35); font-weight: 800; font-size: 18px; cursor: pointer; }
+.ni-thumb.on { outline: 3px solid #ff922b; outline-offset: 2px; }
+#niCanvas { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+
+/* Speech pages */
+.sp-block { border-left: 4px solid #ff922b; padding-left: 14px; margin: 22px 0; }
+.sp-tools { margin: 6px 0 0; }
+@media print {
+  header, nav, footer, .no-print, .sp-tools, .ad, .lang-switch, .crumbs { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .sp-block { border-left: 0; padding-left: 0; break-inside: avoid; }
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* Paheliyan */
+details.paheli { border: 1px solid rgba(128,128,128,0.3); border-radius: 12px; padding: 10px 14px; margin: 8px 0; }
+details.paheli summary { font-weight: 600; cursor: pointer; }

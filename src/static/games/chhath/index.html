@@ -57,6 +57,7 @@ input::placeholder { color: #d9b9a3; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; }
 .btn-main { background: linear-gradient(90deg, #ff922b, #e8590c); color: #fff; }
 .btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
 .btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
 .hidden { display: none !important; }
 section { margin: 28px 0; }
@@ -103,6 +104,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         <p id="endBreak"></p>
         <p id="endNote"></p>
         <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
         <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
         <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
       </div>
@@ -154,7 +156,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endTitle: '🙏 Vrat poora hua! Chhathi Maiya ki jai',
       breakdown: (d, a, p) => `🌊 Dupki ${d} · ☀️ Arghya ${a} · 🧺 Prasad ${p}`,
       record: 'Naya record! 🏆', beat: (name, n) => `Aapne ${name} (${n}) ko hara diya! 🥳`, notBeat: (name, n) => `${name} ka score ${n} hai — ek baar aur?`, bestNote: (n) => `Best score: ${n}`,
-      shareWa: '📲 WhatsApp pe challenge bhejo', shareOther: '📤 Aur kahin share karo', again: '🔁 Phir se khelo', copied: '✅ Link copy ho gaya', copyPrompt: 'Ye link copy karo',
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo', shareOther: '📤 Aur kahin share karo', again: '🔁 Phir se khelo', copied: '✅ Link copy ho gaya', copyPrompt: 'Ye link copy karo',
       shareText: (name, n, url) => `🌅 Chhath Puja ki dher saari shubhkamnayein! ${name ? name + ' ne' : 'Maine'} "Chhath Ghat" game mein ${n} points banaye — dupki, arghya aur parana. Aap khel ke dikhao! 🙏\n${url}`,
       howTitle: 'Kaise khelein',
       how: ['<b>▶ Ghat pe chalo</b> dabao. Bhor ka samay hai, aap nadi mein khade ho.', '<b>Dupki:</b> neeche ek patti pe sui aage-peeche chalti hai. Jab sui beech ki hari jagah pe ho, screen tap karo — Perfect +30, paas mein +15. Har dupki ke baad sui tez hoti hai.', '<b>Arghya:</b> suraj dheere-dheere ugta hai. Jab poora gola paani ke upar aa jaaye aur chamakne lage, tab "Arghya do" tap karo — sahi pal pe +100.', '<b>Parana:</b> upar se thekua, kela, ganna, nariyal aur sunehra thekua girte hain. Soop ko ungli ya arrow key se khiskao aur pakdo. 20 second.', 'Score WhatsApp pe bhejo aur parivaar ko challenge karo.'],
@@ -177,7 +179,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endTitle: '🙏 व्रत पूरा हुआ! छठी मइया की जय',
       breakdown: (d, a, p) => `🌊 डुबकी ${d} · ☀️ अर्घ्य ${a} · 🧺 प्रसाद ${p}`,
       record: 'नया रिकॉर्ड! 🏆', beat: (name, n) => `आपने ${name} (${n}) को हरा दिया! 🥳`, notBeat: (name, n) => `${name} का स्कोर ${n} है — एक बार और?`, bestNote: (n) => `बेस्ट स्कोर: ${n}`,
-      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareOther: '📤 और कहीं शेयर करो', again: '🔁 फिर से खेलो', copied: '✅ लिंक कॉपी हो गया', copyPrompt: 'यह लिंक कॉपी करें',
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो', shareOther: '📤 और कहीं शेयर करो', again: '🔁 फिर से खेलो', copied: '✅ लिंक कॉपी हो गया', copyPrompt: 'यह लिंक कॉपी करें',
       shareText: (name, n, url) => `🌅 छठ पूजा की ढेर सारी शुभकामनाएँ! ${name ? name + ' ने' : 'मैंने'} "छठ घाट" गेम में ${n} पॉइंट बनाए — डुबकी, अर्घ्य और पारण। आप खेलकर दिखाओ! 🙏\n${url}`,
       howTitle: 'कैसे खेलें',
       how: ['<b>▶ घाट पर चलो</b> दबाओ। भोर का समय है, आप नदी में खड़े हो।', '<b>डुबकी:</b> नीचे एक पट्टी पर सुई आगे-पीछे चलती है। जब सुई बीच की हरी जगह पर हो, स्क्रीन टैप करो — Perfect +30, पास में +15। हर डुबकी के बाद सुई तेज़ होती है।', '<b>अर्घ्य:</b> सूरज धीरे-धीरे उगता है। जब पूरा गोला पानी के ऊपर आ जाए और चमकने लगे, तब "अर्घ्य दो" टैप करो — सही पल पर +100।', '<b>पारण:</b> ऊपर से ठेकुआ, केला, गन्ना, नारियल और सुनहरा ठेकुआ गिरते हैं। सूप को उँगली या ऐरो की से खिसकाओ और पकड़ो। 20 सेकंड।', 'स्कोर WhatsApp पर भेजो और परिवार को चैलेंज करो।'],
@@ -200,7 +202,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endTitle: '🙏 The fast is complete! Chhathi Maiya ki jai',
       breakdown: (d, a, p) => `🌊 Dips ${d} · ☀️ Arghya ${a} · 🧺 Prasad ${p}`,
       record: 'New record! 🏆', beat: (name, n) => `You beat ${name} (${n})! 🥳`, notBeat: (name, n) => `${name} scored ${n} — one more try?`, bestNote: (n) => `Best score: ${n}`,
-      shareWa: '📲 Challenge on WhatsApp', shareOther: '📤 Share elsewhere', again: '🔁 Play again', copied: '✅ Link copied', copyPrompt: 'Copy this link',
+      shareWa: '📲 Challenge on WhatsApp', shareFb: 'Share on Facebook', shareOther: '📤 Share elsewhere', again: '🔁 Play again', copied: '✅ Link copied', copyPrompt: 'Copy this link',
       shareText: (name, n, url) => `🌅 Happy Chhath Puja! ${name || 'I'} scored ${n} points in the "Chhath Ghat" game — dip, arghya and parana. Can you beat it? 🙏\n${url}`,
       howTitle: 'How to play',
       how: ['Tap <b>▶ Go to the ghat</b>. It is dawn and you are standing in the river.', '<b>Dip:</b> a needle swings along a bar at the bottom. Tap the screen when it is in the green middle zone — Perfect +30, close +15. The needle speeds up after every dip.', '<b>Arghya:</b> the sun rises slowly. When the whole disc is above the water and starts to glow, tap "Offer arghya" — +100 at the right moment.', '<b>Parana:</b> thekua, bananas, sugarcane, coconuts and golden thekua fall from above. Slide the soop with your finger or the arrow keys to catch them. 20 seconds.', 'Send your score on WhatsApp and challenge your family.'],
@@ -223,7 +225,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endTitle: '🙏 ব্রত সম্পূর্ণ! ছঠি মাইয়া কি জয়',
       breakdown: (d, a, p) => `🌊 ডুব ${d} · ☀️ অর্ঘ্য ${a} · 🧺 প্রসাদ ${p}`,
       record: 'নতুন রেকর্ড! 🏆', beat: (name, n) => `তুমি ${name}-কে (${n}) হারিয়ে দিয়েছ! 🥳`, notBeat: (name, n) => `${name}-এর স্কোর ${n} — আরেকবার?`, bestNote: (n) => `সেরা স্কোর: ${n}`,
-      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: '📤 অন্য কোথাও শেয়ার করো', again: '🔁 আবার খেলো', copied: '✅ লিংক কপি হয়েছে', copyPrompt: 'এই লিংকটা কপি করো',
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো', shareOther: '📤 অন্য কোথাও শেয়ার করো', again: '🔁 আবার খেলো', copied: '✅ লিংক কপি হয়েছে', copyPrompt: 'এই লিংকটা কপি করো',
       shareText: (name, n, url) => `🌅 ছট পুজোর অনেক শুভেচ্ছা! ${name || 'আমি'} "ছট ঘাট" খেলায় ${n} পয়েন্ট পেয়েছি — ডুব, অর্ঘ্য আর পারণ। তুমি খেলে দেখাও! 🙏\n${url}`,
       howTitle: 'কীভাবে খেলবে',
       how: ['<b>▶ ঘাটে চলো</b> চাপো। ভোরবেলা, তুমি নদীতে দাঁড়িয়ে আছ।', '<b>ডুব:</b> নিচে একটা পট্টিতে কাঁটা এদিক-ওদিক দোলে। কাঁটা মাঝের সবুজ জায়গায় এলে স্ক্রিনে ট্যাপ করো — Perfect +৩০, কাছাকাছি +১৫। প্রতিটা ডুবের পর কাঁটা জোরে চলে।', '<b>অর্ঘ্য:</b> সূর্য ধীরে ধীরে ওঠে। পুরো গোলাটা জলের ওপরে উঠে ঝলমল করলে "অর্ঘ্য দাও" ট্যাপ করো — ঠিক মুহূর্তে +১০০।', '<b>পারণ:</b> ওপর থেকে ঠেকুয়া, কলা, আখ, নারকেল আর সোনালি ঠেকুয়া পড়ে। আঙুল বা অ্যারো কি দিয়ে কুলো সরিয়ে ধরো। ২০ সেকেন্ড।', 'স্কোর WhatsApp-এ পাঠাও আর পরিবারকে চ্যালেঞ্জ করো।'],
@@ -663,6 +665,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   $('again').addEventListener('click', start);
   $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
   $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
   $('shareOther').addEventListener('click', () => {
     const text = shareText();
     if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }

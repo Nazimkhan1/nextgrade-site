@@ -31,6 +31,7 @@ h1 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-s
 .btn-ghost { background: var(--card); color: var(--ink); border: 1px solid var(--line); flex: 1; }
 .btn-main { background: var(--gold); color: #3b2a00; }
 .btn-wa { background: #25d366; color: #063b1c; }
+.btn-fb { background: #1877f2; color: #fff; }
 .btn:disabled { opacity: .5; cursor: default; }
 .status { display: flex; justify-content: space-between; font-weight: 700; color: var(--muted); font-size: 14px; }
 .msg { min-height: 48px; margin: 8px 0; font-weight: 700; text-align: center; }

@@ -62,6 +62,7 @@ input::placeholder { color: #b8cfbf; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
 .btn-main { background: linear-gradient(90deg, #2f9e44, #099268); color: #fff; }
 .btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
 .btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
 .hidden { display: none !important; }
 section { margin: 28px 0; }
@@ -111,6 +112,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         <button class="btn btn-main" id="nextBtn" type="button" data-i18n="next"></button>
         <button class="btn btn-ghost" id="retryBtn" type="button" data-i18n="retry"></button>
         <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
         <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
         <button class="btn btn-ghost" id="toLevels" type="button" data-i18n="levelsBtn"></button>
       </div>
@@ -187,7 +189,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       loseNote: (n) => `Level ${n} — ek baar aur koshish karo!`,
       starLine: (s, max) => `Kul star: ${s}/${max} ⭐`,
       challenge: (name, n) => `🔵 ${name} ne Kanche mein ${n} star jeete! Aap kitne jeet paoge?`,
-      shareWa: '📲 WhatsApp pe challenge bhejo',
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo',
       shareOther: '🔗 Link share / copy karo',
       copied: '✅ Copy ho gaya',
       copyPrompt: 'Yeh text copy karo:',
@@ -233,7 +235,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       loseNote: (n) => `लेवल ${n} — एक बार और कोशिश करो!`,
       starLine: (s, max) => `कुल स्टार: ${s}/${max} ⭐`,
       challenge: (name, n) => `🔵 ${name} ने कंचे में ${n} स्टार जीते! आप कितने जीत पाओगे?`,
-      shareWa: '📲 WhatsApp पर चैलेंज भेजो',
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो',
       shareOther: '🔗 लिंक शेयर / कॉपी करो',
       copied: '✅ कॉपी हो गया',
       copyPrompt: 'यह टेक्स्ट कॉपी करो:',
@@ -279,7 +281,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       loseNote: (n) => `Level ${n} — give it one more go!`,
       starLine: (s, max) => `Total stars: ${s}/${max} ⭐`,
       challenge: (name, n) => `🔵 ${name} won ${n} stars in Kanche! How many can you win?`,
-      shareWa: '📲 Challenge on WhatsApp',
+      shareWa: '📲 Challenge on WhatsApp', shareFb: 'Share on Facebook',
       shareOther: '🔗 Share / copy link',
       copied: '✅ Copied',
       copyPrompt: 'Copy this text:',
@@ -325,7 +327,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       loseNote: (n) => `লেভেল ${n} — আর একবার চেষ্টা করো!`,
       starLine: (s, max) => `মোট তারা: ${s}/${max} ⭐`,
       challenge: (name, n) => `🔵 ${name} মার্বেল খেলায় ${n}টা তারা জিতেছে! তুমি কতগুলো পাবে?`,
-      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও',
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো',
       shareOther: '🔗 লিংক শেয়ার / কপি',
       copied: '✅ কপি হয়েছে',
       copyPrompt: 'এই লেখাটা কপি করো:',
@@ -762,6 +764,7 @@ footer a { color: var(--muted); margin-right: 12px; }
     return t('shareText')(playerName, totalStars(), u.toString());
   };
   $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
   $('shareOther').addEventListener('click', () => {
     const text = shareText();
     if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }

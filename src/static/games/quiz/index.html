@@ -45,7 +45,9 @@ h1 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-s
 .hidden { display: none !important; }
 .btn { border: 0; border-radius: 12px; padding: 12px 16px; font: inherit; font-weight: 800; cursor: pointer; }
 .btn-main { background: var(--gold); color: #3b2a00; width: 100%; font-size: 18px; }
-.btn-wa { background: #25d366; color: #063b1c; } .btn-ghost { background: var(--card); color: var(--ink); border: 1px solid var(--line); }
+.btn-wa { background: #25d366; color: #063b1c; }
+.btn-fb { background: #1877f2; color: #fff; }
+ .btn-ghost { background: var(--card); color: var(--ink); border: 1px solid var(--line); }
 input.name { width: 100%; font: inherit; font-size: 16px; padding: 11px 12px; border-radius: 12px; border: 1px solid var(--line); background: rgba(0,0,0,0.2); color: var(--ink); margin: 6px 0 10px; }
 .daily-note { color: var(--muted); font-size: 14px; margin: 8px 0 0; text-align: center; }
 .cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 8px; }
@@ -116,6 +118,7 @@ footer a { color: var(--muted); margin-right: 12px; }
     <p id="endLine"></p>
     <div class="endbtns">
       <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
       <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
       <button class="btn btn-ghost" id="again" type="button" data-i18n="again"></button>
     </div>
@@ -171,7 +174,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       daily: (n) => `▶ Aaj ka Quiz #${n} khelo`, dailyDone: (s) => `✓ Aaj ka quiz ho gaya: ${s} points. Kal naya quiz aayega!`, dailyNote: 'Aaj ke sawaal sabke liye ek jaise hain.', practiceH: 'Ya vishay chun kar practice karo:',
       qNo: (i) => `Sawaal ${i}/${PER}`, pts: (s) => `⭐ ${s}`, next: 'Aage →', finish: 'Result dekho →', timeUp: '⏱️ Samay khatam! Sahi jawab:', right: '✅ Sahi!', wrong: '❌ Galat. Sahi jawab:',
       endTitle: ['Phir koshish karo! 💪', 'Achha hai! 🙂', 'Badhiya! 👏', 'Shaandaar! 🌟', 'Kamaal! 🏆'], endLine: (c, s) => `${c}/${PER} sahi · ${s} points`,
-      shareWa: 'WhatsApp par challenge bhejo', shareOther: 'Share', again: 'Phir se khelo', copied: 'Copy ho gaya ✓',
+      shareWa: 'WhatsApp par challenge bhejo', shareFb: 'Facebook par share karo', shareOther: 'Share', again: 'Phir se khelo', copied: 'Copy ho gaya ✓',
       shareText: (name, s, c, n) => `🇮🇳 Bharat Quiz${n ? ` #${n}` : ''}: ${name ? name + ' ne' : 'Maine'} ${s} points banaye (${c}/10 sahi)! Kya aap hara sakte ho? 👉 `,
       challenge: (n, s) => `🎯 ${n} ne ${s} points banaye hain. Kya aap unhe hara sakte ho?`,
       howTitle: 'Kaise khelein', how: ['"Aaj ka Quiz" dabao — 10 sawaal aayenge, sabke liye ek jaise.', 'Har sawaal ke liye 10 second. Chaar mein se sahi jawab chuno.', 'Sahi jawab = 10 points, aur jitne second bache utne bonus points. Ek sawaal se 20 tak, poore quiz se 200 tak.', 'Har jawab ke baad ek chhoti jaankari dikhegi — padh kar "Aage" dabao.', 'Score WhatsApp par bhejo; dost link kholkar aapka score haraane ki koshish karenge.'],
@@ -186,7 +189,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       daily: (n) => `▶ आज का क्विज़ #${n} खेलो`, dailyDone: (s) => `✓ आज का क्विज़ हो गया: ${s} अंक। कल नया क्विज़ आएगा!`, dailyNote: 'आज के सवाल सबके लिए एक जैसे हैं।', practiceH: 'या विषय चुनकर प्रैक्टिस करो:',
       qNo: (i) => `सवाल ${i}/${PER}`, pts: (s) => `⭐ ${s}`, next: 'आगे →', finish: 'नतीजा देखो →', timeUp: '⏱️ समय ख़त्म! सही जवाब:', right: '✅ सही!', wrong: '❌ ग़लत। सही जवाब:',
       endTitle: ['फिर कोशिश करो! 💪', 'अच्छा है! 🙂', 'बढ़िया! 👏', 'शानदार! 🌟', 'कमाल! 🏆'], endLine: (c, s) => `${c}/${PER} सही · ${s} अंक`,
-      shareWa: 'WhatsApp पर चैलेंज भेजो', shareOther: 'शेयर', again: 'फिर से खेलो', copied: 'कॉपी हो गया ✓',
+      shareWa: 'WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो', shareOther: 'शेयर', again: 'फिर से खेलो', copied: 'कॉपी हो गया ✓',
       shareText: (name, s, c, n) => `🇮🇳 भारत क्विज़${n ? ` #${n}` : ''}: ${name ? name + ' ने' : 'मैंने'} ${s} अंक बनाए (${c}/10 सही)! क्या आप हरा सकते हो? 👉 `,
       challenge: (n, s) => `🎯 ${n} ने ${s} अंक बनाए हैं। क्या आप उन्हें हरा सकते हो?`,
       howTitle: 'कैसे खेलें', how: ['"आज का क्विज़" दबाओ — 10 सवाल आएँगे, सबके लिए एक जैसे।', 'हर सवाल के लिए 10 सेकंड। चार में से सही जवाब चुनो।', 'सही जवाब = 10 अंक, और जितने सेकंड बचे उतने बोनस अंक। एक सवाल से 20 तक, पूरे क्विज़ से 200 तक।', 'हर जवाब के बाद एक छोटी जानकारी दिखेगी — पढ़कर "आगे" दबाओ।', 'स्कोर WhatsApp पर भेजो; दोस्त लिंक खोलकर आपका स्कोर हराने की कोशिश करेंगे।'],
@@ -201,7 +204,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       daily: (n) => `▶ Play today's quiz #${n}`, dailyDone: (s) => `✓ Today's quiz done: ${s} points. A new quiz comes tomorrow!`, dailyNote: 'Everyone gets the same questions today.', practiceH: 'Or practise a topic:',
       qNo: (i) => `Question ${i}/${PER}`, pts: (s) => `⭐ ${s}`, next: 'Next →', finish: 'See result →', timeUp: '⏱️ Time\'s up! The answer:', right: '✅ Correct!', wrong: '❌ Wrong. The answer:',
       endTitle: ['Try again! 💪', 'Not bad! 🙂', 'Good! 👏', 'Brilliant! 🌟', 'Champion! 🏆'], endLine: (c, s) => `${c}/${PER} correct · ${s} points`,
-      shareWa: 'Challenge on WhatsApp', shareOther: 'Share', again: 'Play again', copied: 'Copied ✓',
+      shareWa: 'Challenge on WhatsApp', shareFb: 'Share on Facebook', shareOther: 'Share', again: 'Play again', copied: 'Copied ✓',
       shareText: (name, s, c, n) => `🇮🇳 Bharat Quiz${n ? ` #${n}` : ''}: ${name || 'I'} scored ${s} points (${c}/10 correct)! Can you beat it? 👉 `,
       challenge: (n, s) => `🎯 ${n} scored ${s} points. Can you beat that?`,
       howTitle: 'How to play', how: ['Tap "Play today\'s quiz" — you get 10 questions, the same for everyone.', 'You have 10 seconds per question. Pick the right answer out of four.', 'A right answer gives 10 points plus a bonus point for every second left — up to 20 per question and 200 per quiz.', 'After each answer you see a short fact — read it and tap "Next".', 'Send your score on WhatsApp; friends open the link and try to beat it.'],
@@ -216,7 +219,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       daily: (n) => `▶ আজকের কুইজ #${n} খেলো`, dailyDone: (s) => `✓ আজকের কুইজ হয়ে গেছে: ${s} পয়েন্ট। কাল নতুন কুইজ আসবে!`, dailyNote: 'আজকের প্রশ্ন সবার জন্য একই।', practiceH: 'অথবা বিষয় বেছে প্র্যাকটিস করো:',
       qNo: (i) => `প্রশ্ন ${i}/${PER}`, pts: (s) => `⭐ ${s}`, next: 'পরের →', finish: 'ফল দেখো →', timeUp: '⏱️ সময় শেষ! সঠিক উত্তর:', right: '✅ ঠিক!', wrong: '❌ ভুল। সঠিক উত্তর:',
       endTitle: ['আবার চেষ্টা করো! 💪', 'মন্দ নয়! 🙂', 'ভালো! 👏', 'দারুণ! 🌟', 'চ্যাম্পিয়ন! 🏆'], endLine: (c, s) => `${c}/${PER} ঠিক · ${s} পয়েন্ট`,
-      shareWa: 'WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: 'শেয়ার', again: 'আবার খেলো', copied: 'কপি হয়েছে ✓',
+      shareWa: 'WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো', shareOther: 'শেয়ার', again: 'আবার খেলো', copied: 'কপি হয়েছে ✓',
       shareText: (name, s, c, n) => `🇮🇳 ভারত কুইজ${n ? ` #${n}` : ''}: ${name || 'আমি'} ${s} পয়েন্ট পেয়েছে (${c}/10 ঠিক)! হারাতে পারবে? 👉 `,
       challenge: (n, s) => `🎯 ${n} ${s} পয়েন্ট পেয়েছে। তুমি হারাতে পারবে?`,
       howTitle: 'কীভাবে খেলবে', how: ['"আজকের কুইজ" টেপো — ১০টা প্রশ্ন আসবে, সবার জন্য একই।', 'প্রতিটা প্রশ্নের জন্য ১০ সেকেন্ড। চারটের মধ্যে ঠিক উত্তর বাছো।', 'ঠিক উত্তরে ১০ পয়েন্ট, আর যত সেকেন্ড বাকি তত বোনাস। এক প্রশ্নে ২০ পর্যন্ত, পুরো কুইজে ২০০ পর্যন্ত।', 'প্রতিটা উত্তরের পরে একটা ছোট তথ্য দেখাবে — পড়ে "পরের" টেপো।', 'স্কোর WhatsApp-এ পাঠাও; বন্ধুরা লিংক খুলে তোমার স্কোর হারানোর চেষ্টা করবে।'],
@@ -324,6 +327,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   const shareLink = () => { const u = new URL(SITE); u.searchParams.set('lang', lang); if (name()) u.searchParams.set('from', name()); u.searchParams.set('score', String(total)); return u.toString(); };
   const shareText = () => t('shareText')(name(), total, correct, daily ? dayNo() : 0) + shareLink();
   $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
   $('shareOther').addEventListener('click', () => {
     const text = shareText();
     if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }

@@ -63,6 +63,7 @@ h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clam
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 16px; cursor: pointer; text-decoration: none; }
 .btn-main { background: linear-gradient(90deg, #2f9e44, #099268); color: #fff; }
 .btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
 .btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
 .names { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 6px 0; }
 input { width: 100%; font: inherit; font-size: 15px; padding: 8px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); }
@@ -110,6 +111,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
       <button class="btn btn-ghost" id="reset" type="button" data-i18n="reset"></button>
       <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
     </div>
   </div>
 
@@ -139,7 +141,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       title: 'Kattam-Katti ❌⭕ (Zero-Kaata)', sub: 'Bachpan wala Zero-Kaata, ab slate par! Computer ke saath khelo — aasaan, medium ya mushkil (jo kabhi nahi haarta) — ya ek hi phone par dost ke saath. Teen ek line mein milao aur jeeto.',
       easy: '🙂 Aasaan', medium: '🤔 Medium', hard: '🧠 Mushkil', two: '👫 2 log', nameX: '❌ ka naam', nameO: '⭕ ka naam', you: 'Aap', cpu: 'Computer',
       turn: (n, m) => (n === 'Aap' ? `${m} Aapki baari` : `${m} ${n} ki baari`), thinking: '🤔 Computer soch raha hai…', win: (n) => `🎉 ${n} jeet gaye!`, cpuWin: '🤖 Computer jeet gaya!', draw: '🤝 Barabar! Koi nahi jeeta.',
-      matchWin: (n) => `🏆 ${n} ne 5 game ka match jeet liya!`, again: '▶ Agla game', reset: '↺ Naya match', shareWa: '📲 WhatsApp pe challenge',
+      matchWin: (n) => `🏆 ${n} ne 5 game ka match jeet liya!`, again: '▶ Agla game', reset: '↺ Naya match', shareWa: '📲 WhatsApp pe challenge', shareFb: '📘 Facebook pe share',
       challenge: (name, n) => `❌⭕ ${name} ne Kattam-Katti mein mushkil computer ke khilaaf ${n} game barabar khele! Aap bhi try karo.`,
       shareText: (url) => `❌⭕ Kattam-Katti (Zero-Kaata) khelo — computer ka "mushkil" level kabhi nahi haarta. Kya aap use rok paoge? ${url}`,
       howTitle: 'Kaise khelein', how: ['Upar se chuno: computer ke saath (aasaan, medium, mushkil) ya <b>2 log</b>.', 'Pehle ❌ chalta hai. Khaali khaane par tap karke apna nishaan lagao.', 'Jo pehle <b>teen nishaan ek seedhi line</b> mein laga de — aadi, khadi ya tirchhi — woh jeetta hai.', 'Saare 9 khaane bhar jaayein aur line na bane to <b>barabar</b>.', '5 game ka match: pehle 3 jeetne wala match jeetta hai. Har game ke baad pehli chaal badal jaati hai.'],
@@ -153,7 +155,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       title: 'कट्टम-कट्टी ❌⭕ (ज़ीरो-काटा)', sub: 'बचपन वाला ज़ीरो-काटा, अब स्लेट पर! कंप्यूटर के साथ खेलो — आसान, मीडियम या मुश्किल (जो कभी नहीं हारता) — या एक ही फ़ोन पर दोस्त के साथ। तीन एक लाइन में मिलाओ और जीतो।',
       easy: '🙂 आसान', medium: '🤔 मीडियम', hard: '🧠 मुश्किल', two: '👫 2 लोग', nameX: '❌ का नाम', nameO: '⭕ का नाम', you: 'आप', cpu: 'कंप्यूटर',
       turn: (n, m) => (n === 'आप' ? `${m} आपकी बारी` : `${m} ${n} की बारी`), thinking: '🤔 कंप्यूटर सोच रहा है…', win: (n) => `🎉 ${n} जीत गए!`, cpuWin: '🤖 कंप्यूटर जीत गया!', draw: '🤝 बराबर! कोई नहीं जीता।',
-      matchWin: (n) => `🏆 ${n} ने 5 गेम का मैच जीत लिया!`, again: '▶ अगला गेम', reset: '↺ नया मैच', shareWa: '📲 WhatsApp पर चैलेंज',
+      matchWin: (n) => `🏆 ${n} ने 5 गेम का मैच जीत लिया!`, again: '▶ अगला गेम', reset: '↺ नया मैच', shareWa: '📲 WhatsApp पर चैलेंज', shareFb: '📘 Facebook पर शेयर',
       challenge: (name, n) => `❌⭕ ${name} ने कट्टम-कट्टी में मुश्किल कंप्यूटर के ख़िलाफ़ ${n} गेम बराबर खेले! आप भी कोशिश करो।`,
       shareText: (url) => `❌⭕ कट्टम-कट्टी (ज़ीरो-काटा) खेलो — कंप्यूटर का "मुश्किल" लेवल कभी नहीं हारता। क्या आप उसे रोक पाओगे? ${url}`,
       howTitle: 'कैसे खेलें', how: ['ऊपर से चुनो: कंप्यूटर के साथ (आसान, मीडियम, मुश्किल) या <b>2 लोग</b>।', 'पहले ❌ चलता है। ख़ाली ख़ाने पर टैप करके अपना निशान लगाओ।', 'जो पहले <b>तीन निशान एक सीधी लाइन</b> में लगा दे — आड़ी, खड़ी या तिरछी — वह जीतता है।', 'सारे 9 ख़ाने भर जाएँ और लाइन न बने तो <b>बराबर</b>।', '5 गेम का मैच: पहले 3 जीतने वाला मैच जीतता है। हर गेम के बाद पहली चाल बदल जाती है।'],
@@ -167,7 +169,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       title: 'Kattam-Katti ❌⭕ (Tic Tac Toe)', sub: 'The childhood game of noughts and crosses, now on a slate! Play the computer — easy, medium or hard (it never loses) — or a friend on one phone. Get three in a row to win.',
       easy: '🙂 Easy', medium: '🤔 Medium', hard: '🧠 Hard', two: '👫 2 players', nameX: '❌ name', nameO: '⭕ name', you: 'You', cpu: 'Computer',
       turn: (n, m) => (n === 'You' ? `${m} Your turn` : `${m} ${n}'s turn`), thinking: '🤔 The computer is thinking…', win: (n) => `🎉 ${n} win${n === 'You' ? '' : 's'}!`, cpuWin: '🤖 The computer wins!', draw: '🤝 A draw! Nobody won.',
-      matchWin: (n) => `🏆 ${n} won the best-of-5 match!`, again: '▶ Next game', reset: '↺ New match', shareWa: '📲 WhatsApp challenge',
+      matchWin: (n) => `🏆 ${n} won the best-of-5 match!`, again: '▶ Next game', reset: '↺ New match', shareWa: '📲 WhatsApp challenge', shareFb: '📘 Share on Facebook',
       challenge: (name, n) => `❌⭕ ${name} held the hard computer to ${n} draws in Kattam-Katti! Can you?`,
       shareText: (url) => `❌⭕ Play Kattam-Katti (tic tac toe) — the computer's "hard" level never loses. Can you stop it? ${url}`,
       howTitle: 'How to play', how: ['Choose at the top: against the computer (easy, medium, hard) or <b>2 players</b>.', '❌ moves first. Tap an empty box to place your mark.', 'The first to get <b>three marks in a straight line</b> — across, down or diagonally — wins.', 'If all 9 boxes fill up with no line, it is a <b>draw</b>.', 'Best of 5: the first to win 3 games wins the match. The first move switches after every game.'],
@@ -181,7 +183,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       title: 'কাটাকুটি ❌⭕ (টিক ট্যাক টো)', sub: 'ছোটবেলার কাটাকুটি, এবার স্লেটে! কম্পিউটারের সঙ্গে খেলো — সহজ, মাঝারি বা কঠিন (যে কখনো হারে না) — বা এক ফোনে বন্ধুর সঙ্গে। এক লাইনে তিনটে মেলাও আর জেতো।',
       easy: '🙂 সহজ', medium: '🤔 মাঝারি', hard: '🧠 কঠিন', two: '👫 ২ জন', nameX: '❌-এর নাম', nameO: '⭕-এর নাম', you: 'তুমি', cpu: 'কম্পিউটার',
       turn: (n, m) => (n === 'তুমি' ? `${m} তোমার পালা` : `${m} ${n}-র পালা`), thinking: '🤔 কম্পিউটার ভাবছে…', win: (n) => `🎉 ${n} জিতেছে!`, cpuWin: '🤖 কম্পিউটার জিতেছে!', draw: '🤝 ড্র! কেউ জেতেনি।',
-      matchWin: (n) => `🏆 ${n} ৫ গেমের ম্যাচ জিতেছে!`, again: '▶ পরের গেম', reset: '↺ নতুন ম্যাচ', shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ',
+      matchWin: (n) => `🏆 ${n} ৫ গেমের ম্যাচ জিতেছে!`, again: '▶ পরের গেম', reset: '↺ নতুন ম্যাচ', shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ', shareFb: '📘 Facebook-এ শেয়ার',
       challenge: (name, n) => `❌⭕ ${name} কাটাকুটিতে কঠিন কম্পিউটারের সঙ্গে ${n}টা গেম ড্র করেছে! তুমিও চেষ্টা করো।`,
       shareText: (url) => `❌⭕ কাটাকুটি (টিক ট্যাক টো) খেলো — কম্পিউটারের "কঠিন" লেভেল কখনো হারে না। তুমি কি আটকাতে পারবে? ${url}`,
       howTitle: 'কীভাবে খেলবে', how: ['ওপরে বাছো: কম্পিউটারের সঙ্গে (সহজ, মাঝারি, কঠিন) বা <b>২ জন</b>।', 'প্রথমে ❌ চলে। খালি ঘরে ট্যাপ করে নিজের চিহ্ন দাও।', 'যে আগে <b>এক সরলরেখায় তিনটে চিহ্ন</b> দেবে — আড়াআড়ি, লম্বালম্বি বা কোনাকুনি — সে জিতবে।', '৯টা ঘর ভরে গেলেও লাইন না হলে <b>ড্র</b>।', '৫ গেমের ম্যাচ: যে আগে ৩টে জিতবে, ম্যাচ তার। প্রতি গেমের পর প্রথম চাল বদলায়।'],
@@ -281,6 +283,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   ['nameX', 'nameO'].forEach((id) => { $(id).value = store.get(`kk-${id}`) || ''; $(id).addEventListener('input', () => { store.set(`kk-${id}`, $(id).value); if (!over) statusTurn(); }); });
   const setModeUi = () => { document.querySelectorAll('.chip').forEach((c) => c.classList.toggle('on', c.dataset.mode === mode)); $('namesBox').classList.toggle('hidden', mode !== 'two'); };
   $('shareWa').addEventListener('click', () => { const u = new URL(SITE); u.searchParams.set('lang', lang); window.open(`https://wa.me/?text=${encodeURIComponent(t('shareText')(u.toString()))}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
 
   // ---------- page texts
   const applyLang = () => {

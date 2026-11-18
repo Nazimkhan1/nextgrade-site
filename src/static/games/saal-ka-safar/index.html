@@ -62,6 +62,7 @@ input::placeholder { color: #a9a6d6; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
 .btn-main { background: linear-gradient(90deg, #f06595, #ff922b); color: #fff; }
 .btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
 .btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
 .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .row2 .btn { font-size: 15px; padding: 11px 8px; }
@@ -126,6 +127,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         <p id="endNote"></p>
         <p id="memRecap"></p>
         <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
         <div class="row2">
           <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
           <button class="btn btn-ghost" id="watch" type="button" data-i18n="watch"></button>
@@ -216,7 +218,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endNote: (n, total, hits) => `${OLD} ki ${n}/${total} yaadein sameti · ${hits} thokar`,
       memRecap: (list) => `Aapke ${OLD} ke khaas pal: ${list}`,
       newBest: '🏅 Naya best score!',
-      shareWa: '📲 WhatsApp pe bhejo',
+      shareWa: '📲 WhatsApp pe bhejo', shareFb: 'Facebook par share karo',
       shareOther: '🔗 Share / copy',
       copied: '✅ Copy ho gaya',
       copyPrompt: 'Ye text copy karein:',
@@ -260,7 +262,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endNote: (n, total, hits) => `${OLD} की ${n}/${total} यादें समेटीं · ${hits} ठोकर`,
       memRecap: (list) => `आपके ${OLD} के ख़ास पल: ${list}`,
       newBest: '🏅 नया बेस्ट स्कोर!',
-      shareWa: '📲 WhatsApp पर भेजो',
+      shareWa: '📲 WhatsApp पर भेजो', shareFb: 'Facebook पर शेयर करो',
       shareOther: '🔗 शेयर / कॉपी',
       copied: '✅ कॉपी हो गया',
       copyPrompt: 'यह टेक्स्ट कॉपी करें:',
@@ -304,7 +306,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endNote: (n, total, hits) => `${n}/${total} memories of ${OLD} collected · ${hits} stumbles`,
       memRecap: (list) => `Your special moments of ${OLD}: ${list}`,
       newBest: '🏅 New best score!',
-      shareWa: '📲 Share on WhatsApp',
+      shareWa: '📲 Share on WhatsApp', shareFb: 'Share on Facebook',
       shareOther: '🔗 Share / copy',
       copied: '✅ Copied',
       copyPrompt: 'Copy this text:',
@@ -348,7 +350,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endNote: (n, total, hits) => `${OLD}-এর ${n}/${total}টি স্মৃতি কুড়োনো হল · ${hits}বার হোঁচট`,
       memRecap: (list) => `তোমার ${OLD}-এর বিশেষ মুহূর্ত: ${list}`,
       newBest: '🏅 নতুন সেরা স্কোর!',
-      shareWa: '📲 WhatsApp-এ পাঠাও',
+      shareWa: '📲 WhatsApp-এ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো',
       shareOther: '🔗 শেয়ার / কপি',
       copied: '✅ কপি হয়েছে',
       copyPrompt: 'এই লেখাটা কপি করো:',
@@ -1193,6 +1195,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   $('resume').addEventListener('click', resume);
   ['name', 'mem0', 'mem1', 'mem2'].forEach((id) => $(id).addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); }));
   $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
   $('shareOther').addEventListener('click', () => {
     const text = shareText();
     if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }

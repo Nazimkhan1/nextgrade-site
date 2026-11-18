@@ -85,6 +85,7 @@ input::placeholder { color: #a9a6d6; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
 .btn-main { background: linear-gradient(90deg, #f06595, #ff922b); color: #fff; }
 .btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
 .btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
 .hidden { display: none !important; }
 section { margin: 28px 0; }
@@ -152,6 +153,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         <p id="endNote"></p>
         <div class="stats" id="endStats"></div>
         <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
         <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
         <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
         <button class="btn btn-ghost" id="setup" type="button" data-i18n="setup"></button>
@@ -236,7 +238,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endNote: (best, isNew) => (isNew ? '🏅 Naya record — sabse kam chaal!' : best ? `Aapka best: ${best} chaal` : ''),
       best: (n) => `Aapka best: ${n} chaal mein jeet`,
       challenge: (name, n) => `🏆 ${name} ne Saanp-Seedhi sirf ${n} chaal mein jeeti! Kya aap jaldi jeet sakte ho?`,
-      shareWa: '📲 WhatsApp pe challenge bhejo',
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo',
       shareOther: '🔗 Link share / copy karo',
       copied: '✅ Copy ho gaya',
       copyPrompt: 'Yeh text copy karo:',
@@ -286,7 +288,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endNote: (best, isNew) => (isNew ? '🏅 नया रिकॉर्ड — सबसे कम चाल!' : best ? `आपका बेस्ट: ${best} चाल` : ''),
       best: (n) => `आपका बेस्ट: ${n} चाल में जीत`,
       challenge: (name, n) => `🏆 ${name} ने साँप-सीढ़ी सिर्फ़ ${n} चाल में जीती! क्या आप जल्दी जीत सकते हो?`,
-      shareWa: '📲 WhatsApp पर चैलेंज भेजो',
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो',
       shareOther: '🔗 लिंक शेयर / कॉपी करो',
       copied: '✅ कॉपी हो गया',
       copyPrompt: 'यह टेक्स्ट कॉपी करो:',
@@ -336,7 +338,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endNote: (best, isNew) => (isNew ? '🏅 New record — fewest moves!' : best ? `Your best: ${best} moves` : ''),
       best: (n) => `Your best: a win in ${n} moves`,
       challenge: (name, n) => `🏆 ${name} won Snakes & Ladders in just ${n} moves! Can you win faster?`,
-      shareWa: '📲 Challenge on WhatsApp',
+      shareWa: '📲 Challenge on WhatsApp', shareFb: 'Share on Facebook',
       shareOther: '🔗 Share / copy link',
       copied: '✅ Copied',
       copyPrompt: 'Copy this text:',
@@ -386,7 +388,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       endNote: (best, isNew) => (isNew ? '🏅 নতুন রেকর্ড — সবচেয়ে কম চাল!' : best ? `তোমার সেরা: ${best} চাল` : ''),
       best: (n) => `তোমার সেরা: ${n} চালে জয়`,
       challenge: (name, n) => `🏆 ${name} মাত্র ${n} চালে সাপ-লুডো জিতেছে! তুমি কি তাড়াতাড়ি জিততে পারবে?`,
-      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও',
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো',
       shareOther: '🔗 লিংক শেয়ার / কপি',
       copied: '✅ কপি হয়েছে',
       copyPrompt: 'এই লেখাটা কপি করো:',
@@ -901,6 +903,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   $('again').addEventListener('click', start);
   $('setup').addEventListener('click', () => { gameId += 1; state = 'idle'; $('endScreen').classList.add('hidden'); $('startScreen').classList.remove('hidden'); });
   $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
   $('shareOther').addEventListener('click', () => {
     const text = shareText();
     if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }

@@ -61,6 +61,7 @@ input::placeholder { color: #b8cfbf; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
 .btn-main { background: linear-gradient(90deg, #2b8a3e, #f08c00); color: #fff; }
 .btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
 .btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
 .hidden { display: none !important; }
 section { margin: 28px 0; }
@@ -112,6 +113,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         <button class="btn btn-main" id="nextBtn" type="button" data-i18n="next"></button>
         <button class="btn btn-ghost" id="retryBtn" type="button" data-i18n="retry"></button>
         <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
         <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
         <button class="btn btn-ghost" id="toLevels" type="button" data-i18n="levelsBtn"></button>
       </div>
@@ -156,7 +158,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       hit: ['Toot gaya! 🥭', 'Shabash! ✨', 'Kya nishana! 🔥'], green: 'Kachcha hai — chhod do! 🍃', hive: 'Madhumakkhiyan! 🐝 Bhaago!', wind: (w) => (w < 0 ? '🌬️ Hawa ← baayein' : '🌬️ Hawa → daayein'),
       winTitle: (name) => `Saare aam toot gaye${name ? `, ${name}` : ''}! 🎉`, loseTitle: 'Patthar khatam 😅', hiveTitle: 'Chhatta chhed diya! 🐝', winNote: (n, left) => `Level ${n} poora · ${left} patthar bache`, loseNote: (n) => `Level ${n} — ek baar aur koshish karo!`, hiveNote: 'Madhumakkhi ke chhatte par kabhi nishana mat lagao.',
       starLine: (s, max) => `Kul star: ${s}/${max} ⭐`, challenge: (name, n) => `🥭 ${name} ne Aam Todo mein ${n} star jeete! Aap kitne jeet paoge?`,
-      shareWa: '📲 WhatsApp pe challenge bhejo', shareOther: '🔗 Link share / copy karo', copied: '✅ Copy ho gaya', copyPrompt: 'Yeh text copy karo:',
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo', shareOther: '🔗 Link share / copy karo', copied: '✅ Copy ho gaya', copyPrompt: 'Yeh text copy karo:',
       shareText: (name, s, url) => `🥭 ${name ? `${name} ne` : 'Maine'} Aam Todo (gulel game) mein ${s} star jeete! Bachpan wala khel — aap bhi nishana lagao: ${url}`,
       howTitle: 'Kaise khelein', how: ['Level chuno. Neeche baayein taraf <b>gulel</b> hai, usmein patthar rakha hai.', 'Patthar ko chhookar <b>peeche aur neeche kheencho</b> — bindiyon wali line dikhegi. Jitna zyada kheenchoge, patthar utni door jayega.', 'Ungli chhodte hi patthar udega. Sirf <b>peele, pake aam</b> todo — hare kachche aam chhod do.', 'Aage ke level mein <b>hawa</b> chalti hai (upar teer dekho) aur daaliyan hilti hain. Level 5 se ped par <b>madhumakkhi ka chhatta</b> hai — use laga to level khatam.', 'Gine-chune patthar hain. Jitne patthar bachenge, utne star (3 tak).'],
       aboutTitle: 'Gulel aur aam — garmiyon ka khel', aboutText: 'Garmiyon ki chhuttiyon mein gaon aur mohalle ke bachche aam ke ped ke neeche jama hote, aur gulel (Y-shape ki lakdi par rubber) ya chhote patthar se pake aam girane ki koshish karte. Jo aam girta, use baant kar khaate — kaccha aam ho to namak-mirch ke saath!', aboutText2: 'Asli gulel se chot lag sakti hai. Kabhi bhi insaan, jaanwar, chidiya, khidki ya madhumakkhi ke chhatte par nishana mat lagao, aur bade ki maujoodgi mein hi khelo. Yeh game wahi mazaa deta hai — bina kisi khatre ke.',
@@ -171,7 +173,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       hit: ['टूट गया! 🥭', 'शाबाश! ✨', 'क्या निशाना! 🔥'], green: 'कच्चा है — छोड़ दो! 🍃', hive: 'मधुमक्खियाँ! 🐝 भागो!', wind: (w) => (w < 0 ? '🌬️ हवा ← बाएँ' : '🌬️ हवा → दाएँ'),
       winTitle: (name) => `सारे आम टूट गए${name ? `, ${name}` : ''}! 🎉`, loseTitle: 'पत्थर ख़त्म 😅', hiveTitle: 'छत्ता छेड़ दिया! 🐝', winNote: (n, left) => `लेवल ${n} पूरा · ${left} पत्थर बचे`, loseNote: (n) => `लेवल ${n} — एक बार और कोशिश करो!`, hiveNote: 'मधुमक्खी के छत्ते पर कभी निशाना मत लगाओ।',
       starLine: (s, max) => `कुल स्टार: ${s}/${max} ⭐`, challenge: (name, n) => `🥭 ${name} ने आम तोड़ो में ${n} स्टार जीते! आप कितने जीत पाओगे?`,
-      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareOther: '🔗 लिंक शेयर / कॉपी करो', copied: '✅ कॉपी हो गया', copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो', shareOther: '🔗 लिंक शेयर / कॉपी करो', copied: '✅ कॉपी हो गया', copyPrompt: 'यह टेक्स्ट कॉपी करो:',
       shareText: (name, s, url) => `🥭 ${name ? `${name} ने` : 'मैंने'} आम तोड़ो (गुलेल गेम) में ${s} स्टार जीते! बचपन वाला खेल — आप भी निशाना लगाओ: ${url}`,
       howTitle: 'कैसे खेलें', how: ['लेवल चुनो। नीचे बाईं तरफ़ <b>गुलेल</b> है, उसमें पत्थर रखा है।', 'पत्थर को छूकर <b>पीछे और नीचे खींचो</b> — बिंदुओं वाली लाइन दिखेगी। जितना ज़्यादा खींचोगे, पत्थर उतनी दूर जाएगा।', 'उँगली छोड़ते ही पत्थर उड़ेगा। सिर्फ़ <b>पीले, पके आम</b> तोड़ो — हरे कच्चे आम छोड़ दो।', 'आगे के लेवल में <b>हवा</b> चलती है (ऊपर तीर देखो) और डालियाँ हिलती हैं। लेवल 5 से पेड़ पर <b>मधुमक्खी का छत्ता</b> है — उसे लगा तो लेवल ख़त्म।', 'गिने-चुने पत्थर हैं। जितने पत्थर बचेंगे, उतने स्टार (3 तक)।'],
       aboutTitle: 'गुलेल और आम — गर्मियों का खेल', aboutText: 'गर्मियों की छुट्टियों में गाँव और मोहल्ले के बच्चे आम के पेड़ के नीचे जमा होते, और गुलेल (Y आकार की लकड़ी पर रबर) या छोटे पत्थर से पके आम गिराने की कोशिश करते। जो आम गिरता, उसे बाँटकर खाते — कच्चा आम हो तो नमक-मिर्च के साथ!', aboutText2: 'असली गुलेल से चोट लग सकती है। कभी भी इंसान, जानवर, चिड़िया, खिड़की या मधुमक्खी के छत्ते पर निशाना मत लगाओ, और बड़े की मौजूदगी में ही खेलो। यह गेम वही मज़ा देता है — बिना किसी ख़तरे के।',
@@ -186,7 +188,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       hit: ['Got it! 🥭', 'Nice! ✨', 'What a shot! 🔥'], green: 'Still green — leave it! 🍃', hive: 'Bees! 🐝 Run!', wind: (w) => (w < 0 ? '🌬️ Wind ← left' : '🌬️ Wind → right'),
       winTitle: (name) => `All mangoes down${name ? `, ${name}` : ''}! 🎉`, loseTitle: 'Out of stones 😅', hiveTitle: 'You hit the beehive! 🐝', winNote: (n, left) => `Level ${n} done · ${left} stones left`, loseNote: (n) => `Level ${n} — try once more!`, hiveNote: 'Never aim at a beehive.',
       starLine: (s, max) => `Total stars: ${s}/${max} ⭐`, challenge: (name, n) => `🥭 ${name} won ${n} stars in Aam Todo! How many can you win?`,
-      shareWa: '📲 Send a WhatsApp challenge', shareOther: '🔗 Share / copy link', copied: '✅ Copied', copyPrompt: 'Copy this text:',
+      shareWa: '📲 Send a WhatsApp challenge', shareFb: 'Share on Facebook', shareOther: '🔗 Share / copy link', copied: '✅ Copied', copyPrompt: 'Copy this text:',
       shareText: (name, s, url) => `🥭 ${name ? `${name} won` : 'I won'} ${s} stars in Aam Todo (the slingshot game)! The childhood game — take aim too: ${url}`,
       howTitle: 'How to play', how: ['Pick a level. The <b>slingshot</b> is at the bottom left, with a stone in it.', 'Touch the stone and <b>pull back and down</b> — a dotted line appears. The further you pull, the further it flies.', 'Let go to shoot. Knock down only the <b>yellow, ripe mangoes</b> — leave the green ones.', 'Later levels have <b>wind</b> (see the arrow at the top) and swaying branches. From level 5 there is a <b>beehive</b> — hit it and the level is over.', 'You have a few stones. The more you save, the more stars (up to 3).'],
       aboutTitle: 'Slingshots and mangoes — a summer game', aboutText: 'In the summer holidays, children in villages and neighbourhoods gathered under the mango tree and tried to bring down ripe mangoes with a gulel (rubber on a Y-shaped stick) or small stones. Whatever fell was shared — green mangoes with salt and chilli!', aboutText2: 'A real slingshot can hurt. Never aim at people, animals, birds, windows or beehives, and only play with an adult nearby. This game gives you the same fun — safely.',
@@ -201,7 +203,7 @@ footer a { color: var(--muted); margin-right: 12px; }
       hit: ['পড়েছে! 🥭', 'সাবাশ! ✨', 'কী টিপ! 🔥'], green: 'কাঁচা — ছেড়ে দাও! 🍃', hive: 'মৌমাছি! 🐝 পালাও!', wind: (w) => (w < 0 ? '🌬️ হাওয়া ← বাঁয়ে' : '🌬️ হাওয়া → ডাইনে'),
       winTitle: (name) => `সব আম পড়েছে${name ? `, ${name}` : ''}! 🎉`, loseTitle: 'পাথর শেষ 😅', hiveTitle: 'চাকে লেগে গেছে! 🐝', winNote: (n, left) => `লেভেল ${n} শেষ · ${left}টা পাথর বাকি`, loseNote: (n) => `লেভেল ${n} — আর একবার চেষ্টা করো!`, hiveNote: 'মৌমাছির চাকে কখনো টিপ কোরো না।',
       starLine: (s, max) => `মোট তারা: ${s}/${max} ⭐`, challenge: (name, n) => `🥭 ${name} আম পাড়ো খেলায় ${n}টা তারা জিতেছে! তুমি কতগুলো পাবে?`,
-      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: '🔗 লিংক শেয়ার / কপি করো', copied: '✅ কপি হয়েছে', copyPrompt: 'এই লেখাটা কপি করো:',
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো', shareOther: '🔗 লিংক শেয়ার / কপি করো', copied: '✅ কপি হয়েছে', copyPrompt: 'এই লেখাটা কপি করো:',
       shareText: (name, s, url) => `🥭 ${name ? `${name}` : 'আমি'} আম পাড়ো (গুলতির খেলা)-য় ${s}টা তারা জিতেছি! ছোটবেলার খেলা — তুমিও টিপ করো: ${url}`,
       howTitle: 'কীভাবে খেলবে', how: ['লেভেল বাছো। নিচে বাঁদিকে <b>গুলতি</b>, তাতে পাথর রাখা।', 'পাথর ছুঁয়ে <b>পিছনে আর নিচে টানো</b> — বিন্দু-বিন্দু লাইন দেখা যাবে। যত টানবে, পাথর তত দূরে যাবে।', 'আঙুল ছাড়লেই পাথর উড়বে। শুধু <b>হলুদ, পাকা আম</b> পাড়ো — কাঁচা সবুজ আম ছেড়ে দাও।', 'পরের লেভেলে <b>হাওয়া</b> বয় (ওপরে তির দেখো) আর ডাল দোলে। লেভেল ৫ থেকে গাছে <b>মৌচাক</b> — লাগলেই লেভেল শেষ।', 'পাথর গোনা-গুনতি। যত পাথর বাঁচবে, তত তারা (৩টে পর্যন্ত)।'],
       aboutTitle: 'গুলতি আর আম — গরমের খেলা', aboutText: 'গরমের ছুটিতে গ্রাম আর পাড়ার ছেলেমেয়েরা আমগাছের তলায় জড়ো হত, গুলতি (Y আকারের ডালে রবার) বা ছোট ঢিল দিয়ে পাকা আম পাড়ার চেষ্টা করত। যা পড়ত, ভাগ করে খেত — কাঁচা হলে নুন-লঙ্কা দিয়ে!', aboutText2: 'আসল গুলতিতে চোট লাগতে পারে। মানুষ, পশুপাখি, জানালা বা মৌচাকে কখনো টিপ কোরো না, আর বড়দের সামনেই খেলো। এই খেলায় সেই মজা — কোনো বিপদ ছাড়াই।',
@@ -398,6 +400,7 @@ footer a { color: var(--muted); margin-right: 12px; }
   // ---------- share
   const shareText = () => { const u = new URL(SITE); if (playerName) u.searchParams.set('from', playerName); u.searchParams.set('score', String(totalStars())); u.searchParams.set('lang', lang); return t('shareText')(playerName, totalStars(), u.toString()); };
   $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
   $('shareOther').addEventListener('click', () => { const text = shareText(); if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; } (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(() => { $('shareOther').textContent = t('copied'); }).catch(() => window.prompt(t('copyPrompt'), text)); });
 
   if ('ResizeObserver' in window) new ResizeObserver(resize).observe($('stage'));
