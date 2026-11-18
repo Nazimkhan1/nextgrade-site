@@ -1,0 +1,16 @@
+{
+  "name": "Exam Form Photo & Signature Resizer — NextGrade Tools",
+  "short_name": "Form Photo",
+  "description": "Resize photo, signature, thumb impression and declaration to the exact size and KB for SSC, UPSC, IBPS / SBI and NTA forms. Runs on your phone; nothing is uploaded.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f3f0ff",
+  "theme_color": "#5f3dc4",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

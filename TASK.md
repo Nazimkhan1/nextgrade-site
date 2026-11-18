@@ -336,3 +336,9 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 - **To update a tool:** change it in nextgrade-tools (branch → main), then copy `<slug>/` again into `src/static/tools/` (keep the AdSense/canonical/footer edits; the copy script used: scratch `ng/step3.py` logic) and bump that tool's `CACHE` in its sw.js.
 - Size: the tools add ~110 MB to the repo (AI models, OpenCV).
 - Not yet tested on a real phone.
+
+## Form Helper tool (18 Nov 2026)
+- `tool:form-helper` → **Fri 5 Mar 2027** (after hair-tryon on 2 Mar). Exam form photo / signature / thumb / declaration resizer (SSC, UPSC, IBPS-SBI, NTA presets + custom), exact px + KB range, signature clean-up. No AI library (~60 KB). Source: nextgrade-tools `form-helper/` (main 2547b2e); copied with the same AdSense/canonical/footer edits.
+- Privacy Policy tools paragraph now also names "exam form photo and signature resizer" (shows only once a tool is live).
+- Preview check (RELEASE_TODAY=2027-03-05): listed on /tools/, in sitemap, prerender +516 words. Today: no /tools/, nothing visible.
+- Before it goes live: re-check the exam sizes against the latest SSC / UPSC / IBPS / NTA notices.

@@ -24,6 +24,11 @@ const tools = [
     en: ['Hair Colour & Beard Try-On', 'Try 16 hair colours plus beard and moustache styles on your own photo, with a before/after slider.'],
     hinglish: ['Baal ka Rang & Daadhi Try-On', 'Apni photo par baalon ke 16 rang, daadhi aur moonchh ke style lagao, pehle/baad mein dekho.'],
     bn: ['চুলের রং আর দাড়ি ট্রাই', 'নিজের ছবিতে চুলের ১৬টা রং, দাড়ি আর গোঁফের স্টাইল লাগাও, আগে/পরে দেখো।'] },
+  { slug: 'form-helper', emoji: '📝',
+    hi: ['फ़ॉर्म के लिए फ़ोटो और सिग्नेचर रीसाइज़र', 'SSC, UPSC, IBPS / SBI, NEET, JEE फ़ॉर्म के लिए फ़ोटो, सिग्नेचर, अँगूठा और डिक्लेरेशन — सही px और KB में। काग़ज़ वाला सिग्नेचर साफ़ भी।'],
+    en: ['Exam Form Photo & Signature Resizer', 'Photo, signature, thumb and declaration at the exact px and KB that SSC, UPSC, IBPS / SBI, NEET and JEE forms ask for. Cleans up a signature on paper.'],
+    hinglish: ['Form Photo & Signature Resizer', 'SSC, UPSC, IBPS / SBI, NEET, JEE form ke liye photo, signature, angootha aur declaration — sahi px aur KB mein. Kaagaz wala signature saaf bhi.'],
+    bn: ['ফর্মের ছবি ও সই রিসাইজার', 'SSC, UPSC, IBPS / SBI, NEET, JEE ফর্মের জন্য ছবি, সই, আঙুলের ছাপ আর ডিক্লারেশন — ঠিক px আর KB-তে। কাগজের সই পরিষ্কারও।'] },
 ];
 
 export { tools };

@@ -41,6 +41,7 @@ const releases = {
   'tool:doc-scanner': '2027-02-23',
   'tool:bg-remover': '2027-02-26',
   'tool:hair-tryon': '2027-03-02',
+  'tool:form-helper': '2027-03-05',
 };
 
 // today's date in India (the release day changes at midnight IST)
