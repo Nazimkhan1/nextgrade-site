@@ -46,6 +46,7 @@ const releases = {
   // moved back for the Shivratri / Eid / Holi wishes (festival pages first)
   'story:mulla-ki-degchi': '2027-03-12',
   'game:kanche': '2027-03-16',
+  'game:gilli-danda': '2027-03-19',
 };
 
 // today's date in India (the release day changes at midnight IST)

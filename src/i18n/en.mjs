@@ -317,6 +317,7 @@ const games = {
   'basant-sargam': { name: 'Basant ki Sargam', desc: 'The petals of a spring flower play Sa Re Ga Ma Pa Dha Ni like Maa Saraswati\'s veena — repeat the tune, one note longer every round. Vasant Panchami game with a practice mode.' },
   'rang-barsao': { name: 'Rang Barsao (Holi)', desc: 'Throw dry gulal at friends peeping out of a Braj lane — favourite colour scores double. No colour on anyone who says no, and never on animals! 60 seconds.' },
   'kanche': { name: 'Kanche (Marbles)', desc: 'The childhood marbles game: pull back and flick to knock marbles out of the circle or roll into the gucchi. 6 levels with stars — no bets, just aim.' },
+  'gilli-danda': { name: 'Gilli-Danda', desc: 'The childhood street game: tap to flip the gilli up, tap again to strike it far. High shot or flat — the village kids are waiting to catch it. Score in danda lengths.' },
   'raja-mantri-chor-sipahi': { name: 'Raja Mantri Chor Sipahi', desc: 'The old chit game on one phone: 4 friends pass it round to see their chits, or play the computer. Mantri ji, who is the Chor? 5 or 10 rounds.' },
   'langar-seva': { name: 'Langar Seva', desc: 'Do seva in the langar this Gurpurab: serve prashada, dal, kheer and water to the sangat in pangat. 60 seconds, no music, with Guru Nanak Dev Ji\'s teachings.' },
 };

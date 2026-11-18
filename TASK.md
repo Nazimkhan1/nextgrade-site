@@ -351,3 +351,8 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 ## Kahani SEO content (18 Nov 2026)
 - Every story page now also has "About <source>" (a short note on Panchatantra / Jataka / Aesop / Akbar-Birbal / Tenali Raman / Mulla Nasruddin / Sheikh Chilli / Vikram-Betaal / folk tale / grandma's tale) and a 3-question FAQ (moral, where it comes from, reading time + age) with FAQPage JSON-LD. Source: `src/story-info.mjs`, built from each story's own data, so new stories get it automatically (add a SOURCE_INFO entry for a new source).
 - Pyasa Kauwa (en): 335 → 501 words. Page structure, nav and ads unchanged.
+
+## Gilli-Danda game (18 Nov 2026)
+- `game:gilli-danda` → **Fri 19 Mar 2027** (after Kanche on 16 Mar). `src/static/games/gilli-danda/`: tap 1 flips the gilli (timing bar, green zone), tap 2 strikes it in the air; hit while rising = high shot (far, but fielders get time), while falling = flat shot. Score in danda lengths (1 danda = 0.6 m), 3 lives (caught / dropped / missed), best score saved, WhatsApp challenge, 4 languages, no music, offline sw.
+- Balance (bot, perfect timing): flat shots ~36 danda, caught 29%; high shots ~75 danda, caught 64%. Fielders: 1 kid, a second after 4 hits; off-screen fielders shown as a marker with their distance.
+- Preview (RELEASE_TODAY=2027-03-19): on /games/ and in the sitemap, prerender +449 words. Not on playninja.co's list.

@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gilli-Danda 🏏 — Bachpan Game | NextGrade</title>
+<meta name="description" content="Gilli-Danda: the childhood street game, free in Hinglish, Hindi, English and Bengali. Tap once to flip the gilli up, tap again to strike it far — but the village kids are waiting to catch it. Score in danda lengths and challenge friends on WhatsApp.">
+<link rel="canonical" href="https://nextgrade.in/games/gilli-danda/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Gilli-Danda 🏏 — Bachpan Game">
+<meta property="og:description" content="Bachpan wala gilli-danda: gilli uchhalo, zor se maaro, aur dekho kitne danda door jaati hai — kahin koi lapak na le!">
+<meta property="og:url" content="https://nextgrade.in/games/gilli-danda/">
+<meta property="og:image" content="https://nextgrade.in/games/gilli-danda/icons/icon-512.png">
+<meta name="theme-color" content="#e8590c">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Gilli-Danda","url":"https://nextgrade.in/games/gilli-danda/","genre":"Casual","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #2b1606; --gold: #ffd43b; --ink: #f8f9fa; --muted: #ead8c4; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #8a4a12, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #e8590c, #f59f00); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.45); height: min(70vh, 560px, 130vw); min-height: 420px; background: #a5d8ff; touch-action: none; user-select: none; -webkit-user-select: none; cursor: pointer; }
+#cv { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hud { position: absolute; top: 10px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 16px; color: #3b2a14; pointer-events: none; z-index: 3; gap: 6px; }
+.hud span { background: rgba(255,255,255,0.85); border-radius: 12px; padding: 2px 10px; white-space: nowrap; }
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(40, 20, 6, 0.74); padding: 16px; overflow-y: auto; z-index: 10; cursor: default; }
+.panel { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 18px; width: min(420px, 100%); text-align: center; margin: auto; color: var(--ink); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: #f3e6d8; }
+.panel .fact { background: rgba(255,212,59,0.12); border: 1px solid rgba(255,212,59,0.35); border-radius: 12px; padding: 8px 10px; color: #ffe8a3; font-size: 15px; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 44px; font-weight: 800; color: var(--gold); line-height: 1.1; margin: 6px 0; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 8px 0; }
+input::placeholder { color: #d9c4ad; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #e8590c, #f08c00); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+@media (max-width: 480px) { .panel { padding: 14px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .hud { font-size: 14px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🏏 NextGrade<small>Bachpan</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="cv" aria-label="Gilli-danda ground"></canvas>
+    <div class="hud" aria-hidden="true"><span id="hudLives">❤️❤️❤️</span><span id="hudScore">0</span><span id="hudBest">🏆 0</span></div>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle"></h2>
+        <p data-i18n="controls"></p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <button class="btn btn-main" id="playBtn" type="button" data-i18n="play"></button>
+        <p id="bestLine"></p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big" id="endScore"></div>
+        <p id="endNote"></p>
+        <p class="fact" id="endFact"></p>
+        <button class="btn btn-main" id="againBtn" type="button" data-i18n="again"></button>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card2"><ol id="howList"></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="factsTitle"></h2>
+    <div class="card2"><ul id="factList"></ul></div>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/gilli-danda/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const FACT_KEYS = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7'];
+  const DANDA = 0.6; // metres in one danda length: distance is counted in dandas, like in the lane
+  const LIVES = 3;
+  const RUN = 3.2; // how fast the village kids run (m/s)
+  const BADGES = [[800, '🥇'], [400, '🥈'], [150, '🥉']];
+
+  const T = {
+    hinglish: {
+      title: 'Gilli-Danda 🏏',
+      sub: 'Bachpan wala gilli-danda! Pehle tap se gilli uchhalo, doosre tap se hawa mein zor se maaro. Door tak bhejo — par gaon ke bachche lapakne ko taiyaar hain. 3 baar out, phir khel khatam.',
+      startTitle: 'Chalo gilli-danda khelein 🏏',
+      controls: 'Tap 1: jab teer hare hisse mein ho, tap karke gilli uchhalo. Tap 2: gilli kamar ki oonchai par aaye tab maaro. Upar jaati gilli ko maaroge to oonchi jaayegi (lapakna aasaan), girti ko maaroge to seedhi aur neechi.',
+      namePh: 'Aapka naam (optional)', play: '▶ Khelo', again: '🔁 Phir se khelo',
+      tapPop: '👆 Tap — gilli uchhalo!', tapHit: '💥 Ab maaro!',
+      q: ['Theek', 'Badhiya!', 'Zabardast! 🔥'], miss: 'Chook gaye! 😅', fell: 'Gilli gir gayi 😅', caught: 'Lapak li! Out 🙌', plus: (n) => `+${n} danda`, unit: 'danda',
+      best: (n) => `Sabse achha: ${n} danda`,
+      endTitle: (name) => `Khel khatam${name ? `, ${name}` : ''}!`,
+      endNote: (hits, best, badge) => `${hits} shot · sabse lamba ${best} danda${badge ? ` · ${badge}` : ''}`,
+      newBest: '🏆 Naya record!',
+      challenge: (name, n) => `🏏 ${name} ne Gilli-Danda mein ${n} danda door tak gilli bheji! Aap kitni door bhejoge?`,
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareOther: '🔗 Link share / copy karo', copied: '✅ Copy ho gaya', copyPrompt: 'Yeh text copy karo:',
+      shareText: (name, n, url) => `🏏 ${name ? `${name} ne` : 'Maine'} Gilli-Danda mein ${n} danda score kiya! Bachpan wala khel — aap bhi khelo: ${url}`,
+      howTitle: 'Kaise khelein',
+      how: ['<b>Khelo</b> dabao. Neeche ek teer aage-peeche chalta hai — <b>hare hisse</b> mein ho tab tap karo, gilli achhi uchhalegi.', 'Gilli hawa mein ho to <b>doosra tap</b> — kamar ki oonchai par maaroge to sabse zor ki shot.', 'Upar jaati gilli ko maaro to <b>oonchi shot</b> (door jaati hai par lapakne ka time zyada). Girti gilli ko maaro to <b>neechi, seedhi shot</b>.', 'Gilli jitni door girti hai, utne <b>danda</b> milte hain. Koi bachcha lapak le, gilli gir jaaye ya chook jaao to ek ❤️ kam.', '3 ❤️ khatam, khel khatam. Apna score WhatsApp pe dosto ko challenge karo.'],
+      aboutTitle: 'Gilli-Danda — gali ka cricket',
+      aboutText: 'Gilli-danda Bharat ke sabse purane gali-khelon mein se hai. Ek lambi lakdi (danda) aur ek chhoti, dono taraf se nukeeli lakdi (gilli). Zameen mein chhota sa gaddha (gucchi) banaate, gilli ke nukeele sire par danda maar kar use uchhalte, aur hawa mein hi zor se maar kar door bhejte. Door kitni gayi, yeh danda se naap kar ginte.',
+      aboutText2: 'Doosri team ke khiladi gilli ko hawa mein lapakne ki koshish karte — lapak li to khiladi out. Asli gilli-danda khule maidaan mein khelo, aur saamne koi na khada ho: gilli aankh ya chehre par lag sakti hai.',
+      factsTitle: 'Gilli-Danda ke tathya',
+      facts: {
+        f1: 'Alag-alag jagah iske alag naam hain: Bangla mein "dang-guli", Marathi mein "viti-dandu", Kannada mein "chinni-dandu", Tamil mein "kitti-pullu", Malayalam mein "kuttiyum kolum".',
+        f2: 'Munshi Premchand ki mashhoor kahani "Gulli-Danda" bachpan ke isi khel aur do doston ki dosti par hai.',
+        f3: 'England mein milta-julta khel "tip-cat" kehlaata tha — wahan bhi chhoti lakdi ko uchhal kar maarte the.',
+        f4: 'Kai log maante hain ki cricket aur baseball jaise khelon ka idea bhi aise hi "lakdi se maaro, door bhejo" khelon se aaya.',
+        f5: 'Gilli ko dono taraf se nukeela banaate hain taaki ek sire par maarne se woh ghoomti hui upar uchhle.',
+        f6: 'Physics: 45° ke aas-paas maari gayi cheez sabse door jaati hai (hawa ko chhod kar) — isliye bahut oonchi ya bahut neechi shot kam door jaati hai.',
+        f7: 'Is khel mein na mehnga saamaan chahiye, na bada maidaan — bas do lakdiyan aur dost.',
+      },
+      moreGames: 'Aur games khelo →', privacyTitle: 'Aapka data', privacyText: 'Naam aur score sirf aapke phone mein rehte hain. Share link mein sirf naam aur score jaate hain. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'गिल्ली-डंडा 🏏',
+      sub: 'बचपन वाला गिल्ली-डंडा! पहले टैप से गिल्ली उछालो, दूसरे टैप से हवा में ज़ोर से मारो। दूर तक भेजो — पर गाँव के बच्चे लपकने को तैयार हैं। 3 बार आउट, फिर खेल ख़त्म।',
+      startTitle: 'चलो गिल्ली-डंडा खेलें 🏏',
+      controls: 'टैप 1: जब तीर हरे हिस्से में हो, टैप करके गिल्ली उछालो। टैप 2: गिल्ली कमर की ऊँचाई पर आए तब मारो। ऊपर जाती गिल्ली को मारोगे तो ऊँची जाएगी (लपकना आसान), गिरती को मारोगे तो सीधी और नीची।',
+      namePh: 'आपका नाम (ज़रूरी नहीं)', play: '▶ खेलो', again: '🔁 फिर से खेलो',
+      tapPop: '👆 टैप — गिल्ली उछालो!', tapHit: '💥 अब मारो!',
+      q: ['ठीक', 'बढ़िया!', 'ज़बरदस्त! 🔥'], miss: 'चूक गए! 😅', fell: 'गिल्ली गिर गई 😅', caught: 'लपक ली! आउट 🙌', plus: (n) => `+${n} डंडा`, unit: 'डंडा',
+      best: (n) => `सबसे अच्छा: ${n} डंडा`,
+      endTitle: (name) => `खेल ख़त्म${name ? `, ${name}` : ''}!`,
+      endNote: (hits, best, badge) => `${hits} शॉट · सबसे लंबा ${best} डंडा${badge ? ` · ${badge}` : ''}`,
+      newBest: '🏆 नया रिकॉर्ड!',
+      challenge: (name, n) => `🏏 ${name} ने गिल्ली-डंडा में ${n} डंडा दूर तक गिल्ली भेजी! आप कितनी दूर भेजोगे?`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareOther: '🔗 लिंक शेयर / कॉपी करो', copied: '✅ कॉपी हो गया', copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareText: (name, n, url) => `🏏 ${name ? `${name} ने` : 'मैंने'} गिल्ली-डंडा में ${n} डंडा स्कोर किया! बचपन वाला खेल — आप भी खेलो: ${url}`,
+      howTitle: 'कैसे खेलें',
+      how: ['<b>खेलो</b> दबाओ। नीचे एक तीर आगे-पीछे चलता है — <b>हरे हिस्से</b> में हो तब टैप करो, गिल्ली अच्छी उछलेगी।', 'गिल्ली हवा में हो तो <b>दूसरा टैप</b> — कमर की ऊँचाई पर मारोगे तो सबसे ज़ोर का शॉट।', 'ऊपर जाती गिल्ली को मारो तो <b>ऊँचा शॉट</b> (दूर जाता है पर लपकने का समय ज़्यादा)। गिरती गिल्ली को मारो तो <b>नीचा, सीधा शॉट</b>।', 'गिल्ली जितनी दूर गिरती है, उतने <b>डंडा</b> मिलते हैं। कोई बच्चा लपक ले, गिल्ली गिर जाए या चूक जाओ तो एक ❤️ कम।', '3 ❤️ ख़त्म, खेल ख़त्म। अपना स्कोर WhatsApp पर दोस्तों को चैलेंज करो।'],
+      aboutTitle: 'गिल्ली-डंडा — गली का क्रिकेट',
+      aboutText: 'गिल्ली-डंडा भारत के सबसे पुराने गली-खेलों में से है। एक लंबी लकड़ी (डंडा) और एक छोटी, दोनों तरफ़ से नुकीली लकड़ी (गिल्ली)। ज़मीन में छोटा सा गड्ढा (गुच्ची) बनाते, गिल्ली के नुकीले सिरे पर डंडा मारकर उसे उछालते, और हवा में ही ज़ोर से मारकर दूर भेजते। दूर कितनी गई, यह डंडे से नापकर गिनते।',
+      aboutText2: 'दूसरी टीम के खिलाड़ी गिल्ली को हवा में लपकने की कोशिश करते — लपक ली तो खिलाड़ी आउट। असली गिल्ली-डंडा खुले मैदान में खेलो, और सामने कोई न खड़ा हो: गिल्ली आँख या चेहरे पर लग सकती है।',
+      factsTitle: 'गिल्ली-डंडा के तथ्य',
+      facts: {
+        f1: 'अलग-अलग जगह इसके अलग नाम हैं: बांग्ला में "डांग-गुली", मराठी में "विटी-दांडू", कन्नड़ में "चिन्नी-दांडू", तमिल में "किट्टी-पुल्लू", मलयालम में "कुट्टियुम कोलुम"।',
+        f2: 'मुंशी प्रेमचंद की मशहूर कहानी "गुल्ली-डंडा" बचपन के इसी खेल और दो दोस्तों की दोस्ती पर है।',
+        f3: 'इंग्लैंड में मिलता-जुलता खेल "टिप-कैट" कहलाता था — वहाँ भी छोटी लकड़ी को उछालकर मारते थे।',
+        f4: 'कई लोग मानते हैं कि क्रिकेट और बेसबॉल जैसे खेलों का विचार भी ऐसे ही "लकड़ी से मारो, दूर भेजो" खेलों से आया।',
+        f5: 'गिल्ली को दोनों तरफ़ से नुकीला बनाते हैं ताकि एक सिरे पर मारने से वह घूमती हुई ऊपर उछले।',
+        f6: 'भौतिकी: 45° के आसपास मारी गई चीज़ सबसे दूर जाती है (हवा को छोड़कर) — इसलिए बहुत ऊँचा या बहुत नीचा शॉट कम दूर जाता है।',
+        f7: 'इस खेल में न महँगा सामान चाहिए, न बड़ा मैदान — बस दो लकड़ियाँ और दोस्त।',
+      },
+      moreGames: 'और गेम खेलो →', privacyTitle: 'आपका डेटा', privacyText: 'नाम और स्कोर सिर्फ़ आपके फ़ोन में रहते हैं। शेयर लिंक में सिर्फ़ नाम और स्कोर जाते हैं। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Gilli-Danda 🏏',
+      sub: 'The childhood street game! Tap once to flip the gilli up, tap again to strike it in the air. Send it far — but the village kids are waiting to catch it. Out three times and the game ends.',
+      startTitle: 'Let\'s play gilli-danda 🏏',
+      controls: 'Tap 1: when the arrow is in the green, tap to flip the gilli up. Tap 2: strike when it is at waist height. Hit it while it rises for a high shot (easier to catch), or as it falls for a low, flat one.',
+      namePh: 'Your name (optional)', play: '▶ Play', again: '🔁 Play again',
+      tapPop: '👆 Tap to flip the gilli!', tapHit: '💥 Strike now!',
+      q: ['OK', 'Good!', 'Superb! 🔥'], miss: 'Missed! 😅', fell: 'The gilli dropped 😅', caught: 'Caught! Out 🙌', plus: (n) => `+${n} danda`, unit: 'danda',
+      best: (n) => `Best: ${n} danda`,
+      endTitle: (name) => `Game over${name ? `, ${name}` : ''}!`,
+      endNote: (hits, best, badge) => `${hits} shots · longest ${best} danda${badge ? ` · ${badge}` : ''}`,
+      newBest: '🏆 New record!',
+      challenge: (name, n) => `🏏 ${name} sent the gilli ${n} danda in Gilli-Danda! How far can you go?`,
+      shareWa: '📲 Send a WhatsApp challenge', shareOther: '🔗 Share / copy link', copied: '✅ Copied', copyPrompt: 'Copy this text:',
+      shareText: (name, n, url) => `🏏 ${name ? `${name} scored` : 'I scored'} ${n} danda in Gilli-Danda! The childhood game — play too: ${url}`,
+      howTitle: 'How to play',
+      how: ['Tap <b>Play</b>. An arrow swings below — tap while it is in the <b>green</b> to flip the gilli up nicely.', 'While the gilli is in the air, <b>tap again</b> — striking at waist height gives the strongest shot.', 'Strike it while it rises for a <b>high shot</b> (goes far, but gives fielders time). Strike it as it falls for a <b>low, flat shot</b>.', 'You score as many <b>danda</b> lengths as the gilli travels. If a kid catches it, it drops or you miss, you lose a ❤️.', 'Lose 3 ❤️ and the game ends. Challenge your friends on WhatsApp.'],
+      aboutTitle: 'Gilli-Danda — the cricket of the lanes',
+      aboutText: 'Gilli-danda is one of India\'s oldest street games. It needs a long stick (danda) and a short stick sharpened at both ends (gilli). Players dig a small groove (gucchi), tap the gilli\'s tip with the danda to flip it up, and strike it in mid-air to send it far. The distance is then measured in danda lengths.',
+      aboutText2: 'Players of the other side try to catch the gilli in the air — a catch puts the striker out. If you play the real game, play in an open ground with nobody standing in front: a flying gilli can hurt eyes and faces.',
+      factsTitle: 'Gilli-Danda facts',
+      facts: {
+        f1: 'It has many names: "dang-guli" in Bengali, "viti-dandu" in Marathi, "chinni-dandu" in Kannada, "kitti-pullu" in Tamil and "kuttiyum kolum" in Malayalam.',
+        f2: 'Munshi Premchand\'s well-known story "Gulli-Danda" is about this very game and the friendship of two boys.',
+        f3: 'A similar game in England was called "tip-cat" — there too a small stick was flipped up and struck.',
+        f4: 'Many people believe bat-and-ball games like cricket and baseball grew out of such "hit the stick far" games.',
+        f5: 'The gilli is sharpened at both ends so that striking one tip makes it spin up into the air.',
+        f6: 'Physics: ignoring air, something launched at about 45° goes the farthest — so very high or very flat shots travel less.',
+        f7: 'The game needs no costly kit or big field — just two sticks and friends.',
+      },
+      moreGames: 'Play more games →', privacyTitle: 'Your data', privacyText: 'Your name and score stay only on your phone. A share link carries only the name and score. No login, no server.',
+    },
+    bn: {
+      title: 'ডাংগুলি 🏏',
+      sub: 'ছোটবেলার ডাংগুলি! প্রথম ট্যাপে গুলি তোলো, দ্বিতীয় ট্যাপে হাওয়াতেই জোরে মারো। দূরে পাঠাও — কিন্তু গ্রামের ছেলেমেয়েরা লুফে নিতে তৈরি। ৩ বার আউট হলে খেলা শেষ।',
+      startTitle: 'চলো ডাংগুলি খেলি 🏏',
+      controls: 'ট্যাপ ১: তির সবুজ অংশে এলে ট্যাপ করে গুলি তোলো। ট্যাপ ২: গুলি কোমরের উচ্চতায় এলে মারো। ওঠার সময় মারলে উঁচু শট (লোফা সহজ), নামার সময় মারলে নিচু সোজা শট।',
+      namePh: 'তোমার নাম (না দিলেও চলবে)', play: '▶ খেলো', again: '🔁 আবার খেলো',
+      tapPop: '👆 ট্যাপ — গুলি তোলো!', tapHit: '💥 এবার মারো!',
+      q: ['ঠিক আছে', 'দারুণ!', 'অসাধারণ! 🔥'], miss: 'ফসকে গেল! 😅', fell: 'গুলি পড়ে গেল 😅', caught: 'লুফে নিল! আউট 🙌', plus: (n) => `+${n} ডাং`, unit: 'ডাং',
+      best: (n) => `সেরা: ${n} ডাং`,
+      endTitle: (name) => `খেলা শেষ${name ? `, ${name}` : ''}!`,
+      endNote: (hits, best, badge) => `${hits}টা শট · সবচেয়ে লম্বা ${best} ডাং${badge ? ` · ${badge}` : ''}`,
+      newBest: '🏆 নতুন রেকর্ড!',
+      challenge: (name, n) => `🏏 ${name} ডাংগুলিতে ${n} ডাং দূরে গুলি পাঠিয়েছে! তুমি কত দূর পারবে?`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: '🔗 লিংক শেয়ার / কপি করো', copied: '✅ কপি হয়েছে', copyPrompt: 'এই লেখাটা কপি করো:',
+      shareText: (name, n, url) => `🏏 ${name ? `${name}` : 'আমি'} ডাংগুলিতে ${n} ডাং স্কোর করেছি! ছোটবেলার খেলা — তুমিও খেলো: ${url}`,
+      howTitle: 'কীভাবে খেলবে',
+      how: ['<b>খেলো</b> চাপো। নিচে একটা তির দোলে — <b>সবুজ অংশে</b> এলে ট্যাপ করো, গুলি ভালো উঠবে।', 'গুলি হাওয়ায় থাকতে <b>আবার ট্যাপ</b> — কোমরের উচ্চতায় মারলে সবচেয়ে জোরালো শট।', 'ওঠার সময় মারলে <b>উঁচু শট</b> (দূরে যায়, কিন্তু লোফার সময় বেশি)। নামার সময় মারলে <b>নিচু সোজা শট</b>।', 'গুলি যত দূরে পড়ে, তত <b>ডাং</b> পাবে। কেউ লুফে নিলে, গুলি পড়ে গেলে বা ফসকালে একটা ❤️ কমবে।', '৩টে ❤️ শেষ হলে খেলা শেষ। বন্ধুদের WhatsApp-এ চ্যালেঞ্জ করো।'],
+      aboutTitle: 'ডাংগুলি — পাড়ার ক্রিকেট',
+      aboutText: 'ডাংগুলি (গিল্লি-ডান্ডা) ভারতের সবচেয়ে পুরোনো পাড়ার খেলাগুলোর একটা। একটা লম্বা লাঠি (ডাং) আর দু\'দিক সরু একটা ছোট কাঠি (গুলি)। মাটিতে ছোট গর্ত করে গুলির সরু মাথায় ডাং দিয়ে মেরে সেটা তোলা হয়, তারপর হাওয়াতেই জোরে মেরে দূরে পাঠানো হয়। কত দূর গেল, তা ডাং দিয়ে মেপে গোনা হয়।',
+      aboutText2: 'অন্য দলের খেলোয়াড়রা হাওয়াতেই গুলি লুফে নেওয়ার চেষ্টা করে — লুফে নিলে আউট। আসল ডাংগুলি খোলা মাঠে খেলো, আর সামনে কেউ যেন না দাঁড়ায়: গুলি চোখে-মুখে লাগতে পারে।',
+      factsTitle: 'ডাংগুলির কিছু কথা',
+      facts: {
+        f1: 'নানা জায়গায় নানা নাম: হিন্দিতে "গিল্লি-ডান্ডা", মারাঠিতে "বিটি-দান্ডু", কন্নড়ে "চিন্নি-দান্ডু", তামিলে "কিট্টি-পুল্লু", মালয়ালমে "কুট্টিয়ুম কোলুম"।',
+        f2: 'মুন্সি প্রেমচন্দের বিখ্যাত গল্প "গুল্লি-ডান্ডা" এই খেলা আর দুই বন্ধুর বন্ধুত্ব নিয়ে।',
+        f3: 'ইংল্যান্ডে এরকম খেলার নাম ছিল "টিপ-ক্যাট" — সেখানেও ছোট কাঠি তুলে মারা হতো।',
+        f4: 'অনেকে মনে করেন, ক্রিকেট আর বেসবলের মতো খেলার ধারণাও এমন "কাঠি মেরে দূরে পাঠাও" খেলা থেকেই এসেছে।',
+        f5: 'গুলির দু\'দিক সরু করা হয়, যাতে এক মাথায় মারলে সেটা ঘুরতে ঘুরতে ওপরে ওঠে।',
+        f6: 'পদার্থবিদ্যা: হাওয়া বাদ দিলে, ৪৫° কোণে ছোড়া জিনিস সবচেয়ে দূরে যায় — তাই খুব উঁচু বা খুব নিচু শট কম দূরে যায়।',
+        f7: 'এই খেলায় দামি জিনিস বা বড় মাঠ লাগে না — শুধু দুটো কাঠি আর বন্ধুরা।',
+      },
+      moreGames: 'আরও গেম খেলো →', privacyTitle: 'তোমার ডেটা', privacyText: 'নাম আর স্কোর শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর স্কোর। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+  const urlLang = params.get('lang'), savedLang = store.get('gd-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(99999, parseInt(params.get('score'), 10) || 0));
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  let best = Math.max(0, parseInt(store.get('gd-best'), 10) || 0);
+  const badge = (n) => (BADGES.find(([m]) => n >= m) || [0, ''])[1];
+
+  // ---------- state
+  let state = 'menu'; // menu | ready | pop | swing | fly | result | over
+  let score = 0, lives = LIVES, hits = 0, longest = 0, playerName = '', newBest = false;
+  let meterT = 0, gilli = null, swingAt = 0, swingHit = false, fielders = [], banner = null, camX = 0, trail = [], resultUntil = 0, popQ = 0, shotLabel = '';
+
+  // ---------- page texts
+  const updateHud = () => { $('hudLives').textContent = '❤️'.repeat(lives) + '🤍'.repeat(LIVES - lives); $('hudScore').textContent = `${score} ${t('unit')}`; $('hudBest').textContent = `🏆 ${best}`; };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Bachpan Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const F = t('facts'); $('factList').innerHTML = FACT_KEYS.map((k) => `<li>${F[k]}</li>`).join('');
+    const p = PREFIX[lang]; $('home').href = `https://nextgrade.in${p}/`; $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    const c = $('challenge'); if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    $('bestLine').textContent = best ? t('best')(best) : '';
+    updateHud();
+    if (state === 'over') fillEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('gd-lang', lang); applyLang(); });
+  $('name').value = store.get('gd-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- sound: wood knocks and cheers, no music
+  let muted = store.get('gd-muted') === '1', ac = null, master = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setIcons();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('gd-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.8; });
+  const initAudio = () => { if (ac) { if (ac.state === 'suspended') ac.resume(); return; } const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return; ac = new AC(); master = ac.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(ac.destination); };
+  const tone = (f, dur, type = 'sine', vol = 0.07, delay = 0, f2 = null) => {
+    if (!ac) return; const w = ac.currentTime + delay, o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, w); if (f2) o.frequency.exponentialRampToValueAtTime(f2, w + dur);
+    g.gain.setValueAtTime(0.0001, w); g.gain.exponentialRampToValueAtTime(vol, w + 0.004); g.gain.exponentialRampToValueAtTime(0.0001, w + dur);
+    o.connect(g); g.connect(master); o.start(w); o.stop(w + dur + 0.03);
+  };
+  const sfx = {
+    knock: () => { tone(700, 0.06, 'square', 0.05, 0, 400); tone(1400, 0.04, 'triangle', 0.03); },
+    whack: (q) => { tone(220 + q * 120, 0.09, 'square', 0.08, 0, 120); tone(1800, 0.05, 'triangle', 0.05); },
+    swish: () => tone(900, 0.12, 'sawtooth', 0.02, 0, 300),
+    land: () => tone(180, 0.12, 'triangle', 0.05, 0, 90),
+    catch: () => { tone(520, 0.15, 'triangle', 0.05); tone(390, 0.25, 'triangle', 0.05, 0.12); },
+    cheer: () => { [523, 659, 784].forEach((f, i) => tone(f, 0.3, 'sine', 0.05, i * 0.09)); },
+    over: () => tone(330, 0.45, 'triangle', 0.05, 0, 200),
+  };
+
+  // ---------- world (metres): striker at x = 0, ground at y = 0, positive y is up
+  const cv = $('cv'), ctx = cv.getContext('2d');
+  let W = 400, H = 500, dpr = 1, PPM = 30, GY = 390;
+  const resize = () => {
+    const r = $('stage').getBoundingClientRect(); dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = Math.max(280, r.width); H = Math.max(360, r.height);
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    PPM = W / 13; GY = H * 0.8;
+  };
+  const sx = (x) => (x - camX) * PPM + W * 0.18;
+  const sy = (y) => GY - y * PPM;
+
+  const placeFielders = () => {
+    const n = hits < 4 ? 1 : 2;
+    fielders = [];
+    for (let i = 0; i < n; i += 1) {
+      let x = 0;
+      for (let k = 0; k < 20; k += 1) { x = 12 + Math.random() * 40; if (fielders.every((f) => Math.abs(f.x0 - x) > 9)) break; }
+      fielders.push({ x0: x, x: 0, run: 0, caught: false, c: ['#e03131', '#1971c2'][i % 2], arms: 0 });
+    }
+    fielders.forEach((f) => { f.x = f.x0; });
+  };
+
+  const newTurn = () => {
+    state = 'ready'; meterT = 0; swingAt = 0; swingHit = false; trail = []; camX = 0; banner = null; shotLabel = '';
+    gilli = { x: 0.15, y: 0.06, vx: 0, vy: 0, a: 0, va: 0 };
+    placeFielders();
+  };
+
+  const meterVal = () => 0.5 - 0.5 * Math.cos(meterT * 2.6);
+  const SWEET = [0.68, 0.92];
+
+  const tap = () => {
+    initAudio();
+    if (state === 'ready') {
+      const m = meterVal(); popQ = clamp(1 - Math.abs(m - 0.8) / 0.45, 0, 1);
+      gilli.vy = 3.4 + 2.6 * popQ; gilli.vx = 0.25; gilli.va = 14 + popQ * 10;
+      state = 'pop'; sfx.knock();
+    } else if (state === 'pop' && !swingAt) {
+      swingAt = performance.now(); sfx.swish();
+    }
+  };
+
+  // contact check: the swing reaches the gilli 0.09 s after the tap
+  const tryContact = () => {
+    const h = gilli.y;
+    if (h < 0.12 || h > 1.75 || Math.abs(gilli.x - 0.15) > 0.6) return false;
+    const qh = clamp(1 - Math.abs(h - 0.9) / 0.85, 0, 1);
+    const rising = gilli.vy > 0;
+    const ang = ((rising ? 47 : 24) + (Math.random() - 0.5) * 6) * (Math.PI / 180);
+    const v = 9 + 13.5 * qh * (0.78 + 0.22 * popQ);
+    gilli.vx = v * Math.cos(ang); gilli.vy = v * Math.sin(ang); gilli.va = 22;
+    state = 'fly'; swingHit = true; hits += 1;
+    shotLabel = t('q')[qh > 0.8 ? 2 : qh > 0.45 ? 1 : 0];
+    sfx.whack(qh);
+    // where will it land, and when? fielders react after a short delay
+    const tFlight = (gilli.vy + Math.sqrt(gilli.vy * gilli.vy + 2 * 9.8 * h)) / 9.8;
+    const landX = gilli.x + gilli.vx * tFlight;
+    fielders.forEach((f) => { f.target = landX; f.reach = Math.abs(landX - f.x) <= RUN * Math.max(0, tFlight - 0.6) + 0.7; });
+    gilli.tLand = performance.now() + tFlight * 1000; gilli.landX = landX;
+    return true;
+  };
+
+  let lastKind = '';
+  const endTurn = (kind, dist) => {
+    lastKind = kind; state = 'result'; resultUntil = performance.now() + 1500;
+    if (kind === 'hit') {
+      score += dist; longest = Math.max(longest, dist);
+      banner = { text: `${t('plus')(dist)} · ${shotLabel}`, c: '#ffd43b' }; sfx.cheer();
+    } else {
+      lives -= 1; banner = { text: t(kind), c: '#ffa8a8' };
+      if (kind === 'caught') sfx.catch(); else sfx.land();
+    }
+    updateHud();
+  };
+
+  const finish = () => {
+    state = 'over'; newBest = score > best;
+    if (newBest) { best = score; store.set('gd-best', String(best)); }
+    sfx.over(); fillEnd(); $('endScreen').classList.remove('hidden'); updateHud();
+  };
+  const facts = () => FACT_KEYS.map((k) => t('facts')[k]);
+  let factIdx = Math.floor(Math.random() * FACT_KEYS.length);
+  const fillEnd = () => {
+    $('endTitle').textContent = t('endTitle')(playerName);
+    $('endScore').textContent = `${score} ${t('unit')}`;
+    $('endNote').textContent = (newBest ? `${t('newBest')} · ` : '') + t('endNote')(hits, longest, badge(score));
+    $('endFact').textContent = `💡 ${facts()[factIdx % FACT_KEYS.length]}`;
+  };
+
+  const start = () => {
+    initAudio();
+    playerName = cleanName($('name').value); store.set('gd-name', playerName);
+    score = 0; lives = LIVES; hits = 0; longest = 0; newBest = false; factIdx += 1;
+    $('startScreen').classList.add('hidden'); $('endScreen').classList.add('hidden');
+    updateHud(); newTurn();
+  };
+  $('playBtn').addEventListener('click', (e) => { e.stopPropagation(); start(); });
+  $('againBtn').addEventListener('click', (e) => { e.stopPropagation(); start(); });
+  $('stage').addEventListener('pointerdown', (e) => { if (e.target.closest('.overlay')) return; e.preventDefault(); tap(); });
+  window.addEventListener('keydown', (e) => { if ((e.code === 'Space' || e.code === 'Enter') && state !== 'menu' && state !== 'over') { e.preventDefault(); tap(); } });
+
+  // ---------- update
+  let lastT = performance.now();
+  const step = (now) => {
+    const dt = Math.min(0.033, (now - lastT) / 1000); lastT = now;
+    if (state === 'ready') meterT += dt;
+    if (state === 'pop' || state === 'fly') {
+      gilli.vy -= 9.8 * dt; gilli.x += gilli.vx * dt; gilli.y += gilli.vy * dt; gilli.a += gilli.va * dt;
+      if (state === 'fly' && trail.length < 400) trail.push([gilli.x, gilli.y]);
+    }
+    if (state === 'pop' && swingAt && !swingHit && now - swingAt > 90) {
+      if (!tryContact()) { swingHit = true; } // a whiff: the swing went past
+    }
+    if (state === 'pop' && gilli.y <= 0.02 && gilli.vy < 0) { gilli.y = 0.02; endTurn(swingAt ? 'miss' : 'fell'); }
+    if (state === 'fly') {
+      camX = Math.max(0, gilli.x - 5);
+      const tl = (gilli.tLand - now) / 1000;
+      fielders.forEach((f) => {
+        if (tl < 0 || !f.target) return;
+        const dir = Math.sign(f.target - f.x), dist = Math.abs(f.target - f.x);
+        const sp = RUN * 1.15 * dt; f.run += dt;
+        if (f.reach) f.x += dir * Math.min(dist, sp); else f.x += dir * Math.min(dist, sp * 0.8);
+      });
+      const catcher = fielders.find((f) => f.reach && Math.abs(f.x - gilli.x) < 0.9 && gilli.y < 2.2 && gilli.vy < 0);
+      if (catcher) { catcher.caught = true; catcher.arms = 1; gilli.held = catcher; endTurn('caught'); }
+      else if (gilli.y <= 0.02 && gilli.vy < 0) { gilli.y = 0.02; gilli.vx = 0; gilli.vy = 0; endTurn('hit', Math.max(1, Math.round(gilli.x / DANDA))); }
+    }
+    if (state === 'result' && now > resultUntil) { if (lives <= 0) finish(); else newTurn(); }
+  };
+
+  // ---------- drawing
+  const kid = (x, y, shirt, armsUp, facing, s) => {
+    const X = sx(x), Y = sy(y), k = PPM / 30 * s;
+    ctx.strokeStyle = '#5c3b1e'; ctx.lineWidth = 3 * k; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(X, Y - 18 * k); ctx.lineTo(X - 6 * k, Y); ctx.moveTo(X, Y - 18 * k); ctx.lineTo(X + 6 * k, Y); ctx.stroke();
+    ctx.fillStyle = shirt; ctx.fillRect(X - 6 * k, Y - 36 * k, 12 * k, 19 * k);
+    ctx.beginPath();
+    if (armsUp) { ctx.moveTo(X - 5 * k, Y - 34 * k); ctx.lineTo(X - 9 * k, Y - 50 * k); ctx.moveTo(X + 5 * k, Y - 34 * k); ctx.lineTo(X + 9 * k, Y - 50 * k); }
+    else { ctx.moveTo(X - 5 * k, Y - 34 * k); ctx.lineTo(X - 10 * k, Y - 22 * k); ctx.moveTo(X + 5 * k, Y - 34 * k); ctx.lineTo(X + 10 * k, Y - 22 * k); }
+    ctx.stroke();
+    ctx.fillStyle = '#c68a5a'; ctx.beginPath(); ctx.arc(X, Y - 43 * k, 7 * k, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#212529'; ctx.beginPath(); ctx.arc(X, Y - 46 * k, 7 * k, Math.PI, 0); ctx.fill();
+  };
+
+  const draw = (now) => {
+    // sky and far scenery
+    const g = ctx.createLinearGradient(0, 0, 0, GY); g.addColorStop(0, '#74c0fc'); g.addColorStop(1, '#d0ebff');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, GY);
+    ctx.fillStyle = '#ffe066'; ctx.beginPath(); ctx.arc(W * 0.85, H * 0.13, 22, 0, Math.PI * 2); ctx.fill();
+    const par = (f, every, fn) => { const off = (camX * PPM * f) % (every * PPM); for (let x = -every * PPM - off; x < W + every * PPM; x += every * PPM) fn(x); };
+    ctx.fillStyle = '#8ce99a'; par(0.2, 20, (x) => { ctx.beginPath(); ctx.ellipse(x, GY, 9 * PPM, 3.2 * PPM, 0, Math.PI, 0); ctx.fill(); });
+    par(0.5, 11, (x) => { // village houses and trees
+      ctx.fillStyle = '#e9c46a'; ctx.fillRect(x, GY - 2.4 * PPM, 3 * PPM, 2.4 * PPM);
+      ctx.fillStyle = '#9c6644'; ctx.beginPath(); ctx.moveTo(x - 0.3 * PPM, GY - 2.4 * PPM); ctx.lineTo(x + 1.5 * PPM, GY - 3.6 * PPM); ctx.lineTo(x + 3.3 * PPM, GY - 2.4 * PPM); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = '#6b4226'; ctx.fillRect(x + 1.2 * PPM, GY - 1.3 * PPM, 0.6 * PPM, 1.3 * PPM);
+      ctx.fillStyle = '#7f5539'; ctx.fillRect(x + 6.5 * PPM, GY - 2.2 * PPM, 0.35 * PPM, 2.2 * PPM);
+      ctx.fillStyle = '#2b8a3e'; ctx.beginPath(); ctx.arc(x + 6.7 * PPM, GY - 2.8 * PPM, 1.3 * PPM, 0, Math.PI * 2); ctx.fill();
+    });
+    // ground and distance marks every 10 danda
+    ctx.fillStyle = '#d4a373'; ctx.fillRect(0, GY, W, H - GY);
+    ctx.fillStyle = '#c08552'; ctx.fillRect(0, GY, W, 4);
+    ctx.fillStyle = 'rgba(255,255,255,0.75)'; ctx.font = `700 ${Math.max(11, PPM * 0.4)}px Inter, sans-serif`; ctx.textAlign = 'center';
+    for (let d = 10; d < 400; d += 10) { const X = sx(d * DANDA); if (X < -40 || X > W + 40) continue; ctx.fillRect(X - 1, GY + 4, 2, 10); ctx.fillText(String(d), X, GY + 28); }
+    // the gucchi (groove) and the striker
+    ctx.fillStyle = '#7f5539'; ctx.beginPath(); ctx.ellipse(sx(0.15), GY + 2, 0.35 * PPM, 0.08 * PPM, 0, 0, Math.PI * 2); ctx.fill();
+    kid(-0.55, 0, '#f08c00', false, 1, 1.3);
+    // danda: rests low, sweeps forward on a swing
+    const k = PPM / 30 * 1.3, hx = sx(-0.55) + 8 * k, hy = sy(0) - 26 * k;
+    let ang = state === 'ready' ? 0.95 : -0.2;
+    if (state === 'pop' && swingAt) ang = -0.2 + Math.min(1, (now - swingAt) / 120) * -1.4;
+    if (state === 'pop' && !swingAt) ang = -0.9;
+    if ((state === 'fly' || state === 'result') && swingHit) ang = -1.6;
+    ctx.save(); ctx.translate(hx, hy); ctx.rotate(ang); ctx.strokeStyle = '#8d5524'; ctx.lineWidth = 5 * k; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0.62 * PPM, 0.32 * PPM); ctx.stroke(); ctx.restore();
+    // fielders
+    fielders.forEach((f) => kid(f.x, 0, f.c, f.caught || (state === 'fly' && f.reach), -1, 1.1));
+    // fielders off the right edge: a marker with their distance, so you can choose a high or a flat shot
+    fielders.forEach((f) => {
+      if (sx(f.x) < W - 10) return;
+      const y = GY - 40; ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.beginPath(); ctx.roundRect ? ctx.roundRect(W - 92, y - 16, 84, 30, 10) : ctx.rect(W - 92, y - 16, 84, 30); ctx.fill();
+      ctx.fillStyle = f.c; ctx.beginPath(); ctx.arc(W - 78, y - 1, 7, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#fff'; ctx.font = '800 13px Inter, sans-serif'; ctx.textAlign = 'left'; ctx.fillText(`${Math.round(f.x / DANDA)} →`, W - 66, y + 4);
+    });
+    // trail and gilli
+    ctx.fillStyle = 'rgba(255,255,255,0.65)';
+    for (let i = 0; i < trail.length; i += 4) { ctx.beginPath(); ctx.arc(sx(trail[i][0]), sy(trail[i][1]), 1.6, 0, Math.PI * 2); ctx.fill(); }
+    if (gilli) {
+      const gx = gilli.held ? gilli.held.x : gilli.x, gy = gilli.held ? 1.75 : gilli.y;
+      ctx.save(); ctx.translate(sx(gx), sy(gy)); ctx.rotate(gilli.held ? 0 : gilli.a);
+      const L = Math.max(20, 0.55 * PPM), Wd = Math.max(4, 0.11 * PPM);
+      ctx.fillStyle = '#ffd43b'; ctx.strokeStyle = '#5c3b1e'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(-L / 2, 0); ctx.lineTo(-L / 2 + Wd * 1.5, -Wd); ctx.lineTo(L / 2 - Wd * 1.5, -Wd); ctx.lineTo(L / 2, 0); ctx.lineTo(L / 2 - Wd * 1.5, Wd); ctx.lineTo(-L / 2 + Wd * 1.5, Wd); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.restore();
+      if (state === 'fly') { ctx.fillStyle = '#fff'; ctx.font = `800 ${Math.max(14, PPM * 0.5)}px Inter, sans-serif`; ctx.textAlign = 'center'; ctx.fillText(`${Math.max(0, Math.round(gilli.x / DANDA))} ${t('unit')}`, W / 2, H * 0.2); }
+    }
+    // timing meter (before the flip) and prompts
+    if (state === 'ready') {
+      const mx = W * 0.5, my = H - 26, mw = Math.min(W * 0.7, 300);
+      ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillRect(mx - mw / 2, my - 9, mw, 18);
+      ctx.fillStyle = '#51cf66'; ctx.fillRect(mx - mw / 2 + mw * SWEET[0], my - 9, mw * (SWEET[1] - SWEET[0]), 18);
+      const v = meterVal(); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.moveTo(mx - mw / 2 + mw * v, my - 13); ctx.lineTo(mx - mw / 2 + mw * v - 7, my - 24); ctx.lineTo(mx - mw / 2 + mw * v + 7, my - 24); ctx.closePath(); ctx.fill();
+    }
+    const prompt = state === 'ready' ? t('tapPop') : state === 'pop' && !swingAt ? t('tapHit') : '';
+    if (prompt) { ctx.font = `800 ${Math.max(16, Math.min(24, W / 18))}px "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif`; ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillText(prompt, W / 2 + 2, H * 0.32 + 2); ctx.fillStyle = '#fff'; ctx.fillText(prompt, W / 2, H * 0.32); }
+    if (banner) { ctx.font = `800 ${Math.max(18, Math.min(28, W / 15))}px "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif`; ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.fillText(banner.text, W / 2 + 2, H * 0.3 + 2); ctx.fillStyle = banner.c; ctx.fillText(banner.text, W / 2, H * 0.3); }
+  };
+
+  const frame = (now) => { step(now); draw(now); requestAnimationFrame(frame); };
+
+  // ---------- share
+  const shareText = () => { const u = new URL(SITE); if (playerName) u.searchParams.set('from', playerName); u.searchParams.set('score', String(score)); u.searchParams.set('lang', lang); return t('shareText')(playerName, score, u.toString()); };
+  $('shareWa').addEventListener('click', (e) => { e.stopPropagation(); window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', (e) => {
+    e.stopPropagation(); const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(() => { $('shareOther').textContent = t('copied'); }).catch(() => window.prompt(t('copyPrompt'), text));
+  });
+
+  if ('ResizeObserver' in window) new ResizeObserver(resize).observe($('stage'));
+  window.addEventListener('resize', resize);
+  resize(); applyLang(); requestAnimationFrame(frame);
+  // test hook (local headless tests): tap(), state, score
+  window.__gd = { tap, start, meter: () => meterVal(), get state() { return state; }, get score() { return score; }, get lives() { return lives; }, get hits() { return hits; }, get lastKind() { return lastKind; }, get gilli() { return gilli && { x: gilli.x, y: gilli.y, vy: gilli.vy }; } };
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>
