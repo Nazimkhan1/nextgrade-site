@@ -194,3 +194,12 @@ table.dates th, table.dates td { border-bottom: 1px solid rgba(128,128,128,0.25)
 .ni-thumb { width: 52px; height: 52px; border-radius: 12px; border: 2px solid rgba(128,128,128,0.35); font-weight: 800; font-size: 18px; cursor: pointer; }
 .ni-thumb.on { outline: 3px solid #ff922b; outline-offset: 2px; }
 #niCanvas { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+
+/* Speech pages */
+.sp-block { border-left: 4px solid #ff922b; padding-left: 14px; margin: 22px 0; }
+.sp-tools { margin: 6px 0 0; }
+@media print {
+  header, nav, footer, .no-print, .sp-tools, .ad, .lang-switch, .crumbs { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .sp-block { border-left: 0; padding-left: 0; break-inside: avoid; }
+}
