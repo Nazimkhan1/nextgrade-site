@@ -17,6 +17,7 @@ import { wishes } from './src/wishes.mjs';
 import { games as allGames } from './src/games.mjs';
 import { stories as allStories } from './src/stories.mjs';
 import { tools as allTools } from './src/tools.mjs';
+import { storyExtras } from './src/story-info.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
 const games = allGames.filter((g) => isLive(`game:${g.slug}`));
@@ -597,6 +598,7 @@ ${faqBlock(x.faq)}
     const prev = stories[(i - 1 + stories.length) % stories.length];
     const next = stories[(i + 1) % stories.length];
     const more = [1, 2, 3].map((k) => stories[(i + k) % stories.length]);
+    const ex = storyExtras(st, L.code);
     write(
       L,
       path,
@@ -604,7 +606,7 @@ ${faqBlock(x.faq)}
         path,
         title: `${x.title} — ${S.h1.replace('🌙 ', '')} | NextGrade`,
         description: `${firstSentence(x.paras[0])} ${x.seekh}`,
-        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.stories, '/kahani/'], [x.title, path]]), { ...articleLd(L, x.title, path), '@type': 'Article', genre: st.source.en, timeRequired: `PT${st.minutes}M` }],
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.stories, '/kahani/'], [x.title, path]]), { ...articleLd(L, x.title, path), '@type': 'Article', genre: st.source.en, timeRequired: `PT${st.minutes}M` }, faqLd(ex.faq)],
         scripts: ['/assets/voice.js', '/assets/story.js'],
         body: `<article class="wrap narrow article story-page" data-speech="${SPEECH[L.code]}" data-pause="${esc(S.pause)}" data-resume="${esc(S.resume)}" data-listen="${esc(S.listen)}" data-night="${esc(S.night)}" data-day="${esc(S.day)}" data-no-voice="${esc(S.noVoice)}" data-goodnight="${esc(S.goodnight)}" data-goodnight-sub="${esc(S.goodnightSub)}">
 <p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/kahani/')}">${esc(T.nav.stories)}</a> › ${esc(x.title)}</p>
@@ -623,6 +625,10 @@ ${paragraphs(x.paras)}
 <div class="seekh"><b>${esc(S.seekh)}</b><p>${esc(x.seekh)}</p></div>
 <div class="story-nav"><a class="btn btn-ghost" href="${P(L, `/kahani/${prev.slug}/`)}">${esc(S.prev)}</a><a class="btn btn-primary" href="${P(L, `/kahani/${next.slug}/`)}">${esc(S.next)}</a></div>
 <p><a class="btn btn-wa" href="https://wa.me/?text=${encodeURIComponent(S.shareText(x.title, `${SITE}${P(L, path)}`))}" target="_blank" rel="noopener">${esc(S.share)}</a></p>
+${ex.about ? `<h2>${esc(ex.aboutH)}</h2>
+<p>${esc(ex.about)}</p>
+` : ''}<h2>${esc(ex.faqH)}</h2>
+${faqBlock(ex.faq)}
 <div class="ad" aria-hidden="true"></div>
 <h2>${esc(S.moreH)}</h2>
 <div class="grid">${more.map(storyCard(L)).join('')}</div>

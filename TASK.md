@@ -347,3 +347,7 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 - New celebrate pages: `maha-shivratri` (Shivling under Kailash, abhishek drops, bel leaves, diyas, trishul + damru), `eid-mubarak` (Eid crescent sighted over a masjid, swinging fanoos, gold sparkles; Urdu top line), `holi` (gulal bursts, pichkari streams, balloons, thali of gulal). 4 languages, same engine as the other wishes; each also adds a button on its festival page (/festivals/maha-shivratri/, /festivals/eid-ul-fitr/, /festivals/holi/) once live.
 - Schedule (festival pages first, so the tools moved back): Shivratri Fri 5 Feb, Eid Tue 9 Feb, Holi Fri 19 Feb 2027; tools: passport 23 Feb, doc-scanner 26 Feb, bg-remover 2 Mar, hair-tryon 5 Mar, form-helper 9 Mar; then story:mulla-ki-degchi 12 Mar, game:kanche 16 Mar.
 - Checked in a preview build (RELEASE_TODAY=2027-03-16): all three play with no errors in Hinglish and Bengali; prerender +335–355 words each.
+
+## Kahani SEO content (18 Nov 2026)
+- Every story page now also has "About <source>" (a short note on Panchatantra / Jataka / Aesop / Akbar-Birbal / Tenali Raman / Mulla Nasruddin / Sheikh Chilli / Vikram-Betaal / folk tale / grandma's tale) and a 3-question FAQ (moral, where it comes from, reading time + age) with FAQPage JSON-LD. Source: `src/story-info.mjs`, built from each story's own data, so new stories get it automatically (add a SOURCE_INFO entry for a new source).
+- Pyasa Kauwa (en): 335 → 501 words. Page structure, nav and ads unchanged.
