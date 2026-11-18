@@ -32,16 +32,20 @@ const releases = {
   'game:chidiya-udd': '2027-01-26',
   'story:tenali-kuen-ka-khazana': '2027-01-29',
   'game:saanp-seedhi': '2027-02-02',
-  'story:mulla-ki-degchi': '2027-02-05',
-  'game:kanche': '2027-02-09',
+  'celebrate:maha-shivratri': '2027-02-05',
+  'celebrate:eid-mubarak': '2027-02-09',
   'story:chidiya-kauwa-ghar': '2027-02-12',
   'game:raja-mantri-chor-sipahi': '2027-02-16',
   // Free tools (/tools/): evergreen, so after the festival pages; Tue + Fri slots
-  'tool:passport-photo': '2027-02-19',
-  'tool:doc-scanner': '2027-02-23',
-  'tool:bg-remover': '2027-02-26',
-  'tool:hair-tryon': '2027-03-02',
-  'tool:form-helper': '2027-03-05',
+  'celebrate:holi': '2027-02-19',
+  'tool:passport-photo': '2027-02-23',
+  'tool:doc-scanner': '2027-02-26',
+  'tool:bg-remover': '2027-03-02',
+  'tool:hair-tryon': '2027-03-05',
+  'tool:form-helper': '2027-03-09',
+  // moved back for the Shivratri / Eid / Holi wishes (festival pages first)
+  'story:mulla-ki-degchi': '2027-03-12',
+  'game:kanche': '2027-03-16',
 };
 
 // today's date in India (the release day changes at midnight IST)

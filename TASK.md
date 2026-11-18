@@ -342,3 +342,8 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 - Privacy Policy tools paragraph now also names "exam form photo and signature resizer" (shows only once a tool is live).
 - Preview check (RELEASE_TODAY=2027-03-05): listed on /tools/, in sitemap, prerender +516 words. Today: no /tools/, nothing visible.
 - Before it goes live: re-check the exam sizes against the latest SSC / UPSC / IBPS / NTA notices.
+
+## Maha Shivratri, Eid Mubarak, Holi animated wishes (18 Nov 2026)
+- New celebrate pages: `maha-shivratri` (Shivling under Kailash, abhishek drops, bel leaves, diyas, trishul + damru), `eid-mubarak` (Eid crescent sighted over a masjid, swinging fanoos, gold sparkles; Urdu top line), `holi` (gulal bursts, pichkari streams, balloons, thali of gulal). 4 languages, same engine as the other wishes; each also adds a button on its festival page (/festivals/maha-shivratri/, /festivals/eid-ul-fitr/, /festivals/holi/) once live.
+- Schedule (festival pages first, so the tools moved back): Shivratri Fri 5 Feb, Eid Tue 9 Feb, Holi Fri 19 Feb 2027; tools: passport 23 Feb, doc-scanner 26 Feb, bg-remover 2 Mar, hair-tryon 5 Mar, form-helper 9 Mar; then story:mulla-ki-degchi 12 Mar, game:kanche 16 Mar.
+- Checked in a preview build (RELEASE_TODAY=2027-03-16): all three play with no errors in Hinglish and Bengali; prerender +335–355 words each.
