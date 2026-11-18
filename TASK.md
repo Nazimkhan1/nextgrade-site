@@ -369,3 +369,9 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 ## Release lines per category (18 Nov 2026, user's rule)
 - Replaces "2 pages a week, Tue + Fri, one shared list". Now each category has its **own line** in `src/releases.mjs` (`LINES`), on varied days from a fixed seed (dates never change between builds); lines are independent, so a game and a story can go out the same day: games every 3–6 days (festival games first), stories every 4–7 days, animated wishes on fixed dates before their festival, tools every 3–6 days **after AdSense approval** (set `TOOLS_START`; until then tools are held). A new category = a new LINES entry.
 - Result: something new every 1–4 days; games/stories run to 2 Feb 2027, wishes to 19 Feb. Nothing that was held went live early (checked against the old schedule).
+
+## "Festival 2027 kab hai" (18 Nov 2026, traffic plan #1)
+- `src/festival-dates.mjs`: dates per festival (next ones), checked against several panchang sites; notes where they differ (Makar Sankranti 14/15 Jan, Eid depends on the moon, Holika Dahan, Chhath 4 days).
+- Every festival page (14 × 4 languages): a "📅 Holi 2027 kab hai?" box at the top (date, weekday, days left — refreshed by the daily build), the same question as the first FAQ (FAQPage), and the year in the title ("होली 2027 कब है? तारीख़, महत्व और शुभकामनाएँ").
+- New page `/festivals/2027/` (4 languages): month-wise table with links, notes, ItemList JSON-LD; linked from /festivals/ and from each festival box. In the sitemap.
+- **To do each year:** add the next year's dates to `DATES` before the current ones pass (lunar festivals move), and change `LIST_YEAR` around November.

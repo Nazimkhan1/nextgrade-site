@@ -18,6 +18,7 @@ import { games as allGames } from './src/games.mjs';
 import { stories as allStories } from './src/stories.mjs';
 import { tools as allTools } from './src/tools.mjs';
 import { storyExtras } from './src/story-info.mjs';
+import { LIST_YEAR, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
 const games = allGames.filter((g) => isLive(`game:${g.slug}`));
@@ -426,11 +427,42 @@ LANGS.forEach((L) => {
 <p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(T.nav.festivals)}</p>
 <h1>${esc(T.festivals.h1)}</h1>
 <p class="lead">${esc(T.festivals.lead)}</p>
+<p><a class="btn btn-ghost" href="${P(L, `/festivals/${LIST_YEAR}/`)}">${esc(DATE_TEXT[L.code].listLink(LIST_YEAR))}</a></p>
 <div class="grid">${upcoming().map(festivalCard(L)).join('')}</div>
 <p class="note" style="margin-top:20px">${esc(T.festivals.note)}</p>
 </div>`,
     }),
   );
+
+  // Festival dates for one year (/festivals/2027/)
+  {
+    const DT = DATE_TEXT[L.code], path = `/festivals/${LIST_YEAR}/`;
+    const rows = festivalsInYear(LIST_YEAR).map((e) => { const f = festivals.find((z) => z.slug === e.slug); const x = lf(f, L); return { e, f, x }; });
+    const notes = [...new Set(rows.filter((r) => r.e.note).map((r) => `${r.x.name}: ${DT.notes[r.e.note]}`))];
+    write(
+      L,
+      path,
+      page(L, {
+        path,
+        title: DT.listTitle(LIST_YEAR),
+        description: DT.listDesc(LIST_YEAR),
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.festivals, '/festivals/'], [String(LIST_YEAR), path]]), { '@context': 'https://schema.org', '@type': 'ItemList', name: DT.listH1(LIST_YEAR).replace('📅 ', ''), itemListElement: rows.map((r, k) => ({ '@type': 'ListItem', position: k + 1, name: `${r.x.name} — ${fmt(L.code, r.e.d)}`, url: `${SITE}${P(L, `/festivals/${r.f.slug}/`)}` })) }],
+        body: `<div class="wrap narrow article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/festivals/')}">${esc(T.nav.festivals)}</a> › ${LIST_YEAR}</p>
+<h1>${esc(DT.listH1(LIST_YEAR))}</h1>
+<p class="lead">${esc(DT.listLead(LIST_YEAR))}</p>
+<div class="tblwrap"><table class="dates"><tr><th>${esc(DT.th[0])}</th><th>${esc(DT.th[1])}</th><th>${esc(DT.th[2])}</th></tr>
+${rows.map((r) => `<tr><td>${r.f.emoji} <a href="${P(L, `/festivals/${r.f.slug}/`)}">${esc(r.x.name)}</a></td><td>${esc(fmt(L.code, r.e.d))}${r.e.approx ? ` (${esc(DT.approx)})` : ''}</td><td>${esc(weekday(L.code, r.e.d))}</td></tr>`).join('\n')}
+</table></div>
+${notes.length ? `<ul class="note">${notes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>` : ''}
+<p class="note">${esc(DT.local)}</p>
+<div class="ad" aria-hidden="true"></div>
+<h2>${esc(T.festival.moreH)}</h2>
+<div class="grid">${upcoming().slice(0, 6).map(festivalCard(L)).join('')}</div>
+</div>`,
+      }),
+    );
+  }
 
   // Festival pages
   festivals.forEach((f, i) => {
@@ -438,18 +470,22 @@ LANGS.forEach((L) => {
     const x = lf(f, L);
     const F = T.festival;
     const next = [1, 2, 3].map((k) => festivals[(i + k) % festivals.length]);
+    const DT = DATE_TEXT[L.code];
+    const nd = nextFestivalDate(f.slug, L.code, x.name, todayIST());
+    const faq = nd ? [{ q: nd.q, a: nd.a }, ...x.faq] : x.faq;
     write(
       L,
       path,
       page(L, {
         path,
-        title: F.title(x.name, x.alt),
-        description: F.desc(x.name, x.when),
-        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.festivals, '/festivals/'], [x.name, path]]), articleLd(L, `${x.name} (${x.alt})`, path), faqLd(x.faq)],
+        title: nd ? DT.titleY(x.name, nd.year) : F.title(x.name, x.alt),
+        description: nd ? `${nd.a} ${F.desc(x.name, x.when)}` : F.desc(x.name, x.when),
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.festivals, '/festivals/'], [x.name, path]]), articleLd(L, `${x.name} (${x.alt})`, path), faqLd(faq)],
         body: `<article class="wrap narrow article">
 <p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/festivals/')}">${esc(T.nav.festivals)}</a> › ${esc(x.name)}</p>
 ${fromBanner(L, F.greet(x.name), f.emoji)}
 <h1>${f.emoji} ${esc(x.name)} <span style="color:var(--muted);font-weight:600">· ${esc(x.alt)}</span></h1>
+${nd ? `<div class="when-box"><p class="when-q">📅 ${esc(nd.q)}</p><p class="when-a"><b>${esc(nd.date)}</b>, ${esc(nd.weekday)}${nd.approx ? ` (${esc(DT.approx)})` : ''} · <span class="when-left">${esc(nd.left)}</span></p><p class="when-note">${esc(nd.a)} <a href="${P(L, `/festivals/${LIST_YEAR}/`)}">${esc(DT.listLink(LIST_YEAR))}</a></p></div>` : ''}
 <p class="lead">${esc(x.intro)}</p>
 ${celebrateButton(L, 'festival', f.slug)}
 <div class="facts">
@@ -466,7 +502,7 @@ ${shareBox(L, path, F.shareTitle(x.name), x.wishes[0])}
 <div class="cta"><p>${esc(F.cta(x.name))}</p><a class="btn btn-primary" href="${P(L, `/wish-card/?f=${f.slug}`)}">${esc(T.home.btnCard)}</a></div>
 ${x.summary.length && F.summaryH ? `<h2>${esc(F.summaryH)}</h2>\n${paragraphs(x.summary)}` : ''}
 <h2>${esc(F.faqH)}</h2>
-${faqBlock(x.faq)}
+${faqBlock(faq)}
 <h2>${esc(F.moreH)}</h2>
 <div class="grid">${next.map(festivalCard(L)).join('')}</div>
 </article>`,
