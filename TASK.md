@@ -356,3 +356,8 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 - `game:gilli-danda` → **Fri 19 Mar 2027** (after Kanche on 16 Mar). `src/static/games/gilli-danda/`: tap 1 flips the gilli (timing bar, green zone), tap 2 strikes it in the air; hit while rising = high shot (far, but fielders get time), while falling = flat shot. Score in danda lengths (1 danda = 0.6 m), 3 lives (caught / dropped / missed), best score saved, WhatsApp challenge, 4 languages, no music, offline sw.
 - Balance (bot, perfect timing): flat shots ~36 danda, caught 29%; high shots ~75 danda, caught 64%. Fielders: 1 kid, a second after 4 hits; off-screen fielders shown as a marker with their distance.
 - Preview (RELEASE_TODAY=2027-03-19): on /games/ and in the sitemap, prerender +449 words. Not on playninja.co's list.
+
+## Pitthu (Lagori / Seven Stones) game + Gilli-Danda SEO (18 Nov 2026)
+- `game:pitthu` → **Tue 23 Mar 2027**. `src/static/games/pitthu/`: pull-and-release the ball to knock the pile down (3 throws), then tap the stones biggest → smallest to rebuild while the other side throws: a red ring warns, tap "Duck!" (stays down until the ball passes). Time bar per round; each round adds a stone, faster throws, shorter warnings. 3 lives (hit / time up / three misses), best score, WhatsApp challenge, 4 languages, no music, offline sw.
+- SEO: keyword title ("Pitthu Game Online (Lagori / Seven Stones)"), VideoGame JSON-LD with alternateName, FAQPage JSON-LD + visible FAQ, rules section, state-wise names. Gilli-Danda got the same: keyword title/description, FAQ section + FAQPage JSON-LD.
+- Bot tests: a human-paced bot (650 ms per stone) reaches round 5; never ducking ends in round 3. Not on playninja.co's list.

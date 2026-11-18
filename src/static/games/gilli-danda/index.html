@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Gilli-Danda 🏏 — Bachpan Game | NextGrade</title>
-<meta name="description" content="Gilli-Danda: the childhood street game, free in Hinglish, Hindi, English and Bengali. Tap once to flip the gilli up, tap again to strike it far — but the village kids are waiting to catch it. Score in danda lengths and challenge friends on WhatsApp.">
+<title>Gilli Danda Game Online (Dang-guli / Tip-cat) 🏏 — Free Bachpan Game | NextGrade</title>
+<meta name="description" content="Play Gilli Danda online free — the childhood street game (Gulli-Danda, Dang-guli, Viti-Dandu, Tip-cat), in Hinglish, Hindi, English and Bengali. Tap once to flip the gilli up, tap again to strike it far — but the village kids are waiting to catch it. Score in danda lengths and challenge friends on WhatsApp.">
 <link rel="canonical" href="https://nextgrade.in/games/gilli-danda/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NextGrade">
@@ -22,6 +22,7 @@
 <meta name="google-adsense-account" content="ca-pub-4135041725422483">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Gilli-Danda","url":"https://nextgrade.in/games/gilli-danda/","genre":"Casual","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is Gilli Danda?", "acceptedAnswer": {"@type": "Answer", "text": "Gilli Danda (Gulli-Danda) is a traditional Indian street game played with a long stick (danda) and a small stick sharpened at both ends (gilli). The player flips the gilli up and strikes it far; the distance is counted in danda lengths, and fielders try to catch it."}}, {"@type": "Question", "name": "How do you play Gilli Danda online on NextGrade?", "acceptedAnswer": {"@type": "Answer", "text": "Tap once when the arrow is in the green to flip the gilli up, then tap again to strike it in the air. Hitting it while it rises gives a high shot; hitting it as it falls gives a flat shot. If a fielder catches it, it drops or you miss, you lose one of three lives."}}, {"@type": "Question", "name": "What are the other names of Gilli Danda?", "acceptedAnswer": {"@type": "Answer", "text": "Dang-guli in Bengali, Viti-Dandu in Marathi, Chinni-Dandu in Kannada, Kitti-Pullu in Tamil, Kuttiyum Kolum in Malayalam, and Tip-cat in English."}}, {"@type": "Question", "name": "Is the Gilli Danda game free and safe?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It is free with no login or download, and the name and score stay on the phone. In the real game, play in an open ground with nobody standing in front."}}]}</script>
 <style>
 :root { --bg: #2b1606; --gold: #ffd43b; --ink: #f8f9fa; --muted: #ead8c4; --card: rgba(255,255,255,0.08); }
 * { box-sizing: border-box; }
@@ -63,6 +64,8 @@ section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-si
 footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
 footer a { color: var(--muted); margin-right: 12px; }
 .ad { min-height: 100px; margin: 20px 0; }
+details { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 10px 14px; margin: 8px 0; }
+details summary { font-weight: 700; cursor: pointer; }
 @media (max-width: 480px) { .panel { padding: 14px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .hud { font-size: 14px; } }
 </style>
 </head>
@@ -123,6 +126,11 @@ footer a { color: var(--muted); margin-right: 12px; }
   <section>
     <h2 data-i18n="factsTitle"></h2>
     <div class="card2"><ul id="factList"></ul></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="faqTitle"></h2>
+    <div id="faqList"></div>
     <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
   </section>
 
@@ -179,6 +187,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         f6: 'Physics: 45° ke aas-paas maari gayi cheez sabse door jaati hai (hawa ko chhod kar) — isliye bahut oonchi ya bahut neechi shot kam door jaati hai.',
         f7: 'Is khel mein na mehnga saamaan chahiye, na bada maidaan — bas do lakdiyan aur dost.',
       },
+      faqTitle: "Aksar pooche jaane wale sawaal", faq: [["Gilli-Danda kya hai?", "Gilli-Danda (Gulli-Danda) Bharat ka paaramparik gali-khel hai — ek lamba danda aur dono taraf se nukeeli chhoti gilli. Gilli uchhal kar zor se maarte hain, doori danda se naapte hain, aur doosri team lapakne ki koshish karti hai."], ["Gilli-Danda online kaise khelein?", "Teer hare hisse mein ho tab tap karke gilli uchhalo, phir doosre tap se hawa mein maaro. Uthti gilli par oonchi shot, girti par neechi shot. Lapak li gayi, gir gayi ya chook gaye to ek ❤️ kam — 3 ❤️ khatam, khel khatam."], ["Gilli-Danda ke doosre naam kya hain?", "Bangla mein Dang-guli, Marathi mein Viti-Dandu, Kannada mein Chinni-Dandu, Tamil mein Kitti-Pullu, Malayalam mein Kuttiyum Kolum, aur angrezi mein Tip-cat."], ["Kya yeh game free aur safe hai?", "Haan. Bilkul free, na login na download. Naam aur score sirf aapke phone mein rehte hain."]],
       moreGames: 'Aur games khelo →', privacyTitle: 'Aapka data', privacyText: 'Naam aur score sirf aapke phone mein rehte hain. Share link mein sirf naam aur score jaate hain. Koi login nahi, koi server nahi.',
     },
     hi: {
@@ -211,6 +220,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         f6: 'भौतिकी: 45° के आसपास मारी गई चीज़ सबसे दूर जाती है (हवा को छोड़कर) — इसलिए बहुत ऊँचा या बहुत नीचा शॉट कम दूर जाता है।',
         f7: 'इस खेल में न महँगा सामान चाहिए, न बड़ा मैदान — बस दो लकड़ियाँ और दोस्त।',
       },
+      faqTitle: "अक्सर पूछे जाने वाले सवाल", faq: [["गिल्ली-डंडा क्या है?", "गिल्ली-डंडा (गुल्ली-डंडा) भारत का पारंपरिक गली-खेल है — एक लंबा डंडा और दोनों तरफ़ से नुकीली छोटी गिल्ली। गिल्ली उछालकर ज़ोर से मारते हैं, दूरी डंडे से नापते हैं, और दूसरी टीम लपकने की कोशिश करती है।"], ["गिल्ली-डंडा ऑनलाइन कैसे खेलें?", "तीर हरे हिस्से में हो तब टैप करके गिल्ली उछालो, फिर दूसरे टैप से हवा में मारो। उठती गिल्ली पर ऊँचा शॉट, गिरती पर नीचा शॉट। लपक ली गई, गिर गई या चूक गए तो एक ❤️ कम — 3 ❤️ ख़त्म, खेल ख़त्म।"], ["गिल्ली-डंडा के दूसरे नाम क्या हैं?", "बांग्ला में डांग-गुली, मराठी में विटी-दांडू, कन्नड़ में चिन्नी-दांडू, तमिल में किट्टी-पुल्लू, मलयालम में कुट्टियुम कोलुम, और अंग्रेज़ी में टिप-कैट।"], ["क्या यह गेम फ़्री और सुरक्षित है?", "हाँ। बिल्कुल फ़्री, न लॉगिन न डाउनलोड। नाम और स्कोर सिर्फ़ आपके फ़ोन में रहते हैं।"]],
       moreGames: 'और गेम खेलो →', privacyTitle: 'आपका डेटा', privacyText: 'नाम और स्कोर सिर्फ़ आपके फ़ोन में रहते हैं। शेयर लिंक में सिर्फ़ नाम और स्कोर जाते हैं। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
     },
     en: {
@@ -243,6 +253,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         f6: 'Physics: ignoring air, something launched at about 45° goes the farthest — so very high or very flat shots travel less.',
         f7: 'The game needs no costly kit or big field — just two sticks and friends.',
       },
+      faqTitle: "Frequently asked questions", faq: [["What is Gilli Danda?", "Gilli Danda (Gulli-Danda) is a traditional Indian street game played with a long stick (danda) and a small stick sharpened at both ends (gilli). The player flips the gilli up and strikes it far; the distance is counted in danda lengths, and fielders try to catch it."], ["How do you play Gilli Danda online on NextGrade?", "Tap once when the arrow is in the green to flip the gilli up, then tap again to strike it in the air. Hitting it while it rises gives a high shot; hitting it as it falls gives a flat shot. If a fielder catches it, it drops or you miss, you lose one of three lives."], ["What are the other names of Gilli Danda?", "Dang-guli in Bengali, Viti-Dandu in Marathi, Chinni-Dandu in Kannada, Kitti-Pullu in Tamil, Kuttiyum Kolum in Malayalam, and Tip-cat in English."], ["Is the Gilli Danda game free and safe?", "Yes. It is free with no login or download, and the name and score stay on the phone. In the real game, play in an open ground with nobody standing in front."]],
       moreGames: 'Play more games →', privacyTitle: 'Your data', privacyText: 'Your name and score stay only on your phone. A share link carries only the name and score. No login, no server.',
     },
     bn: {
@@ -275,6 +286,7 @@ footer a { color: var(--muted); margin-right: 12px; }
         f6: 'পদার্থবিদ্যা: হাওয়া বাদ দিলে, ৪৫° কোণে ছোড়া জিনিস সবচেয়ে দূরে যায় — তাই খুব উঁচু বা খুব নিচু শট কম দূরে যায়।',
         f7: 'এই খেলায় দামি জিনিস বা বড় মাঠ লাগে না — শুধু দুটো কাঠি আর বন্ধুরা।',
       },
+      faqTitle: "সাধারণ প্রশ্ন", faq: [["ডাংগুলি কী?", "ডাংগুলি (গিল্লি-ডান্ডা) ভারতের ঐতিহ্যবাহী পাড়ার খেলা — একটা লম্বা ডাং আর দু'দিক সরু ছোট গুলি। গুলি তুলে জোরে মারা হয়, দূরত্ব ডাং দিয়ে মাপা হয়, আর অন্য দল লুফে নেওয়ার চেষ্টা করে।"], ["ডাংগুলি অনলাইনে কীভাবে খেলবে?", "তির সবুজ অংশে এলে ট্যাপ করে গুলি তোলো, তারপর দ্বিতীয় ট্যাপে হাওয়াতেই মারো। ওঠার সময় উঁচু শট, নামার সময় নিচু শট। লুফে নিলে, পড়ে গেলে বা ফসকালে একটা ❤️ কমবে।"], ["ডাংগুলির অন্য নাম কী?", "হিন্দিতে গিল্লি-ডান্ডা, মারাঠিতে বিটি-দান্ডু, কন্নড়ে চিন্নি-দান্ডু, তামিলে কিট্টি-পুল্লু, মালয়ালমে কুট্টিয়ুম কোলুম, ইংরেজিতে টিপ-ক্যাট।"], ["খেলাটা কি ফ্রি আর নিরাপদ?", "হ্যাঁ। পুরো ফ্রি, লগইন বা ডাউনলোড লাগে না। নাম আর স্কোর শুধু তোমার ফোনেই থাকে।"]],
       moreGames: 'আরও গেম খেলো →', privacyTitle: 'তোমার ডেটা', privacyText: 'নাম আর স্কোর শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর স্কোর। কোনো লগইন নেই, কোনো সার্ভার নেই।',
     },
   };
@@ -310,6 +322,7 @@ footer a { color: var(--muted); margin-right: 12px; }
     document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
     $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
     const F = t('facts'); $('factList').innerHTML = FACT_KEYS.map((k) => `<li>${F[k]}</li>`).join('');
+    $('faqList').innerHTML = t('faq').map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('');
     const p = PREFIX[lang]; $('home').href = `https://nextgrade.in${p}/`; $('moreGames').href = `https://nextgrade.in${p}/games/`;
     const c = $('challenge'); if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
     $('bestLine').textContent = best ? t('best')(best) : '';

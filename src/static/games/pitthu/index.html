@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pitthu Game Online (Lagori / Seven Stones) 🪨 — Free Bachpan Game | NextGrade</title>
+<meta name="description" content="Play Pitthu online free — the childhood Lagori / Seven Stones game (Satoliya, Ezhu Kal). Knock down the pile of stones with the ball, then rebuild it before the other team hits you. Duck the throws, shout Pitthu! In Hinglish, Hindi, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/games/pitthu/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Pitthu 🪨 — Lagori / Seven Stones game">
+<meta property="og:description" content="Bachpan wala Pitthu: gend se patthar giraao, phir jhuk-jhuk ke dobara jamao — aur chillao Pitthu! Free, phone par.">
+<meta property="og:url" content="https://nextgrade.in/games/pitthu/">
+<meta property="og:image" content="https://nextgrade.in/games/pitthu/icons/icon-512.png">
+<meta name="theme-color" content="#0b7285">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Pitthu (Lagori / Seven Stones)","alternateName":["Lagori","Seven Stones","Satoliya","Pithoo"],"url":"https://nextgrade.in/games/pitthu/","genre":["Casual","Traditional"],"gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the Pitthu game?","acceptedAnswer":{"@type":"Answer","text":"Pitthu (also called Lagori or Seven Stones) is a traditional Indian street game. One team knocks down a small pile of flat stones with a ball and then tries to rebuild it, while the other team tries to hit them with the ball. If the pile is rebuilt, the team shouts \"Pitthu!\" and wins the round."}},{"@type":"Question","name":"How do you play Pitthu online on NextGrade?","acceptedAnswer":{"@type":"Answer","text":"Pull the ball back and release it to knock down the stones (3 tries). Then tap the scattered stones from the biggest to the smallest to rebuild the pile. When a red ring warns that a throw is coming, tap Duck. Rebuild the whole pile to win the round; three hits and the game ends."}},{"@type":"Question","name":"What are the other names of Pitthu?","acceptedAnswer":{"@type":"Answer","text":"Lagori in Karnataka, Satoliya or Sitoliya in Rajasthan, Ezhu Kal in Tamil Nadu, Yedu Penkulata in Andhra Pradesh and Telangana, and Seven Stones in English. Pittu, Pithoo and Pitthoo are common spellings."}},{"@type":"Question","name":"Is the Pitthu game free and safe for children?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is free, needs no login or download, and the name and score stay on the phone. In the real game, use a soft tennis ball and never aim at the head."}}]}</script>
+<style>
+:root { --bg: #062a30; --gold: #ffd43b; --ink: #f8f9fa; --muted: #c5e6ea; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #0c8599, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #0b7285, #2b8a3e); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.45); height: min(74vh, 620px, 150vw); min-height: 460px; background: #c9a77c; touch-action: none; user-select: none; -webkit-user-select: none; }
+#cv { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hud { position: absolute; top: 10px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 16px; color: #3b2a14; pointer-events: none; z-index: 3; gap: 6px; }
+.hud span { background: rgba(255,255,255,0.85); border-radius: 12px; padding: 2px 10px; white-space: nowrap; }
+.duck { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 4; font: inherit; font-weight: 800; font-size: 20px; padding: 12px 26px; border-radius: 16px; border: 0; background: #e03131; color: #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.35); cursor: pointer; }
+.duck.warn { animation: pulse 0.35s ease-in-out infinite alternate; }
+@keyframes pulse { to { transform: translateX(-50%) scale(1.12); background: #ff6b6b; } }
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(4, 30, 34, 0.74); padding: 16px; overflow-y: auto; z-index: 10; cursor: default; }
+.panel { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 18px; width: min(420px, 100%); text-align: center; margin: auto; color: var(--ink); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: #e0f3f5; }
+.panel .fact { background: rgba(255,212,59,0.12); border: 1px solid rgba(255,212,59,0.35); border-radius: 12px; padding: 8px 10px; color: #ffe8a3; font-size: 15px; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 44px; font-weight: 800; color: var(--gold); line-height: 1.1; margin: 6px 0; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 8px 0; }
+input::placeholder { color: #a9d3d8; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #0b7285, #2b8a3e); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+details { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 10px 14px; margin: 8px 0; }
+details summary { font-weight: 700; cursor: pointer; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+@media (max-width: 480px) { .panel { padding: 14px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .hud { font-size: 14px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🪨 NextGrade<small>Bachpan</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="cv" aria-label="Pitthu ground"></canvas>
+    <div class="hud" aria-hidden="true"><span id="hudLives">❤️❤️❤️</span><span id="hudRound">R1</span><span id="hudScore">0</span></div>
+    <button class="duck hidden" id="duckBtn" type="button" data-i18n="duck"></button>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle"></h2>
+        <p data-i18n="controls"></p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <button class="btn btn-main" id="playBtn" type="button" data-i18n="play"></button>
+        <p id="bestLine"></p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big" id="endScore"></div>
+        <p id="endNote"></p>
+        <p class="fact" id="endFact"></p>
+        <button class="btn btn-main" id="againBtn" type="button" data-i18n="again"></button>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card2"><ol id="howList"></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="rulesTitle"></h2>
+    <div class="card2"><ul id="rulesList"></ul></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="factsTitle"></h2>
+    <div class="card2"><ul id="factList"></ul></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="faqTitle"></h2>
+    <div id="faqList"></div>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/pitthu/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const FACT_KEYS = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6'];
+  const LIVES = 3, THROWS = 3;
+
+  const T = {
+    hinglish: {
+      title: 'Pitthu 🪨 (Lagori / Seven Stones)',
+      sub: 'Bachpan wala Pitthu ab phone par! Gend se pattharon ki dheri giraao, phir jaldi-jaldi dobara jamao — saamne wale gend maarenge, jhuk ke bacho. Dheri poori hui to chillao "Pitthu!"',
+      startTitle: 'Chalo Pitthu khelein 🪨',
+      controls: 'Gend ko peeche kheench ke chhodo aur dheri giraao (3 mauke). Phir bikhre patthar sabse bade se chhote tak tap karke jamao. Laal ghera dikhe to turant "Jhuko!" dabao.',
+      namePh: 'Aapka naam (optional)', play: '▶ Khelo', again: '🔁 Phir se khelo', duck: '🙇 Jhuko!',
+      aim: '👆 Gend kheencho aur chhodo!', rebuild: '🪨 Bade se chhote — jamao!', wrong: 'Pehle badi wali!', down: 'Gir gayi! 💥 Ab jamao!',
+      timeUp: 'Time khatam! ⏰', missed: 'Nishana chooka', noThrows: 'Teeno nishane chooke 😅', hit: 'Gend lag gayi! Out 😵', dodged: 'Bach gaye! 😎', pitthu: 'PITTHU! 🎉',
+      round: (n) => `Round ${n}`, best: (n) => `Sabse achha: ${n} point`,
+      endTitle: (name) => `Khel khatam${name ? `, ${name}` : ''}!`, endNote: (r) => `${r} round jeete`, newBest: '🏆 Naya record!', pts: 'point',
+      challenge: (name, n) => `🪨 ${name} ne Pitthu mein ${n} point banaye! Aap kitne banaoge?`,
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareOther: '🔗 Link share / copy karo', copied: '✅ Copy ho gaya', copyPrompt: 'Yeh text copy karo:',
+      shareText: (name, n, url) => `🪨 ${name ? `${name} ne` : 'Maine'} Pitthu (Lagori) game mein ${n} point banaye! Bachpan wala khel — aap bhi khelo: ${url}`,
+      howTitle: 'Pitthu kaise khelein',
+      how: ['<b>Khelo</b> dabao. Neeche aapki <b>gend</b> hai — use chhoo kar <b>peeche kheencho</b> aur chhod do. Teer dikhata hai gend kidhar jaayegi.', 'Pattharon ki dheri ko lagao to woh bikhar jaati hai. <b>3 mauke</b> milte hain; teeno chooke to ek ❤️ kam.', 'Ab bikhre pattharon ko <b>sabse bade se sabse chhote</b> tak ek-ek tap karke jamao — chamakta patthar agla hai.', 'Saamne wala bachcha gend phenkega: <b>laal ghera</b> dikhte hi <b>🙇 Jhuko!</b> dabao. Der ki to gend lagegi aur ek ❤️ jaayega.', 'Dheri poori jamaate hi "Pitthu!" — round jeeta. Har round mein patthar badhte hain aur gend tez aati hai. 3 ❤️ khatam, khel khatam.'],
+      aboutTitle: 'Pitthu — saat pattharon ka khel',
+      aboutText: 'Pitthu (Pithoo, Lagori, Seven Stones) gali-mohalle ka bahut purana team game hai. Saat chapte patthar ek ke upar ek rakhe jaate hain. Ek team door se gend maar kar dheri giraati hai, aur phir use dobara jamaane ki koshish karti hai — jabki doosri team gend se unhe "out" karne ki koshish karti hai. Dheri jam gayi to jamaane wala chillata hai "Pitthu!" (ya "Lagori!") aur team ko point milta hai.',
+      aboutText2: 'Is khel mein nishana, tezi, team ka saath aur chaukanna rehna — sab chahiye. Isliye school aur mohalle mein yeh aaj bhi bahut khela jaata hai, aur kai jagah iske tournament bhi hote hain.',
+      rulesTitle: 'Asli Pitthu ke aam niyam',
+      rules: ['Do team, aam taur par 3 se 9 khiladi har team mein.', 'Saat chapte patthar (ya tiles) ek ke upar ek — sabse bada neeche, sabse chhota upar.', 'Maarne wali team ke har khiladi ko dheri giraane ke 3 mauke tak milte hain (jagah ke hisaab se badalta hai).', 'Gend lagne par jamaane wala khiladi out — kai jagah niyam hai ki gend sirf kamar se neeche maari jaaye.', 'Naram tennis ball istemaal karo aur kabhi sir ya chehre par mat maaro.'],
+      factsTitle: 'Pitthu ke tathya',
+      facts: {
+        f1: 'Alag-alag rajyon mein naam: Karnataka mein "Lagori", Rajasthan mein "Satoliya / Sitoliya", Tamil Nadu mein "Ezhu Kal", Andhra-Telangana mein "Yedu Penkulata", aur angrezi mein "Seven Stones".',
+        f2: '"Satoliya", "Ezhu Kal" aur "Yedu Penkulata" — sab ka matlab hai "saat patthar".',
+        f3: 'Pitthu ke liye kuch khaas nahi chahiye — saat chapte patthar aur ek gend kaafi hain.',
+        f4: 'Is khel mein nishana lagaana, daudna, jhukna aur team ke saath plan banaana — sab ek saath hota hai.',
+        f5: 'Kai shehron mein bachchon ke khelon ko bachaane ke liye Pitthu/Lagori ke tournament karaaye jaate hain.',
+        f6: 'Dheri jaldi jamaane ka raaz: sabse bada patthar pehle, phir chhota — galat kram mein rakhoge to dheri gir jaayegi.',
+      },
+      faqTitle: 'Aksar pooche jaane wale sawaal',
+      faq: [['Pitthu game kya hai?', 'Pitthu (Lagori / Seven Stones) Bharat ka paaramparik gali-khel hai. Ek team gend se pattharon ki dheri giraati hai aur use dobara jamaati hai, doosri team gend maar kar unhe out karti hai. Dheri jam gayi to "Pitthu!" aur round jeet.'], ['Pitthu online kaise khelein?', 'Gend peeche kheench ke chhodo aur dheri giraao (3 mauke). Phir bikhre patthar bade se chhote tak tap karke jamao. Laal ghera dikhe to "Jhuko!" dabao. 3 baar gend lagi to khel khatam.'], ['Pitthu ke doosre naam kya hain?', 'Lagori (Karnataka), Satoliya/Sitoliya (Rajasthan), Ezhu Kal (Tamil Nadu), Yedu Penkulata (Andhra/Telangana), aur Seven Stones (angrezi). Pittu, Pithoo jaise spelling bhi chalte hain.'], ['Kya yeh game free aur bachchon ke liye safe hai?', 'Haan. Bilkul free, na login, na download. Naam aur score sirf aapke phone mein rehte hain.']],
+      moreGames: 'Aur bachpan wale games khelo →', privacyTitle: 'Aapka data', privacyText: 'Naam aur score sirf aapke phone mein rehte hain. Share link mein sirf naam aur score jaate hain. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'पिट्ठू 🪨 (लगोरी / सात पत्थर)',
+      sub: 'बचपन वाला पिट्ठू अब फ़ोन पर! गेंद से पत्थरों की ढेरी गिराओ, फिर जल्दी-जल्दी दोबारा जमाओ — सामने वाले गेंद मारेंगे, झुककर बचो। ढेरी पूरी हुई तो चिल्लाओ "पिट्ठू!"',
+      startTitle: 'चलो पिट्ठू खेलें 🪨',
+      controls: 'गेंद को पीछे खींचकर छोड़ो और ढेरी गिराओ (3 मौक़े)। फिर बिखरे पत्थर सबसे बड़े से छोटे तक टैप करके जमाओ। लाल घेरा दिखे तो तुरंत "झुको!" दबाओ।',
+      namePh: 'आपका नाम (ज़रूरी नहीं)', play: '▶ खेलो', again: '🔁 फिर से खेलो', duck: '🙇 झुको!',
+      aim: '👆 गेंद खींचो और छोड़ो!', rebuild: '🪨 बड़े से छोटे — जमाओ!', wrong: 'पहले बड़ी वाली!', down: 'गिर गई! 💥 अब जमाओ!',
+      timeUp: 'समय ख़त्म! ⏰', missed: 'निशाना चूका', noThrows: 'तीनों निशाने चूके 😅', hit: 'गेंद लग गई! आउट 😵', dodged: 'बच गए! 😎', pitthu: 'पिट्ठू! 🎉',
+      round: (n) => `राउंड ${n}`, best: (n) => `सबसे अच्छा: ${n} पॉइंट`,
+      endTitle: (name) => `खेल ख़त्म${name ? `, ${name}` : ''}!`, endNote: (r) => `${r} राउंड जीते`, newBest: '🏆 नया रिकॉर्ड!', pts: 'पॉइंट',
+      challenge: (name, n) => `🪨 ${name} ने पिट्ठू में ${n} पॉइंट बनाए! आप कितने बनाओगे?`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareOther: '🔗 लिंक शेयर / कॉपी करो', copied: '✅ कॉपी हो गया', copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareText: (name, n, url) => `🪨 ${name ? `${name} ने` : 'मैंने'} पिट्ठू (लगोरी) गेम में ${n} पॉइंट बनाए! बचपन वाला खेल — आप भी खेलो: ${url}`,
+      howTitle: 'पिट्ठू कैसे खेलें',
+      how: ['<b>खेलो</b> दबाओ। नीचे आपकी <b>गेंद</b> है — उसे छूकर <b>पीछे खींचो</b> और छोड़ दो। तीर दिखाता है गेंद किधर जाएगी।', 'पत्थरों की ढेरी को लगाओ तो वह बिखर जाती है। <b>3 मौक़े</b> मिलते हैं; तीनों चूके तो एक ❤️ कम।', 'अब बिखरे पत्थरों को <b>सबसे बड़े से सबसे छोटे</b> तक एक-एक टैप करके जमाओ — चमकता पत्थर अगला है।', 'सामने वाला बच्चा गेंद फेंकेगा: <b>लाल घेरा</b> दिखते ही <b>🙇 झुको!</b> दबाओ। देर की तो गेंद लगेगी और एक ❤️ जाएगा।', 'ढेरी पूरी जमाते ही "पिट्ठू!" — राउंड जीता। हर राउंड में पत्थर बढ़ते हैं और गेंद तेज़ आती है। 3 ❤️ ख़त्म, खेल ख़त्म।'],
+      aboutTitle: 'पिट्ठू — सात पत्थरों का खेल',
+      aboutText: 'पिट्ठू (पिठू, लगोरी, सात पत्थर) गली-मोहल्ले का बहुत पुराना टीम गेम है। सात चपटे पत्थर एक के ऊपर एक रखे जाते हैं। एक टीम दूर से गेंद मारकर ढेरी गिराती है, और फिर उसे दोबारा जमाने की कोशिश करती है — जबकि दूसरी टीम गेंद से उन्हें "आउट" करने की कोशिश करती है। ढेरी जम गई तो जमाने वाला चिल्लाता है "पिट्ठू!" (या "लगोरी!") और टीम को पॉइंट मिलता है।',
+      aboutText2: 'इस खेल में निशाना, तेज़ी, टीम का साथ और चौकन्ना रहना — सब चाहिए। इसलिए स्कूल और मोहल्ले में यह आज भी बहुत खेला जाता है, और कई जगह इसके टूर्नामेंट भी होते हैं।',
+      rulesTitle: 'असली पिट्ठू के आम नियम',
+      rules: ['दो टीम, आमतौर पर हर टीम में 3 से 9 खिलाड़ी।', 'सात चपटे पत्थर (या टाइल) एक के ऊपर एक — सबसे बड़ा नीचे, सबसे छोटा ऊपर।', 'मारने वाली टीम के हर खिलाड़ी को ढेरी गिराने के 3 मौक़े तक मिलते हैं (जगह के हिसाब से बदलता है)।', 'गेंद लगने पर जमाने वाला खिलाड़ी आउट — कई जगह नियम है कि गेंद सिर्फ़ कमर से नीचे मारी जाए।', 'नरम टेनिस बॉल इस्तेमाल करो और कभी सिर या चेहरे पर मत मारो।'],
+      factsTitle: 'पिट्ठू के तथ्य',
+      facts: {
+        f1: 'अलग-अलग राज्यों में नाम: कर्नाटक में "लगोरी", राजस्थान में "सतोलिया / सितोलिया", तमिलनाडु में "एழு कल" (एळु कल), आंध्र-तेलंगाना में "येडु पेंकुलाटा", और अंग्रेज़ी में "सेवन स्टोन्स"।',
+        f2: '"सतोलिया", "एळु कल" और "येडु पेंकुलाटा" — सबका मतलब है "सात पत्थर"।',
+        f3: 'पिट्ठू के लिए कुछ ख़ास नहीं चाहिए — सात चपटे पत्थर और एक गेंद काफ़ी हैं।',
+        f4: 'इस खेल में निशाना लगाना, दौड़ना, झुकना और टीम के साथ योजना बनाना — सब एक साथ होता है।',
+        f5: 'कई शहरों में बच्चों के खेलों को बचाने के लिए पिट्ठू/लगोरी के टूर्नामेंट कराए जाते हैं।',
+        f6: 'ढेरी जल्दी जमाने का राज़: सबसे बड़ा पत्थर पहले, फिर छोटा — ग़लत क्रम में रखोगे तो ढेरी गिर जाएगी।',
+      },
+      faqTitle: 'अक्सर पूछे जाने वाले सवाल',
+      faq: [['पिट्ठू गेम क्या है?', 'पिट्ठू (लगोरी / सात पत्थर) भारत का पारंपरिक गली-खेल है। एक टीम गेंद से पत्थरों की ढेरी गिराती है और उसे दोबारा जमाती है, दूसरी टीम गेंद मारकर उन्हें आउट करती है। ढेरी जम गई तो "पिट्ठू!" और राउंड जीत।'], ['पिट्ठू ऑनलाइन कैसे खेलें?', 'गेंद पीछे खींचकर छोड़ो और ढेरी गिराओ (3 मौक़े)। फिर बिखरे पत्थर बड़े से छोटे तक टैप करके जमाओ। लाल घेरा दिखे तो "झुको!" दबाओ। 3 बार गेंद लगी तो खेल ख़त्म।'], ['पिट्ठू के दूसरे नाम क्या हैं?', 'लगोरी (कर्नाटक), सतोलिया/सितोलिया (राजस्थान), एळु कल (तमिलनाडु), येडु पेंकुलाटा (आंध्र/तेलंगाना), और सेवन स्टोन्स (अंग्रेज़ी)।'], ['क्या यह गेम फ़्री और बच्चों के लिए सुरक्षित है?', 'हाँ। बिल्कुल फ़्री, न लॉगिन, न डाउनलोड। नाम और स्कोर सिर्फ़ आपके फ़ोन में रहते हैं।']],
+      moreGames: 'और बचपन वाले गेम खेलो →', privacyTitle: 'आपका डेटा', privacyText: 'नाम और स्कोर सिर्फ़ आपके फ़ोन में रहते हैं। शेयर लिंक में सिर्फ़ नाम और स्कोर जाते हैं। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Pitthu 🪨 (Lagori / Seven Stones)',
+      sub: 'The childhood Pitthu game, now on your phone! Knock down the pile of stones with the ball, then rebuild it fast — the other side will throw the ball at you, so duck! Rebuild it and shout "Pitthu!"',
+      startTitle: 'Let\'s play Pitthu 🪨',
+      controls: 'Pull the ball back and release it to knock down the pile (3 tries). Then tap the scattered stones from the biggest to the smallest to rebuild it. When a red ring appears, tap "Duck!" at once.',
+      namePh: 'Your name (optional)', play: '▶ Play', again: '🔁 Play again', duck: '🙇 Duck!',
+      aim: '👆 Pull the ball back and let go!', rebuild: '🪨 Biggest to smallest — rebuild!', wrong: 'The bigger one first!', down: 'Down! 💥 Now rebuild!',
+      timeUp: 'Time\'s up! ⏰', missed: 'Missed', noThrows: 'All three throws missed 😅', hit: 'Hit by the ball! Out 😵', dodged: 'Dodged! 😎', pitthu: 'PITTHU! 🎉',
+      round: (n) => `Round ${n}`, best: (n) => `Best: ${n} points`,
+      endTitle: (name) => `Game over${name ? `, ${name}` : ''}!`, endNote: (r) => `${r} rounds won`, newBest: '🏆 New record!', pts: 'points',
+      challenge: (name, n) => `🪨 ${name} scored ${n} points in Pitthu! How many can you score?`,
+      shareWa: '📲 Send a WhatsApp challenge', shareOther: '🔗 Share / copy link', copied: '✅ Copied', copyPrompt: 'Copy this text:',
+      shareText: (name, n, url) => `🪨 ${name ? `${name} scored` : 'I scored'} ${n} points in the Pitthu (Lagori) game! The childhood game — play too: ${url}`,
+      howTitle: 'How to play Pitthu',
+      how: ['Tap <b>Play</b>. Your <b>ball</b> is at the bottom — touch it, <b>pull back</b> and let go. The arrow shows where it will go.', 'Hit the pile and the stones scatter. You get <b>3 throws</b>; miss all three and you lose a ❤️.', 'Now tap the scattered stones from the <b>biggest to the smallest</b>, one at a time — the glowing stone is next.', 'The other kid will throw the ball: as soon as the <b>red ring</b> appears, tap <b>🙇 Duck!</b>. Too late and the ball hits you — one ❤️ gone.', 'Finish the pile and it\'s "Pitthu!" — round won. Each round adds stones and faster throws. Lose 3 ❤️ and the game ends.'],
+      aboutTitle: 'Pitthu — the game of seven stones',
+      aboutText: 'Pitthu (Pithoo, Lagori, Seven Stones) is a very old team game of Indian streets and playgrounds. Seven flat stones are piled one on top of the other. One team knocks the pile down with a ball from a distance and then tries to rebuild it — while the other team tries to get them "out" by hitting them with the ball. When the pile is rebuilt, the builder shouts "Pitthu!" (or "Lagori!") and the team scores.',
+      aboutText2: 'It needs aim, speed, teamwork and alertness all at once, which is why it is still played in schools and neighbourhoods, and there are tournaments in many places.',
+      rulesTitle: 'Common rules of real Pitthu',
+      rules: ['Two teams, usually 3 to 9 players each.', 'Seven flat stones (or tiles) piled up — the biggest at the bottom, the smallest on top.', 'Each player of the hitting team gets up to 3 tries to knock the pile down (this varies by place).', 'A builder hit by the ball is out — in many places the ball must hit below the waist.', 'Use a soft tennis ball and never aim at the head or face.'],
+      factsTitle: 'Pitthu facts',
+      facts: {
+        f1: 'Its names across India: "Lagori" in Karnataka, "Satoliya / Sitoliya" in Rajasthan, "Ezhu Kal" in Tamil Nadu, "Yedu Penkulata" in Andhra Pradesh and Telangana, and "Seven Stones" in English.',
+        f2: '"Satoliya", "Ezhu Kal" and "Yedu Penkulata" all mean "seven stones".',
+        f3: 'Pitthu needs nothing special — seven flat stones and a ball are enough.',
+        f4: 'The game combines aiming, running, ducking and team planning all at once.',
+        f5: 'In several cities, Pitthu/Lagori tournaments are held to keep traditional children\'s games alive.',
+        f6: 'The secret of a quick rebuild: biggest stone first, then smaller — stack them in the wrong order and the pile topples.',
+      },
+      faqTitle: 'Frequently asked questions',
+      faq: [['What is the Pitthu game?', 'Pitthu (Lagori / Seven Stones) is a traditional Indian street game. One team knocks down a pile of stones with a ball and rebuilds it, while the other team tries to hit them with the ball. Rebuild the pile, shout "Pitthu!" and win the round.'], ['How do you play Pitthu online?', 'Pull the ball back and release it to knock the pile down (3 tries). Then tap the stones from the biggest to the smallest to rebuild it. When the red ring appears, tap "Duck!". Three hits and the game ends.'], ['What are the other names of Pitthu?', 'Lagori (Karnataka), Satoliya/Sitoliya (Rajasthan), Ezhu Kal (Tamil Nadu), Yedu Penkulata (Andhra Pradesh/Telangana) and Seven Stones (English). Pittu and Pithoo are common spellings too.'], ['Is this game free and safe for children?', 'Yes. Completely free, with no login or download. The name and score stay only on your phone.']],
+      moreGames: 'Play more childhood games →', privacyTitle: 'Your data', privacyText: 'Your name and score stay only on your phone. A share link carries only the name and score. No login, no server.',
+    },
+    bn: {
+      title: 'পিট্টু 🪨 (লাগোরি / সাত পাথর)',
+      sub: 'ছোটবেলার পিট্টু এবার ফোনে! বল দিয়ে পাথরের স্তূপ ভাঙো, তারপর তাড়াতাড়ি আবার সাজাও — অন্য দল বল ছুড়বে, মাথা নিচু করে বাঁচো। স্তূপ সাজানো হলেই চেঁচাও "পিট্টু!"',
+      startTitle: 'চলো পিট্টু খেলি 🪨',
+      controls: 'বল পিছনে টেনে ছাড়ো আর স্তূপ ভাঙো (৩টে সুযোগ)। তারপর ছড়ানো পাথর বড় থেকে ছোট — ট্যাপ করে সাজাও। লাল বৃত্ত দেখলেই "নিচু হও!" চাপো।',
+      namePh: 'তোমার নাম (না দিলেও চলবে)', play: '▶ খেলো', again: '🔁 আবার খেলো', duck: '🙇 নিচু হও!',
+      aim: '👆 বল টেনে ছেড়ে দাও!', rebuild: '🪨 বড় থেকে ছোট — সাজাও!', wrong: 'আগে বড়টা!', down: 'ভেঙেছে! 💥 এবার সাজাও!',
+      timeUp: 'সময় শেষ! ⏰', missed: 'ফসকে গেল', noThrows: 'তিনটে ছোড়াই ফসকাল 😅', hit: 'বল লেগে গেল! আউট 😵', dodged: 'বেঁচে গেলে! 😎', pitthu: 'পিট্টু! 🎉',
+      round: (n) => `রাউন্ড ${n}`, best: (n) => `সেরা: ${n} পয়েন্ট`,
+      endTitle: (name) => `খেলা শেষ${name ? `, ${name}` : ''}!`, endNote: (r) => `${r}টা রাউন্ড জিতেছ`, newBest: '🏆 নতুন রেকর্ড!', pts: 'পয়েন্ট',
+      challenge: (name, n) => `🪨 ${name} পিট্টুতে ${n} পয়েন্ট করেছে! তুমি কত করবে?`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareOther: '🔗 লিংক শেয়ার / কপি করো', copied: '✅ কপি হয়েছে', copyPrompt: 'এই লেখাটা কপি করো:',
+      shareText: (name, n, url) => `🪨 ${name ? `${name}` : 'আমি'} পিট্টু (লাগোরি) খেলায় ${n} পয়েন্ট করেছি! ছোটবেলার খেলা — তুমিও খেলো: ${url}`,
+      howTitle: 'পিট্টু কীভাবে খেলবে',
+      how: ['<b>খেলো</b> চাপো। নিচে তোমার <b>বল</b> — ছুঁয়ে <b>পিছনে টানো</b> আর ছেড়ে দাও। তির দেখায় বল কোথায় যাবে।', 'স্তূপে লাগলে পাথর ছড়িয়ে পড়ে। <b>৩টে সুযোগ</b>; তিনটেই ফসকালে একটা ❤️ কমবে।', 'এবার ছড়ানো পাথর <b>সবচেয়ে বড় থেকে সবচেয়ে ছোট</b> — একটা একটা ট্যাপ করে সাজাও। ঝলমলে পাথরটা পরের।', 'অন্য দলের ছেলেটা বল ছুড়বে: <b>লাল বৃত্ত</b> দেখলেই <b>🙇 নিচু হও!</b> চাপো। দেরি করলে বল লাগবে, একটা ❤️ যাবে।', 'স্তূপ পুরো হলেই "পিট্টু!" — রাউন্ড জয়। প্রতি রাউন্ডে পাথর বাড়ে আর বল জোরে আসে। ৩টে ❤️ শেষ, খেলা শেষ।'],
+      aboutTitle: 'পিট্টু — সাত পাথরের খেলা',
+      aboutText: 'পিট্টু (পিঠু, লাগোরি, সেভেন স্টোনস) পাড়ার খুব পুরোনো দলগত খেলা। সাতটা চ্যাপ্টা পাথর একটার ওপর একটা রাখা হয়। এক দল দূর থেকে বল মেরে স্তূপ ভাঙে, তারপর আবার সাজানোর চেষ্টা করে — আর অন্য দল বল ছুড়ে তাদের "আউট" করতে চায়। স্তূপ সাজানো হলে যে সাজায় সে চেঁচায় "পিট্টু!" (বা "লাগোরি!") আর দল পয়েন্ট পায়।',
+      aboutText2: 'এই খেলায় টিপ, গতি, দলের সঙ্গ আর সতর্কতা — সবই লাগে। তাই স্কুলে-পাড়ায় আজও খুব খেলা হয়, অনেক জায়গায় টুর্নামেন্টও হয়।',
+      rulesTitle: 'আসল পিট্টুর সাধারণ নিয়ম',
+      rules: ['দুটো দল, সাধারণত প্রতি দলে ৩ থেকে ৯ জন।', 'সাতটা চ্যাপ্টা পাথর (বা টালি) পরপর — সবচেয়ে বড়টা নিচে, ছোটটা ওপরে।', 'মারার দলের প্রত্যেকে স্তূপ ভাঙার ৩টে পর্যন্ত সুযোগ পায় (জায়গা ভেদে বদলায়)।', 'বল লাগলে যে সাজাচ্ছে সে আউট — অনেক জায়গায় নিয়ম, বল কোমরের নিচে মারতে হবে।', 'নরম টেনিস বল ব্যবহার করো, মাথা বা মুখে কখনো মেরো না।'],
+      factsTitle: 'পিট্টুর কিছু কথা',
+      facts: {
+        f1: 'নানা রাজ্যে নাম: কর্ণাটকে "লাগোরি", রাজস্থানে "সাতোলিয়া / সিতোলিয়া", তামিলনাড়ুতে "এঝু কল", অন্ধ্র-তেলেঙ্গানায় "ইয়েডু পেংকুলাটা", ইংরেজিতে "সেভেন স্টোনস"।',
+        f2: '"সাতোলিয়া", "এঝু কল" আর "ইয়েডু পেংকুলাটা" — সবকটার মানে "সাত পাথর"।',
+        f3: 'পিট্টুর জন্য বিশেষ কিছু লাগে না — সাতটা চ্যাপ্টা পাথর আর একটা বলই যথেষ্ট।',
+        f4: 'এই খেলায় টিপ করা, দৌড়ানো, নিচু হওয়া আর দলের পরিকল্পনা — সব একসঙ্গে।',
+        f5: 'অনেক শহরে ছোটদের পুরোনো খেলা বাঁচাতে পিট্টু/লাগোরির টুর্নামেন্ট হয়।',
+        f6: 'তাড়াতাড়ি সাজানোর রহস্য: আগে সবচেয়ে বড় পাথর, তারপর ছোট — ভুল ক্রমে রাখলে স্তূপ পড়ে যায়।',
+      },
+      faqTitle: 'সাধারণ প্রশ্ন',
+      faq: [['পিট্টু খেলা কী?', 'পিট্টু (লাগোরি / সাত পাথর) ভারতের ঐতিহ্যবাহী পাড়ার খেলা। এক দল বল দিয়ে পাথরের স্তূপ ভেঙে আবার সাজায়, অন্য দল বল মেরে তাদের আউট করে। সাজানো হলেই "পিট্টু!" আর রাউন্ড জয়।'], ['পিট্টু অনলাইনে কীভাবে খেলবে?', 'বল পিছনে টেনে ছেড়ে স্তূপ ভাঙো (৩টে সুযোগ)। তারপর বড় থেকে ছোট পাথর ট্যাপ করে সাজাও। লাল বৃত্ত দেখলে "নিচু হও!" চাপো। ৩ বার বল লাগলে খেলা শেষ।'], ['পিট্টুর অন্য নাম কী?', 'লাগোরি (কর্ণাটক), সাতোলিয়া/সিতোলিয়া (রাজস্থান), এঝু কল (তামিলনাড়ু), ইয়েডু পেংকুলাটা (অন্ধ্র/তেলেঙ্গানা) আর সেভেন স্টোনস (ইংরেজি)।'], ['খেলাটা কি ফ্রি আর ছোটদের জন্য নিরাপদ?', 'হ্যাঁ। পুরো ফ্রি, লগইন বা ডাউনলোড লাগে না। নাম আর স্কোর শুধু তোমার ফোনেই থাকে।']],
+      moreGames: 'আরও ছোটবেলার গেম খেলো →', privacyTitle: 'তোমার ডেটা', privacyText: 'নাম আর স্কোর শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর স্কোর। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+  const urlLang = params.get('lang'), savedLang = store.get('pt-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(99999, parseInt(params.get('score'), 10) || 0));
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  let best = Math.max(0, parseInt(store.get('pt-best'), 10) || 0);
+
+  // ---------- state
+  let state = 'menu'; // menu | aim | roll | rebuild | over (+ 'pause' between steps)
+  let lives = LIVES, round = 1, score = 0, roundsWon = 0, throwsLeft = THROWS, playerName = '', newBest = false;
+  let ball = null, stones = [], placed = 0, aiming = false, pull = { x: 0, y: 0 }, banner = null, roundStart = 0, pauseUntil = 0, afterPause = null;
+  let deadline = 0, limit = 1, enemy = null, duckUntil = 0, warnAt = 0, throwAt = 0, flying = null, wrongShake = 0, lastKind = '';
+
+  // ---------- page texts
+  const updateHud = () => { $('hudLives').textContent = '❤️'.repeat(lives) + '🤍'.repeat(LIVES - lives); $('hudRound').textContent = t('round')(round); $('hudScore').textContent = `${score} ${t('pts')}`; };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    $('rulesList').innerHTML = t('rules').map((li) => `<li>${li}</li>`).join('');
+    const F = t('facts'); $('factList').innerHTML = FACT_KEYS.map((k) => `<li>${F[k]}</li>`).join('');
+    $('faqList').innerHTML = t('faq').map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+    const p = PREFIX[lang]; $('home').href = `https://nextgrade.in${p}/`; $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    const c = $('challenge'); if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    $('bestLine').textContent = best ? t('best')(best) : '';
+    updateHud();
+    if (state === 'over') fillEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('pt-lang', lang); applyLang(); });
+  $('name').value = store.get('pt-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- sound: stone clacks and a cheer, no music
+  let muted = store.get('pt-muted') === '1', ac = null, master = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setIcons();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('pt-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.8; });
+  const initAudio = () => { if (ac) { if (ac.state === 'suspended') ac.resume(); return; } const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return; ac = new AC(); master = ac.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(ac.destination); };
+  const tone = (f, dur, type = 'sine', vol = 0.07, delay = 0, f2 = null) => {
+    if (!ac) return; const w = ac.currentTime + delay, o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, w); if (f2) o.frequency.exponentialRampToValueAtTime(f2, w + dur);
+    g.gain.setValueAtTime(0.0001, w); g.gain.exponentialRampToValueAtTime(vol, w + 0.004); g.gain.exponentialRampToValueAtTime(0.0001, w + dur);
+    o.connect(g); g.connect(master); o.start(w); o.stop(w + dur + 0.03);
+  };
+  const sfx = {
+    throw: () => tone(500, 0.08, 'triangle', 0.04, 0, 900),
+    crash: () => { for (let i = 0; i < 6; i += 1) tone(900 + Math.random() * 900, 0.05, 'square', 0.03, i * 0.035); },
+    clack: (i) => tone(600 + i * 70, 0.06, 'square', 0.05),
+    wrong: () => tone(200, 0.12, 'sawtooth', 0.04),
+    warn: () => tone(1200, 0.08, 'sine', 0.05),
+    whoosh: () => tone(800, 0.2, 'sawtooth', 0.02, 0, 200),
+    ouch: () => { tone(300, 0.2, 'triangle', 0.06, 0, 150); },
+    cheer: () => { [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.35, 'sine', 0.05, i * 0.1)); },
+    over: () => tone(330, 0.45, 'triangle', 0.05, 0, 200),
+  };
+
+  // ---------- geometry (canvas px)
+  const cv = $('cv'), ctx = cv.getContext('2d');
+  let W = 400, H = 600, dpr = 1, PX = 200, PY = 230, U = 1, BX = 200, BY = 520, ME = { x: 0, y: 0 };
+  const resize = () => {
+    const r = $('stage').getBoundingClientRect(); dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = Math.max(280, r.width); H = Math.max(400, r.height);
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    U = Math.min(W, H * 0.7) / 400; PX = W / 2; PY = H * 0.42; BX = W / 2; BY = H * 0.86; ME = { x: PX + 70 * U, y: PY + 40 * U };
+  };
+  const nStones = () => Math.min(9, 4 + round);
+  const sizeOf = (i, n) => 30 - (i * 16) / Math.max(1, n - 1); // radius, biggest first
+
+  const newRound = () => {
+    const n = nStones();
+    stones = Array.from({ length: n }, (_, i) => ({ i, r: sizeOf(i, n), x: PX, y: PY, z: i, vx: 0, vy: 0, placed: true, ang: Math.random() * 6 }));
+    placed = n; throwsLeft = THROWS; ball = { x: BX, y: BY, vx: 0, vy: 0, moving: false }; flying = null; enemy = null; duckUntil = 0;
+    state = 'aim'; banner = { text: t('aim'), c: '#fff', until: performance.now() + 1800 }; updateHud();
+    $('duckBtn').classList.add('hidden');
+  };
+
+  const pauseThen = (ms, fn) => { state = 'pause'; pauseUntil = performance.now() + ms; afterPause = fn; };
+
+  const scatter = () => {
+    sfx.crash();
+    stones.forEach((s) => { const a = Math.random() * Math.PI * 2, v = (180 + Math.random() * 220) * U; s.vx = Math.cos(a) * v; s.vy = Math.sin(a) * v * 0.8; s.placed = false; });
+    placed = 0; state = 'scatter'; banner = { text: t('down'), c: '#ffd43b', until: performance.now() + 1400 };
+  };
+
+  const startRebuild = () => {
+    state = 'rebuild'; roundStart = performance.now();
+    const speed = Math.max(0.5, 1 - (round - 1) * 0.08);
+    enemy = { x: W * (Math.random() < 0.5 ? 0.15 : 0.85), y: H * 0.1, arm: 0, gap: [Math.max(0.9, 1.7 * speed), Math.max(1.5, 2.8 * speed)], warn: Math.max(0.42, 0.95 - (round - 1) * 0.06) };
+    // time to rebuild: about a second per stone at first, less in later rounds
+    limit = 4 + stones.length * Math.max(0.62, 1.05 - Math.max(0, round - 4) * 0.06); deadline = performance.now() + limit * 1000;
+    throwAt = performance.now() + (enemy.gap[0] + Math.random() * (enemy.gap[1] - enemy.gap[0])) * 1000 + 600; warnAt = throwAt - enemy.warn * 1000;
+    $('duckBtn').classList.remove('hidden');
+  };
+
+  const lose = (kind) => {
+    lastKind = kind; lives -= 1; banner = { text: t(kind), c: '#ffa8a8', until: performance.now() + 1500 }; updateHud();
+    $('duckBtn').classList.add('hidden');
+    pauseThen(1500, () => { if (lives <= 0) finish(); else newRound(); });
+  };
+
+  const winRound = () => {
+    lastKind = 'pitthu';
+    const secs = (performance.now() - roundStart) / 1000;
+    const pts = 100 + round * 20 + Math.max(0, Math.round(60 - secs * 4));
+    score += pts; roundsWon += 1; sfx.cheer();
+    banner = { text: `${t('pitthu')} +${pts}`, c: '#ffd43b', until: performance.now() + 1600 };
+    $('duckBtn').classList.add('hidden'); enemy = null; flying = null; updateHud();
+    pauseThen(1600, () => { round += 1; newRound(); });
+  };
+
+  const finish = () => {
+    state = 'over'; newBest = score > best;
+    if (newBest) { best = score; store.set('pt-best', String(best)); }
+    sfx.over(); fillEnd(); $('endScreen').classList.remove('hidden'); $('duckBtn').classList.add('hidden');
+  };
+  let factIdx = Math.floor(Math.random() * FACT_KEYS.length);
+  const fillEnd = () => {
+    $('endTitle').textContent = t('endTitle')(playerName);
+    $('endScore').textContent = `${score} ${t('pts')}`;
+    $('endNote').textContent = (newBest ? `${t('newBest')} · ` : '') + t('endNote')(roundsWon);
+    $('endFact').textContent = `💡 ${t('facts')[FACT_KEYS[factIdx % FACT_KEYS.length]]}`;
+  };
+
+  const start = () => {
+    initAudio();
+    playerName = cleanName($('name').value); store.set('pt-name', playerName);
+    lives = LIVES; round = 1; score = 0; roundsWon = 0; newBest = false; factIdx += 1;
+    $('startScreen').classList.add('hidden'); $('endScreen').classList.add('hidden');
+    newRound();
+  };
+  $('playBtn').addEventListener('click', (e) => { e.stopPropagation(); start(); });
+  $('againBtn').addEventListener('click', (e) => { e.stopPropagation(); start(); });
+
+  // ---------- input
+  // ducking during the red warning keeps you down until the ball has passed; ducking at other times just costs a moment
+  const duck = () => { if (state !== 'rebuild') return; const now = performance.now(); if (now < duckUntil) return; duckUntil = enemy && now > warnAt - 150 && now < throwAt + 260 ? throwAt + 450 : now + 600; };
+  $('duckBtn').addEventListener('pointerdown', (e) => { e.preventDefault(); e.stopPropagation(); initAudio(); duck(); });
+  window.addEventListener('keydown', (e) => { if (e.code === 'Space' || e.code === 'ArrowDown') { if (state === 'rebuild') { e.preventDefault(); duck(); } } });
+  const pos = (e) => { const r = cv.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+  const nextStone = () => stones.find((s) => !s.placed && s.i === placed);
+  const tapStone = (p) => {
+    if (performance.now() < duckUntil) return;
+    const hitS = stones.filter((s) => !s.placed && Math.hypot(s.x - p.x, s.y - p.y) < Math.max(22 * U, s.r * U + 10)).sort((a, b) => Math.hypot(a.x - p.x, a.y - p.y) - Math.hypot(b.x - p.x, b.y - p.y))[0];
+    if (!hitS) return;
+    if (hitS.i !== placed) { wrongShake = performance.now() + 300; sfx.wrong(); banner = { text: t('wrong'), c: '#ffa8a8', until: performance.now() + 700 }; return; }
+    hitS.placed = true; hitS.fly = { x0: hitS.x, y0: hitS.y, t0: performance.now() }; sfx.clack(placed); placed += 1;
+    if (placed >= stones.length) setTimeout(() => { if (state === 'rebuild') winRound(); }, 260);
+  };
+  cv.addEventListener('pointerdown', (e) => {
+    initAudio(); const p = pos(e);
+    if (state === 'aim' && Math.hypot(p.x - ball.x, p.y - ball.y) < 60 * U) { aiming = true; pull = { x: 0, y: 0 }; cv.setPointerCapture(e.pointerId); }
+    else if (state === 'rebuild') tapStone(p);
+  });
+  cv.addEventListener('pointermove', (e) => { if (!aiming) return; const p = pos(e); let dx = p.x - ball.x, dy = p.y - ball.y; const L = Math.hypot(dx, dy), M = 110 * U; if (L > M) { dx *= M / L; dy *= M / L; } pull = { x: dx, y: dy }; });
+  const release = () => {
+    if (!aiming) return; aiming = false;
+    const L = Math.hypot(pull.x, pull.y); if (L < 10 * U) return;
+    const k = (L / (110 * U)) * 900 * U;
+    ball.vx = (-pull.x / L) * k; ball.vy = (-pull.y / L) * k; ball.moving = true; state = 'roll'; throwsLeft -= 1; sfx.throw();
+  };
+  cv.addEventListener('pointerup', release); cv.addEventListener('pointercancel', release);
+
+  // ---------- update
+  let lastT = performance.now();
+  const step = (now) => {
+    const dt = Math.min(0.033, (now - lastT) / 1000); lastT = now;
+    if (state === 'pause' && now > pauseUntil) { const f = afterPause; afterPause = null; f(); }
+    if (state === 'roll') {
+      ball.x += ball.vx * dt; ball.y += ball.vy * dt; const fr = Math.pow(0.35, dt); ball.vx *= fr; ball.vy *= fr;
+      if (Math.hypot(ball.x - PX, ball.y - PY) < 30 * U + 9 * U) { ball.vx *= -0.3; ball.vy *= -0.3; scatter(); }
+      else if (Math.hypot(ball.vx, ball.vy) < 25 * U || ball.y < -20 || ball.x < -20 || ball.x > W + 20 || ball.y > H + 20) {
+        if (throwsLeft <= 0) lose('noThrows');
+        else { banner = { text: `${t('missed')} · ${throwsLeft}`, c: '#fff', until: now + 900 }; pauseThen(700, () => { ball = { x: BX, y: BY, vx: 0, vy: 0, moving: false }; state = 'aim'; }); }
+      }
+    }
+    if (state === 'scatter' || state === 'rebuild') {
+      ball.x += ball.vx * dt; ball.y += ball.vy * dt; ball.vx *= Math.pow(0.3, dt); ball.vy *= Math.pow(0.3, dt);
+      let moving = false;
+      stones.forEach((s) => {
+        if (s.placed) return;
+        s.x += s.vx * dt; s.y += s.vy * dt; const fr = Math.pow(0.08, dt); s.vx *= fr; s.vy *= fr; s.ang += (s.vx / 60) * dt;
+        const m = 30 * U; if (s.x < m) { s.x = m; s.vx = Math.abs(s.vx); } if (s.x > W - m) { s.x = W - m; s.vx = -Math.abs(s.vx); }
+        if (s.y < H * 0.2) { s.y = H * 0.2; s.vy = Math.abs(s.vy); } if (s.y > H * 0.78) { s.y = H * 0.78; s.vy = -Math.abs(s.vy); }
+        if (Math.hypot(s.vx, s.vy) > 12) moving = true;
+      });
+      if (state === 'scatter' && !moving) { // keep stones from lying on top of each other or on the pile spot
+        stones.forEach((a, i) => stones.forEach((b, j) => { if (i >= j) return; const d = Math.hypot(a.x - b.x, a.y - b.y), min = (a.r + b.r) * U + 6; if (d < min) { const ux = (b.x - a.x) / (d || 1), uy = (b.y - a.y) / (d || 1); b.x += ux * (min - d); b.y += uy * (min - d); } }));
+        stones.forEach((s) => { if (Math.hypot(s.x - PX, s.y - PY) < 46 * U) { const a = Math.atan2(s.y - PY, s.x - PX); s.x = PX + Math.cos(a) * 52 * U; s.y = PY + Math.sin(a) * 52 * U; } });
+        startRebuild();
+      }
+    }
+    if (state === 'rebuild' && now > deadline) { lose('timeUp'); return; }
+    if (state === 'rebuild' && enemy) {
+      if (now > warnAt && now < throwAt && !enemy.warned) { enemy.warned = true; sfx.warn(); $('duckBtn').classList.add('warn'); }
+      if (now >= throwAt && !flying) { flying = { t0: now, x0: enemy.x, y0: enemy.y + 20 * U }; sfx.whoosh(); }
+      if (flying && now - flying.t0 > 260) {
+        $('duckBtn').classList.remove('warn');
+        flying = null; enemy.warned = false;
+        if (now < duckUntil) { banner = { text: t('dodged'), c: '#b2f2bb', until: now + 700 }; }
+        else { sfx.ouch(); lose('hit'); return; }
+        enemy.x = W * (0.12 + Math.random() * 0.76);
+        throwAt = now + (enemy.gap[0] + Math.random() * (enemy.gap[1] - enemy.gap[0])) * 1000; warnAt = throwAt - enemy.warn * 1000;
+      }
+    }
+  };
+
+  // ---------- drawing
+  const stoneShape = (x, y, r, ang, c, glow) => {
+    ctx.save(); ctx.translate(x, y); ctx.rotate(ang * 0.2);
+    if (glow) { ctx.shadowColor = '#ffd43b'; ctx.shadowBlur = 16; }
+    ctx.fillStyle = c; ctx.beginPath(); ctx.ellipse(0, 0, r, r * 0.62, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.shadowBlur = 0; ctx.fillStyle = 'rgba(255,255,255,0.22)'; ctx.beginPath(); ctx.ellipse(-r * 0.25, -r * 0.18, r * 0.45, r * 0.2, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.restore();
+  };
+  const COL = ['#868e96', '#a0866b', '#7d6e63', '#9c8f80', '#6c757d', '#a68a64', '#8d7b68', '#7a6f62', '#998675'];
+  const kid = (x, y, shirt, pose, s) => {
+    const k = U * s; ctx.strokeStyle = '#5c3b1e'; ctx.lineWidth = 3 * k; ctx.lineCap = 'round';
+    const crouch = pose === 'duck' ? 12 * k : 0;
+    ctx.beginPath(); ctx.moveTo(x, y - 16 * k + crouch * 0.4); ctx.lineTo(x - 6 * k, y); ctx.moveTo(x, y - 16 * k + crouch * 0.4); ctx.lineTo(x + 6 * k, y); ctx.stroke();
+    ctx.fillStyle = shirt; ctx.fillRect(x - 6 * k, y - 34 * k + crouch, 12 * k, 18 * k);
+    ctx.beginPath();
+    if (pose === 'throw') { ctx.moveTo(x + 5 * k, y - 32 * k); ctx.lineTo(x + 10 * k, y - 48 * k); } else { ctx.moveTo(x + 5 * k, y - 32 * k + crouch); ctx.lineTo(x + 10 * k, y - 20 * k + crouch); }
+    ctx.moveTo(x - 5 * k, y - 32 * k + crouch); ctx.lineTo(x - 10 * k, y - 20 * k + crouch); ctx.stroke();
+    ctx.fillStyle = '#c68a5a'; ctx.beginPath(); ctx.arc(x, y - 41 * k + crouch, 7 * k, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#212529'; ctx.beginPath(); ctx.arc(x, y - 44 * k + crouch, 7 * k, Math.PI, 0); ctx.fill();
+  };
+  const draw = (now) => {
+    // dusty ground with a chalk circle around the pile and a throwing line
+    const g = ctx.createRadialGradient(W / 2, H * 0.45, 20, W / 2, H * 0.45, Math.max(W, H)); g.addColorStop(0, '#e2c393'); g.addColorStop(1, '#b08a5a');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    ctx.strokeStyle = 'rgba(255,255,255,0.7)'; ctx.lineWidth = 2; ctx.setLineDash([8, 6]);
+    ctx.beginPath(); ctx.ellipse(PX, PY, 70 * U, 44 * U, 0, 0, Math.PI * 2); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(W * 0.15, BY - 34 * U); ctx.lineTo(W * 0.85, BY - 34 * U); ctx.stroke(); ctx.setLineDash([]);
+    // the pile (placed stones), biggest at the bottom
+    const pileStones = stones.filter((s) => s.placed).sort((a, b) => a.i - b.i);
+    pileStones.forEach((s, k) => {
+      let x = PX, y = PY - k * 7 * U;
+      if (s.fly) { const p = Math.min(1, (now - s.fly.t0) / 240); x = s.fly.x0 + (PX - s.fly.x0) * p; y = s.fly.y0 + (y - s.fly.y0) * p - Math.sin(p * Math.PI) * 30 * U; if (p >= 1) s.fly = null; }
+      stoneShape(x, y, s.r * U, 0, COL[s.i % COL.length], false);
+    });
+    // scattered stones; the next one to pick glows
+    const nx = state === 'rebuild' ? nextStone() : null;
+    stones.filter((s) => !s.placed).forEach((s) => {
+      const sh = nx === s ? 0 : wrongShake > now ? Math.sin(now / 20) * 2 : 0;
+      stoneShape(s.x + sh, s.y, s.r * U, s.ang, COL[s.i % COL.length], nx === s);
+    });
+    // builder (you) next to the pile while rebuilding
+    if (state === 'rebuild' || (state === 'pause' && lastKind === 'hit')) {
+      const ducking = now < duckUntil;
+      if (enemy && now > warnAt && now < throwAt + 300) { ctx.strokeStyle = '#e03131'; ctx.lineWidth = 4; const p = clamp((throwAt - now) / (enemy.warn * 1000), 0, 1); ctx.beginPath(); ctx.arc(ME.x, ME.y - 22 * U, (26 + 34 * p) * U, 0, Math.PI * 2); ctx.stroke(); }
+      kid(ME.x, ME.y, '#1c7ed6', ducking ? 'duck' : 'stand', 1.3);
+    }
+    // the other side's thrower
+    if (enemy) kid(enemy.x, enemy.y + 40 * U, '#e03131', now > warnAt ? 'throw' : 'stand', 1.1);
+    if (flying) { const p = (now - flying.t0) / 260, x = flying.x0 + (ME.x - flying.x0) * p, y = flying.y0 + (ME.y - 30 * U - flying.y0) * p; ctx.fillStyle = '#f8f9fa'; ctx.beginPath(); ctx.arc(x, y, 8 * U, 0, Math.PI * 2); ctx.fill(); ctx.strokeStyle = '#69db7c'; ctx.lineWidth = 2; ctx.stroke(); }
+    // your ball + aiming arrow
+    if (ball && (state === 'aim' || state === 'roll' || state === 'scatter' || (state === 'pause' && !enemy))) {
+      if (aiming) {
+        const L = Math.hypot(pull.x, pull.y);
+        if (L > 6) { ctx.strokeStyle = 'rgba(255,255,255,0.9)'; ctx.lineWidth = 3; ctx.setLineDash([6, 6]); ctx.beginPath(); ctx.moveTo(ball.x, ball.y); ctx.lineTo(ball.x - pull.x * 2.4, ball.y - pull.y * 2.4); ctx.stroke(); ctx.setLineDash([]); }
+      }
+      const bx = aiming ? ball.x + pull.x * 0.4 : ball.x, by = aiming ? ball.y + pull.y * 0.4 : ball.y;
+      ctx.fillStyle = '#c0eb75'; ctx.beginPath(); ctx.arc(bx, by, 10 * U, 0, Math.PI * 2); ctx.fill(); ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(bx, by, 10 * U, 0.5, 2.6); ctx.stroke();
+    }
+    if (state === 'aim' && !aiming) { ctx.fillStyle = 'rgba(255,255,255,0.9)'; ctx.font = `700 ${Math.max(12, 13 * U)}px Inter, sans-serif`; ctx.textAlign = 'center'; ctx.fillText('🎯'.repeat(throwsLeft), BX, BY + 30 * U); }
+    const TY = enemy ? H * 0.75 : H * 0.17;
+    if (banner && now < banner.until) { ctx.font = `800 ${Math.max(18, Math.min(28, W / 15))}px "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif`; ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.fillText(banner.text, W / 2 + 2, TY + 2); ctx.fillStyle = banner.c; ctx.fillText(banner.text, W / 2, TY); }
+    if (state === 'rebuild') { const f = clamp((deadline - now) / (limit * 1000), 0, 1), bw = W * 0.6; ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.fillRect(W / 2 - bw / 2, H * 0.8, bw, 8); ctx.fillStyle = f > 0.3 ? '#40c057' : '#fa5252'; ctx.fillRect(W / 2 - bw / 2, H * 0.8, bw * f, 8); }
+    if (state === 'rebuild' && !(banner && now < banner.until)) { ctx.font = `800 ${Math.max(14, Math.min(20, W / 20))}px "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif`; ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.fillText(t('rebuild'), W / 2, TY); }
+  };
+  const frame = (now) => { step(now); draw(now); requestAnimationFrame(frame); };
+
+  // ---------- share
+  const shareText = () => { const u = new URL(SITE); if (playerName) u.searchParams.set('from', playerName); u.searchParams.set('score', String(score)); u.searchParams.set('lang', lang); return t('shareText')(playerName, score, u.toString()); };
+  $('shareWa').addEventListener('click', (e) => { e.stopPropagation(); window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareOther').addEventListener('click', (e) => {
+    e.stopPropagation(); const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(() => { $('shareOther').textContent = t('copied'); }).catch(() => window.prompt(t('copyPrompt'), text));
+  });
+
+  if ('ResizeObserver' in window) new ResizeObserver(resize).observe($('stage'));
+  window.addEventListener('resize', resize);
+  resize(); applyLang(); requestAnimationFrame(frame);
+  // test hook (local headless tests)
+  window.__pt = {
+    start, duck,
+    throwAt: (dx, dy) => { if (state !== 'aim') return false; aiming = true; pull = { x: dx * U, y: dy * U }; release(); return true; },
+    aimAtPile: () => { if (state !== 'aim') return false; const dx = PX - ball.x, dy = PY - ball.y, L = Math.hypot(dx, dy); aiming = true; pull = { x: (-dx / L) * 80 * U, y: (-dy / L) * 80 * U }; release(); return true; },
+    tapNext: () => { const s = nextStone(); if (!s) return false; tapStone({ x: s.x, y: s.y }); return true; },
+    tapWrong: () => { const s = stones.find((x) => !x.placed && x.i !== placed); if (!s) return false; tapStone({ x: s.x, y: s.y }); return true; },
+    get warning() { return !!enemy && performance.now() > warnAt && performance.now() < throwAt; },
+    get state() { return state; }, get score() { return score; }, get lives() { return lives; }, get round() { return round; }, get lastKind() { return lastKind; }, get placed() { return placed; }, get total() { return stones.length; },
+  };
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>
