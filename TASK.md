@@ -365,3 +365,7 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 ## Form Helper exam pages (18 Nov 2026, SEO)
 - `/tools/form-helper/ssc/`, `/upsc/`, `/bank/`, `/neet/`: the same app with that exam pre-selected, plus its own title/description (e.g. "SSC Photo & Signature Resize Online — 20–50 KB photo, 10–20 KB signature"), H1, intro and an exam info section in 4 languages; ~565 words each. The size table on every page links to the exam pages. They go live with `tool:form-helper` (9 Mar 2027) and are in the sitemap (`pages` in src/tools.mjs).
 - Made in nextgrade-tools by `form-helper/build-exam-pages.py`; copied with **`python3 scripts/copy-tool.py form-helper`** (new, replaces the scratch step3.py: handles sub-pages, adds canonical/AdSense/brand/footer). prerender now also walks tool sub-pages.
+
+## Release lines per category (18 Nov 2026, user's rule)
+- Replaces "2 pages a week, Tue + Fri, one shared list". Now each category has its **own line** in `src/releases.mjs` (`LINES`), on varied days from a fixed seed (dates never change between builds), never two pages on one day: games every 3–6 days (festival games first), stories every 4–7 days, animated wishes on fixed dates before their festival, tools every 3–6 days **after AdSense approval** (set `TOOLS_START`; until then tools are held). A new category = a new LINES entry.
+- Result: something new every 1–4 days; games/stories run to 2 Feb 2027, wishes to 19 Feb. Nothing that was held went live early (checked against the old schedule).
