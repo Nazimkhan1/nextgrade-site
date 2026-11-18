@@ -18,6 +18,7 @@ import { games as allGames } from './src/games.mjs';
 import { stories as allStories } from './src/stories.mjs';
 import { tools as allTools } from './src/tools.mjs';
 import { storyExtras } from './src/story-info.mjs';
+import { NAAM_OCCASIONS, NAAM_UI } from './src/naam-image.mjs';
 import { LIST_YEAR, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
@@ -27,6 +28,7 @@ const heldGames = allGames.filter((g) => !isLive(`game:${g.slug}`)).map((g) => g
 const heldStories = allStories.filter((st) => !isLive(`story:${st.slug}`)).map((st) => st.slug);
 // Free tools (/tools/<slug>/): the section, its menu link and its Privacy Policy paragraph appear only once a tool is live
 const tools = allTools.filter((tl) => isLive(`tool:${tl.slug}`));
+const NAAM_LIVE = isLive('page:naam-wali-image');
 const heldTools = allTools.filter((tl) => !isLive(`tool:${tl.slug}`)).map((tl) => tl.slug);
 import * as islamic from './src/islamic.mjs';
 import { ui } from './src/i18n/ui.mjs';
@@ -117,7 +119,7 @@ const NAV_KEYS = ['home', 'stories', 'wishes', 'festivals', 'games', ...(tools.l
 // Voice used by the browser to read stories aloud.
 const SPEECH = { hi: 'hi-IN', en: 'en-IN', hinglish: 'en-IN', bn: 'bn-IN' };
 
-function page(L, { path, title, description, body, jsonLd = [], scripts = [], langs = LANGS }) {
+function page(L, { path, title, description, body, jsonLd = [], scripts = [], langs = LANGS, extraFonts = '' }) {
   const T = ui[L.code];
   const url = `${SITE}${P(L, path)}`;
   const nav = NAV.map((href, i) => `<a href="${P(L, href)}"${href === path || (href !== '/' && path.startsWith(href)) ? ' aria-current="page"' : ''}>${T.nav[NAV_KEYS[i]]}</a>`).join('');
@@ -127,7 +129,7 @@ function page(L, { path, title, description, body, jsonLd = [], scripts = [], la
     : '';
   const alternates = langs.length > 1 ? [...langs.map((l) => `<link rel="alternate" hreflang="${l.hreflang}" href="${SITE}${P(l, path)}">`), `<link rel="alternate" hreflang="x-default" href="${SITE}${path}">`].join('\n') : '';
   const ld = jsonLd.map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join('\n');
-  const fonts = `family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700${L.code === 'bn' ? '&family=Noto+Sans+Bengali:wght@400;600;700' : ''}&display=swap`;
+  const fonts = `family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700${L.code === 'bn' ? '&family=Noto+Sans+Bengali:wght@400;600;700' : ''}${extraFonts}&display=swap`;
   return `<!doctype html>
 <html lang="${L.html}">
 <head>
@@ -488,6 +490,7 @@ ${fromBanner(L, F.greet(x.name), f.emoji)}
 ${nd ? `<div class="when-box"><p class="when-q">📅 ${esc(nd.q)}</p><p class="when-a"><b>${esc(nd.date)}</b>, ${esc(nd.weekday)}${nd.approx ? ` (${esc(DT.approx)})` : ''} · <span class="when-left">${esc(nd.left)}</span></p><p class="when-note">${esc(nd.a)} <a href="${P(L, `/festivals/${LIST_YEAR}/`)}">${esc(DT.listLink(LIST_YEAR))}</a></p></div>` : ''}
 <p class="lead">${esc(x.intro)}</p>
 ${celebrateButton(L, 'festival', f.slug)}
+${NAAM_LIVE && NAAM_OCCASIONS.some((o) => o.slug === f.slug) ? `<div class="btns"><a class="btn btn-ghost" href="${P(L, `/naam-wali-image/${f.slug}/`)}">🖼️ ${esc(NAAM_OCCASIONS.find((o) => o.slug === f.slug)[L.code][0])}</a></div>` : ''}
 <div class="facts">
 <div class="fact"><b>${esc(F.when)}</b>${esc(x.when)}</div>
 <div class="fact"><b>${esc(F.where)}</b>${esc(x.where)}</div>
@@ -698,6 +701,7 @@ ${faqBlock(ex.faq)}
 <p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › Wish Card Maker</p>
 <h1>💌 Wish Card Maker</h1>
 <p class="lead">${esc(C.lead)}</p>
+${NAAM_LIVE ? `<p><a class="btn btn-ghost" href="${P(L, '/naam-wali-image/')}">${esc(NAAM_UI[L.code].hubH1)}</a></p>` : ''}
 <div class="maker">
 <form id="maker" onsubmit="return false">
 <div class="field"><label for="festival">${esc(C.occasion)}</label><select id="festival"></select></div>
@@ -716,6 +720,60 @@ ${faqBlock(ex.faq)}
 </div>`,
     }),
   );
+
+  // "Naam wali image": a hub plus one page per occasion (scheduled as 'page:naam-wali-image')
+  if (NAAM_LIVE) {
+    const N = NAAM_UI[L.code];
+    const occLink = (o) => `<a class="card" href="${P(L, `/naam-wali-image/${o.slug}/`)}"><span class="emoji" aria-hidden="true">${o.emoji}</span><h3>${esc(o[L.code][1])}</h3><p>${esc(o[L.code][3])}</p></a>`;
+    write(L, '/naam-wali-image/', page(L, {
+      path: '/naam-wali-image/', title: N.hubTitle, description: N.hubLead,
+      jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [N.hubH1.replace('🖼️ ', ''), '/naam-wali-image/']])],
+      body: `<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(N.hubH1.replace('🖼️ ', ''))}</p>
+<h1>${esc(N.hubH1)}</h1>
+<p class="lead">${esc(N.hubLead)}</p>
+<div class="grid">${NAAM_OCCASIONS.map(occLink).join('')}</div>
+<h2>${esc(N.howH)}</h2>
+<ol>${N.how.map((li) => `<li>${li}</li>`).join('')}</ol>
+</div>`,
+    }));
+    NAAM_OCCASIONS.forEach((o) => {
+      const [h1, label, heading, intro] = o[L.code], path = `/naam-wali-image/${o.slug}/`;
+      const faq = N.faq(label).map(([q, a]) => ({ q, a }));
+      const data = { slug: o.slug, heading, designs: o.designs, msgs: o.msgs[L.code], shareText: `${heading} 🎉 ${SITE}${P(L, path)}`, ui: { downloaded: N.downloaded, cantShare: N.cantShare } };
+      write(L, path, page(L, {
+        path, title: N.title(h1), description: intro, extraFonts: '&family=Baloo+2:wght@800&family=Baloo+Da+2:wght@800',
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [N.hubH1.replace('🖼️ ', ''), '/naam-wali-image/'], [label, path]]), { '@context': 'https://schema.org', '@type': 'WebApplication', name: h1, url: `${SITE}${P(L, path)}`, applicationCategory: 'LifestyleApplication', operatingSystem: 'Any', inLanguage: L.html, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } }, faqLd(faq)],
+        scripts: ['/assets/naam-image.js'],
+        body: `<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/naam-wali-image/')}">${esc(N.hubH1.replace('🖼️ ', ''))}</a> › ${esc(label)}</p>
+<h1>${o.emoji} ${esc(h1)}</h1>
+<p class="lead">${esc(intro)}</p>
+<div class="maker">
+<form onsubmit="return false">
+<div class="field"><label for="niTo">${esc(N.to)}</label><input id="niTo" maxlength="30" placeholder="${esc(N.toPh)}"></div>
+<div class="field"><label for="niMsg">${esc(N.msg)}</label><select id="niMsg"></select></div>
+<div class="field"><label for="niCustom">${esc(N.custom)}</label><textarea id="niCustom" rows="2" maxlength="160"></textarea></div>
+<div class="field"><label for="niFrom">${esc(N.from)}</label><input id="niFrom" maxlength="30" placeholder="${esc(N.fromPh)}"></div>
+<div class="field"><label>${esc(N.design)}</label><div class="ni-thumbs" id="niDesigns"></div></div>
+<div class="field"><label for="niSize">${esc(N.size)}</label><select id="niSize"><option value="square">${esc(N.square)}</option><option value="tall">${esc(N.status)}</option></select></div>
+<div class="btns"><button class="btn btn-primary" type="button" id="niShare">${esc(N.share)}</button><button class="btn btn-ghost" type="button" id="niDownload">${esc(N.download)}</button></div>
+<p class="note" id="niStatus" role="status"></p>
+</form>
+<div class="preview"><canvas id="niCanvas" width="1080" height="1080" aria-label="${esc(heading)}"></canvas></div>
+</div>
+<script>window.NI_DATA = ${JSON.stringify(data).replace(/</g, '\\u003c')}; window.NI_DATA.ui.from2 = (f) => '— ' + f;</script>
+<div class="ad" aria-hidden="true"></div>
+<h2>${esc(N.howH)}</h2>
+<ol>${N.how.map((li) => `<li>${li}</li>`).join('')}</ol>
+<h2>${esc(N.faqH)}</h2>
+${faqBlock(faq)}
+<h2>${esc(N.more)}</h2>
+<div class="grid">${NAAM_OCCASIONS.filter((x) => x.slug !== o.slug).map(occLink).join('')}</div>
+</div>`,
+      }));
+    });
+  }
 
   // Games index (each game itself is a static page in src/static/games/<slug>/)
   write(

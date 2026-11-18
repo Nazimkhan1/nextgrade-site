@@ -188,3 +188,9 @@ table.months td[lang="ar"] { text-align: right; font-size: 18px; white-space: no
 .tblwrap { overflow-x: auto; }
 table.dates { width: 100%; border-collapse: collapse; margin: 12px 0; }
 table.dates th, table.dates td { border-bottom: 1px solid rgba(128,128,128,0.25); padding: 8px 6px; text-align: start; }
+
+/* Naam wali image */
+.ni-thumbs { display: flex; gap: 8px; flex-wrap: wrap; }
+.ni-thumb { width: 52px; height: 52px; border-radius: 12px; border: 2px solid rgba(128,128,128,0.35); font-weight: 800; font-size: 18px; cursor: pointer; }
+.ni-thumb.on { outline: 3px solid #ff922b; outline-offset: 2px; }
+#niCanvas { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }

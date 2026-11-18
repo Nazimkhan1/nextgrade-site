@@ -31,6 +31,9 @@ const FIXED = {
   'celebrate:maha-shivratri': '2027-02-05', // ~6 Mar
   'celebrate:eid-mubarak': '2027-02-09', // ~10 Mar
   'celebrate:holi': '2027-02-19', // ~22 Mar
+
+  // single pages / sections (fixed dates)
+  'page:naam-wali-image': '2026-12-12', // before Christmas and New Year
 };
 
 const LINES = [

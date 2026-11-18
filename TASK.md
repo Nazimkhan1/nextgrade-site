@@ -375,3 +375,8 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 - Every festival page (14 × 4 languages): a "📅 Holi 2027 kab hai?" box at the top (date, weekday, days left — refreshed by the daily build), the same question as the first FAQ (FAQPage), and the year in the title ("होली 2027 कब है? तारीख़, महत्व और शुभकामनाएँ").
 - New page `/festivals/2027/` (4 languages): month-wise table with links, notes, ItemList JSON-LD; linked from /festivals/ and from each festival box. In the sitemap.
 - **To do each year:** add the next year's dates to `DATES` before the current ones pass (lunar festivals move), and change `LIST_YEAR` around November.
+
+## Naam wali image (18 Nov 2026, traffic plan)
+- `/naam-wali-image/` hub + one page per occasion: new-year, good-morning, good-night, birthday, christmas, lohri, makar-sankranti, republic-day (× 4 languages, 36 URLs, in the sitemap when live). Keyword h1/titles ("Happy New Year 2027 Image with Name"), FAQ (FAQPage), WebApplication JSON-LD.
+- Canvas drawing in `src/assets/naam-image.js`: 24 designs (3 per occasion), all our own drawings; square (WhatsApp) or tall (status); name, message (4 ready per occasion/language or own), "— from"; small "nextgrade.in" credit; download JPG or share. Data/texts: `src/naam-image.mjs`.
+- Live on **12 Dec 2026** (`'page:naam-wali-image'` in releases.mjs), before Christmas/New Year. Then the festival pages for those occasions and the Wish Card Maker link to it.
