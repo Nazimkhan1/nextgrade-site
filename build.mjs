@@ -19,6 +19,7 @@ import { stories as allStories } from './src/stories.mjs';
 import { tools as allTools } from './src/tools.mjs';
 import { storyExtras, SOURCE_INFO, COLLECTIONS, collectionOf, srcKey } from './src/story-info.mjs';
 import { NAAM_OCCASIONS, NAAM_UI } from './src/naam-image.mjs';
+import { PAHELI, PAHELI_UI } from './src/paheliyan.mjs';
 import { speeches as allSpeeches, SPEECH_UI } from './src/speeches.mjs';
 import { LIST_YEAR, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
@@ -30,6 +31,7 @@ const heldStories = allStories.filter((st) => !isLive(`story:${st.slug}`)).map((
 // Free tools (/tools/<slug>/): the section, its menu link and its Privacy Policy paragraph appear only once a tool is live
 const tools = allTools.filter((tl) => isLive(`tool:${tl.slug}`));
 const NAAM_LIVE = isLive('page:naam-wali-image');
+const PAHELI_LIVE = isLive('page:paheliyan');
 const SPEECHES = allSpeeches.filter((sp) => isLive(`speech:${sp.slug}`));
 const heldTools = allTools.filter((tl) => !isLive(`tool:${tl.slug}`)).map((tl) => tl.slug);
 import * as islamic from './src/islamic.mjs';
@@ -630,6 +632,7 @@ ${faqBlock(x.faq)}
 <h1>${esc(S.h1)}</h1>
 <p class="lead">${esc(S.lead)}</p>
 <div class="cta"><p><b>${esc(S.momH)}</b><br>${esc(S.momP)}</p></div>
+${PAHELI_LIVE ? `<p><a class="btn btn-ghost" href="${P(L, '/paheliyan/')}">${esc(PAHELI_UI[L.code].h1)}</a></p>` : ''}
 <p class="chips">${COLLECTIONS.filter((c) => stories.filter((st) => c.keys.includes(srcKey(st.source.en))).length >= 2).map((c) => `<a class="btn btn-ghost" href="${P(L, `/kahani/${c.slug}/`)}">${c.emoji} ${esc(c[L.code][0])}</a>`).join(' ')}</p>
 <div class="grid">${stories.map(storyCard(L)).join('')}</div>
 </div>`,
@@ -838,6 +841,26 @@ ${faqBlock(faq)}
 </article>`,
       }));
     });
+  }
+
+  // Paheliyan (riddles with answers), scheduled as 'page:paheliyan'; "riddle of the day" changes with the daily build
+  if (PAHELI_LIVE) {
+    const Q = PAHELI_UI[L.code], list = PAHELI[L.code];
+    const dayNo = Math.floor(Date.parse(`${todayIST()}T00:00:00Z`) / 864e5), td = list[dayNo % list.length];
+    const item = ([q, a]) => `<details class="paheli"><summary>${esc(q)}</summary><p><b>${esc(Q.ans)}:</b> ${esc(a)}</p></details>`;
+    write(L, '/paheliyan/', page(L, {
+      path: '/paheliyan/', title: Q.title, description: Q.desc,
+      jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [Q.h1.replace('🧩 ', ''), '/paheliyan/']])],
+      body: `<div class="wrap narrow article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(Q.h1.replace('🧩 ', ''))}</p>
+<h1>${esc(Q.h1)}</h1>
+<p class="lead">${esc(Q.lead)}</p>
+<div class="when-box"><p class="when-q">${esc(Q.today)}</p><p>${esc(td[0])}</p><details><summary>${esc(Q.tap)}</summary><p><b>${esc(Q.ans)}:</b> ${esc(td[1])}</p></details></div>
+${['easy', 'fun', 'brain'].map((c) => `<h2>${esc(Q.cats[c])}</h2>\n${list.filter((x) => x[2] === c).map(item).join('\n')}`).join('\n')}
+<div class="ad" aria-hidden="true"></div>
+<p><a class="btn btn-ghost" href="${P(L, '/kahani/')}">📖 ${esc(Q.more)}</a></p>
+</div>`,
+    }));
   }
 
   // Games index (each game itself is a static page in src/static/games/<slug>/)

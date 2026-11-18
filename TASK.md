@@ -391,3 +391,6 @@ Each page has: a short write-up, 10+ Hindi/Hinglish wishes + English wishes with
 ## Story collection pages (18 Nov 2026, traffic plan)
 - `/kahani/panchatantra/`, `/akbar-birbal/`, `/tenali-raman/`, `/jataka/`, `/aesop/`, `/lok-katha/` (folk + grandma's tales) × 4 languages: keyword title ("पंचतंत्र की कहानियाँ — नैतिक शिक्षा वाली छोटी कहानियाँ", "Aesop's Fables for Kids…"), the source intro, the live stories as cards, a "moral of each story" list, ItemList JSON-LD. Defined in `COLLECTIONS` in `src/story-info.mjs`; a collection shows once it has ≥2 live stories, and grows as scheduled stories go live.
 - Linked from the /kahani/ index (chips) and from each story's "About <source>" paragraph. Live with the next daily release (content only; no menu change).
+
+## Paheliyan (18 Nov 2026, traffic plan)
+- `/paheliyan/` × 4 languages from `src/paheliyan.mjs`: Hindi/Hinglish 24 riddles, English/Bengali 20 each, in 3 groups (easy, fun, brain/maths), tap to see the answer (<details>, so the answers are in the HTML), plus a "riddle of the day" that changes with the daily build. Our own wording (old folk riddles retold + new ones). Linked from /kahani/. Live **25 Nov 2026** (`'page:paheliyan'`). Add more riddles to the lists any time.

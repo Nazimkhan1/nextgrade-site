@@ -205,3 +205,7 @@ table.dates th, table.dates td { border-bottom: 1px solid rgba(128,128,128,0.25)
 }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* Paheliyan */
+details.paheli { border: 1px solid rgba(128,128,128,0.3); border-radius: 12px; padding: 10px 14px; margin: 8px 0; }
+details.paheli summary { font-weight: 600; cursor: pointer; }

@@ -34,6 +34,7 @@ const FIXED = {
 
   // single pages / sections (fixed dates)
   'page:naam-wali-image': '2026-12-12', // before Christmas and New Year
+  'page:paheliyan': '2026-11-25', // riddles with answers
   // school speeches and essays (about 3–4 weeks before the day)
   'speech:republic-day': '2026-12-28', // 26 Jan
   'speech:netaji-jayanti': '2027-01-02', // 23 Jan (Parakram Diwas)

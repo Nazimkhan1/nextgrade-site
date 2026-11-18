@@ -1,0 +1,113 @@
+/**
+ * Paheliyan (riddles) with answers — /paheliyan/. Our own wording; many are old folk riddles retold, the rest new.
+ * Categories: easy (bachchon ki), fun (mazedaar), brain (dimaag wali). [riddle, answer, category]
+ * Hindi and Hinglish share the same set; English and Bengali have their own (wordplay differs).
+ * Scheduled as 'page:paheliyan' in src/releases.mjs.
+ */
+const P_HI = [
+  ['हरी थी, मन भरी थी, लाख मोती जड़ी थी; राजा जी के बाग़ में दुशाला ओढ़े खड़ी थी। बताओ क्या?', 'भुट्टा (मक्का)', 'easy'],
+  ['एक पेड़ की बारह डालियाँ, हर डाली पर तीस पत्ते; आधे पत्ते काले, आधे सफ़ेद। बताओ क्या?', 'साल — 12 महीने, हर महीने लगभग 30 दिन, दिन और रात', 'easy'],
+  ['बिना पैर के चलती है, बिना मुँह के समय बताती है। बताओ क्या?', 'घड़ी', 'easy'],
+  ['काला घोड़ा, सफ़ेद सवारी; एक उतरी तो दूसरी की बारी। बताओ क्या?', 'तवा और रोटी', 'easy'],
+  ['पानी में गिरूँ तो भी न भीगूँ, धूप में सदा साथ चलूँ। बताओ मैं कौन?', 'परछाईं', 'easy'],
+  ['जो करो वही करे, पर बायाँ हाथ उठाओ तो दायाँ उठाए। बताओ क्या?', 'आईना (दर्पण)', 'easy'],
+  ['हरा डिब्बा, पीला मकान, उसमें बैठे काले मेहमान। बताओ क्या?', 'पपीता', 'easy'],
+  ['एक गुफ़ा और बत्तीस चौकीदार। बताओ क्या?', 'मुँह और दाँत', 'easy'],
+  ['सफ़ेद मुर्ग़ी, हरी पूँछ, ज़मीन के अंदर उगी — बताओ क्या?', 'मूली', 'easy'],
+  ['पानी से निकला पेड़ एक, पत्ते नहीं पर डालें अनेक; उसकी ठंडी छाया में कोई बैठ न पाया। बताओ क्या?', 'फव्वारा', 'easy'],
+  ['चार पैर हैं पर चल न पाए, फिर भी सबको बैठाए। बताओ क्या?', 'कुर्सी', 'easy'],
+  ['जितना ज़्यादा सुखाओ, उतना ज़्यादा भीगे। बताओ क्या?', 'तौलिया', 'easy'],
+  ['वह क्या है जो आपका है, पर दूसरे उसे आपसे ज़्यादा इस्तेमाल करते हैं?', 'आपका नाम', 'fun'],
+  ['वह क्या है जो जितना बढ़ता है, उतना कम दिखाई देता है?', 'अँधेरा', 'fun'],
+  ['मेरा नाम लेते ही मैं टूट जाती हूँ। बताओ मैं कौन?', 'चुप्पी (ख़ामोशी)', 'fun'],
+  ['किस महीने में 28 दिन होते हैं?', 'हर महीने में! हर महीने में कम से कम 28 दिन होते हैं।', 'fun'],
+  ['एक आदमी बारिश में बिना छाते के चला, फिर भी उसके सिर का एक बाल भी गीला नहीं हुआ। कैसे?', 'वह गंजा था।', 'fun'],
+  ['ऐसी कौन-सी चीज़ है जो हमेशा ऊपर जाती है, पर कभी नीचे नहीं आती?', 'उम्र', 'fun'],
+  ['टोकरी में 6 आम थे। 6 बच्चों को एक-एक आम दिया, फिर भी टोकरी में एक आम बचा रहा। कैसे?', 'आख़िरी बच्चे को आम टोकरी समेत दे दिया।', 'brain'],
+  ['राम के पिता के पाँच बेटे हैं: नंदू, चंदू, बंदू, संदू… तो पाँचवें का नाम क्या है?', 'राम', 'brain'],
+  ['3 बिल्लियाँ 3 मिनट में 3 चूहे पकड़ती हैं। तो 100 बिल्लियाँ 100 चूहे कितने मिनट में पकड़ेंगी?', '3 मिनट — हर बिल्ली 3 मिनट में एक चूहा पकड़ती है।', 'brain'],
+  ['घड़ी 3 बजे 3 बार बजती है और इसमें 3 सेकंड लगते हैं। तो 6 बजे 6 बार बजने में कितना समय लगेगा?', '7.5 सेकंड — 3 बार बजने में 2 अंतराल (1.5 सेकंड हर एक), 6 बार में 5 अंतराल।', 'brain'],
+  ['आधा किलो रुई और आधा किलो लोहा — कौन ज़्यादा भारी है?', 'दोनों बराबर — दोनों आधा किलो हैं।', 'brain'],
+  ['मैं दो अंकों की संख्या हूँ; उल्टा लिखो तो भी वही रहूँ, और 6 से गुणा करो तो 66 बन जाऊँ। मैं कौन?', '11', 'brain'],
+];
+const P_HINGLISH = [
+  ['Hari thi, man bhari thi, laakh moti jadi thi; Raja ji ke baagh mein dushaala odhe khadi thi. Batao kya?', 'Bhutta (makka)', 'easy'],
+  ['Ek ped ki baarah daaliyan, har daali par tees patte; aadhe patte kaale, aadhe safed. Batao kya?', 'Saal — 12 maheene, har maheene lagbhag 30 din, din aur raat', 'easy'],
+  ['Bina pair ke chalti hai, bina munh ke samay batati hai. Batao kya?', 'Ghadi', 'easy'],
+  ['Kaala ghoda, safed sawaari; ek utri to doosri ki baari. Batao kya?', 'Tawa aur roti', 'easy'],
+  ['Paani mein girun to bhi na bheegun, dhoop mein sada saath chalun. Batao main kaun?', 'Parchhaai', 'easy'],
+  ['Jo karo wahi kare, par baayan haath uthao to daayan uthaaye. Batao kya?', 'Aaina (darpan)', 'easy'],
+  ['Hara dibba, peela makaan, usmein baithe kaale mehmaan. Batao kya?', 'Papeeta', 'easy'],
+  ['Ek gufa aur battees chaukidaar. Batao kya?', 'Munh aur daant', 'easy'],
+  ['Safed murgi, hari poonchh, zameen ke andar ugi — batao kya?', 'Mooli', 'easy'],
+  ['Paani se nikla ped ek, patte nahi par daalein anek; uski thandi chhaaya mein koi baith na paaya. Batao kya?', 'Fawwaara', 'easy'],
+  ['Chaar pair hain par chal na paaye, phir bhi sabko baithaaye. Batao kya?', 'Kursi', 'easy'],
+  ['Jitna zyada sukhaao, utna zyada bheege. Batao kya?', 'Tauliya', 'easy'],
+  ['Woh kya hai jo aapka hai, par doosre use aapse zyada istemaal karte hain?', 'Aapka naam', 'fun'],
+  ['Woh kya hai jo jitna badhta hai, utna kam dikhaayi deta hai?', 'Andhera', 'fun'],
+  ['Mera naam lete hi main toot jaati hoon. Batao main kaun?', 'Chuppi (khaamoshi)', 'fun'],
+  ['Kis maheene mein 28 din hote hain?', 'Har maheene mein! Har maheene mein kam se kam 28 din hote hain.', 'fun'],
+  ['Ek aadmi baarish mein bina chhaate ke chala, phir bhi uske sir ka ek baal bhi geela nahi hua. Kaise?', 'Woh ganja tha.', 'fun'],
+  ['Aisi kaun si cheez hai jo hamesha upar jaati hai, par kabhi neeche nahi aati?', 'Umar', 'fun'],
+  ['Tokri mein 6 aam the. 6 bachchon ko ek-ek aam diya, phir bhi tokri mein ek aam bacha raha. Kaise?', 'Aakhri bachche ko aam tokri samet de diya.', 'brain'],
+  ['Ram ke pita ke paanch bete hain: Nandu, Chandu, Bandu, Sandu… to paanchve ka naam kya hai?', 'Ram', 'brain'],
+  ['3 billiyan 3 minute mein 3 choohe pakadti hain. To 100 billiyan 100 choohe kitne minute mein pakdengi?', '3 minute — har billi 3 minute mein ek chooha pakadti hai.', 'brain'],
+  ['Ghadi 3 baje 3 baar bajti hai aur ismein 3 second lagte hain. To 6 baje 6 baar bajne mein kitna samay lagega?', '7.5 second — 3 baar bajne mein 2 antaraal (1.5 second har ek), 6 baar mein 5 antaraal.', 'brain'],
+  ['Aadha kilo rui aur aadha kilo loha — kaun zyada bhaari hai?', 'Dono baraabar — dono aadha kilo hain.', 'brain'],
+  ['Main do ankon ki sankhya hoon; ulta likho to bhi wahi rahun, aur 6 se guna karo to 66 ban jaaun. Main kaun?', '11', 'brain'],
+];
+const P_EN = [
+  ['What has hands but cannot clap?', 'A clock', 'easy'],
+  ['What gets wetter the more it dries?', 'A towel', 'easy'],
+  ['What has many teeth but cannot bite?', 'A comb', 'easy'],
+  ['What has a neck but no head?', 'A bottle', 'easy'],
+  ['What has one eye but cannot see?', 'A needle', 'easy'],
+  ['I am tall when I am young and short when I am old. What am I?', 'A candle', 'easy'],
+  ['Green outside, yellow-orange inside, full of little black seeds. What is it?', 'A papaya', 'easy'],
+  ['A cave with thirty-two guards. What is it?', 'Your mouth and teeth', 'easy'],
+  ['What can you catch but never throw?', 'A cold', 'easy'],
+  ['What has keys but cannot open a single lock?', 'A piano (or a keyboard)', 'easy'],
+  ['What belongs to you, but other people use it more than you do?', 'Your name', 'fun'],
+  ['What breaks as soon as you say its name?', 'Silence', 'fun'],
+  ['What runs but never walks, and has a mouth but never talks?', 'A river', 'fun'],
+  ['The more you take, the more you leave behind. What are they?', 'Footsteps', 'fun'],
+  ['What goes up but never comes down?', 'Your age', 'fun'],
+  ['Which month has 28 days?', 'All of them — every month has at least 28 days.', 'brain'],
+  ['Which is heavier: a kilo of cotton or a kilo of iron?', 'Neither — both weigh one kilo.', 'brain'],
+  ['A basket has 6 mangoes. Six children each get one mango, yet one mango is still in the basket. How?', 'The last child was given the mango with the basket.', 'brain'],
+  ['If 3 cats catch 3 mice in 3 minutes, how long do 100 cats take to catch 100 mice?', '3 minutes — each cat catches one mouse in 3 minutes.', 'brain'],
+  ['Which number becomes nothing when you cut it in half?', '8 — cut it across the middle and you get two zeros.', 'brain'],
+];
+const P_BN = [
+  ['হাত আছে, কিন্তু হাততালি দিতে পারে না। কী?', 'ঘড়ি', 'easy'],
+  ['যত শুকোয়, তত ভেজে। কী?', 'তোয়ালে (গামছা)', 'easy'],
+  ['দাঁত আছে অনেক, কিন্তু কামড়ায় না। কী?', 'চিরুনি', 'easy'],
+  ['এক গুহায় বত্রিশ পাহারাদার। কী?', 'মুখ আর দাঁত', 'easy'],
+  ['বারোটা ডাল, প্রতি ডালে তিরিশটা পাতা; অর্ধেক কালো, অর্ধেক সাদা। কী?', 'বছর — ১২ মাস, মাসে প্রায় ৩০ দিন, দিন আর রাত', 'easy'],
+  ['ছোটবেলায় লম্বা, বুড়ো হলে বেঁটে। কী?', 'মোমবাতি', 'easy'],
+  ['গলা আছে, মাথা নেই। কী?', 'বোতল', 'easy'],
+  ['এক চোখ আছে, কিন্তু দেখতে পায় না। কী?', 'সুঁচ', 'easy'],
+  ['কালো ঘোড়া, সাদা সওয়ার; একজন নামলে আরেকজনের পালা। কী?', 'তাওয়া আর রুটি', 'easy'],
+  ['জলে পড়লেও ভেজে না, রোদে সবসময় সঙ্গে চলে। কী?', 'ছায়া', 'easy'],
+  ['বাইরে সবুজ, ভেতরে হলুদ, তাতে কালো কালো বীজ। কী?', 'পেঁপে', 'easy'],
+  ['যা তোমার, অথচ অন্যরা তোমার চেয়ে বেশি ব্যবহার করে। কী?', 'তোমার নাম', 'fun'],
+  ['নাম নিলেই ভেঙে যায়। কী?', 'নীরবতা', 'fun'],
+  ['যত নাও, তত পেছনে ফেলে যাও। কী?', 'পায়ের ছাপ', 'fun'],
+  ['শুধু ওপরে যায়, কখনো নামে না। কী?', 'বয়স', 'fun'],
+  ['কোন মাসে ২৮ দিন থাকে?', 'সব মাসেই! প্রতিটা মাসে অন্তত ২৮ দিন থাকে।', 'brain'],
+  ['এক কেজি তুলো আর এক কেজি লোহা — কোনটা ভারী?', 'দুটোই সমান — দুটোই এক কেজি।', 'brain'],
+  ['ঝুড়িতে ৬টা আম। ৬ জনকে একটা করে দিলাম, তবু ঝুড়িতে একটা আম রইল। কীভাবে?', 'শেষজনকে আমসহ ঝুড়িটাই দিয়ে দিলাম।', 'brain'],
+  ['৩টে বেড়াল ৩ মিনিটে ৩টে ইঁদুর ধরে। ১০০টা বেড়াল ১০০টা ইঁদুর ধরবে কত মিনিটে?', '৩ মিনিটে — প্রতিটা বেড়াল ৩ মিনিটে একটা ইঁদুর ধরে।', 'brain'],
+  ['কোন সংখ্যাকে মাঝখান দিয়ে কাটলে শূন্য হয়ে যায়?', '৮ — আড়াআড়ি কাটলে দুটো শূন্য।', 'brain'],
+];
+
+const PAHELI = { hi: P_HI, hinglish: P_HINGLISH, en: P_EN, bn: P_BN };
+
+const PAHELI_UI = {
+  hi: { title: 'पहेलियाँ उत्तर सहित — बच्चों की मज़ेदार और दिमाग़ी पहेलियाँ | NextGrade', desc: 'बच्चों के लिए आसान, मज़ेदार और दिमाग़ वाली हिंदी पहेलियाँ, उत्तर के साथ — टैप करें और जवाब देखें। रोज़ एक नई "आज की पहेली"।', h1: '🧩 पहेलियाँ — उत्तर के साथ', lead: 'पहेली पढ़ें, सोचें, फिर टैप करके उत्तर देखें। परिवार और दोस्तों के साथ खेलें — या स्कूल की असेंबली में पूछें।', today: '🌟 आज की पहेली', tap: 'उत्तर देखने के लिए टैप करें', cats: { easy: 'बच्चों की आसान पहेलियाँ', fun: 'मज़ेदार पहेलियाँ', brain: 'दिमाग़ी और गणित की पहेलियाँ' }, ans: 'उत्तर', more: 'और पढ़ें: कहानियाँ' },
+  hinglish: { title: 'Paheliyan with Answer — Bachchon ki Mazedaar aur Dimaagi Paheliyan | NextGrade', desc: 'Bachchon ke liye aasaan, mazedaar aur dimaag wali Hindi paheliyan, uttar ke saath — tap karo aur jawaab dekho. Roz ek nayi "Aaj ki paheli".', h1: '🧩 Paheliyan — uttar ke saath', lead: 'Paheli padho, socho, phir tap karke uttar dekho. Parivaar aur doston ke saath khelo — ya school ki assembly mein poochho.', today: '🌟 Aaj ki paheli', tap: 'Uttar dekhne ke liye tap karo', cats: { easy: 'Bachchon ki aasaan paheliyan', fun: 'Mazedaar paheliyan', brain: 'Dimaagi aur ganit ki paheliyan' }, ans: 'Uttar', more: 'Aur padho: kahaniyan' },
+  en: { title: 'Riddles with Answers for Kids — Fun, Easy and Brain Riddles | NextGrade', desc: 'Easy, funny and brain-teasing riddles with answers for kids — tap to see the answer. A new "Riddle of the day" every day.', h1: '🧩 Riddles — with answers', lead: 'Read the riddle, think, then tap to see the answer. Play with family and friends — or ask them in the school assembly.', today: '🌟 Riddle of the day', tap: 'Tap to see the answer', cats: { easy: 'Easy riddles for kids', fun: 'Funny riddles', brain: 'Brain and maths riddles' }, ans: 'Answer', more: 'Read more: stories' },
+  bn: { title: 'ধাঁধা উত্তরসহ — ছোটদের মজার আর বুদ্ধির ধাঁধা | NextGrade', desc: 'ছোটদের জন্য সহজ, মজার আর বুদ্ধির বাংলা ধাঁধা, উত্তরসহ — ট্যাপ করে উত্তর দেখো। প্রতিদিন নতুন "আজকের ধাঁধা"।', h1: '🧩 ধাঁধা — উত্তরসহ', lead: 'ধাঁধা পড়ো, ভাবো, তারপর ট্যাপ করে উত্তর দেখো। পরিবার আর বন্ধুদের সঙ্গে খেলো — বা স্কুলের প্রার্থনা সভায় জিজ্ঞেস করো।', today: '🌟 আজকের ধাঁধা', tap: 'উত্তর দেখতে ট্যাপ করো', cats: { easy: 'ছোটদের সহজ ধাঁধা', fun: 'মজার ধাঁধা', brain: 'বুদ্ধির আর অঙ্কের ধাঁধা' }, ans: 'উত্তর', more: 'আরও পড়ো: গল্প' },
+};
+
+export { PAHELI, PAHELI_UI };
