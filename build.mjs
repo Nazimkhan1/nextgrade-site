@@ -899,7 +899,7 @@ const lastmodFor = (url) => {
   return CONTENT_DATE;
 };
 const gameUrls = games.map((g) => `/games/${g.slug}/`);
-const allUrls = [...urls, ...gameUrls, ...CELEBRATE.map((c) => `/celebrate/${c.slug}/`), ...tools.map((tl) => `/tools/${tl.slug}/`)];
+const allUrls = [...urls, ...gameUrls, ...CELEBRATE.map((c) => `/celebrate/${c.slug}/`), ...tools.flatMap((tl) => [`/tools/${tl.slug}/`, ...(tl.pages || []).map((pg) => `/tools/${tl.slug}/${pg}/`)])];
 writeFileSync(
   join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${allUrls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${lastmodFor(u)}</lastmod></url>`).join('\n')}\n</urlset>\n`,

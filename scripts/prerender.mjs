@@ -25,9 +25,11 @@ const SKIP_TAGS = new Set(['canvas', 'script', 'style', 'select', 'svg', 'textar
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.mjs': 'text/javascript', '.wasm': 'application/wasm', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.json': 'application/json', '.ico': 'image/x-icon', '.jpg': 'image/jpeg' };
 const MARK = 'data-prerendered';
 
-const pages = () => FOLDERS.filter((f) => existsSync(join(OUT, f))).flatMap((f) => readdirSync(join(OUT, f), { withFileTypes: true })
-  .filter((d) => d.isDirectory() && existsSync(join(OUT, f, d.name, 'index.html')))
-  .map((d) => `/${f}/${d.name}/`));
+// one level (games/<slug>/), plus tool sub-pages (tools/<slug>/<page>/)
+const pages = () => FOLDERS.filter((f) => existsSync(join(OUT, f))).flatMap((f) => readdirSync(join(OUT, f), { withFileTypes: true }).filter((d) => d.isDirectory())
+  .flatMap((d) => [d.name, ...(f === 'tools' ? readdirSync(join(OUT, f, d.name), { withFileTypes: true }).filter((c) => c.isDirectory()).map((c) => `${d.name}/${c.name}`) : [])])
+  .filter((rel) => existsSync(join(OUT, f, rel, 'index.html')))
+  .map((rel) => `/${f}/${rel}/`));
 
 const serve = () => new Promise((resolve) => {
   const server = createServer((req, res) => {
