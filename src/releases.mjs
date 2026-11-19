@@ -13,7 +13,7 @@
  *   - wishes  : fixed dates, well before each festival (these never move)
  *   - tools   : every 3–6 days, starting only after AdSense approval (TOOLS_START). The first live tool also
  *               adds the /tools/ page, the menu link and a Privacy Policy paragraph — hence the wait.
- * Keys: 'game:<slug>', 'story:<slug>', 'celebrate:<slug>' (animated wish) or 'tool:<slug>' (free tool).
+ * Keys: 'game:<slug>', 'story:<slug>', 'celebrate:<slug>' (animated wish), 'festival:<slug>' (festival guide) or 'tool:<slug>' (free tool).
  * To add a page: append its slug to its line. New category: add a LINES entry. Publish now: take it out.
  */
 const addDays = (ymd, n) => new Date(Date.parse(`${ymd}T00:00:00Z`) + n * 864e5).toISOString().slice(0, 10);
@@ -60,6 +60,10 @@ const LINES = [
     'sher-ki-khaal-gadha', 'birbal-andhon-ki-ginti', 'tenali-kuen-ka-khazana', 'mulla-ki-degchi', 'chidiya-kauwa-ghar',
     'kabuliwala', 'phir-se-chooha', 'do-bailon-ki-katha', 'chaand-par-khargosh', 'sachcha-dost-kauwa',
     'idgah', // Premchand; in Ramzan, before Eid (~10 Mar 2027)
+  ] },
+  // Festival guides (/festivals/<slug>/), user 19 Nov 2026: soon and close together, nearest festival first
+  { prefix: 'festival', start: '2026-11-21', gap: [1, 2], seed: 17, slugs: [
+    'guru-gobind-singh-jayanti', 'pongal', 'baisakhi', 'eid-ul-adha', 'janmashtami', 'ganesh-chaturthi', 'onam', 'navratri', 'dussehra',
   ] },
   { prefix: 'tool', start: TOOLS_START, gap: [3, 6], seed: 13, slugs: [
     'form-helper', // most searched, first

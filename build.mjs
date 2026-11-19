@@ -10,7 +10,7 @@
  */
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { festivals } from './src/festivals.mjs';
+import { festivals as allFestivals } from './src/festivals.mjs';
 import { apps } from './src/apps.mjs';
 import { hisabVideo, APP_URL, VIDEO } from './src/hisab-video.mjs';
 import { wishes } from './src/wishes.mjs';
@@ -28,6 +28,9 @@ const games = allGames.filter((g) => isLive(`game:${g.slug}`));
 const stories = allStories.filter((st) => isLive(`story:${st.slug}`));
 const heldGames = allGames.filter((g) => !isLive(`game:${g.slug}`)).map((g) => g.slug);
 const heldStories = allStories.filter((st) => !isLive(`story:${st.slug}`)).map((st) => st.slug);
+// Festival guides can be scheduled too ('festival:<slug>'); held ones get no page, card, list row or sitemap URL
+const festivals = allFestivals.filter((f) => isLive(`festival:${f.slug}`));
+const heldFestivals = allFestivals.filter((f) => !isLive(`festival:${f.slug}`)).map((f) => f.slug);
 // Free tools (/tools/<slug>/): the section, its menu link and its Privacy Policy paragraph appear only once a tool is live
 const tools = allTools.filter((tl) => isLive(`tool:${tl.slug}`));
 const NAAM_LIVE = isLive('page:naam-wali-image');
@@ -448,7 +451,7 @@ LANGS.forEach((L) => {
   // Festival dates for one year (/festivals/2027/)
   {
     const DT = DATE_TEXT[L.code], path = `/festivals/${LIST_YEAR}/`;
-    const rows = festivalsInYear(LIST_YEAR).map((e) => { const f = festivals.find((z) => z.slug === e.slug); const x = lf(f, L); return { e, f, x }; });
+    const rows = festivalsInYear(LIST_YEAR).filter((e) => festivals.some((z) => z.slug === e.slug)).map((e) => { const f = festivals.find((z) => z.slug === e.slug); const x = lf(f, L); return { e, f, x }; });
     const notes = [...new Set(rows.filter((r) => r.e.note).map((r) => `${r.x.name}: ${DT.notes[r.e.note]}`))];
     write(
       L,
@@ -1079,8 +1082,8 @@ const CONTENT_DATE = '2026-11-15';
 const lastRelease = Object.values(releases).filter((d) => d <= todayIST()).sort().pop() || CONTENT_DATE;
 const lastmodFor = (url) => {
   const path = url.replace(/^\/(en|hinglish|bn)(?=\/)/, '');
-  const m = path.match(/^\/(games|kahani|celebrate|tools)\/([^/]+)\/$/);
-  const rel = m && releases[`${{ games: 'game', kahani: 'story', celebrate: 'celebrate', tools: 'tool' }[m[1]]}:${m[2]}`];
+  const m = path.match(/^\/(games|kahani|celebrate|tools|festivals)\/([^/]+)\/$/);
+  const rel = m && releases[`${{ games: 'game', kahani: 'story', celebrate: 'celebrate', tools: 'tool', festivals: 'festival' }[m[1]]}:${m[2]}`];
   if (rel) return rel;
   if (['/', '/games/', '/kahani/'].includes(path)) return [CONTENT_DATE, lastRelease].sort().pop();
   return CONTENT_DATE;
@@ -1158,7 +1161,7 @@ if (heldGames.length || heldStories.length || heldCelebrate.length || heldTools.
   });
   walk(OUT);
 }
-console.log(`Held back until release: ${[...heldGames.map((s) => `game:${s}`), ...heldStories.map((s) => `story:${s}`), ...heldCelebrate.map((s) => `celebrate:${s}`), ...heldTools.map((s) => `tool:${s}`)].map((k) => `${k} (${releases[k]})`).join(', ') || 'none'}`);
+console.log(`Held back until release: ${[...heldGames.map((s) => `game:${s}`), ...heldStories.map((s) => `story:${s}`), ...heldCelebrate.map((s) => `celebrate:${s}`), ...heldTools.map((s) => `tool:${s}`), ...heldFestivals.map((s) => `festival:${s}`)].map((k) => `${k} (${releases[k]})`).join(', ') || 'none'}`);
 
 console.log(`Built ${allUrls.length} pages in ${LANGS.map((l) => l.code).join(', ')} into ${OUT}/`);
 

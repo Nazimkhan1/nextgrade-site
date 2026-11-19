@@ -305,6 +305,372 @@ const festivals = {
       { q: 'Diwali pe kiski puja hoti hai?', a: 'Mukhya roop se Maa Lakshmi (dhan aur samriddhi ki devi) aur Bhagwan Ganesh (shubh shuruaat ke devta) ki.' },
     ],
   },
+  "guru-gobind-singh-jayanti": {
+    "name": "Guru Gobind Singh Jayanti",
+    "when": "Paush mahine ke shukla paksh ki saptami — aam taur pe December ke aakhir ya January mein (sahi tareekh gurudwara ya calendar mein dekhein)",
+    "where": "Poore Bharat aur duniya ke gurudwaron mein; khaas kar Patna Sahib, Anandpur Sahib aur Hazur Sahib (Nanded)",
+    "intro": "Guru Gobind Singh Ji Sikhon ke dasvein Guru the. Unke janamdin ko Prakash Purab ya Gurpurab kehte hain. Is din gurudwaron mein kirtan, Akhand Path, Nagar Kirtan aur langar hota hai, aur sangat unki seekh — himmat, barabari aur seva — ko yaad karti hai.",
+    "sections": [
+      {
+        "h": "Guru Gobind Singh Ji ka jeevan",
+        "p": [
+          "Unka janm 1666 mein Patna Sahib (Bihar) mein hua. Unke pita Guru Tegh Bahadur Ji nauvein Guru the. 1675 mein pita ki shahadat ke baad sirf nau saal ki umar mein unhone guru gaddi sambhaali.",
+          "Woh yoddha bhi the aur kavi bhi; Punjabi, Braj, Farsi aur Sanskrit jaante the. Unke chaaron bete — chaar Sahibzade — dharam ki raksha mein shaheed hue; chhote Sahibzadon ki yaad mein 26 December ko \"Veer Baal Diwas\" manaya jaata hai."
+        ]
+      },
+      {
+        "h": "Khalsa Panth ki sthapna",
+        "p": [
+          "1699 ki Baisakhi par Anandpur Sahib mein Guru Ji ne Khalsa Panth ki sthapna ki. Unhone paanch Sikhon — Panj Pyaron — ko amrit chhakaya aur phir khud bhi unse amrit liya, taaki Guru aur Sikh ki barabari dikhe.",
+          "Khalsa ke paanch kakaar hain: kesh, kangha, kada, kachhera aur kirpan. Har Sikh purush ke naam ke saath \"Singh\" aur mahila ke saath \"Kaur\" juda."
+        ]
+      },
+      {
+        "h": "Guru Granth Sahib — sada ke Guru",
+        "p": [
+          "1708 mein Hazur Sahib (Nanded, Maharashtra) mein Guru Ji ne kaha ki unke baad koi dehdhaari guru nahi hoga; Guru Granth Sahib hi hamesha ke liye Guru hain. Isiliye gurudware mein Guru Granth Sahib ko Guru ki tarah samman diya jaata hai."
+        ]
+      }
+    ],
+    "wishes": [
+      "Guru Gobind Singh Ji de Prakash Purab diyan lakh-lakh vadhaiyan! Unki seekh hamein himmat, sachchai aur seva ke raaste pe chalaye.",
+      "Waheguru Ji Ka Khalsa, Waheguru Ji Ki Fateh! Prakash Purab ki haardik shubhkamnayein.",
+      "Dashmesh Pita ki kirpa aapke parivaar pe sada bani rahe. Gurpurab mubarak!",
+      "Sawa lakh se ek ladaun — Guru Ji ki himmat har mushkil mein aapka saath de. Prakash Purab ki badhaai!"
+    ],
+    "faq": [
+      {
+        "q": "Guru Gobind Singh Jayanti kab manayi jaati hai?",
+        "a": "Paush mahine ke shukla paksh ki saptami ko, jo aam taur pe December ke aakhir ya January mein padti hai. Tareekh har saal badalti hai, isliye gurudware ya calendar mein dekh lein."
+      },
+      {
+        "q": "Panj Pyare kaun the?",
+        "a": "1699 mein amrit chhakne wale pehle paanch Sikh: Bhai Daya Singh, Bhai Dharam Singh, Bhai Himmat Singh, Bhai Mohkam Singh aur Bhai Sahib Singh."
+      }
+    ]
+  },
+  "pongal": {
+    "name": "Pongal",
+    "when": "Aam taur pe 14 ya 15 January se chaar din — Tamil mahine \"Thai\" ki shuruaat pe",
+    "where": "Tamil Nadu, Puducherry aur duniya bhar mein rehne wale Tamil parivaar",
+    "intro": "Pongal Tamil Nadu ka fasal ka tyohar hai, jo Surya, dharti, baarish aur kheton mein saath dene wale pashuon ko shukriya kehne ke liye manaya jaata hai. Uttar Bharat mein isi mausam mein Makar Sankranti aur Lohri aati hai.",
+    "sections": [
+      {
+        "h": "\"Pongal\" ka matlab",
+        "p": [
+          "Tamil mein \"pongal\" ka arth hai ubal kar uphanna. Naye mitti ke bartan mein naye chawal, doodh aur gud pakaaye jaate hain, aur jab doodh uphan kar bahar aata hai to sab milkar \"Pongalo Pongal!\" bolte hain — yaani ghar mein khushhaali bhar-bhar ke aaye.",
+          "Meethe sakkarai pongal ke alawa namkeen ven pongal bhi banta hai. Ghar ke aangan mein chawal ke aate se sundar kolam (rangoli) banayi jaati hai aur ganna zaroor hota hai."
+        ]
+      },
+      {
+        "h": "Pongal ke chaar din",
+        "p": [
+          "Bhogi: purani, bekaar cheezein hata kar ghar ki safaai aur nayi shuruaat.",
+          "Thai Pongal: mukhya din, Surya Dev ko pongal ka bhog lagaya jaata hai.",
+          "Mattu Pongal: kheti mein saath dene wali gaay-bailon ko nehla kar sajaya jaata hai aur unki pooja hoti hai.",
+          "Kaanum Pongal: rishtedaaron se milna, ghoomne jaana aur badon ka aashirvaad lena."
+        ]
+      }
+    ],
+    "wishes": [
+      "Pongalo Pongal! Aapke ghar mein khushiyan usi tarah uphnein jaise Pongal ka doodh. Happy Pongal!",
+      "Nayi fasal, nayi mithaas aur nayi shuruaat — aapko aur aapke parivaar ko Happy Pongal!",
+      "Surya Dev ki kirpa se aapka saal dhan-dhaanya aur sehat se bhara rahe. Pongal mubarak!",
+      "Kolam ke rang aur ganne ki mithaas aapki zindagi mein bani rahe. Happy Pongal!"
+    ],
+    "faq": [
+      {
+        "q": "Pongal ka kya matlab hai?",
+        "a": "Tamil mein \"pongal\" ka matlab hai ubal kar uphanna. Naye bartan mein chawal-doodh-gud ka uphanna ghar mein khushhaali aane ka prateek maana jaata hai."
+      },
+      {
+        "q": "Mattu Pongal kya hai?",
+        "a": "Pongal ka teesra din, jab kheti mein madad karne wali gaayon aur bailon ko nehla kar, seeng rang kar aur maala pehna kar unki pooja ki jaati hai."
+      }
+    ]
+  },
+  "baisakhi": {
+    "name": "Baisakhi (Vaisakhi)",
+    "when": "Aam taur pe 13 April (kuch saalon mein 14 April)",
+    "where": "Punjab, Haryana aur poore Uttar Bharat mein; isi din desh ke kai hisson mein naya saal bhi manaya jaata hai",
+    "intro": "Baisakhi rabi ki fasal — khaas kar gehun — pakne ki khushi ka tyohar hai. Punjab mein dhol ki thaap pe bhangra-giddha hota hai, mele lagte hain, aur Sikh dharam mein yeh din Khalsa Panth ki sthapna ki yaad ke roop mein bahut khaas hai.",
+    "sections": [
+      {
+        "h": "Fasal ki khushi",
+        "p": [
+          "Baisakhi tak gehun ki sunehri fasal katne ko taiyaar hoti hai. Kisaan mehnat ka phal milne pe Bhagwan ka shukriya karte hain, naye kapde pehente hain aur gaon-gaon mein mele lagte hain."
+        ]
+      },
+      {
+        "h": "Khalsa Panth ki sthapna (1699)",
+        "p": [
+          "1699 ki Baisakhi pe Guru Gobind Singh Ji ne Anandpur Sahib mein Khalsa Panth ki sthapna ki aur Panj Pyaron ko amrit chhakaya. Isliye gurudwaron mein is din kirtan, ardaas, Nagar Kirtan aur langar hota hai."
+        ]
+      },
+      {
+        "h": "Ek din, kai naam",
+        "p": [
+          "Isi samay Bengal mein Poila Boishakh (Bangla naya saal), Assam mein Bohag Bihu (Rongali Bihu), Tamil Nadu mein Puthandu (Tamil naya saal) aur Kerala mein Vishu manaya jaata hai.",
+          "13 April 1919 ko Baisakhi ke din hi Amritsar ke Jallianwala Bagh mein angrezi hukoomat ne nihatthe logon pe goliyan chalayi thi. Is din un shaheedon ko bhi yaad kiya jaata hai."
+        ]
+      }
+    ],
+    "wishes": [
+      "Sunehri fasal ki tarah aapki zindagi bhi khushiyon se lehlahaaye. Baisakhi diyan lakh-lakh vadhaiyan!",
+      "Dhol ki thaap, bhangre ki dhamak aur apno ka saath — aapko Happy Baisakhi!",
+      "Mehnat ka phal meetha ho aur har khet-ghar mein barkat aaye. Baisakhi ki haardik shubhkamnayein.",
+      "Khalsa Sajna Diwas aur Baisakhi ki badhaai! Waheguru aapke parivaar pe sada mehar karein."
+    ],
+    "faq": [
+      {
+        "q": "Baisakhi kab manayi jaati hai?",
+        "a": "Aam taur pe 13 April ko, aur kuch saalon mein 14 April ko. Yeh saur calendar se tay hoti hai, isliye tareekh lagbhag wahi rehti hai."
+      },
+      {
+        "q": "Baisakhi ka Khalsa se kya sambandh hai?",
+        "a": "1699 ki Baisakhi pe Guru Gobind Singh Ji ne Anandpur Sahib mein Khalsa Panth ki sthapna ki thi, isliye Sikhon ke liye yeh Khalsa Sajna Diwas bhi hai."
+      }
+    ]
+  },
+  "eid-ul-adha": {
+    "name": "Eid ul-Adha (Bakrid)",
+    "when": "Islami (Hijri) calendar ke 12vein mahine Zilhijja ki 10 tareekh — English tareekh har saal lagbhag 10-11 din pehle aati hai (chaand ke elaan pe tay)",
+    "where": "Poore Bharat aur duniya bhar mein",
+    "intro": "Eid ul-Adha, jise Bakrid bhi kehte hain, tyaag aur Allah pe bharose ki Eid hai. Yeh Hazrat Ibrahim (alaihissalam) ki us qurbani ki yaad dilaati hai, jab woh Allah ke hukm pe apni sabse pyaari cheez qurbaan karne ko taiyaar ho gaye the. Yahi samay Hajj ka bhi hota hai.",
+    "sections": [
+      {
+        "h": "Qurbani ki kahani",
+        "p": [
+          "Islami parampara ke mutabiq Hazrat Ibrahim (AS) ne khwaab mein dekha ki woh apne bete Hazrat Ismail (AS) ko Allah ki raah mein qurbaan kar rahe hain. Baap aur beta dono Allah ke hukm ke liye taiyaar ho gaye. Tab Allah ne Ismail ki jagah ek mendha bhej diya.",
+          "Yeh kahani sikhaati hai ki Allah pe poora bharosa rakho aur uski raah mein apni pyaari cheez dene se bhi peeche mat hato."
+        ]
+      },
+      {
+        "h": "Eid kaise manayi jaati hai",
+        "p": [
+          "Subah naha kar, naye ya saaf kapde pehen kar log Eidgah ya masjid mein Eid ul-Adha ki namaaz padhte hain aur ek-doosre ko gale laga kar \"Eid Mubarak\" kehte hain.",
+          "Jin pe qurbani wajib hoti hai, woh jaanwar ki qurbani karte hain. Gosht teen hisson mein baanta jaata hai — ek apne parivaar ke liye, ek rishtedaaron-doston ke liye aur ek zaroorat-mandon ke liye.",
+          "Qurbani karte waqt saaf-safaai aur local kanoonon ka dhyaan rakhna aur padosiyon ki bhavnaon ki izzat karna bhi Eid ki seekh ka hissa hai."
+        ]
+      },
+      {
+        "h": "Hajj aur Zilhijja",
+        "p": [
+          "Zilhijja Islami saal ka aakhri mahina hai. Iski 8 se 12 tareekh ke beech Makka mein Hajj hota hai, aur 9 tareekh ko Arafat ka din hota hai. Eid ul-Adha Hajj ke inhi dinon mein aati hai."
+        ]
+      }
+    ],
+    "wishes": [
+      "Eid ul-Adha Mubarak! Allah aapki qurbani aur duaayein qubool farmaaye.",
+      "Tyaag aur bharose ka yeh din aapke ghar mein barkat aur sukoon laaye. Bakrid Mubarak!",
+      "Allah aapko aur aapke parivaar ko hamesha khush, sehatmand aur mehfooz rakhe. Eid Mubarak!",
+      "Is Eid pe aapki har nek dua qubool ho. Eid ul-Adha ki dili mubarakbaad."
+    ],
+    "faq": [
+      {
+        "q": "Bakrid kab manayi jaati hai?",
+        "a": "Islami calendar ke Zilhijja mahine ki 10 tareekh ko, jo Eid ul-Fitr ke lagbhag do mahine das din baad aati hai. Sahi tareekh chaand dikhne ke elaan se tay hoti hai."
+      },
+      {
+        "q": "Eid ul-Fitr aur Eid ul-Adha mein kya farq hai?",
+        "a": "Eid ul-Fitr Ramzan ke rozon ke baad aati hai (Meethi Eid). Eid ul-Adha Hajj ke dinon mein qurbani ki Eid hai."
+      }
+    ]
+  },
+  "janmashtami": {
+    "name": "Janmashtami",
+    "when": "Bhadrapad mahine ke krishna paksh ki ashtami — aam taur pe August ya September mein (kuch jagah Smarta aur Vaishnav tithi ek din alag hoti hai; apna panchang dekhein)",
+    "where": "Poore Bharat mein; Mathura, Vrindavan, Dwarka aur ISKCON mandiron mein khaas dhoom",
+    "intro": "Janmashtami Bhagwan Shri Krishna ke janm ka utsav hai. Kaha jaata hai ki unka janm aadhi raat ko Mathura mein Kans ke kaaragaar mein hua, isliye is din log vrat rakhte hain aur raat 12 baje Kanha ka janmotsav manaate hain.",
+    "sections": [
+      {
+        "h": "Krishna janm ki katha",
+        "p": [
+          "Mathura ka raja Kans apni behen Devaki ke aathve putra se darta tha, isliye usne Devaki aur Vasudev ko jail mein band kar diya. Aathve putra Krishna ke janm ki raat pehredaar so gaye, taale khul gaye aur Vasudev tez baarish mein Yamuna paar karke shishu ko Gokul mein Nand aur Yashoda ke ghar chhod aaye.",
+          "Gokul aur Vrindavan mein Krishna ka bachpan — makhan chori, gopiyon ke saath raas, Govardhan parvat uthaana — aaj bhi geeton aur jhaankiyon mein zinda hai."
+        ]
+      },
+      {
+        "h": "Kaise manaate hain",
+        "p": [
+          "Log din bhar vrat rakhte hain, mandiron aur gharon mein jhaanki sajaate hain, Laddu Gopal ko naye kapde pehnaate hain aur jhoola jhulaate hain. Aadhi raat ko shankh-ghantiyon ke saath janm ki aarti hoti hai aur phir panjiri, makhan-mishri aur panchamrit ka prasad bantta hai.",
+          "Maharashtra mein agle din \"Dahi Handi\" hoti hai — oonchaai pe tangi matki ko insaani piramid bana kar phoda jaata hai, jo Krishna ki makhan chori ki yaad hai."
+        ]
+      }
+    ],
+    "wishes": [
+      "Nand ke anand bhayo, jai Kanhaiya Lal ki! Aapko Janmashtami ki haardik shubhkamnayein.",
+      "Makhan chor Nandkishore aapke ghar mein khushiyan aur mithaas bhar dein. Happy Janmashtami!",
+      "Kanha ki bansuri ki tarah aapki zindagi bhi sureeli rahe. Shri Krishna Janmotsav ki badhaai.",
+      "Radhe Radhe! Shri Krishna aapko Gita jaisi samajh aur Govardhan jaisi himmat dein. Janmashtami mubarak."
+    ],
+    "faq": [
+      {
+        "q": "Janmashtami kab manayi jaati hai?",
+        "a": "Bhadrapad mahine ke krishna paksh ki ashtami ko, jo aam taur pe August ya September mein aati hai. Kabhi-kabhi do din manayi jaati hai, isliye apna panchang dekhein."
+      },
+      {
+        "q": "Dahi Handi kya hai?",
+        "a": "Janmashtami ke agle din oonchaai pe bandhi dahi-makhan ki matki ko insaani piramid bana kar phodne ki parampara, jo Krishna ki makhan chori ki yaad dilaati hai."
+      }
+    ]
+  },
+  "onam": {
+    "name": "Onam",
+    "when": "Malayalam mahine Chingam mein, Thiruvonam nakshatra ke din — aam taur pe August ya September mein; Atham se das din",
+    "where": "Kerala aur duniya bhar ke Malayali parivaar",
+    "intro": "Onam Kerala ka sabse bada tyohar hai — fasal ka utsav aur Raja Mahabali ke swagat ka din. Das din tak gharon ke saamne phoolon ki rangoli (pookalam) banti hai, aur Thiruvonam ke din kele ke patte pe Onasadya ki daawat hoti hai.",
+    "sections": [
+      {
+        "h": "Raja Mahabali ki katha",
+        "p": [
+          "Lok-katha ke mutabiq Mahabali (Maveli) ek bahut dayalu raja the, jinke raaj mein sab barabar aur khush the. Bhagwan Vishnu ke Vaaman avatar ne unse teen pag dharti maangi aur unhe paataal bhej diya, lekin saal mein ek baar apni praja se milne ka vardaan diya. Onam pe unhi ke lautne ka swagat hota hai."
+        ]
+      },
+      {
+        "h": "Pookalam, Onasadya aur Vallam Kali",
+        "p": [
+          "Atham se roz ghar ke aage phoolon ki pookalam badi hoti jaati hai. Thiruvonam pe kele ke patte pe Onasadya parosi jaati hai — chawal, sambar, avial, olan, papad, kele ke chips aur kai tarah ke payasam samet bees se zyada vyanjan.",
+          "Paani mein lambi saanp-naukaon ki daud (Vallam Kali), baagh ban kar naachne wala Pulikali aur mahilaon ka ghera-nritya Kaikottikali Onam ki pehchaan hain."
+        ]
+      }
+    ],
+    "wishes": [
+      "Onashamsakal! Mahabali ki tarah aapke ghar mein bhi barabari, khushhaali aur pyaar bana rahe.",
+      "Pookalam ke rang aur Onasadya ka swaad aapki zindagi mein hamesha rahe. Happy Onam!",
+      "Nayi fasal aur nayi khushiyon ka yeh tyohar aapke parivaar ke liye shubh ho. Onam ki haardik shubhkamnayein.",
+      "Maveli ka swagat karein, apno ke saath sadya khaayein — Onam ki bahut-bahut badhaai!"
+    ],
+    "faq": [
+      {
+        "q": "Onam kab manaya jaata hai?",
+        "a": "Malayalam mahine Chingam mein Thiruvonam nakshatra ke din, jo aam taur pe August ya September mein aata hai. Utsav Atham se shuru ho kar das din chalta hai."
+      },
+      {
+        "q": "Onasadya kya hai?",
+        "a": "Thiruvonam ki shakahaari daawat, jo kele ke patte pe parosi jaati hai — chawal, sambar, avial, olan, papad, chips aur payasam samet bees se zyada vyanjan."
+      }
+    ]
+  },
+  "ganesh-chaturthi": {
+    "name": "Ganesh Chaturthi",
+    "when": "Bhadrapad mahine ke shukla paksh ki chaturthi — aam taur pe August ke aakhir ya September mein; das din baad Anant Chaturdashi pe visarjan",
+    "where": "Poore Bharat mein; Maharashtra, Goa, Karnataka, Telangana aur Andhra Pradesh mein bahut dhoom-dhaam se",
+    "intro": "Ganesh Chaturthi Bhagwan Ganesh — vighnaharta aur buddhi ke devta — ke janm ka utsav hai. Gharon aur pandalon mein Ganpati ki murti sthapit ki jaati hai, modak ka bhog lagta hai aur dedh, teen, paanch, saat ya das din baad \"Ganpati Bappa Morya, agle baras tu jaldi aa\" ke saath visarjan hota hai.",
+    "sections": [
+      {
+        "h": "Sarvajanik Ganeshotsav",
+        "p": [
+          "Gharon mein Ganesh pooja sadiyon purani hai, lekin 1893 mein Lokmanya Bal Gangadhar Tilak ne Pune mein ise sarvajanik utsav ka roop diya, taaki azaadi ki ladaai ke liye log ek saath jut sakein. Aaj Mumbai ke Lalbaugcha Raja jaise pandalon mein laakhon log darshan karne aate hain."
+        ]
+      },
+      {
+        "h": "Modak aur pooja",
+        "p": [
+          "Ganpati ka sabse pyaara bhog modak hai — chawal ke aate mein nariyal aur gud bhar kar bhaap mein pakaya gaya. Pooja mein doorva ghaas, laal phool aur laddu chadhaaye jaate hain.",
+          "Maana jaata hai ki Ganesh Chaturthi ki raat chaand nahi dekhna chahiye; isliye ise \"Kalank Chaturthi\" bhi kehte hain."
+        ]
+      },
+      {
+        "h": "Eco-friendly Ganpati",
+        "p": [
+          "Plaster of Paris aur chemical rang ki murtiyan nadiyon aur samundar ko ganda karti hain. Mitti (shadu) ki murti, natural rang aur ghar pe baalti ya artificial taalaab mein visarjan — yahi asli bhakti aur prakriti ka samman hai."
+        ]
+      }
+    ],
+    "wishes": [
+      "Ganpati Bappa Morya! Vighnaharta aapki zindagi ke saare vighn door karein. Ganesh Chaturthi ki haardik shubhkamnayein.",
+      "Modak ki mithaas aur Bappa ka aashirvaad aapke ghar mein hamesha bana rahe. Happy Ganesh Chaturthi!",
+      "Buddhi ke devta Ganesh Ji aapko har kaam mein safalta dein. Ganeshotsav ki badhaai.",
+      "Bappa aaye, khushiyan laaye! Aapko aur aapke parivaar ko Ganesh Chaturthi mubarak."
+    ],
+    "faq": [
+      {
+        "q": "Ganesh Chaturthi kab manayi jaati hai?",
+        "a": "Bhadrapad mahine ke shukla paksh ki chaturthi ko, jo aam taur pe August ke aakhir ya September mein aati hai. Sahi tareekh aur muhurat panchang mein dekhein."
+      },
+      {
+        "q": "Ganpati visarjan kab hota hai?",
+        "a": "Parivaar ki parampara ke hisaab se dedh, teen, paanch ya saat din baad, aur sarvajanik pandalon mein aam taur pe dasvein din Anant Chaturdashi ko."
+      }
+    ]
+  },
+  "navratri": {
+    "name": "Navratri",
+    "when": "Sharadiya Navratri Ashwin mahine ke shukla paksh ki pratipada se navami tak — aam taur pe September ke aakhir ya October mein (Chaitra Navratri March-April mein aati hai)",
+    "where": "Poore Bharat mein; Gujarat mein garba-dandiya, Bengal mein Durga Puja",
+    "intro": "Navratri yaani \"nau raatein\" — Maa Durga ke nau roopon ki pooja ka tyohar. Log vrat rakhte hain, ghat (kalash) sthapna karte hain, aur dasvein din Vijayadashami (Dussehra) manayi jaati hai.",
+    "sections": [
+      {
+        "h": "Maa Durga ke nau roop",
+        "p": [
+          "Nau dinon mein kram se in roopon ki pooja hoti hai: Shailputri, Brahmacharini, Chandraghanta, Kushmanda, Skandamata, Katyayani, Kalaratri, Mahagauri aur Siddhidatri.",
+          "Ashtami ya Navami ko kanya poojan hota hai — chhoti bachchiyon ko devi ka roop maan kar halwa, poori aur chane khilaaye jaate hain."
+        ]
+      },
+      {
+        "h": "Garba, dandiya aur Durga Puja",
+        "p": [
+          "Gujarat mein har raat Maa ke diye (garbo) ke chaaron taraf gol ghere mein garba aur rang-birangi dandiyon se dandiya raas hota hai.",
+          "Bengal, Assam aur Odisha mein Shashthi se Dashami tak Durga Puja hoti hai — bade-bade pandal, dhaak ki thaap, dhunuchi naach aur Dashami pe visarjan."
+        ]
+      }
+    ],
+    "wishes": [
+      "Maa Durga ke nau roop aapki zindagi mein nau tarah ki khushiyan laayein. Shubh Navratri!",
+      "Jai Mata Di! Maa Ambe aapke parivaar ko shakti, shaanti aur samriddhi dein. Navratri ki haardik shubhkamnayein.",
+      "Garbe ki thaap aur Maa ka aashirvaad — aapko Happy Navratri!",
+      "Maa ka diya aapke ghar ka har andhera door kare. Navratri ke paavan parv ki badhaai."
+    ],
+    "faq": [
+      {
+        "q": "Navratri saal mein kitni baar aati hai?",
+        "a": "Mukhya roop se do baar: Chaitra Navratri (March-April) aur Sharadiya Navratri (September-October). Sharadiya Navratri ke baad Dussehra aata hai. Gupt Navratri bhi hoti hain, jo kam prachalit hain."
+      },
+      {
+        "q": "Kanya poojan kab karte hain?",
+        "a": "Aam taur pe Ashtami ya Navami ko, parivaar ki parampara ke hisaab se. Chhoti bachchiyon ko devi maan kar bhojan aur uphaar diye jaate hain."
+      }
+    ]
+  },
+  "dussehra": {
+    "name": "Dussehra (Vijayadashami)",
+    "when": "Ashwin mahine ke shukla paksh ki dashami — Sharadiya Navratri ke agle din, aam taur pe October mein; iske lagbhag 20 din baad Diwali aati hai",
+    "where": "Poore Bharat mein; Delhi ki Ramlila, Mysuru Dasara, Kullu Dussehra aur Bengal ki Bijoya Dashami mashhoor",
+    "intro": "Dussehra ya Vijayadashami buraai pe achhaai ki jeet ka tyohar hai. Is din Bhagwan Ram ne Ravan pe vijay paayi thi, aur Maa Durga ne Mahishasur ka vadh kiya tha. Shaam ko Ravan, Kumbhkaran aur Meghnad ke putle jalaaye jaate hain.",
+    "sections": [
+      {
+        "h": "Ramlila aur Ravan dahan",
+        "p": [
+          "Navratri ke dinon mein shehar-shehar Ramlila hoti hai, jismein Ram ke janm se Lanka vijay tak ki katha ka manchan hota hai. Dussehre ki shaam maidaanon mein putla dahan hota hai aur aatishbaazi hoti hai.",
+          "Putla dahan dekhne jaayein to bachchon ko aag se door rakhein aur bheed mein saavdhaan rahein."
+        ]
+      },
+      {
+        "h": "Ek tyohar, kai rang",
+        "p": [
+          "Mysuru (Karnataka) mein das din ka Dasara hota hai, jiska samapan shaahi juloos \"Jamboo Savari\" se hota hai. Himachal ke Kullu mein Dussehra isi din se shuru ho kar ek hafta chalta hai, jismein ghaati bhar ke devta rathon mein aate hain.",
+          "Bengal mein yeh Bijoya Dashami hai — vivaahit mahilayein sindoor khela karti hain, Maa Durga ka visarjan hota hai aur log \"Shubho Bijoya\" keh kar gale milte hain. Dakshin Bharat mein Ayudha Pooja hoti hai, aur Maharashtra mein aapta ke patte \"sona\" keh kar baante jaate hain."
+        ]
+      }
+    ],
+    "wishes": [
+      "Buraai pe achhaai ki jeet ka yeh parv aapki zindagi se har negativity door kare. Vijayadashami ki haardik shubhkamnayein.",
+      "Ravan dahan ke saath apne andar ke ahankaar, gusse aur aalas ko bhi jalaayein. Happy Dussehra!",
+      "Shri Ram ki tarah aap har mushkil pe jeet paayein. Dussehre ki bahut-bahut badhaai.",
+      "Maa Durga ki shakti aur Shri Ram ki maryada aapke parivaar pe sada rahe. Shubh Vijayadashami!"
+    ],
+    "faq": [
+      {
+        "q": "Dussehra kab manaya jaata hai?",
+        "a": "Ashwin mahine ke shukla paksh ki dashami ko, yaani Sharadiya Navratri ke agle din. Yeh aam taur pe October mein aata hai; sahi tareekh panchang mein dekhein."
+      },
+      {
+        "q": "Dussehra aur Diwali mein kitne din ka antar hota hai?",
+        "a": "Lagbhag 20 din ka. Maana jaata hai ki Lanka vijay ke baad Shri Ram ke Ayodhya lautne pe Diwali manayi gayi."
+      }
+    ]
+  },
 };
 
 const wishes = {

@@ -21,6 +21,15 @@ const DATES = {
   diwali: [{ d: '2027-10-29' }],
   'guru-nanak-jayanti': [{ d: '2026-11-24' }, { d: '2027-11-14' }],
   'chhath-puja': [{ d: '2027-11-04', note: 'chhath' }],
+  'guru-gobind-singh-jayanti': [{ d: '2027-01-15', note: 'ggs' }],
+  pongal: [{ d: '2027-01-15', note: 'pongal' }],
+  baisakhi: [{ d: '2027-04-14' }],
+  'eid-ul-adha': [{ d: '2027-05-17', approx: true, note: 'moon' }],
+  janmashtami: [{ d: '2027-08-24', note: 'jan' }],
+  'ganesh-chaturthi': [{ d: '2027-09-04' }],
+  onam: [{ d: '2027-09-12', note: 'onam' }],
+  navratri: [{ d: '2027-09-30', note: 'navr' }],
+  dussehra: [{ d: '2027-10-09' }],
 };
 
 const WD = {
@@ -40,7 +49,7 @@ const S = {
   hi: {
     q: (n, y) => `${n} ${y} कब है?`, today: 'आज है! 🎉', tomorrow: 'कल है', left: (k) => `${k} दिन बाकी`, approx: 'अनुमानित',
     a: (n, date, wd) => `${n} ${date}, ${wd} को है।`, aApprox: (n, date, wd) => `${n} ${date}, ${wd} को होने की उम्मीद है।`,
-    notes: { moon: 'ईद चाँद दिखने पर होती है, इसलिए तारीख़ एक दिन आगे-पीछे हो सकती है।', msk: 'ज़्यादातर पंचांग 15 जनवरी बताते हैं; कुछ पंचांग और कई राज्यों की छुट्टी सूची में 14 जनवरी है।', holi: 'होलिका दहन एक दिन पहले, 21 मार्च की शाम।', chhath: 'नहाय-खाय 2 नवंबर, खरना 3 नवंबर, संध्या अर्घ्य 4 नवंबर, उषा अर्घ्य 5 नवंबर।' },
+    notes: { ggs: 'यह पंचांग (पौष शुक्ल सप्तमी) की तारीख़ है; नानकशाही कैलेंडर के अनुसार 5 जनवरी।', pongal: 'भोगी 14 जनवरी को; थाई पोंगल 15 जनवरी को।', jan: 'स्मार्त परंपरा में 24 अगस्त; इस्कॉन/वैष्णव परंपरा में 25 अगस्त।', onam: 'यह तिरुवोणम का दिन है; ओणम के 10 दिन इससे पहले से शुरू होते हैं।', navr: 'नवरात्रि का पहला दिन; दशहरा 9 अक्टूबर को।', moon: 'ईद चाँद दिखने पर होती है, इसलिए तारीख़ एक दिन आगे-पीछे हो सकती है।', msk: 'ज़्यादातर पंचांग 15 जनवरी बताते हैं; कुछ पंचांग और कई राज्यों की छुट्टी सूची में 14 जनवरी है।', holi: 'होलिका दहन एक दिन पहले, 21 मार्च की शाम।', chhath: 'नहाय-खाय 2 नवंबर, खरना 3 नवंबर, संध्या अर्घ्य 4 नवंबर, उषा अर्घ्य 5 नवंबर।' },
     local: 'तिथि वाले त्योहारों में अपने शहर का पंचांग भी देख लें।',
     listTitle: (y) => `${y} के त्योहार — तारीख़ के साथ पूरी सूची | NextGrade`, listH1: (y) => `📅 ${y} के त्योहार और तारीख़ें`,
     listDesc: (y) => `${y} में होली, ईद, रक्षा बंधन, दिवाली, छठ, गुरु नानक जयंती समेत बड़े त्योहार कब हैं — तारीख़, दिन और हर त्योहार की पूरी जानकारी।`,
@@ -51,7 +60,7 @@ const S = {
   hinglish: {
     q: (n, y) => `${n} ${y} kab hai?`, today: 'Aaj hai! 🎉', tomorrow: 'Kal hai', left: (k) => `${k} din baaki`, approx: 'anumaanit',
     a: (n, date, wd) => `${n} ${date}, ${wd} ko hai.`, aApprox: (n, date, wd) => `${n} ${date}, ${wd} ko hone ki ummeed hai.`,
-    notes: { moon: 'Eid chaand dikhne par hoti hai, isliye tareekh ek din aage-peeche ho sakti hai.', msk: 'Zyadatar panchang 15 January batate hain; kuch panchang aur kai rajyon ki chhutti list mein 14 January hai.', holi: 'Holika Dahan ek din pehle, 21 March ki shaam.', chhath: 'Nahay-Khay 2 Nov, Kharna 3 Nov, Sandhya Arghya 4 Nov, Usha Arghya 5 Nov.' },
+    notes: { ggs: 'Yeh panchang (Paush Shukla Saptami) ki tareekh hai; Nanakshahi calendar ke hisaab se 5 January.', pongal: 'Bhogi 14 January ko; Thai Pongal 15 January ko.', jan: 'Smarta parampara mein 24 August; ISKCON/Vaishnav parampara mein 25 August.', onam: 'Yeh Thiruvonam ka din hai; Onam ke 10 din isse pehle se shuru hote hain.', navr: 'Navratri ka pehla din; Dussehra 9 October ko.', moon: 'Eid chaand dikhne par hoti hai, isliye tareekh ek din aage-peeche ho sakti hai.', msk: 'Zyadatar panchang 15 January batate hain; kuch panchang aur kai rajyon ki chhutti list mein 14 January hai.', holi: 'Holika Dahan ek din pehle, 21 March ki shaam.', chhath: 'Nahay-Khay 2 Nov, Kharna 3 Nov, Sandhya Arghya 4 Nov, Usha Arghya 5 Nov.' },
     local: 'Tithi wale tyohaaron mein apne shehar ka panchang bhi dekh lein.',
     listTitle: (y) => `${y} ke Tyohar — Tareekh ke saath Poori List | NextGrade`, listH1: (y) => `📅 ${y} ke Tyohar aur Tareekhein`,
     listDesc: (y) => `${y} mein Holi, Eid, Raksha Bandhan, Diwali, Chhath, Guru Nanak Jayanti samet bade tyohar kab hain — tareekh, din aur har tyohar ki poori jaankari.`,
@@ -62,7 +71,7 @@ const S = {
   en: {
     q: (n, y) => `When is ${n} ${y}?`, today: 'It is today! 🎉', tomorrow: 'Tomorrow', left: (k) => `${k} days to go`, approx: 'expected',
     a: (n, date, wd) => `${n} is on ${wd}, ${date}.`, aApprox: (n, date, wd) => `${n} is expected on ${wd}, ${date}.`,
-    notes: { moon: 'Eid depends on the sighting of the moon, so the date can move by a day.', msk: 'Most panchangs give 15 January; some panchangs and several state holiday lists give 14 January.', holi: 'Holika Dahan is the evening before, 21 March.', chhath: 'Nahay-Khay 2 Nov, Kharna 3 Nov, Sandhya Arghya 4 Nov, Usha Arghya 5 Nov.' },
+    notes: { ggs: 'This is the panchang date (Paush Shukla Saptami); by the Nanakshahi calendar it is 5 January.', pongal: 'Bhogi is on 14 January; Thai Pongal on 15 January.', jan: 'Smarta tradition: 24 August; ISKCON/Vaishnava tradition: 25 August.', onam: 'This is Thiruvonam day; the ten days of Onam begin before it.', navr: 'This is the first day of Navratri; Dussehra is on 9 October.', moon: 'Eid depends on the sighting of the moon, so the date can move by a day.', msk: 'Most panchangs give 15 January; some panchangs and several state holiday lists give 14 January.', holi: 'Holika Dahan is the evening before, 21 March.', chhath: 'Nahay-Khay 2 Nov, Kharna 3 Nov, Sandhya Arghya 4 Nov, Usha Arghya 5 Nov.' },
     local: 'For festivals that follow the tithi, also check your city\'s panchang.',
     listTitle: (y) => `Indian Festivals ${y} — Full List with Dates | NextGrade`, listH1: (y) => `📅 Indian festivals in ${y}, with dates`,
     listDesc: (y) => `When are Holi, Eid, Raksha Bandhan, Diwali, Chhath, Guru Nanak Jayanti and other big festivals in ${y} — date, day and all about each festival.`,
@@ -73,7 +82,7 @@ const S = {
   bn: {
     q: (n, y) => `${n} ${y} কবে?`, today: 'আজই! 🎉', tomorrow: 'আগামীকাল', left: (k) => `আর ${k} দিন`, approx: 'আনুমানিক',
     a: (n, date, wd) => `${n} ${date}, ${wd}।`, aApprox: (n, date, wd) => `${n} ${date}, ${wd} হওয়ার কথা।`,
-    notes: { moon: 'ঈদ চাঁদ দেখার ওপর নির্ভর করে, তাই তারিখ এক দিন এদিক-ওদিক হতে পারে।', msk: 'বেশিরভাগ পঞ্জিকা ১৫ জানুয়ারি বলে; কিছু পঞ্জিকা আর কয়েকটি রাজ্যের ছুটির তালিকায় ১৪ জানুয়ারি।', holi: 'হোলিকা দহন আগের দিন, ২১ মার্চ সন্ধ্যায়।', chhath: 'নহায়-খায় ২ নভেম্বর, খরনা ৩ নভেম্বর, সন্ধ্যা অর্ঘ্য ৪ নভেম্বর, ঊষা অর্ঘ্য ৫ নভেম্বর।' },
+    notes: { ggs: 'এটা পঞ্জিকার (পৌষ শুক্লা সপ্তমী) তারিখ; নানকশাহী ক্যালেন্ডারে ৫ জানুয়ারি।', pongal: 'ভোগী ১৪ জানুয়ারি; থাই পোঙ্গল ১৫ জানুয়ারি।', jan: 'স্মার্ত মতে ২৪ আগস্ট; ইসকন/বৈষ্ণব মতে ২৫ আগস্ট।', onam: 'এটা তিরুবোনামের দিন; ওনামের দশ দিন এর আগে শুরু হয়।', navr: 'নবরাত্রির প্রথম দিন; দশেরা ৯ অক্টোবর।', moon: 'ঈদ চাঁদ দেখার ওপর নির্ভর করে, তাই তারিখ এক দিন এদিক-ওদিক হতে পারে।', msk: 'বেশিরভাগ পঞ্জিকা ১৫ জানুয়ারি বলে; কিছু পঞ্জিকা আর কয়েকটি রাজ্যের ছুটির তালিকায় ১৪ জানুয়ারি।', holi: 'হোলিকা দহন আগের দিন, ২১ মার্চ সন্ধ্যায়।', chhath: 'নহায়-খায় ২ নভেম্বর, খরনা ৩ নভেম্বর, সন্ধ্যা অর্ঘ্য ৪ নভেম্বর, ঊষা অর্ঘ্য ৫ নভেম্বর।' },
     local: 'তিথি অনুযায়ী উৎসবের জন্য নিজের শহরের পঞ্জিকাও দেখে নিন।',
     listTitle: (y) => `${y} সালের উৎসব — তারিখসহ পুরো তালিকা | NextGrade`, listH1: (y) => `📅 ${y} সালের উৎসব আর তারিখ`,
     listDesc: (y) => `${y} সালে হোলি, ঈদ, রাখী, দীপাবলি, ছট, গুরু নানক জয়ন্তী সহ বড় উৎসবগুলো কবে — তারিখ, বার আর প্রতিটি উৎসবের পুরো কথা।`,
