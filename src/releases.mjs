@@ -65,6 +65,10 @@ const LINES = [
   { prefix: 'festival', start: '2026-11-21', gap: [1, 2], seed: 17, slugs: [
     'guru-gobind-singh-jayanti', 'pongal', 'baisakhi', 'eid-ul-adha', 'janmashtami', 'ganesh-chaturthi', 'onam', 'navratri', 'dussehra',
   ] },
+  // Essays (/nibandh/<slug>/), own line (user, 19 Nov 2026: content for AI search / school children); winter first while it is searched
+  { prefix: 'nibandh', start: '2026-11-22', gap: [2, 4], seed: 23, slugs: [
+    'sardi-ka-mausam', 'mera-vidyalaya', 'gaay',
+  ] },
   { prefix: 'tool', start: TOOLS_START, gap: [3, 6], seed: 13, slugs: [
     'form-helper', // most searched, first
     'passport-photo', 'doc-scanner', 'bg-remover', 'hair-tryon',
