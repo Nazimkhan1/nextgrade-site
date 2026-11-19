@@ -9,7 +9,7 @@
  * so that something new goes out every few days. Gaps are "random" but come from a fixed seed, so the dates
  * stay the same on every build. Lines are independent: a game and a story can go out on the same day.
  *   - games   : every 1–2 days (user, 19 Nov 2026), most-searched games first, festival games before their day
- *   - stories : every 4–7 days
+ *   - stories : every 2–3 days (user, 19 Nov 2026)
  *   - wishes  : fixed dates, well before each festival (these never move)
  *   - tools   : every 3–6 days, starting only after AdSense approval (TOOLS_START). The first live tool also
  *               adds the /tools/ page, the menu link and a Privacy Policy paragraph — hence the wait.
@@ -54,7 +54,8 @@ const LINES = [
     'basant-sargam', // Vasant Panchami, ~11 Feb
     'rang-barsao', // Holi, ~22 Mar
   ] },
-  { prefix: 'story', start: '2026-11-26', gap: [4, 7], seed: 11, slugs: [
+  // User (19 Nov 2026): stories faster too — every 2–3 days.
+  { prefix: 'story', start: '2026-11-22', gap: [2, 3], seed: 11, slugs: [
     'neela-siyaar', 'bagula-aur-kekda', 'billiyan-aur-bandar', 'hawa-aur-suraj', 'shehar-gaon-chooha',
     'sher-ki-khaal-gadha', 'birbal-andhon-ki-ginti', 'tenali-kuen-ka-khazana', 'mulla-ki-degchi', 'chidiya-kauwa-ghar',
     'kabuliwala', 'phir-se-chooha', 'do-bailon-ki-katha', 'chaand-par-khargosh', 'sachcha-dost-kauwa',
