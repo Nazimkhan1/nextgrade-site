@@ -22,6 +22,7 @@ import { NAAM_OCCASIONS, NAAM_UI } from './src/naam-image.mjs';
 import { PAHELI, PAHELI_UI } from './src/paheliyan.mjs';
 import { speeches as allSpeeches, SPEECH_UI } from './src/speeches.mjs';
 import { essays as allEssays, NIBANDH_UI } from './src/nibandh.mjs';
+import { whyFaq } from './src/festival-why.mjs';
 import { LIST_YEAR, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
@@ -488,7 +489,8 @@ ${notes.length ? `<ul class="note">${notes.map((n) => `<li>${esc(n)}</li>`).join
     const next = [1, 2, 3].map((k) => festivals[(i + k) % festivals.length]);
     const DT = DATE_TEXT[L.code];
     const nd = nextFestivalDate(f.slug, L.code, x.name, todayIST());
-    const faq = nd ? [{ q: nd.q, a: nd.a }, ...x.faq] : x.faq;
+    const why = whyFaq(f.slug, L.code);
+    const faq = [...(nd ? [{ q: nd.q, a: nd.a }] : []), ...(why ? [why] : []), ...x.faq];
     write(
       L,
       path,
