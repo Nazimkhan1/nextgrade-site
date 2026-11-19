@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="hi">
+<html data-prerendered="hi" lang="hi">
 <head>
 <!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
 <meta charset="utf-8">
@@ -29,7 +29,54 @@
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
-<div class="wrap" id="app"></div>
+<div class="wrap" id="app"><header>
+  <a class="brand" id="home" href="https://nextgrade.in/">🎄 NextGrade<small id="brandSub">मेरी क्रिसमस</small></a>
+  <select class="langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+</header>
+<div class="show">
+  <canvas id="sky" aria-hidden="true" width="709" height="322"></canvas>
+  <div class="message hidden" id="message" aria-live="polite">
+    <div class="top-line" lang="en">✨ Season's Greetings ✨</div>
+    <h1 id="title">मेरी क्रिसमस</h1>
+    <div class="names" id="names">मेरी क्रिसमस, दोस्त</div>
+    <div class="text" id="text">इस क्रिसमस आपका घर ख़ुशियों, हँसी और प्यार से भरा रहे। सांता आपकी हर विश पूरी करे! 🎅</div>
+    <div class="from" id="from"></div>
+  </div>
+  <div class="gate" id="gate" role="button" tabindex="0">
+    <div class="env">🎄</div>
+    <p id="gateTitle">आपके लिए क्रिसमस का तोहफ़ा आया है!</p>
+    <small id="gateTap">👆 टैप करके खोलो</small>
+  </div>
+</div>
+<div class="controls">
+  <button class="btn btn-main" type="button" id="listen">🗣️ संदेश सुनो</button>
+  <button class="btn btn-ghost" type="button" id="replay">🔁 फिर से देखो</button>
+  <a class="btn btn-ghost" href="#make" id="makeOwn">✨ अपना भेजो</a>
+</div>
+<div class="ad" aria-hidden="true"></div>
+<div class="maker" id="make">
+  <h2 id="makeH">🎄 अपनों को क्रिसमस विश भेजो</h2>
+  <p class="note" id="makeP">नाम लिखो, संदेश चुनो या अपने शब्दों में लिखो, और लिंक WhatsApp पर भेजो। खोलने वाले को गिरती बर्फ़, जगमगाता क्रिसमस ट्री, सांता की स्लेज और उसके नाम की बधाई दिखेगी।</p>
+  <div class="field"><label for="toName" id="toLabel">किसको भेजना है (नाम)</label><input id="toName" maxlength="30" placeholder="जैसे: रिया, जोसेफ़ भाई"></div>
+  
+  <div class="field"><label for="fromName" id="fromLabel">आपका नाम</label><input id="fromName" maxlength="30" placeholder="जैसे: अमन"></div>
+  <div class="field"><label for="msg" id="msgLabel">संदेश चुनो</label><select id="msg"><option value="0">इस क्रिसमस आपका घर ख़ुशियों, हँसी और प्यार से भरा रहे। सांता…</option><option value="1">क्रिसमस ट्री की रोशनी की तरह आपकी ज़िंदगी भी हमेशा जगमगाती र…</option><option value="2">ठंडी बर्फ़, गरम केक और अपनों का साथ — आपको क्रिसमस की ढेर सा…</option><option value="3">प्यार बाँटो, ख़ुशियाँ बाँटो — यही क्रिसमस का असली तोहफ़ा है।…</option></select></div>
+  <div class="field"><label for="customMsg" id="customLabel">✍️ या अपने शब्दों में लिखो (वैकल्पिक — यह आवाज़ में भी पढ़ा जाएगा)</label><textarea id="customMsg" maxlength="200" rows="3" placeholder="जैसे: इस साल सांता आपको ढेर सारे गिफ़्ट दे…"></textarea></div>
+  <div class="row">
+    <button class="btn btn-wa" type="button" id="sendWa">📲 WhatsApp पर भेजो</button>
+    <button class="btn btn-ghost" type="button" id="preview">👀 पहले देखो</button>
+    <button class="btn btn-ghost" type="button" id="copyLink">🔗 लिंक कॉपी</button>
+  </div>
+  <p class="note" id="makeStatus" role="status"></p>
+  <p class="note" id="privacy">नाम और संदेश सिर्फ़ लिंक में रहते हैं, कहीं सेव नहीं होते।</p>
+</div>
+<section>
+  <h2 id="aboutH">क्रिसमस के बारे में</h2>
+  <div id="about"><p>क्रिसमस हर साल 25 दिसंबर को यीशु मसीह (जीसस क्राइस्ट) के जन्म की ख़ुशी में मनाया जाता है। भारत में गोवा, केरल, पूर्वोत्तर और कोलकाता का पार्क स्ट्रीट इसकी रोशनी के लिए मशहूर हैं।</p><p>24 दिसंबर की रात गिरजाघर में मिडनाइट मास होती है। घर में क्रिसमस ट्री सजाया जाता है, स्टार लगाया जाता है, कैरल गाए जाते हैं और प्लम केक बनता है।</p><p>क्रिसमस की कुछ प्यारी रस्में:</p></div>
+  <ul id="list"><li>क्रिसमस ट्री और स्टार सजाना</li><li>कैरल सिंगिंग — घर-घर जाकर गीत गाना</li><li>सीक्रेट सांता — चुपके से एक-दूसरे को गिफ़्ट देना</li><li>प्लम केक और मिठाई बाँटना</li></ul>
+  <p class="note" id="aboutNote">सांता के गिफ़्ट पकड़ने वाला गेम भी खेलो — नीचे लिंक है।</p>
+  <p id="links"><a href="https://nextgrade.in/festivals/christmas/">क्रिसमस की पूरी जानकारी</a> · <a href="https://nextgrade.in/games/christmas/">🎁 सांता के गिफ़्ट पकड़ो गेम</a> · <a href="https://nextgrade.in/wishes/">और शुभकामनाएँ</a></p>
+</section></div>
 <div class="wrap"><footer>
   © 2026 NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
   <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/disclaimer/">Disclaimer</a>

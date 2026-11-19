@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bagh-Bakri 🐯🐐 — Tigers and Goats Board Game | NextGrade</title>
+<meta name="description" content="Bagh-Bakri (Bagh-Chal, Aadu Puli Attam): the old Indian tigers-and-goats board game, free in Hinglish, Hindi, English and Bengali. 4 tigers hunt, 20 goats try to trap them. Play the goats or the tigers against the computer (easy, medium, hard) or with a friend on one phone.">
+<link rel="canonical" href="https://nextgrade.in/games/bagh-bakri/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Bagh-Bakri 🐯🐐 — baagh ko gher sakte ho?">
+<meta property="og:description" content="Purana desi khel: 4 baagh, 20 bakriyan. Bakri bano aur baaghon ko band karo, ya baagh bano aur 5 bakriyan khao! Computer ya dost ke saath.">
+<meta property="og:url" content="https://nextgrade.in/games/bagh-bakri/">
+<meta property="og:image" content="https://nextgrade.in/games/bagh-bakri/icons/icon-512.png">
+<meta name="theme-color" content="#5c6b2e">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Bagh-Bakri (Tigers and Goats)","url":"https://nextgrade.in/games/bagh-bakri/","genre":"Board game","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you play Bagh-Bakri (tigers and goats)?","acceptedAnswer":{"@type":"Answer","text":"One side has 4 tigers on the corners, the other has 20 goats that are placed one by one. Pieces move along the lines to the next empty point. A tiger captures a goat by jumping over it in a straight line to an empty point. The tigers win by capturing 5 goats; the goats win by trapping every tiger so it cannot move."}},{"@type":"Question","name":"Which side is easier, goats or tigers?","acceptedAnswer":{"@type":"Answer","text":"The tigers are easier for beginners because they only need to find jumps. The goats need patience: keep them together, fill the edges first and never leave a goat with an empty point behind it."}},{"@type":"Question","name":"What are the other names of this game?","acceptedAnswer":{"@type":"Answer","text":"Bagh-Chal in Nepal, Aadu Puli Attam in Tamil Nadu, and simply 'tigers and goats' or bagh-bakri in many parts of India."}}]}</script>
+<style>
+:root { --bg: #1d2410; --gold: #ffd43b; --ink: #fbfbf2; --muted: #d6dcc0; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #5c6b2e, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #5c6b2e, #e8590c); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5); width: 100%; aspect-ratio: 1 / 1.24; max-height: 88vh; margin: 0 auto; background: #c8b07a; user-select: none; -webkit-user-select: none; }
+.hud { position: absolute; top: 8px; left: 10px; right: 10px; display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 15px; color: #2d2a12; z-index: 3; gap: 6px; pointer-events: none; }
+.hud span { background: rgba(255,252,235,0.92); border-radius: 12px; padding: 2px 10px; white-space: nowrap; }
+.hud .turn { background: #ffd43b; }
+#board { position: absolute; top: 40px; left: 50%; transform: translateX(-50%); height: calc(100% - 104px); max-width: calc(100% - 8px); aspect-ratio: 1; touch-action: manipulation; }
+#board .pt { cursor: pointer; }
+.msg { position: absolute; left: 10px; right: 10px; bottom: 40px; margin: 0; line-height: 1.3; text-align: center; font-weight: 800; font-size: 14px; color: #2d2a12; pointer-events: none; z-index: 3; }
+.menubtn { position: absolute; right: 10px; bottom: 6px; z-index: 4; font: inherit; font-weight: 800; font-size: 13px; padding: 5px 11px; border-radius: 10px; border: 0; background: rgba(45,42,18,0.85); color: #fff; cursor: pointer; }
+.undobtn { position: absolute; left: 10px; bottom: 6px; z-index: 4; font: inherit; font-weight: 800; font-size: 13px; padding: 5px 11px; border-radius: 10px; border: 0; background: rgba(45,42,18,0.85); color: #fff; cursor: pointer; }
+
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(20, 26, 8, 0.78); padding: 16px; overflow-y: auto; z-index: 10; }
+.panel { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 18px; width: min(420px, 100%); text-align: center; margin: auto; color: var(--ink); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: #eef0e0; }
+.panel .fact { background: rgba(255,212,59,0.12); border: 1px solid rgba(255,212,59,0.35); border-radius: 12px; padding: 8px 10px; color: #ffe8a3; font-size: 15px; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 40px; font-weight: 800; color: var(--gold); line-height: 1.1; margin: 6px 0; }
+.label { font-size: 13px; color: var(--muted); margin: 10px 0 0; font-weight: 700; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 6px 0; }
+.seg3 { grid-template-columns: repeat(3, 1fr); }
+.seg button { font: inherit; font-weight: 800; font-size: 15px; padding: 9px 4px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.1); color: var(--ink); cursor: pointer; line-height: 1.25; }
+.seg button.on { background: #e8590c; border-color: #e8590c; }
+.seg button small { display: block; font-size: 12px; font-weight: 600; color: var(--gold); }
+input { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 8px 0; }
+input::placeholder { color: #c9cfb3; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #e8590c, #d9480f); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+details { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 10px 14px; margin: 8px 0; }
+summary { font-weight: 700; cursor: pointer; }
+details p { margin: 8px 0 0; color: var(--muted); }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+@media (max-width: 480px) { .panel { padding: 14px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .hud { font-size: 13px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🐯 NextGrade<small>Bachpan</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <div class="hud" aria-hidden="true"><span id="hudGoats">🐐 20</span><span class="turn" id="hudTurn"></span><span id="hudEaten">🍽️ 0/5</span></div>
+    <svg id="board" viewBox="-11 -11 122 122" role="img" aria-label="Bagh-Bakri board"></svg>
+    <p class="msg" id="msg"></p>
+    <button class="undobtn hidden" id="undoBtn" type="button" data-i18n="undo"></button>
+    <button class="menubtn hidden" id="menuBtn" type="button" data-i18n="menuBtn"></button>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle"></h2>
+        <p data-i18n="controls"></p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <p class="label" data-i18n="pickSide"></p>
+        <div class="seg" id="sideSeg"><button type="button" data-s="g" data-i18n="sideGoat"></button><button type="button" data-s="t" data-i18n="sideTiger"></button></div>
+        <p class="label" data-i18n="vsComputer"></p>
+        <div class="seg seg3" id="levelSeg">
+          <button type="button" data-l="easy"><span data-i18n="easy"></span><small id="wEasy"></small></button>
+          <button type="button" data-l="medium"><span data-i18n="medium"></span><small id="wMedium"></small></button>
+          <button type="button" data-l="hard"><span data-i18n="hard"></span><small id="wHard"></small></button>
+        </div>
+        <button type="button" class="btn btn-ghost" id="twoBtn" data-i18n="twoPlayers"></button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big" id="endBig"></div>
+        <p id="endNote"></p>
+        <p class="fact" id="endFact"></p>
+        <button class="btn btn-main" id="againBtn" type="button" data-i18n="again"></button>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-ghost" id="toMenu" type="button" data-i18n="menuBtn"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card2"><ol id="howList"></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="factsTitle"></h2>
+    <div class="card2"><ul id="factList"></ul></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="faqTitle"></h2>
+    <div id="faqList"></div>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+    <div id="topShare"></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/bagh-bakri/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const FACT_KEYS = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6'];
+  const GOATS = 20, TO_EAT = 5, DRAW_MOVES = 60;
+
+  const T = {
+    hinglish: {
+      title: 'Bagh-Bakri 🐯🐐',
+      sub: 'Purana desi khel: 4 baagh aur 20 bakriyan. Baagh bakri ke upar se kood kar use khaata hai — bakriyan milkar baaghon ko gher kar band karti hain. Bakri bano ya baagh, computer ke saath ya dost ke saath.',
+      startTitle: 'Chalo Bagh-Bakri khelein 🐯🐐',
+      controls: 'Pehle apni goti par tap karo, phir jahan le jaana hai us khaali nishaan par. Bakri wala pehle 20 bakriyan ek-ek karke khaali jagah rakhta hai.',
+      namePh: 'Aapka naam (optional)', pickSide: 'Aap kaun banoge?', sideGoat: '🐐 Bakriyan', sideTiger: '🐯 Baagh',
+      vsComputer: 'Computer ke saath:', easy: 'Aasaan', medium: 'Medium', hard: 'Mushkil', twoPlayers: '👥 2 khiladi (ek phone)',
+      wins: (n) => `${n} jeet`, menuBtn: '☰ Menu', undo: '↶ Wapas', again: '🔁 Phir se khelo',
+      turnGoat: 'Bakri ki baari', turnTiger: 'Baagh ki baari', thinking: 'Computer soch raha hai…',
+      msgPlace: (n) => `Khaali nishaan par bakri rakho (${n} baaki)`, msgPickGoat: 'Bakri chuno, phir khaali nishaan', msgPickTiger: 'Baagh chuno, phir khaali nishaan ya kood',
+      eaten: 'Baagh ne bakri kha li! 🍽️', trapped: 'Ek baagh band! 🔒',
+      winGoats: 'Bakriyan jeet gayi! 🐐🎉', winTigers: 'Baagh jeet gaye! 🐯🎉', draw: 'Barabar! 🤝',
+      youWin: (name) => `Jeet gaye${name ? `, ${name}` : ''}! 🎉`, youLose: 'Computer jeet gaya 😅',
+      noteGoats: (e) => `Saare baagh band · ${e} bakri gayi`, noteTigers: (e) => `${e} bakriyan kha li`, noteDraw: `${DRAW_MOVES} chaalon tak koi nateeja nahi`,
+      challenge: (name, n) => `🐯 ${name} ne Bagh-Bakri mein computer ko ${n} baar haraaya! Aap kitni baar haraa paoge?`,
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo', shareOther: '🔗 Link share / copy karo', copied: '✅ Copy ho gaya', copyPrompt: 'Yeh text copy karo:',
+      shareWin: (name, side, lvl, url) => `🐯🐐 ${name ? `${name} ne` : 'Maine'} Bagh-Bakri mein ${side === 'g' ? 'bakri banke saare baagh band kar diye' : 'baagh banke 5 bakriyan kha li'} — computer (${lvl}) haar gaya! Aap bhi khelo: ${url}`,
+      sharePlain: (url) => `🐯🐐 Purana desi khel Bagh-Bakri — baagh ko gher sakte ho? Computer ya dost ke saath khelo: ${url}`,
+      howTitle: 'Kaise khelein',
+      how: ['Bakriyan 🐐 ya baagh 🐯 chuno, aur computer ka level ya 2 khiladi. <b>Bakri hamesha pehle chalti hai.</b>', '<b>Pehla hissa:</b> bakri wala har baari ek bakri kisi khaali nishaan par rakhta hai, jab tak 20 bakriyan na rakh di jaayein. Is beech baagh chalte rehte hain. Uske baad bakriyan bhi chal sakti hain.', 'Har goti <b>line ke saath agle khaali nishaan</b> par jaati hai. Tirchhi line sirf wahan hai jahan board par bani hai.', '<b>Baagh ka shikaar:</b> agar baagh ke bagal mein bakri ho aur uske theek peeche (usi seedhi line mein) khaali nishaan ho, to baagh kood kar bakri kha leta hai. Kood waale nishaan laal dikhte hain.', '<b>Jeet:</b> baagh <b>5 bakriyan</b> kha lein to baagh jeete. Bakriyan saare baaghon ko aisa gher lein ki koi baagh hil na sake, to bakriyan jeeti. Ek tip: bakriyan saath-saath rakho aur kinaare pehle bharo.'],
+      aboutTitle: 'Bagh-Bakri — sher aur bakri ka purana khel',
+      aboutText: 'Bagh-Bakri Bharat aur Nepal ka bahut purana "shikaar" wala khel hai. Gaon mein zameen par chalk ya lakdi se jaal banta, kankad-patthar baagh bante aur imli ke beej bakriyan — aur do log ghanton khelte rehte. Ek taraf taakat (baagh), doosri taraf ginti aur ekta (bakriyan).',
+      aboutText2: 'Iska sabak bhi pyaara hai: akeli bakri kamzor hai, lekin saath milkar bakriyan sabse taakatwar baagh ko bhi rok leti hain. Is game mein koi daav ya shart nahi — sirf dimaag ka khel.',
+      factsTitle: 'Bagh-Bakri ke tathya',
+      facts: { f1: 'Nepal mein ise "Bagh-Chal" kehte hain, yaani "baagh ki chaal".', f2: 'Tamil Nadu mein yahi khel "Aadu Puli Attam" (bakri-baagh ka khel) kehlata hai.', f3: 'Board par 5×5 = 25 nishaan hote hain; 4 baagh kono se shuru karte hain aur 20 bakriyan baahar se aati hain.', f4: 'Yeh "shikaar khel" (hunt game) parivaar ka hai — ek taraf kam par taakatwar goti, doosri taraf bahut si kamzor gotiyan.', f5: 'Achhe khiladiyon ke beech yeh khel aksar bahut kareeb jaata hai — ek galat chaal se baazi palat jaati hai.', f6: 'Purane zamaane mein ise zameen par lakeer kheench kar, patthar aur beej se khela jaata tha — kisi board ki zaroorat nahi.' },
+      faqTitle: 'Aksar pooche jaane wale sawaal',
+      faq: [['Bagh-Bakri kaise khelte hain?', 'Ek taraf 4 baagh kono par hote hain, doosri taraf 20 bakriyan jo ek-ek karke rakhi jaati hain. Gotiyan line ke saath agle khaali nishaan par chalti hain. Baagh bakri ke upar se seedha kood kar khaali nishaan par jaaye to bakri kha leta hai. Baagh 5 bakriyan kha lein to baagh jeete; bakriyan saare baaghon ko band kar dein to bakriyan jeeti.'], ['Bakri aur baagh mein kaunsa aasaan hai?', 'Shuruaat mein baagh aasaan lagta hai, kyunki bas kood dhoondhni hoti hai. Bakriyon mein sabr chahiye: unhe saath rakho, kinaare pehle bharo, aur kisi bakri ke peeche khaali nishaan mat chhodo.'], ['Is khel ke aur naam kya hain?', 'Nepal mein Bagh-Chal, Tamil Nadu mein Aadu Puli Attam, aur kai jagah bas "baagh-bakri" ya "tigers and goats".']],
+      moreGames: 'Aur games khelo →',
+      privacyTitle: 'Aapka data', privacyText: 'Naam aur jeet ki ginti sirf aapke phone mein rehti hai. Share link mein sirf naam aur jeet jaati hai. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'बाघ-बकरी 🐯🐐',
+      sub: 'पुराना देसी खेल: 4 बाघ और 20 बकरियाँ। बाघ बकरी के ऊपर से कूदकर उसे खाता है — बकरियाँ मिलकर बाघों को घेरकर बंद करती हैं। बकरी बनो या बाघ, कंप्यूटर के साथ या दोस्त के साथ।',
+      startTitle: 'चलो बाघ-बकरी खेलें 🐯🐐',
+      controls: 'पहले अपनी गोटी पर टैप करो, फिर जहाँ ले जाना है उस ख़ाली निशान पर। बकरी वाला पहले 20 बकरियाँ एक-एक करके ख़ाली जगह रखता है।',
+      namePh: 'आपका नाम (ज़रूरी नहीं)', pickSide: 'आप कौन बनोगे?', sideGoat: '🐐 बकरियाँ', sideTiger: '🐯 बाघ',
+      vsComputer: 'कंप्यूटर के साथ:', easy: 'आसान', medium: 'मीडियम', hard: 'मुश्किल', twoPlayers: '👥 2 खिलाड़ी (एक फ़ोन)',
+      wins: (n) => `${n} जीत`, menuBtn: '☰ मेन्यू', undo: '↶ वापस', again: '🔁 फिर से खेलो',
+      turnGoat: 'बकरी की बारी', turnTiger: 'बाघ की बारी', thinking: 'कंप्यूटर सोच रहा है…',
+      msgPlace: (n) => `ख़ाली निशान पर बकरी रखो (${n} बाक़ी)`, msgPickGoat: 'बकरी चुनो, फिर ख़ाली निशान', msgPickTiger: 'बाघ चुनो, फिर ख़ाली निशान या कूद',
+      eaten: 'बाघ ने बकरी खा ली! 🍽️', trapped: 'एक बाघ बंद! 🔒',
+      winGoats: 'बकरियाँ जीत गईं! 🐐🎉', winTigers: 'बाघ जीत गए! 🐯🎉', draw: 'बराबर! 🤝',
+      youWin: (name) => `जीत गए${name ? `, ${name}` : ''}! 🎉`, youLose: 'कंप्यूटर जीत गया 😅',
+      noteGoats: (e) => `सारे बाघ बंद · ${e} बकरी गई`, noteTigers: (e) => `${e} बकरियाँ खा लीं`, noteDraw: `${DRAW_MOVES} चालों तक कोई नतीजा नहीं`,
+      challenge: (name, n) => `🐯 ${name} ने बाघ-बकरी में कंप्यूटर को ${n} बार हराया! आप कितनी बार हरा पाओगे?`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो', shareOther: '🔗 लिंक शेयर / कॉपी करो', copied: '✅ कॉपी हो गया', copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareWin: (name, side, lvl, url) => `🐯🐐 ${name ? `${name} ने` : 'मैंने'} बाघ-बकरी में ${side === 'g' ? 'बकरी बनकर सारे बाघ बंद कर दिए' : 'बाघ बनकर 5 बकरियाँ खा लीं'} — कंप्यूटर (${lvl}) हार गया! आप भी खेलो: ${url}`,
+      sharePlain: (url) => `🐯🐐 पुराना देसी खेल बाघ-बकरी — बाघ को घेर सकते हो? कंप्यूटर या दोस्त के साथ खेलो: ${url}`,
+      howTitle: 'कैसे खेलें',
+      how: ['बकरियाँ 🐐 या बाघ 🐯 चुनो, और कंप्यूटर का लेवल या 2 खिलाड़ी। <b>बकरी हमेशा पहले चलती है।</b>', '<b>पहला हिस्सा:</b> बकरी वाला हर बारी एक बकरी किसी ख़ाली निशान पर रखता है, जब तक 20 बकरियाँ न रख दी जाएँ। इस बीच बाघ चलते रहते हैं। उसके बाद बकरियाँ भी चल सकती हैं।', 'हर गोटी <b>लाइन के साथ अगले ख़ाली निशान</b> पर जाती है। तिरछी लाइन सिर्फ़ वहाँ है जहाँ बोर्ड पर बनी है।', '<b>बाघ का शिकार:</b> अगर बाघ के बगल में बकरी हो और उसके ठीक पीछे (उसी सीधी लाइन में) ख़ाली निशान हो, तो बाघ कूदकर बकरी खा लेता है। कूद वाले निशान लाल दिखते हैं।', '<b>जीत:</b> बाघ <b>5 बकरियाँ</b> खा लें तो बाघ जीते। बकरियाँ सारे बाघों को ऐसा घेर लें कि कोई बाघ हिल न सके, तो बकरियाँ जीतीं। एक टिप: बकरियाँ साथ-साथ रखो और किनारे पहले भरो।'],
+      aboutTitle: 'बाघ-बकरी — शेर और बकरी का पुराना खेल',
+      aboutText: 'बाघ-बकरी भारत और नेपाल का बहुत पुराना "शिकार" वाला खेल है। गाँव में ज़मीन पर चॉक या लकड़ी से जाल बनता, कंकड़-पत्थर बाघ बनते और इमली के बीज बकरियाँ — और दो लोग घंटों खेलते रहते। एक तरफ़ ताक़त (बाघ), दूसरी तरफ़ गिनती और एकता (बकरियाँ)।',
+      aboutText2: 'इसका सबक़ भी प्यारा है: अकेली बकरी कमज़ोर है, लेकिन साथ मिलकर बकरियाँ सबसे ताक़तवर बाघ को भी रोक लेती हैं। इस गेम में कोई दाँव या शर्त नहीं — सिर्फ़ दिमाग़ का खेल।',
+      factsTitle: 'बाघ-बकरी के तथ्य',
+      facts: { f1: 'नेपाल में इसे "बाघ-चाल" कहते हैं, यानी "बाघ की चाल"।', f2: 'तमिलनाडु में यही खेल "आडु पुली आट्टम" (बकरी-बाघ का खेल) कहलाता है।', f3: 'बोर्ड पर 5×5 = 25 निशान होते हैं; 4 बाघ कोनों से शुरू करते हैं और 20 बकरियाँ बाहर से आती हैं।', f4: 'यह "शिकार खेल" (हंट गेम) परिवार का है — एक तरफ़ कम पर ताक़तवर गोटी, दूसरी तरफ़ बहुत-सी कमज़ोर गोटियाँ।', f5: 'अच्छे खिलाड़ियों के बीच यह खेल अक्सर बहुत क़रीब जाता है — एक ग़लत चाल से बाज़ी पलट जाती है।', f6: 'पुराने ज़माने में इसे ज़मीन पर लकीर खींचकर, पत्थर और बीज से खेला जाता था — किसी बोर्ड की ज़रूरत नहीं।' },
+      faqTitle: 'अक्सर पूछे जाने वाले सवाल',
+      faq: [['बाघ-बकरी कैसे खेलते हैं?', 'एक तरफ़ 4 बाघ कोनों पर होते हैं, दूसरी तरफ़ 20 बकरियाँ जो एक-एक करके रखी जाती हैं। गोटियाँ लाइन के साथ अगले ख़ाली निशान पर चलती हैं। बाघ बकरी के ऊपर से सीधा कूदकर ख़ाली निशान पर जाए तो बकरी खा लेता है। बाघ 5 बकरियाँ खा लें तो बाघ जीते; बकरियाँ सारे बाघों को बंद कर दें तो बकरियाँ जीतीं।'], ['बकरी और बाघ में कौन-सा आसान है?', 'शुरुआत में बाघ आसान लगता है, क्योंकि बस कूद ढूँढनी होती है। बकरियों में सब्र चाहिए: उन्हें साथ रखो, किनारे पहले भरो, और किसी बकरी के पीछे ख़ाली निशान मत छोड़ो।'], ['इस खेल के और नाम क्या हैं?', 'नेपाल में बाघ-चाल, तमिलनाडु में आडु पुली आट्टम, और कई जगह बस "बाघ-बकरी" या "टाइगर्स एंड गोट्स"।']],
+      moreGames: 'और गेम खेलो →',
+      privacyTitle: 'आपका डेटा', privacyText: 'नाम और जीत की गिनती सिर्फ़ आपके फ़ोन में रहती है। शेयर लिंक में सिर्फ़ नाम और जीत जाती है। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Bagh-Bakri (Tigers and Goats) 🐯🐐',
+      sub: 'An old Indian board game: 4 tigers and 20 goats. A tiger eats a goat by jumping over it — the goats work together to trap the tigers. Play the goats or the tigers, against the computer or a friend.',
+      startTitle: 'Let\'s play Bagh-Bakri 🐯🐐',
+      controls: 'Tap your piece first, then the empty point you want to move to. The goat player first places 20 goats one by one on empty points.',
+      namePh: 'Your name (optional)', pickSide: 'Which side will you play?', sideGoat: '🐐 Goats', sideTiger: '🐯 Tigers',
+      vsComputer: 'Against the computer:', easy: 'Easy', medium: 'Medium', hard: 'Hard', twoPlayers: '👥 2 players (one phone)',
+      wins: (n) => `${n} win${n === 1 ? '' : 's'}`, menuBtn: '☰ Menu', undo: '↶ Undo', again: '🔁 Play again',
+      turnGoat: 'Goats to move', turnTiger: 'Tigers to move', thinking: 'Computer is thinking…',
+      msgPlace: (n) => `Place a goat on an empty point (${n} left)`, msgPickGoat: 'Pick a goat, then an empty point', msgPickTiger: 'Pick a tiger, then an empty point or a jump',
+      eaten: 'A tiger ate a goat! 🍽️', trapped: 'A tiger is trapped! 🔒',
+      winGoats: 'The goats win! 🐐🎉', winTigers: 'The tigers win! 🐯🎉', draw: 'A draw! 🤝',
+      youWin: (name) => `You won${name ? `, ${name}` : ''}! 🎉`, youLose: 'The computer won 😅',
+      noteGoats: (e) => `Every tiger trapped · ${e} goat${e === 1 ? '' : 's'} lost`, noteTigers: (e) => `${e} goats eaten`, noteDraw: `No result in ${DRAW_MOVES} moves`,
+      challenge: (name, n) => `🐯 ${name} beat the computer at Bagh-Bakri ${n} time${n === 1 ? '' : 's'}! How many times can you?`,
+      shareWa: '📲 Challenge on WhatsApp', shareFb: 'Share on Facebook', shareOther: '🔗 Share / copy link', copied: '✅ Copied', copyPrompt: 'Copy this text:',
+      shareWin: (name, side, lvl, url) => `🐯🐐 ${name || 'I'} ${side === 'g' ? 'trapped every tiger as the goats' : 'ate 5 goats as the tigers'} and beat the computer (${lvl}) at Bagh-Bakri! Your turn: ${url}`,
+      sharePlain: (url) => `🐯🐐 Bagh-Bakri, the old tigers-and-goats game — can you trap the tigers? Play the computer or a friend: ${url}`,
+      howTitle: 'How to play',
+      how: ['Choose goats 🐐 or tigers 🐯, then a computer level or 2 players. <b>The goats always move first.</b>', '<b>First part:</b> on each turn the goat player places one goat on an empty point until all 20 are on the board. Meanwhile the tigers keep moving. After that, goats can move too.', 'Every piece moves <b>along a line to the next empty point</b>. Diagonal moves are only allowed where a diagonal line is drawn.', '<b>The tiger\'s hunt:</b> if a goat is next to a tiger and the point right behind it (on the same straight line) is empty, the tiger jumps over and eats the goat. Jump points show in red.', '<b>Winning:</b> the tigers win by eating <b>5 goats</b>. The goats win by surrounding every tiger so none can move. Tip: keep the goats together and fill the edges first.'],
+      aboutTitle: 'Bagh-Bakri — the old game of tiger and goat',
+      aboutText: 'Bagh-Bakri is a very old "hunt" game from India and Nepal. In villages the grid was drawn on the ground with chalk or a stick, pebbles became tigers and tamarind seeds became goats — and two people could play for hours. On one side strength (the tigers), on the other numbers and teamwork (the goats).',
+      aboutText2: 'Its lesson is a lovely one: a lone goat is weak, but together the goats can stop even the strongest tiger. No bets or stakes here — just a game for the mind.',
+      factsTitle: 'Facts about Bagh-Bakri',
+      facts: { f1: 'In Nepal it is called "Bagh-Chal", which means "the tiger\'s move".', f2: 'In Tamil Nadu the same game is called "Aadu Puli Attam" — the goat-and-tiger game.', f3: 'The board has 5×5 = 25 points; the 4 tigers start on the corners and the 20 goats come in from outside.', f4: 'It belongs to the family of "hunt games": a few strong pieces on one side, many weak ones on the other.', f5: 'Between good players the game is often very close — one wrong move can turn it around.', f6: 'In the old days it was played with lines scratched on the ground and stones and seeds as pieces — no board needed.' },
+      faqTitle: 'Frequently asked questions',
+      faq: [['How do you play Bagh-Bakri (tigers and goats)?', 'One side has 4 tigers on the corners, the other has 20 goats that are placed one by one. Pieces move along the lines to the next empty point. A tiger captures a goat by jumping over it in a straight line to an empty point. The tigers win by capturing 5 goats; the goats win by trapping every tiger so it cannot move.'], ['Which side is easier, goats or tigers?', 'The tigers are easier for beginners because they only need to find jumps. The goats need patience: keep them together, fill the edges first and never leave a goat with an empty point behind it.'], ['What are the other names of this game?', 'Bagh-Chal in Nepal, Aadu Puli Attam in Tamil Nadu, and simply "tigers and goats" or bagh-bakri in many parts of India.']],
+      moreGames: 'Play more games →',
+      privacyTitle: 'Your data', privacyText: 'Your name and win count stay only on your phone. The share link carries only your name and wins. No login, no server.',
+    },
+    bn: {
+      title: 'বাঘ-ছাগল 🐯🐐',
+      sub: 'পুরোনো দেশি খেলা: ৪টে বাঘ আর ২০টা ছাগল। বাঘ ছাগলের ওপর দিয়ে লাফিয়ে তাকে খায় — ছাগলেরা মিলে বাঘদের ঘিরে আটকে দেয়। ছাগল হও বা বাঘ, কম্পিউটার বা বন্ধুর সঙ্গে।',
+      startTitle: 'চলো বাঘ-ছাগল খেলি 🐯🐐',
+      controls: 'আগে নিজের গুটিতে ট্যাপ করো, তারপর যে ফাঁকা বিন্দুতে নিয়ে যাবে সেখানে। ছাগলের দিক আগে ২০টা ছাগল একে একে ফাঁকা জায়গায় বসায়।',
+      namePh: 'তোমার নাম (ঐচ্ছিক)', pickSide: 'তুমি কোন দিক নেবে?', sideGoat: '🐐 ছাগল', sideTiger: '🐯 বাঘ',
+      vsComputer: 'কম্পিউটারের সঙ্গে:', easy: 'সহজ', medium: 'মাঝারি', hard: 'কঠিন', twoPlayers: '👥 ২ জন (এক ফোনে)',
+      wins: (n) => `${n} জয়`, menuBtn: '☰ মেনু', undo: '↶ ফেরাও', again: '🔁 আবার খেলো',
+      turnGoat: 'ছাগলের পালা', turnTiger: 'বাঘের পালা', thinking: 'কম্পিউটার ভাবছে…',
+      msgPlace: (n) => `ফাঁকা বিন্দুতে ছাগল বসাও (${n}টা বাকি)`, msgPickGoat: 'ছাগল বাছো, তারপর ফাঁকা বিন্দু', msgPickTiger: 'বাঘ বাছো, তারপর ফাঁকা বিন্দু বা লাফ',
+      eaten: 'বাঘ একটা ছাগল খেয়ে ফেলল! 🍽️', trapped: 'একটা বাঘ আটকে গেছে! 🔒',
+      winGoats: 'ছাগলেরা জিতল! 🐐🎉', winTigers: 'বাঘেরা জিতল! 🐯🎉', draw: 'ড্র! 🤝',
+      youWin: (name) => `জিতে গেছ${name ? `, ${name}` : ''}! 🎉`, youLose: 'কম্পিউটার জিতে গেল 😅',
+      noteGoats: (e) => `সব বাঘ আটকে · ${e}টা ছাগল গেছে`, noteTigers: (e) => `${e}টা ছাগল খাওয়া হয়েছে`, noteDraw: `${DRAW_MOVES} চালেও ফল হয়নি`,
+      challenge: (name, n) => `🐯 ${name} বাঘ-ছাগলে কম্পিউটারকে ${n} বার হারিয়েছে! তুমি কতবার পারবে?`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো', shareOther: '🔗 লিংক শেয়ার / কপি', copied: '✅ কপি হয়েছে', copyPrompt: 'এই লেখাটা কপি করো:',
+      shareWin: (name, side, lvl, url) => `🐯🐐 ${name ? `${name}` : 'আমি'} বাঘ-ছাগলে ${side === 'g' ? 'ছাগল হয়ে সব বাঘ আটকে' : 'বাঘ হয়ে ৫টা ছাগল খেয়ে'} কম্পিউটারকে (${lvl}) হারিয়েছি! তুমিও খেলো: ${url}`,
+      sharePlain: (url) => `🐯🐐 পুরোনো দেশি খেলা বাঘ-ছাগল — বাঘকে আটকাতে পারবে? কম্পিউটার বা বন্ধুর সঙ্গে খেলো: ${url}`,
+      howTitle: 'কীভাবে খেলবে',
+      how: ['ছাগল 🐐 বা বাঘ 🐯 বাছো, তারপর কম্পিউটারের লেভেল বা ২ জন। <b>ছাগল সবসময় আগে চলে।</b>', '<b>প্রথম ভাগ:</b> ছাগলের দিক প্রতি পালায় একটা করে ছাগল ফাঁকা বিন্দুতে বসায়, যতক্ষণ না ২০টা বসানো হয়। এর মধ্যে বাঘেরা চলতে থাকে। তারপর ছাগলও চলতে পারে।', 'প্রতিটা গুটি <b>লাইন ধরে পরের ফাঁকা বিন্দুতে</b> যায়। কোনাকুনি চাল শুধু যেখানে কোনাকুনি লাইন আঁকা আছে।', '<b>বাঘের শিকার:</b> বাঘের পাশে ছাগল থাকলে আর তার ঠিক পিছনে (একই সোজা লাইনে) ফাঁকা বিন্দু থাকলে বাঘ লাফিয়ে ছাগল খেয়ে ফেলে। লাফের বিন্দু লাল দেখায়।', '<b>জয়:</b> বাঘ <b>৫টা ছাগল</b> খেলে বাঘ জেতে। ছাগলেরা সব বাঘকে এমন ঘিরে ফেললে যে কোনো বাঘ নড়তে পারে না, তাহলে ছাগল জেতে। টিপ: ছাগলদের একসঙ্গে রাখো, আগে কিনারা ভরো।'],
+      aboutTitle: 'বাঘ-ছাগল — বাঘ আর ছাগলের পুরোনো খেলা',
+      aboutText: 'বাঘ-ছাগল ভারত আর নেপালের খুব পুরোনো "শিকার" খেলা। গ্রামে মাটিতে চক বা কাঠি দিয়ে ঘর আঁকা হত, নুড়ি হত বাঘ আর তেঁতুলের বিচি ছাগল — দুজনে ঘণ্টার পর ঘণ্টা খেলত। এক দিকে শক্তি (বাঘ), অন্য দিকে সংখ্যা আর একতা (ছাগল)।',
+      aboutText2: 'এর শিক্ষাও সুন্দর: একা ছাগল দুর্বল, কিন্তু একসঙ্গে ছাগলেরা সবচেয়ে শক্তিশালী বাঘকেও আটকে দিতে পারে। এই খেলায় কোনো বাজি বা শর্ত নেই — শুধু মাথার খেলা।',
+      factsTitle: 'বাঘ-ছাগলের তথ্য',
+      facts: { f1: 'নেপালে একে বলে "বাঘ-চাল", মানে "বাঘের চাল"।', f2: 'তামিলনাড়ুতে এই খেলার নাম "আড়ু পুলি আট্টম" — ছাগল-বাঘের খেলা।', f3: 'বোর্ডে ৫×৫ = ২৫টা বিন্দু; ৪টে বাঘ চার কোণ থেকে শুরু করে আর ২০টা ছাগল বাইরে থেকে আসে।', f4: 'এটা "শিকার খেলা" পরিবারের — এক দিকে অল্প কিন্তু শক্তিশালী গুটি, অন্য দিকে অনেক দুর্বল গুটি।', f5: 'ভালো খেলোয়াড়দের মধ্যে খেলাটা প্রায়ই খুব কাছাকাছি যায় — একটা ভুল চালে বাজি উল্টে যায়।', f6: 'আগে মাটিতে দাগ কেটে, পাথর আর বিচি দিয়ে খেলা হত — বোর্ড লাগত না।' },
+      faqTitle: 'সাধারণ প্রশ্ন',
+      faq: [['বাঘ-ছাগল কীভাবে খেলে?', 'এক দিকে চার কোণে ৪টে বাঘ, অন্য দিকে ২০টা ছাগল যা একে একে বসানো হয়। গুটি লাইন ধরে পরের ফাঁকা বিন্দুতে চলে। বাঘ ছাগলের ওপর দিয়ে সোজা লাফিয়ে ফাঁকা বিন্দুতে গেলে ছাগল খেয়ে ফেলে। বাঘ ৫টা ছাগল খেলে বাঘ জেতে; ছাগলেরা সব বাঘ আটকালে ছাগল জেতে।'], ['ছাগল আর বাঘের মধ্যে কোনটা সহজ?', 'শুরুতে বাঘ সহজ লাগে, শুধু লাফ খুঁজতে হয়। ছাগলে ধৈর্য লাগে: একসঙ্গে রাখো, আগে কিনারা ভরো, আর কোনো ছাগলের পিছনে ফাঁকা বিন্দু রেখো না।'], ['এই খেলার আর কী নাম?', 'নেপালে বাঘ-চাল, তামিলনাড়ুতে আড়ু পুলি আট্টম, আর অনেক জায়গায় শুধু "বাঘ-বকরি" বা "টাইগার্স অ্যান্ড গোটস"।']],
+      moreGames: 'আরও গেম খেলো →',
+      privacyTitle: 'তোমার ডেটা', privacyText: 'নাম আর জয়ের সংখ্যা শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর জয়। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+  const urlLang = params.get('lang'), savedLang = store.get('bb-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(999, parseInt(params.get('score'), 10) || 0));
+  const debug = params.has('debug') ? 1 : 0;
+  const loadWins = () => { try { const o = JSON.parse(store.get('bb-wins') || '{}'); return { easy: +o.easy || 0, medium: +o.medium || 0, hard: +o.hard || 0 }; } catch (e) { return { easy: 0, medium: 0, hard: 0 }; } };
+  let wins = loadWins();
+  const totalWins = () => wins.easy + wins.medium + wins.hard;
+
+  // ---------- the board: 25 points, orthogonal lines everywhere, diagonals from points where (r + c) is even
+  const N = 5, P = N * N;
+  const rc = (i) => [Math.floor(i / N), i % N];
+  const idx = (r, c) => r * N + c;
+  const inside = (r, c) => r >= 0 && r < N && c >= 0 && c < N;
+  const DIRS = [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]];
+  const STEPS = [], JUMPS = [];   // STEPS[i] = neighbours; JUMPS[i] = [[over, to], ...]
+  for (let i = 0; i < P; i += 1) {
+    const [r, c] = rc(i), diag = (r + c) % 2 === 0;
+    STEPS[i] = []; JUMPS[i] = [];
+    DIRS.forEach(([dr, dc]) => {
+      if (dr && dc && !diag) return;
+      if (inside(r + dr, c + dc)) STEPS[i].push(idx(r + dr, c + dc));
+      if (inside(r + 2 * dr, c + 2 * dc)) JUMPS[i].push([idx(r + dr, c + dc), idx(r + 2 * dr, c + 2 * dc)]);
+    });
+  }
+
+  // ---------- game state (pure, so the computer can search it)
+  // b: array of '', 'g', 't'; side: 'g' | 't' to move; hand: goats still to place; eaten; quiet: goat moves since last capture (after placing)
+  const fresh = () => { const b = Array(P).fill(''); [0, 4, 20, 24].forEach((i) => { b[i] = 't'; }); return { b, side: 'g', hand: GOATS, eaten: 0, quiet: 0 }; };
+  const tigerMoves = (s) => {
+    const out = [];
+    s.b.forEach((p, i) => {
+      if (p !== 't') return;
+      STEPS[i].forEach((j) => { if (!s.b[j]) out.push({ from: i, to: j }); });
+      JUMPS[i].forEach(([o, j]) => { if (s.b[o] === 'g' && !s.b[j]) out.push({ from: i, to: j, over: o }); });
+    });
+    return out;
+  };
+  const goatMoves = (s) => {
+    const out = [];
+    if (s.hand > 0) { s.b.forEach((p, i) => { if (!p) out.push({ from: -1, to: i }); }); return out; }
+    s.b.forEach((p, i) => { if (p === 'g') STEPS[i].forEach((j) => { if (!s.b[j]) out.push({ from: i, to: j }); }); });
+    return out;
+  };
+  const moves = (s) => (s.side === 't' ? tigerMoves(s) : goatMoves(s));
+  const apply = (s, m) => {
+    const b = s.b.slice();
+    const n = { b, side: s.side === 'g' ? 't' : 'g', hand: s.hand, eaten: s.eaten, quiet: s.quiet };
+    if (s.side === 'g') {
+      if (m.from < 0) n.hand -= 1; else { b[m.from] = ''; n.quiet += 1; }
+      b[m.to] = 'g';
+    } else {
+      b[m.from] = ''; b[m.to] = 't';
+      if (m.over != null) { b[m.over] = ''; n.eaten += 1; n.quiet = 0; }
+    }
+    return n;
+  };
+  // result: 't' tigers won, 'g' goats won, 'd' draw, '' still going
+  const result = (s) => {
+    if (s.eaten >= TO_EAT) return 't';
+    if (s.side === 't' && !tigerMoves(s).length) return 'g';
+    if (s.side === 'g' && !goatMoves(s).length) return 't';
+    if (s.quiet >= DRAW_MOVES) return 'd';
+    return '';
+  };
+  const trappedCount = (s) => s.b.reduce((n, p, i) => n + (p === 't' && !STEPS[i].some((j) => !s.b[j]) && !JUMPS[i].some(([o, j]) => s.b[o] === 'g' && !s.b[j]) ? 1 : 0), 0);
+
+  // ---------- computer: alpha-beta search, scored from the tigers' side
+  const evaluate = (s) => {
+    const r = result(s);
+    if (r === 't') return 100000;
+    if (r === 'g') return -100000;
+    if (r === 'd') return 0;
+    const tm = tigerMoves({ ...s, side: 't' });
+    const jumps = tm.filter((m) => m.over != null).length;
+    return s.eaten * 1000 + jumps * 120 + tm.length * 20 - trappedCount(s) * 320;
+  };
+  const search = (s, depth, a, bt) => {
+    const r = result(s);
+    if (depth === 0 || r) return evaluate(s) + (r ? depth : 0) * (r === 't' ? 1 : r === 'g' ? -1 : 0);
+    const ms = moves(s);
+    if (s.side === 't') {
+      ms.sort((x, y) => (y.over != null) - (x.over != null));
+      let best = -Infinity;
+      for (const m of ms) { best = Math.max(best, search(apply(s, m), depth - 1, a, bt)); a = Math.max(a, best); if (a >= bt) break; }
+      return best;
+    }
+    let best = Infinity;
+    for (const m of ms) { best = Math.min(best, search(apply(s, m), depth - 1, a, bt)); bt = Math.min(bt, best); if (a >= bt) break; }
+    return best;
+  };
+  const pickMove = (s, lvl) => {
+    const ms = moves(s);
+    if (!ms.length) return null;
+    const depth = { easy: 1, medium: 2, hard: 5 }[lvl];
+    const randomChance = { easy: 0.45, medium: 0.12, hard: 0 }[lvl];
+    if (Math.random() < randomChance) return ms[Math.floor(Math.random() * ms.length)];
+    const sign = s.side === 't' ? 1 : -1;
+    let best = [], bestV = -Infinity;
+    ms.forEach((m) => {
+      const v = sign * search(apply(s, m), depth - 1, -Infinity, Infinity);
+      if (v > bestV + 1e-9) { bestV = v; best = [m]; } else if (Math.abs(v - bestV) < 1e-9) best.push(m);
+    });
+    return best[Math.floor(Math.random() * best.length)];
+  };
+
+  // ---------- play state
+  let S = fresh(), history = [], mode = 'cpu', level = 'medium', human = 'g', state = 'menu', sel = -1, last = null, playerName = '', note = '';
+  const cpuSide = () => (mode === 'cpu' ? (human === 'g' ? 't' : 'g') : '');
+
+  // ---------- drawing (SVG)
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = $('board');
+  const X = (c) => c * 25, Y = (r) => r * 25;
+  const el = (name, attrs, parent = svg) => { const e = document.createElementNS(NS, name); Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v)); parent.append(e); return e; };
+  const legalFor = (from) => {
+    if (from < 0) return [];
+    return moves(S).filter((m) => m.from === from);
+  };
+  const draw = () => {
+    svg.replaceChildren();
+    el('rect', { x: -10, y: -10, width: 120, height: 120, rx: 5, fill: '#e3cf9c', stroke: '#8a6d2e', 'stroke-width': 1.2 });
+    const g = el('g', { stroke: '#5c4a1c', 'stroke-width': 0.9, 'stroke-linecap': 'round' });
+    for (let k = 0; k < N; k += 1) { el('line', { x1: 0, y1: Y(k), x2: 100, y2: Y(k) }, g); el('line', { x1: X(k), y1: 0, x2: X(k), y2: 100 }, g); }
+    [[0, 0, 100, 100], [100, 0, 0, 100], [50, 0, 100, 50], [100, 50, 50, 100], [50, 100, 0, 50], [0, 50, 50, 0]].forEach(([x1, y1, x2, y2]) => el('line', { x1, y1, x2, y2 }, g));
+    const targets = state === 'play' && sel >= 0 ? legalFor(sel) : [];
+    const placing = state === 'play' && S.side === 'g' && S.hand > 0 && isHumanTurn();
+    for (let i = 0; i < P; i += 1) {
+      const [r, c] = rc(i), x = X(c), y = Y(r), p = S.b[i];
+      const tgt = targets.find((m) => m.to === i);
+      const grp = el('g', { class: 'pt', 'data-i': i });
+      el('circle', { cx: x, cy: y, r: 9.5, fill: 'transparent' }, grp);
+      if (!p) el('circle', { cx: x, cy: y, r: tgt ? 3.2 : placing ? 2.4 : 1.6, fill: tgt ? (tgt.over != null ? '#e03131' : '#2f9e44') : placing ? '#2f9e44' : '#5c4a1c' }, grp);
+      if (p) {
+        el('circle', { cx: x, cy: y, r: 8.2, fill: p === 't' ? '#ffa94d' : '#f8f9fa', stroke: i === sel ? '#e8590c' : p === 't' ? '#c2410c' : '#868e96', 'stroke-width': i === sel ? 2 : 1 }, grp);
+        const tx = el('text', { x, y: y + 3.8, 'text-anchor': 'middle', 'font-size': 11 }, grp);
+        tx.textContent = p === 't' ? '🐯' : '🐐';
+      }
+    }
+    if (last && last.over != null) { const [r, c] = rc(last.over); el('text', { x: X(c), y: Y(r) + 3, 'text-anchor': 'middle', 'font-size': 8, opacity: 0.7 }).textContent = '💥'; }
+  };
+  const isHumanTurn = () => mode === 'two' || S.side === human;
+  const updateHud = () => {
+    $('hudGoats').textContent = S.hand > 0 ? `🐐 ${S.hand}` : `🐐 ${S.b.filter((p) => p === 'g').length}`;
+    $('hudEaten').textContent = `🍽️ ${S.eaten}/${TO_EAT}`;
+    const thinking = state === 'play' && mode === 'cpu' && S.side === cpuSide();
+    $('hudTurn').textContent = state === 'play' ? (thinking ? t('thinking') : S.side === 'g' ? t('turnGoat') : t('turnTiger')) : '';
+    $('hudTurn').classList.toggle('hidden', state !== 'play');
+    let m = note;
+    if (!m && state === 'play' && !thinking) m = S.side === 'g' ? (S.hand > 0 ? t('msgPlace')(S.hand) : t('msgPickGoat')) : t('msgPickTiger');
+    $('msg').textContent = m;
+    $('undoBtn').classList.toggle('hidden', !(state === 'play' && history.length && mode === 'cpu'));
+  };
+  const render = () => { draw(); updateHud(); };
+
+  // ---------- page texts
+  const renderWins = () => { $('wEasy').textContent = t('wins')(wins.easy); $('wMedium').textContent = t('wins')(wins.medium); $('wHard').textContent = t('wins')(wins.hard); };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Tigers and Goats Board Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((e) => { e.textContent = t(e.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((e) => { e.placeholder = t(e.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const F = t('facts');
+    $('factList').innerHTML = FACT_KEYS.map((k) => `<li>${F[k]}</li>`).join('');
+    $('faqList').innerHTML = t('faq').map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    document.querySelectorAll('#sideSeg button').forEach((b) => b.classList.toggle('on', b.dataset.s === human));
+    renderWins(); render();
+    if (last && last.end) fillEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('bb-lang', lang); applyLang(); });
+  $('name').value = store.get('bb-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- sound
+  let muted = store.get('bb-muted') === '1';
+  let ac = null, master = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setIcons();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('bb-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.8; });
+  const initAudio = () => {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    ac = new AC(); master = ac.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(ac.destination);
+  };
+  const tone = (f, dur, type = 'sine', vol = 0.07, delay = 0, f2 = null) => {
+    if (!ac) return;
+    const w = ac.currentTime + delay, o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, w);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, w + dur);
+    g.gain.setValueAtTime(0.0001, w); g.gain.exponentialRampToValueAtTime(vol, w + 0.004); g.gain.exponentialRampToValueAtTime(0.0001, w + dur);
+    o.connect(g); g.connect(master); o.start(w); o.stop(w + dur + 0.03);
+  };
+  const sfx = {
+    place: () => tone(660, 0.08, 'triangle', 0.05),
+    move: () => tone(520, 0.07, 'triangle', 0.04),
+    eat: () => { tone(180, 0.25, 'sawtooth', 0.05, 0, 90); tone(120, 0.2, 'triangle', 0.05, 0.12); },
+    trap: () => tone(880, 0.15, 'sine', 0.05),
+    win: () => { [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.5, 'sine', 0.06, i * 0.13)); },
+    lose: () => tone(330, 0.4, 'triangle', 0.05, 0, 220),
+  };
+
+  // ---------- turns
+  const doMove = (m) => {
+    const before = S;
+    history.push(S);
+    const trappedBefore = trappedCount(S);
+    S = apply(S, m); last = m; sel = -1; note = '';
+    if (m.over != null) { note = t('eaten'); sfx.eat(); }
+    else if (before.side === 'g') { (m.from < 0 ? sfx.place : sfx.move)(); if (trappedCount(S) > trappedBefore) { note = t('trapped'); sfx.trap(); } }
+    else sfx.move();
+    const r = result(S);
+    if (r) return finish(r);
+    render();
+    if (mode === 'cpu' && S.side === cpuSide()) setTimeout(cpuTurn, debug ? 30 : 450);
+    else if (debug && params.has('auto')) setTimeout(() => { const mv = pickMove(S, params.get('p2') || 'medium'); if (mv) doMove(mv); }, 30);
+  };
+  const cpuTurn = () => {
+    if (state !== 'play' || S.side !== cpuSide()) return;
+    const m = pickMove(S, level);
+    if (m) doMove(m);
+  };
+  const tap = (i) => {
+    if (state !== 'play' || !isHumanTurn()) return;
+    initAudio();
+    const p = S.b[i];
+    if (S.side === 'g' && S.hand > 0) { if (!p) doMove({ from: -1, to: i }); return; }
+    if (p === S.side) { sel = sel === i ? -1 : i; note = ''; render(); return; }
+    if (sel >= 0) { const m = legalFor(sel).find((x) => x.to === i); if (m) doMove(m); else { sel = -1; render(); } }
+  };
+  svg.addEventListener('click', (e) => { const g = e.target.closest('.pt'); if (g) tap(+g.dataset.i); });
+
+  // ---------- start / end
+  const hideOverlays = () => ['startScreen', 'endScreen'].forEach((id) => $(id).classList.add('hidden'));
+  const start = (m, lvl) => {
+    initAudio();
+    mode = m; if (lvl) level = lvl;
+    playerName = cleanName($('name').value); store.set('bb-name', playerName);
+    S = fresh(); history = []; sel = -1; last = null; note = ''; state = 'play';
+    hideOverlays(); $('menuBtn').classList.remove('hidden');
+    $('shareOther').textContent = t('shareOther');
+    render();
+    if (mode === 'cpu' && S.side === cpuSide()) setTimeout(cpuTurn, debug ? 30 : 450);
+    else if (debug && params.has('auto')) setTimeout(() => doMove(pickMove(S, params.get('p2') || 'medium')), 30);
+  };
+  const finish = (r) => {
+    state = 'over';
+    const youWon = mode === 'cpu' && r === human;
+    if (youWon) { wins[level] += 1; store.set('bb-wins', JSON.stringify(wins)); }
+    (mode === 'two' || youWon || r === 'd' ? sfx.win : sfx.lose)();
+    last = { ...(last || {}), end: true, r, youWon, eaten: S.eaten, mode, level, side: human, name: playerName, fact: FACT_KEYS[Math.floor(Math.random() * FACT_KEYS.length)] };
+    fillEnd(); renderWins(); render();
+    setTimeout(() => $('endScreen').classList.remove('hidden'), debug ? 0 : 900);
+  };
+  const fillEnd = () => {
+    const L = last;
+    const sideWin = L.r === 'g' ? t('winGoats') : L.r === 't' ? t('winTigers') : t('draw');
+    $('endTitle').textContent = L.mode === 'cpu' && L.r !== 'd' ? (L.youWon ? t('youWin')(L.name) : t('youLose')) : sideWin;
+    $('endBig').textContent = L.r === 'g' ? '🐐🔒🐯' : L.r === 't' ? '🐯🍽️' : '🤝';
+    $('endNote').textContent = `${L.mode === 'cpu' && L.r !== 'd' ? `${sideWin} · ` : ''}${L.r === 'g' ? t('noteGoats')(L.eaten) : L.r === 't' ? t('noteTigers')(L.eaten) : t('noteDraw')}`;
+    $('endFact').textContent = `💡 ${t('facts')[L.fact]}`;
+  };
+  const toMenu = () => { state = 'menu'; sel = -1; hideOverlays(); renderWins(); render(); $('menuBtn').classList.add('hidden'); $('startScreen').classList.remove('hidden'); };
+  $('undoBtn').addEventListener('click', () => {
+    if (state !== 'play' || mode !== 'cpu') return;
+    // go back to the human's previous turn (undo the computer's reply too)
+    while (history.length) { S = history.pop(); if (S.side === human) break; }
+    sel = -1; last = null; note = ''; render();
+  });
+
+  $('sideSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; human = b.dataset.s; store.set('bb-side', human); document.querySelectorAll('#sideSeg button').forEach((x) => x.classList.toggle('on', x === b)); });
+  $('levelSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) start('cpu', b.dataset.l); });
+  $('twoBtn').addEventListener('click', () => start('two'));
+  $('againBtn').addEventListener('click', () => start(mode, level));
+  $('toMenu').addEventListener('click', toMenu);
+  $('menuBtn').addEventListener('click', toMenu);
+  if (store.get('bb-side') === 't') human = 't';
+
+  // ---------- share
+  const shareText = () => {
+    const u = new URL(SITE);
+    if (playerName) u.searchParams.set('from', playerName);
+    if (totalWins()) u.searchParams.set('score', String(totalWins()));
+    u.searchParams.set('lang', lang);
+    if (last && last.end && last.youWon) return t('shareWin')(playerName, last.side, t(last.level), u.toString());
+    return t('sharePlain')(u.toString());
+  };
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => window.prompt(t('copyPrompt'), text));
+  });
+
+  applyLang();
+  if (debug && params.has('auto')) { human = params.get('side') === 't' ? 't' : 'g'; start('cpu', params.get('level') || 'hard'); }
+  window.__bb = { get state() { return state; }, get S() { return S; }, get last() { return last; }, tap, result: () => result(S), pickMove: (lvl) => pickMove(S, lvl), bench: (lv1 = 'hard', lv2 = 'hard') => { let s = fresh(), worst = 0, n = 0; while (!result(s) && n < 400) { const t0 = performance.now(); const m = pickMove(s, s.side === 'g' ? lv1 : lv2); worst = Math.max(worst, performance.now() - t0); s = apply(s, m); n += 1; } return { worst: Math.round(worst), moves: n, r: result(s), eaten: s.eaten }; } };
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+<script src="/assets/game-share.js?v=3" defer></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "Bagh-Bakri — Tigers and Goats",
+  "short_name": "Bagh-Bakri",
+  "description": "Bagh-Bakri (Bagh-Chal): 4 tigers hunt, 20 goats try to trap them. Play goats or tigers against the computer (easy, medium, hard) or a friend. 4 languages.",
+  "start_url": "/games/bagh-bakri/",
+  "scope": "/games/bagh-bakri/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1d2410",
+  "theme_color": "#5c6b2e",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

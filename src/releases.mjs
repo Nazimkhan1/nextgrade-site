@@ -8,7 +8,7 @@
  * any new category later gets its own line too), on varied days — not one shared list, not fixed weekdays —
  * so that something new goes out every few days. Gaps are "random" but come from a fixed seed, so the dates
  * stay the same on every build. Lines are independent: a game and a story can go out on the same day.
- *   - games   : every 3–6 days, festival games first (nearest festival first)
+ *   - games   : every 1–2 days (user, 19 Nov 2026), most-searched games first, festival games before their day
  *   - stories : every 4–7 days
  *   - wishes  : fixed dates, well before each festival (these never move)
  *   - tools   : every 3–6 days, starting only after AdSense approval (TOOLS_START). The first live tool also
@@ -43,13 +43,16 @@ const FIXED = {
 };
 
 const LINES = [
-  { prefix: 'game', start: '2026-11-24', gap: [3, 6], seed: 7, slugs: [
+  // User (19 Nov 2026): games were sitting unreleased until Feb, bringing no traffic — release one every 1–2 days,
+  // the most-searched games first ("carrom game", "saanp seedhi"…), festival games still well before their day.
+  { prefix: 'game', start: '2026-11-21', gap: [1, 2], seed: 7, slugs: [
+    'carrom', 'saanp-seedhi', 'kanche', 'bagh-bakri', 'kattam-katti',
     'parade-ki-taal', // Republic Day, 26 Jan
+    'raja-mantri-chor-sipahi', 'gilli-danda', 'pitthu', 'aam-todo', 'chidiya-udd',
+    'matke', 'pul', 'diye', 'gotiyan', 'jaadui-varg', 'khiskao',
     'chaand-dhundo', // Ramzan, ~8 Feb
     'basant-sargam', // Vasant Panchami, ~11 Feb
     'rang-barsao', // Holi, ~22 Mar
-    'matke', 'pul', 'diye', 'gotiyan', 'jaadui-varg', 'khiskao', 'chidiya-udd', 'saanp-seedhi',
-    'raja-mantri-chor-sipahi', 'kanche', 'gilli-danda', 'pitthu', 'aam-todo', 'kattam-katti', 'carrom',
   ] },
   { prefix: 'story', start: '2026-11-26', gap: [4, 7], seed: 11, slugs: [
     'neela-siyaar', 'bagula-aur-kekda', 'billiyan-aur-bandar', 'hawa-aur-suraj', 'shehar-gaon-chooha',

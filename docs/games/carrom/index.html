@@ -1,1 +1,810 @@
-<!doctype html><html data-prerendered="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Games | NextGrade</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://nextgrade.in/games/"><meta http-equiv="refresh" content="0; url=/games/"></head><body><p><a href="/games/">Games →</a></p></body></html>
+<!doctype html>
+<html data-prerendered="hi" lang="hi">
+<head>
+<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carrom 🎯 — Carrom Board Game Online | NextGrade</title>
+<meta name="description" content="Carrom board game online, free in Hinglish, Hindi, English and Bengali: slide the striker, pull back and flick to pocket your coins and the red Queen. Play the computer (easy, medium, hard) or a friend on one phone. No login, no betting.">
+<link rel="canonical" href="https://nextgrade.in/games/carrom/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Carrom 🎯 — kitni gotiyan pocket karoge?">
+<meta property="og:description" content="Ghar wala carrom board, ab phone par: striker kheencho, goti pocket karo, Queen cover karo! Computer ya dost ke saath, WhatsApp challenge.">
+<meta property="og:url" content="https://nextgrade.in/games/carrom/">
+<meta property="og:image" content="https://nextgrade.in/games/carrom/icons/icon-512.png">
+<meta name="theme-color" content="#7a4a1f">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Carrom","url":"https://nextgrade.in/games/carrom/","genre":"Board game","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you play carrom?","acceptedAnswer":{"@type":"Answer","text":"Place the striker on your baseline, then flick it to knock your coins into the four corner pockets. If you pocket your own coin you play again; otherwise the turn passes. Pocketing the striker is a foul. The first player to pocket all nine of their coins wins."}},{"@type":"Question","name":"What is the Queen in carrom?","acceptedAnswer":{"@type":"Answer","text":"The red coin in the middle is the Queen. After you pocket it you must pocket one of your own coins on the next shot to 'cover' it; otherwise the Queen goes back to the centre. The Queen has to be covered before anyone pockets their last coin."}},{"@type":"Question","name":"Is this the full official carrom rulebook?","acceptedAnswer":{"@type":"Answer","text":"No — it uses simple home rules that most families play with: own coin = play again, striker in the pocket = foul and one coin comes back, Queen must be covered. It is free, needs no login and has no betting."}}]}</script>
+<style>
+:root { --bg: #2a1708; --gold: #ffd43b; --ink: #fff8ef; --muted: #e8d3bd; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #7a4a1f, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #c2410c, #b45309); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5); width: 100%; aspect-ratio: 1 / 1.1; max-height: 86vh; margin: 0 auto; background: #3b2210; touch-action: none; user-select: none; -webkit-user-select: none; }
+#cv { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hud { position: absolute; top: 8px; left: 10px; right: 10px; display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 15px; color: #3b2210; pointer-events: none; z-index: 3; gap: 6px; }
+.hud span { background: rgba(255,248,235,0.92); border-radius: 12px; padding: 2px 10px; white-space: nowrap; }
+.hud .turn { background: #ffd43b; }
+.menubtn { position: absolute; right: 10px; bottom: 8px; z-index: 4; font: inherit; font-weight: 800; font-size: 13px; padding: 5px 11px; border-radius: 10px; border: 0; background: rgba(59,34,16,0.85); color: #fff; cursor: pointer; }
+
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(30, 16, 6, 0.76); padding: 16px; overflow-y: auto; z-index: 10; cursor: default; }
+.panel { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 18px; width: min(420px, 100%); text-align: center; margin: auto; color: var(--ink); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: #f3e6d6; }
+.panel .fact { background: rgba(255,212,59,0.12); border: 1px solid rgba(255,212,59,0.35); border-radius: 12px; padding: 8px 10px; color: #ffe8a3; font-size: 15px; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 40px; font-weight: 800; color: var(--gold); line-height: 1.1; margin: 6px 0; }
+.modes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0 4px; }
+.modes button, .two { font: inherit; font-weight: 800; font-size: 15px; padding: 9px 4px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.1); color: var(--ink); cursor: pointer; line-height: 1.25; }
+.modes button small { display: block; font-size: 12px; font-weight: 600; color: var(--gold); }
+.two { width: 100%; margin-top: 4px; }
+.label { font-size: 13px; color: var(--muted); margin: 10px 0 0; font-weight: 700; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 8px 0; }
+input::placeholder { color: #d9c3ab; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #c2410c, #b45309); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+details { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 10px 14px; margin: 8px 0; }
+summary { font-weight: 700; cursor: pointer; }
+details p { margin: 8px 0 0; color: var(--muted); }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+@media (max-width: 480px) { .panel { padding: 14px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .hud { font-size: 13px; } }
+</style>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🎯 NextGrade<small>Bachpan</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title">कैरम 🎯</h1>
+  <p class="sub" data-i18n="sub">घर वाला कैरम बोर्ड, अब फ़ोन पर! स्ट्राइकर को लाइन पर खिसकाओ, पीछे खींचो और छोड़ो — अपनी गोटियाँ पॉकेट करो और लाल क्वीन को कवर करो। कंप्यूटर के साथ या एक फ़ोन पर दोस्त के साथ।</p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="cv" aria-label="Carrom board"></canvas>
+    <div class="hud" aria-hidden="true"><span id="hudMe">⚪ 0/9</span><span class="turn" id="hudTurn"></span><span id="hudOpp">⚫ 0/9</span></div>
+    <button class="menubtn hidden" id="menuBtn" type="button" data-i18n="menuBtn"></button>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle">चलो कैरम खेलें 🎯</h2>
+        <p data-i18n="controls">स्ट्राइकर को छूकर पीछे खींचो (जैसे गुलेल) और छोड़ दो — जितना खींचोगे, उतना ज़ोर। लाइन पर कहीं और छूकर स्ट्राइकर खिसकाओ। आप सफ़ेद ⚪ हो।</p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <p class="label" data-i18n="vsComputer">कंप्यूटर के साथ:</p>
+        <div class="modes" id="modes">
+          <button type="button" data-m="easy"><span data-i18n="easy">आसान</span><small id="wEasy">0 जीत</small></button>
+          <button type="button" data-m="medium"><span data-i18n="medium">मीडियम</span><small id="wMedium">0 जीत</small></button>
+          <button type="button" data-m="hard"><span data-i18n="hard">मुश्किल</span><small id="wHard">0 जीत</small></button>
+        </div>
+        <button type="button" class="two" id="twoBtn" data-i18n="twoPlayers"></button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big" id="endScore"></div>
+        <p id="endNote"></p>
+        <p class="fact" id="endFact"></p>
+        <button class="btn btn-main" id="againBtn" type="button" data-i18n="again"></button>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-ghost" id="toMenu" type="button" data-i18n="menuBtn"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle">कैसे खेलें</h2>
+    <div class="card2"><ol id="howList"><li>मोड चुनो: कंप्यूटर (आसान, मीडियम, मुश्किल) या 2 खिलाड़ी। आप <b>सफ़ेद ⚪</b> गोटियों के साथ नीचे से खेलते हो।</li><li>नीचे की लाइन पर कहीं भी छूकर <b>स्ट्राइकर खिसकाओ</b>। फिर स्ट्राइकर को छूकर <b>पीछे खींचो</b> — तीर दिखाता है किधर और कितनी ज़ोर से जाएगा। छोड़ते ही शॉट।</li><li><b>अपनी गोटी पॉकेट की</b> तो फिर से बारी। नहीं तो बारी दूसरे की। दूसरे की गोटी पॉकेट हो गई तो वह उसी की गिनी जाएगी।</li><li><b>स्ट्राइकर पॉकेट में गया = फ़ाउल:</b> बारी ख़त्म और आपकी एक पॉकेट की हुई गोटी वापस बीच में।</li><li><b>लाल क्वीन 👑:</b> उसे पॉकेट करो, फिर अगले शॉट में अपनी एक गोटी डालकर उसे <b>कवर</b> करो। कवर न हुई तो क्वीन वापस बीच में। आख़िरी गोटी से पहले क्वीन कवर होनी चाहिए। जो पहले अपनी 9 गोटियाँ पॉकेट करे, वह जीता।</li></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle">कैरम — घर का खेल</h2>
+    <p data-i18n="aboutText">कैरम भारत के घरों, मोहल्लों और क्लबों का सबसे प्यारा इनडोर खेल है। गर्मी की छुट्टियों में बोर्ड निकलता, उस पर पाउडर छिड़का जाता, और घंटों तक "क्वीन किसकी?" की बहस चलती। इसमें न ज़्यादा जगह लगती है न महँगा सामान — बस उँगली का निशाना और थोड़ा अंदाज़ा।</p>
+    <p data-i18n="aboutText2">इस गेम में घर वाले आसान नियम रखे गए हैं, ताकि बच्चे और बड़े दोनों जल्दी समझ जाएँ। कोई दाँव या शर्त नहीं — सिर्फ़ खेल और निशाना।</p>
+  </section>
+
+  <section>
+    <h2 data-i18n="factsTitle">कैरम के तथ्य</h2>
+    <div class="card2"><ul id="factList"><li>कैरम में 19 गोटियाँ होती हैं: 9 सफ़ेद, 9 काली और 1 लाल क्वीन।</li><li>टूर्नामेंट वाले बोर्ड का खेलने वाला हिस्सा लगभग 74 सेमी × 74 सेमी का होता है, और चारों कोनों पर पॉकेट होते हैं।</li><li>बोर्ड को चिकना बनाने के लिए उस पर ख़ास पाउडर छिड़का जाता है, ताकि गोटियाँ आसानी से सरकें।</li><li>कैरम भारत के साथ श्रीलंका, बांग्लादेश, नेपाल और पाकिस्तान में भी बहुत खेला जाता है।</li><li>अंतरराष्ट्रीय कैरम महासंघ (International Carrom Federation) की शुरुआत 1988 में चेन्नई में हुई थी।</li><li>स्ट्राइकर गोटियों से बड़ा और भारी होता है, इसलिए टक्कर में गोटी तेज़ भागती है।</li></ul></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="faqTitle">अक्सर पूछे जाने वाले सवाल</h2>
+    <div id="faqList"><details><summary>कैरम कैसे खेलते हैं?</summary><p>स्ट्राइकर को अपनी लाइन पर रखकर उँगली से मारो और अपनी गोटियाँ चारों कोनों के पॉकेट में डालो। अपनी गोटी गई तो फिर से बारी, नहीं तो बारी दूसरे की। स्ट्राइकर पॉकेट में जाना फ़ाउल है। जो पहले अपनी 9 गोटियाँ पॉकेट करे, वह जीतता है।</p></details><details><summary>क्वीन को कवर करना क्या होता है?</summary><p>बीच वाली लाल गोटी क्वीन है। उसे पॉकेट करने के बाद अगले ही शॉट में अपनी एक गोटी पॉकेट करनी होती है — इसे "कवर" कहते हैं। कवर न हुई तो क्वीन वापस बीच में आ जाती है।</p></details><details><summary>क्या इसमें पूरे ऑफ़िशियल नियम हैं?</summary><p>नहीं — इसमें घर वाले आसान नियम हैं जो ज़्यादातर परिवार खेलते हैं। गेम मुफ़्त है, लॉगिन नहीं चाहिए, और कोई दाँव या शर्त नहीं है।</p></details></div>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames">और गेम खेलो →</a></p>
+    <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle">आपका डेटा</h2>
+    <p data-i18n="privacyText">नाम और जीत की गिनती सिर्फ़ आपके फ़ोन में रहती है। शेयर लिंक में सिर्फ़ नाम और जीत जाती है। कोई लॉगिन नहीं, कोई सर्वर नहीं।</p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/carrom/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const FACT_KEYS = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6'];
+
+  const T = {
+    hinglish: {
+      title: 'Carrom 🎯',
+      sub: 'Ghar wala carrom board, ab phone par! Striker ko line par khiskao, peeche kheencho aur chhodo — apni gotiyan pocket karo aur laal Queen ko cover karo. Computer ke saath ya ek phone par dost ke saath.',
+      startTitle: 'Chalo carrom khelein 🎯',
+      controls: 'Striker ko chhookar peeche kheencho (jaise gulel) aur chhod do — jitna kheencho, utni zor. Line par kahin aur chhookar striker khiskao. Aap safed ⚪ ho.',
+      namePh: 'Aapka naam (optional)',
+      vsComputer: 'Computer ke saath:', easy: 'Aasaan', medium: 'Medium', hard: 'Mushkil', twoPlayers: '👥 2 khiladi (ek phone)',
+      wins: (n) => `${n} jeet`,
+      menuBtn: '☰ Menu', again: '🔁 Phir se khelo',
+      you: 'Aap', comp: 'Computer', p1: 'Khiladi 1', p2: 'Khiladi 2',
+      turnYou: 'Aapki baari', turnComp: 'Computer soch raha hai…', turnP: (n) => `Khiladi ${n} ki baari`,
+      hint: 'Striker kheencho aur chhodo', overlap: 'Striker goti ke upar hai — khiskao',
+      potOwn: ['Pocket! 🎯', 'Shabash! ✨', 'Kya shot! 🔥'], potOpp: 'Oops, doosre ki goti', foul: 'Foul! Striker pocket mein — ek goti wapas',
+      queenIn: 'Queen pocket! 👑 Ab apni goti daalo', queenCovered: 'Queen cover! 👑', queenBack: 'Queen wapas beech mein', lastFirst: 'Pehle Queen cover karni hogi — goti wapas',
+      winTitle: (name) => `Jeet gaye${name ? `, ${name}` : ''}! 🎉`, loseTitle: 'Computer jeet gaya 😅', winP: (n) => `Khiladi ${n} jeeta! 🎉`,
+      endNote: (a, b, q) => `Gotiyan: ${a} – ${b}${q ? ' · 👑 Queen aapki' : ''}`,
+      endNoteP: (a, b) => `Gotiyan: Khiladi 1 ${a} – ${b} Khiladi 2`,
+      challenge: (name, n) => `🎯 ${name} ne Carrom mein computer ko ${n} baar haraaya! Aap kitni baar haraa paoge?`,
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo', shareOther: '🔗 Link share / copy karo', copied: '✅ Copy ho gaya', copyPrompt: 'Yeh text copy karo:',
+      shareText: (name, lvl, a, b, url) => `🎯 ${name ? `${name} ne` : 'Maine'} Carrom mein computer (${lvl}) ko ${a}–${b} se haraaya! Aap bhi striker chalao: ${url}`,
+      shareTextPlain: (url) => `🎯 Ghar wala Carrom ab phone par — computer ya dost ke saath khelo: ${url}`,
+      howTitle: 'Kaise khelein',
+      how: ['Mode chuno: computer (Aasaan, Medium, Mushkil) ya 2 khiladi. Aap <b>safed ⚪</b> gotiyon ke saath neeche se khelte ho.', 'Neeche ki line par kahin bhi chhookar <b>striker khiskao</b>. Phir striker ko chhookar <b>peeche kheencho</b> — teer dikhata hai kidhar aur kitni zor se jaayega. Chhodte hi shot.', '<b>Apni goti pocket ki</b> to dobara baari. Nahi to baari doosre ki. Doosre ki goti pocket ho gayi to woh usi ki gini jaayegi.', '<b>Striker pocket mein gaya = foul:</b> baari khatam aur aapki ek pocket ki hui goti wapas beech mein.', '<b>Laal Queen 👑:</b> use pocket karo, phir agle shot mein apni ek goti daal kar use <b>cover</b> karo. Cover na hui to Queen wapas beech mein. Aakhri goti se pehle Queen cover honi chahiye. Jo pehle apni 9 gotiyan pocket kare, woh jeeta.'],
+      aboutTitle: 'Carrom — ghar ka khel',
+      aboutText: 'Carrom Bharat ke gharon, mohallon aur club ka sabse pyaara indoor khel hai. Garmi ki chhuttiyon mein board nikalta, us par powder chhidka jaata, aur ghanton tak "Queen kiski?" ki behas chalti. Isme na zyada jagah lagti hai na mehenge saamaan — bas ungli ka nishana aur thoda andaaza.',
+      aboutText2: 'Is game mein ghar wale aasaan niyam rakhe gaye hain, taaki bachche aur bade dono jaldi samajh jaayein. Koi daav ya shart nahi — sirf khel aur nishana.',
+      factsTitle: 'Carrom ke tathya',
+      facts: { f1: 'Carrom mein 19 gotiyan hoti hain: 9 safed, 9 kaali aur 1 laal Queen.', f2: 'Tournament wale board ka khelne wala hissa lagbhag 74 cm × 74 cm ka hota hai, aur chaaron kono par pocket hote hain.', f3: 'Board ko chikna banane ke liye us par khaas powder chhidka jaata hai, taaki gotiyan aasaani se sarakein.', f4: 'Carrom Bharat ke saath Sri Lanka, Bangladesh, Nepal aur Pakistan mein bhi bahut khela jaata hai.', f5: 'International Carrom Federation ki shuruaat 1988 mein Chennai mein hui thi.', f6: 'Striker gotiyon se bada aur bhaari hota hai, isliye takkar mein goti tez bhaagti hai.' },
+      faqTitle: 'Aksar pooche jaane wale sawaal',
+      faq: [['Carrom kaise khelte hain?', 'Striker ko apni line par rakh kar ungli se maaro aur apni gotiyan chaaron kono ke pocket mein daalo. Apni goti gayi to dobara baari, nahi to baari doosre ki. Striker pocket mein jaana foul hai. Jo pehle apni 9 gotiyan pocket kare, woh jeetta hai.'], ['Queen ko cover karna kya hota hai?', 'Beech wali laal goti Queen hai. Use pocket karne ke baad agle hi shot mein apni ek goti pocket karni hoti hai — ise "cover" kehte hain. Cover na hui to Queen wapas beech mein aa jaati hai.'], ['Kya isme poore official niyam hain?', 'Nahi — isme ghar wale aasaan niyam hain jo zyadatar parivaar khelte hain. Game free hai, login nahi chahiye, aur koi daav ya shart nahi hai.']],
+      moreGames: 'Aur games khelo →',
+      privacyTitle: 'Aapka data',
+      privacyText: 'Naam aur jeet ki ginti sirf aapke phone mein rehti hai. Share link mein sirf naam aur jeet jaati hai. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'कैरम 🎯',
+      sub: 'घर वाला कैरम बोर्ड, अब फ़ोन पर! स्ट्राइकर को लाइन पर खिसकाओ, पीछे खींचो और छोड़ो — अपनी गोटियाँ पॉकेट करो और लाल क्वीन को कवर करो। कंप्यूटर के साथ या एक फ़ोन पर दोस्त के साथ।',
+      startTitle: 'चलो कैरम खेलें 🎯',
+      controls: 'स्ट्राइकर को छूकर पीछे खींचो (जैसे गुलेल) और छोड़ दो — जितना खींचोगे, उतना ज़ोर। लाइन पर कहीं और छूकर स्ट्राइकर खिसकाओ। आप सफ़ेद ⚪ हो।',
+      namePh: 'आपका नाम (ज़रूरी नहीं)',
+      vsComputer: 'कंप्यूटर के साथ:', easy: 'आसान', medium: 'मीडियम', hard: 'मुश्किल', twoPlayers: '👥 2 खिलाड़ी (एक फ़ोन)',
+      wins: (n) => `${n} जीत`,
+      menuBtn: '☰ मेन्यू', again: '🔁 फिर से खेलो',
+      you: 'आप', comp: 'कंप्यूटर', p1: 'खिलाड़ी 1', p2: 'खिलाड़ी 2',
+      turnYou: 'आपकी बारी', turnComp: 'कंप्यूटर सोच रहा है…', turnP: (n) => `खिलाड़ी ${n} की बारी`,
+      hint: 'स्ट्राइकर खींचो और छोड़ो', overlap: 'स्ट्राइकर गोटी के ऊपर है — खिसकाओ',
+      potOwn: ['पॉकेट! 🎯', 'शाबाश! ✨', 'क्या शॉट! 🔥'], potOpp: 'अरे, दूसरे की गोटी', foul: 'फ़ाउल! स्ट्राइकर पॉकेट में — एक गोटी वापस',
+      queenIn: 'क्वीन पॉकेट! 👑 अब अपनी गोटी डालो', queenCovered: 'क्वीन कवर! 👑', queenBack: 'क्वीन वापस बीच में', lastFirst: 'पहले क्वीन कवर करनी होगी — गोटी वापस',
+      winTitle: (name) => `जीत गए${name ? `, ${name}` : ''}! 🎉`, loseTitle: 'कंप्यूटर जीत गया 😅', winP: (n) => `खिलाड़ी ${n} जीता! 🎉`,
+      endNote: (a, b, q) => `गोटियाँ: ${a} – ${b}${q ? ' · 👑 क्वीन आपकी' : ''}`,
+      endNoteP: (a, b) => `गोटियाँ: खिलाड़ी 1 ${a} – ${b} खिलाड़ी 2`,
+      challenge: (name, n) => `🎯 ${name} ने कैरम में कंप्यूटर को ${n} बार हराया! आप कितनी बार हरा पाओगे?`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो', shareOther: '🔗 लिंक शेयर / कॉपी करो', copied: '✅ कॉपी हो गया', copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareText: (name, lvl, a, b, url) => `🎯 ${name ? `${name} ने` : 'मैंने'} कैरम में कंप्यूटर (${lvl}) को ${a}–${b} से हराया! आप भी स्ट्राइकर चलाओ: ${url}`,
+      shareTextPlain: (url) => `🎯 घर वाला कैरम अब फ़ोन पर — कंप्यूटर या दोस्त के साथ खेलो: ${url}`,
+      howTitle: 'कैसे खेलें',
+      how: ['मोड चुनो: कंप्यूटर (आसान, मीडियम, मुश्किल) या 2 खिलाड़ी। आप <b>सफ़ेद ⚪</b> गोटियों के साथ नीचे से खेलते हो।', 'नीचे की लाइन पर कहीं भी छूकर <b>स्ट्राइकर खिसकाओ</b>। फिर स्ट्राइकर को छूकर <b>पीछे खींचो</b> — तीर दिखाता है किधर और कितनी ज़ोर से जाएगा। छोड़ते ही शॉट।', '<b>अपनी गोटी पॉकेट की</b> तो फिर से बारी। नहीं तो बारी दूसरे की। दूसरे की गोटी पॉकेट हो गई तो वह उसी की गिनी जाएगी।', '<b>स्ट्राइकर पॉकेट में गया = फ़ाउल:</b> बारी ख़त्म और आपकी एक पॉकेट की हुई गोटी वापस बीच में।', '<b>लाल क्वीन 👑:</b> उसे पॉकेट करो, फिर अगले शॉट में अपनी एक गोटी डालकर उसे <b>कवर</b> करो। कवर न हुई तो क्वीन वापस बीच में। आख़िरी गोटी से पहले क्वीन कवर होनी चाहिए। जो पहले अपनी 9 गोटियाँ पॉकेट करे, वह जीता।'],
+      aboutTitle: 'कैरम — घर का खेल',
+      aboutText: 'कैरम भारत के घरों, मोहल्लों और क्लबों का सबसे प्यारा इनडोर खेल है। गर्मी की छुट्टियों में बोर्ड निकलता, उस पर पाउडर छिड़का जाता, और घंटों तक "क्वीन किसकी?" की बहस चलती। इसमें न ज़्यादा जगह लगती है न महँगा सामान — बस उँगली का निशाना और थोड़ा अंदाज़ा।',
+      aboutText2: 'इस गेम में घर वाले आसान नियम रखे गए हैं, ताकि बच्चे और बड़े दोनों जल्दी समझ जाएँ। कोई दाँव या शर्त नहीं — सिर्फ़ खेल और निशाना।',
+      factsTitle: 'कैरम के तथ्य',
+      facts: { f1: 'कैरम में 19 गोटियाँ होती हैं: 9 सफ़ेद, 9 काली और 1 लाल क्वीन।', f2: 'टूर्नामेंट वाले बोर्ड का खेलने वाला हिस्सा लगभग 74 सेमी × 74 सेमी का होता है, और चारों कोनों पर पॉकेट होते हैं।', f3: 'बोर्ड को चिकना बनाने के लिए उस पर ख़ास पाउडर छिड़का जाता है, ताकि गोटियाँ आसानी से सरकें।', f4: 'कैरम भारत के साथ श्रीलंका, बांग्लादेश, नेपाल और पाकिस्तान में भी बहुत खेला जाता है।', f5: 'अंतरराष्ट्रीय कैरम महासंघ (International Carrom Federation) की शुरुआत 1988 में चेन्नई में हुई थी।', f6: 'स्ट्राइकर गोटियों से बड़ा और भारी होता है, इसलिए टक्कर में गोटी तेज़ भागती है।' },
+      faqTitle: 'अक्सर पूछे जाने वाले सवाल',
+      faq: [['कैरम कैसे खेलते हैं?', 'स्ट्राइकर को अपनी लाइन पर रखकर उँगली से मारो और अपनी गोटियाँ चारों कोनों के पॉकेट में डालो। अपनी गोटी गई तो फिर से बारी, नहीं तो बारी दूसरे की। स्ट्राइकर पॉकेट में जाना फ़ाउल है। जो पहले अपनी 9 गोटियाँ पॉकेट करे, वह जीतता है।'], ['क्वीन को कवर करना क्या होता है?', 'बीच वाली लाल गोटी क्वीन है। उसे पॉकेट करने के बाद अगले ही शॉट में अपनी एक गोटी पॉकेट करनी होती है — इसे "कवर" कहते हैं। कवर न हुई तो क्वीन वापस बीच में आ जाती है।'], ['क्या इसमें पूरे ऑफ़िशियल नियम हैं?', 'नहीं — इसमें घर वाले आसान नियम हैं जो ज़्यादातर परिवार खेलते हैं। गेम मुफ़्त है, लॉगिन नहीं चाहिए, और कोई दाँव या शर्त नहीं है।']],
+      moreGames: 'और गेम खेलो →',
+      privacyTitle: 'आपका डेटा',
+      privacyText: 'नाम और जीत की गिनती सिर्फ़ आपके फ़ोन में रहती है। शेयर लिंक में सिर्फ़ नाम और जीत जाती है। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Carrom 🎯',
+      sub: 'The carrom board from home, now on your phone! Slide the striker along the line, pull back and let go — pocket your coins and cover the red Queen. Play the computer or a friend on one phone.',
+      startTitle: 'Let\'s play carrom 🎯',
+      controls: 'Touch the striker, pull it back (like a slingshot) and let go — the further you pull, the harder the shot. Touch the line anywhere else to slide the striker. You play white ⚪.',
+      namePh: 'Your name (optional)',
+      vsComputer: 'Against the computer:', easy: 'Easy', medium: 'Medium', hard: 'Hard', twoPlayers: '👥 2 players (one phone)',
+      wins: (n) => `${n} win${n === 1 ? '' : 's'}`,
+      menuBtn: '☰ Menu', again: '🔁 Play again',
+      you: 'You', comp: 'Computer', p1: 'Player 1', p2: 'Player 2',
+      turnYou: 'Your turn', turnComp: 'Computer is thinking…', turnP: (n) => `Player ${n}'s turn`,
+      hint: 'Pull the striker back and let go', overlap: 'The striker is on a coin — slide it',
+      potOwn: ['Pocketed! 🎯', 'Well done! ✨', 'What a shot! 🔥'], potOpp: 'Oops, the other player\'s coin', foul: 'Foul! Striker pocketed — one coin comes back',
+      queenIn: 'Queen pocketed! 👑 Now pocket one of yours', queenCovered: 'Queen covered! 👑', queenBack: 'The Queen goes back to the centre', lastFirst: 'Cover the Queen first — coin comes back',
+      winTitle: (name) => `You won${name ? `, ${name}` : ''}! 🎉`, loseTitle: 'The computer won 😅', winP: (n) => `Player ${n} wins! 🎉`,
+      endNote: (a, b, q) => `Coins: ${a} – ${b}${q ? ' · 👑 the Queen is yours' : ''}`,
+      endNoteP: (a, b) => `Coins: Player 1 ${a} – ${b} Player 2`,
+      challenge: (name, n) => `🎯 ${name} beat the computer at Carrom ${n} time${n === 1 ? '' : 's'}! How many times can you?`,
+      shareWa: '📲 Challenge on WhatsApp', shareFb: 'Share on Facebook', shareOther: '🔗 Share / copy link', copied: '✅ Copied', copyPrompt: 'Copy this text:',
+      shareText: (name, lvl, a, b, url) => `🎯 ${name || 'I'} beat the computer (${lvl}) at Carrom ${a}–${b}! Come and take a shot: ${url}`,
+      shareTextPlain: (url) => `🎯 The home carrom board, now on your phone — play the computer or a friend: ${url}`,
+      howTitle: 'How to play',
+      how: ['Pick a mode: the computer (Easy, Medium, Hard) or 2 players. You play the <b>white ⚪</b> coins from the bottom.', 'Touch anywhere on the bottom line to <b>slide the striker</b>. Then touch the striker and <b>pull back</b> — an arrow shows the direction and power. Let go to shoot.', '<b>Pocket your own coin</b> and you play again; otherwise the turn passes. If you pocket the other player\'s coin, it counts for them.', '<b>Striker in a pocket = foul:</b> your turn ends and one of your pocketed coins goes back to the centre.', '<b>The red Queen 👑:</b> pocket it, then pocket one of your own coins on the next shot to <b>cover</b> it. If you don\'t, the Queen goes back to the centre. The Queen must be covered before anyone\'s last coin. The first to pocket all 9 of their coins wins.'],
+      aboutTitle: 'Carrom — the game of every home',
+      aboutText: 'Carrom is India\'s favourite indoor game, played in homes, neighbourhoods and clubs. In the summer holidays the board came out, powder was sprinkled on it, and the "whose Queen is it?" arguments went on for hours. It needs little space and nothing expensive — just a steady finger and a good eye.',
+      aboutText2: 'This game uses simple home rules so that children and grown-ups can pick it up quickly. No bets or stakes — just play and aim.',
+      factsTitle: 'Facts about carrom',
+      facts: { f1: 'Carrom has 19 coins: 9 white, 9 black and 1 red Queen.', f2: 'The playing surface of a tournament board is about 74 cm × 74 cm, with a pocket in each corner.', f3: 'A special powder is sprinkled on the board to make it smooth so the coins glide easily.', f4: 'Besides India, carrom is hugely popular in Sri Lanka, Bangladesh, Nepal and Pakistan.', f5: 'The International Carrom Federation was founded in Chennai in 1988.', f6: 'The striker is bigger and heavier than the coins, so a coin shoots off fast when it is hit.' },
+      faqTitle: 'Frequently asked questions',
+      faq: [['How do you play carrom?', 'Place the striker on your baseline, then flick it to knock your coins into the four corner pockets. If you pocket your own coin you play again; otherwise the turn passes. Pocketing the striker is a foul. The first player to pocket all nine of their coins wins.'], ['What is the Queen in carrom?', 'The red coin in the middle is the Queen. After you pocket it you must pocket one of your own coins on the next shot to "cover" it; otherwise the Queen goes back to the centre. The Queen has to be covered before anyone pockets their last coin.'], ['Is this the full official carrom rulebook?', 'No — it uses simple home rules that most families play with: own coin = play again, striker in the pocket = foul and one coin comes back, Queen must be covered. It is free, needs no login and has no betting.']],
+      moreGames: 'Play more games →',
+      privacyTitle: 'Your data',
+      privacyText: 'Your name and win count stay only on your phone. The share link carries only your name and wins. No login, no server.',
+    },
+    bn: {
+      title: 'ক্যারম 🎯',
+      sub: 'বাড়ির ক্যারম বোর্ড, এবার ফোনে! স্ট্রাইকার লাইনে সরাও, পিছনে টেনে ছেড়ে দাও — নিজের গুটি পকেটে ফেলো আর লাল কুইনকে কভার করো। কম্পিউটারের সঙ্গে বা এক ফোনে বন্ধুর সঙ্গে।',
+      startTitle: 'চলো ক্যারম খেলি 🎯',
+      controls: 'স্ট্রাইকার ছুঁয়ে পিছনে টানো (গুলতির মতো) আর ছেড়ে দাও — যত টানবে, তত জোর। লাইনের অন্য কোথাও ছুঁয়ে স্ট্রাইকার সরাও। তুমি সাদা ⚪।',
+      namePh: 'তোমার নাম (ঐচ্ছিক)',
+      vsComputer: 'কম্পিউটারের সঙ্গে:', easy: 'সহজ', medium: 'মাঝারি', hard: 'কঠিন', twoPlayers: '👥 ২ জন (এক ফোনে)',
+      wins: (n) => `${n} জয়`,
+      menuBtn: '☰ মেনু', again: '🔁 আবার খেলো',
+      you: 'তুমি', comp: 'কম্পিউটার', p1: 'খেলোয়াড় ১', p2: 'খেলোয়াড় ২',
+      turnYou: 'তোমার পালা', turnComp: 'কম্পিউটার ভাবছে…', turnP: (n) => `খেলোয়াড় ${n === 1 ? '১' : '২'}-এর পালা`,
+      hint: 'স্ট্রাইকার টেনে ছেড়ে দাও', overlap: 'স্ট্রাইকার গুটির ওপর — সরাও',
+      potOwn: ['পকেট! 🎯', 'শাবাশ! ✨', 'কী শট! 🔥'], potOpp: 'আরে, অন্যের গুটি', foul: 'ফাউল! স্ট্রাইকার পকেটে — একটা গুটি ফেরত',
+      queenIn: 'কুইন পকেটে! 👑 এবার নিজের গুটি ফেলো', queenCovered: 'কুইন কভার! 👑', queenBack: 'কুইন আবার মাঝখানে', lastFirst: 'আগে কুইন কভার করতে হবে — গুটি ফেরত',
+      winTitle: (name) => `জিতে গেছ${name ? `, ${name}` : ''}! 🎉`, loseTitle: 'কম্পিউটার জিতে গেল 😅', winP: (n) => `খেলোয়াড় ${n === 1 ? '১' : '২'} জিতল! 🎉`,
+      endNote: (a, b, q) => `গুটি: ${a} – ${b}${q ? ' · 👑 কুইন তোমার' : ''}`,
+      endNoteP: (a, b) => `গুটি: খেলোয়াড় ১ ${a} – ${b} খেলোয়াড় ২`,
+      challenge: (name, n) => `🎯 ${name} ক্যারমে কম্পিউটারকে ${n} বার হারিয়েছে! তুমি কতবার পারবে?`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো', shareOther: '🔗 লিংক শেয়ার / কপি', copied: '✅ কপি হয়েছে', copyPrompt: 'এই লেখাটা কপি করো:',
+      shareText: (name, lvl, a, b, url) => (name ? `🎯 ${name} ক্যারমে কম্পিউটারকে (${lvl}) ${a}–${b}-এ হারিয়েছে! তুমিও স্ট্রাইকার চালাও: ${url}` : `🎯 আমি ক্যারমে কম্পিউটারকে (${lvl}) ${a}–${b}-এ হারিয়েছি! তুমিও স্ট্রাইকার চালাও: ${url}`),
+      shareTextPlain: (url) => `🎯 বাড়ির ক্যারম এবার ফোনে — কম্পিউটার বা বন্ধুর সঙ্গে খেলো: ${url}`,
+      howTitle: 'কীভাবে খেলবে',
+      how: ['মোড বাছো: কম্পিউটার (সহজ, মাঝারি, কঠিন) বা ২ জন। তুমি নিচ থেকে <b>সাদা ⚪</b> গুটি নিয়ে খেলো।', 'নিচের লাইনের যেকোনো জায়গা ছুঁয়ে <b>স্ট্রাইকার সরাও</b>। তারপর স্ট্রাইকার ছুঁয়ে <b>পিছনে টানো</b> — তির দেখায় কোন দিকে আর কত জোরে যাবে। ছাড়লেই শট।', '<b>নিজের গুটি পকেটে ফেললে</b> আবার তোমার পালা। না হলে পালা অন্যের। অন্যের গুটি পকেটে গেলে সেটা তারই গোনা হয়।', '<b>স্ট্রাইকার পকেটে গেলে ফাউল:</b> পালা শেষ, আর তোমার পকেটে ফেলা একটা গুটি মাঝখানে ফেরত।', '<b>লাল কুইন 👑:</b> সেটা পকেটে ফেলো, তারপর পরের শটে নিজের একটা গুটি ফেলে <b>কভার</b> করো। না পারলে কুইন আবার মাঝখানে। শেষ গুটির আগে কুইন কভার হতেই হবে। যে আগে নিজের ৯টা গুটি পকেটে ফেলবে, সে জিতবে।'],
+      aboutTitle: 'ক্যারম — ঘরের খেলা',
+      aboutText: 'ক্যারম ভারতের ঘরে, পাড়ায় আর ক্লাবে সবচেয়ে প্রিয় ইনডোর খেলা। গরমের ছুটিতে বোর্ড বেরোত, তাতে পাউডার ছড়ানো হত, আর ঘণ্টার পর ঘণ্টা চলত "কুইন কার?" তর্ক। বেশি জায়গা বা দামি জিনিস লাগে না — শুধু আঙুলের টিপ আর একটু আন্দাজ।',
+      aboutText2: 'এই খেলায় বাড়ির সহজ নিয়ম রাখা হয়েছে, যাতে ছোট-বড় সবাই তাড়াতাড়ি বুঝে যায়। কোনো বাজি বা শর্ত নেই — শুধু খেলা আর টিপ।',
+      factsTitle: 'ক্যারমের তথ্য',
+      facts: { f1: 'ক্যারমে ১৯টা গুটি থাকে: ৯টা সাদা, ৯টা কালো আর ১টা লাল কুইন।', f2: 'টুর্নামেন্টের বোর্ডের খেলার জায়গা প্রায় ৭৪ সেমি × ৭৪ সেমি, চার কোণে চারটে পকেট।', f3: 'বোর্ড মসৃণ করতে তাতে বিশেষ পাউডার ছড়ানো হয়, যাতে গুটি সহজে গড়ায়।', f4: 'ভারতের পাশাপাশি শ্রীলঙ্কা, বাংলাদেশ, নেপাল আর পাকিস্তানেও ক্যারম খুব জনপ্রিয়।', f5: 'আন্তর্জাতিক ক্যারম ফেডারেশন ১৯৮৮ সালে চেন্নাইয়ে শুরু হয়।', f6: 'স্ট্রাইকার গুটির চেয়ে বড় আর ভারী, তাই ধাক্কা খেলে গুটি জোরে ছোটে।' },
+      faqTitle: 'সাধারণ প্রশ্ন',
+      faq: [['ক্যারম কীভাবে খেলে?', 'নিজের লাইনে স্ট্রাইকার রেখে আঙুলে মেরে নিজের গুটি চার কোণের পকেটে ফেলো। নিজের গুটি পড়লে আবার পালা, না হলে পালা অন্যের। স্ট্রাইকার পকেটে যাওয়া ফাউল। যে আগে নিজের ৯টা গুটি ফেলে, সে জেতে।'], ['কুইন কভার করা মানে কী?', 'মাঝখানের লাল গুটিটা কুইন। সেটা পকেটে ফেলার পর পরের শটেই নিজের একটা গুটি ফেলতে হয় — একে "কভার" বলে। না পারলে কুইন আবার মাঝখানে ফিরে আসে।'], ['এতে কি পুরো অফিশিয়াল নিয়ম আছে?', 'না — এতে বাড়ির সহজ নিয়ম, যা বেশিরভাগ পরিবার খেলে। খেলা বিনামূল্যে, লগইন লাগে না, আর কোনো বাজি বা শর্ত নেই।']],
+      moreGames: 'আরও গেম খেলো →',
+      privacyTitle: 'তোমার ডেটা',
+      privacyText: 'নাম আর জয়ের সংখ্যা শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর জয়। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+  const urlLang = params.get('lang'), savedLang = store.get('cr-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(999, parseInt(params.get('score'), 10) || 0));
+  const debug = params.has('debug') ? 1 : 0;
+  const LEVELS = ['easy', 'medium', 'hard'];
+  const loadWins = () => { try { const o = JSON.parse(store.get('cr-wins') || '{}'); return { easy: +o.easy || 0, medium: +o.medium || 0, hard: +o.hard || 0 }; } catch (e) { return { easy: 0, medium: 0, hard: 0 }; } };
+  let wins = loadWins();
+  const totalWins = () => wins.easy + wins.medium + wins.hard;
+
+  // ---------- board units: everything lives on a 1×1 playing surface (0,0 = top-left)
+  const CR = 0.034;          // coin radius
+  const SR = 0.044;          // striker radius
+  const PR = 0.052;          // pocket radius
+  const POCKETS = [[PR, PR], [1 - PR, PR], [PR, 1 - PR], [1 - PR, 1 - PR]];
+  const BASE = { 0: 0.86, 1: 0.14 }; // baseline y for player 0 (bottom) and player 1 (top)
+  const XMIN = 0.2, XMAX = 0.8;
+  const VMAX = 3.3, DECEL = 0.5, DRAG = 0.6;
+  const M_COIN = 1, M_STRIKER = 1.6;
+
+  // ---------- state
+  let mode = 'cpu', level = 'medium';         // mode: 'cpu' | 'two'
+  let state = 'menu';                         // menu | aim | roll | cpu | over
+  let coins = [], striker = null, turn = 0;   // turn: 0 = white (you / player 1), 1 = black (computer / player 2)
+  let potted = [0, 0], queenOwner = -1, queenPending = -1;
+  let shotPots = [], strikerIn = false, pops = [], last = null, playerName = '';
+  let aiming = false, sliding = false, pull = { x: 0, y: 0 };
+
+  const color = (p) => (p === 0 ? 'w' : 'b');
+  const freeSpot = (x, y, r) => {
+    for (let ring = 0; ring < 12; ring += 1) {
+      const n = ring ? ring * 6 : 1;
+      for (let k = 0; k < n; k += 1) {
+        const a = (k / n) * Math.PI * 2, d = ring * r * 2.05;
+        const px = x + Math.cos(a) * d, py = y + Math.sin(a) * d;
+        if (!coins.some((c) => !c.in && Math.hypot(c.x - px, c.y - py) < c.r + r + 0.002)) return { x: px, y: py };
+      }
+    }
+    return { x, y };
+  };
+  const setup = () => {
+    coins = [];
+    const add = (x, y, kind) => coins.push({ x, y, vx: 0, vy: 0, r: CR, m: M_COIN, kind, in: 0 });
+    add(0.5, 0.5, 'q');
+    const d1 = CR * 2.05, d2 = CR * 4.1;
+    for (let i = 0; i < 6; i += 1) { const a = (i / 6) * Math.PI * 2 + Math.PI / 6; add(0.5 + Math.cos(a) * d1, 0.5 + Math.sin(a) * d1, i % 2 ? 'b' : 'w'); }
+    for (let i = 0; i < 12; i += 1) { const a = (i / 12) * Math.PI * 2; const d = i % 2 ? d2 * 0.94 : d2; add(0.5 + Math.cos(a) * d, 0.5 + Math.sin(a) * d, i % 2 ? 'w' : 'b'); }
+    potted = [0, 0]; queenOwner = -1; queenPending = -1; turn = 0; pops = []; last = null;
+    striker = { x: 0.5, y: BASE[0], vx: 0, vy: 0, r: SR, m: M_STRIKER, kind: 's', in: 0 };
+  };
+  const placeStriker = (p, x) => { striker.in = 0; striker.vx = 0; striker.vy = 0; striker.y = BASE[p]; striker.x = Math.min(XMAX, Math.max(XMIN, x == null ? 0.5 : x)); };
+  const overlapping = () => coins.some((c) => !c.in && Math.hypot(c.x - striker.x, c.y - striker.y) < c.r + striker.r);
+
+  // ---------- page texts
+  const nameOf = (p) => (mode === 'two' ? (p ? t('p2') : t('p1')) : (p ? t('comp') : (playerName || t('you'))));
+  const updateHud = () => {
+    $('hudMe').textContent = `⚪ ${potted[0]}/9${queenOwner === 0 ? ' 👑' : ''}`;
+    $('hudOpp').textContent = `⚫ ${potted[1]}/9${queenOwner === 1 ? ' 👑' : ''}`;
+    let s = '';
+    if (state !== 'menu' && state !== 'over') s = mode === 'two' ? t('turnP')(turn + 1) : (turn ? t('turnComp') : t('turnYou'));
+    $('hudTurn').textContent = s;
+    $('hudTurn').classList.toggle('hidden', !s);
+  };
+  const renderWins = () => { $('wEasy').textContent = t('wins')(wins.easy); $('wMedium').textContent = t('wins')(wins.medium); $('wHard').textContent = t('wins')(wins.hard); };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Carrom Board Game Online | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const F = t('facts');
+    $('factList').innerHTML = FACT_KEYS.map((k) => `<li>${F[k]}</li>`).join('');
+    $('faqList').innerHTML = t('faq').map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    renderWins(); updateHud();
+    if (last) fillEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('cr-lang', lang); applyLang(); });
+  $('name').value = store.get('cr-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- sound: wooden clicks, no music
+  let muted = store.get('cr-muted') === '1';
+  let ac = null, master = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setIcons();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('cr-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.8; });
+  const initAudio = () => {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    ac = new AC(); master = ac.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(ac.destination);
+  };
+  const tone = (f, dur, type = 'sine', vol = 0.07, delay = 0, f2 = null) => {
+    if (!ac) return;
+    const w = ac.currentTime + delay, o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, w);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, w + dur);
+    g.gain.setValueAtTime(0.0001, w); g.gain.exponentialRampToValueAtTime(vol, w + 0.004); g.gain.exponentialRampToValueAtTime(0.0001, w + dur);
+    o.connect(g); g.connect(master); o.start(w); o.stop(w + dur + 0.03);
+  };
+  let lastClick = 0;
+  const sfx = {
+    click: (hard) => { const n = performance.now(); if (n - lastClick < 35) return; lastClick = n; tone(1200 + Math.random() * 300, 0.04, 'triangle', Math.min(0.1, 0.02 + hard * 0.08)); },
+    wall: (hard) => tone(220, 0.06, 'triangle', Math.min(0.06, 0.01 + hard * 0.05)),
+    flick: () => tone(400, 0.05, 'triangle', 0.05, 0, 700),
+    pot: () => { tone(300, 0.15, 'triangle', 0.06, 0, 160); tone(880, 0.15, 'sine', 0.04, 0.08); },
+    foul: () => tone(200, 0.35, 'sawtooth', 0.04, 0, 140),
+    queen: () => { [659, 784, 988].forEach((f, i) => tone(f, 0.3, 'sine', 0.05, i * 0.1)); },
+    win: () => { [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.5, 'sine', 0.06, i * 0.13)); },
+    lose: () => tone(330, 0.4, 'triangle', 0.05, 0, 220),
+  };
+
+  // ---------- geometry (screen)
+  const cv = $('cv'), ctx = cv.getContext('2d');
+  let W = 400, H = 440, dpr = 1, BX = 0, BY = 0, BS = 300, PX = 0, PY = 0, PS = 270;
+  const resize = () => {
+    const rect = $('stage').getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+    W = Math.max(260, rect.width); H = Math.max(280, rect.height);
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    const top = 40, bottom = 34;
+    BS = Math.min(W - 12, H - top - bottom); BX = (W - BS) / 2; BY = top + (H - top - bottom - BS) / 2;
+    const frame = BS * 0.055; PS = BS - frame * 2; PX = BX + frame; PY = BY + frame;
+  };
+  const sx = (u) => PX + u * PS, sy = (v) => PY + v * PS, sl = (d) => d * PS;
+  const toBoard = (e) => { const rc = cv.getBoundingClientRect(); return { x: (e.clientX - rc.left - PX) / PS, y: (e.clientY - rc.top - PY) / PS }; };
+  const pop = (x, y, text, col) => { pops.push({ x, y, text, col, t0: performance.now() }); };
+
+  // ---------- physics (board units per second)
+  const speed = (b) => Math.hypot(b.vx, b.vy);
+  const slow = (b, dt) => {
+    const s = speed(b);
+    if (!s) return;
+    const ns = Math.max(0, s - (DECEL + DRAG * s) * dt);
+    if (ns < 0.02) { b.vx = 0; b.vy = 0; return; }
+    b.vx *= ns / s; b.vy *= ns / s;
+  };
+  const collide = (a, b) => {
+    const dx = b.x - a.x, dy = b.y - a.y, d = Math.hypot(dx, dy), min = a.r + b.r;
+    if (d >= min || d === 0) return;
+    const nx = dx / d, ny = dy / d, im = 1 / a.m + 1 / b.m, push = (min - d) / im;
+    a.x -= nx * push / a.m; a.y -= ny * push / a.m; b.x += nx * push / b.m; b.y += ny * push / b.m;
+    const rel = (a.vx - b.vx) * nx + (a.vy - b.vy) * ny;
+    if (rel <= 0) return;
+    const j = (1.9 * rel) / im;
+    a.vx -= (j / a.m) * nx; a.vy -= (j / a.m) * ny; b.vx += (j / b.m) * nx; b.vy += (j / b.m) * ny;
+    sfx.click(Math.min(1, rel / VMAX));
+  };
+  const walls = (b) => {
+    const e = 0.7; let hit = 0;
+    if (b.x < b.r) { b.x = b.r; hit = Math.abs(b.vx); b.vx = Math.abs(b.vx) * e; }
+    if (b.x > 1 - b.r) { b.x = 1 - b.r; hit = Math.abs(b.vx); b.vx = -Math.abs(b.vx) * e; }
+    if (b.y < b.r) { b.y = b.r; hit = Math.abs(b.vy); b.vy = Math.abs(b.vy) * e; }
+    if (b.y > 1 - b.r) { b.y = 1 - b.r; hit = Math.abs(b.vy); b.vy = -Math.abs(b.vy) * e; }
+    if (hit > 0.3) sfx.wall(Math.min(1, hit / VMAX));
+  };
+  const inPocket = (b) => POCKETS.some(([x, y]) => Math.hypot(b.x - x, b.y - y) < PR * 0.98);
+  const physics = (dt, now) => {
+    const all = coins.filter((c) => !c.in).concat(striker.in ? [] : [striker]);
+    all.forEach((b) => { b.x += b.vx * dt; b.y += b.vy * dt; slow(b, dt); });
+    for (let i = 0; i < all.length; i += 1) for (let j = i + 1; j < all.length; j += 1) collide(all[i], all[j]);
+    all.forEach((b) => {
+      if (inPocket(b)) {
+        b.in = now; b.vx = 0; b.vy = 0;
+        if (b === striker) { strikerIn = true; sfx.foul(); }
+        else { shotPots.push(b); sfx.pot(); }
+        return;
+      }
+      walls(b);
+    });
+  };
+  const moving = () => coins.some((c) => !c.in && speed(c) > 0) || (!striker.in && speed(striker) > 0);
+
+  // ---------- rules after every shot
+  const returnCoin = (kind) => { const c = coins.find((k) => k.in && k.kind === kind); if (!c) return; const s = freeSpot(0.5, 0.5, CR); c.in = 0; c.x = s.x; c.y = s.y; c.vx = 0; c.vy = 0; };
+  const resolve = () => {
+    const me = color(turn), other = color(1 - turn);
+    const mine = shotPots.filter((c) => c.kind === me).length;
+    const theirs = shotPots.filter((c) => c.kind === other).length;
+    const queenNow = shotPots.some((c) => c.kind === 'q');
+    const cx = striker.x, cy = striker.y;
+    potted[turn] += mine; potted[1 - turn] += theirs;
+    if (theirs) pop(cx, cy, t('potOpp'), '#c92a2a');
+    let again = mine > 0;
+    if (mine) { const o = t('potOwn'); pop(cx, cy - 0.06, o[(potted[turn] + mine) % o.length], '#2b8a3e'); }
+    if (strikerIn) {
+      again = false;
+      if (mine) { potted[turn] -= 1; returnCoin(me); }
+      else if (potted[turn] > 0) { potted[turn] -= 1; returnCoin(me); }
+      if (queenNow) { returnCoin('q'); }
+      pop(0.5, 0.42, t('foul'), '#c92a2a');
+      if (queenPending === turn) { queenPending = -1; returnCoin('q'); }
+    } else {
+      if (queenPending === turn && !queenNow) {
+        if (mine) { queenOwner = turn; queenPending = -1; pop(0.5, 0.42, t('queenCovered'), '#e8590c'); sfx.queen(); }
+        else { queenPending = -1; returnCoin('q'); pop(0.5, 0.42, t('queenBack'), '#495057'); }
+      }
+      if (queenNow) {
+        if (mine) { queenOwner = turn; pop(0.5, 0.42, t('queenCovered'), '#e8590c'); sfx.queen(); }
+        else { queenPending = turn; again = true; pop(0.5, 0.42, t('queenIn'), '#e8590c'); sfx.queen(); }
+      }
+    }
+    // the Queen must be covered before anyone's last coin
+    [0, 1].forEach((p) => {
+      if (potted[p] >= 9 && queenOwner < 0) { potted[p] -= 1; returnCoin(color(p)); pop(0.5, 0.58, t('lastFirst'), '#c92a2a'); if (p === turn) again = false; }
+    });
+    shotPots = []; strikerIn = false;
+    if (potted[0] >= 9 || potted[1] >= 9) return finish(potted[0] >= 9 ? 0 : 1);
+    if (!again) turn = 1 - turn;
+    nextTurn();
+  };
+  const nextTurn = () => {
+    placeStriker(turn, 0.5);
+    if (overlapping()) { for (const x of [0.4, 0.6, 0.3, 0.7, 0.22, 0.78]) { striker.x = x; if (!overlapping()) break; } }
+    state = mode === 'cpu' && turn === 1 ? 'cpu' : 'aim';
+    updateHud();
+    if (state === 'cpu' || (debug && params.has('auto'))) setTimeout(botShot, debug ? 150 : 700);
+  };
+  const shoot = (vx, vy) => {
+    if (state !== 'aim' && state !== 'cpu') return;
+    if (overlapping()) { pop(striker.x, striker.y - 0.07, t('overlap'), '#c92a2a'); return; }
+    striker.vx = vx; striker.vy = vy; state = 'roll'; shotPots = []; strikerIn = false; sfx.flick(); updateHud();
+  };
+
+  // ---------- computer: tries straight cuts into each pocket from several striker spots
+  const clearPath = (ax, ay, bx, by, rad, skip) => coins.every((c) => {
+    if (c.in || skip.includes(c)) return true;
+    const vx = bx - ax, vy = by - ay, L2 = vx * vx + vy * vy || 1e-9;
+    const k = Math.max(0, Math.min(1, ((c.x - ax) * vx + (c.y - ay) * vy) / L2));
+    return Math.hypot(ax + vx * k - c.x, ay + vy * k - c.y) > c.r + rad;
+  });
+  const rollDistance = (v0) => { const b = { vx: v0, vy: 0 }; let x = 0; const dt = 1 / 240; for (let k = 0; k < 5000 && b.vx > 0; k += 1) { x += b.vx * dt; slow(b, dt); } return x; };
+  const speedFor = (d) => { let lo = 0, hi = VMAX; for (let k = 0; k < 24; k += 1) { const m = (lo + hi) / 2; if (rollDistance(m) < d) lo = m; else hi = m; } return hi; };
+  const botShot = () => {
+    if (state !== 'cpu' && !(debug && state === 'aim')) return;
+    const p = turn, me = color(p);
+    const lvl = mode === 'two' ? 'hard' : level;
+    const noise = { easy: 0.16, medium: 0.06, hard: 0.02 }[lvl];
+    const targets = coins.filter((c) => !c.in && (c.kind === me || (c.kind === 'q' && potted[p] >= 1 && queenOwner < 0)));
+    let best = null;
+    for (let i = 0; i <= 12; i += 1) {
+      const x = XMIN + (XMAX - XMIN) * (i / 12);
+      striker.x = x; striker.y = BASE[p];
+      if (overlapping()) continue;
+      targets.forEach((c) => POCKETS.forEach(([qx, qy]) => {
+        const dcx = qx - c.x, dcy = qy - c.y, dc = Math.hypot(dcx, dcy);
+        const ux = dcx / dc, uy = dcy / dc;
+        const gx = c.x - ux * (c.r + SR), gy = c.y - uy * (c.r + SR);
+        const sxv = gx - x, syv = gy - BASE[p], ds = Math.hypot(sxv, syv);
+        const cut = (sxv * ux + syv * uy) / ds;
+        if (cut < 0.35) return;
+        if (!clearPath(x, BASE[p], gx, gy, SR, [c])) return;
+        if (!clearPath(c.x, c.y, qx, qy, CR, [c])) return;
+        const score = cut * 2 - ds * 0.6 - dc * 0.8 + (c.kind === 'q' ? 0.3 : 0) + Math.random() * 0.15;
+        if (!best || score > best.score) best = { score, x, gx, gy, ds, dc, cut };
+      }));
+    }
+    let ang, v;
+    if (best && Math.random() > ({ easy: 0.35, medium: 0.12, hard: 0 }[lvl])) {
+      striker.x = best.x; striker.y = BASE[p];
+      ang = Math.atan2(best.gy - BASE[p], best.gx - best.x);
+      const coinV = speedFor(best.dc + 0.08);
+      v = Math.min(VMAX, Math.max(speedFor(best.ds + 0.05), (coinV / Math.max(0.4, best.cut)) * 0.85 + 0.25));
+    } else {
+      // no clean cut: hit the nearest own coin firmly
+      striker.x = 0.5; striker.y = BASE[p];
+      if (overlapping()) { for (const x of [0.35, 0.65, 0.25, 0.75]) { striker.x = x; if (!overlapping()) break; } }
+      const c = targets.sort((a, b) => Math.hypot(a.x - striker.x, a.y - striker.y) - Math.hypot(b.x - striker.x, b.y - striker.y))[0] || coins.find((k) => !k.in);
+      ang = Math.atan2(c.y - striker.y, c.x - striker.x);
+      v = VMAX * 0.75;
+    }
+    ang += (Math.random() * 2 - 1) * noise;
+    v *= 1 + (Math.random() * 2 - 1) * noise * 1.5;
+    shoot(Math.cos(ang) * v, Math.sin(ang) * v);
+  };
+
+  // ---------- drawing
+  const drawBoard = () => {
+    ctx.fillStyle = '#3b2210'; ctx.fillRect(0, 0, W, H);
+    // wooden frame
+    const fg = ctx.createLinearGradient(BX, BY, BX + BS, BY + BS);
+    fg.addColorStop(0, '#8a5523'); fg.addColorStop(1, '#5c3412');
+    ctx.fillStyle = fg; ctx.beginPath(); ctx.roundRect(BX, BY, BS, BS, BS * 0.03); ctx.fill();
+    // playing surface
+    const g = ctx.createRadialGradient(sx(0.5), sy(0.5), PS * 0.1, sx(0.5), sy(0.5), PS * 0.75);
+    g.addColorStop(0, '#f6e2bd'); g.addColorStop(1, '#e3c48f');
+    ctx.fillStyle = g; ctx.fillRect(PX, PY, PS, PS);
+    // pockets
+    POCKETS.forEach(([x, y]) => { ctx.fillStyle = '#1a1209'; ctx.beginPath(); ctx.arc(sx(x), sy(y), sl(PR), 0, Math.PI * 2); ctx.fill(); });
+    ctx.strokeStyle = '#2b1a0b'; ctx.lineWidth = Math.max(1, PS * 0.003);
+    // baselines on all four sides (double lines with red circles at the ends)
+    const base = (horizontal, pos) => {
+      const a = 0.17, b = 0.83, gap = 0.035;
+      ctx.beginPath();
+      if (horizontal) { ctx.moveTo(sx(a), sy(pos - gap / 2)); ctx.lineTo(sx(b), sy(pos - gap / 2)); ctx.moveTo(sx(a), sy(pos + gap / 2)); ctx.lineTo(sx(b), sy(pos + gap / 2)); }
+      else { ctx.moveTo(sx(pos - gap / 2), sy(a)); ctx.lineTo(sx(pos - gap / 2), sy(b)); ctx.moveTo(sx(pos + gap / 2), sy(a)); ctx.lineTo(sx(pos + gap / 2), sy(b)); }
+      ctx.stroke();
+      [a, b].forEach((e) => {
+        const cx = horizontal ? sx(e) : sx(pos), cy = horizontal ? sy(pos) : sy(e);
+        ctx.fillStyle = '#c92a2a'; ctx.beginPath(); ctx.arc(cx, cy, sl(gap / 2), 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      });
+    };
+    base(true, BASE[0]); base(true, BASE[1]); base(false, 0.14); base(false, 0.86);
+    // corner arrows
+    ctx.lineWidth = Math.max(1, PS * 0.003);
+    POCKETS.forEach(([x, y]) => {
+      const dx = x < 0.5 ? 1 : -1, dy = y < 0.5 ? 1 : -1;
+      ctx.beginPath(); ctx.moveTo(sx(x + dx * 0.1), sy(y + dy * 0.1)); ctx.lineTo(sx(x + dx * 0.3), sy(y + dy * 0.3)); ctx.stroke();
+      ctx.beginPath(); ctx.arc(sx(x + dx * 0.3), sy(y + dy * 0.3), sl(0.018), 0, Math.PI * 2); ctx.stroke();
+    });
+    // centre design
+    ctx.strokeStyle = '#2b1a0b';
+    ctx.beginPath(); ctx.arc(sx(0.5), sy(0.5), sl(0.15), 0, Math.PI * 2); ctx.stroke();
+    ctx.beginPath(); ctx.arc(sx(0.5), sy(0.5), sl(0.02), 0, Math.PI * 2); ctx.stroke();
+    for (let i = 0; i < 8; i += 1) {
+      const a = (i / 8) * Math.PI * 2;
+      ctx.fillStyle = i % 2 ? 'rgba(201,42,42,0.55)' : 'rgba(43,26,11,0.35)';
+      ctx.beginPath(); ctx.moveTo(sx(0.5 + Math.cos(a) * 0.03), sy(0.5 + Math.sin(a) * 0.03));
+      ctx.lineTo(sx(0.5 + Math.cos(a + 0.2) * 0.13), sy(0.5 + Math.sin(a + 0.2) * 0.13));
+      ctx.lineTo(sx(0.5 + Math.cos(a) * 0.15), sy(0.5 + Math.sin(a) * 0.15));
+      ctx.lineTo(sx(0.5 + Math.cos(a - 0.2) * 0.13), sy(0.5 + Math.sin(a - 0.2) * 0.13));
+      ctx.closePath(); ctx.fill();
+    }
+  };
+  const drawPiece = (b, alpha = 1) => {
+    const x = sx(b.x), y = sy(b.y), r = sl(b.r);
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = 'rgba(0,0,0,0.25)'; ctx.beginPath(); ctx.arc(x + r * 0.12, y + r * 0.18, r, 0, Math.PI * 2); ctx.fill();
+    const fill = { w: ['#fffaf0', '#e9dcc4'], b: ['#4a3426', '#1f140d'], q: ['#ff6b6b', '#c92a2a'], s: ['#e7f5ff', '#74c0fc'] }[b.kind];
+    const g = ctx.createRadialGradient(x - r * 0.35, y - r * 0.35, r * 0.1, x, y, r);
+    g.addColorStop(0, fill[0]); g.addColorStop(1, fill[1]);
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = b.kind === 'w' ? 'rgba(120,90,50,0.6)' : b.kind === 's' ? '#1864ab' : 'rgba(255,255,255,0.35)';
+    ctx.lineWidth = Math.max(1, r * 0.1);
+    ctx.beginPath(); ctx.arc(x, y, r * 0.62, 0, Math.PI * 2); ctx.stroke();
+    if (b.kind === 's') { ctx.beginPath(); ctx.arc(x, y, r * 0.3, 0, Math.PI * 2); ctx.stroke(); }
+    ctx.globalAlpha = 1;
+  };
+  const drawAim = () => {
+    if (state !== 'aim') return;
+    const bad = overlapping();
+    if (bad) { ctx.strokeStyle = '#e03131'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(sx(striker.x), sy(striker.y), sl(SR) + 4, 0, Math.PI * 2); ctx.stroke(); }
+    if (!aiming) return;
+    const len = Math.hypot(pull.x, pull.y), p = Math.min(1, len / 0.32);
+    if (p < 0.04) return;
+    const a = Math.atan2(pull.y, pull.x), L = 0.12 + p * 0.45;
+    const x0 = sx(striker.x), y0 = sy(striker.y);
+    ctx.strokeStyle = 'rgba(59,34,16,0.6)'; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0 - Math.cos(a) * sl(p * 0.32), y0 - Math.sin(a) * sl(p * 0.32)); ctx.stroke();
+    ctx.strokeStyle = p > 0.8 ? '#e03131' : p > 0.45 ? '#f08c00' : '#2f9e44'; ctx.lineWidth = 3; ctx.setLineDash([6, 7]);
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0 + Math.cos(a) * sl(L), y0 + Math.sin(a) * sl(L)); ctx.stroke(); ctx.setLineDash([]);
+    const ex = x0 + Math.cos(a) * sl(L), ey = y0 + Math.sin(a) * sl(L);
+    ctx.fillStyle = ctx.strokeStyle; ctx.beginPath(); ctx.moveTo(ex + Math.cos(a) * 10, ey + Math.sin(a) * 10); ctx.lineTo(ex + Math.cos(a + 2.5) * 10, ey + Math.sin(a + 2.5) * 10); ctx.lineTo(ex + Math.cos(a - 2.5) * 10, ey + Math.sin(a - 2.5) * 10); ctx.closePath(); ctx.fill();
+  };
+  const draw = (now) => {
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    drawBoard();
+    coins.forEach((c) => { if (!c.in) drawPiece(c); else if (now - c.in < 400) drawPiece(c, 1 - (now - c.in) / 400); });
+    if (!striker.in) drawPiece(striker); else if (now - striker.in < 400) drawPiece(striker, 1 - (now - striker.in) / 400);
+    drawAim();
+    if (state === 'aim' && !aiming) {
+      ctx.fillStyle = 'rgba(255,248,235,0.95)'; ctx.font = '700 13px "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", Inter, sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(overlapping() ? t('overlap') : t('hint'), W / 2, Math.min(H - 12, BY + BS + 22));
+    }
+    pops = pops.filter((p) => now - p.t0 < 1300);
+    pops.forEach((p) => {
+      const a = 1 - (now - p.t0) / 1300;
+      ctx.globalAlpha = a; ctx.font = '800 16px "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", Inter, sans-serif'; ctx.textAlign = 'center';
+      const hw = ctx.measureText(p.text).width / 2 + 8, x = Math.min(W - hw, Math.max(hw, sx(p.x))), y = sy(p.y) - (1 - a) * 22;
+      ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(255,255,255,0.95)'; ctx.strokeText(p.text, x, y);
+      ctx.fillStyle = p.col; ctx.fillText(p.text, x, y);
+      ctx.globalAlpha = 1;
+    });
+  };
+
+  let lastT = 0, settle = 0;
+  const frame = (now) => {
+    const dt = Math.min(0.033, lastT ? (now - lastT) / 1000 : 0.016);
+    lastT = now;
+    if (state === 'roll') {
+      for (let k = 0; k < 8; k += 1) physics(dt / 8, now);
+      if (!moving()) { settle += dt; if (settle > 0.2) { settle = 0; resolve(); } } else settle = 0;
+    }
+    draw(now);
+    requestAnimationFrame(frame);
+  };
+
+  // ---------- start / end
+  const hideOverlays = () => ['startScreen', 'endScreen'].forEach((id) => $(id).classList.add('hidden'));
+  const start = (m, lvl) => {
+    initAudio();
+    mode = m; level = lvl || level;
+    playerName = cleanName($('name').value); store.set('cr-name', playerName);
+    hideOverlays(); $('menuBtn').classList.remove('hidden');
+    $('shareOther').textContent = t('shareOther');
+    setup(); nextTurn();
+  };
+  const finish = (winner) => {
+    state = 'over';
+    if (mode === 'cpu' && winner === 0) { wins[level] += 1; store.set('cr-wins', JSON.stringify(wins)); }
+    (mode === 'two' || winner === 0 ? sfx.win : sfx.lose)();
+    last = { winner, a: potted[0], b: potted[1], q: queenOwner, mode, level, name: playerName, fact: FACT_KEYS[Math.floor(Math.random() * FACT_KEYS.length)] };
+    fillEnd(); renderWins(); updateHud();
+    setTimeout(() => $('endScreen').classList.remove('hidden'), 700);
+  };
+  const fillEnd = () => {
+    if (last.mode === 'two') { $('endTitle').textContent = t('winP')(last.winner + 1); $('endNote').textContent = t('endNoteP')(last.a, last.b); }
+    else { $('endTitle').textContent = last.winner === 0 ? t('winTitle')(last.name) : t('loseTitle'); $('endNote').textContent = t('endNote')(last.a, last.b, last.q === 0); }
+    $('endScore').textContent = `${last.a} – ${last.b}`;
+    $('endFact').textContent = `💡 ${t('facts')[last.fact]}`;
+  };
+  const toMenu = () => { state = 'menu'; aiming = false; hideOverlays(); renderWins(); updateHud(); $('menuBtn').classList.add('hidden'); $('startScreen').classList.remove('hidden'); };
+
+  // ---------- input: pull back from the striker to aim; touch the baseline elsewhere to slide
+  cv.addEventListener('pointerdown', (e) => {
+    if (state !== 'aim') return;
+    e.preventDefault(); initAudio();
+    const p = toBoard(e);
+    if (Math.hypot(p.x - striker.x, p.y - striker.y) < Math.max(SR * 2.6, 34 / PS)) { aiming = true; pull = { x: 0, y: 0 }; }
+    else if (Math.abs(p.y - BASE[turn]) < 0.09) { sliding = true; striker.x = Math.min(XMAX, Math.max(XMIN, p.x)); }
+    else return;
+    try { cv.setPointerCapture(e.pointerId); } catch (err) { /* old browsers */ }
+  });
+  cv.addEventListener('pointermove', (e) => {
+    if (state !== 'aim') return;
+    const p = toBoard(e);
+    if (aiming) pull = { x: striker.x - p.x, y: striker.y - p.y };
+    else if (sliding) striker.x = Math.min(XMAX, Math.max(XMIN, p.x));
+  });
+  const release = () => {
+    if (aiming && state === 'aim') {
+      const len = Math.hypot(pull.x, pull.y), p = Math.min(1, len / 0.32);
+      if (p >= 0.04) shoot((pull.x / len) * p * VMAX, (pull.y / len) * p * VMAX);
+    }
+    aiming = false; sliding = false;
+  };
+  cv.addEventListener('pointerup', release);
+  cv.addEventListener('pointercancel', () => { aiming = false; sliding = false; });
+
+  $('modes').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) start('cpu', b.dataset.m); });
+  $('twoBtn').addEventListener('click', () => start('two'));
+  $('againBtn').addEventListener('click', () => start(mode, level));
+  $('toMenu').addEventListener('click', toMenu);
+  $('menuBtn').addEventListener('click', toMenu);
+
+  // ---------- share
+  const shareText = () => {
+    const u = new URL(SITE);
+    if (playerName) u.searchParams.set('from', playerName);
+    if (totalWins()) u.searchParams.set('score', String(totalWins()));
+    u.searchParams.set('lang', lang);
+    if (last && last.mode === 'cpu' && last.winner === 0) return t('shareText')(playerName, t(last.level), last.a, last.b, u.toString());
+    return t('shareTextPlain')(u.toString());
+  };
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => window.prompt(t('copyPrompt'), text));
+  });
+
+  if ('ResizeObserver' in window) new ResizeObserver(resize).observe($('stage'));
+  window.addEventListener('resize', resize);
+  resize();
+  setup(); state = 'menu';
+  applyLang();
+  requestAnimationFrame(frame);
+  if (debug && params.has('auto')) start(params.get('mode') === 'two' ? 'two' : 'cpu', LEVELS.includes(params.get('level')) ? params.get('level') : 'hard');
+  window.__cr = { get state() { return state; }, get turn() { return turn; }, get potted() { return potted.slice(); }, get queen() { return { owner: queenOwner, pending: queenPending }; }, get last() { return last; }, get onBoard() { return coins.filter((c) => !c.in).length; }, bot: () => botShot(), strikerAt: () => { const r = cv.getBoundingClientRect(); return { x: r.left + sx(striker.x), y: r.top + sy(striker.y) }; } };
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+<script src="/assets/game-share.js?v=3" defer></script>
+</body>
+</html>
