@@ -1,0 +1,84 @@
+# NextGrade
+
+> Free Indian festival wishes, festival dates, children's stories, desi games and small tools, in Hindi, English, Hinglish and Bengali. No sign-up, works on any phone. Every page exists in 4 languages: Hindi at https://nextgrade.in/, English at https://nextgrade.in/en/, Hinglish at https://nextgrade.in/hinglish/, Bengali at https://nextgrade.in/bn/.
+
+All text is written by NextGrade or is public domain (old folk tales retold in our own words).
+
+## Festival dates and guides
+
+- [Indian festival dates 2027](https://nextgrade.in/en/festivals/2027/): every major festival with date and weekday
+- [Christmas: date, meaning, how it is celebrated, wishes](https://nextgrade.in/en/festivals/christmas/)
+- [New Year: date, meaning, how it is celebrated, wishes](https://nextgrade.in/en/festivals/new-year/)
+- [Lohri: date, meaning, how it is celebrated, wishes](https://nextgrade.in/en/festivals/lohri/)
+- [Makar Sankranti: date, meaning, how it is celebrated, wishes](https://nextgrade.in/en/festivals/makar-sankranti/)
+- [Republic Day: date, meaning, how it is celebrated, wishes](https://nextgrade.in/en/festivals/republic-day/)
+- [Vasant Panchami: date, meaning, how it is celebrated, wishes](https://nextgrade.in/en/festivals/vasant-panchami/)
+- [Maha Shivratri: date, meaning, how it is celebrated, wishes](https://nextgrade.in/en/festivals/maha-shivratri/)
+- [Holi: date, meaning, how it is celebrated, wishes](https://nextgrade.in/en/festivals/holi/)
+- [Eid ul-Fitr: date, meaning, how it is celebrated, wishes](https://nextgrade.in/en/festivals/eid-ul-fitr/)
+- [Ram Navami: date, meaning, how it is celebrated, wishes](https://nextgrade.in/en/festivals/ram-navami/)
+- [Raksha Bandhan: date, meaning, how it is celebrated, wishes](https://nextgrade.in/en/festivals/raksha-bandhan/)
+- [Guru Nanak Jayanti: date, meaning, how it is celebrated, wishes](https://nextgrade.in/en/festivals/guru-nanak-jayanti/)
+- [Chhath Puja: date, meaning, how it is celebrated, wishes](https://nextgrade.in/en/festivals/chhath-puja/)
+- [Diwali: date, meaning, how it is celebrated, wishes](https://nextgrade.in/en/festivals/diwali/)
+
+## Wishes and greeting cards
+
+- [Festival wish card maker](https://nextgrade.in/en/wish-card/): make a card with your name and share on WhatsApp
+- [Wishes for every day](https://nextgrade.in/en/wishes/)
+- [Islamic (Hijri) calendar](https://nextgrade.in/en/islamic-calendar/): today's Islamic date and Ramadan / Eid dates
+
+## Children's stories (kahani)
+
+- [All stories](https://nextgrade.in/en/kahani/)
+- [The Thirsty Crow](https://nextgrade.in/en/kahani/pyasa-kauwa/)
+- [The Tortoise and the Hare](https://nextgrade.in/en/kahani/kachhua-aur-khargosh/)
+- [The Monkey and the Crocodile](https://nextgrade.in/en/kahani/bandar-aur-magarmachh/)
+- [The Lion and the Mouse](https://nextgrade.in/en/kahani/sher-aur-chooha/)
+- [Akbar and Birbal: The Shorter Line](https://nextgrade.in/en/kahani/akbar-birbal-lakeer/)
+- [Tenali Raman and the Thieves](https://nextgrade.in/en/kahani/tenali-raman-aur-chor/)
+- [Mulla Nasruddin: Eat, My Coat!](https://nextgrade.in/en/kahani/mulla-nasruddin-ke-kapde/)
+- [The Greedy Dog](https://nextgrade.in/en/kahani/lalchi-kutta/)
+- [The Pigeons and the Hunter's Net](https://nextgrade.in/en/kahani/kabootar-aur-jaal/)
+- [The Hen That Laid Golden Eggs](https://nextgrade.in/en/kahani/sone-ka-anda/)
+- [The Fox and the Sour Grapes](https://nextgrade.in/en/kahani/lomdi-aur-angoor/)
+- [The Clever Fox and the Crow](https://nextgrade.in/en/kahani/lomdi-aur-kauwa/)
+- [Sheikh Chilli’s Daydream](https://nextgrade.in/en/kahani/sheikh-chilli-ka-sapna/)
+- [How Many Crows in the City?](https://nextgrade.in/en/kahani/akbar-birbal-kauwe/)
+- [Tenali Raman’s Cat](https://nextgrade.in/en/kahani/tenali-raman-ki-billi/)
+- [The Boy Who Cried Wolf](https://nextgrade.in/en/kahani/bhediya-aaya/)
+- [The Cap Seller and the Monkeys](https://nextgrade.in/en/kahani/topiwala-aur-bandar/)
+- [The Ant and the Dove](https://nextgrade.in/en/kahani/chiti-aur-kabootar/)
+- [The Clever Hare and the Lion](https://nextgrade.in/en/kahani/chatur-khargosh-aur-sher/)
+- [The Monkey King’s Bridge](https://nextgrade.in/en/kahani/bandar-raja-ka-pul/)
+- [Vikram and Betaal: The Most Delicate Queen](https://nextgrade.in/en/kahani/vikram-betaal-sabse-komal/)
+- [The Scholars Who Brought a Lion to Life](https://nextgrade.in/en/kahani/sher-banane-wale/)
+- [The Sparrow’s Grain](https://nextgrade.in/en/kahani/chidiya-ka-daana/)
+- [The Little Sparrow and the Proud Elephant](https://nextgrade.in/en/kahani/chidiya-aur-haathi/)
+- [Birbal’s Khichdi](https://nextgrade.in/en/kahani/birbal-ki-khichdi/)
+- [Tenali Raman’s Horse](https://nextgrade.in/en/kahani/tenali-raman-ka-ghoda/)
+- [The Talkative Tortoise](https://nextgrade.in/en/kahani/baatooni-kachhua/)
+- [The Father, the Son and the Donkey](https://nextgrade.in/en/kahani/baap-beta-aur-gadha/)
+- [The Farmer’s Treasure](https://nextgrade.in/en/kahani/kisan-ka-khazana/)
+- [The Golden Deer](https://nextgrade.in/en/kahani/sone-ka-hiran/)
+
+## Free online games (desi and puzzle, play in the browser)
+
+- [All games](https://nextgrade.in/en/games/)
+- [River Crossing Puzzle](https://nextgrade.in/games/nadi-paar/?lang=en)
+- [Tower of Hanoi](https://nextgrade.in/games/meenar/?lang=en)
+- [Bharat Quiz](https://nextgrade.in/games/quiz/?lang=en)
+- [Word of the Day](https://nextgrade.in/games/shabd/?lang=en)
+- [Kite Fight](https://nextgrade.in/games/patang/?lang=en)
+- [Home Zumba](https://nextgrade.in/games/zumba/?lang=en)
+- [Chhath Ghat](https://nextgrade.in/games/chhath/?lang=en)
+- [Morning 2-Minute Challenge](https://nextgrade.in/games/morning-exercise/?lang=en)
+- [Fireworks Pop](https://nextgrade.in/games/new-year/?lang=en)
+- [Catch Santa's Gifts](https://nextgrade.in/games/christmas/?lang=en)
+- [Langar Seva](https://nextgrade.in/games/langar-seva/?lang=en)
+
+## About
+
+- [About NextGrade](https://nextgrade.in/en/about/)
+- [Contact](https://nextgrade.in/en/contact/)
+- [Sitemap](https://nextgrade.in/sitemap.xml)
