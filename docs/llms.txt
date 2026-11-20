@@ -62,6 +62,18 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [The Farmer’s Treasure](https://nextgrade.in/en/kahani/kisan-ka-khazana/)
 - [The Golden Deer](https://nextgrade.in/en/kahani/sone-ka-hiran/)
 
+## Free online calculators (run in the browser)
+
+- [All calculators](https://nextgrade.in/en/calculator/)
+- [Age Calculator](https://nextgrade.in/en/calculator/age/): Enter your date of birth to find how many years, months and days old you are — and how many days are left until your next birthday.
+- [Percentage Calculator](https://nextgrade.in/en/calculator/percentage/): Quickly find a percentage of any number — for example, "10% of 500 = 50".
+- [EMI Calculator](https://nextgrade.in/en/calculator/emi/): Enter the loan amount, interest rate and tenure to find your monthly instalment (EMI), total interest and total payment.
+- [BMI Calculator](https://nextgrade.in/en/calculator/bmi/): Enter your weight and height to find your Body Mass Index (BMI) and whether it is in the healthy range.
+- [SIP Calculator](https://nextgrade.in/en/calculator/sip/): Enter how much you invest each month, for how many years and the expected return, and see how much your money can grow.
+- [GST Calculator](https://nextgrade.in/en/calculator/gst/): Enter an amount and the GST rate — whether you want to add GST or find the base price from a GST-inclusive amount.
+- [Discount Calculator](https://nextgrade.in/en/calculator/discount/): Enter the original price and the discount percentage to instantly see how much you save and the new price.
+- [Date Difference Calculator](https://nextgrade.in/en/calculator/date-difference/): Choose two dates and find the difference between them in days, weeks, months and years.
+
 ## Free online games (desi and puzzle, play in the browser)
 
 - [All games](https://nextgrade.in/en/games/)

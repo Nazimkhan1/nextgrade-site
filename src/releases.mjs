@@ -40,6 +40,9 @@ const FIXED = {
   'speech:republic-day': '2026-12-28', // 26 Jan
   'speech:netaji-jayanti': '2027-01-02', // 23 Jan (Parakram Diwas)
   'speech:saraswati-puja': '2027-01-15', // Vasant Panchami, 11 Feb 2027
+  // Calculators (/calculator/) — evergreen, launched together (user, 20 Nov 2026: high-traffic content)
+  'calc:age': '2026-11-20', 'calc:percentage': '2026-11-20', 'calc:emi': '2026-11-20', 'calc:bmi': '2026-11-20',
+  'calc:sip': '2026-11-20', 'calc:gst': '2026-11-20', 'calc:discount': '2026-11-20', 'calc:date-difference': '2026-11-20',
 };
 
 const LINES = [
@@ -67,7 +70,7 @@ const LINES = [
   ] },
   // Essays (/nibandh/<slug>/), own line (user, 19 Nov 2026: content for AI search / school children); winter first while it is searched
   { prefix: 'nibandh', start: '2026-11-22', gap: [2, 4], seed: 23, slugs: [
-    'sardi-ka-mausam', 'mera-vidyalaya', 'gaay',
+    'sardi-ka-mausam', 'mera-vidyalaya', 'gaay', 'meri-maa', 'ped', 'jal', 'diwali', 'mera-priya-mitra',
   ] },
   { prefix: 'tool', start: TOOLS_START, gap: [3, 6], seed: 13, slugs: [
     'form-helper', // most searched, first
