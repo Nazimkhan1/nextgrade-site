@@ -964,7 +964,7 @@ ${others.length ? `<h2>${esc(U.more)}</h2>\n<div class="grid">${others.map(card)
       if (f.kind === 'select') return `<label class="calc-field"><span>${lab}</span><select name="${f.name}">${f.options.map((o) => `<option value="${o}">${esc((x.opt && x.opt[o]) || o)}</option>`).join('')}</select></label>`;
       return `<label class="calc-field"><span>${lab}</span><input type="number" inputmode="decimal" step="${f.step || 'any'}" name="${f.name}"></label>`;
     };
-    const calcStyle = `<style>.calc-form{display:grid;gap:.9rem;margin:1.1rem 0}.calc-field{display:grid;gap:.3rem}.calc-field span{font-weight:600}.calc-field input,.calc-field select{padding:.6rem .7rem;font-size:1.05rem;border:1px solid var(--line,#ccd);border-radius:.5rem;background:var(--card,#fff);color:inherit;width:100%}.calc-result{margin-top:1rem;padding:1rem 1.1rem;border:1px solid var(--line,#ccd);border-radius:.6rem;background:var(--card,#fff)}.calc-row{display:flex;justify-content:space-between;gap:1rem;padding:.4rem 0;border-bottom:1px dashed var(--line,#eee)}.calc-row:last-child{border-bottom:0}.calc-strong{font-size:1.15rem}.calc-strong b{color:var(--accent,#c0392b)}.calc-note{margin:.6rem 0 0;font-size:.9rem;opacity:.8}.calc-err{color:#c0392b;margin:0}</style>`;
+    const calcStyle = `<style>.calc-form{display:grid;gap:.9rem;margin:1.1rem 0}.calc-field{display:grid;gap:.3rem}.calc-field span{font-weight:600}.calc-field input::placeholder{color:var(--muted)}.calc-field input,.calc-field select{padding:.6rem .7rem;font-size:1.05rem;border:1px solid var(--line);border-radius:.5rem;background:var(--surface);color:var(--text);width:100%}.calc-result{margin-top:1rem;padding:1rem 1.1rem;border:1px solid var(--line);border-radius:.6rem;background:var(--surface);color:var(--text)}.calc-row{display:flex;justify-content:space-between;gap:1rem;padding:.4rem 0;border-bottom:1px dashed var(--line)}.calc-row:last-child{border-bottom:0}.calc-strong{font-size:1.15rem}.calc-strong b{color:var(--brand)}.calc-note{margin:.6rem 0 0;font-size:.9rem;opacity:.8}.calc-err{color:#c0392b;margin:0}</style>`;
     write(L, '/calculator/', page(L, {
       path: '/calculator/', title: U.hubTitle, description: U.hubLead,
       jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.hub, '/calculator/']])],
@@ -989,7 +989,7 @@ ${calcStyle}
 <p class="lead">${esc(x.lead)}</p>
 <form class="calc-form" data-calc="${c.type}" data-strings="${esc(JSON.stringify(x.strings))}">
 ${c.fields.map((f) => field(c, f)).join('\n')}
-<button class="btn" type="submit">${esc(x.btn)}</button>
+<button class="btn btn-primary" type="submit">${esc(x.btn)}</button>
 <div class="calc-result" hidden></div>
 </form>
 <h2>${esc(x.introH)}</h2>
