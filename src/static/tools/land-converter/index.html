@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Land Unit Converter — Bigha, Katha, Gaj, Acre, Sq ft state ke hisaab se | NextGrade Tools</title>
+<meta name="description" content="Convert bigha, katha, biswa, kanal, marla, acre, hectare, gaj (sq yard), sq ft, sq m, decimal, guntha, cent and ground. Pick your state first; the value used is shown clearly. Free, works on your phone.">
+<meta name="theme-color" content="#2b6a2f">
+<link rel="canonical" href="https://nextgrade.in/tools/land-converter/">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #f1f8ec; --card: #fff; --ink: #1d2a17; --muted: #55664c; --brand: #2b6a2f; --brand2: #4a8f2c; --line: #d3e6c6; --soft: #f6fbf2; --ok: #2b8a3e; --warn: #b34700; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 8px; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 21px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand small { display: block; font-family: Inter, sans-serif; font-size: 12px; font-weight: 600; color: var(--muted); }
+select, button, input { font: inherit; }
+.langsel, .inp { padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+.inp { width: 100%; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: clamp(26px, 6vw, 36px); line-height: 1.15; margin: 4px 0; }
+.sub { color: var(--muted); margin: 0 0 10px; }
+.privacy { background: #ebfbee; border: 1px solid #b2f2bb; color: #1b5e20; border-radius: 12px; padding: 8px 12px; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 4px 18px rgba(43, 106, 47, 0.08); margin-bottom: 14px; }
+.lbl { font-weight: 700; margin: 0 0 8px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; align-items: end; }
+@media (max-width: 560px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+.hint { font-size: 13px; color: var(--muted); margin: 6px 0 0; display: block; }
+.stinfo { margin-top: 10px; background: var(--soft); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; font-size: 14px; }
+.stinfo ul { margin: 4px 0; padding-inline-start: 20px; }
+.stinfo .uses { font-weight: 700; }
+.warnbox { margin-top: 8px; background: #fff4e6; border: 1px solid #ffd8a8; color: #7a3300; border-radius: 10px; padding: 8px 10px; font-size: 13.5px; }
+.headline { margin: 14px 0 6px; font-size: clamp(20px, 5vw, 26px); font-weight: 800; font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; word-break: break-word; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 700; cursor: pointer; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, var(--brand), var(--brand2)); color: #fff; border: 0; }
+.btn-sm { padding: 7px 10px; font-size: 13.5px; border-radius: 10px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.tbl { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; }
+.tbl th, .tbl td { border: 1px solid var(--line); padding: 6px 8px; text-align: start; vertical-align: top; }
+.tbl th { background: var(--soft); }
+.tbl td.num { font-variant-numeric: tabular-nums; font-weight: 600; }
+.tbl tr.hl td { background: #e6f4d9; }
+.tbl small { color: var(--muted); font-weight: 400; }
+.tblwrap { overflow-x: auto; }
+.hidden { display: none !important; }
+section.info { margin: 26px 0; }
+section.info h2, #article h2 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: 22px; margin: 18px 0 6px; }
+.sizes { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; }
+.sizes a { display: block; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; color: var(--ink); text-decoration: none; font-weight: 700; }
+.sizes a small { display: block; color: var(--muted); font-weight: 400; font-size: 12.5px; }
+.sizes a.here { border-color: var(--brand); box-shadow: 0 0 0 2px rgba(43, 106, 47, 0.2); }
+details.faq { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin: 8px 0; }
+details.faq summary { font-weight: 700; cursor: pointer; }
+footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top: 1px solid var(--line); margin-top: 24px; }
+.toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 12px; font-weight: 600; z-index: 30; max-width: 92vw; text-align: center; }
+#selftest { white-space: pre-wrap; font: 12px/1.4 monospace; background: #fff; border: 1px solid var(--line); padding: 10px; }
+</style>
+<script type="application/ld+json" id="faq-ld">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many square yards (gaj) is 1 bigha?","acceptedAnswer":{"@type":"Answer","text":"It depends on the state. Pakka bigha (UP, Rajasthan, Patna area of Bihar) = 3,025 sq yd; West Bengal and Assam = 1,600 sq yd; Gujarat (north/central) and the Rajasthan kachcha bigha = 1,936 sq yd; Himachal = 968 sq yd. Choose your state above to see it."}},{"@type":"Question","name":"How many sq ft is 1 katha?","acceptedAnswer":{"@type":"Answer","text":"1,361.25 sq ft in Bihar (Patna area), 720 sq ft in West Bengal and 2,880 sq ft in Assam. Many districts of Bihar use a different katha, so confirm with the patwari."}},{"@type":"Question","name":"How many bigha are there in 1 acre?","acceptedAnswer":{"@type":"Answer","text":"1.6 with the pakka bigha (27,225 sq ft); 2.5 with the kachcha bigha of Gujarat and Rajasthan; 3.025 in Bengal and Assam; 5 in Himachal."}},{"@type":"Question","name":"My state is not in the list. What should I do?","acceptedAnswer":{"@type":"Answer","text":"Choose \"Other state / enter your own value\" and fill in how many sq ft make 1 bigha (and 1 katha if you know it). States such as MP, Jharkhand and Uttarakhand vary from place to place, so we do not give one value there."}},{"@type":"Question","name":"Can I use this value for a registry?","acceptedAnswer":{"@type":"Answer","text":"No. It is the commonly used value. For legal work go by the khatauni/jamabandi and the patwari's value. This tool uploads nothing."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://nextgrade.in/tools/">📐 NextGrade Tools<small data-t="brandSub"></small></a>
+    <select class="langsel" id="langSel" aria-label="Language">
+      <option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option>
+    </select>
+  </header>
+  <h1 data-t="title"></h1>
+  <p class="sub" data-t="sub"></p>
+  <div class="privacy">🔒 <span data-t="privacy"></span></div>
+
+  <div class="card">
+    <p class="lbl" data-t="stateH"></p>
+    <select class="inp" id="state" aria-label="State"></select>
+    <div class="grid2 hidden" id="customBox">
+      <label><span class="hint" data-t="customBigha"></span><input class="inp" id="cBigha" type="number" inputmode="decimal" min="0" step="any" placeholder="sq ft"></label>
+      <label><span class="hint" data-t="customKatha"></span><input class="inp" id="cKatha" type="number" inputmode="decimal" min="0" step="any" placeholder="sq ft"></label>
+    </div>
+    <div class="stinfo" id="stInfo"></div>
+
+    <p class="lbl" style="margin-top:14px" data-t="valH"></p>
+    <div class="grid3">
+      <label><span class="hint" data-t="valL"></span><input class="inp" id="val" type="number" inputmode="decimal" min="0" step="any" value="1"></label>
+      <label><span class="hint" data-t="fromL"></span><select class="inp" id="from"></select></label>
+      <label><span class="hint" data-t="toL"></span><select class="inp" id="to"></select></label>
+    </div>
+    <div class="row" style="margin-top:8px"><button class="btn btn-sm" id="swapBtn" type="button" data-t="swap"></button></div>
+    <div class="headline" id="headline" aria-live="polite"></div>
+    <div class="row" style="margin-bottom:10px">
+      <button class="btn btn-main btn-sm" id="shareBtn" type="button" data-t="share"></button>
+      <button class="btn btn-sm" id="copyBtn" type="button" data-t="copy"></button>
+    </div>
+    <p class="lbl" data-t="allH"></p>
+    <div class="tblwrap"><table class="tbl" id="allTable"></table></div>
+  </div>
+
+  <div class="card" id="quickCard">
+    <p class="lbl" id="quickH"></p>
+    <div class="tblwrap"><table class="tbl" id="quickTable"></table></div>
+  </div>
+
+  <section class="info"><h2 data-t="pagesH"></h2><div class="sizes" id="pageLinks"></div></section>
+  <section class="info"><h2 data-t="stH"></h2><p class="hint" data-t="stNote"></p><div class="tblwrap"><table class="tbl" id="stTable"></table></div></section>
+  <section class="info" id="article"></section>
+  <section class="info"><h2 data-t="faqH"></h2><div id="faqList"></div></section>
+  <section class="info"><h2 data-t="srcH"></h2><p data-t="srcText"></p></section>
+  <section class="info"><h2 data-t="privH"></h2><p data-t="privText"></p></section>
+  <pre id="selftest" class="hidden"></pre>
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer"></span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+</div>
+
+<script>
+'use strict';
+/* ------------------------------------------------------------------------------------------------
+   VALUES USED AND WHERE THEY COME FROM (checked 20 Nov 2026)
+   Fixed units (exact by definition): 1 ft = 0.3048 m, so 1 sq m = 1 / 0.09290304 sq ft; 1 acre = 43,560 sq ft
+   = 4,840 sq yd; 1 hectare = 10,000 sq m; 1 sq yard (gaj) = 9 sq ft; decimal / cent = 1/100 acre = 435.6 sq ft;
+   guntha = 1/40 acre = 1,089 sq ft; ground (Tamil Nadu) = 2,400 sq ft.
+   - Glossary of Revenue Terms (GoRT), Dept. of Land Resources, Govt. of India (CoE-LAM, YASHADA), 2026:
+     https://www.lbsnaa.gov.in/pdfs/1770357039_Glossary%20of%20Revenue%20Terms.pdf
+       Assam: 1 bigha = 14,400 sq ft, 1 katha = 2,880 sq ft, 1 lessa = 144 sq ft.
+       Haryana: "1 kanal = 605 sq. yards and 1 acre = 8 kanals (4840 sq. yards)"; bigha-biswa used in some areas (no size).
+       Guntha = 1/40 acre ("local definition may vary"); cent = 1/100 acre; decimal = 1/100 acre.
+   - Bihar Bhumi revenue glossary (approved 13.10.2025):
+     https://biharbhumi.bihar.gov.in/BiharBhumi/CitizenInfoDoc/Revenue%20Glossary%20Terms%20Final%20Approved%20131025.pdf
+       Kattha "approx. 1361 sq ft in Patna and around but ... varies from region to region in Bihar";
+       dhur = 1/20 kattha; bigha approx. 20 kattha; dismil = 435.6 sq ft = 1/100 acre.
+       We use 1 katha = 1,361.25 sq ft (= 151.25 sq yd, so 1 bigha = 3,025 sq yd = 27,225 sq ft), as Wikipedia "Bigha".
+   - Wikipedia "Bigha" (https://en.wikipedia.org/wiki/Bigha), "Katha (unit)", "Marla (unit)", "Measurement of land in
+     Punjab", plus housing.com / Kotak / Bajaj guides, all agreeing on:
+       West Bengal: bigha 14,400 sq ft = 20 katha; katha 720 sq ft = 16 chhatak (chhatak 45 sq ft).
+       UP (east, Lucknow) and Rajasthan pakka bigha: 27,225 sq ft (165 ft x 165 ft) = 20 biswa (1,361.25 sq ft).
+       Rajasthan kachcha bigha: 17,424 sq ft.  Himachal: 8,712 sq ft (5 bigha = 1 acre) = 20 biswa.
+       Gujarat (north / central): 17,424 sq ft = 16 guntha.  Punjab: kanal 5,445 sq ft = 20 marla (272.25 sq ft).
+   LEFT OUT on purpose (sources disagree, or the size changes from district to district): bigha in Punjab / Haryana,
+   Madhya Pradesh, Jharkhand, Uttarakhand, Tripura, Odisha katha/guntha, the kachcha bigha of west UP, biswa of the
+   Rajasthan kachcha bigha. For these the user can enter the local value under "own value".
+   ------------------------------------------------------------------------------------------------ */
+const SQM = 1 / 0.09290304; // sq ft in 1 sq m
+const FIXED = { sqft: 1, sqyd: 9, sqm: SQM, acre: 43560, hectare: 10000 * SQM, decimal: 435.6, cent: 435.6, guntha: 1089, ground: 2400 };
+const FIXED_ORDER = ['sqft', 'sqyd', 'sqm', 'acre', 'hectare', 'decimal', 'cent', 'guntha', 'ground'];
+const LOCAL_ORDER = ['bigha', 'kanal', 'katha', 'biswa', 'marla', 'dhur', 'chhatak', 'lessa'];
+const STATES = {
+  bihar: { bigha: 27225, katha: 1361.25, dhur: 68.0625 },
+  up: { bigha: 27225, biswa: 1361.25 },
+  rj: { bigha: 27225, biswa: 1361.25 },
+  rjk: { bigha: 17424 },
+  wb: { bigha: 14400, katha: 720, chhatak: 45 },
+  assam: { bigha: 14400, katha: 2880, lessa: 144 },
+  gj: { bigha: 17424 },
+  hp: { bigha: 8712, biswa: 435.6 },
+  pb: { kanal: 5445, marla: 272.25 },
+  hr: { kanal: 5445, marla: 272.25 },
+  custom: {},
+};
+const STATE_ORDER = ['bihar', 'up', 'rj', 'rjk', 'wb', 'assam', 'gj', 'hp', 'pb', 'hr', 'custom'];
+const PAGES = ['bigha-to-sq-ft', 'katha-to-sq-ft', 'acre-to-bigha'];
+
+const UN = {
+  hinglish: { sqft: 'sq ft (varg foot)', sqyd: 'gaj (sq yard)', sqm: 'sq metre', acre: 'acre', hectare: 'hectare', decimal: 'decimal / dismil', cent: 'cent', guntha: 'guntha', ground: 'ground', bigha: 'bigha', kanal: 'kanal', katha: 'katha', biswa: 'biswa', marla: 'marla', dhur: 'dhur', chhatak: 'chhatak', lessa: 'lessa' },
+  hi: { sqft: 'वर्ग फ़ुट (sq ft)', sqyd: 'गज (वर्ग गज)', sqm: 'वर्ग मीटर', acre: 'एकड़', hectare: 'हेक्टेयर', decimal: 'डिसमिल', cent: 'सेंट', guntha: 'गुंठा', ground: 'ग्राउंड', bigha: 'बीघा', kanal: 'कनाल', katha: 'कट्ठा', biswa: 'बिस्वा', marla: 'मरला', dhur: 'धुर', chhatak: 'छटाक', lessa: 'लेसा' },
+  en: { sqft: 'square feet', sqyd: 'square yard (gaj)', sqm: 'square metre', acre: 'acre', hectare: 'hectare', decimal: 'decimal (dismil)', cent: 'cent', guntha: 'guntha', ground: 'ground', bigha: 'bigha', kanal: 'kanal', katha: 'katha', biswa: 'biswa', marla: 'marla', dhur: 'dhur', chhatak: 'chhatak', lessa: 'lessa' },
+  bn: { sqft: 'বর্গফুট', sqyd: 'বর্গগজ (গজ)', sqm: 'বর্গমিটার', acre: 'একর', hectare: 'হেক্টর', decimal: 'ডেসিমাল (শতক)', cent: 'সেন্ট', guntha: 'গুন্ঠা', ground: 'গ্রাউন্ড', bigha: 'বিঘা', kanal: 'কানাল', katha: 'কাঠা', biswa: 'বিসওয়া', marla: 'মারলা', dhur: 'ধুর', chhatak: 'ছটাক', lessa: 'লেছা' },
+};
+
+const SN = {
+  hinglish: {
+    pick: '— State chuno —',
+    names: { bihar: 'Bihar (Patna aur aas-paas)', up: 'Uttar Pradesh (pakka bigha)', rj: 'Rajasthan (pakka bigha)', rjk: 'Rajasthan (kachcha bigha)', wb: 'West Bengal', assam: 'Assam', gj: 'Gujarat (uttar aur madhya)', hp: 'Himachal Pradesh', pb: 'Punjab', hr: 'Haryana', custom: 'Doosra state / apni value daalo' },
+    notes: {
+      bihar: 'Bihar mein 1 bigha = 20 katha aur 1 katha = 20 dhur. Patna ke aas-paas katha lagbhag 1,361 sq ft maana jaata hai (Bihar sarkar ki Bihar Bhumi glossary), lekin kai zilon mein katha ka size isse kaafi alag hai.',
+      up: 'Purvi UP aur Lucknow mein pakka bigha = 20 biswa = 27,225 sq ft (3,025 gaj). Paschimi UP ke kai gaon mein kachcha bigha chalta hai jo isse kaafi chhota hai.',
+      rj: 'Pakka bigha = 165 ft × 165 ft = 27,225 sq ft = 20 biswa. Rajasthan ke kai hisson mein kachcha bigha bhi chalta hai — woh list mein alag se hai.',
+      rjk: 'Kachcha bigha 17,424 sq ft (1,936 gaj) maana jaata hai. Iska biswa jagah ke hisaab se badalta hai, isliye nahi diya.',
+      wb: 'West Bengal mein 1 bigha = 20 katha aur 1 katha = 16 chhatak. Sarkari record aksar decimal (shatak) mein hote hain.',
+      assam: 'Assam mein 1 bigha = 5 katha aur 1 katha = 20 lessa. Yeh value Bharat sarkar ki Glossary of Revenue Terms mein bhi likhi hai. Lower Assam ke kuch hisson mein katha alag bola jaata hai.',
+      gj: 'Uttar aur madhya Gujarat mein 1 bigha = 16 guntha = 17,424 sq ft. Saurashtra aur dakshin Gujarat mein bigha ka size alag ho sakta hai.',
+      hp: 'Himachal mein 1 bigha = 20 biswa, aur 5 bigha = 1 acre maana jaata hai.',
+      pb: 'Punjab mein zameen kanal-marla mein naapi jaati hai: 1 kanal = 20 marla, 8 kanal = 1 acre (killa). Shehar ke plot mein kabhi marla 225 sq ft bhi bola jaata hai. Bigha ka size yahan jagah ke hisaab se badalta hai, isliye nahi diya.',
+      hr: 'Haryana ke zyadatar hisson mein kanal-marla chalta hai: 1 kanal = 20 marla = 605 gaj, 8 kanal = 1 acre (Glossary of Revenue Terms). Kuch jagah bigha-biswa bhi chalta hai, lekin uska size alag-alag hai, isliye nahi diya.',
+      custom: 'MP, Jharkhand, Uttarakhand, Tripura, Odisha jaise states mein bigha/katha ka size jagah-jagah badalta hai, isliye hum koi ek value nahi dete. Apne gaon ki value patwari ya kagaz se dekh kar upar daalo.',
+    },
+    uses: (u, v) => `Is state mein 1 ${u} = ${v} sq ft maana jaata hai`,
+  },
+  hi: {
+    pick: '— राज्य चुनें —',
+    names: { bihar: 'बिहार (पटना और आसपास)', up: 'उत्तर प्रदेश (पक्का बीघा)', rj: 'राजस्थान (पक्का बीघा)', rjk: 'राजस्थान (कच्चा बीघा)', wb: 'पश्चिम बंगाल', assam: 'असम', gj: 'गुजरात (उत्तर और मध्य)', hp: 'हिमाचल प्रदेश', pb: 'पंजाब', hr: 'हरियाणा', custom: 'दूसरा राज्य / अपनी वैल्यू डालें' },
+    notes: {
+      bihar: 'बिहार में 1 बीघा = 20 कट्ठा और 1 कट्ठा = 20 धुर। पटना और आसपास कट्ठा लगभग 1,361 वर्ग फ़ुट माना जाता है (बिहार सरकार की बिहार भूमि शब्दावली), लेकिन कई ज़िलों में कट्ठे का माप इससे काफ़ी अलग है।',
+      up: 'पूर्वी उत्तर प्रदेश और लखनऊ में पक्का बीघा = 20 बिस्वा = 27,225 वर्ग फ़ुट (3,025 गज)। पश्चिमी उत्तर प्रदेश के कई गाँवों में कच्चा बीघा चलता है जो इससे काफ़ी छोटा है।',
+      rj: 'पक्का बीघा = 165 फ़ुट × 165 फ़ुट = 27,225 वर्ग फ़ुट = 20 बिस्वा। राजस्थान के कई हिस्सों में कच्चा बीघा भी चलता है — वह सूची में अलग से है।',
+      rjk: 'कच्चा बीघा 17,424 वर्ग फ़ुट (1,936 गज) माना जाता है। इसका बिस्वा जगह के हिसाब से बदलता है, इसलिए नहीं दिया।',
+      wb: 'पश्चिम बंगाल में 1 बीघा = 20 कट्ठा और 1 कट्ठा = 16 छटाक। सरकारी रिकॉर्ड अक्सर डिसमिल (शतक) में होते हैं।',
+      assam: 'असम में 1 बीघा = 5 कट्ठा और 1 कट्ठा = 20 लेसा। यह वैल्यू भारत सरकार की Glossary of Revenue Terms में भी लिखी है। निचले असम के कुछ हिस्सों में कट्ठा अलग माना जाता है।',
+      gj: 'उत्तर और मध्य गुजरात में 1 बीघा = 16 गुंठा = 17,424 वर्ग फ़ुट। सौराष्ट्र और दक्षिण गुजरात में बीघे का माप अलग हो सकता है।',
+      hp: 'हिमाचल में 1 बीघा = 20 बिस्वा, और 5 बीघा = 1 एकड़ माना जाता है।',
+      pb: 'पंजाब में ज़मीन कनाल-मरला में नापी जाती है: 1 कनाल = 20 मरला, 8 कनाल = 1 एकड़ (किल्ला)। शहर के प्लॉट में कभी मरला 225 वर्ग फ़ुट भी कहा जाता है। बीघे का माप यहाँ जगह के हिसाब से बदलता है, इसलिए नहीं दिया।',
+      hr: 'हरियाणा के ज़्यादातर हिस्सों में कनाल-मरला चलता है: 1 कनाल = 20 मरला = 605 गज, 8 कनाल = 1 एकड़ (Glossary of Revenue Terms)। कुछ जगह बीघा-बिस्वा भी चलता है, लेकिन उसका माप अलग-अलग है, इसलिए नहीं दिया।',
+      custom: 'मध्य प्रदेश, झारखंड, उत्तराखंड, त्रिपुरा, ओडिशा जैसे राज्यों में बीघा/कट्ठा का माप जगह-जगह बदलता है, इसलिए हम कोई एक वैल्यू नहीं देते। अपने गाँव की वैल्यू पटवारी या काग़ज़ से देखकर ऊपर डालें।',
+    },
+    uses: (u, v) => `इस राज्य में 1 ${u} = ${v} वर्ग फ़ुट माना जाता है`,
+  },
+  en: {
+    pick: '— Choose your state —',
+    names: { bihar: 'Bihar (Patna and around)', up: 'Uttar Pradesh (pakka bigha)', rj: 'Rajasthan (pakka bigha)', rjk: 'Rajasthan (kachcha bigha)', wb: 'West Bengal', assam: 'Assam', gj: 'Gujarat (north and central)', hp: 'Himachal Pradesh', pb: 'Punjab', hr: 'Haryana', custom: 'Other state / enter your own value' },
+    notes: {
+      bihar: 'In Bihar 1 bigha = 20 katha and 1 katha = 20 dhur. Around Patna a katha is taken as about 1,361 sq ft (Bihar Government\'s Bihar Bhumi glossary), but in many districts the katha is quite different.',
+      up: 'In eastern UP and Lucknow the pakka bigha = 20 biswa = 27,225 sq ft (3,025 sq yd). Many villages in western UP use a kachcha bigha, which is much smaller.',
+      rj: 'Pakka bigha = 165 ft × 165 ft = 27,225 sq ft = 20 biswa. Many parts of Rajasthan also use a kachcha bigha — it has its own entry in the list.',
+      rjk: 'The kachcha bigha is taken as 17,424 sq ft (1,936 sq yd). Its biswa changes from place to place, so it is not given.',
+      wb: 'In West Bengal 1 bigha = 20 katha and 1 katha = 16 chhatak. Government records are often in decimals (shatak).',
+      assam: 'In Assam 1 bigha = 5 katha and 1 katha = 20 lessa. These values are also written in the Government of India\'s Glossary of Revenue Terms. Some parts of lower Assam use a different katha.',
+      gj: 'In north and central Gujarat 1 bigha = 16 guntha = 17,424 sq ft. In Saurashtra and south Gujarat the bigha can be a different size.',
+      hp: 'In Himachal 1 bigha = 20 biswa, and 5 bigha are taken as 1 acre.',
+      pb: 'Punjab measures land in kanal and marla: 1 kanal = 20 marla, 8 kanal = 1 acre (killa). For town plots a marla of 225 sq ft is sometimes used. The bigha here changes from place to place, so it is not given.',
+      hr: 'Most of Haryana uses kanal and marla: 1 kanal = 20 marla = 605 sq yd, 8 kanal = 1 acre (Glossary of Revenue Terms). Some areas use bigha-biswa, but its size varies, so it is not given.',
+      custom: 'In states such as MP, Jharkhand, Uttarakhand, Tripura and Odisha the bigha/katha changes from place to place, so we do not give one value. Find your village\'s value from the patwari or your papers and enter it above.',
+    },
+    uses: (u, v) => `In this state 1 ${u} is taken as ${v} sq ft`,
+  },
+  bn: {
+    pick: '— রাজ্য বাছুন —',
+    names: { bihar: 'বিহার (পাটনা ও আশপাশ)', up: 'উত্তরপ্রদেশ (পাকা বিঘা)', rj: 'রাজস্থান (পাকা বিঘা)', rjk: 'রাজস্থান (কাঁচা বিঘা)', wb: 'পশ্চিমবঙ্গ', assam: 'অসম', gj: 'গুজরাট (উত্তর ও মধ্য)', hp: 'হিমাচল প্রদেশ', pb: 'পাঞ্জাব', hr: 'হরিয়ানা', custom: 'অন্য রাজ্য / নিজের মান দিন' },
+    notes: {
+      bihar: 'বিহারে 1 বিঘা = 20 কাঠা আর 1 কাঠা = 20 ধুর। পাটনা ও আশপাশে কাঠা প্রায় 1,361 বর্গফুট ধরা হয় (বিহার সরকারের বিহার ভূমি শব্দকোষ), কিন্তু অনেক জেলায় কাঠার মাপ বেশ আলাদা।',
+      up: 'পূর্ব উত্তরপ্রদেশ ও লখনউতে পাকা বিঘা = 20 বিসওয়া = 27,225 বর্গফুট (3,025 গজ)। পশ্চিম উত্তরপ্রদেশের অনেক গ্রামে কাঁচা বিঘা চলে, যা এর চেয়ে অনেক ছোট।',
+      rj: 'পাকা বিঘা = 165 ফুট × 165 ফুট = 27,225 বর্গফুট = 20 বিসওয়া। রাজস্থানের অনেক জায়গায় কাঁচা বিঘাও চলে — তালিকায় সেটা আলাদা আছে।',
+      rjk: 'কাঁচা বিঘা 17,424 বর্গফুট (1,936 গজ) ধরা হয়। এর বিসওয়া জায়গা ভেদে বদলায়, তাই দেওয়া হয়নি।',
+      wb: 'পশ্চিমবঙ্গে 1 বিঘা = 20 কাঠা আর 1 কাঠা = 16 ছটাক। সরকারি রেকর্ড প্রায়ই ডেসিমাল (শতক)-এ থাকে।',
+      assam: 'অসমে 1 বিঘা = 5 কাঠা আর 1 কাঠা = 20 লেছা। এই মান ভারত সরকারের Glossary of Revenue Terms-এও লেখা আছে। নিম্ন অসমের কিছু জায়গায় কাঠা আলাদা ধরা হয়।',
+      gj: 'উত্তর ও মধ্য গুজরাটে 1 বিঘা = 16 গুন্ঠা = 17,424 বর্গফুট। সৌরাষ্ট্র ও দক্ষিণ গুজরাটে বিঘার মাপ আলাদা হতে পারে।',
+      hp: 'হিমাচলে 1 বিঘা = 20 বিসওয়া, আর 5 বিঘা = 1 একর ধরা হয়।',
+      pb: 'পাঞ্জাবে জমি কানাল-মারলায় মাপা হয়: 1 কানাল = 20 মারলা, 8 কানাল = 1 একর (কিল্লা)। শহরের প্লটে কখনও মারলা 225 বর্গফুটও ধরা হয়। এখানে বিঘার মাপ জায়গা ভেদে বদলায়, তাই দেওয়া হয়নি।',
+      hr: 'হরিয়ানার বেশিরভাগ জায়গায় কানাল-মারলা চলে: 1 কানাল = 20 মারলা = 605 গজ, 8 কানাল = 1 একর (Glossary of Revenue Terms)। কিছু জায়গায় বিঘা-বিসওয়াও চলে, কিন্তু তার মাপ আলাদা আলাদা, তাই দেওয়া হয়নি।',
+      custom: 'মধ্যপ্রদেশ, ঝাড়খণ্ড, উত্তরাখণ্ড, ত্রিপুরা, ওড়িশার মতো রাজ্যে বিঘা/কাঠার মাপ জায়গা ভেদে বদলায়, তাই আমরা একটা মান দিই না। আপনার গ্রামের মান আমিন/পাটোয়ারি বা কাগজ থেকে দেখে ওপরে দিন।',
+    },
+    uses: (u, v) => `এই রাজ্যে 1 ${u} = ${v} বর্গফুট ধরা হয়`,
+  },
+};
+
+const T = {
+  hinglish: {
+    brandSub: 'Free · kuch bhi upload nahi hota', title: 'Zameen ki unit badlo — bigha, katha, gaj, acre, sq ft',
+    sub: 'Apna state chuno, value likho, aur ek saath saari units mein jawab dekho: bigha, katha, biswa, kanal, marla, acre, hectare, gaj, sq ft, decimal, guntha aur zyada.',
+    privacy: 'Saara hisaab aapke phone/browser mein hota hai. Kuch bhi kahin bheja nahi jaata.',
+    stateH: '1. Apna state chuno', customBigha: '1 bigha = kitne sq ft (patwari se poochho)', customKatha: '1 katha = kitne sq ft (agar pata ho)',
+    valH: '2. Value likho aur unit chuno', valL: 'Kitna', fromL: 'Is unit se', toL: 'Is unit mein', swap: '⇅ Ulta karo',
+    allH: 'Ek saath saari units mein', thUnit: 'Unit', thVal: 'Jawab', tagLocal: 'is state ki', tagFixed: 'har jagah same',
+    quickH: (s) => `${s}: 1 unit = kitna?`, quickNone: 'State chunne par yahan us state ki har local unit ka hisaab dikhega.',
+    pickFirst: 'Bigha, katha, kanal jaisi units ke liye pehle state chuno. Tab tak acre, hectare, gaj, sq ft, decimal, guntha jaisi fixed units kaam karti hain.',
+    customNeed: 'Upar kam se kam 1 bigha ki value (sq ft mein) daalo.',
+    warn: 'Yeh aam taur par maani jaane wali value hai. Zila ya tehsil ke hisaab se alag ho sakti hai — registry, batwara jaise kanooni kaam ke liye patwari ya bhumi record office se pakka karein.',
+    rel: 'Aapas mein:', badVal: 'Sahi number likho (0 ya usse bada).',
+    share: '📲 Share', copy: '📋 Copy', copied: '✅ Copy ho gaya', shareTitle: 'Zameen ka hisaab',
+    pagesH: 'Seedha in sawaalon ke liye', stH: 'State ke hisaab se 1 unit kitne sq ft', stNote: 'Yeh woh values hain jo yeh tool use karta hai. "—" ka matlab: us state mein yeh unit nahi chalti, ya size jagah-jagah itna badalta hai ki hum ek value nahi dete.', thState: 'State',
+    links: { main: ['Saari units', 'Bigha, katha, acre, gaj…'], 'bigha-to-sq-ft': ['Bigha to sq ft', '1 bigha kitne sq ft / gaj'], 'katha-to-sq-ft': ['Katha to sq ft', '1 katha kitne sq ft'], 'acre-to-bigha': ['Acre to bigha', '1 acre mein kitne bigha'] },
+    faqH: 'Aksar pooche jaane wale sawaal',
+    srcH: 'Values kahan se li gayi', srcText: 'Assam aur Haryana ki values Bharat sarkar ke Bhumi Sansadhan Vibhag ki "Glossary of Revenue Terms" se hain. Bihar ki value Bihar sarkar ke Bihar Bhumi portal ki revenue glossary se hai, jo khud kehti hai ki katha zila-zila badalta hai. Baaki states ke liye wahi value li gayi hai jis par kai bharosemand sources ek-mat hain. Jahan sources mein ek-mat nahi tha, wahan humne value nahi di. Acre, hectare, gaj, decimal, guntha jaisi units ki paribhasha fixed hai, inmein koi fark nahi.',
+    privH: 'Aapka data, aapke paas', privText: 'Yeh tool bina kisi server ke aapke phone/browser mein chalta hai. Aap jo number ya state chunte ho, woh kahin nahi bheja jaata. Sirf aapki pichhli pasand (state, unit) isi phone mein yaad rakhi jaati hai taaki agli baar dobara na chunna pade.',
+    footer: 'Free tool · kuch bhi upload nahi hota',
+  },
+  hi: {
+    brandSub: 'फ़्री · कुछ भी अपलोड नहीं होता', title: 'ज़मीन की इकाई बदलें — बीघा, कट्ठा, गज, एकड़, वर्ग फ़ुट',
+    sub: 'अपना राज्य चुनें, वैल्यू लिखें, और एक साथ सारी इकाइयों में जवाब देखें: बीघा, कट्ठा, बिस्वा, कनाल, मरला, एकड़, हेक्टेयर, गज, वर्ग फ़ुट, डिसमिल, गुंठा और भी।',
+    privacy: 'सारा हिसाब आपके फ़ोन/ब्राउज़र में होता है। कुछ भी कहीं भेजा नहीं जाता।',
+    stateH: '1. अपना राज्य चुनें', customBigha: '1 बीघा = कितने वर्ग फ़ुट (पटवारी से पूछें)', customKatha: '1 कट्ठा = कितने वर्ग फ़ुट (अगर पता हो)',
+    valH: '2. वैल्यू लिखें और इकाई चुनें', valL: 'कितना', fromL: 'इस इकाई से', toL: 'इस इकाई में', swap: '⇅ उलटा करें',
+    allH: 'एक साथ सारी इकाइयों में', thUnit: 'इकाई', thVal: 'जवाब', tagLocal: 'इस राज्य की', tagFixed: 'हर जगह एक',
+    quickH: (s) => `${s}: 1 इकाई = कितना?`, quickNone: 'राज्य चुनने पर यहाँ उस राज्य की हर स्थानीय इकाई का हिसाब दिखेगा।',
+    pickFirst: 'बीघा, कट्ठा, कनाल जैसी इकाइयों के लिए पहले राज्य चुनें। तब तक एकड़, हेक्टेयर, गज, वर्ग फ़ुट, डिसमिल, गुंठा जैसी तय इकाइयाँ काम करती हैं।',
+    customNeed: 'ऊपर कम से कम 1 बीघा की वैल्यू (वर्ग फ़ुट में) डालें।',
+    warn: 'यह आम तौर पर मानी जाने वाली वैल्यू है। ज़िले या तहसील के हिसाब से अलग हो सकती है — रजिस्ट्री, बँटवारे जैसे क़ानूनी काम के लिए पटवारी या भूमि रिकॉर्ड कार्यालय से पक्का करें।',
+    rel: 'आपस में:', badVal: 'सही संख्या लिखें (0 या उससे बड़ी)।',
+    share: '📲 शेयर', copy: '📋 कॉपी', copied: '✅ कॉपी हो गया', shareTitle: 'ज़मीन का हिसाब',
+    pagesH: 'सीधे इन सवालों के लिए', stH: 'राज्य के हिसाब से 1 इकाई कितने वर्ग फ़ुट', stNote: 'ये वे वैल्यू हैं जो यह टूल इस्तेमाल करता है। "—" का मतलब: उस राज्य में यह इकाई नहीं चलती, या माप जगह-जगह इतना बदलता है कि हम एक वैल्यू नहीं देते।', thState: 'राज्य',
+    links: { main: ['सारी इकाइयाँ', 'बीघा, कट्ठा, एकड़, गज…'], 'bigha-to-sq-ft': ['बीघा से वर्ग फ़ुट', '1 बीघा कितने वर्ग फ़ुट / गज'], 'katha-to-sq-ft': ['कट्ठा से वर्ग फ़ुट', '1 कट्ठा कितने वर्ग फ़ुट'], 'acre-to-bigha': ['एकड़ से बीघा', '1 एकड़ में कितने बीघा'] },
+    faqH: 'अक्सर पूछे जाने वाले सवाल',
+    srcH: 'वैल्यू कहाँ से ली गईं', srcText: 'असम और हरियाणा की वैल्यू भारत सरकार के भूमि संसाधन विभाग की "Glossary of Revenue Terms" से हैं। बिहार की वैल्यू बिहार सरकार के बिहार भूमि पोर्टल की राजस्व शब्दावली से है, जो ख़ुद कहती है कि कट्ठा ज़िले-ज़िले बदलता है। बाक़ी राज्यों के लिए वही वैल्यू ली गई है जिस पर कई भरोसेमंद स्रोत एकमत हैं। जहाँ स्रोतों में एकमत नहीं था, वहाँ हमने वैल्यू नहीं दी। एकड़, हेक्टेयर, गज, डिसमिल, गुंठा जैसी इकाइयों की परिभाषा तय है, इनमें कोई फ़र्क नहीं।',
+    privH: 'आपका डेटा, आपके पास', privText: 'यह टूल बिना किसी सर्वर के आपके फ़ोन/ब्राउज़र में चलता है। आप जो संख्या या राज्य चुनते हैं, वह कहीं नहीं भेजा जाता। सिर्फ़ आपकी पिछली पसंद (राज्य, इकाई) इसी फ़ोन में याद रखी जाती है ताकि अगली बार दोबारा न चुननी पड़े।',
+    footer: 'फ़्री टूल · कुछ भी अपलोड नहीं होता',
+  },
+  en: {
+    brandSub: 'Free · nothing is uploaded', title: 'Land unit converter — bigha, katha, gaj, acre, sq ft',
+    sub: 'Choose your state, type a value, and see the answer in every unit at once: bigha, katha, biswa, kanal, marla, acre, hectare, square yard, sq ft, decimal, guntha and more.',
+    privacy: 'All the maths happens on your phone/browser. Nothing is sent anywhere.',
+    stateH: '1. Choose your state', customBigha: '1 bigha = how many sq ft (ask the patwari)', customKatha: '1 katha = how many sq ft (if known)',
+    valH: '2. Type a value and choose units', valL: 'How much', fromL: 'From', toL: 'To', swap: '⇅ Swap',
+    allH: 'In every unit at once', thUnit: 'Unit', thVal: 'Answer', tagLocal: 'this state', tagFixed: 'same everywhere',
+    quickH: (s) => `${s}: 1 unit = how much?`, quickNone: 'Choose a state to see every local unit of that state here.',
+    pickFirst: 'For bigha, katha, kanal and other local units, choose a state first. Until then the fixed units work: acre, hectare, square yard, sq ft, decimal, guntha and so on.',
+    customNeed: 'Enter at least the size of 1 bigha (in sq ft) above.',
+    warn: 'This is the commonly used value. It can differ by district or tehsil — for legal work such as a sale deed or partition, confirm it with the patwari or the land records office.',
+    rel: 'Between them:', badVal: 'Enter a valid number (0 or more).',
+    share: '📲 Share', copy: '📋 Copy', copied: '✅ Copied', shareTitle: 'Land conversion',
+    pagesH: 'Straight to these questions', stH: 'How many sq ft is 1 unit, state by state', stNote: 'These are the values this tool uses. "—" means the unit is not used in that state, or its size changes so much from place to place that we do not give one value.', thState: 'State',
+    links: { main: ['All units', 'Bigha, katha, acre, gaj…'], 'bigha-to-sq-ft': ['Bigha to sq ft', '1 bigha in sq ft / sq yd'], 'katha-to-sq-ft': ['Katha to sq ft', '1 katha in sq ft'], 'acre-to-bigha': ['Acre to bigha', 'Bigha in 1 acre'] },
+    faqH: 'Frequently asked questions',
+    srcH: 'Where the values come from', srcText: 'The Assam and Haryana values are from the Government of India\'s "Glossary of Revenue Terms" (Department of Land Resources). The Bihar value is from the revenue glossary on the Bihar Government\'s Bihar Bhumi portal, which itself says the katha varies from district to district. For the other states we use the value that several reliable sources agree on. Where sources did not agree, we left the value out. Acre, hectare, square yard, decimal and guntha have fixed definitions and never change.',
+    privH: 'Your data stays with you', privText: 'This tool runs inside your phone/browser without any server. The numbers and state you choose are not sent anywhere. Only your last choices (state, units) are remembered on this phone so you don\'t have to pick them again.',
+    footer: 'Free tool · nothing is uploaded',
+  },
+  bn: {
+    brandSub: 'ফ্রি · কিছুই আপলোড হয় না', title: 'জমির মাপ বদলান — বিঘা, কাঠা, গজ, একর, বর্গফুট',
+    sub: 'আপনার রাজ্য বাছুন, মান লিখুন, আর একসাথে সব এককে উত্তর দেখুন: বিঘা, কাঠা, বিসওয়া, কানাল, মারলা, একর, হেক্টর, গজ, বর্গফুট, ডেসিমাল, গুন্ঠা আর আরও।',
+    privacy: 'সব হিসাব আপনার ফোন/ব্রাউজারেই হয়। কিছুই কোথাও পাঠানো হয় না।',
+    stateH: '1. আপনার রাজ্য বাছুন', customBigha: '1 বিঘা = কত বর্গফুট (আমিন/পাটোয়ারিকে জিজ্ঞেস করুন)', customKatha: '1 কাঠা = কত বর্গফুট (জানা থাকলে)',
+    valH: '2. মান লিখুন আর একক বাছুন', valL: 'কত', fromL: 'এই একক থেকে', toL: 'এই এককে', swap: '⇅ উল্টে দিন',
+    allH: 'একসাথে সব এককে', thUnit: 'একক', thVal: 'উত্তর', tagLocal: 'এই রাজ্যের', tagFixed: 'সব জায়গায় এক',
+    quickH: (s) => `${s}: 1 একক = কত?`, quickNone: 'রাজ্য বাছলে এখানে সেই রাজ্যের প্রতিটি স্থানীয় এককের হিসাব দেখাবে।',
+    pickFirst: 'বিঘা, কাঠা, কানালের মতো এককের জন্য আগে রাজ্য বাছুন। ততক্ষণ একর, হেক্টর, গজ, বর্গফুট, ডেসিমাল, গুন্ঠার মতো নির্দিষ্ট একক কাজ করে।',
+    customNeed: 'ওপরে অন্তত 1 বিঘার মান (বর্গফুটে) দিন।',
+    warn: 'এটা সাধারণভাবে ধরা মান। জেলা বা তহসিল ভেদে আলাদা হতে পারে — রেজিস্ট্রি, বাটোয়ারার মতো আইনি কাজে আমিন, পাটোয়ারি বা ভূমি রেকর্ড অফিস থেকে নিশ্চিত হয়ে নিন।',
+    rel: 'নিজেদের মধ্যে:', badVal: 'সঠিক সংখ্যা লিখুন (0 বা তার বেশি)।',
+    share: '📲 শেয়ার', copy: '📋 কপি', copied: '✅ কপি হয়েছে', shareTitle: 'জমির হিসাব',
+    pagesH: 'সরাসরি এই প্রশ্নগুলোর জন্য', stH: 'রাজ্য অনুযায়ী 1 একক কত বর্গফুট', stNote: 'এগুলোই এই টুলের ব্যবহার করা মান। "—" মানে: সেই রাজ্যে এই একক চলে না, বা মাপ জায়গা ভেদে এত বদলায় যে আমরা একটা মান দিই না।', thState: 'রাজ্য',
+    links: { main: ['সব একক', 'বিঘা, কাঠা, একর, গজ…'], 'bigha-to-sq-ft': ['বিঘা থেকে বর্গফুট', '1 বিঘা কত বর্গফুট / গজ'], 'katha-to-sq-ft': ['কাঠা থেকে বর্গফুট', '1 কাঠা কত বর্গফুট'], 'acre-to-bigha': ['একর থেকে বিঘা', '1 একরে কত বিঘা'] },
+    faqH: 'সাধারণ প্রশ্ন',
+    srcH: 'মানগুলো কোথা থেকে নেওয়া', srcText: 'অসম আর হরিয়ানার মান ভারত সরকারের ভূমি সম্পদ বিভাগের "Glossary of Revenue Terms" থেকে। বিহারের মান বিহার সরকারের বিহার ভূমি পোর্টালের রাজস্ব শব্দকোষ থেকে, যেখানে নিজেই বলা আছে কাঠা জেলা ভেদে বদলায়। বাকি রাজ্যের জন্য সেই মান নেওয়া হয়েছে যাতে কয়েকটি নির্ভরযোগ্য সূত্র একমত। যেখানে সূত্রগুলো একমত নয়, সেখানে আমরা মান দিইনি। একর, হেক্টর, গজ, ডেসিমাল, গুন্ঠার সংজ্ঞা নির্দিষ্ট, এগুলো বদলায় না।',
+    privH: 'আপনার তথ্য আপনার কাছেই', privText: 'এই টুল কোনো সার্ভার ছাড়াই আপনার ফোন/ব্রাউজারে চলে। আপনি যে সংখ্যা বা রাজ্য বাছেন, তা কোথাও পাঠানো হয় না। শুধু আপনার শেষ পছন্দ (রাজ্য, একক) এই ফোনেই মনে রাখা হয়, যাতে পরের বার আবার বাছতে না হয়।',
+    footer: 'ফ্রি টুল · কিছুই আপলোড হয় না',
+  },
+};
+
+// Main-page article + FAQ (sub-pages bring their own in window.LC_PAGE).
+const ART = {
+  hinglish: {
+    info: `<h2>Land unit converter kya hai?</h2><p>Zameen naapne ki units poore Bharat mein ek jaisi nahi hain. Acre, hectare, sq ft aur gaj har jagah same hain, lekin bigha, katha, biswa, kanal aur marla ka size state ke hisaab se, aur kai baar ek hi state ke alag zilon mein bhi, badal jaata hai. Isliye "1 bigha kitna gaj hota hai" ka ek hi jawab nahi hai. Yeh tool pehle aapka state poochta hai, phir usi state mein aam taur par maani jaane wali value se hisaab lagata hai, aur saaf likh deta hai ki kaun si value use hui — taaki aap khud jaanch sako.</p>
+<h2>Kaise use karein — step by step</h2><ol><li>Upar <b>state</b> chuno. Aapka state list mein nahi hai to "apni value daalo" chuno aur patwari ya kagaz mein likhi value bharo.</li><li>Number likho, jaise 2 ya 0.5.</li><li>Kis unit se badalna hai (jaise bigha) aur kis unit mein chahiye (jaise sq ft) chuno. Bada jawab upar dikhega.</li><li>Neeche wali table mein wahi zameen ek saath har unit mein dikhegi. "1 unit = kitna" table mein us state ki har local unit ka hisaab bhi milega.</li><li>Jawab ko <b>Share</b> ya <b>Copy</b> karke parivaar ya dalaal ko bhej sakte ho. Link kholne par wahi state aur value khulti hai.</li></ol>
+<h2>Udaharan</h2><ul><li><b>Bihar (Patna area):</b> 1 katha = 1,361.25 sq ft. To 3 katha = 3 × 1,361.25 = 4,083.75 sq ft, yaani 453.75 gaj.</li><li><b>West Bengal:</b> 1 katha = 720 sq ft. 2.5 katha ka plot = 1,800 sq ft = 200 gaj.</li><li><b>Assam:</b> 1 bigha = 5 katha = 14,400 sq ft. Isliye 1 acre (43,560 sq ft) = 3.025 bigha.</li><li><b>Punjab / Haryana:</b> 1 kanal = 20 marla = 5,445 sq ft, aur 8 kanal = 1 acre. 10 marla ka plot = 2,722.5 sq ft.</li><li><b>UP / Rajasthan (pakka bigha):</b> 1 bigha = 27,225 sq ft = 3,025 gaj, isliye 1 acre = 1.6 bigha.</li></ul>
+<h2>State ke hisaab se fark kyun?</h2><p>Bigha aur katha purani units hain. Alag-alag riyasaton aur zamindariyon ne apne hisaab se naap tay kiya tha, aur wahi aaj bhi gaon mein bola jaata hai. Isi wajah se Bengal aur Assam ka bigha (14,400 sq ft) UP ya Rajasthan ke pakke bigha (27,225 sq ft) ka lagbhag aadha hai, aur Himachal ka bigha (8,712 sq ft) usse bhi chhota. Bihar mein hi Patna ke aas-paas katha lagbhag 1,361 sq ft maana jaata hai, lekin kuch zilon mein yeh kaafi alag hai. Sarkari record ab zyadatar acre, decimal ya hectare mein likhe jaate hain — yeh units poore desh mein ek hain.</p>
+<h2>Fixed units — inmein koi fark nahi</h2><p>1 acre = 43,560 sq ft = 4,840 gaj. 1 hectare = 10,000 sq m, yaani lagbhag 2.471 acre. 1 gaj (sq yard) = 9 sq ft. 1 decimal (dismil) aur 1 cent dono acre ka sauvaan hissa hain = 435.6 sq ft. 1 guntha = acre ka chaaleesvaan hissa = 1,089 sq ft. Tamil Nadu ka 1 ground = 2,400 sq ft.</p>
+<h2>Dhyaan rakhein</h2><p>Yeh tool samajhne aur andaaza lagane ke liye hai. Zameen khareedne, registry, batwara ya court ke kaam mein hamesha khatauni ya jamabandi mein likha rakba aur patwari ya bhumi record office ki batayi value hi maanein. Gaon mein kaun sa bigha bola jaata hai — pakka ya kachcha — yeh bhi zaroor poochh lein.</p>`,
+    faq: [
+      ['1 bigha kitna gaj hota hai?', 'State par nirbhar hai. Pakka bigha (UP, Rajasthan, Bihar ka Patna area) = 3,025 gaj; West Bengal aur Assam = 1,600 gaj; Gujarat (uttar/madhya) aur Rajasthan ka kachcha bigha = 1,936 gaj; Himachal = 968 gaj. Upar apna state chunkar dekho.'],
+      ['1 katha kitne sq ft ka hota hai?', 'Bihar (Patna area) mein 1,361.25 sq ft, West Bengal mein 720 sq ft aur Assam mein 2,880 sq ft. Bihar ke kai zilon mein katha alag hota hai, isliye patwari se pakka karein.'],
+      ['1 acre mein kitne bigha hote hain?', 'Pakke bigha (27,225 sq ft) se 1.6 bigha; Gujarat aur Rajasthan ke kachche bigha se 2.5; Bengal aur Assam mein 3.025; Himachal mein 5 bigha.'],
+      ['Mera state list mein nahi hai, kya karun?', '"Doosra state / apni value daalo" chuno aur 1 bigha (aur ho sake to 1 katha) kitne sq ft ka hai, yeh bharo. MP, Jharkhand, Uttarakhand jaise states mein jagah-jagah fark hai, isliye hum wahan koi ek value nahi dete.'],
+      ['Kya yeh value registry ke liye pakki hai?', 'Nahi. Yeh aam taur par maani jaane wali value hai. Kanooni kaam ke liye khatauni/jamabandi aur patwari ki value hi maanein. Yeh tool kuch bhi upload nahi karta.'],
+    ],
+  },
+  hi: {
+    info: `<h2>लैंड यूनिट कनवर्टर क्या है?</h2><p>ज़मीन नापने की इकाइयाँ पूरे भारत में एक जैसी नहीं हैं। एकड़, हेक्टेयर, वर्ग फ़ुट और गज हर जगह एक हैं, लेकिन बीघा, कट्ठा, बिस्वा, कनाल और मरला का माप राज्य के हिसाब से, और कई बार एक ही राज्य के अलग ज़िलों में भी, बदल जाता है। इसलिए "1 बीघा कितना गज होता है" का एक ही जवाब नहीं है। यह टूल पहले आपका राज्य पूछता है, फिर उसी राज्य में आम तौर पर मानी जाने वाली वैल्यू से हिसाब लगाता है, और साफ़ लिख देता है कि कौन सी वैल्यू इस्तेमाल हुई — ताकि आप ख़ुद जाँच सकें।</p>
+<h2>कैसे इस्तेमाल करें — एक-एक क़दम</h2><ol><li>ऊपर <b>राज्य</b> चुनें। आपका राज्य सूची में नहीं है तो "अपनी वैल्यू डालें" चुनें और पटवारी या काग़ज़ में लिखी वैल्यू भरें।</li><li>संख्या लिखें, जैसे 2 या 0.5।</li><li>किस इकाई से बदलना है (जैसे बीघा) और किस इकाई में चाहिए (जैसे वर्ग फ़ुट) चुनें। बड़ा जवाब ऊपर दिखेगा।</li><li>नीचे की तालिका में वही ज़मीन एक साथ हर इकाई में दिखेगी। "1 इकाई = कितना" तालिका में उस राज्य की हर स्थानीय इकाई का हिसाब भी मिलेगा।</li><li>जवाब को <b>शेयर</b> या <b>कॉपी</b> करके परिवार या दलाल को भेज सकते हैं। लिंक खोलने पर वही राज्य और वैल्यू खुलती है।</li></ol>
+<h2>उदाहरण</h2><ul><li><b>बिहार (पटना क्षेत्र):</b> 1 कट्ठा = 1,361.25 वर्ग फ़ुट। तो 3 कट्ठा = 3 × 1,361.25 = 4,083.75 वर्ग फ़ुट, यानी 453.75 गज।</li><li><b>पश्चिम बंगाल:</b> 1 कट्ठा = 720 वर्ग फ़ुट। 2.5 कट्ठे का प्लॉट = 1,800 वर्ग फ़ुट = 200 गज।</li><li><b>असम:</b> 1 बीघा = 5 कट्ठा = 14,400 वर्ग फ़ुट। इसलिए 1 एकड़ (43,560 वर्ग फ़ुट) = 3.025 बीघा।</li><li><b>पंजाब / हरियाणा:</b> 1 कनाल = 20 मरला = 5,445 वर्ग फ़ुट, और 8 कनाल = 1 एकड़। 10 मरले का प्लॉट = 2,722.5 वर्ग फ़ुट।</li><li><b>उत्तर प्रदेश / राजस्थान (पक्का बीघा):</b> 1 बीघा = 27,225 वर्ग फ़ुट = 3,025 गज, इसलिए 1 एकड़ = 1.6 बीघा।</li></ul>
+<h2>राज्य के हिसाब से फ़र्क क्यों?</h2><p>बीघा और कट्ठा पुरानी इकाइयाँ हैं। अलग-अलग रियासतों और ज़मींदारियों ने अपने हिसाब से माप तय किया था, और वही आज भी गाँव में बोला जाता है। इसी वजह से बंगाल और असम का बीघा (14,400 वर्ग फ़ुट) उत्तर प्रदेश या राजस्थान के पक्के बीघे (27,225 वर्ग फ़ुट) का लगभग आधा है, और हिमाचल का बीघा (8,712 वर्ग फ़ुट) उससे भी छोटा। बिहार में ही पटना के आसपास कट्ठा लगभग 1,361 वर्ग फ़ुट माना जाता है, लेकिन कुछ ज़िलों में यह काफ़ी अलग है। सरकारी रिकॉर्ड अब ज़्यादातर एकड़, डिसमिल या हेक्टेयर में लिखे जाते हैं — ये इकाइयाँ पूरे देश में एक हैं।</p>
+<h2>तय इकाइयाँ — इनमें कोई फ़र्क नहीं</h2><p>1 एकड़ = 43,560 वर्ग फ़ुट = 4,840 गज। 1 हेक्टेयर = 10,000 वर्ग मीटर, यानी लगभग 2.471 एकड़। 1 गज (वर्ग गज) = 9 वर्ग फ़ुट। 1 डिसमिल और 1 सेंट दोनों एकड़ का सौवाँ हिस्सा हैं = 435.6 वर्ग फ़ुट। 1 गुंठा = एकड़ का चालीसवाँ हिस्सा = 1,089 वर्ग फ़ुट। तमिलनाडु का 1 ग्राउंड = 2,400 वर्ग फ़ुट।</p>
+<h2>ध्यान रखें</h2><p>यह टूल समझने और अंदाज़ा लगाने के लिए है। ज़मीन ख़रीदने, रजिस्ट्री, बँटवारे या अदालत के काम में हमेशा खतौनी या जमाबंदी में लिखा रकबा और पटवारी या भूमि रिकॉर्ड कार्यालय की बताई वैल्यू ही मानें। गाँव में कौन सा बीघा बोला जाता है — पक्का या कच्चा — यह भी ज़रूर पूछ लें।</p>`,
+    faq: [
+      ['1 बीघा कितना गज होता है?', 'राज्य पर निर्भर है। पक्का बीघा (उत्तर प्रदेश, राजस्थान, बिहार का पटना क्षेत्र) = 3,025 गज; पश्चिम बंगाल और असम = 1,600 गज; गुजरात (उत्तर/मध्य) और राजस्थान का कच्चा बीघा = 1,936 गज; हिमाचल = 968 गज। ऊपर अपना राज्य चुनकर देखें।'],
+      ['1 कट्ठा कितने वर्ग फ़ुट का होता है?', 'बिहार (पटना क्षेत्र) में 1,361.25 वर्ग फ़ुट, पश्चिम बंगाल में 720 वर्ग फ़ुट और असम में 2,880 वर्ग फ़ुट। बिहार के कई ज़िलों में कट्ठा अलग होता है, इसलिए पटवारी से पक्का करें।'],
+      ['1 एकड़ में कितने बीघा होते हैं?', 'पक्के बीघे (27,225 वर्ग फ़ुट) से 1.6 बीघा; गुजरात और राजस्थान के कच्चे बीघे से 2.5; बंगाल और असम में 3.025; हिमाचल में 5 बीघा।'],
+      ['मेरा राज्य सूची में नहीं है, क्या करूँ?', '"दूसरा राज्य / अपनी वैल्यू डालें" चुनें और 1 बीघा (और हो सके तो 1 कट्ठा) कितने वर्ग फ़ुट का है, यह भरें। मध्य प्रदेश, झारखंड, उत्तराखंड जैसे राज्यों में जगह-जगह फ़र्क है, इसलिए हम वहाँ कोई एक वैल्यू नहीं देते।'],
+      ['क्या यह वैल्यू रजिस्ट्री के लिए पक्की है?', 'नहीं। यह आम तौर पर मानी जाने वाली वैल्यू है। क़ानूनी काम के लिए खतौनी/जमाबंदी और पटवारी की वैल्यू ही मानें। यह टूल कुछ भी अपलोड नहीं करता।'],
+    ],
+  },
+  en: {
+    info: `<h2>What is this land unit converter?</h2><p>Land units are not the same across India. Acre, hectare, square feet and square yard are the same everywhere, but the size of a bigha, katha, biswa, kanal or marla changes from state to state — and sometimes between districts of the same state. So "how many square yards is 1 bigha" has no single answer. This tool asks for your state first, then works with the value commonly used in that state, and tells you plainly which value it used, so you can check it yourself.</p>
+<h2>How to use it, step by step</h2><ol><li>Choose your <b>state</b> above. If it is not in the list, choose "enter your own value" and fill in the value from the patwari or your papers.</li><li>Type a number, such as 2 or 0.5.</li><li>Choose the unit to convert from (say, bigha) and the unit you want (say, sq ft). The main answer appears in large type.</li><li>The table below shows the same land in every unit at once. The "1 unit = how much" table shows each local unit of that state.</li><li>Use <b>Share</b> or <b>Copy</b> to send the answer to family or a broker. The link opens with the same state and value.</li></ol>
+<h2>Worked examples</h2><ul><li><b>Bihar (Patna area):</b> 1 katha = 1,361.25 sq ft. So 3 katha = 3 × 1,361.25 = 4,083.75 sq ft, or 453.75 sq yd.</li><li><b>West Bengal:</b> 1 katha = 720 sq ft. A 2.5 katha plot = 1,800 sq ft = 200 sq yd.</li><li><b>Assam:</b> 1 bigha = 5 katha = 14,400 sq ft. So 1 acre (43,560 sq ft) = 3.025 bigha.</li><li><b>Punjab / Haryana:</b> 1 kanal = 20 marla = 5,445 sq ft, and 8 kanal = 1 acre. A 10 marla plot = 2,722.5 sq ft.</li><li><b>UP / Rajasthan (pakka bigha):</b> 1 bigha = 27,225 sq ft = 3,025 sq yd, so 1 acre = 1.6 bigha.</li></ul>
+<h2>Why does it differ by state?</h2><p>Bigha and katha are old units. Different princely states and estates fixed their own sizes, and villages still use them today. That is why the bigha of Bengal and Assam (14,400 sq ft) is about half the pakka bigha of UP or Rajasthan (27,225 sq ft), and the Himachal bigha (8,712 sq ft) is smaller still. Even within Bihar the katha is about 1,361 sq ft around Patna but quite different in some districts. Government records are now mostly kept in acres, decimals or hectares, which are the same all over the country.</p>
+<h2>Fixed units that never change</h2><p>1 acre = 43,560 sq ft = 4,840 sq yd. 1 hectare = 10,000 sq m, about 2.471 acres. 1 square yard (gaj) = 9 sq ft. 1 decimal (dismil) and 1 cent are both one hundredth of an acre = 435.6 sq ft. 1 guntha = one fortieth of an acre = 1,089 sq ft. 1 ground in Tamil Nadu = 2,400 sq ft.</p>
+<h2>Keep in mind</h2><p>This tool helps you understand and estimate. When buying land, registering a deed, dividing property or going to court, always go by the area written in the record of rights (khatauni / jamabandi) and the value given by the patwari or the land records office. Also ask which bigha the village uses — pakka or kachcha.</p>`,
+    faq: [
+      ['How many square yards (gaj) is 1 bigha?', 'It depends on the state. Pakka bigha (UP, Rajasthan, Patna area of Bihar) = 3,025 sq yd; West Bengal and Assam = 1,600 sq yd; Gujarat (north/central) and the Rajasthan kachcha bigha = 1,936 sq yd; Himachal = 968 sq yd. Choose your state above to see it.'],
+      ['How many sq ft is 1 katha?', '1,361.25 sq ft in Bihar (Patna area), 720 sq ft in West Bengal and 2,880 sq ft in Assam. Many districts of Bihar use a different katha, so confirm with the patwari.'],
+      ['How many bigha are there in 1 acre?', '1.6 with the pakka bigha (27,225 sq ft); 2.5 with the kachcha bigha of Gujarat and Rajasthan; 3.025 in Bengal and Assam; 5 in Himachal.'],
+      ['My state is not in the list. What should I do?', 'Choose "Other state / enter your own value" and fill in how many sq ft make 1 bigha (and 1 katha if you know it). States such as MP, Jharkhand and Uttarakhand vary from place to place, so we do not give one value there.'],
+      ['Can I use this value for a registry?', 'No. It is the commonly used value. For legal work go by the khatauni/jamabandi and the patwari\'s value. This tool uploads nothing.'],
+    ],
+  },
+  bn: {
+    info: `<h2>এই জমির একক রূপান্তর টুল কী?</h2><p>জমি মাপার একক সারা ভারতে এক নয়। একর, হেক্টর, বর্গফুট আর গজ সব জায়গায় এক, কিন্তু বিঘা, কাঠা, বিসওয়া, কানাল আর মারলার মাপ রাজ্য ভেদে, আর কখনও একই রাজ্যের আলাদা জেলাতেও, বদলে যায়। তাই "1 বিঘা কত গজ" প্রশ্নের একটা উত্তর হয় না। এই টুল আগে আপনার রাজ্য জানতে চায়, তারপর সেই রাজ্যে সাধারণভাবে ধরা মান দিয়ে হিসাব করে, আর পরিষ্কার লিখে দেয় কোন মান ব্যবহার হল — যাতে আপনি নিজে মিলিয়ে নিতে পারেন।</p>
+<h2>কীভাবে ব্যবহার করবেন — ধাপে ধাপে</h2><ol><li>ওপরে <b>রাজ্য</b> বাছুন। আপনার রাজ্য তালিকায় না থাকলে "নিজের মান দিন" বেছে আমিন/পাটোয়ারি বা কাগজে লেখা মান দিন।</li><li>সংখ্যা লিখুন, যেমন 2 বা 0.5।</li><li>কোন একক থেকে (যেমন বিঘা) আর কোন এককে (যেমন বর্গফুট) চান, বাছুন। বড় করে উত্তর ওপরে দেখাবে।</li><li>নিচের টেবিলে একই জমি একসাথে সব এককে দেখাবে। "1 একক = কত" টেবিলে সেই রাজ্যের প্রতিটি স্থানীয় এককের হিসাবও পাবেন।</li><li><b>শেয়ার</b> বা <b>কপি</b> করে উত্তর পরিবার বা দালালকে পাঠাতে পারেন। লিংক খুললে একই রাজ্য আর মান খোলে।</li></ol>
+<h2>উদাহরণ</h2><ul><li><b>বিহার (পাটনা এলাকা):</b> 1 কাঠা = 1,361.25 বর্গফুট। তাই 3 কাঠা = 3 × 1,361.25 = 4,083.75 বর্গফুট, মানে 453.75 গজ।</li><li><b>পশ্চিমবঙ্গ:</b> 1 কাঠা = 720 বর্গফুট। 2.5 কাঠার প্লট = 1,800 বর্গফুট = 200 গজ।</li><li><b>অসম:</b> 1 বিঘা = 5 কাঠা = 14,400 বর্গফুট। তাই 1 একর (43,560 বর্গফুট) = 3.025 বিঘা।</li><li><b>পাঞ্জাব / হরিয়ানা:</b> 1 কানাল = 20 মারলা = 5,445 বর্গফুট, আর 8 কানাল = 1 একর। 10 মারলার প্লট = 2,722.5 বর্গফুট।</li><li><b>উত্তরপ্রদেশ / রাজস্থান (পাকা বিঘা):</b> 1 বিঘা = 27,225 বর্গফুট = 3,025 গজ, তাই 1 একর = 1.6 বিঘা।</li></ul>
+<h2>রাজ্য ভেদে তফাত কেন?</h2><p>বিঘা আর কাঠা পুরনো একক। আলাদা আলাদা রাজ্য ও জমিদারি নিজেদের মতো মাপ ঠিক করেছিল, আর গ্রামে আজও সেটাই বলা হয়। এই কারণেই বাংলা আর অসমের বিঘা (14,400 বর্গফুট) উত্তরপ্রদেশ বা রাজস্থানের পাকা বিঘার (27,225 বর্গফুট) প্রায় অর্ধেক, আর হিমাচলের বিঘা (8,712 বর্গফুট) তার চেয়েও ছোট। বিহারের মধ্যেই পাটনার আশপাশে কাঠা প্রায় 1,361 বর্গফুট, কিন্তু কিছু জেলায় বেশ আলাদা। সরকারি রেকর্ড এখন বেশিরভাগ একর, ডেসিমাল বা হেক্টরে লেখা হয় — এই এককগুলো সারা দেশে এক।</p>
+<h2>নির্দিষ্ট একক — এগুলো বদলায় না</h2><p>1 একর = 43,560 বর্গফুট = 4,840 গজ। 1 হেক্টর = 10,000 বর্গমিটার, মানে প্রায় 2.471 একর। 1 গজ (বর্গগজ) = 9 বর্গফুট। 1 ডেসিমাল (শতক) আর 1 সেন্ট দুটোই একরের একশো ভাগের এক ভাগ = 435.6 বর্গফুট। 1 গুন্ঠা = একরের চল্লিশ ভাগের এক ভাগ = 1,089 বর্গফুট। তামিলনাড়ুর 1 গ্রাউন্ড = 2,400 বর্গফুট।</p>
+<h2>মনে রাখবেন</h2><p>এই টুল বোঝা আর আন্দাজ করার জন্য। জমি কেনা, রেজিস্ট্রি, বাটোয়ারা বা আদালতের কাজে সবসময় খতিয়ান বা পরচায় লেখা পরিমাণ আর আমিন, পাটোয়ারি বা ভূমি রেকর্ড অফিসের দেওয়া মানই মানুন। গ্রামে কোন বিঘা চলে — পাকা না কাঁচা — সেটাও জিজ্ঞেস করে নিন।</p>`,
+    faq: [
+      ['1 বিঘা কত গজ?', 'রাজ্যের ওপর নির্ভর করে। পাকা বিঘা (উত্তরপ্রদেশ, রাজস্থান, বিহারের পাটনা এলাকা) = 3,025 গজ; পশ্চিমবঙ্গ আর অসম = 1,600 গজ; গুজরাট (উত্তর/মধ্য) আর রাজস্থানের কাঁচা বিঘা = 1,936 গজ; হিমাচল = 968 গজ। ওপরে রাজ্য বেছে দেখুন।'],
+      ['1 কাঠা কত বর্গফুট?', 'বিহারে (পাটনা এলাকা) 1,361.25 বর্গফুট, পশ্চিমবঙ্গে 720 বর্গফুট আর অসমে 2,880 বর্গফুট। বিহারের অনেক জেলায় কাঠা আলাদা, তাই পাটোয়ারির কাছে নিশ্চিত হয়ে নিন।'],
+      ['1 একরে কত বিঘা?', 'পাকা বিঘায় (27,225 বর্গফুট) 1.6 বিঘা; গুজরাট আর রাজস্থানের কাঁচা বিঘায় 2.5; বাংলা আর অসমে 3.025; হিমাচলে 5 বিঘা।'],
+      ['আমার রাজ্য তালিকায় নেই, কী করব?', '"অন্য রাজ্য / নিজের মান দিন" বেছে 1 বিঘা (আর পারলে 1 কাঠা) কত বর্গফুট, সেটা লিখুন। মধ্যপ্রদেশ, ঝাড়খণ্ড, উত্তরাখণ্ডের মতো রাজ্যে জায়গা ভেদে তফাত আছে, তাই আমরা সেখানে একটা মান দিই না।'],
+      ['এই মান কি রেজিস্ট্রির জন্য পাকা?', 'না। এটা সাধারণভাবে ধরা মান। আইনি কাজে খতিয়ান/পরচা আর আমিন বা পাটোয়ারির মানই মানুন। এই টুল কিছুই আপলোড করে না।'],
+    ],
+  },
+};
+
+// ---------- helpers
+const $ = (id) => document.getElementById(id);
+const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+const params = new URLSearchParams(location.search);
+const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('lc-lang')) ? store.get('lc-lang') : deviceLang();
+const t = (k) => T[lang][k];
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const strip = (s) => String(s).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+let toastTimer = 0;
+const toast = (msg) => { let el = document.querySelector('.toast'); if (!el) { el = document.createElement('div'); el.className = 'toast'; document.body.appendChild(el); } el.textContent = msg; el.classList.remove('hidden'); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.add('hidden'), 3200); };
+
+// Sub-pages (./bigha-to-sq-ft/ …) set window.LC_PAGE = { slug, from, to, base, T: { lang: { title, sub, info, faq } } }.
+const PAGE = window.LC_PAGE || null;
+const BASE = PAGE ? PAGE.base || '../' : './';
+if (PAGE) for (const l in PAGE.T) { if (T[l]) { if (PAGE.T[l].title) T[l].title = PAGE.T[l].title; if (PAGE.T[l].sub) T[l].sub = PAGE.T[l].sub; } }
+
+// Numbers: Indian digit grouping, a few decimals, and significant digits for tiny values.
+const nf = (x) => {
+  if (!Number.isFinite(x)) return '—';
+  const a = Math.abs(x); if (a === 0) return '0';
+  const o = a >= 1000 ? { maximumFractionDigits: 2 } : a >= 1 ? { maximumFractionDigits: 4 } : { maximumSignificantDigits: 4 };
+  return x.toLocaleString('en-IN', o);
+};
+
+// ---------- conversion
+let state = '';
+const custom = () => {
+  const b = Number($('cBigha').value); const k = Number($('cKatha').value); const u = {};
+  if (b > 0) u.bigha = b; if (k > 0) u.katha = k; return u;
+};
+const localsOf = (st) => (st === 'custom' ? custom() : STATES[st] || {});
+const factor = (u, st) => (FIXED[u] !== undefined ? FIXED[u] : localsOf(st)[u]);
+const unitsOf = (st) => { const l = localsOf(st); return LOCAL_ORDER.filter((u) => l[u] > 0).concat(FIXED_ORDER); };
+const conv = (v, from, to, st) => { const a = factor(from, st); const b = factor(to, st); return a && b ? (v * a) / b : NaN; };
+const un = (u) => UN[lang][u];
+
+// ---------- render
+// fromU / toU keep what the user asked for; when the state lacks that unit, the select shows a stand-in.
+const fillUnitSelect = (sel, keep, alt) => {
+  const list = unitsOf(state);
+  sel.innerHTML = list.map((u) => `<option value="${u}">${esc(un(u))}</option>`).join('');
+  sel.value = list.includes(keep) ? keep : list.includes(alt) ? alt : list[0];
+};
+let fromU = 'bigha'; let toU = 'sqft';
+const render = () => {
+  const s = SN[lang];
+  $('customBox').classList.toggle('hidden', state !== 'custom');
+  // state info
+  const l = localsOf(state); const loc = LOCAL_ORDER.filter((u) => l[u] > 0);
+  let html = '';
+  if (!state) html = esc(t('pickFirst'));
+  else {
+    if (loc.length) html += `<ul>${loc.map((u) => `<li class="uses">${esc(s.uses(un(u), nf(l[u])))}</li>`).join('')}</ul>`;
+    else if (state === 'custom') html += `<p class="uses">${esc(t('customNeed'))}</p>`;
+    if (loc.length > 1) html += `<div>${esc(t('rel'))} ${loc.slice(1).map((u, i) => `1 ${esc(un(loc[i]))} = ${nf(l[loc[i]] / l[u])} ${esc(un(u))}`).join(' · ')}</div>`;
+    html += `<p class="hint">${esc(s.notes[state])}</p><div class="warnbox">⚠️ ${esc(t('warn'))}</div>`;
+  }
+  $('stInfo').innerHTML = html;
+  fillUnitSelect($('from'), fromU, toU === 'acre' ? 'sqft' : 'acre'); fillUnitSelect($('to'), toU, $('from').value === 'sqft' ? 'acre' : 'sqft');
+  compute();
+  // quick table: each local unit of the state in the common units
+  if (loc.length) {
+    const cols = loc.concat(['sqft', 'sqyd', 'sqm', 'acre', 'hectare', 'decimal']);
+    $('quickH').textContent = t('quickH')(s.names[state]);
+    $('quickTable').innerHTML = `<tr><th>1 …</th>${cols.map((c) => `<th>${esc(un(c))}</th>`).join('')}</tr>` + loc.concat(['acre', 'hectare']).map((u) => `<tr><td><b>1 ${esc(un(u))}</b></td>${cols.map((c) => `<td class="num">${c === u ? '1' : nf(conv(1, u, c, state))}</td>`).join('')}</tr>`).join('');
+  } else { $('quickH').textContent = t('quickH')('—'); $('quickTable').innerHTML = `<tr><td>${esc(t('quickNone'))}</td></tr>`; }
+};
+let lastText = '';
+const compute = () => {
+  const v = Number($('val').value);
+  const okV = $('val').value.trim() !== '' && Number.isFinite(v) && v >= 0;
+  const list = unitsOf(state);
+  if (!okV) { $('headline').textContent = t('badVal'); $('allTable').innerHTML = ''; lastText = ''; return; }
+  const F = $('from').value; const U = $('to').value;
+  const r = conv(v, F, U, state);
+  $('headline').textContent = `${nf(v)} ${un(F)} = ${nf(r)} ${un(U)}`;
+  const l = localsOf(state);
+  $('allTable').innerHTML = `<tr><th>${esc(t('thUnit'))}</th><th>${esc(t('thVal'))}</th></tr>` + list.map((u) => `<tr${u === U ? ' class="hl"' : ''}><td>${esc(un(u))} <small>· ${esc(l[u] ? t('tagLocal') : t('tagFixed'))}</small></td><td class="num">${nf(conv(v, F, u, state))}</td></tr>`).join('');
+  const basis = LOCAL_ORDER.filter((u) => l[u] > 0 && (u === F || u === U)).map((u) => `1 ${un(u)} = ${nf(l[u])} sq ft`).join(', ');
+  lastText = `${nf(v)} ${un(F)} = ${nf(r)} ${un(U)}` + (state && basis ? ` (${SN[lang].names[state]}: ${basis})` : '');
+  if (!PAGE) { store.set('lc-from', fromU); store.set('lc-to', toU); }
+  store.set('lc-val', $('val').value);
+};
+const shareUrl = () => {
+  const u = new URL(location.href); u.search = '';
+  const p = new URLSearchParams({ state, v: $('val').value, from: $('from').value, to: $('to').value, lang });
+  if (state === 'custom') { if ($('cBigha').value) p.set('cb', $('cBigha').value); if ($('cKatha').value) p.set('ck', $('cKatha').value); }
+  return `${u.href}?${p}`;
+};
+const stateTable = () => {
+  const s = SN[lang]; const cols = LOCAL_ORDER;
+  return `<tr><th>${esc(t('thState'))}</th>${cols.map((c) => `<th>1 ${esc(un(c))}</th>`).join('')}</tr>` + STATE_ORDER.filter((k) => k !== 'custom').map((k) => `<tr><td>${esc(s.names[k])}</td>${cols.map((c) => `<td class="num">${STATES[k][c] ? nf(STATES[k][c]) : '—'}</td>`).join('')}</tr>`).join('');
+};
+const setLd = (faq) => {
+  let el = document.getElementById('faq-ld');
+  if (!el) { el = document.createElement('script'); el.type = 'application/ld+json'; el.id = 'faq-ld'; document.head.appendChild(el); }
+  el.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: strip(q), acceptedAnswer: { '@type': 'Answer', text: strip(a) } })) });
+};
+const applyLang = () => {
+  document.documentElement.lang = lang === 'hinglish' ? 'hi-Latn' : lang;
+  document.querySelectorAll('[data-t]').forEach((el) => { const v = t(el.dataset.t); if (typeof v === 'string') el.textContent = v; });
+  $('langSel').value = lang;
+  const s = SN[lang];
+  $('state').innerHTML = `<option value="">${esc(s.pick)}</option>` + STATE_ORDER.map((k) => `<option value="${k}">${esc(s.names[k])}</option>`).join('');
+  $('state').value = state;
+  const lk = t('links');
+  $('pageLinks').innerHTML = (PAGE ? `<a href="${BASE}?lang=${lang}">📐 ${esc(lk.main[0])}<small>${esc(lk.main[1])}</small></a>` : '')
+    + PAGES.map((p) => `<a href="${BASE}${p}/?lang=${lang}"${PAGE && PAGE.slug === p ? ' class="here"' : ''}>${esc(lk[p][0])}<small>${esc(lk[p][1])}</small></a>`).join('');
+  $('stTable').innerHTML = stateTable();
+  const art = PAGE && PAGE.T[lang] && PAGE.T[lang].info ? PAGE.T[lang] : ART[lang];
+  $('article').innerHTML = art.info;
+  $('faqList').innerHTML = art.faq.map(([q, a]) => `<details class="faq"><summary>${q}</summary><p>${a}</p></details>`).join('');
+  setLd(art.faq);
+  render();
+};
+
+// ---------- events
+$('langSel').addEventListener('change', (e) => { lang = e.target.value; store.set('lc-lang', lang); applyLang(); });
+$('state').addEventListener('change', (e) => { state = e.target.value; store.set('lc-state', state); render(); });
+['cBigha', 'cKatha'].forEach((id) => $(id).addEventListener('input', () => { store.set('lc-' + id, $(id).value); render(); }));
+$('val').addEventListener('input', compute);
+$('from').addEventListener('change', (e) => { fromU = e.target.value; compute(); });
+$('to').addEventListener('change', (e) => { toU = e.target.value; compute(); });
+$('swapBtn').addEventListener('click', () => { fromU = $('to').value; toU = $('from').value; $('from').value = fromU; $('to').value = toU; compute(); });
+$('copyBtn').addEventListener('click', async () => { if (!lastText) return; const txt = `${lastText}\n${shareUrl()}`; try { await navigator.clipboard.writeText(txt); toast(t('copied')); } catch (e) { toast(txt); } });
+$('shareBtn').addEventListener('click', async () => {
+  if (!lastText) return;
+  if (navigator.share) { try { await navigator.share({ title: t('shareTitle'), text: lastText, url: shareUrl() }); } catch (e) { /* cancelled */ } return; }
+  try { await navigator.clipboard.writeText(`${lastText}\n${shareUrl()}`); toast(t('copied')); } catch (e) { toast(lastText); }
+});
+
+// ---------- start
+$('year').textContent = new Date().getFullYear();
+{
+  const ps = params.get('state'); const ss = store.get('lc-state');
+  state = STATES[ps] ? ps : STATES[ss] ? ss : '';
+  $('cBigha').value = params.get('cb') || store.get('lc-cBigha') || '';
+  $('cKatha').value = params.get('ck') || store.get('lc-cKatha') || '';
+  const pv = params.get('v'); const sv = store.get('lc-val');
+  $('val').value = pv && Number(pv) >= 0 ? pv : PAGE ? '1' : sv && Number(sv) >= 0 ? sv : '1';
+  const okU = (u) => u && (FIXED[u] !== undefined || LOCAL_ORDER.includes(u));
+  fromU = okU(params.get('from')) ? params.get('from') : PAGE ? PAGE.from : okU(store.get('lc-from')) ? store.get('lc-from') : 'bigha';
+  toU = okU(params.get('to')) ? params.get('to') : PAGE ? PAGE.to : okU(store.get('lc-to')) ? store.get('lc-to') : 'sqft';
+}
+applyLang();
+if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register(`${BASE}sw.js`).catch(() => {});
+
+// ---------- hidden self-test: open with ?selftest
+if (params.has('selftest')) {
+  const out = []; let pass = 0; let fail = 0;
+  const ok = (name, cond, info) => { if (cond) pass += 1; else fail += 1; out.push(`${cond ? 'PASS' : 'FAIL'} ${name}${info !== undefined ? ` (${info})` : ''}`); };
+  const near = (a, b, rel = 1e-9) => Math.abs(a - b) <= rel * Math.max(1, Math.abs(b));
+  // fixed units, exact
+  ok('1 acre = 43,560 sq ft', near(conv(1, 'acre', 'sqft', ''), 43560));
+  ok('1 acre = 4,840 sq yd', near(conv(1, 'acre', 'sqyd', ''), 4840));
+  ok('1 hectare = 10,000 sq m', near(conv(1, 'hectare', 'sqm', ''), 10000));
+  ok('1 hectare = 2.4710538 acre', near(conv(1, 'hectare', 'acre', ''), 2.471053814671653, 1e-12), conv(1, 'hectare', 'acre', ''));
+  ok('1 sq m = 10.7639104 sq ft', near(conv(1, 'sqm', 'sqft', ''), 10.76391041670972, 1e-12));
+  ok('1 sq yd = 9 sq ft', near(conv(1, 'sqyd', 'sqft', ''), 9));
+  ok('1 guntha = 1,089 sq ft and 40 guntha = 1 acre', near(conv(1, 'guntha', 'sqft', ''), 1089) && near(conv(40, 'guntha', 'acre', ''), 1));
+  ok('1 cent = 435.6 sq ft and 100 cent = 1 acre', near(conv(1, 'cent', 'sqft', ''), 435.6) && near(conv(100, 'cent', 'acre', ''), 1));
+  ok('1 decimal = 435.6 sq ft and 100 decimal = 1 acre', near(conv(1, 'decimal', 'sqft', ''), 435.6) && near(conv(100, 'decimal', 'acre', ''), 1));
+  ok('1 ground = 2,400 sq ft', near(conv(1, 'ground', 'sqft', ''), 2400));
+  // state relations
+  ok('Bihar: 1 bigha = 20 katha = 400 dhur = 27,225 sq ft', near(conv(1, 'bigha', 'katha', 'bihar'), 20) && near(conv(1, 'bigha', 'dhur', 'bihar'), 400) && near(conv(1, 'bigha', 'sqft', 'bihar'), 27225));
+  ok('Bihar: 1 katha = 3.125 decimal', near(conv(1, 'katha', 'decimal', 'bihar'), 3.125));
+  ok('West Bengal: 1 bigha = 20 katha, 1 katha = 16 chhatak = 720 sq ft', near(conv(1, 'bigha', 'katha', 'wb'), 20) && near(conv(1, 'katha', 'chhatak', 'wb'), 16) && near(conv(1, 'katha', 'sqft', 'wb'), 720));
+  ok('Assam: 1 bigha = 5 katha = 100 lessa = 14,400 sq ft', near(conv(1, 'bigha', 'katha', 'assam'), 5) && near(conv(1, 'bigha', 'lessa', 'assam'), 100) && near(conv(1, 'bigha', 'sqft', 'assam'), 14400));
+  ok('UP / Rajasthan pakka: 1 bigha = 20 biswa = 3,025 sq yd; 1 acre = 1.6 bigha', ['up', 'rj'].every((s) => near(conv(1, 'bigha', 'biswa', s), 20) && near(conv(1, 'bigha', 'sqyd', s), 3025) && near(conv(1, 'acre', 'bigha', s), 1.6)));
+  ok('Rajasthan kachcha / Gujarat: 1 bigha = 17,424 sq ft = 16 guntha', ['rjk', 'gj'].every((s) => near(conv(1, 'bigha', 'sqft', s), 17424) && near(conv(1, 'bigha', 'guntha', s), 16)));
+  ok('Himachal: 5 bigha = 1 acre, 1 bigha = 20 biswa', near(conv(5, 'bigha', 'acre', 'hp'), 1) && near(conv(1, 'bigha', 'biswa', 'hp'), 20));
+  ok('Punjab / Haryana: 1 kanal = 20 marla = 605 sq yd; 8 kanal = 1 acre; 160 marla = 1 acre', ['pb', 'hr'].every((s) => near(conv(1, 'kanal', 'marla', s), 20) && near(conv(1, 'kanal', 'sqyd', s), 605) && near(conv(8, 'kanal', 'acre', s), 1) && near(conv(160, 'marla', 'acre', s), 1)));
+  ok('No bigha offered for Punjab / Haryana / no state', !unitsOf('pb').includes('bigha') && !unitsOf('hr').includes('bigha') && !unitsOf('').includes('bigha'));
+  // round trips: every unit pair in every state
+  let rtMax = 0; let rtN = 0;
+  for (const s of STATE_ORDER.filter((k) => k !== 'custom').concat([''])) { const us = unitsOf(s); for (const a of us) for (const b of us) { const x = 123.456; const y = conv(conv(x, a, b, s), b, a, s); rtMax = Math.max(rtMax, Math.abs(y - x) / x); rtN += 1; } }
+  ok(`Round trip a→b→a for ${rtN} unit pairs`, rtMax < 1e-12, `max rel error ${rtMax.toExponential(2)}`);
+  // UI: state + value end to end
+  state = 'bihar'; $('state').value = 'bihar'; $('val').value = '2'; fromU = 'bigha'; toU = 'sqft'; render();
+  ok('UI: Bihar 2 bigha → headline 54,450 sq ft', $('headline').textContent.includes('54,450'), $('headline').textContent);
+  ok('UI: shows the value used for Bihar', $('stInfo').textContent.includes('27,225'));
+  state = 'custom'; $('state').value = 'custom'; $('cBigha').value = '10000'; $('cKatha').value = '500'; render();
+  ok('UI: own value 1 bigha = 10,000 sq ft → 1 bigha = 20 katha', near(conv(1, 'bigha', 'katha', 'custom'), 20) && $('stInfo').textContent.includes('10,000'));
+  $('cBigha').value = ''; $('cKatha').value = '';
+  // languages: every text present, enough article text, FAQ JSON-LD matches
+  const words = (h) => strip(h).split(/\s+/).filter(Boolean).length;
+  for (const L of LANGS) {
+    lang = L; applyLang();
+    const empty = [...document.querySelectorAll('[data-t]')].filter((el) => !el.textContent.trim()).map((el) => el.dataset.t);
+    const bad = /undefined|NaN|\[object/.test(document.body.innerText);
+    const art = PAGE ? PAGE.T[L] : ART[L];
+    const n = words(art.info) + art.faq.reduce((s2, [q, a]) => s2 + words(q) + words(a), 0);
+    let ld = null; try { ld = JSON.parse(document.getElementById('faq-ld').textContent); } catch (e) { /* fails below */ }
+    ok(`lang ${L}: all texts filled`, !empty.length && !bad, empty.join(',') || (bad ? 'undefined/NaN in page' : ''));
+    ok(`lang ${L}: article + FAQ ≥ 500 words`, n >= 500, n);
+    ok(`lang ${L}: FAQ JSON-LD valid, ${art.faq.length} questions = visible`, ld && ld['@type'] === 'FAQPage' && ld.mainEntity.length === document.querySelectorAll('#faqList details').length && art.faq.length >= 4);
+    ok(`lang ${L}: state names + notes`, STATE_ORDER.every((k) => SN[L].names[k] && SN[L].notes[k]) && LOCAL_ORDER.concat(FIXED_ORDER).every((u) => UN[L][u]));
+  }
+  lang = 'hinglish'; applyLang();
+  out.push(`SELFTEST ${fail ? 'FAIL' : 'PASS'} ${pass}/${pass + fail}${PAGE ? ` page=${PAGE.slug}` : ''}`);
+  $('selftest').textContent = out.join('\n'); $('selftest').classList.remove('hidden');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,959 @@
+<!doctype html>
+<html data-prerendered="hi" lang="hi">
+<head>
+<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PDF se page alag kaise kare — Split PDF, Extract Pages Free | NextGrade Tools</title>
+<meta name="description" content="Take chosen pages out of a PDF, or save every page as its own PDF in one ZIP. Tap pages or type 1-3, 5. Text and quality stay the same. Free, runs on your phone, nothing is uploaded.">
+<meta name="theme-color" content="#6741d9">
+<link rel="canonical" href="https://nextgrade.in/tools/pdf-merge/split/">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<link rel="manifest" href="../manifest.json">
+<link rel="icon" href="../icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #f3f0ff; --card: #fff; --ink: #1f1640; --muted: #5f5880; --brand: #6741d9; --brand2: #845ef7; --line: #ddd4fb; --soft: #f8f6ff; --ok: #2b8a3e; --warn: #c92a2a; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 8px; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 21px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand small { display: block; font-family: Inter, sans-serif; font-size: 12px; font-weight: 600; color: var(--muted); }
+select, button, input { font: inherit; }
+.langsel, .inp { padding: 7px 9px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+.inp { width: 100%; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: clamp(26px, 6vw, 36px); line-height: 1.15; margin: 4px 0; }
+.sub { color: var(--muted); margin: 0 0 10px; }
+.privacy { background: #ebfbee; border: 1px solid #b2f2bb; color: #1b5e20; border-radius: 12px; padding: 8px 12px; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 4px 18px rgba(103, 65, 217, 0.08); }
+.lbl { font-weight: 700; margin: 0 0 8px; }
+.tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 4px; margin-bottom: 12px; }
+.tab { border: 0; background: transparent; padding: 10px 8px; border-radius: 10px; font-weight: 700; color: var(--muted); cursor: pointer; }
+.tab.on { background: linear-gradient(90deg, var(--brand), var(--brand2)); color: #fff; }
+.hint { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+.drop { border: 2px dashed #a78bfa; border-radius: 16px; padding: 24px 16px; text-align: center; background: var(--soft); cursor: pointer; }
+.drop.over { background: #ece6ff; }
+.drop.slim { padding: 12px; }
+.drop b { display: block; font-size: 18px; margin-bottom: 4px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 700; cursor: pointer; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, var(--brand), var(--brand2)); color: #fff; border: 0; }
+.btn-ok { background: var(--ok); color: #fff; border: 0; }
+.btn-sm { padding: 7px 10px; font-size: 13.5px; border-radius: 10px; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.opts { display: flex; gap: 14px; flex-wrap: wrap; font-size: 14px; margin: 10px 0 0; align-items: center; }
+.opts label { display: flex; gap: 6px; align-items: center; cursor: pointer; }
+.opts b { font-weight: 700; }
+/* merge list */
+#mList { margin-top: 12px; }
+.item { display: grid; grid-template-columns: 26px 56px minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 8px; border: 1px solid var(--line); border-radius: 14px; margin-top: 8px; background: #fff; }
+.item.drag { box-shadow: 0 8px 24px rgba(31, 22, 64, 0.25); border-color: var(--brand); position: relative; z-index: 2; }
+.handle { cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; color: var(--muted); font-size: 18px; text-align: center; line-height: 56px; letter-spacing: -3px; }
+.mthumb { width: 56px; height: 56px; border-radius: 8px; background: var(--soft); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; overflow: hidden; font-size: 22px; }
+.mthumb img, .mthumb canvas { max-width: 100%; max-height: 100%; display: block; }
+.iname { font-weight: 700; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.imeta { font-size: 12.5px; color: var(--muted); }
+.inote { font-size: 12.5px; color: var(--warn); font-weight: 600; }
+.iact { display: flex; gap: 4px; }
+.ib { width: 34px; height: 34px; border-radius: 9px; border: 1px solid var(--line); background: #fff; cursor: pointer; font-weight: 700; color: var(--ink); padding: 0; }
+.ib:disabled { opacity: 0.35; cursor: default; }
+@media (max-width: 420px) { .item { grid-template-columns: 22px 46px minmax(0, 1fr); } .mthumb { width: 46px; height: 46px; } .iact { grid-column: 2 / -1; } .handle { line-height: 46px; } }
+/* split */
+.filebar { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; background: var(--soft); border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px; }
+.filebar .iname { max-width: 60vw; }
+.selrow { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 10px; }
+.rangebox { margin-top: 10px; }
+.rangebox .inp.bad { border-color: var(--warn); box-shadow: 0 0 0 2px rgba(201, 42, 42, 0.15); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(108px, 1fr)); gap: 10px; margin-top: 12px; max-height: 70vh; overflow-y: auto; padding: 2px; }
+.pg { position: relative; }
+.pgsel { width: 100%; aspect-ratio: 1; border: 2px solid var(--line); border-radius: 12px; background: #fafafa; cursor: pointer; padding: 6px; display: flex; align-items: center; justify-content: center; position: relative; }
+.pgsel canvas { max-width: 100%; max-height: 100%; display: block; box-shadow: 0 1px 4px rgba(0,0,0,.25); transition: transform .2s; background: #fff; }
+.pgno { position: absolute; left: 6px; bottom: 6px; background: rgba(31, 22, 64, .75); color: #fff; font-size: 12px; font-weight: 700; border-radius: 6px; padding: 1px 6px; }
+.tick { position: absolute; right: 6px; top: 6px; width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 2px solid var(--line); font-size: 13px; font-weight: 800; line-height: 20px; text-align: center; color: transparent; }
+.pg.on .pgsel { border-color: var(--brand); background: #efe9ff; }
+.pg.on .tick { background: var(--brand); border-color: var(--brand); color: #fff; }
+.grid.del .pg.on .pgsel { border-color: var(--warn); background: #fff0f0; }
+.grid.del .pg.on canvas { opacity: .35; }
+.grid.del .pg.on .tick { background: var(--warn); border-color: var(--warn); }
+.pgrot { position: absolute; right: 6px; bottom: 6px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); background: #fff; cursor: pointer; font-weight: 800; padding: 0; color: var(--ink); }
+.pg.rot .pgrot { background: #ffd43b; border-color: #fab005; }
+.bar { position: sticky; bottom: 0; background: #fff; padding: 10px 0 2px; margin-top: 8px; border-top: 1px solid var(--line); z-index: 3; }
+.msg { margin-top: 10px; padding: 10px 12px; border-radius: 12px; background: #fff5f5; border: 1px solid #ffc9c9; color: var(--warn); font-weight: 600; font-size: 14px; }
+/* result */
+.res { margin-top: 14px; border: 2px solid #b2f2bb; background: #f4fdf5; border-radius: 14px; padding: 12px; }
+.res h2 { margin: 0; font-size: 18px; }
+.total { font-size: 14px; color: var(--muted); font-weight: 600; }
+.namerow { display: flex; align-items: center; gap: 6px; margin: 10px 0; font-size: 14px; }
+.namerow span { white-space: nowrap; font-weight: 600; }
+.namerow .ext { color: var(--muted); }
+.spin { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,.5); border-top-color: #fff; border-radius: 50%; animation: sp 0.8s linear infinite; vertical-align: -2px; }
+.spin.dark { border-color: var(--line); border-top-color: var(--brand); }
+@keyframes sp { to { transform: rotate(360deg); } }
+.hidden { display: none !important; }
+section.info { margin: 26px 0; }
+section.info h2 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: 22px; margin: 0 0 6px; }
+.links { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; }
+.links a { display: block; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; color: var(--ink); text-decoration: none; font-weight: 700; }
+.links a small { display: block; color: var(--muted); font-weight: 400; font-size: 12.5px; }
+.links a.here { border-color: var(--brand); box-shadow: 0 0 0 2px rgba(103, 65, 217, 0.2); }
+details.faq { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin: 8px 0; }
+details.faq summary { font-weight: 700; cursor: pointer; }
+footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top: 1px solid var(--line); margin-top: 24px; }
+.toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 12px; font-weight: 600; z-index: 30; max-width: 92vw; text-align: center; }
+#selftest { white-space: pre-wrap; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px; font-size: 12px; }
+</style>
+<script type="application/ld+json" id="faqLd">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does the original PDF change?","acceptedAnswer":{"@type":"Answer","text":"No. The original file is not touched. A new PDF of the chosen pages is made, which you save under its own name."}},{"@type":"Question","name":"How do I cut a PDF into two parts?","acceptedAnswer":{"@type":"Answer","text":"First type \"1-10\", make the PDF and download it. Then type \"11-\" and make the second PDF. The two parts become separate files."}},{"@type":"Question","name":"How do I get every page as a separate PDF?","acceptedAnswer":{"@type":"Answer","text":"Tap \"Every page as its own PDF (ZIP)\". You get one ZIP holding a PDF for each page. If some pages are chosen, only those get files."}},{"@type":"Question","name":"Can I take pages out of a scanned PDF?","acceptedAnswer":{"@type":"Answer","text":"Yes. In a scanned PDF each page is a picture, and that picture goes into the new PDF unchanged."}},{"@type":"Question","name":"What happens to quality and size?","acceptedAnswer":{"@type":"Answer","text":"Quality stays the same. The size usually drops, because only what the chosen pages need goes into the new file."}}]}</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://nextgrade.in/tools/">📑 NextGrade Tools<small data-t="brandSub">फ़्री · PDF फ़ोन से बाहर नहीं जाती</small></a>
+    <select class="langsel" id="langSel" aria-label="Language">
+      <option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option>
+    </select>
+  </header>
+  <h1 data-t="title">PDF से पेज अलग करें — फ़्री</h1>
+  <p class="sub" data-t="sub">बड़ी PDF में से सिर्फ़ वे पेज निकालें जो चाहिए, या हर पेज की अलग PDF बनाएँ। पेजों पर टैप करें या "1-3, 5" लिखें।</p>
+  <div class="privacy">🔒 <span data-t="privacy">आपकी PDF कहीं अपलोड नहीं होती। सारा काम आपके फ़ोन/ब्राउज़र में होता है।</span></div>
+
+  <div class="card">
+    <div class="tabs" role="tablist">
+      <button class="tab" type="button" role="tab" id="tabMerge" data-mode="merge" data-t="tabMerge"></button>
+      <button class="tab" type="button" role="tab" id="tabSplit" data-mode="split" data-t="tabSplit"></button>
+    </div>
+
+    <!-- merge -->
+    <div id="mergePanel">
+      <div class="drop" id="mDrop" role="button" tabindex="0">
+        <b data-t="mPickTitle"></b>
+        <span class="hint" data-t="mPickHint"></span>
+        <div class="row" style="justify-content:center;margin-top:12px"><button class="btn btn-main" id="mPickBtn" type="button" data-t="pickBtn"></button></div>
+      </div>
+      <input type="file" id="mFile" accept="application/pdf,.pdf,image/*" multiple hidden>
+      <div id="mList"></div>
+      <div id="mTools" class="hidden">
+        <p class="hint" data-t="orderHint"></p>
+        <div class="opts" id="imgOpt"><b data-t="imgPageL"></b>
+          <label><input type="radio" name="imgPage" value="a4" checked> <span data-t="imgA4"></span></label>
+          <label><input type="radio" name="imgPage" value="fit"> <span data-t="imgFit"></span></label>
+        </div>
+        <div class="bar row">
+          <button class="btn btn-main" id="mergeBtn" type="button"></button>
+          <button class="btn btn-sm" id="mAddBtn" type="button" data-t="addMore"></button>
+          <button class="btn btn-sm" id="mClearBtn" type="button" data-t="clear"></button>
+          <span class="total" id="mTotal"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- split / pick pages -->
+    <div id="splitPanel" class="hidden">
+      <div class="drop" id="sDrop" role="button" tabindex="0">
+        <b data-t="sPickTitle"></b>
+        <span class="hint" data-t="sPickHint"></span>
+        <div class="row" style="justify-content:center;margin-top:12px"><button class="btn btn-main" id="sPickBtn" type="button" data-t="pickPdfBtn"></button></div>
+      </div>
+      <input type="file" id="sFile" accept="application/pdf,.pdf" hidden>
+      <div id="sMsg" class="msg hidden"></div>
+      <div id="sWork" class="hidden">
+        <div class="filebar"><div><div class="iname" id="sName"></div><div class="imeta" id="sMeta"></div></div><button class="btn btn-sm" id="sChange" type="button" data-t="changePdf"></button></div>
+        <div class="opts" role="radiogroup"><b data-t="actL"></b>
+          <label><input type="radio" name="act" value="keep" checked> <span data-t="actKeep"></span></label>
+          <label><input type="radio" name="act" value="delete"> <span data-t="actDel"></span></label>
+        </div>
+        <label class="rangebox"><span class="hint" data-t="rangeL"></span><input class="inp" id="range" type="text" inputmode="text" autocomplete="off" placeholder="1-3, 5"></label>
+        <div class="selrow">
+          <button class="btn btn-sm" id="selAll" type="button" data-t="selAll"></button>
+          <button class="btn btn-sm" id="selNone" type="button" data-t="selNone"></button>
+          <button class="btn btn-sm" id="rotAll" type="button" data-t="rotAll"></button>
+          <span class="total" id="selInfo"></span>
+        </div>
+        <p class="hint" data-t="tapHint"></p>
+        <div class="grid" id="grid"></div>
+        <div class="bar row">
+          <button class="btn btn-main" id="makeBtn" type="button"></button>
+          <button class="btn" id="zipBtn" type="button"></button>
+        </div>
+      </div>
+    </div>
+
+    <div id="result" class="res hidden">
+      <h2 data-t="resH"></h2><div class="total" id="resInfo"></div>
+      <label class="namerow"><span data-t="nameL"></span><input class="inp" id="resName" type="text" autocomplete="off"><span class="ext" id="resExt">.pdf</span></label>
+      <div class="row">
+        <button class="btn btn-ok" id="dlBtn" type="button" data-t="dl"></button>
+        <button class="btn" id="shareBtn" type="button" data-t="share"></button>
+        <button class="btn" id="editBtn" type="button" data-t="editPages"></button>
+      </div>
+    </div>
+  </div>
+
+  <pre id="selftest" class="hidden"></pre>
+  <section class="info" id="pageInfo"><h2>PDF स्प्लिट करने का मतलब क्या है?</h2><p>स्प्लिट का मतलब है एक PDF को छोटे हिस्सों में बाँटना। मान लीजिए कॉलेज ने 30 पेज का प्रॉस्पेक्टस भेजा, या बैंक ने पूरे साल का स्टेटमेंट, और आपको सिर्फ़ दो पेज किसी और को भेजने हैं। पूरी फ़ाइल भेजना भारी भी है और बेकार की जानकारी भी चली जाती है। यहाँ आप सिर्फ़ वे पेज चुनकर नई PDF बना सकते हैं। असली PDF जैसी की तैसी रहती है।</p><h2>कब ज़रूरत पड़ती है?</h2><ul><li>फ़ॉर्म किसी डॉक्यूमेंट का सिर्फ़ एक पेज माँगता है — जैसे रिज़ल्ट का वह पेज जिसमें अंक हैं।</li><li>कई सर्टिफ़िकेट एक ही स्कैन में आ गए और पोर्टल हर सर्टिफ़िकेट अलग माँगता है। पोर्टल अक्सर हर फ़ाइल 200 KB से 1 MB तक रखने को कहते हैं; एक पेज की PDF आम तौर पर इससे छोटी होती है।</li><li>नोट्स या किताब की PDF से एक अध्याय निकालकर दोस्त को भेजना।</li><li>बिल या स्टेटमेंट का सिर्फ़ पहला पेज दफ़्तर में जमा करना।</li></ul><h2>स्टेप बाय स्टेप</h2><ol><li>ऊपर <b>PDF चुनें</b> दबाएँ। हर पेज की छोटी तस्वीर दिखेगी।</li><li>जो पेज चाहिए उन पर टैप करें — हर चुने पेज पर ✓ लग जाता है।</li><li>या बॉक्स में नंबर लिखें, जैसे <b>2-4, 7</b>।</li><li>कोई पेज टेढ़ा हो तो उसका ↻ दबाएँ।</li><li><b>चुने पेजों की PDF</b> दबाएँ, नाम बदलें और डाउनलोड या शेयर करें।</li><li>हर पेज अलग फ़ाइल चाहिए तो <b>हर पेज अलग PDF (ZIP)</b> दबाएँ।</li></ol><h2>पेज नंबर कैसे लिखें</h2><p>कॉमा से अलग करें और रेंज के लिए डैश लगाएँ। <b>1-3</b> मतलब 1, 2, 3। <b>5</b> मतलब सिर्फ़ पाँचवाँ। <b>8-</b> मतलब 8 से आख़िरी पेज तक। उल्टा लिख दिया (5-2) तो भी चलेगा। ग़लत नंबर पर बॉक्स लाल हो जाता है और बताता है PDF में कितने पेज हैं।</p><h2>दिक़्क़त आए तो</h2><ul><li><b>ताले वाली PDF:</b> PDF व्यूअर में खोलकर "Print → Save as PDF" से कॉपी बनाएँ, फिर वह डालें।</li><li><b>छोटी तस्वीरें देर से आ रही हैं:</b> बड़ी PDF में तस्वीरें स्क्रॉल करते हुए बनती हैं; पेज चुनना और PDF बनाना तब भी चलता है।</li><li><b>ZIP नहीं खुल रही:</b> फ़ोन के Files ऐप में ZIP पर टैप करें, वह "Extract" का विकल्प देता है।</li></ul><h2>एक PDF या अलग-अलग फ़ाइलें?</h2><p>कुछ पेज एक साथ एक फ़ाइल में चाहिए तो "चुने पेजों की PDF" ठीक है — जैसे रिज़ल्ट के दो पेज जो साथ जाने चाहिए। पोर्टल हर पेज अलग अपलोड करवाता हो तो ZIP वाला बटन दबाएँ: हर पेज अपनी अलग PDF बन जाता है और फ़ाइल के नाम के आख़िर में पेज नंबर जुड़ता है, इसलिए पहचानना आसान रहता है। ZIP खोलकर सिर्फ़ वही फ़ाइल अपलोड करें जो चाहिए।</p><p><b>प्राइवेसी:</b> PDF आपके फ़ोन में ही खुलती और कटती है। कुछ भी अपलोड नहीं होता, इसलिए बैंक स्टेटमेंट या मार्कशीट जैसी निजी फ़ाइलों के लिए भी ठीक है।</p></section>
+  <section class="info"><h2 data-t="moreH">सीधे इस काम के लिए</h2><div class="links" id="links"><a href="../?lang=hi">🔗 PDF जोड़ें<small>कई PDF + फ़ोटो → एक PDF</small></a><a href="../split/?lang=hi" class="here">✂️ PDF से पेज निकालें<small>चुने पेज या हर पेज अलग</small></a><a href="../delete-pages/?lang=hi">🗑️ PDF से पेज हटाएँ<small>फ़ालतू पेज डिलीट, उल्टा पेज सीधा</small></a><a href="../../pdf-compress/?lang=hi">🗜️ PDF छोटी करें<small>फ़ॉर्म की KB सीमा के लिए</small></a><a href="../../doc-scanner/?lang=hi">📷 डॉक्यूमेंट स्कैनर<small>काग़ज़ की फ़ोटो → PDF</small></a><a href="../../image-compress/?lang=hi">🖼️ फ़ोटो का KB कम करें<small>20 / 50 / 100 KB</small></a></div></section>
+  <section class="info"><h2 data-t="faqH">अक्सर पूछे जाने वाले सवाल</h2><div id="faqList"><details class="faq"><summary>क्या असली PDF बदल जाती है?</summary><p>नहीं। असली फ़ाइल को हाथ नहीं लगता। चुने हुए पेजों की एक नई PDF बनती है जिसे आप अलग नाम से सेव करते हैं।</p></details><details class="faq"><summary>एक PDF को दो हिस्सों में कैसे बाँटें?</summary><p>पहले "1-10" लिखकर PDF बनाएँ और डाउनलोड करें। फिर "11-" लिखकर दूसरी PDF बनाएँ। दोनों हिस्से अलग फ़ाइलें बन जाते हैं।</p></details><details class="faq"><summary>हर पेज अलग PDF कैसे मिलेगी?</summary><p>"हर पेज अलग PDF (ZIP)" दबाएँ। एक ZIP बनती है जिसमें हर पेज की अपनी PDF होती है। कुछ पेज चुने हों तो सिर्फ़ उनकी फ़ाइलें बनती हैं।</p></details><details class="faq"><summary>स्कैन की हुई PDF के पेज भी निकल सकते हैं?</summary><p>हाँ। स्कैन की हुई PDF में हर पेज एक तस्वीर होता है, और वह तस्वीर बिना बदले नई PDF में चली जाती है।</p></details><details class="faq"><summary>पेज निकालने के बाद क्वालिटी या साइज़?</summary><p>क्वालिटी वही रहती है। साइज़ आम तौर पर कम हो जाता है, क्योंकि सिर्फ़ चुने पेजों का सामान नई फ़ाइल में जाता है।</p></details></div></section>
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer">फ़्री टूल · कुछ भी अपलोड नहीं होता</span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+</div>
+
+<script>window.PM_PAGE = {"mode": "split", "act": "keep", "slug": "split/", "base": "../", "T": {"hinglish": {"title": "PDF se page alag karo — free", "sub": "Badi PDF mein se sirf woh pages nikaalo jo chahiye, ya har page ki alag PDF banao. Pages par tap karo ya \"1-3, 5\" likho.", "info": "<h2>PDF split karna matlab kya?<\/h2><p>Split ka matlab hai ek PDF ko chhote hisson mein baantna. Maan lo college ne 30 page ki prospectus bheji, ya bank ne poore saal ka statement, aur aapko sirf do page kisi aur ko bhejne hain. Poori file bhejna bhaari bhi hai aur bekaar ki jaankari bhi chali jaati hai. Yahan aap sirf woh pages chun kar nayi PDF bana sakte ho. Asli PDF waisi ki waisi rehti hai.<\/p><h2>Kab zaroorat padti hai?<\/h2><ul><li>Form ek document ka sirf ek page maangta hai — jaise result ka woh page jismein marks hain.<\/li><li>Kai certificates ek hi scan mein aa gaye aur portal har certificate alag maangta hai. Portal aksar har file 200 KB se 1 MB tak rakhne ko kehte hain; ek page ki PDF aam taur par isse chhoti hoti hai.<\/li><li>Notes ya kitaab ki PDF se ek chapter nikaal kar dost ko bhejna.<\/li><li>Bill ya statement ka sirf pehla page office mein jama karna.<\/li><\/ul><h2>Step by step<\/h2><ol><li>Upar <b>PDF chuno<\/b> dabao. Har page ki chhoti photo dikhegi.<\/li><li>Jo pages chahiye un par tap karo — har chuna page par ✓ lag jaata hai.<\/li><li>Ya box mein number likho, jaise <b>2-4, 7<\/b>.<\/li><li>Koi page tedha ho to uska ↻ dabao.<\/li><li><b>Chune pages ki PDF<\/b> dabao, naam badlo aur Download ya Share karo.<\/li><li>Har page alag file chahiye to <b>Har page alag PDF (ZIP)<\/b> dabao.<\/li><\/ol><h2>Page number kaise likhein<\/h2><p>Comma se alag karo aur range ke liye dash lagao. <b>1-3<\/b> matlab 1, 2, 3. <b>5<\/b> matlab sirf paanchwa. <b>8-<\/b> matlab 8 se aakhri page tak. Ulta likh diya (5-2) to bhi chalega. Galat number par box laal ho jaata hai aur batata hai PDF mein kitne pages hain.<\/p><h2>Dikkat aaye to<\/h2><ul><li><b>Taale wali PDF:<\/b> PDF viewer mein kholkar \"Print → Save as PDF\" se copy banao, phir woh daalo.<\/li><li><b>Chhoti photos der se aa rahi hain:<\/b> badi PDF mein photos scroll karte hue banti hain; pages chunna aur PDF banana tab bhi chalta hai.<\/li><li><b>ZIP nahi khul rahi:<\/b> phone ke Files app mein ZIP par tap karo, woh \"Extract\" ka option deta hai.<\/li><\/ul><h2>Ek PDF ya alag-alag files?<\/h2><p>Kuch pages ek saath ek file mein chahiye to \"Chune pages ki PDF\" theek hai — jaise result ke do pages jo saath jaane chahiye. Portal har page alag upload karwata ho to ZIP wala button dabao: har page apni alag PDF ban jaata hai aur file ke naam ke aakhir mein page number judta hai, isliye pehchaanna aasaan rehta hai. ZIP kholkar sirf woh file upload karo jo chahiye.<\/p><p><b>Privacy:<\/b> PDF aapke phone mein hi khulti aur kat-ti hai. Kuch bhi upload nahi hota, isliye bank statement ya marksheet jaisi niji files ke liye bhi theek hai.<\/p>", "faq": [["Kya asli PDF badal jaati hai?", "Nahi. Asli file ko haath nahi lagta. Chune hue pages ki ek nayi PDF banti hai jise aap alag naam se save karte ho."], ["Ek PDF ko do hisson mein kaise baantein?", "Pehle \"1-10\" likh kar PDF banao aur download karo. Phir \"11-\" likh kar doosri PDF banao. Dono hisse alag files ban jaate hain."], ["Har page alag PDF kaise milegi?", "\"Har page alag PDF (ZIP)\" dabao. Ek ZIP banti hai jismein har page ki apni PDF hoti hai. Kuch pages chune hon to sirf unki files banti hain."], ["Scanned PDF ke pages bhi nikal sakte hain?", "Haan. Scan ki hui PDF mein har page ek photo hota hai, aur woh photo bina badle nayi PDF mein chali jaati hai."], ["Page nikaalne ke baad quality ya size?", "Quality wahi rehti hai. Size aam taur par kam ho jaata hai, kyunki sirf chune pages ka saamaan nayi file mein jaata hai."]]}, "hi": {"title": "PDF से पेज अलग करें — फ़्री", "sub": "बड़ी PDF में से सिर्फ़ वे पेज निकालें जो चाहिए, या हर पेज की अलग PDF बनाएँ। पेजों पर टैप करें या \"1-3, 5\" लिखें।", "info": "<h2>PDF स्प्लिट करने का मतलब क्या है?<\/h2><p>स्प्लिट का मतलब है एक PDF को छोटे हिस्सों में बाँटना। मान लीजिए कॉलेज ने 30 पेज का प्रॉस्पेक्टस भेजा, या बैंक ने पूरे साल का स्टेटमेंट, और आपको सिर्फ़ दो पेज किसी और को भेजने हैं। पूरी फ़ाइल भेजना भारी भी है और बेकार की जानकारी भी चली जाती है। यहाँ आप सिर्फ़ वे पेज चुनकर नई PDF बना सकते हैं। असली PDF जैसी की तैसी रहती है।<\/p><h2>कब ज़रूरत पड़ती है?<\/h2><ul><li>फ़ॉर्म किसी डॉक्यूमेंट का सिर्फ़ एक पेज माँगता है — जैसे रिज़ल्ट का वह पेज जिसमें अंक हैं।<\/li><li>कई सर्टिफ़िकेट एक ही स्कैन में आ गए और पोर्टल हर सर्टिफ़िकेट अलग माँगता है। पोर्टल अक्सर हर फ़ाइल 200 KB से 1 MB तक रखने को कहते हैं; एक पेज की PDF आम तौर पर इससे छोटी होती है।<\/li><li>नोट्स या किताब की PDF से एक अध्याय निकालकर दोस्त को भेजना।<\/li><li>बिल या स्टेटमेंट का सिर्फ़ पहला पेज दफ़्तर में जमा करना।<\/li><\/ul><h2>स्टेप बाय स्टेप<\/h2><ol><li>ऊपर <b>PDF चुनें<\/b> दबाएँ। हर पेज की छोटी तस्वीर दिखेगी।<\/li><li>जो पेज चाहिए उन पर टैप करें — हर चुने पेज पर ✓ लग जाता है।<\/li><li>या बॉक्स में नंबर लिखें, जैसे <b>2-4, 7<\/b>।<\/li><li>कोई पेज टेढ़ा हो तो उसका ↻ दबाएँ।<\/li><li><b>चुने पेजों की PDF<\/b> दबाएँ, नाम बदलें और डाउनलोड या शेयर करें।<\/li><li>हर पेज अलग फ़ाइल चाहिए तो <b>हर पेज अलग PDF (ZIP)<\/b> दबाएँ।<\/li><\/ol><h2>पेज नंबर कैसे लिखें<\/h2><p>कॉमा से अलग करें और रेंज के लिए डैश लगाएँ। <b>1-3<\/b> मतलब 1, 2, 3। <b>5<\/b> मतलब सिर्फ़ पाँचवाँ। <b>8-<\/b> मतलब 8 से आख़िरी पेज तक। उल्टा लिख दिया (5-2) तो भी चलेगा। ग़लत नंबर पर बॉक्स लाल हो जाता है और बताता है PDF में कितने पेज हैं।<\/p><h2>दिक़्क़त आए तो<\/h2><ul><li><b>ताले वाली PDF:<\/b> PDF व्यूअर में खोलकर \"Print → Save as PDF\" से कॉपी बनाएँ, फिर वह डालें।<\/li><li><b>छोटी तस्वीरें देर से आ रही हैं:<\/b> बड़ी PDF में तस्वीरें स्क्रॉल करते हुए बनती हैं; पेज चुनना और PDF बनाना तब भी चलता है।<\/li><li><b>ZIP नहीं खुल रही:<\/b> फ़ोन के Files ऐप में ZIP पर टैप करें, वह \"Extract\" का विकल्प देता है।<\/li><\/ul><h2>एक PDF या अलग-अलग फ़ाइलें?<\/h2><p>कुछ पेज एक साथ एक फ़ाइल में चाहिए तो \"चुने पेजों की PDF\" ठीक है — जैसे रिज़ल्ट के दो पेज जो साथ जाने चाहिए। पोर्टल हर पेज अलग अपलोड करवाता हो तो ZIP वाला बटन दबाएँ: हर पेज अपनी अलग PDF बन जाता है और फ़ाइल के नाम के आख़िर में पेज नंबर जुड़ता है, इसलिए पहचानना आसान रहता है। ZIP खोलकर सिर्फ़ वही फ़ाइल अपलोड करें जो चाहिए।<\/p><p><b>प्राइवेसी:<\/b> PDF आपके फ़ोन में ही खुलती और कटती है। कुछ भी अपलोड नहीं होता, इसलिए बैंक स्टेटमेंट या मार्कशीट जैसी निजी फ़ाइलों के लिए भी ठीक है।<\/p>", "faq": [["क्या असली PDF बदल जाती है?", "नहीं। असली फ़ाइल को हाथ नहीं लगता। चुने हुए पेजों की एक नई PDF बनती है जिसे आप अलग नाम से सेव करते हैं।"], ["एक PDF को दो हिस्सों में कैसे बाँटें?", "पहले \"1-10\" लिखकर PDF बनाएँ और डाउनलोड करें। फिर \"11-\" लिखकर दूसरी PDF बनाएँ। दोनों हिस्से अलग फ़ाइलें बन जाते हैं।"], ["हर पेज अलग PDF कैसे मिलेगी?", "\"हर पेज अलग PDF (ZIP)\" दबाएँ। एक ZIP बनती है जिसमें हर पेज की अपनी PDF होती है। कुछ पेज चुने हों तो सिर्फ़ उनकी फ़ाइलें बनती हैं।"], ["स्कैन की हुई PDF के पेज भी निकल सकते हैं?", "हाँ। स्कैन की हुई PDF में हर पेज एक तस्वीर होता है, और वह तस्वीर बिना बदले नई PDF में चली जाती है।"], ["पेज निकालने के बाद क्वालिटी या साइज़?", "क्वालिटी वही रहती है। साइज़ आम तौर पर कम हो जाता है, क्योंकि सिर्फ़ चुने पेजों का सामान नई फ़ाइल में जाता है।"]]}, "en": {"title": "Split a PDF and extract pages — free", "sub": "Take just the pages you need out of a big PDF, or turn every page into its own PDF. Tap the pages or type \"1-3, 5\".", "info": "<h2>What does splitting a PDF mean?<\/h2><p>Splitting means cutting one PDF into smaller parts. Say a college sent a 30-page prospectus, or a bank sent a whole year's statement, and you only need to pass on two pages. Sending the full file is heavy and shares things nobody asked for. Here you choose just those pages and get a new PDF. The original PDF stays exactly as it was.<\/p><h2>When do you need it?<\/h2><ul><li>A form asks for only one page of a document — such as the page of a result that shows the marks.<\/li><li>Several certificates ended up in one scan, but the portal wants each one separately. Portals often ask for each file to be between 200 KB and 1 MB; a one-page PDF is usually well under that.<\/li><li>Sending a friend one chapter out of a PDF of notes or a book.<\/li><li>Handing in only the first page of a bill or a statement at an office.<\/li><\/ul><h2>Step by step<\/h2><ol><li>Tap <b>Choose PDF<\/b> above. A small picture of every page appears.<\/li><li>Tap the pages you want — each chosen page gets a ✓.<\/li><li>Or type numbers in the box, like <b>2-4, 7<\/b>.<\/li><li>If a page is sideways, tap its ↻.<\/li><li>Tap <b>PDF of chosen pages<\/b>, rename it, then Download or Share.<\/li><li>Want every page as a separate file? Tap <b>Every page as its own PDF (ZIP)<\/b>.<\/li><\/ol><h2>How to type page numbers<\/h2><p>Separate with commas and use a dash for a range. <b>1-3<\/b> means 1, 2 and 3. <b>5<\/b> means just the fifth. <b>8-<\/b> means from 8 to the last page. Typed it backwards (5-2)? That works too. A wrong number turns the box red and tells you how many pages the PDF has.<\/p><h2>If something goes wrong<\/h2><ul><li><b>A locked PDF:<\/b> open it in a PDF viewer, make a copy with \"Print → Save as PDF\", and add that copy.<\/li><li><b>The small pictures appear slowly:<\/b> in a big PDF they are drawn as you scroll; choosing pages and making the PDF works meanwhile.<\/li><li><b>The ZIP won't open:<\/b> tap it in your phone's Files app; it offers an \"Extract\" option.<\/li><\/ul><h2>One PDF or separate files?<\/h2><p>If you want a few pages together in one file, use \"PDF of chosen pages\" — for example two pages of a result that belong together. If a portal wants each page uploaded on its own, use the ZIP button instead: every page becomes its own PDF, and the page number is added to the end of each file name, so it is easy to tell them apart. Open the ZIP and upload only the file you need.<\/p><p><b>Privacy:<\/b> the PDF is opened and cut inside your phone. Nothing is uploaded, so it is fine for private files like bank statements or marksheets.<\/p>", "faq": [["Does the original PDF change?", "No. The original file is not touched. A new PDF of the chosen pages is made, which you save under its own name."], ["How do I cut a PDF into two parts?", "First type \"1-10\", make the PDF and download it. Then type \"11-\" and make the second PDF. The two parts become separate files."], ["How do I get every page as a separate PDF?", "Tap \"Every page as its own PDF (ZIP)\". You get one ZIP holding a PDF for each page. If some pages are chosen, only those get files."], ["Can I take pages out of a scanned PDF?", "Yes. In a scanned PDF each page is a picture, and that picture goes into the new PDF unchanged."], ["What happens to quality and size?", "Quality stays the same. The size usually drops, because only what the chosen pages need goes into the new file."]]}, "bn": {"title": "PDF থেকে পাতা আলাদা করুন — ফ্রি", "sub": "বড় PDF থেকে শুধু দরকারি পাতাগুলো বের করুন, বা প্রতিটি পাতার আলাদা PDF বানান। পাতায় ট্যাপ করুন বা \"1-3, 5\" লিখুন।", "info": "<h2>PDF স্প্লিট করা মানে কী?<\/h2><p>স্প্লিট মানে একটা PDF-কে ছোট ছোট ভাগে কাটা। ধরুন কলেজ 30 পাতার প্রসপেক্টাস পাঠিয়েছে, বা ব্যাংক সারা বছরের স্টেটমেন্ট, আর আপনাকে শুধু দুটো পাতা কাউকে পাঠাতে হবে। পুরো ফাইল পাঠানো ভারী, আর অদরকারি তথ্যও চলে যায়। এখানে শুধু সেই পাতাগুলো বেছে নতুন PDF বানাতে পারেন। আসল PDF যেমন ছিল তেমনই থাকে।<\/p><h2>কখন দরকার হয়?<\/h2><ul><li>ফর্ম কোনো ডকুমেন্টের শুধু একটা পাতা চায় — যেমন রেজাল্টের যে পাতায় নম্বর আছে।<\/li><li>অনেক সার্টিফিকেট একটাই স্ক্যানে চলে এসেছে, কিন্তু পোর্টাল প্রতিটি আলাদা চায়। পোর্টাল প্রায়ই প্রতিটি ফাইল 200 KB থেকে 1 MB-র মধ্যে রাখতে বলে; এক পাতার PDF সাধারণত এর চেয়ে ছোট হয়।<\/li><li>নোট বা বইয়ের PDF থেকে একটা অধ্যায় বের করে বন্ধুকে পাঠানো।<\/li><li>বিল বা স্টেটমেন্টের শুধু প্রথম পাতা অফিসে জমা দেওয়া।<\/li><\/ul><h2>ধাপে ধাপে<\/h2><ol><li>ওপরে <b>PDF বাছুন<\/b> চাপুন। প্রতিটি পাতার ছোট ছবি দেখাবে।<\/li><li>যে পাতাগুলো চান সেগুলোয় ট্যাপ করুন — বাছা পাতায় ✓ পড়ে যায়।<\/li><li>বা বাক্সে নম্বর লিখুন, যেমন <b>2-4, 7<\/b>।<\/li><li>কোনো পাতা কাত হলে তার ↻ চাপুন।<\/li><li><b>বাছা পাতার PDF<\/b> চাপুন, নাম বদলান, তারপর ডাউনলোড বা শেয়ার।<\/li><li>প্রতিটি পাতা আলাদা ফাইল চাইলে <b>প্রতিটি পাতা আলাদা PDF (ZIP)<\/b> চাপুন।<\/li><\/ol><h2>পাতার নম্বর কীভাবে লিখবেন<\/h2><p>কমা দিয়ে আলাদা করুন আর রেঞ্জের জন্য ড্যাশ দিন। <b>1-3<\/b> মানে 1, 2, 3। <b>5<\/b> মানে শুধু পঞ্চম পাতা। <b>8-<\/b> মানে 8 থেকে শেষ পাতা পর্যন্ত। উল্টো লিখলেও (5-2) চলবে। ভুল নম্বরে বাক্স লাল হয়ে যায় আর বলে দেয় PDF-এ কত পাতা আছে।<\/p><h2>সমস্যা হলে<\/h2><ul><li><b>তালা দেওয়া PDF:<\/b> PDF ভিউয়ারে খুলে \"Print → Save as PDF\" দিয়ে কপি বানান, তারপর সেটা দিন।<\/li><li><b>ছোট ছবিগুলো দেরিতে আসছে:<\/b> বড় PDF-এ স্ক্রল করতে করতে ছবি তৈরি হয়; তার মধ্যেও পাতা বাছা আর PDF বানানো চলে।<\/li><li><b>ZIP খুলছে না:<\/b> ফোনের Files অ্যাপে ZIP-এ ট্যাপ করুন, \"Extract\" অপশন পাবেন।<\/li><\/ul><h2>ছোট্ট কয়েকটা টিপস<\/h2><ul><li>নতুন ফাইলের নামে বিষয়টা লিখে দিন, যেমন \"marksheet-page-2\", পরে খুঁজতে সুবিধা হবে।<\/li><li>পাঠানোর আগে ফাইলটা একবার খুলে দেখে নিন ঠিক পাতাগুলোই এসেছে কি না।<\/li><li>অনেক পাতার PDF হলে নম্বর লিখে বাছাই সবচেয়ে তাড়াতাড়ি হয়।<\/li><li>একই PDF থেকে বারবার আলাদা অংশ বের করতে চাইলে প্রতিবার নতুন নম্বর লিখে নতুন ফাইল বানান; আসল PDF আবার বাছতে হয় না।<\/li><li>ফোনে জায়গা কম থাকলে কাজ শেষে পুরোনো বড় PDF মুছে দিতে পারেন, নতুন ছোট ফাইলটা রেখে।<\/li><\/ul><h2>এক্সট্র্যাক্ট নাকি আলাদা আলাদা ফাইল?<\/h2><p>যদি কয়েকটা পাতা একসাথে একটা ফাইলে চান, তাহলে \"বাছা পাতার PDF\" ভালো — যেমন রেজাল্টের দুটো পাতা একসাথে। আর যদি পোর্টাল প্রতিটি পাতা আলাদা আপলোড করতে বলে, তাহলে ZIP-এর বোতাম চাপুন: প্রতিটি পাতা নিজের নামে আলাদা PDF হয়ে যায়, নামের শেষে পাতার নম্বর থাকে, তাই কোনটা কোন পাতা খুঁজে পেতে অসুবিধা হয় না। ZIP খুলে যে ফাইল দরকার শুধু সেটাই আপলোড করুন।<\/p><p><b>প্রাইভেসি:<\/b> PDF আপনার ফোনের ভেতরেই খোলে আর কাটা হয়। কিছুই আপলোড হয় না, তাই ব্যাংক স্টেটমেন্ট বা মার্কশিটের মতো ব্যক্তিগত ফাইলের জন্যও নিরাপদ।<\/p>", "faq": [["আসল PDF কি বদলে যায়?", "না। আসল ফাইলে হাত পড়ে না। বাছা পাতাগুলোর একটা নতুন PDF তৈরি হয়, যেটা আপনি আলাদা নামে সেভ করেন।"], ["একটা PDF দুই ভাগে কীভাবে কাটব?", "আগে \"1-10\" লিখে PDF বানিয়ে ডাউনলোড করুন। তারপর \"11-\" লিখে দ্বিতীয় PDF বানান। দুটো ভাগ আলাদা ফাইল হয়ে যায়।"], ["প্রতিটি পাতা আলাদা PDF কীভাবে পাব?", "\"প্রতিটি পাতা আলাদা PDF (ZIP)\" চাপুন। একটা ZIP তৈরি হয়, যাতে প্রতিটি পাতার নিজের PDF থাকে। কিছু পাতা বাছা থাকলে শুধু সেগুলোর ফাইল হয়।"], ["স্ক্যান করা PDF থেকেও পাতা বের করা যায়?", "হ্যাঁ। স্ক্যান করা PDF-এ প্রতিটি পাতা একটা ছবি, আর সেই ছবি না বদলে নতুন PDF-এ চলে যায়।"], ["পাতা বের করার পর কোয়ালিটি বা সাইজ?", "কোয়ালিটি একই থাকে। সাইজ সাধারণত কমে, কারণ শুধু বাছা পাতার দরকারি জিনিসই নতুন ফাইলে যায়।"]]}}};</script>
+<script>
+'use strict';
+const T = {
+  hinglish: {
+    brandSub: 'Free · PDF phone se bahar nahi jaati', title: 'PDF jodo ya pages alag karo — free',
+    sub: 'Kai PDF aur photos ko ek PDF mein jodo, ya ek PDF se kuch pages nikaalo, hatao ya ghumao. Text aur quality bilkul waisi hi rehti hai.',
+    privacy: 'Aapki PDF kahin upload nahi hoti. Saara kaam aapke phone/browser mein hota hai.',
+    tabMerge: '🔗 PDF jodo', tabSplit: '✂️ Pages alag karo',
+    mPickTitle: 'PDF ya photos chuno — jitni chahiye', mPickHint: 'PDF, JPG, PNG. Har photo ek page ban jaati hai. Order baad mein badal sakte ho.', pickBtn: '📄 Files chuno', addMore: '➕ Aur jodo', clear: '🗑️ Saaf karo',
+    orderHint: '⋮⋮ pakad kar upar-neeche khiskao, ya ↑ ↓ dabao. Sabse upar wali file PDF mein sabse pehle aayegi.',
+    imgPageL: 'Photo wala page:', imgA4: 'A4 size', imgFit: 'Photo jitna',
+    mergeBtn: (n) => `🔗 ${n} files ki ek PDF banao`, mTotal: (n, p) => `${n} files · ${p} pages`, pagesN: (n) => `${n} page`, imgItem: 'Photo · 1 page',
+    working: 'Ban rahi hai…', reading: 'Khul rahi hai…', needMore: 'Jodne ke liye kam se kam 2 files daalo.',
+    up: 'Upar', down: 'Neeche', remove: 'Hatao',
+    sPickTitle: 'Ek PDF chuno', sPickHint: 'Har page ki chhoti photo dikhegi. Tap karke pages chuno ya number likho.', pickPdfBtn: '📄 PDF chuno', changePdf: '🔄 Doosri PDF',
+    actL: 'Chune hue pages ka kya karein?', actKeep: 'Sirf inki nayi PDF banao', actDel: 'Inhe hata do, baaki rakho',
+    rangeL: 'Ya page number likho (jaise 1-3, 5):', rangeBad: (n) => `Samajh nahi aaya. Aise likho: 1-3, 5 (yeh PDF 1 se ${n} page tak hai).`,
+    selAll: '☑️ Sab chuno', selNone: '⬜ Koi nahi', rotAll: '↻ Sab ghumao', selInfo: (k, n) => `${n} mein se ${k} chune`,
+    tapHint: 'Page par tap = chuno / hatao. ↻ = us page ko seedha karo (ghumao).', rotate: 'Ghumao',
+    makeKeep: '✂️ Chune pages ki PDF', makeDel: '🗑️ Chune pages hata kar PDF', zipBtn: '📦 Har page alag PDF (ZIP)',
+    noSel: 'Pehle kuch pages chuno (tap karo ya number likho).', allDel: 'Saare pages hata doge to kuch nahi bachega. Kam se kam ek page chhodo.',
+    resH: '✅ Taiyaar hai', resPdf: (n, s) => `${n} page · ${s}`, resZip: (n, s) => `${n} alag PDF ek ZIP mein · ${s}`, nameL: 'Naam:', dl: '⬇️ Download', share: '📲 Share', editPages: '✂️ Iske pages badlo',
+    locked: (n) => `${n}: is PDF par taala hai (password ya protection). Ise apne PDF viewer mein kholkar "Print → Save as PDF" se nayi copy banao, phir woh daalo.`,
+    badPdf: (n) => `${n}: yeh PDF khul nahi payi. Ho sakta hai file poori download na hui ho.`,
+    badImg: (n) => `${n}: yeh photo nahi khul payi. JPG ya PNG daalo (iPhone ki HEIC photo ho to uska screenshot).`,
+    notPdf: 'Yahan ek PDF file chuno.', skipped: (n) => `${n}: yeh PDF ya photo nahi hai, chhod di.`, failed: 'Kuch gadbad hui. Dobara koshish karo; bahut badi file ho to kam pages ke saath.', libFail: 'Tool load nahi hua. Internet chalu karke page dobara kholo.',
+    saved: '✅ Phone mein save ho gaya', zipMade: '✅ ZIP ban gayi',
+    moreH: 'Seedha is kaam ke liye', lMerge: ['🔗 PDF jodo', 'Kai PDF + photos → ek PDF'], lSplit: ['✂️ PDF se page nikaalo', 'Chune pages ya har page alag'], lDelete: ['🗑️ PDF se page hatao', 'Faltu page delete, ulta page seedha'], lCompress: ['🗜️ PDF chhoti karo', 'Form ki KB limit ke liye'], lScan: ['📷 Document Scanner', 'Kaagaz ki photo → PDF'], lImg: ['🖼️ Photo ka KB kam karo', '20 / 50 / 100 KB'],
+    aboutH: "Yeh tool kya karta hai?",
+    about: ["Online form, college admission, naukri ki application ya bank ka kaam — aksar kaha jaata hai ki saare documents <b>ek hi PDF</b> mein bhejo. Kabhi ulta hota hai: 40 page ki PDF mein se sirf ek page chahiye hota hai. Yeh tool dono kaam karta hai. Kai PDF aur photos ko ek file mein <b>jodta</b> hai, aur ek PDF ke pages ko <b>alag karta</b>, <b>hataata</b> ya <b>ghumaata</b> hai.", "Pages ko photo bana kar dobara nahi chhaapa jaata. Har page jaisa hai waisa hi nayi file mein copy hota hai. Isliye text select hota rehta hai, quality waisi hi rehti hai aur file bekaar mein badi nahi hoti. Sab kaam aapke phone ke browser mein hota hai — na account, na app install, na watermark."],
+    whenH: "Kab kaam aata hai?",
+    when: ["Admission ya scholarship form jo marksheet, certificate aur ID ki ek hi PDF maangta hai. Aise portal aksar 1–2 MB tak ki file lete hain.", "Phone se kheenchi alag-alag photos (ID card ka aage-peeche, marksheet ke do panne) ko ek PDF banana.", "Badi PDF mein se sirf zaroori page bhejna — jaise result ka ek page ya bill ka pehla page — WhatsApp ya email par.", "Scanner se aaye khaali ya ulte pages hatana ya seedhe karna, form jama karne se pehle.", "Lambi PDF ke har page ko alag file banana, jab portal har document alag-alag upload karwata hai."],
+    probH: "Aam dikkatein aur unka hal",
+    probs: ["<b>\"Taala hai / password\" wala message:</b> PDF protected hai. Use PDF viewer mein kholkar \"Print → Save as PDF\" karo aur nayi copy yahan daalo.", "<b>Judi hui PDF form ki limit se badi hai:</b> photos ka KB pehle kam karo (Photo Compressor se) ya baad mein PDF Compressor chalao.", "<b>Photo PDF mein tedhi aayi:</b> \"Pages alag karo\" mein us page ka ↻ dabao aur nayi PDF banao.", "<b>iPhone ki photo nahi judi:</b> HEIC photo har browser mein nahi khulti. Settings → Camera → Formats → \"Most Compatible\" karo, ya screenshot daalo.", "<b>Download ke baad file nahi mili:</b> phone ke Downloads folder ya Files app mein dekho. Share button se seedhe WhatsApp ya Drive mein bhi bhej sakte ho."],
+    howH: 'Kaise karein',
+    how: ['<b>🔗 PDF jodo</b> mein PDF aur photos chuno — ek saath ya ek-ek karke.', 'Order theek karo: ⋮⋮ se khiskao ya ↑ ↓ dabao. Galat file ✕ se hatao.', '<b>Ek PDF banao</b> dabao. Naam badalna ho to badlo, phir <b>Download</b> ya <b>Share</b>.', 'Kuch pages nikaalne, hataane ya ghumaane ke liye <b>✂️ Pages alag karo</b> kholo, PDF chuno, pages par tap karo ya "1-3, 5" likho.', '<b>Chune pages ki PDF</b> dabao — ya har page alag chahiye to <b>Har page alag PDF (ZIP)</b>.'],
+    tipsH: 'Kaam ki baatein',
+    tips: ['Form "saare documents ek PDF mein" maange to marksheet, certificate, ID sab yahan jodo. Photo bhi seedhe daal sakte ho, woh apne aap page ban jaati hai.', 'Judi hui PDF form ki KB limit se badi ho to use PDF Compressor se chhota karo.', 'Koi page ulta ya tircha hai? <b>Pages alag karo</b> mein us page ka ↻ dabao aur nayi PDF bana lo.', 'Yeh tool pages ko photo mein nahi badalta. Isliye text select aur search hota rehta hai, aur quality ek dum wahi rehti hai.', 'Bahut badi PDF (sau se zyada pages) purane phone par thoda time le sakti hai. Tab tak page band mat karo.'],
+    faqH: 'Aksar pooche jaane wale sawaal',
+    faq: [['Kya meri PDF kisi server par jaati hai?', 'Nahi. Jodna, kaatna, ghumaana sab aapke phone/browser ke andar hota hai. Page ek baar khul jaaye to internet band karke bhi chalta hai.'], ['PDF se ek page alag kaise karein?', '"Pages alag karo" kholo, PDF chuno, us page par tap karo (ya number likho) aur "Chune pages ki PDF" dabao. Har page alag file chahiye to "Har page alag PDF (ZIP)" dabao.'], ['Do PDF ek kaise karein?', '"PDF jodo" mein dono PDF chuno, order dekh lo aur "Ek PDF banao" dabao. Teen, chaar ya zyada bhi ho sakti hain.'], ['Quality kam to nahi hogi?', 'Nahi. Pages jaise hain waise hi copy hote hain — text, photo, sab. JPG/PNG photo bhi bina dobara compress kiye lagti hai.'], ['Password wali PDF kyun nahi khulti?', 'Taale wali PDF ko yeh tool badal nahi sakta. Use apne PDF viewer mein kholkar "Print → Save as PDF" karo; nayi copy bina taale ke banti hai. Woh yahan daalo.']],
+    privH: 'Aapki PDF, aapke paas', privText: 'Yeh tool bina kisi server ke aapke phone/browser mein chalta hai. Aapki PDF aur photos kahin upload nahi hoti, kahin save nahi hoti, aur hum unhe dekh bhi nahi sakte. Page band karte hi sab mit jaata hai.',
+    footer: 'Free tool · kuch bhi upload nahi hota',
+  },
+  hi: {
+    brandSub: 'फ़्री · PDF फ़ोन से बाहर नहीं जाती', title: 'PDF जोड़ें या पेज अलग करें — फ़्री',
+    sub: 'कई PDF और फ़ोटो को एक PDF में जोड़ें, या एक PDF से कुछ पेज निकालें, हटाएँ या घुमाएँ। टेक्स्ट और क्वालिटी बिल्कुल वैसी ही रहती है।',
+    privacy: 'आपकी PDF कहीं अपलोड नहीं होती। सारा काम आपके फ़ोन/ब्राउज़र में होता है।',
+    tabMerge: '🔗 PDF जोड़ें', tabSplit: '✂️ पेज अलग करें',
+    mPickTitle: 'PDF या फ़ोटो चुनें — जितनी चाहिए', mPickHint: 'PDF, JPG, PNG। हर फ़ोटो एक पेज बन जाती है। क्रम बाद में बदल सकते हैं।', pickBtn: '📄 फ़ाइलें चुनें', addMore: '➕ और जोड़ें', clear: '🗑️ साफ़ करें',
+    orderHint: '⋮⋮ पकड़कर ऊपर-नीचे खिसकाएँ, या ↑ ↓ दबाएँ। सबसे ऊपर वाली फ़ाइल PDF में सबसे पहले आएगी।',
+    imgPageL: 'फ़ोटो वाला पेज:', imgA4: 'A4 साइज़', imgFit: 'फ़ोटो जितना',
+    mergeBtn: (n) => `🔗 ${n} फ़ाइलों की एक PDF बनाएँ`, mTotal: (n, p) => `${n} फ़ाइलें · ${p} पेज`, pagesN: (n) => `${n} पेज`, imgItem: 'फ़ोटो · 1 पेज',
+    working: 'बन रही है…', reading: 'खुल रही है…', needMore: 'जोड़ने के लिए कम से कम 2 फ़ाइलें डालें।',
+    up: 'ऊपर', down: 'नीचे', remove: 'हटाएँ',
+    sPickTitle: 'एक PDF चुनें', sPickHint: 'हर पेज की छोटी तस्वीर दिखेगी। टैप करके पेज चुनें या नंबर लिखें।', pickPdfBtn: '📄 PDF चुनें', changePdf: '🔄 दूसरी PDF',
+    actL: 'चुने हुए पेजों का क्या करें?', actKeep: 'सिर्फ़ इनकी नई PDF बनाएँ', actDel: 'इन्हें हटा दें, बाक़ी रखें',
+    rangeL: 'या पेज नंबर लिखें (जैसे 1-3, 5):', rangeBad: (n) => `समझ नहीं आया। ऐसे लिखें: 1-3, 5 (यह PDF 1 से ${n} पेज तक है)।`,
+    selAll: '☑️ सब चुनें', selNone: '⬜ कोई नहीं', rotAll: '↻ सब घुमाएँ', selInfo: (k, n) => `${n} में से ${k} चुने`,
+    tapHint: 'पेज पर टैप = चुनें / हटाएँ। ↻ = उस पेज को सीधा करें (घुमाएँ)।', rotate: 'घुमाएँ',
+    makeKeep: '✂️ चुने पेजों की PDF', makeDel: '🗑️ चुने पेज हटाकर PDF', zipBtn: '📦 हर पेज अलग PDF (ZIP)',
+    noSel: 'पहले कुछ पेज चुनें (टैप करें या नंबर लिखें)।', allDel: 'सारे पेज हटा देंगे तो कुछ नहीं बचेगा। कम से कम एक पेज छोड़ें।',
+    resH: '✅ तैयार है', resPdf: (n, s) => `${n} पेज · ${s}`, resZip: (n, s) => `${n} अलग PDF एक ZIP में · ${s}`, nameL: 'नाम:', dl: '⬇️ डाउनलोड', share: '📲 शेयर', editPages: '✂️ इसके पेज बदलें',
+    locked: (n) => `${n}: इस PDF पर ताला है (पासवर्ड या सुरक्षा)। इसे अपने PDF व्यूअर में खोलकर "Print → Save as PDF" से नई कॉपी बनाएँ, फिर वह डालें।`,
+    badPdf: (n) => `${n}: यह PDF नहीं खुल पाई। हो सकता है फ़ाइल पूरी डाउनलोड न हुई हो।`,
+    badImg: (n) => `${n}: यह फ़ोटो नहीं खुल पाई। JPG या PNG डालें (iPhone की HEIC फ़ोटो हो तो उसका स्क्रीनशॉट)।`,
+    notPdf: 'यहाँ एक PDF फ़ाइल चुनें।', skipped: (n) => `${n}: यह PDF या फ़ोटो नहीं है, छोड़ दी।`, failed: 'कुछ गड़बड़ हुई। दोबारा कोशिश करें; बहुत बड़ी फ़ाइल हो तो कम पेजों के साथ।', libFail: 'टूल लोड नहीं हुआ। इंटरनेट चालू करके पेज दोबारा खोलें।',
+    saved: '✅ फ़ोन में सेव हो गया', zipMade: '✅ ZIP बन गई',
+    moreH: 'सीधे इस काम के लिए', lMerge: ['🔗 PDF जोड़ें', 'कई PDF + फ़ोटो → एक PDF'], lSplit: ['✂️ PDF से पेज निकालें', 'चुने पेज या हर पेज अलग'], lDelete: ['🗑️ PDF से पेज हटाएँ', 'फ़ालतू पेज डिलीट, उल्टा पेज सीधा'], lCompress: ['🗜️ PDF छोटी करें', 'फ़ॉर्म की KB सीमा के लिए'], lScan: ['📷 डॉक्यूमेंट स्कैनर', 'काग़ज़ की फ़ोटो → PDF'], lImg: ['🖼️ फ़ोटो का KB कम करें', '20 / 50 / 100 KB'],
+    aboutH: "यह टूल क्या करता है?",
+    about: ["ऑनलाइन फ़ॉर्म, कॉलेज एडमिशन, नौकरी की अर्ज़ी या बैंक का काम — अक्सर कहा जाता है कि सारे डॉक्यूमेंट <b>एक ही PDF</b> में भेजें। कभी उल्टा होता है: 40 पेज की PDF में से सिर्फ़ एक पेज चाहिए होता है। यह टूल दोनों काम करता है। कई PDF और फ़ोटो को एक फ़ाइल में <b>जोड़ता</b> है, और एक PDF के पेजों को <b>अलग करता</b>, <b>हटाता</b> या <b>घुमाता</b> है।", "पेजों को फ़ोटो बनाकर दोबारा नहीं छापा जाता। हर पेज जैसा है वैसा ही नई फ़ाइल में कॉपी होता है। इसलिए टेक्स्ट सेलेक्ट होता रहता है, क्वालिटी वैसी ही रहती है और फ़ाइल बेवजह बड़ी नहीं होती। सारा काम आपके फ़ोन के ब्राउज़र में होता है — न अकाउंट, न ऐप इंस्टॉल, न वॉटरमार्क।"],
+    whenH: "कब काम आता है?",
+    when: ["एडमिशन या स्कॉलरशिप फ़ॉर्म जो मार्कशीट, सर्टिफ़िकेट और ID की एक ही PDF माँगता है। ऐसे पोर्टल अक्सर 1–2 MB तक की फ़ाइल लेते हैं।", "फ़ोन से खींची अलग-अलग फ़ोटो (ID कार्ड का आगे-पीछे, मार्कशीट के दो पन्ने) को एक PDF बनाना।", "बड़ी PDF में से सिर्फ़ ज़रूरी पेज भेजना — जैसे रिज़ल्ट का एक पेज या बिल का पहला पेज — WhatsApp या ईमेल पर।", "स्कैनर से आए ख़ाली या उल्टे पेज हटाना या सीधे करना, फ़ॉर्म जमा करने से पहले।", "लंबी PDF के हर पेज को अलग फ़ाइल बनाना, जब पोर्टल हर डॉक्यूमेंट अलग-अलग अपलोड करवाता है।"],
+    probH: "आम दिक़्क़तें और उनका हल",
+    probs: ["<b>\"ताला है / पासवर्ड\" वाला संदेश:</b> PDF सुरक्षित है। उसे PDF व्यूअर में खोलकर \"Print → Save as PDF\" करें और नई कॉपी यहाँ डालें।", "<b>जुड़ी हुई PDF फ़ॉर्म की सीमा से बड़ी है:</b> फ़ोटो का KB पहले कम करें (फ़ोटो कंप्रेसर से) या बाद में PDF कंप्रेसर चलाएँ।", "<b>फ़ोटो PDF में टेढ़ी आई:</b> \"पेज अलग करें\" में उस पेज का ↻ दबाएँ और नई PDF बनाएँ।", "<b>iPhone की फ़ोटो नहीं जुड़ी:</b> HEIC फ़ोटो हर ब्राउज़र में नहीं खुलती। Settings → Camera → Formats → \"Most Compatible\" करें, या स्क्रीनशॉट डालें।", "<b>डाउनलोड के बाद फ़ाइल नहीं मिली:</b> फ़ोन के Downloads फ़ोल्डर या Files ऐप में देखें। शेयर बटन से सीधे WhatsApp या Drive में भी भेज सकते हैं।"],
+    howH: 'कैसे करें',
+    how: ['<b>🔗 PDF जोड़ें</b> में PDF और फ़ोटो चुनें — एक साथ या एक-एक करके।', 'क्रम ठीक करें: ⋮⋮ से खिसकाएँ या ↑ ↓ दबाएँ। ग़लत फ़ाइल ✕ से हटाएँ।', '<b>एक PDF बनाएँ</b> दबाएँ। नाम बदलना हो तो बदलें, फिर <b>डाउनलोड</b> या <b>शेयर</b>।', 'कुछ पेज निकालने, हटाने या घुमाने के लिए <b>✂️ पेज अलग करें</b> खोलें, PDF चुनें, पेजों पर टैप करें या "1-3, 5" लिखें।', '<b>चुने पेजों की PDF</b> दबाएँ — या हर पेज अलग चाहिए तो <b>हर पेज अलग PDF (ZIP)</b>।'],
+    tipsH: 'काम की बातें',
+    tips: ['फ़ॉर्म "सारे डॉक्यूमेंट एक PDF में" माँगे तो मार्कशीट, सर्टिफ़िकेट, ID सब यहाँ जोड़ें। फ़ोटो भी सीधे डाल सकते हैं, वह अपने आप पेज बन जाती है।', 'जुड़ी हुई PDF फ़ॉर्म की KB सीमा से बड़ी हो तो उसे PDF कंप्रेसर से छोटा करें।', 'कोई पेज उल्टा या तिरछा है? <b>पेज अलग करें</b> में उस पेज का ↻ दबाएँ और नई PDF बना लें।', 'यह टूल पेजों को फ़ोटो में नहीं बदलता। इसलिए टेक्स्ट सेलेक्ट और सर्च होता रहता है, और क्वालिटी बिल्कुल वही रहती है।', 'बहुत बड़ी PDF (सौ से ज़्यादा पेज) पुराने फ़ोन पर थोड़ा समय ले सकती है। तब तक पेज बंद न करें।'],
+    faqH: 'अक्सर पूछे जाने वाले सवाल',
+    faq: [['क्या मेरी PDF किसी सर्वर पर जाती है?', 'नहीं। जोड़ना, काटना, घुमाना सब आपके फ़ोन/ब्राउज़र के अंदर होता है। पेज एक बार खुल जाए तो इंटरनेट बंद करके भी चलता है।'], ['PDF से एक पेज अलग कैसे करें?', '"पेज अलग करें" खोलें, PDF चुनें, उस पेज पर टैप करें (या नंबर लिखें) और "चुने पेजों की PDF" दबाएँ। हर पेज अलग फ़ाइल चाहिए तो "हर पेज अलग PDF (ZIP)" दबाएँ।'], ['दो PDF एक कैसे करें?', '"PDF जोड़ें" में दोनों PDF चुनें, क्रम देख लें और "एक PDF बनाएँ" दबाएँ। तीन, चार या ज़्यादा भी हो सकती हैं।'], ['क्वालिटी कम तो नहीं होगी?', 'नहीं। पेज जैसे हैं वैसे ही कॉपी होते हैं — टेक्स्ट, फ़ोटो, सब। JPG/PNG फ़ोटो भी बिना दोबारा कंप्रेस किए लगती है।'], ['पासवर्ड वाली PDF क्यों नहीं खुलती?', 'ताले वाली PDF को यह टूल बदल नहीं सकता। उसे अपने PDF व्यूअर में खोलकर "Print → Save as PDF" करें; नई कॉपी बिना ताले के बनती है। वह यहाँ डालें।']],
+    privH: 'आपकी PDF, आपके पास', privText: 'यह टूल बिना किसी सर्वर के आपके फ़ोन/ब्राउज़र में चलता है। आपकी PDF और फ़ोटो कहीं अपलोड नहीं होती, कहीं सेव नहीं होती, और हम उन्हें देख भी नहीं सकते। पेज बंद करते ही सब मिट जाता है।',
+    footer: 'फ़्री टूल · कुछ भी अपलोड नहीं होता',
+  },
+  en: {
+    brandSub: 'Free · your PDF never leaves your phone', title: 'Merge PDFs or split pages — free',
+    sub: 'Join many PDFs and photos into one PDF, or take out, delete or rotate pages of a PDF. Text and quality stay exactly as they were.',
+    privacy: 'Your PDFs are never uploaded. Everything runs on your phone/browser.',
+    tabMerge: '🔗 Merge PDF', tabSplit: '✂️ Split / pick pages',
+    mPickTitle: 'Choose PDFs or photos — as many as you need', mPickHint: 'PDF, JPG, PNG. Each photo becomes one page. You can change the order afterwards.', pickBtn: '📄 Choose files', addMore: '➕ Add more', clear: '🗑️ Clear',
+    orderHint: 'Hold ⋮⋮ and drag up or down, or tap ↑ ↓. The file at the top comes first in the PDF.',
+    imgPageL: 'Page for photos:', imgA4: 'A4 size', imgFit: 'Same as photo',
+    mergeBtn: (n) => `🔗 Merge ${n} files into one PDF`, mTotal: (n, p) => `${n} files · ${p} pages`, pagesN: (n) => `${n} page${n === 1 ? '' : 's'}`, imgItem: 'Photo · 1 page',
+    working: 'Working…', reading: 'Opening…', needMore: 'Add at least 2 files to merge.',
+    up: 'Up', down: 'Down', remove: 'Remove',
+    sPickTitle: 'Choose one PDF', sPickHint: 'You will see a small picture of every page. Tap pages to choose them, or type page numbers.', pickPdfBtn: '📄 Choose PDF', changePdf: '🔄 Another PDF',
+    actL: 'What to do with the chosen pages?', actKeep: 'Make a new PDF of just these', actDel: 'Remove these, keep the rest',
+    rangeL: 'Or type page numbers (like 1-3, 5):', rangeBad: (n) => `Could not read that. Write it like 1-3, 5 (this PDF has pages 1 to ${n}).`,
+    selAll: '☑️ All', selNone: '⬜ None', rotAll: '↻ Rotate all', selInfo: (k, n) => `${k} of ${n} chosen`,
+    tapHint: 'Tap a page = choose / unchoose. ↻ = turn that page upright (rotate).', rotate: 'Rotate',
+    makeKeep: '✂️ PDF of chosen pages', makeDel: '🗑️ PDF without chosen pages', zipBtn: '📦 Every page as its own PDF (ZIP)',
+    noSel: 'Choose some pages first (tap them or type numbers).', allDel: 'Removing every page would leave nothing. Keep at least one page.',
+    resH: '✅ Ready', resPdf: (n, s) => `${n} page${n === 1 ? '' : 's'} · ${s}`, resZip: (n, s) => `${n} separate PDFs in one ZIP · ${s}`, nameL: 'Name:', dl: '⬇️ Download', share: '📲 Share', editPages: '✂️ Edit its pages',
+    locked: (n) => `${n}: this PDF is locked (password or protection). Open it in your PDF viewer, use "Print → Save as PDF" to make a new copy, and add that one.`,
+    badPdf: (n) => `${n}: this PDF could not be opened. The file may not have downloaded completely.`,
+    badImg: (n) => `${n}: this photo could not be opened. Use JPG or PNG (for an iPhone HEIC photo, add a screenshot of it).`,
+    notPdf: 'Choose a PDF file here.', skipped: (n) => `${n}: not a PDF or photo, skipped.`, failed: 'Something went wrong. Try again; for a very large file, with fewer pages.', libFail: 'The tool did not load. Turn the internet on and open the page again.',
+    saved: '✅ Saved to your phone', zipMade: '✅ ZIP ready',
+    moreH: 'Straight to the job', lMerge: ['🔗 Merge PDF', 'Many PDFs + photos → one PDF'], lSplit: ['✂️ Extract PDF pages', 'Chosen pages, or every page apart'], lDelete: ['🗑️ Delete PDF pages', 'Drop extra pages, fix upside-down ones'], lCompress: ['🗜️ Make a PDF smaller', 'For a form\'s KB limit'], lScan: ['📷 Document Scanner', 'Photo of paper → PDF'], lImg: ['🖼️ Compress a photo', '20 / 50 / 100 KB'],
+    aboutH: "What does this tool do?",
+    about: ["Online forms, college admissions, job applications and bank paperwork often ask for all your documents in <b>a single PDF</b>. Other times it is the opposite: out of a 40-page PDF you need just one page. This tool does both. It <b>joins</b> many PDFs and photos into one file, and it <b>splits</b>, <b>deletes</b> or <b>rotates</b> the pages of a PDF.", "Pages are not turned into pictures and printed again. Each page is copied into the new file exactly as it is, so text stays selectable, quality stays the same and the file does not grow for no reason. Everything happens in your phone's browser — no account, no app to install, no watermark."],
+    whenH: "When is it useful?",
+    when: ["An admission or scholarship form that wants your marksheet, certificate and ID as one PDF. Such portals often accept files of up to 1–2 MB.", "Turning separate phone photos (front and back of an ID card, two sides of a marksheet) into one PDF.", "Sending only the page that matters from a big PDF — one page of a result, or the first page of a bill — on WhatsApp or by email.", "Removing blank or upside-down pages that came from a scanner, before you submit a form.", "Making every page of a long PDF its own file, when a portal wants each document uploaded separately."],
+    probH: "Common problems and fixes",
+    probs: ["<b>A \"locked / password\" message:</b> the PDF is protected. Open it in a PDF viewer, choose \"Print → Save as PDF\" and add the new copy here.", "<b>The merged PDF is over the form's limit:</b> lower the KB of the photos first (with the Photo Compressor), or run the PDF Compressor afterwards.", "<b>A photo came out sideways:</b> in \"Split / pick pages\", tap that page's ↻ and make a new PDF.", "<b>An iPhone photo did not join:</b> HEIC photos do not open in every browser. Set Settings → Camera → Formats → \"Most Compatible\", or add a screenshot.", "<b>Can't find the file after downloading:</b> look in the Downloads folder or the Files app. The Share button can also send it straight to WhatsApp or Drive."],
+    howH: 'How to use',
+    how: ['In <b>🔗 Merge PDF</b>, choose PDFs and photos — all at once or one by one.', 'Fix the order: drag with ⋮⋮ or tap ↑ ↓. Remove a wrong file with ✕.', 'Tap <b>Merge into one PDF</b>. Rename it if you like, then <b>Download</b> or <b>Share</b>.', 'To take out, remove or rotate pages, open <b>✂️ Split / pick pages</b>, choose a PDF, and tap pages or type "1-3, 5".', 'Tap <b>PDF of chosen pages</b> — or <b>Every page as its own PDF (ZIP)</b> if you want them all apart.'],
+    tipsH: 'Good to know',
+    tips: ['When a form wants "all documents in one PDF", join the marksheet, certificate and ID here. You can add photos directly; each becomes a page.', 'If the merged PDF is over the form\'s KB limit, make it smaller with the PDF Compressor.', 'A page upside down or sideways? In <b>Split / pick pages</b>, tap its ↻ and make a new PDF.', 'This tool does not turn pages into pictures, so text stays selectable and searchable and the quality is exactly the same.', 'A very large PDF (hundreds of pages) can take a while on an older phone. Keep the page open until it finishes.'],
+    faqH: 'Frequently asked questions',
+    faq: [['Does my PDF go to any server?', 'No. Merging, splitting and rotating all happen inside your phone/browser. Once the page has loaded, it works even with the internet off.'], ['How do I take one page out of a PDF?', 'Open "Split / pick pages", choose the PDF, tap that page (or type its number) and tap "PDF of chosen pages". For every page as a separate file, tap "Every page as its own PDF (ZIP)".'], ['How do I combine two PDFs into one?', 'In "Merge PDF", choose both PDFs, check the order and tap "Merge into one PDF". Three, four or more work too.'], ['Will the quality drop?', 'No. Pages are copied as they are — text, pictures, everything. JPG/PNG photos are placed without being compressed again.'], ['Why won\'t a password-protected PDF open?', 'This tool cannot change a locked PDF. Open it in your PDF viewer and use "Print → Save as PDF"; the new copy has no lock. Add that one here.']],
+    privH: 'Your PDF stays with you', privText: 'This tool runs inside your phone/browser without any server. Your PDFs and photos are never uploaded or stored, and we cannot see them. Closing the page clears everything.',
+    footer: 'Free tool · nothing is uploaded',
+  },
+  bn: {
+    brandSub: 'ফ্রি · PDF ফোনের বাইরে যায় না', title: 'PDF জুড়ুন বা পাতা আলাদা করুন — ফ্রি',
+    sub: 'অনেক PDF আর ছবি এক PDF-এ জুড়ুন, বা একটা PDF থেকে কিছু পাতা বের করুন, মুছুন বা ঘোরান। লেখা আর কোয়ালিটি একদম আগের মতোই থাকে।',
+    privacy: 'আপনার PDF কোথাও আপলোড হয় না। সব কাজ আপনার ফোন/ব্রাউজারেই হয়।',
+    tabMerge: '🔗 PDF জুড়ুন', tabSplit: '✂️ পাতা আলাদা করুন',
+    mPickTitle: 'PDF বা ছবি বাছুন — যতগুলো দরকার', mPickHint: 'PDF, JPG, PNG। প্রতিটি ছবি একটা পাতা হয়ে যায়। ক্রম পরে বদলাতে পারবেন।', pickBtn: '📄 ফাইল বাছুন', addMore: '➕ আরও জুড়ুন', clear: '🗑️ মুছে দিন',
+    orderHint: '⋮⋮ ধরে ওপরে-নিচে সরান, বা ↑ ↓ চাপুন। সবার ওপরের ফাইল PDF-এ সবার আগে আসবে।',
+    imgPageL: 'ছবির পাতা:', imgA4: 'A4 মাপ', imgFit: 'ছবির মাপে',
+    mergeBtn: (n) => `🔗 ${n}টি ফাইল জুড়ে এক PDF`, mTotal: (n, p) => `${n}টি ফাইল · ${p} পাতা`, pagesN: (n) => `${n} পাতা`, imgItem: 'ছবি · 1 পাতা',
+    working: 'তৈরি হচ্ছে…', reading: 'খুলছে…', needMore: 'জুড়তে কমপক্ষে 2টি ফাইল দিন।',
+    up: 'ওপরে', down: 'নিচে', remove: 'বাদ দিন',
+    sPickTitle: 'একটা PDF বাছুন', sPickHint: 'প্রতিটি পাতার ছোট ছবি দেখাবে। ট্যাপ করে পাতা বাছুন বা নম্বর লিখুন।', pickPdfBtn: '📄 PDF বাছুন', changePdf: '🔄 অন্য PDF',
+    actL: 'বাছা পাতাগুলো দিয়ে কী করবেন?', actKeep: 'শুধু এগুলোর নতুন PDF', actDel: 'এগুলো মুছুন, বাকি রাখুন',
+    rangeL: 'বা পাতার নম্বর লিখুন (যেমন 1-3, 5):', rangeBad: (n) => `বোঝা গেল না। এভাবে লিখুন: 1-3, 5 (এই PDF-এ 1 থেকে ${n} পাতা)।`,
+    selAll: '☑️ সব', selNone: '⬜ কোনোটাই না', rotAll: '↻ সব ঘোরান', selInfo: (k, n) => `${n}টির মধ্যে ${k}টি বাছা`,
+    tapHint: 'পাতায় ট্যাপ = বাছুন / বাদ দিন। ↻ = সেই পাতা সোজা করুন (ঘোরান)।', rotate: 'ঘোরান',
+    makeKeep: '✂️ বাছা পাতার PDF', makeDel: '🗑️ বাছা পাতা বাদ দিয়ে PDF', zipBtn: '📦 প্রতিটি পাতা আলাদা PDF (ZIP)',
+    noSel: 'আগে কিছু পাতা বাছুন (ট্যাপ করুন বা নম্বর লিখুন)।', allDel: 'সব পাতা মুছলে কিছুই থাকবে না। অন্তত একটা পাতা রাখুন।',
+    resH: '✅ তৈরি', resPdf: (n, s) => `${n} পাতা · ${s}`, resZip: (n, s) => `${n}টি আলাদা PDF একটা ZIP-এ · ${s}`, nameL: 'নাম:', dl: '⬇️ ডাউনলোড', share: '📲 শেয়ার', editPages: '✂️ এর পাতা বদলান',
+    locked: (n) => `${n}: এই PDF-এ তালা আছে (পাসওয়ার্ড বা সুরক্ষা)। এটা আপনার PDF ভিউয়ারে খুলে "Print → Save as PDF" দিয়ে নতুন কপি বানান, তারপর সেটা দিন।`,
+    badPdf: (n) => `${n}: এই PDF খোলা গেল না। হয়তো ফাইলটা পুরো ডাউনলোড হয়নি।`,
+    badImg: (n) => `${n}: এই ছবি খোলা গেল না। JPG বা PNG দিন (iPhone-এর HEIC ছবি হলে তার স্ক্রিনশট)।`,
+    notPdf: 'এখানে একটা PDF ফাইল বাছুন।', skipped: (n) => `${n}: এটা PDF বা ছবি নয়, বাদ দেওয়া হল।`, failed: 'কিছু গোলমাল হল। আবার চেষ্টা করুন; খুব বড় ফাইল হলে কম পাতা নিয়ে।', libFail: 'টুল লোড হয়নি। ইন্টারনেট চালু করে পেজটা আবার খুলুন।',
+    saved: '✅ ফোনে সেভ হয়েছে', zipMade: '✅ ZIP তৈরি',
+    moreH: 'সরাসরি এই কাজের জন্য', lMerge: ['🔗 PDF জুড়ুন', 'অনেক PDF + ছবি → এক PDF'], lSplit: ['✂️ PDF থেকে পাতা বের করুন', 'বাছা পাতা বা প্রতিটি পাতা আলাদা'], lDelete: ['🗑️ PDF থেকে পাতা মুছুন', 'বাড়তি পাতা বাদ, উল্টো পাতা সোজা'], lCompress: ['🗜️ PDF ছোট করুন', 'ফর্মের KB সীমার জন্য'], lScan: ['📷 ডকুমেন্ট স্ক্যানার', 'কাগজের ছবি → PDF'], lImg: ['🖼️ ছবির KB কমান', '20 / 50 / 100 KB'],
+    aboutH: "এই টুল কী করে?",
+    about: ["অনলাইন ফর্ম, কলেজে ভর্তি, চাকরির আবেদন বা ব্যাংকের কাজে প্রায়ই বলা হয় সব ডকুমেন্ট <b>একটাই PDF</b>-এ পাঠাতে। কখনও আবার উল্টো: 40 পাতার PDF থেকে শুধু একটা পাতা দরকার। এই টুল দুটো কাজই করে। অনেক PDF আর ছবি একটা ফাইলে <b>জোড়ে</b>, আর একটা PDF-এর পাতা <b>আলাদা করে</b>, <b>মোছে</b> বা <b>ঘোরায়</b>।", "পাতাগুলোকে ছবি বানিয়ে আবার ছাপা হয় না। প্রতিটি পাতা যেমন আছে তেমনই নতুন ফাইলে কপি হয়। তাই লেখা সিলেক্ট করা যায়, কোয়ালিটি একই থাকে আর ফাইল অকারণে বড় হয় না। সব কাজ আপনার ফোনের ব্রাউজারেই হয় — অ্যাকাউন্ট লাগে না, অ্যাপ ইনস্টল লাগে না, ওয়াটারমার্কও নেই।"],
+    whenH: "কখন কাজে লাগে?",
+    when: ["ভর্তি বা স্কলারশিপের ফর্ম, যেখানে মার্কশিট, সার্টিফিকেট আর ID একটাই PDF-এ চায়। এমন পোর্টাল প্রায়ই 1–2 MB পর্যন্ত ফাইল নেয়।", "ফোনে তোলা আলাদা আলাদা ছবি (ID কার্ডের সামনে-পেছনে, মার্কশিটের দুই পাতা) দিয়ে একটা PDF বানানো।", "বড় PDF থেকে শুধু দরকারি পাতাটা পাঠানো — যেমন রেজাল্টের একটা পাতা বা বিলের প্রথম পাতা — WhatsApp বা ইমেলে।", "স্ক্যানার থেকে আসা ফাঁকা বা উল্টো পাতা মোছা বা সোজা করা, ফর্ম জমা দেওয়ার আগে।", "লম্বা PDF-এর প্রতিটি পাতা আলাদা ফাইল করা, যখন পোর্টাল প্রতিটি ডকুমেন্ট আলাদা করে আপলোড করতে বলে।"],
+    probH: "সাধারণ সমস্যা আর সমাধান",
+    probs: ["<b>\"তালা / পাসওয়ার্ড\" লেখা বার্তা:</b> PDF সুরক্ষিত। সেটা PDF ভিউয়ারে খুলে \"Print → Save as PDF\" করুন আর নতুন কপি এখানে দিন।", "<b>জোড়া PDF ফর্মের সীমার চেয়ে বড়:</b> আগে ছবির KB কমান (ফটো কম্প্রেসার দিয়ে), বা পরে PDF কম্প্রেসার চালান।", "<b>ছবি PDF-এ কাত হয়ে এল:</b> \"পাতা আলাদা করুন\"-এ সেই পাতার ↻ চাপুন আর নতুন PDF বানান।", "<b>iPhone-এর ছবি জুড়ল না:</b> HEIC ছবি সব ব্রাউজারে খোলে না। Settings → Camera → Formats → \"Most Compatible\" করুন, বা স্ক্রিনশট দিন।", "<b>ডাউনলোডের পর ফাইল পাচ্ছেন না:</b> ফোনের Downloads ফোল্ডার বা Files অ্যাপে দেখুন। শেয়ার বোতাম দিয়ে সরাসরি WhatsApp বা Drive-এও পাঠাতে পারেন।"],
+    howH: 'কীভাবে করবেন',
+    how: ['<b>🔗 PDF জুড়ুন</b>-এ PDF আর ছবি বাছুন — একসাথে বা একটা একটা করে।', 'ক্রম ঠিক করুন: ⋮⋮ দিয়ে সরান বা ↑ ↓ চাপুন। ভুল ফাইল ✕ দিয়ে বাদ দিন।', '<b>এক PDF</b> বোতাম চাপুন। নাম বদলাতে চাইলে বদলান, তারপর <b>ডাউনলোড</b> বা <b>শেয়ার</b>।', 'পাতা বের করতে, মুছতে বা ঘোরাতে <b>✂️ পাতা আলাদা করুন</b> খুলুন, PDF বাছুন, পাতায় ট্যাপ করুন বা "1-3, 5" লিখুন।', '<b>বাছা পাতার PDF</b> চাপুন — বা সব পাতা আলাদা চাইলে <b>প্রতিটি পাতা আলাদা PDF (ZIP)</b>।'],
+    tipsH: 'কাজের কথা',
+    tips: ['ফর্ম "সব ডকুমেন্ট এক PDF-এ" চাইলে মার্কশিট, সার্টিফিকেট, ID সব এখানে জুড়ুন। ছবিও সরাসরি দিতে পারেন, সেটা নিজেই পাতা হয়ে যায়।', 'জোড়া PDF ফর্মের KB সীমার চেয়ে বড় হলে PDF কম্প্রেসার দিয়ে ছোট করুন।', 'কোনো পাতা উল্টো বা কাত? <b>পাতা আলাদা করুন</b>-এ সেই পাতার ↻ চাপুন আর নতুন PDF বানান।', 'এই টুল পাতাকে ছবিতে বদলায় না। তাই লেখা সিলেক্ট আর সার্চ করা যায়, কোয়ালিটিও একদম একই থাকে।', 'খুব বড় PDF (শতাধিক পাতা) পুরোনো ফোনে একটু সময় নিতে পারে। শেষ না হওয়া পর্যন্ত পেজ বন্ধ করবেন না।'],
+    faqH: 'সাধারণ প্রশ্ন',
+    faq: [['আমার PDF কি কোনো সার্ভারে যায়?', 'না। জোড়া, কাটা, ঘোরানো সব আপনার ফোন/ব্রাউজারের ভেতরেই হয়। পেজ একবার খুলে গেলে ইন্টারনেট বন্ধ রেখেও চলে।'], ['PDF থেকে একটা পাতা আলাদা করব কীভাবে?', '"পাতা আলাদা করুন" খুলুন, PDF বাছুন, সেই পাতায় ট্যাপ করুন (বা নম্বর লিখুন) আর "বাছা পাতার PDF" চাপুন। প্রতিটি পাতা আলাদা ফাইল চাইলে "প্রতিটি পাতা আলাদা PDF (ZIP)" চাপুন।'], ['দুটো PDF এক করব কীভাবে?', '"PDF জুড়ুন"-এ দুটো PDF বাছুন, ক্রম দেখে নিন আর "এক PDF" বোতাম চাপুন। তিন, চার বা আরও বেশিও হয়।'], ['কোয়ালিটি কি কমবে?', 'না। পাতাগুলো যেমন আছে তেমনই কপি হয় — লেখা, ছবি, সব। JPG/PNG ছবিও আবার কম্প্রেস না করে বসানো হয়।'], ['পাসওয়ার্ড দেওয়া PDF কেন খোলে না?', 'তালা দেওয়া PDF এই টুল বদলাতে পারে না। সেটা আপনার PDF ভিউয়ারে খুলে "Print → Save as PDF" করুন; নতুন কপিতে তালা থাকে না। সেটা এখানে দিন।']],
+    privH: 'আপনার PDF আপনার কাছেই', privText: 'এই টুল কোনো সার্ভার ছাড়াই আপনার ফোন/ব্রাউজারে চলে। আপনার PDF আর ছবি কোথাও আপলোড বা সেভ হয় না, আমরা দেখতেও পাই না। পেজ বন্ধ করলেই সব মুছে যায়।',
+    footer: 'ফ্রি টুল · কিছুই আপলোড হয় না',
+  },
+};
+
+// ---------- helpers
+const $ = (id) => document.getElementById(id);
+const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+const params = new URLSearchParams(location.search);
+const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('pm-lang')) ? store.get('pm-lang') : deviceLang();
+const t = (k) => T[lang][k];
+const mk = (w, h) => { const c = document.createElement('canvas'); c.width = Math.max(1, Math.round(w)); c.height = Math.max(1, Math.round(h)); return c; };
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fmtSize = (b) => (b >= 1024 * 1024 ? `${(b / 1048576).toFixed(1)} MB` : `${Math.max(1, Math.round(b / 1024))} KB`);
+let toastTimer = 0;
+const toast = (msg) => { let el = document.querySelector('.toast'); if (!el) { el = document.createElement('div'); el.className = 'toast'; document.body.appendChild(el); } el.textContent = msg; el.classList.remove('hidden'); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.add('hidden'), 3600); };
+const baseName = (n) => (n || 'document').replace(/\.[^.]+$/, '').replace(/[^\wऀ-ॿঀ-৿-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || 'document';
+const encode = (c, type, q) => new Promise((r) => c.toBlob(r, type, q));
+
+// Sub-pages (./split/, ./delete-pages/) set window.PM_PAGE = { mode, act, base, T: { lang: { title, sub, info } } } before this script.
+const PAGE = window.PM_PAGE || null;
+const BASE = PAGE ? PAGE.base || '../' : './';
+if (PAGE) for (const l in PAGE.T) { if (T[l]) { if (PAGE.T[l].title) T[l].title = PAGE.T[l].title; if (PAGE.T[l].sub) T[l].sub = PAGE.T[l].sub; } }
+let mode = PAGE ? PAGE.mode : params.get('mode') === 'split' ? 'split' : 'merge';
+let act = PAGE && PAGE.act === 'delete' ? 'delete' : 'keep';
+
+// ---------- libraries (kept in ./lib, loaded on first use; the service worker caches them for offline use)
+const loadJs = (src) => new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = () => { s.remove(); rej(new Error(`load ${src}`)); }; document.head.appendChild(s); });
+let libP = null;
+const libs = () => libP || (libP = Promise.all([loadJs(`${BASE}lib/pdf-lib.min.js`), loadJs(`${BASE}lib/pdf.min.js`)])
+  .then(() => { window.pdfjsLib.GlobalWorkerOptions.workerSrc = `${BASE}lib/pdf.worker.min.js`; })
+  .catch((e) => { libP = null; toast(t('libFail')); throw e; }));
+
+const isPdf = (f) => f.type === 'application/pdf' || /\.pdf$/i.test(f.name || '');
+const isImg = (f) => (f.type || '').startsWith('image/') || /\.(jpe?g|png|webp|gif|bmp|heic|heif|avif)$/i.test(f.name || '');
+const fail = (code) => { const e = new Error(code); e.code = code; return e; };
+// pdf-lib cannot write a locked PDF correctly, so a locked one is refused with a friendly message.
+const openPdf = async (bytes) => {
+  try { return await PDFLib.PDFDocument.load(bytes, { updateMetadata: false }); } catch (e) { throw fail(/encrypt/i.test(String(e && e.message)) ? 'locked' : 'bad'); }
+};
+// pdf.js only draws the small page pictures. isEvalSupported:false keeps fonts from running generated code.
+const jsOpen = (bytes) => window.pdfjsLib.getDocument({ data: bytes.slice(0), isEvalSupported: false }).promise;
+const drawPage = async (jsDoc, i, box) => {
+  const p = await jsDoc.getPage(i + 1);
+  const v0 = p.getViewport({ scale: 1 });
+  const vp = p.getViewport({ scale: Math.min(3, (box * Math.min(2, window.devicePixelRatio || 1)) / Math.max(v0.width, v0.height)) });
+  const c = mk(vp.width, vp.height); const x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, c.width, c.height);
+  await p.render({ canvasContext: x, viewport: vp }).promise; p.cleanup();
+  return c;
+};
+const stamp = (doc) => { doc.setProducer('NextGrade Tools'); doc.setCreator('NextGrade Tools'); };
+const saveDoc = async (doc) => new Blob([await doc.save()], { type: 'application/pdf' });
+const deg = (a) => ((Math.round(a / 90) * 90) % 360 + 360) % 360;
+
+// ---------- photos as pages (JPG/PNG bytes go in as they are; nothing is re-compressed)
+const jpegOrientation = (b) => {
+  let i = 2;
+  while (i + 9 < b.length) {
+    if (b[i] !== 0xff) return 1;
+    const m = b[i + 1]; const len = (b[i + 2] << 8) | b[i + 3];
+    if (m === 0xda) return 1;
+    if (m === 0xe1 && b[i + 4] === 0x45 && b[i + 5] === 0x78 && b[i + 6] === 0x69 && b[i + 7] === 0x66) {
+      const s = i + 10; const le = b[s] === 0x49;
+      const r16 = (o) => (le ? b[o] | (b[o + 1] << 8) : (b[o] << 8) | b[o + 1]);
+      const r32 = (o) => (le ? (b[o] | (b[o + 1] << 8) | (b[o + 2] << 16) | (b[o + 3] << 24)) >>> 0 : ((b[o] << 24) | (b[o + 1] << 16) | (b[o + 2] << 8) | b[o + 3]) >>> 0);
+      const ifd = s + r32(s + 4); if (ifd + 2 > b.length) return 1;
+      const n = r16(ifd);
+      for (let k = 0; k < n; k += 1) { const e = ifd + 2 + k * 12; if (e + 10 > b.length) break; if (r16(e) === 0x0112) return r16(e + 8) || 1; }
+      return 1;
+    }
+    i += 2 + len;
+  }
+  return 1;
+};
+const decode = async (file) => {
+  if (window.createImageBitmap) { try { return await createImageBitmap(file, { imageOrientation: 'from-image' }); } catch (e) { /* fall back */ } }
+  const url = URL.createObjectURL(file);
+  try { const img = new Image(); img.src = url; await img.decode(); return img; } finally { URL.revokeObjectURL(url); }
+};
+const embedImage = async (out, file) => {
+  const b = new Uint8Array(await file.arrayBuffer());
+  if (b[0] === 0xff && b[1] === 0xd8) {
+    const o = jpegOrientation(b);
+    if ([1, 3, 6, 8].includes(o)) { try { return { img: await out.embedJpg(b), o }; } catch (e) { /* redraw below */ } }
+  } else if (b[0] === 0x89 && b[1] === 0x50 && b[2] === 0x4e) {
+    try { return { img: await out.embedPng(b), o: 1 }; } catch (e) { /* redraw below */ }
+  }
+  // Other formats (WebP, GIF, mirrored JPG…): draw once and store as a high-quality JPG.
+  const src = await decode(file);
+  try {
+    let w = src.naturalWidth || src.width; let h = src.naturalHeight || src.height;
+    const sc = Math.min(1, Math.sqrt(16e6 / (w * h))); w = Math.round(w * sc); h = Math.round(h * sc);
+    const c = mk(w, h); const x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, w, h); x.drawImage(src, 0, 0, w, h);
+    const jb = await encode(c, 'image/jpeg', 0.92);
+    return { img: await out.embedJpg(new Uint8Array(await jb.arrayBuffer())), o: 1 };
+  } finally { if (src.close) src.close(); }
+};
+// A4 (595×842 pt, turned to suit the photo, small margin) or a page the photo's shape. EXIF turns 3/6/8 are done in the PDF.
+const addImagePage = (out, img, o, a4) => {
+  const side = o === 6 || o === 8; const dw = side ? img.height : img.width; const dh = side ? img.width : img.height;
+  let pw; let ph; let s;
+  if (a4) { const land = dw > dh; pw = land ? 842 : 595; ph = land ? 595 : 842; s = Math.min((pw - 48) / dw, (ph - 48) / dh); } else { s = 842 / Math.max(dw, dh); pw = dw * s; ph = dh * s; }
+  const bx = (pw - dw * s) / 2; const by = (ph - dh * s) / 2; const iw = img.width * s; const ih = img.height * s;
+  const page = out.addPage([pw, ph]); const D = PDFLib.degrees;
+  if (o === 6) page.drawImage(img, { x: bx, y: by + iw, width: iw, height: ih, rotate: D(-90) });
+  else if (o === 8) page.drawImage(img, { x: bx + ih, y: by, width: iw, height: ih, rotate: D(90) });
+  else if (o === 3) page.drawImage(img, { x: bx + iw, y: by + ih, width: iw, height: ih, rotate: D(180) });
+  else page.drawImage(img, { x: bx, y: by, width: iw, height: ih });
+};
+
+// ---------- ZIP (stored, no compression: PDFs are already compressed)
+const CRC = (() => { const tb = new Uint32Array(256); for (let n = 0; n < 256; n += 1) { let c = n; for (let k = 0; k < 8; k += 1) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1; tb[n] = c >>> 0; } return tb; })();
+const crc32 = (u) => { let c = 0xffffffff; for (let i = 0; i < u.length; i += 1) c = CRC[(c ^ u[i]) & 0xff] ^ (c >>> 8); return (c ^ 0xffffffff) >>> 0; };
+const makeZip = async (files) => {
+  const enc = new TextEncoder(); const parts = []; const central = []; let off = 0;
+  const d = new Date(); const dosT = (d.getHours() << 11) | (d.getMinutes() << 5) | (d.getSeconds() >> 1); const dosD = ((d.getFullYear() - 1980) << 9) | ((d.getMonth() + 1) << 5) | d.getDate();
+  for (const f of files) {
+    const data = new Uint8Array(await f.blob.arrayBuffer()); const nm = enc.encode(f.name); const crc = crc32(data);
+    const lh = new DataView(new ArrayBuffer(30));
+    lh.setUint32(0, 0x04034b50, true); lh.setUint16(4, 20, true); lh.setUint16(6, 0x0800, true); lh.setUint16(8, 0, true); lh.setUint16(10, dosT, true); lh.setUint16(12, dosD, true);
+    lh.setUint32(14, crc, true); lh.setUint32(18, data.length, true); lh.setUint32(22, data.length, true); lh.setUint16(26, nm.length, true); lh.setUint16(28, 0, true);
+    parts.push(lh.buffer, nm, data);
+    const ch = new DataView(new ArrayBuffer(46));
+    ch.setUint32(0, 0x02014b50, true); ch.setUint16(4, 20, true); ch.setUint16(6, 20, true); ch.setUint16(8, 0x0800, true); ch.setUint16(10, 0, true); ch.setUint16(12, dosT, true); ch.setUint16(14, dosD, true);
+    ch.setUint32(16, crc, true); ch.setUint32(20, data.length, true); ch.setUint32(24, data.length, true); ch.setUint16(28, nm.length, true); ch.setUint32(42, off, true);
+    central.push(ch.buffer, nm);
+    off += 30 + nm.length + data.length;
+  }
+  const size = central.reduce((s, p) => s + p.byteLength, 0);
+  const end = new DataView(new ArrayBuffer(22));
+  end.setUint32(0, 0x06054b50, true); end.setUint16(8, files.length, true); end.setUint16(10, files.length, true); end.setUint32(12, size, true); end.setUint32(16, off, true);
+  return new Blob([...parts, ...central, end.buffer], { type: 'application/zip' });
+};
+
+// ---------- result (one per mode)
+const res = { merge: null, split: null }; // { blob, name, ext, pages, files?, kind: 'pdf'|'zip' }
+const setRes = (r) => { res[mode] = r; renderRes(); if (r) $('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); };
+const renderRes = () => {
+  const r = res[mode]; $('result').classList.toggle('hidden', !r); if (!r) return;
+  $('resInfo').textContent = r.kind === 'zip' ? t('resZip')(r.files.length, fmtSize(r.blob.size)) : t('resPdf')(r.pages, fmtSize(r.blob.size));
+  if (document.activeElement !== $('resName')) $('resName').value = r.name;
+  $('resExt').textContent = `.${r.ext}`;
+  $('editBtn').classList.toggle('hidden', r.kind !== 'pdf' || mode !== 'merge');
+};
+const resFileName = (r) => `${baseName($('resName').value.trim() || r.name)}.${r.ext}`;
+const download = (blob, name) => { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); };
+const shareFiles = async (files, zipName) => {
+  const fl = files.map((f) => new File([f.blob], f.name, { type: f.blob.type || 'application/pdf' }));
+  if (navigator.canShare && navigator.canShare({ files: fl })) { try { await navigator.share({ files: fl }); } catch (e) { /* cancelled */ } return; }
+  if (fl.length === 1) { download(fl[0], fl[0].name); toast(t('saved')); } else { download(await makeZip(files), zipName); toast(t('zipMade')); }
+};
+const busy = (btn, on, label) => { btn.disabled = on; btn.innerHTML = on ? `<span class="spin"></span> ${esc(t('working'))}` : esc(label); };
+
+// ---------- merge
+let items = []; // { id, file, name, kind: 'pdf'|'img', pages, err, url }
+let nextId = 1;
+const jsQueue = { p: Promise.resolve() };
+const mergeThumb = (it) => {
+  if (it.kind !== 'pdf' || it.err) return;
+  jsQueue.p = jsQueue.p.then(async () => {
+    if (!items.includes(it)) return;
+    try { const d = await jsOpen(it.bytes); const c = await drawPage(d, 0, 56); d.destroy(); it.thumb = c; const box = document.querySelector(`.item[data-id="${it.id}"] .mthumb`); if (box) { box.textContent = ''; box.appendChild(c); } } catch (e) { /* the icon stays */ }
+  });
+};
+const renderItem = (it, i) => {
+  const el = document.createElement('div'); el.className = 'item'; el.dataset.id = it.id;
+  const meta = it.err ? '' : it.kind === 'img' ? t('imgItem') : `${t('pagesN')(it.pages)} · ${fmtSize(it.file.size)}`;
+  const note = it.err === 'locked' ? t('locked')(it.name) : it.err === 'bad' ? t('badPdf')(it.name) : it.err === 'img' ? t('badImg')(it.name) : '';
+  el.innerHTML = `<div class="handle" aria-hidden="true">⋮⋮</div><div class="mthumb">${it.kind === 'img' && !it.err ? `<img src="${it.url}" alt="">` : it.err ? '⚠️' : '📄'}</div>
+<div><div class="iname">${i + 1}. ${esc(it.name)}</div>${meta ? `<div class="imeta">${esc(meta)}</div>` : ''}${note ? `<div class="inote">${esc(note)}</div>` : ''}</div>
+<div class="iact"><button class="ib" type="button" data-act="up" aria-label="${esc(t('up'))}" title="${esc(t('up'))}"${i === 0 ? ' disabled' : ''}>↑</button><button class="ib" type="button" data-act="down" aria-label="${esc(t('down'))}" title="${esc(t('down'))}"${i === items.length - 1 ? ' disabled' : ''}>↓</button><button class="ib" type="button" data-act="rm" aria-label="${esc(t('remove'))}" title="${esc(t('remove'))}">✕</button></div>`;
+  if (it.thumb) { const box = el.querySelector('.mthumb'); box.textContent = ''; box.appendChild(it.thumb); }
+  return el;
+};
+const goodItems = () => items.filter((it) => !it.err);
+const renderMerge = () => {
+  const list = $('mList'); list.textContent = '';
+  items.forEach((it, i) => list.appendChild(renderItem(it, i)));
+  const g = goodItems(); const pages = g.reduce((s, it) => s + it.pages, 0);
+  $('mTools').classList.toggle('hidden', !items.length);
+  $('mDrop').classList.toggle('slim', items.length > 0);
+  $('imgOpt').classList.toggle('hidden', !g.some((it) => it.kind === 'img'));
+  $('mTotal').textContent = g.length ? t('mTotal')(g.length, pages) : '';
+  if (!$('mergeBtn').querySelector('.spin')) $('mergeBtn').textContent = t('mergeBtn')(g.length);
+  $('mergeBtn').disabled = !g.length;
+};
+const mergeChanged = () => { if (res.merge) { res.merge = null; renderRes(); } renderMerge(); };
+const addMerge = async (files) => {
+  const list = [...files];
+  if (!list.length) return;
+  try { await libs(); } catch (e) { return; }
+  for (const f of list) {
+    if (isPdf(f)) {
+      const it = { id: nextId++, file: f, name: f.name || 'document.pdf', kind: 'pdf', pages: 0, err: '' };
+      try { it.bytes = new Uint8Array(await f.arrayBuffer()); it.pages = (await openPdf(it.bytes)).getPageCount(); } catch (e) { it.err = e.code || 'bad'; }
+      items.push(it); mergeThumb(it);
+    } else if (isImg(f)) {
+      const it = { id: nextId++, file: f, name: f.name || 'photo.jpg', kind: 'img', pages: 1, err: '' };
+      if (/hei[cf]$/i.test(f.type) || /\.hei[cf]$/i.test(f.name || '')) { try { (await decode(f)).close?.(); } catch (e) { it.err = 'img'; } }
+      if (!it.err) it.url = URL.createObjectURL(f);
+      items.push(it);
+    } else toast(t('skipped')(f.name || '?'));
+  }
+  mergeChanged();
+};
+const moveItem = (i, dir) => { const j = i + dir; if (j < 0 || j >= items.length) return; [items[i], items[j]] = [items[j], items[i]]; mergeChanged(); };
+const removeItem = (i) => { const [it] = items.splice(i, 1); if (it && it.url) URL.revokeObjectURL(it.url); mergeChanged(); };
+const clearMerge = () => { items.forEach((it) => it.url && URL.revokeObjectURL(it.url)); items = []; mergeChanged(); };
+const doMerge = async () => {
+  const g = goodItems();
+  if (!g.length) return;
+  if (g.length < 2 && g[0].kind === 'pdf') { toast(t('needMore')); return; }
+  const btn = $('mergeBtn'); busy(btn, true);
+  try {
+    await libs();
+    const out = await PDFLib.PDFDocument.create(); stamp(out);
+    const a4 = document.querySelector('input[name=imgPage]:checked').value === 'a4';
+    for (const it of g) {
+      if (it.kind === 'pdf') {
+        const src = await openPdf(it.bytes);
+        const pages = await out.copyPages(src, src.getPageIndices());
+        pages.forEach((p) => out.addPage(p));
+      } else {
+        try { const { img, o } = await embedImage(out, it.file); addImagePage(out, img, o, a4); } catch (e) { it.err = 'img'; throw e; }
+      }
+    }
+    const blob = await saveDoc(out);
+    setRes({ kind: 'pdf', blob, pages: out.getPageCount(), name: g.length === 1 ? baseName(g[0].name) : 'merged', ext: 'pdf' });
+  } catch (e) { toast(t('failed')); renderMerge(); } finally { busy(btn, false, t('mergeBtn')(goodItems().length)); }
+};
+
+// Drag to reorder (pointer events, so it works with a finger as well as a mouse).
+let drag = null;
+$('mList').addEventListener('pointerdown', (e) => {
+  const h = e.target.closest('.handle'); if (!h) return;
+  const el = h.closest('.item'); e.preventDefault();
+  drag = { el, id: el.dataset.id, pid: e.pointerId }; el.classList.add('drag'); h.setPointerCapture(e.pointerId);
+});
+$('mList').addEventListener('pointermove', (e) => {
+  if (!drag || e.pointerId !== drag.pid) return;
+  const els = [...$('mList').children].filter((x) => x !== drag.el);
+  const after = els.find((x) => { const r = x.getBoundingClientRect(); return e.clientY < r.top + r.height / 2; });
+  if (after) { if (drag.el.nextSibling !== after) $('mList').insertBefore(drag.el, after); } else if ($('mList').lastChild !== drag.el) $('mList').appendChild(drag.el);
+});
+const endDrag = () => {
+  if (!drag) return;
+  const order = [...$('mList').children].map((x) => x.dataset.id);
+  const moved = order.join() !== items.map((it) => String(it.id)).join();
+  items = order.map((id) => items.find((it) => String(it.id) === id)); drag = null;
+  if (moved) mergeChanged(); else renderMerge();
+};
+$('mList').addEventListener('pointerup', endDrag);
+$('mList').addEventListener('pointercancel', endDrag);
+$('mList').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-act]'); if (!b) return;
+  const i = items.findIndex((it) => String(it.id) === b.closest('.item').dataset.id); if (i < 0) return;
+  if (b.dataset.act === 'up') moveItem(i, -1); else if (b.dataset.act === 'down') moveItem(i, 1); else removeItem(i);
+});
+
+// ---------- split / pick pages
+const S = { file: null, name: '', bytes: null, doc: null, js: null, n: 0, sel: new Set(), rot: [], drawn: [], token: 0 };
+// "1-3, 5" → [0, 1, 2, 4] (0-based, sorted). null when it cannot be read.
+const parseRange = (str, n) => {
+  const s = String(str).replace(/[–—]/g, '-').replace(/\s*-\s*/g, '-').trim();
+  if (!s) return [];
+  const out = new Set();
+  for (const tok of s.split(/[\s,;]+/).filter(Boolean)) {
+    const m = tok.match(/^(\d+)(?:-(\d*))?$/); if (!m) return null;
+    let a = Number(m[1]); let b = m[2] === undefined ? a : m[2] === '' ? n : Number(m[2]);
+    if (a > b) [a, b] = [b, a];
+    if (a < 1 || b > n) return null;
+    for (let k = a; k <= b; k += 1) out.add(k - 1);
+  }
+  return [...out].sort((x, y) => x - y);
+};
+const toRange = (list) => {
+  const out = []; let i = 0;
+  while (i < list.length) { let j = i; while (j + 1 < list.length && list[j + 1] === list[j] + 1) j += 1; out.push(j > i ? `${list[i] + 1}-${list[j] + 1}` : `${list[i] + 1}`); i = j + 1; }
+  return out.join(', ');
+};
+const selList = () => [...S.sel].sort((a, b) => a - b);
+const allIdx = () => Array.from({ length: S.n }, (_, i) => i);
+const showSMsg = (m) => { $('sMsg').textContent = m || ''; $('sMsg').classList.toggle('hidden', !m); };
+
+let io = null; let thumbQ = Promise.resolve();
+const ensureThumb = (i) => {
+  if (S.drawn[i] || !S.js) return thumbQ;
+  S.drawn[i] = true; const tok = S.token;
+  thumbQ = thumbQ.then(async () => {
+    if (tok !== S.token) return;
+    try { const c = await drawPage(S.js, i, 120); if (tok !== S.token) return; const box = document.querySelector(`.pg[data-i="${i}"] .pgsel`); if (box) { const old = box.querySelector('canvas'); if (old) old.remove(); c.style.transform = `rotate(${S.rot[i]}deg)`; box.prepend(c); } } catch (e) { /* number only */ }
+  });
+  return thumbQ;
+};
+const renderGrid = () => {
+  const g = $('grid'); g.textContent = '';
+  if (io) io.disconnect();
+  io = 'IntersectionObserver' in window ? new IntersectionObserver((es) => es.forEach((en) => { if (en.isIntersecting) { ensureThumb(Number(en.target.dataset.i)); io.unobserve(en.target); } }), { root: g, rootMargin: '300px' }) : null;
+  const frag = document.createDocumentFragment();
+  for (let i = 0; i < S.n; i += 1) {
+    const el = document.createElement('div'); el.className = 'pg'; el.dataset.i = i;
+    el.innerHTML = `<button class="pgsel" type="button" aria-pressed="false"><span class="pgno">${i + 1}</span><span class="tick">${act === 'delete' ? '✕' : '✓'}</span></button><button class="pgrot" type="button" data-rot="1">↻</button>`;
+    frag.appendChild(el);
+  }
+  g.appendChild(frag);
+  [...g.children].forEach((el, i) => { if (io) io.observe(el); else if (i < 60) ensureThumb(i); });
+  syncSel();
+};
+const syncSel = (fromInput) => {
+  const del = act === 'delete';
+  $('grid').classList.toggle('del', del);
+  document.querySelectorAll('.pg').forEach((el) => {
+    const i = Number(el.dataset.i); const on = S.sel.has(i);
+    el.classList.toggle('on', on); el.classList.toggle('rot', !!S.rot[i]);
+    el.querySelector('.pgsel').setAttribute('aria-pressed', String(on)); el.querySelector('.tick').textContent = del ? '✕' : '✓';
+    const rb = el.querySelector('.pgrot'); rb.title = t('rotate'); rb.setAttribute('aria-label', `${t('rotate')} ${i + 1}`);
+    const c = el.querySelector('canvas'); if (c) c.style.transform = `rotate(${S.rot[i] || 0}deg)`;
+  });
+  if (!fromInput) { $('range').value = toRange(selList()); $('range').classList.remove('bad'); }
+  $('selInfo').textContent = S.n ? t('selInfo')(S.sel.size, S.n) : '';
+  $('makeBtn').textContent = del ? t('makeDel') : t('makeKeep');
+  $('zipBtn').textContent = t('zipBtn');
+  document.querySelector(`input[name=act][value=${act}]`).checked = true;
+};
+const loadSplit = async (file) => {
+  if (!file) return;
+  if (!isPdf(file)) { toast(t('notPdf')); return; }
+  try { await libs(); } catch (e) { return; }
+  S.token += 1; if (S.js) { S.js.destroy(); S.js = null; }
+  Object.assign(S, { file, name: file.name || 'document.pdf', bytes: null, doc: null, n: 0, sel: new Set(), rot: [], drawn: [] });
+  res.split = null; renderRes(); showSMsg('');
+  $('sWork').classList.add('hidden'); $('sDrop').classList.remove('hidden');
+  const label = $('sPickBtn').textContent; $('sPickBtn').innerHTML = `<span class="spin"></span> ${esc(t('reading'))}`;
+  try {
+    S.bytes = new Uint8Array(await file.arrayBuffer());
+    S.doc = await openPdf(S.bytes); S.n = S.doc.getPageCount(); S.rot = new Array(S.n).fill(0);
+    try { S.js = await jsOpen(S.bytes); } catch (e) { S.js = null; }
+  } catch (e) {
+    $('sPickBtn').textContent = label; showSMsg(e.code === 'locked' ? t('locked')(S.name) : t('badPdf')(S.name)); S.doc = null; return;
+  }
+  $('sPickBtn').textContent = label;
+  $('sDrop').classList.add('hidden'); $('sWork').classList.remove('hidden');
+  $('sName').textContent = S.name; $('sMeta').textContent = `${t('pagesN')(S.n)} · ${fmtSize(file.size)}`;
+  renderGrid();
+};
+// Pages that go into the new file(s). For the ZIP, "keep" with nothing chosen means every page.
+const keptIdx = (forZip) => {
+  if (act === 'delete') return allIdx().filter((i) => !S.sel.has(i));
+  if (S.sel.size) return selList();
+  return forZip || S.rot.some(Boolean) ? allIdx() : [];
+};
+const buildPdf = async (idx) => {
+  const out = await PDFLib.PDFDocument.create(); stamp(out);
+  const pages = await out.copyPages(S.doc, idx);
+  pages.forEach((p, k) => { const r = S.rot[idx[k]]; if (r) p.setRotation(PDFLib.degrees(deg(p.getRotation().angle + r))); out.addPage(p); });
+  return { blob: await saveDoc(out), pages: out.getPageCount() };
+};
+const doMake = async () => {
+  if (!S.doc) return;
+  const idx = keptIdx(false);
+  if (!idx.length) { toast(act === 'delete' && S.sel.size ? t('allDel') : t('noSel')); return; }
+  const btn = $('makeBtn'); busy(btn, true);
+  try {
+    const r = await buildPdf(idx); const b = baseName(S.name);
+    const name = act === 'delete' ? `${b}-edited` : S.sel.size && idx.length < S.n ? `${b}-pages-${toRange(idx).replace(/, /g, '_')}`.slice(0, 60) : `${b}-rotated`;
+    setRes({ kind: 'pdf', blob: r.blob, pages: r.pages, name, ext: 'pdf' });
+  } catch (e) { toast(t('failed')); } finally { busy(btn, false, act === 'delete' ? t('makeDel') : t('makeKeep')); }
+};
+const doZip = async () => {
+  if (!S.doc) return;
+  const idx = keptIdx(true);
+  if (!idx.length) { toast(t('allDel')); return; }
+  const btn = $('zipBtn'); busy(btn, true);
+  try {
+    const b = baseName(S.name); const w = String(S.n).length; const files = [];
+    for (const i of idx) { const r = await buildPdf([i]); files.push({ name: `${b}-page-${String(i + 1).padStart(w, '0')}.pdf`, blob: r.blob }); }
+    const zip = await makeZip(files);
+    setRes({ kind: 'zip', blob: zip, files, pages: files.length, name: `${b}-pages`, ext: 'zip' });
+  } catch (e) { toast(t('failed')); } finally { busy(btn, false, t('zipBtn')); }
+};
+$('grid').addEventListener('click', (e) => {
+  const pg = e.target.closest('.pg'); if (!pg) return; const i = Number(pg.dataset.i);
+  if (e.target.closest('[data-rot]')) { S.rot[i] = (S.rot[i] + 90) % 360; } else if (S.sel.has(i)) S.sel.delete(i); else S.sel.add(i);
+  syncSel();
+});
+$('range').addEventListener('input', () => {
+  const r = parseRange($('range').value, S.n);
+  $('range').classList.toggle('bad', r === null);
+  if (r === null) { $('selInfo').textContent = t('rangeBad')(S.n); return; }
+  S.sel = new Set(r); syncSel(true);
+});
+$('selAll').addEventListener('click', () => { S.sel = new Set(allIdx()); syncSel(); });
+$('selNone').addEventListener('click', () => { S.sel = new Set(); syncSel(); });
+$('rotAll').addEventListener('click', () => { S.rot = S.rot.map((r) => (r + 90) % 360); syncSel(); });
+document.querySelectorAll('input[name=act]').forEach((r) => r.addEventListener('change', (e) => { act = e.target.value; syncSel(); }));
+
+// ---------- mode + language
+const setMode = (m) => {
+  mode = m;
+  $('mergePanel').classList.toggle('hidden', m !== 'merge'); $('splitPanel').classList.toggle('hidden', m !== 'split');
+  document.querySelectorAll('.tab').forEach((b) => { const on = b.dataset.mode === m; b.classList.toggle('on', on); b.setAttribute('aria-selected', String(on)); });
+  renderRes();
+};
+const faqNow = () => (PAGE && PAGE.T[lang] && PAGE.T[lang].faq) || t('faq');
+const plain = (h) => String(h).replace(/<[^>]+>/g, '');
+const faqLd = (faq) => JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: plain(q), acceptedAnswer: { '@type': 'Answer', text: plain(a) } })) });
+// The HTML ships with the English FAQ as JSON-LD (written by build-pages.py); kept to check it in the self-test.
+const LD0 = document.getElementById('faqLd').textContent;
+const LINKS = [['lMerge', ''], ['lSplit', 'split/'], ['lDelete', 'delete-pages/'], ['lCompress', '../pdf-compress/'], ['lScan', '../doc-scanner/'], ['lImg', '../image-compress/']];
+const applyLang = () => {
+  document.documentElement.lang = lang === 'hinglish' ? 'hi-Latn' : lang;
+  document.querySelectorAll('[data-t]').forEach((el) => { const v = t(el.dataset.t); if (typeof v === 'string') el.textContent = v; });
+  $('langSel').value = lang;
+  // The main page's long text is cut out of the sub-pages (they carry their own), so each list is optional.
+  const fill = (id, html) => { if ($(id)) $(id).innerHTML = html; };
+  fill('aboutText', t('about').map((s) => `<p>${s}</p>`).join(''));
+  fill('whenList', t('when').map((s) => `<li>${s}</li>`).join(''));
+  fill('howList', t('how').map((s) => `<li>${s}</li>`).join(''));
+  fill('tipList', t('tips').map((s) => `<li>${s}</li>`).join(''));
+  fill('probList', t('probs').map((s) => `<li>${s}</li>`).join(''));
+  $('faqList').innerHTML = faqNow().map(([q, a]) => `<details class="faq"><summary>${q}</summary><p>${a}</p></details>`).join('');
+  $('faqLd').textContent = faqLd(faqNow());
+  const here = PAGE ? PAGE.slug : '';
+  $('links').innerHTML = LINKS.map(([k, path]) => `<a href="${BASE}${path}?lang=${lang}"${path === here || (!PAGE && !path) ? ' class="here"' : ''}>${esc(t(k)[0])}<small>${esc(t(k)[1])}</small></a>`).join('');
+  const info = PAGE && PAGE.T[lang] && PAGE.T[lang].info;
+  $('pageInfo').classList.toggle('hidden', !info); if (info) $('pageInfo').innerHTML = info;
+  renderMerge(); if (S.n) { syncSel(); $('sMeta').textContent = `${t('pagesN')(S.n)} · ${fmtSize(S.file.size)}`; } else syncSel();
+  renderRes();
+};
+
+// ---------- events
+$('langSel').addEventListener('change', (e) => { lang = e.target.value; store.set('pm-lang', lang); applyLang(); });
+document.querySelectorAll('.tab').forEach((b) => b.addEventListener('click', () => setMode(b.dataset.mode)));
+const dropZone = (zone, input, onFiles) => {
+  zone.addEventListener('click', () => input.click());
+  zone.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); } });
+  zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('over'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('over'));
+  zone.addEventListener('drop', (e) => { e.preventDefault(); zone.classList.remove('over'); onFiles(e.dataTransfer.files); });
+  input.addEventListener('change', (e) => { onFiles(e.target.files); e.target.value = ''; });
+};
+dropZone($('mDrop'), $('mFile'), (f) => addMerge(f));
+dropZone($('sDrop'), $('sFile'), (f) => loadSplit(f[0]));
+$('mPickBtn').addEventListener('click', (e) => { e.stopPropagation(); $('mFile').click(); });
+$('sPickBtn').addEventListener('click', (e) => { e.stopPropagation(); $('sFile').click(); });
+$('mAddBtn').addEventListener('click', () => $('mFile').click());
+$('mClearBtn').addEventListener('click', clearMerge);
+$('sChange').addEventListener('click', () => $('sFile').click());
+$('mergeBtn').addEventListener('click', doMerge);
+$('makeBtn').addEventListener('click', doMake);
+$('zipBtn').addEventListener('click', doZip);
+document.addEventListener('paste', (e) => { const f = [...(e.clipboardData ? e.clipboardData.files : [])]; if (!f.length) return; if (mode === 'merge') addMerge(f); else loadSplit(f[0]); });
+document.querySelectorAll('input[name=imgPage]').forEach((r) => r.addEventListener('change', () => { store.set('pm-img', r.value); mergeChanged(); }));
+$('dlBtn').addEventListener('click', () => { const r = res[mode]; if (!r) return; download(r.blob, resFileName(r)); toast(r.kind === 'zip' ? t('zipMade') : t('saved')); });
+$('shareBtn').addEventListener('click', () => {
+  const r = res[mode]; if (!r) return;
+  if (r.kind === 'zip') shareFiles(r.files, resFileName(r)); else shareFiles([{ name: resFileName(r), blob: r.blob }], resFileName(r));
+});
+$('editBtn').addEventListener('click', () => { const r = res.merge; if (!r) return; setMode('split'); loadSplit(new File([r.blob], resFileName(r), { type: 'application/pdf' })); });
+
+// ---------- start
+$('year').textContent = new Date().getFullYear();
+if (store.get('pm-img') === 'fit') document.querySelector('input[name=imgPage][value=fit]').checked = true;
+setMode(mode);
+applyLang();
+if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register(`${BASE}sw.js`).catch(() => {});
+// Fetch the libraries once the page is idle, so the first file opens quickly.
+setTimeout(() => { libs().catch(() => {}); }, 1200);
+
+// ---------- self-test (?selftest): builds small PDFs here, runs every action, writes PASS/FAIL into #selftest
+if (params.has('selftest')) {
+  (async () => {
+    const box = $('selftest'); box.classList.remove('hidden'); box.textContent = 'SELFTEST running…';
+    // Headless Chrome's virtual time jumps to the end of its budget while the page only waits on off-thread work
+    // (file reads, canvas encoding, workers). A ticking timer that spends a little real CPU keeps the clock honest.
+    let spin = 0; const beat = setInterval(() => { for (let i = 0; i < 3e6; i += 1) spin += i & 1; }, 5);
+    const lines = []; let pass = 0; let bad = 0;
+    const ok = (name, cond, extra) => { if (cond) pass += 1; else bad += 1; lines.push(`${cond ? 'PASS' : 'FAIL'} ${name}${extra !== undefined ? ` — ${extra}` : ''}`); console.log(lines[lines.length - 1]); };
+    const startMode = mode; const startAct = act;
+    try {
+      await libs();
+      ok('libraries load from ./lib', !!window.PDFLib && !!window.pdfjsLib, `pdf-lib + pdf.js ${window.pdfjsLib.version}`);
+      const mkPdf = async (tag, n, size) => { const d = await PDFLib.PDFDocument.create(); const f = await d.embedFont(PDFLib.StandardFonts.Helvetica); for (let i = 1; i <= n; i += 1) d.addPage(size).drawText(`${tag}${i}`, { x: 30, y: 60, size: 48, font: f }); return new File([await d.save()], `${tag}.pdf`, { type: 'application/pdf' }); };
+      const A = await mkPdf('A', 3, [300, 400]); const B = await mkPdf('B', 2, [400, 300]); const C = await mkPdf('C', 1, [300, 400]);
+      const texts = async (blob) => { const d = await jsOpen(new Uint8Array(await blob.arrayBuffer())); const o = []; for (let i = 1; i <= d.numPages; i += 1) { const tc = await (await d.getPage(i)).getTextContent(); o.push(tc.items.map((x) => x.str).join('').trim()); } d.destroy(); return o; };
+      const pagesOf = async (blob) => (await PDFLib.PDFDocument.load(new Uint8Array(await blob.arrayBuffer()))).getPageCount();
+      // photos: 200×100, left half red, right half blue
+      const cv = mk(200, 100); const cx = cv.getContext('2d'); cx.fillStyle = '#f00'; cx.fillRect(0, 0, 100, 100); cx.fillStyle = '#00f'; cx.fillRect(100, 0, 100, 100);
+      const png = new File([await encode(cv, 'image/png')], 'pic.png', { type: 'image/png' });
+      const jr = new Uint8Array(await (await encode(cv, 'image/jpeg', 0.95)).arrayBuffer());
+      const exif = new Uint8Array([0xff, 0xe1, 0x00, 0x22, 0x45, 0x78, 0x69, 0x66, 0, 0, 0x4d, 0x4d, 0, 0x2a, 0, 0, 0, 8, 0, 1, 0x01, 0x12, 0, 3, 0, 0, 0, 1, 0, 6, 0, 0, 0, 0, 0, 0]);
+      const jpg6 = new File([jr.slice(0, 2), exif, jr.slice(2)], 'turned.jpg', { type: 'image/jpeg' });
+      ok('range "1-3, 5" of 8', JSON.stringify(parseRange('1-3, 5', 8)) === '[0,1,2,4]');
+      ok('range "6-" and "3 – 1"', JSON.stringify(parseRange('6-', 8)) === '[5,6,7]' && JSON.stringify(parseRange('3 – 1', 8)) === '[0,1,2]');
+      ok('range "9" of 8 is refused', parseRange('9', 8) === null && parseRange('a', 8) === null);
+      ok('EXIF orientation read', jpegOrientation(new Uint8Array(await jpg6.arrayBuffer())) === 6);
+
+      // merge
+      setMode('merge'); clearMerge();
+      await addMerge([A, B, C]);
+      ok('merge: 3 PDFs listed', items.length === 3 && items.every((it) => !it.err), items.map((it) => it.pages).join('+'));
+      moveItem(2, -1);
+      ok('merge: ↑ moves C above B', items.map((it) => it.name).join() === 'A.pdf,C.pdf,B.pdf');
+      await doMerge();
+      let r = res.merge;
+      ok('merge A+C+B = 6 pages', r && (await pagesOf(r.blob)) === 6, r && `${r.pages} pages, ${fmtSize(r.blob.size)}`);
+      ok('merge keeps text and order', (await texts(r.blob)).join() === 'A1,A2,A3,C1,B1,B2', (await texts(r.blob)).join());
+      document.querySelector('input[name=imgPage][value=fit]').checked = true;
+      await addMerge([png, jpg6]);
+      await doMerge(); r = res.merge;
+      ok('merge + PNG + JPG = 8 pages', r && (await pagesOf(r.blob)) === 8, r && `${r.pages} pages, ${fmtSize(r.blob.size)}`);
+      {
+        const d = await jsOpen(new Uint8Array(await r.blob.arrayBuffer()));
+        const v7 = (await d.getPage(7)).getViewport({ scale: 1 }); const p8 = await d.getPage(8); const v8 = p8.getViewport({ scale: 1 });
+        ok('PNG page keeps landscape shape', v7.width > v7.height, `${Math.round(v7.width)}×${Math.round(v7.height)}`);
+        const c = await drawPage(d, 7, 200); const x = c.getContext('2d');
+        const top = x.getImageData(c.width / 2, c.height * 0.25, 1, 1).data; const bot = x.getImageData(c.width / 2, c.height * 0.75, 1, 1).data;
+        ok('EXIF-6 JPG page stands upright (red top, blue bottom)', v8.height > v8.width && top[0] > 150 && top[2] < 100 && bot[2] > 150 && bot[0] < 100, `${Math.round(v8.width)}×${Math.round(v8.height)} top rgb(${top[0]},${top[1]},${top[2]}) bottom rgb(${bot[0]},${bot[1]},${bot[2]})`);
+        d.destroy();
+      }
+      document.querySelector('input[name=imgPage][value=a4]').checked = true;
+
+      // split
+      $('editBtn').click(); await new Promise((ok2) => setTimeout(ok2, 50));
+      await (async () => { for (let k = 0; k < 100 && !S.n; k += 1) await new Promise((w) => setTimeout(w, 50)); })();
+      ok('"Edit its pages" opens merged PDF in split mode', mode === 'split' && S.n === 8, `${S.n} pages`);
+      await ensureThumb(0);
+      ok('page thumbnails drawn', !!document.querySelector('.pg[data-i="0"] canvas'));
+      act = 'keep'; syncSel();
+      $('range').value = '1-2'; $('range').dispatchEvent(new Event('input'));
+      ok('typing "1-2" chooses 2 pages', S.sel.size === 2 && document.querySelectorAll('.pg.on').length === 2);
+      await doMake(); r = res.split;
+      ok('split "1-2" → 2 pages, text kept', r && r.pages === 2 && (await texts(r.blob)).join() === 'A1,A2', r && `${(await texts(r.blob)).join()} · ${fmtSize(r.blob.size)} · ${r.name}`);
+      $('selNone').click();
+      await doZip(); r = res.split;
+      let each = r && r.files.length === 8;
+      if (each) for (const f of r.files) if ((await pagesOf(f.blob)) !== 1) each = false;
+      const zb = new Uint8Array(await r.blob.arrayBuffer()); let sig = 0; for (let i = 0; i + 3 < zb.length; i += 1) if (zb[i] === 0x50 && zb[i + 1] === 0x4b && zb[i + 2] === 3 && zb[i + 3] === 4) sig += 1;
+      ok('every page → ZIP of 8 one-page PDFs', each && sig === 8, r && `${r.files.length} files, ${sig} zip entries, ${fmtSize(r.blob.size)}`);
+      document.querySelector('.pg[data-i="0"] .pgrot').click();
+      document.querySelector('.pg[data-i="0"] .pgsel').click();
+      await doMake(); r = res.split;
+      {
+        const d = await PDFLib.PDFDocument.load(new Uint8Array(await r.blob.arrayBuffer()));
+        ok('rotate page 1 by 90°', S.rot[0] === 90 && d.getPageCount() === 1 && d.getPage(0).getRotation().angle === 90, `angle ${d.getPage(0).getRotation().angle}`);
+      }
+      $('rotAll').click(); $('rotAll').click(); $('rotAll').click();
+      ok('rotate all ×3 → page 1 back to 0°, others 270°', S.rot[0] === 0 && S.rot[1] === 270);
+      S.rot = S.rot.map(() => 0); $('selNone').click();
+      document.querySelector('input[name=act][value=delete]').click();
+      $('range').value = '2, 4'; $('range').dispatchEvent(new Event('input'));
+      await doMake(); r = res.split;
+      ok('delete pages 2 and 4 → 6 left', r && r.pages === 6 && (await texts(r.blob)).filter(Boolean).join() === 'A1,A3,B1,B2', r && `${(await texts(r.blob)).filter(Boolean).join()} · ${r.name}`);
+      $('selAll').click(); res.split = null; await doMake();
+      ok('deleting every page is refused', res.split === null);
+      document.querySelector('input[name=act][value=keep]').click();
+
+      // locked + broken files
+      const ed = await PDFLib.PDFDocument.create(); ed.addPage([200, 200]); ed.context.trailerInfo.Encrypt = ed.context.register(ed.context.obj({ Filter: 'Standard', V: 1, R: 2 }));
+      const locked = new File([await ed.save()], 'locked.pdf', { type: 'application/pdf' });
+      setMode('merge'); clearMerge(); await addMerge([locked, new File(['not a pdf'], 'broken.pdf', { type: 'application/pdf' })]);
+      ok('locked PDF → friendly message', items[0].err === 'locked' && $('mList').textContent.includes('Print → Save as PDF'));
+      ok('broken PDF → friendly message', items[1].err === 'bad');
+      setMode('split'); await loadSplit(locked);
+      ok('locked PDF in split mode → message', !$('sMsg').classList.contains('hidden') && S.doc === null);
+      clearMerge(); showSMsg('');
+
+      // languages
+      const keys = Object.keys(T.hinglish);
+      for (const l of LANGS) {
+        lang = l; applyLang();
+        const miss = keys.filter((k) => !(k in T[l]) || typeof T[l][k] !== typeof T.hinglish[k]);
+        const empty = [...document.querySelectorAll('[data-t]')].filter((el) => !el.textContent.trim()).map((el) => el.dataset.t);
+        const nf = faqNow().length; const pageT = PAGE ? PAGE.T[l] : null;
+        const lists = PAGE ? !$('howList') && !!(pageT.title && pageT.sub && pageT.info) : $('howList').children.length === 5 && $('whenList').children.length === 5 && $('probList').children.length === 5 && $('aboutText').children.length === 2;
+        const words = [...document.querySelectorAll('section.info')].filter((x) => !x.querySelector('#links') && !x.classList.contains('hidden')).map((x) => x.textContent).join(' ').split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
+        ok(`language ${l}`, !miss.length && !empty.length && lists && nf >= 4 && nf <= 5 && $('faqList').children.length === nf && JSON.parse($('faqLd').textContent).mainEntity.length === nf && words >= 500, `${keys.length} keys, ${nf} FAQ, ${words} words of text below the tool${miss.length ? ` missing ${miss}` : ''}${empty.length ? ` empty ${empty}` : ''}`);
+      }
+      lang = 'en'; applyLang();
+      ok('static FAQ JSON-LD = English FAQ', JSON.stringify(JSON.parse(LD0)) === JSON.stringify(JSON.parse(faqLd(faqNow()))));
+      lang = 'hinglish'; applyLang();
+      if (PAGE) ok(`sub-page opens in ${PAGE.mode}/${PAGE.act}`, startMode === PAGE.mode && startAct === PAGE.act && !$('pageInfo').classList.contains('hidden'));
+      else ok('main page opens in merge mode', startMode === 'merge');
+    } catch (e) { ok('no exception', false, String(e && e.stack || e)); }
+    clearInterval(beat);
+    box.textContent = `SELFTEST ${bad ? 'FAIL' : 'ALL PASS'} ${pass}/${pass + bad}\n${lines.join('\n')}`;
+    console.log(box.textContent.split('\n')[0]);
+  })();
+}
+</script>
+</body>
+</html>

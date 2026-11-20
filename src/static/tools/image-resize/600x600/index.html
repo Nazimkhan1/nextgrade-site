@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>600x600 Photo Resize — Make a Square 600 × 600 px Image Online Free | NextGrade Tools</title>
+<meta name="description" content="Resize any photo to a square 600 × 600 px for visa forms, profile pictures and product listings: crop the square you want or keep the whole picture with a white border. Free, nothing is uploaded.">
+<meta name="theme-color" content="#5f3dc4">
+<link rel="canonical" href="https://nextgrade.in/tools/image-resize/600x600/">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<link rel="manifest" href="../manifest.json">
+<script type="application/ld+json" id="faqLd">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "How many inches is 600 × 600 px?", "acceptedAnswer": {"@type": "Answer", "text": "2 × 2 inch at 300 DPI (about 5.08 × 5.08 cm). On a screen or a form inches mean nothing; only the px count."}}, {"@type": "Question", "name": "How do I make it square without cutting anything?", "acceptedAnswer": {"@type": "Answer", "text": "Choose \"Whole photo + colour\". The whole picture shows and the empty space is filled with white, blue or your own colour."}}, {"@type": "Question", "name": "Is this enough for a visa photo?", "acceptedAnswer": {"@type": "Answer", "text": "The size and shape will be right. Match things like background, face size and KB with the application guidelines."}}, {"@type": "Question", "name": "Can I make a bigger square?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Choose 1080 × 1080 above, or type your own width and height."}}, {"@type": "Question", "name": "How do I send it straight to an app?", "acceptedAnswer": {"@type": "Answer", "text": "Tap Share and pick the app from your phone's share list. If sharing doesn't work, download it and send it."}}]}</script>
+<link rel="icon" href="../icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #f3f0ff; --card: #fff; --ink: #221a3d; --muted: #5e5878; --brand: #5f3dc4; --brand2: #7950f2; --line: #ddd5fb; --soft: #f8f6ff; --ok: #2b8a3e; --warn: #c92a2a; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 8px; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 21px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand small { display: block; font-family: Inter, sans-serif; font-size: 12px; font-weight: 600; color: var(--muted); }
+select, button, input { font: inherit; }
+.langsel, .inp { padding: 7px 9px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+.inp { width: 100%; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: clamp(26px, 6vw, 36px); line-height: 1.15; margin: 4px 0; }
+.sub { color: var(--muted); margin: 0 0 10px; }
+.privacy { background: #ebfbee; border: 1px solid #b2f2bb; color: #1b5e20; border-radius: 12px; padding: 8px 12px; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 4px 18px rgba(95, 61, 196, 0.08); }
+.lbl { font-weight: 700; margin: 0 0 8px; }
+.blk { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: stretch; }
+.chip { padding: 7px 12px; border-radius: 14px; border: 1px solid var(--line); background: #fff; font-weight: 700; cursor: pointer; color: var(--ink); min-width: 74px; text-align: start; line-height: 1.25; }
+.chip small { display: block; font-weight: 600; font-size: 11.5px; color: var(--muted); }
+.chip.on { background: linear-gradient(90deg, var(--brand), var(--brand2)); color: #fff; border-color: transparent; }
+.chip.on small { color: #ece6ff; }
+.dimrow { display: grid; grid-template-columns: 1fr auto 1fr 92px; gap: 8px; align-items: end; margin-top: 10px; }
+.dimrow .x { padding-bottom: 8px; font-weight: 700; color: var(--muted); }
+.dimrow label, .grid2 label { display: block; }
+.hint { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+.hint a { color: var(--brand); font-weight: 700; }
+.lab { display: block; font-size: 13px; color: var(--muted); font-weight: 600; margin-bottom: 2px; }
+.pxeq { font-weight: 700; color: var(--brand); margin-top: 8px; }
+.pxeq.bad { color: var(--warn); }
+.opts { display: flex; gap: 8px 14px; flex-wrap: wrap; font-size: 14px; align-items: center; }
+.opts label { display: flex; gap: 6px; align-items: center; cursor: pointer; }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg label { border: 1px solid var(--line); border-radius: 10px; padding: 7px 10px; cursor: pointer; font-weight: 600; font-size: 14px; background: #fff; }
+.seg label:has(input:checked) { border-color: var(--brand); background: #efeaff; }
+.seg input { margin: 0 4px 0 0; }
+.chk { display: flex; gap: 8px; align-items: center; font-size: 14px; margin-top: 8px; cursor: pointer; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+@media (max-width: 480px) { .dimrow { grid-template-columns: 1fr auto 1fr; } .dimrow .unitbox { grid-column: 1 / -1; } }
+.swatch { width: 34px; height: 30px; border: 1px solid var(--line); border-radius: 8px; padding: 0; background: #fff; cursor: pointer; }
+.drop { margin-top: 14px; border: 2px dashed #a68cf5; border-radius: 16px; padding: 24px 16px; text-align: center; background: var(--soft); cursor: pointer; }
+.drop.over { background: #e9e2ff; }
+.drop b { display: block; font-size: 18px; margin-bottom: 4px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 700; cursor: pointer; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, var(--brand), var(--brand2)); color: #fff; border: 0; }
+.btn-ok { background: var(--ok); color: #fff; border: 0; }
+.btn-sm { padding: 7px 10px; font-size: 13.5px; border-radius: 10px; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.orig { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 14px; background: var(--soft); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; font-size: 14px; font-weight: 600; }
+.edit { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; margin-top: 14px; }
+@media (max-width: 700px) { .edit { grid-template-columns: 1fr; } }
+.pane { border: 1px solid var(--line); border-radius: 14px; padding: 10px; background: #fff; }
+.pane h2 { margin: 0 0 8px; font-size: 17px; }
+.stage { display: flex; justify-content: center; align-items: center; min-height: 160px; background: #2a2440; border-radius: 10px; padding: 10px; }
+.stage canvas { display: block; touch-action: none; background: repeating-conic-gradient(#ddd 0 25%, #fff 0 50%) 50% / 14px 14px; box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(0,0,0,.35); cursor: grab; }
+.stage canvas.nodrag { cursor: default; }
+.zoomrow { display: flex; gap: 8px; align-items: center; margin-top: 8px; font-size: 14px; }
+.zoomrow input { flex: 1; }
+.outimg { display: flex; justify-content: center; align-items: center; min-height: 160px; background: repeating-conic-gradient(#eee 0 25%, #fff 0 50%) 50% / 14px 14px; border-radius: 10px; padding: 10px; }
+.outimg img { max-width: 100%; max-height: 340px; display: block; box-shadow: 0 1px 6px rgba(0,0,0,.25); }
+.resline { font-weight: 700; margin-top: 8px; }
+.resline b { color: var(--ok); }
+.resline.bad b { color: var(--warn); }
+.note { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.note.bad { color: var(--warn); font-weight: 600; }
+.spin { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--line); border-top-color: var(--brand); border-radius: 50%; animation: sp 0.8s linear infinite; vertical-align: -2px; margin-right: 6px; }
+@keyframes sp { to { transform: rotate(360deg); } }
+.hidden { display: none !important; }
+section.info { margin: 26px 0; }
+section.info h2 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: 22px; margin: 0 0 6px; }
+.sizes { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.sizes a { display: block; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; color: var(--ink); text-decoration: none; font-weight: 700; }
+.sizes a small { display: block; color: var(--muted); font-weight: 400; font-size: 12.5px; }
+.sizes a.here { border-color: var(--brand); box-shadow: 0 0 0 2px rgba(95, 61, 196, 0.2); }
+.tbl { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; }
+.tbl th, .tbl td { border: 1px solid var(--line); padding: 6px 8px; text-align: start; vertical-align: top; }
+.tbl th { background: var(--soft); }
+.tblwrap { overflow-x: auto; }
+details.faq { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin: 8px 0; }
+details.faq summary { font-weight: 700; cursor: pointer; }
+footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top: 1px solid var(--line); margin-top: 24px; }
+.toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 12px; font-weight: 600; z-index: 30; max-width: 92vw; text-align: center; }
+#selftest { white-space: pre-wrap; font-size: 12px; background: #111; color: #9f9; padding: 10px; border-radius: 10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://nextgrade.in/tools/">📐 NextGrade Tools<small data-t="brandSub"></small></a>
+    <select class="langsel" id="langSel" aria-label="Language">
+      <option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option>
+    </select>
+  </header>
+  <h1 data-t="title"></h1>
+  <p class="sub" data-t="sub"></p>
+  <div class="privacy">🔒 <span data-t="privacy"></span></div>
+  <pre id="selftest" class="hidden"></pre>
+
+  <div class="card">
+    <p class="lbl" data-t="sizeH"></p>
+    <div class="chips" id="chips"></div>
+
+    <div class="dimrow">
+      <label><span class="lab" data-t="wL"></span><input class="inp" id="wIn" type="number" inputmode="decimal" min="0" step="any" aria-label="width"></label>
+      <span class="x">×</span>
+      <label><span class="lab" data-t="hL"></span><input class="inp" id="hIn" type="number" inputmode="decimal" min="0" step="any" aria-label="height"></label>
+      <label class="unitbox"><span class="lab" data-t="unitL"></span><select class="inp" id="unitSel"><option value="px">px</option><option value="cm">cm</option><option value="mm">mm</option><option value="in">inch</option></select></label>
+    </div>
+    <label class="chk"><input type="checkbox" id="lockChk" checked> <span data-t="lock"></span></label>
+    <div id="dpiBox" class="hidden">
+      <div class="grid2"><label><span class="lab" data-t="dpiL"></span><input class="inp" id="dpiIn" type="number" inputmode="numeric" min="50" max="1200" value="300"></label></div>
+      <p class="hint" data-t="dpiNote"></p>
+    </div>
+    <div class="pxeq" id="pxEq"></div>
+
+    <div class="blk">
+      <p class="lbl" data-t="fitH"></p>
+      <div class="seg" role="radiogroup">
+        <label><input type="radio" name="fit" value="crop" checked><span data-t="fitCrop"></span></label>
+        <label><input type="radio" name="fit" value="pad"><span data-t="fitPad"></span></label>
+        <label><input type="radio" name="fit" value="stretch"><span data-t="fitStretch"></span></label>
+      </div>
+      <p class="hint" id="fitNote"></p>
+      <div class="opts hidden" id="bgBox" style="margin-top:8px">
+        <span class="lab" style="margin:0" data-t="bgL"></span>
+        <label><input type="radio" name="bg" value="#ffffff" checked> <span data-t="bgWhite"></span></label>
+        <label><input type="radio" name="bg" value="#4f8fd8"> <span data-t="bgBlue"></span></label>
+        <label><input type="radio" name="bg" value="custom"> <span data-t="bgCustom"></span> <input type="color" class="swatch" id="bgColor" value="#ffe066" aria-label="colour"></label>
+      </div>
+    </div>
+
+    <div class="blk">
+      <p class="lbl" data-t="fmtH"></p>
+      <div class="seg" role="radiogroup">
+        <label><input type="radio" name="fmt" value="jpeg" checked>JPG</label>
+        <label><input type="radio" name="fmt" value="png">PNG</label>
+        <label id="webpOpt"><input type="radio" name="fmt" value="webp">WebP</label>
+      </div>
+      <p class="hint" data-t="fmtNote"></p>
+      <div class="grid2">
+        <label id="qBox"><span class="lab"><span data-t="qualL"></span>: <b id="qVal">90%</b></span><input id="qIn" type="range" min="10" max="100" value="90" style="width:100%"></label>
+        <label id="kbBox"><span class="lab" data-t="maxKbL"></span><input class="inp" id="kbIn" type="number" inputmode="numeric" min="1" max="20000" placeholder="—"></label>
+      </div>
+      <p class="hint" id="kbNote"></p>
+      <p class="hint"><a id="formLink" href="../form-helper/">📝 <span data-t="formNote"></span></a></p>
+    </div>
+
+    <div class="drop" id="drop" role="button" tabindex="0">
+      <b data-t="pickTitle"></b>
+      <span class="hint" data-t="pickHint"></span>
+      <div class="row" style="justify-content:center;margin-top:12px">
+        <button class="btn btn-main" id="pickBtn" type="button" data-t="pickBtn"></button>
+        <button class="btn" id="camBtn" type="button" data-t="camBtn"></button>
+      </div>
+    </div>
+    <input type="file" id="file" accept="image/*" hidden>
+    <input type="file" id="cam" accept="image/*" capture="environment" hidden>
+
+    <div id="work" class="hidden">
+      <div class="orig"><span id="origLine"></span><button class="btn btn-sm" id="changeBtn" type="button" data-t="change"></button></div>
+      <div class="edit">
+        <div class="pane">
+          <h2 id="editH"></h2>
+          <div class="stage" id="stage"><canvas id="view" width="10" height="10"></canvas></div>
+          <div id="cropCtl">
+            <div class="zoomrow"><span data-t="zoom"></span><input type="range" id="zoomIn" min="100" max="800" value="100" aria-label="zoom"><button class="btn btn-sm" id="resetBtn" type="button" data-t="reset"></button></div>
+            <p class="hint" data-t="dragHint"></p>
+          </div>
+        </div>
+        <div class="pane">
+          <h2 data-t="resH"></h2>
+          <div class="outimg"><img id="outImg" alt=""></div>
+          <div class="resline" id="resLine"></div>
+          <div class="note" id="printLine"></div>
+          <div id="notes"></div>
+          <div class="row" style="margin-top:10px">
+            <button class="btn btn-ok" id="dlBtn" type="button" data-t="dl"></button>
+            <button class="btn" id="shareBtn" type="button" data-t="share"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="info" id="pageInfo"></section>
+  <section class="info" id="linksSec"><h2 data-t="linksH"></h2><p class="hint" data-t="linksNote"></p><div class="sizes" id="sizeLinks"></div></section>
+  <section class="info gen hidden"><h2 data-t="howH"></h2><ol id="howList"></ol></section>
+  <section class="info gen hidden"><h2 data-t="whenH"></h2><div id="whenBox"></div></section>
+  <section class="info gen hidden"><h2 data-t="tableH"></h2><p class="hint" data-t="tableNote"></p><div class="tblwrap"><table class="tbl" id="useTable"></table></div></section>
+  <section class="info gen hidden"><h2 data-t="tipsH"></h2><ul id="tipList"></ul></section>
+  <section class="info gen hidden"><h2 data-t="probH"></h2><ul id="probList"></ul></section>
+  <section class="info" id="faqSec"><h2 data-t="faqH"></h2><div id="faqList"></div></section>
+  <section class="info gen hidden"><h2 data-t="aboutH"></h2><p data-t="aboutText"></p></section>
+  <section class="info gen hidden"><h2 data-t="privH"></h2><p data-t="privText"></p></section>
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer"></span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+</div>
+
+<script>window.IR_PAGE = {"preset": "sq600", "base": "../", "T": {"hinglish": {"title": "Photo 600 × 600 px (square) banao — free", "sub": "Kisi bhi photo ko 600 × 600 px ki square photo mein badlo — visa form, profile picture ya online dukaan ke liye. Crop karo ya poori photo safed kinaare ke saath rakho.", "info": "<h2>600 × 600 px square photo</h2><p>600 × 600 px ek chaukor (square) photo hai — chaudai aur lambai dono barabar. Yeh size teen jagah sabse zyada kaam aata hai: kuch visa aur online applications ki digital photo, profile picture (job portal, shaadi ki site, school app), aur online bechne wale saamaan ki photo. 300 DPI par 600 px = 2 inch, isliye 2 × 2 inch print ke liye bhi yahi file chal jaati hai. Upar 600 × 600 px pehle se chuna hua hai.</p><h2>Lambi photo ko square kaise karein</h2><p>Phone ki photo aksar lambi (3:4 ya 9:16) hoti hai, jabki yahan dono side barabar chahiye. Iske do raaste hain:</p><ul><li><b>Crop karke bharo:</b> square frame mein sirf woh hissa rakho jo chahiye — chehra ya saamaan. Baaki kat jaata hai. Profile aur visa photo ke liye yahi theek hai.</li><li><b>Poori photo + rang:</b> poori photo dikhti hai aur dono taraf safed (ya koi bhi rang) patti aa jaati hai. Saamaan ki photo ke liye achha, jab kuch katna nahi chahiye.</li></ul><h2>Step by step</h2><ol><li>Photo chuno ya camera se lo.</li><li>Upar se fit mode chuno — Crop ya \"Poori photo + rang\".</li><li>Crop mein photo khiskao aur zoom karo; doosre mode mein kinaare ka rang chuno.</li><li>Format chuno: form ke liye JPG, website ya dukaan ke liye WebP bhi theek hai.</li><li>Download ya Share — photo seedha chat ya app mein bhej sakte ho.</li></ol><h2>Aksar maangi jaane wali shartein</h2><ul><li>Visa type digital photo mein aksar square photo, kam se kam 600 × 600 px, safed ya halka background aur kuch sau KB tak ki file maangi jaati hai.</li><li>Online dukaan aur catalogue aksar safed background wali square photo pasand karte hain, taaki saare products ek line mein barabar dikhein.</li><li>Profile picture aksar gol (circle) mein dikhai jaati hai, isliye chehra beech mein rakho — kone kat sakte hain.</li></ul><h2>Tips</h2><ul><li>Saamaan ki photo din ki roshni mein, safed kaagaz ya chadar par khincho; phir \"Poori photo + rang\" mein safed chuno — kinaare aur background ek jaise lagenge.</li><li>Chehre wali photo mein aankhein frame ke upar wale teesre hisse mein rakho; yeh dekhne mein natural lagta hai.</li><li>Bahut chhoti photo ko 600 × 600 tak bada karoge to dhundhli lagegi; tool aise mein chetawani deta hai.</li></ul><h2>Dikkatein</h2><ul><li><b>Form \"min 600 × 600\" kehta hai:</b> 600 se kam na ho, zyada chal sakta hai — par exact 600 sabse surakshit hai.</li><li><b>Kinaare kaale aa rahe hain:</b> JPG chuno ya rang badlo; PNG/WebP mein khaali hissa transparent rakhne ka option nahi hai, kinaara chuna hua rang hi hota hai.</li></ul><h2>Square photo ke aur kaam</h2><p>600 × 600 ek \"safe\" square size hai: itna bada ki chehra aur saamaan saaf dikhe, aur itna chhota ki file jaldi upload ho. Isi file ko aap kai jagah use kar sakte ho — resume ke saath lagne wali photo, online class ya school app ki profile, community group ka logo, ya chhoti dukaan ke catalogue ki photo. Agar kisi jagah zyada bada square chahiye (jaise 1080 × 1080), to upar wahi chuno; chhota chahiye (jaise 300 × 300), to chaudai-lambai mein likh do aur \"Photo ka ratio\" lock band rakho. Ek hi photo se alag-alag size banana ho to har baar asli photo se banao, chhoti ki hui copy se nahi — tab har size saaf rehta hai.</p><h2>Privacy</h2><p>Photo aapke phone mein hi square banti hai; kuch upload nahi hota.</p>", "faq": [["600 × 600 px kitne inch hota hai?", "300 DPI par 2 × 2 inch (lagbhag 5.08 × 5.08 cm). Screen ya form ke liye inch ka koi matlab nahi, sirf px dekhe jaate hain."], ["Photo ka koi hissa kate bina square kaise karein?", "\"Poori photo + rang\" chuno. Poori photo dikhegi aur khaali jagah safed, neela ya aapka chuna rang bharega."], ["Visa ki photo ke liye kya yeh kaafi hai?", "Size aur shape sahi banenge. Background, chehre ka size aur KB jaisi baatein application ki guidelines se mila lo."], ["Kya isse badi square photo bhi bana sakte hain?", "Haan. Upar 1080 × 1080 chuno ya chaudai-lambai mein apna number likho."], ["WhatsApp ya kisi app mein seedha kaise bhejein?", "Share button dabao; phone ki share list se app chuno. Share na chale to Download karke bhejo."]]}, "hi": {"title": "फ़ोटो 600 × 600 px (चौकोर) बनाएँ — फ़्री", "sub": "किसी भी फ़ोटो को 600 × 600 px की चौकोर फ़ोटो में बदलें — वीज़ा फ़ॉर्म, प्रोफ़ाइल फ़ोटो या ऑनलाइन दुकान के लिए। क्रॉप करें या पूरी फ़ोटो सफ़ेद किनारों के साथ रखें।", "info": "<h2>600 × 600 px चौकोर फ़ोटो</h2><p>600 × 600 px एक चौकोर (square) फ़ोटो है — चौड़ाई और लंबाई दोनों बराबर। यह साइज़ तीन जगह सबसे ज़्यादा काम आता है: कुछ वीज़ा और ऑनलाइन आवेदनों की डिजिटल फ़ोटो, प्रोफ़ाइल फ़ोटो (जॉब पोर्टल, शादी की साइट, स्कूल ऐप), और ऑनलाइन बेचे जाने वाले सामान की फ़ोटो। 300 DPI पर 600 px = 2 इंच, इसलिए 2 × 2 इंच प्रिंट के लिए भी यही फ़ाइल चल जाती है। ऊपर 600 × 600 px पहले से चुना हुआ है।</p><h2>लंबी फ़ोटो को चौकोर कैसे करें</h2><p>फ़ोन की फ़ोटो अक्सर लंबी (3:4 या 9:16) होती है, जबकि यहाँ दोनों साइड बराबर चाहिए। इसके दो रास्ते हैं:</p><ul><li><b>क्रॉप करके भरें:</b> चौकोर फ़्रेम में सिर्फ़ वह हिस्सा रखें जो चाहिए — चेहरा या सामान। बाक़ी कट जाता है। प्रोफ़ाइल और वीज़ा फ़ोटो के लिए यही ठीक है।</li><li><b>पूरी फ़ोटो + रंग:</b> पूरी फ़ोटो दिखती है और दोनों तरफ़ सफ़ेद (या कोई भी रंग) पट्टी आ जाती है। सामान की फ़ोटो के लिए अच्छा, जब कुछ कटना नहीं चाहिए।</li></ul><h2>एक-एक क़दम</h2><ol><li>फ़ोटो चुनें या कैमरा से लें।</li><li>ऊपर से फ़िट मोड चुनें — क्रॉप या \"पूरी फ़ोटो + रंग\"।</li><li>क्रॉप में फ़ोटो खिसकाएँ और ज़ूम करें; दूसरे मोड में किनारों का रंग चुनें।</li><li>फ़ॉर्मेट चुनें: फ़ॉर्म के लिए JPG, वेबसाइट या दुकान के लिए WebP भी ठीक है।</li><li>डाउनलोड या शेयर — फ़ोटो सीधे चैट या ऐप में भेज सकते हैं।</li></ol><h2>अक्सर माँगी जाने वाली शर्तें</h2><ul><li>वीज़ा जैसी डिजिटल फ़ोटो में अक्सर चौकोर फ़ोटो, कम से कम 600 × 600 px, सफ़ेद या हल्का बैकग्राउंड और कुछ सौ KB तक की फ़ाइल माँगी जाती है।</li><li>ऑनलाइन दुकान और कैटलॉग अक्सर सफ़ेद बैकग्राउंड वाली चौकोर फ़ोटो पसंद करते हैं, ताकि सारे प्रोडक्ट एक लाइन में बराबर दिखें।</li><li>प्रोफ़ाइल फ़ोटो अक्सर गोल (circle) में दिखाई जाती है, इसलिए चेहरा बीच में रखें — कोने कट सकते हैं।</li></ul><h2>सुझाव</h2><ul><li>सामान की फ़ोटो दिन की रोशनी में, सफ़ेद काग़ज़ या चादर पर खींचें; फिर \"पूरी फ़ोटो + रंग\" में सफ़ेद चुनें — किनारे और बैकग्राउंड एक जैसे लगेंगे।</li><li>चेहरे वाली फ़ोटो में आँखें फ़्रेम के ऊपरी तिहाई हिस्से में रखें; यह देखने में स्वाभाविक लगता है।</li><li>बहुत छोटी फ़ोटो को 600 × 600 तक बड़ा करेंगे तो धुँधली लगेगी; टूल ऐसे में चेतावनी देता है।</li></ul><h2>दिक़्क़तें</h2><ul><li><b>फ़ॉर्म \"min 600 × 600\" कहता है:</b> 600 से कम न हो, ज़्यादा चल सकता है — पर ठीक 600 सबसे सुरक्षित है।</li><li><b>किनारे काले आ रहे हैं:</b> JPG चुनें या रंग बदलें; PNG/WebP में भी किनारा वही रंग होता है जो आपने चुना।</li></ul><h2>चौकोर फ़ोटो के और काम</h2><p>600 × 600 एक \"सुरक्षित\" चौकोर साइज़ है: इतना बड़ा कि चेहरा और सामान साफ़ दिखे, और इतना छोटा कि फ़ाइल जल्दी अपलोड हो। इसी फ़ाइल को आप कई जगह इस्तेमाल कर सकते हैं — रिज़्यूमे के साथ लगने वाली फ़ोटो, ऑनलाइन क्लास या स्कूल ऐप की प्रोफ़ाइल, कम्युनिटी ग्रुप का लोगो, या छोटी दुकान के कैटलॉग की फ़ोटो। अगर किसी जगह ज़्यादा बड़ा चौकोर चाहिए (जैसे 1080 × 1080), तो ऊपर वही चुनें; छोटा चाहिए (जैसे 300 × 300), तो चौड़ाई-लंबाई में लिख दें और \"फ़ोटो का अनुपात\" लॉक बंद रखें। एक ही फ़ोटो से अलग-अलग साइज़ बनाने हों तो हर बार असली फ़ोटो से बनाएँ, छोटी की हुई कॉपी से नहीं — तब हर साइज़ साफ़ रहता है।</p><h2>प्राइवेसी</h2><p>फ़ोटो आपके फ़ोन में ही चौकोर बनती है; कुछ भी अपलोड नहीं होता।</p>", "faq": [["600 × 600 px कितने इंच होता है?", "300 DPI पर 2 × 2 इंच (लगभग 5.08 × 5.08 cm)। स्क्रीन या फ़ॉर्म के लिए इंच का कोई मतलब नहीं, सिर्फ़ px देखे जाते हैं।"], ["फ़ोटो का कोई हिस्सा काटे बिना चौकोर कैसे करें?", "\"पूरी फ़ोटो + रंग\" चुनें। पूरी फ़ोटो दिखेगी और ख़ाली जगह में सफ़ेद, नीला या आपका चुना रंग भरेगा।"], ["क्या वीज़ा की फ़ोटो के लिए यह काफ़ी है?", "साइज़ और आकार सही बनेंगे। बैकग्राउंड, चेहरे का साइज़ और KB जैसी बातें आवेदन की गाइडलाइन से मिला लें।"], ["क्या इससे बड़ी चौकोर फ़ोटो भी बना सकते हैं?", "हाँ। ऊपर 1080 × 1080 चुनें या चौड़ाई-लंबाई में अपना नंबर लिखें।"], ["किसी ऐप में सीधे कैसे भेजें?", "शेयर बटन दबाएँ; फ़ोन की शेयर सूची से ऐप चुनें। शेयर न चले तो डाउनलोड करके भेजें।"]]}, "en": {"title": "Make a 600 × 600 px square photo — free", "sub": "Turn any photo into a 600 × 600 px square — for visa forms, profile pictures or an online shop. Crop it, or keep the whole picture with white edges.", "info": "<h2>The 600 × 600 px square photo</h2><p>600 × 600 px is a square photo — width and height are the same. It is used most in three places: the digital photo for some visa and online applications, profile pictures (job portals, matrimony sites, school apps), and pictures of things sold online. At 300 DPI, 600 px = 2 inches, so the same file also works for a 2 × 2 inch print. 600 × 600 px is already chosen above.</p><h2>Turning a tall photo into a square</h2><p>Phone photos are usually tall (3:4 or 9:16), but here both sides must match. There are two ways:</p><ul><li><b>Crop to fill:</b> keep only the part you need inside the square frame — a face or a product. The rest is cut off. Right for profile and visa photos.</li><li><b>Whole photo + colour:</b> the whole picture shows, with a white (or any colour) band on two sides. Good for product photos where nothing should be cut.</li></ul><h2>Step by step</h2><ol><li>Pick a photo or take one with the camera.</li><li>Choose the fit mode above — Crop or \"Whole photo + colour\".</li><li>In Crop, drag and zoom the photo; in the other mode, choose the edge colour.</li><li>Choose a format: JPG for forms; WebP is fine for a website or shop.</li><li>Download or Share — you can send it straight to a chat or app.</li></ol><h2>Conditions you will often see</h2><ul><li>Visa-style digital photos often ask for a square photo of at least 600 × 600 px, a white or light background and a file of up to a few hundred KB.</li><li>Online shops and catalogues often prefer square photos on white, so all products line up evenly.</li><li>Profile pictures are often shown in a circle, so keep the face in the middle — the corners may be cut.</li></ul><h2>Tips</h2><ul><li>Shoot products in daylight on white paper or a sheet, then choose white under \"Whole photo + colour\" — the edges and the background will match.</li><li>For a face, keep the eyes in the top third of the frame; it looks natural.</li><li>Blowing a very small photo up to 600 × 600 makes it soft; the tool warns you when that happens.</li></ul><h2>Problems</h2><ul><li><b>The form says \"min 600 × 600\":</b> it must not be smaller; larger may be accepted — but exactly 600 is the safest.</li><li><b>The edges come out black:</b> choose JPG or change the colour; in PNG/WebP too the edge is the colour you picked.</li></ul><h2>More uses for a square photo</h2><p>600 × 600 is a \"safe\" square size: big enough for a face or a product to look clear, small enough to upload quickly. The same file works in many places — the photo on a résumé, a profile in an online class or school app, a community group's logo, or a picture in a small shop's catalogue. If somewhere wants a bigger square (like 1080 × 1080), choose it above; for a smaller one (like 300 × 300), type the width and height and keep the \"photo's shape\" lock off. When you need several sizes of one photo, make each from the original, not from a shrunk copy — then every size stays sharp.</p><h2>Privacy</h2><p>The square is made on your phone; nothing is uploaded.</p>", "faq": [["How many inches is 600 × 600 px?", "2 × 2 inch at 300 DPI (about 5.08 × 5.08 cm). On a screen or a form inches mean nothing; only the px count."], ["How do I make it square without cutting anything?", "Choose \"Whole photo + colour\". The whole picture shows and the empty space is filled with white, blue or your own colour."], ["Is this enough for a visa photo?", "The size and shape will be right. Match things like background, face size and KB with the application guidelines."], ["Can I make a bigger square?", "Yes. Choose 1080 × 1080 above, or type your own width and height."], ["How do I send it straight to an app?", "Tap Share and pick the app from your phone's share list. If sharing doesn't work, download it and send it."]]}, "bn": {"title": "ছবি 600 × 600 px (চৌকো) বানান — ফ্রি", "sub": "যেকোনো ছবিকে 600 × 600 px-এর চৌকো ছবিতে বদলান — ভিসা ফর্ম, প্রোফাইল ছবি বা অনলাইন দোকানের জন্য। ক্রপ করুন, বা পুরো ছবি সাদা ধারসহ রাখুন।", "info": "<h2>600 × 600 px চৌকো ছবি</h2><p>600 × 600 px একটা চৌকো (square) ছবি — চওড়া আর লম্বা দুটোই সমান। এই মাপ সবচেয়ে বেশি কাজে লাগে তিন জায়গায়: কিছু ভিসা আর অনলাইন আবেদনের ডিজিটাল ছবি, প্রোফাইল ছবি (চাকরির পোর্টাল, বিয়ের সাইট, স্কুলের অ্যাপ), আর অনলাইনে বিক্রির জিনিসের ছবি। 300 DPI-তে 600 px = 2 ইঞ্চি, তাই 2 × 2 ইঞ্চি প্রিন্টের জন্যও এই ফাইলটাই চলে। ওপরে 600 × 600 px আগে থেকেই বাছা আছে।</p><h2>লম্বা ছবিকে চৌকো কীভাবে করবেন</h2><p>ফোনের ছবি সাধারণত লম্বা (3:4 বা 9:16) হয়, অথচ এখানে দুই দিক সমান চাই। এর দুটো উপায় আছে:</p><ul><li><b>ক্রপ করে ভরুন:</b> চৌকো ফ্রেমে শুধু দরকারি অংশটা রাখুন — মুখ বা জিনিসটা। বাকিটা কেটে যায়। প্রোফাইল আর ভিসার ছবির জন্য এটাই ঠিক।</li><li><b>পুরো ছবি + রং:</b> পুরো ছবি দেখা যায় আর দুই পাশে সাদা (বা যেকোনো রঙের) পট্টি আসে। জিনিসের ছবির জন্য ভালো, যখন কিছু কাটা চলবে না।</li></ul><h2>ধাপে ধাপে</h2><ol><li>ছবি বাছুন বা ক্যামেরায় তুলুন।</li><li>ওপর থেকে ফিট মোড বাছুন — ক্রপ বা \"পুরো ছবি + রং\"।</li><li>ক্রপে ছবি সরান আর জুম করুন; অন্য মোডে ধারের রং বাছুন।</li><li>ফরম্যাট বাছুন: ফর্মের জন্য JPG, ওয়েবসাইট বা দোকানের জন্য WebP-ও চলে।</li><li>ডাউনলোড বা শেয়ার — ছবি সরাসরি চ্যাট বা অ্যাপে পাঠাতে পারেন।</li></ol><h2>প্রায়ই যে শর্তগুলো থাকে</h2><ul><li>ভিসার মতো ডিজিটাল ছবিতে প্রায়ই চৌকো ছবি, কমপক্ষে 600 × 600 px, সাদা বা হালকা ব্যাকগ্রাউন্ড আর কয়েকশো KB পর্যন্ত ফাইল চাওয়া হয়।</li><li>অনলাইন দোকান আর ক্যাটালগ প্রায়ই সাদা ব্যাকগ্রাউন্ডের চৌকো ছবি পছন্দ করে, যাতে সব জিনিস এক লাইনে সমান দেখায়।</li><li>প্রোফাইল ছবি প্রায়ই গোল (circle) করে দেখানো হয়, তাই মুখ মাঝখানে রাখুন — কোণগুলো কেটে যেতে পারে।</li></ul><h2>পরামর্শ</h2><ul><li>জিনিসের ছবি দিনের আলোয়, সাদা কাগজ বা চাদরের ওপর তুলুন; তারপর \"পুরো ছবি + রং\"-এ সাদা বাছুন — ধার আর ব্যাকগ্রাউন্ড একই রকম লাগবে।</li><li>মুখের ছবিতে চোখ ফ্রেমের ওপরের তৃতীয়াংশে রাখুন; দেখতে স্বাভাবিক লাগে।</li><li>খুব ছোট ছবিকে 600 × 600 পর্যন্ত বড় করলে ঝাপসা লাগবে; তখন টুল সতর্ক করে দেয়।</li></ul><h2>সমস্যা</h2><ul><li><b>ফর্ম বলছে \"min 600 × 600\":</b> 600-র কম যেন না হয়, বেশি চলতে পারে — তবে ঠিক 600-ই সবচেয়ে নিরাপদ।</li><li><b>ধার কালো আসছে:</b> JPG বাছুন বা রং বদলান; PNG/WebP-তেও ধার আপনার বাছা রঙেরই হয়।</li></ul><h2>চৌকো ছবির আরও কাজ</h2><p>600 × 600 একটা \"নিরাপদ\" চৌকো মাপ: এতটা বড় যে মুখ বা জিনিস পরিষ্কার দেখা যায়, আবার এতটা ছোট যে ফাইল তাড়াতাড়ি আপলোড হয়। একই ফাইল অনেক জায়গায় কাজে লাগে — বায়োডেটার সঙ্গে দেওয়া ছবি, অনলাইন ক্লাস বা স্কুলের অ্যাপের প্রোফাইল, কোনো কমিউনিটি গ্রুপের লোগো, বা ছোট দোকানের ক্যাটালগের ছবি। কোথাও আরও বড় চৌকো চাইলে (যেমন 1080 × 1080) ওপরে সেটা বাছুন; ছোট চাইলে (যেমন 300 × 300) চওড়া-লম্বা ঘরে লিখে দিন আর \"ছবির অনুপাত\" লক বন্ধ রাখুন। একই ছবি থেকে আলাদা আলাদা মাপ বানাতে হলে প্রতিবার আসল ছবি থেকেই বানান, ছোট করা কপি থেকে নয় — তাহলে প্রতিটা মাপই পরিষ্কার থাকে। আর জিনিসের ছবি হলে সবগুলো একই আলোয়, একই দূরত্ব থেকে তুলুন, যাতে ক্যাটালগে সবকটা ছবি এক রকম দেখায়।</p><h2>গোপনীয়তা</h2><p>ছবি আপনার ফোনেই চৌকো হয়; কিছুই আপলোড হয় না।</p>", "faq": [["600 × 600 px কত ইঞ্চি?", "300 DPI-তে 2 × 2 ইঞ্চি (প্রায় 5.08 × 5.08 cm)। স্ক্রিন বা ফর্মে ইঞ্চির কোনো মানে নেই, শুধু px দেখা হয়।"], ["ছবির কোনো অংশ না কেটে চৌকো কীভাবে করব?", "\"পুরো ছবি + রং\" বাছুন। পুরো ছবি দেখা যাবে আর ফাঁকা জায়গায় সাদা, নীল বা আপনার বাছা রং ভরবে।"], ["ভিসার ছবির জন্য কি এটা যথেষ্ট?", "মাপ আর আকার ঠিক হবে। ব্যাকগ্রাউন্ড, মুখের মাপ আর KB-র মতো বিষয় আবেদনের নির্দেশিকার সঙ্গে মিলিয়ে নিন।"], ["এর চেয়ে বড় চৌকো ছবি বানানো যায়?", "হ্যাঁ। ওপরে 1080 × 1080 বাছুন বা চওড়া-লম্বায় নিজের সংখ্যা লিখুন।"], ["সরাসরি কোনো অ্যাপে কীভাবে পাঠাব?", "শেয়ার বোতাম চাপুন আর ফোনের শেয়ার তালিকা থেকে অ্যাপ বাছুন। শেয়ার না চললে ডাউনলোড করে পাঠান।"]]}}};</script>
+<script>
+'use strict';
+// Ready sizes. u = unit of w/h; cm/inch ones are turned into px at 300 DPI. page = its own search page (./3.5x4.5-cm/ …).
+const PRESETS = [
+  { id: 'pass', w: 3.5, h: 4.5, u: 'cm', page: '3.5x4.5-cm' },
+  { id: 'in2', w: 2, h: 2, u: 'in' },
+  { id: 'sq600', w: 600, h: 600, u: 'px', page: '600x600' },
+  { id: 'f200', w: 200, h: 230, u: 'px', page: '200x230' },
+  { id: 'sq1080', w: 1080, h: 1080, u: 'px' },
+  { id: 'story', w: 1080, h: 1920, u: 'px' },
+  { id: 'thumb', w: 1280, h: 720, u: 'px' },
+];
+
+const T = {
+  hinglish: {
+    brandSub: 'Free · photo phone se bahar nahi jaati', title: 'Photo ka size badlo — px, cm, mm, inch mein',
+    sub: 'Photo ko bilkul us size mein lao jo chahiye: 3.5×4.5 cm, 200×230 px, 600×600 ya apna. Jo hissa rakhna hai woh chuno, ya kinaare par safed/neela rang bharo. JPG, PNG ya WebP mein download.',
+    privacy: 'Aapki photo kahin upload nahi hoti. Saara kaam aapke phone/browser mein hota hai.',
+    sizeH: 'Kaunsa size chahiye?',
+    pl: { pass: 'Passport photo (India)', in2: '2×2 inch photo', sq600: 'Square, 600 px', f200: 'Form photo', sq1080: 'Square post', story: 'Status / story', thumb: 'Video thumbnail' },
+    wL: 'Chaudai', hL: 'Lambai', unitL: 'Unit', lock: '🔗 Photo ka ratio same rakho (ek likho, doosra apne aap)',
+    dpiL: 'DPI', dpiNote: 'cm, mm ya inch ko px mein badalne ke liye. Print karni ho to 300 theek hai.',
+    pxEq: (w, h) => `= ${w} × ${h} px`, pxPrint: (w, h, d) => `= ${w} × ${h} px (${d} DPI par)`,
+    fitH: 'Photo ka shape alag ho to?', fitCrop: '✂️ Crop karke bharo', fitPad: '🖼️ Poori photo + rang', fitStretch: '↔️ Kheench do',
+    fitNotes: { crop: 'Frame poora bhar jaata hai; bahar ka hissa kat jaata hai. Photo ko frame mein khiskao aur zoom karo.', pad: 'Poori photo dikhti hai; khaali jagah mein chuna hua rang bharta hai.', stretch: 'Poori photo frame mein kheench di jaati hai — chehra patla ya chauda dikh sakta hai.' },
+    bgL: 'Rang:', bgWhite: 'Safed', bgBlue: 'Neela', bgCustom: 'Apna',
+    fmtH: 'Kis format mein?', fmtNote: 'Form aur print ke liye JPG. Screenshot ya logo ke liye PNG. Website ke liye WebP (chhoti file).',
+    qualL: 'Quality', maxKbL: 'Zyada se zyada KB (khaali = koi limit nahi)',
+    pngKb: 'PNG ki quality kam nahi hoti, isliye KB limit sirf JPG aur WebP par lagti hai.',
+    formNote: 'Exam form ke liye exact px + KB range chahiye? Form Helper use karo',
+    pickTitle: 'Photo chuno', pickHint: 'JPG, PNG, WebP. Photo aapke phone mein hi rehti hai.', pickBtn: '🖼️ Gallery se chuno', camBtn: '📸 Camera se lo',
+    orig: (w, h, s) => `Asli photo: ${w} × ${h} px · ${s}`, change: '↺ Doosri photo',
+    editCrop: 'Kaunsa hissa rakhna hai', editView: 'Aisi dikhegi', zoom: 'Zoom', reset: '🎯 Beech mein',
+    dragHint: 'Ungli ya mouse se photo khiskao. Zoom ke liye slider, do ungliyan ya mouse ka wheel.',
+    resH: 'Taiyaar photo', working: 'Ban rahi hai…',
+    print: (a, b, u, d) => `Print par: ${a} × ${b} ${u} (${d} DPI)`,
+    dpiIn: (d) => `File ke andar ${d} DPI likha hai, isliye print karne par yahi size aayega.`,
+    webpDpi: 'WebP file mein DPI nahi likha jaata. Print ke liye JPG ya PNG chuno.',
+    tooBig: (kb) => `Sabse kam quality par bhi ${kb} KB se neeche nahi aayi. Size (px) chhota karo ya KB badhao.`,
+    pngOver: (kb) => `PNG ${kb} KB se badi hai. KB kam chahiye to JPG ya WebP chuno.`,
+    upscale: 'Asli photo is size se chhoti thi, isliye badi ki gayi — thodi dhundhli lag sakti hai.',
+    capped: 'Photo bahut badi thi, isliye phone ki memory ke liye pehle thodi chhoti ki gayi.',
+    tooLarge: 'Itna bada size phone par nahi banega. Chaudai × lambai 16 MP (jaise 4000 × 4000) se kam rakho.',
+    badSize: 'Chaudai aur lambai likho.',
+    failed: 'Yeh photo nahi khul payi. iPhone ki HEIC photo ho to Settings → Camera → Formats → "Most Compatible" chuno, ya photo ka screenshot lekar daalo.',
+    dl: '⬇️ Download', share: '📲 Share', saved: '✅ Phone mein save ho gaya',
+    linksH: 'Seedha is size ke liye', linksNote: 'Har size ka apna page hai, wahi size pehle se chuna hua.',
+    links: { '3.5x4.5-cm': ['Photo 3.5 × 4.5 cm', 'Passport, visa, forms'], '200x230': ['Photo 200 × 230 px', 'Bank exam form'], '600x600': ['Photo 600 × 600 px', 'Visa, profile photo'] },
+    ownSize: ['Apna size', 'px · cm · mm · inch'], formHelper: ['Form Helper', 'Exam form: px + KB range'], compress: ['Image Compressor', 'Sirf KB kam karna ho'],
+    howH: 'Kaise karein', how: ['Upar <b>size</b> chuno, ya apni chaudai-lambai likho aur unit (px, cm, mm, inch) chuno.', '<b>Gallery se chuno</b> ya <b>camera se lo</b>.', 'Shape alag ho to <b>Crop</b> mein photo ko frame mein khiskao aur zoom karo — ya <b>Poori photo + rang</b> chuno.', 'Format (JPG/PNG/WebP) aur zaroorat ho to <b>zyada se zyada KB</b> daalo.', 'Size aur KB dekh lo, phir <b>Download</b> ya <b>Share</b>.'],
+    tableH: 'Aam size — px kitne hote hain?', tableNote: 'cm aur inch wale size 300 DPI par. Form ya dukaan jo size likhe, wahi maano.', thUse: 'Kahan', thSize: 'Size', thPx: 'Px (300 DPI)',
+    uses: [['Passport / visa photo (India)', '3.5 × 4.5 cm', '413 × 531'], ['Stamp size photo', '2 × 2.5 cm', '236 × 295'], ['2×2 inch photo (kuch visa)', '2 × 2 inch', '600 × 600'], ['Bank exam form photo', '200 × 230 px', '200 × 230'], ['Postcard print', '4 × 6 inch', '1200 × 1800'], ['A4 page', '21 × 29.7 cm', '2480 × 3508'], ['Square post', '1080 × 1080 px', '1080 × 1080'], ['Status / story', '1080 × 1920 px', '1080 × 1920'], ['Video thumbnail', '1280 × 720 px', '1280 × 720']],
+    tipsH: 'Kaam ki baatein', tips: ['cm ya inch mein size likha ho to wahi unit chuno — tool 300 DPI par px nikaal deta hai aur file mein DPI bhi likh deta hai.', 'Passport photo mein chehra frame ka lagbhag 70–80% ho. Crop mein zoom karke set karo.', 'Background badalna ho (safed/neela) to pehle Background Remover se photo ka background hatao.', 'Chhoti photo ko bahut bada karne se woh dhundhli hogi. Ho sake to asli, badi photo lo.', 'Form KB range bhi maange (jaise 20–50 KB) to Form Helper behtar hai — woh kam se kam KB bhi poora karta hai.'],
+    whenH: "Exact size wali photo kab chahiye?",
+    whenText: "<p>Online form, visa application, ID card, school ka admit card, print shop — har jagah photo ka ek tay size maanga jaata hai. Kahin size <b>px</b> mein likha hota hai (jaise 200 × 230 px), kahin <b>cm</b> mein (jaise 3.5 × 4.5 cm) aur kahin <b>inch</b> mein (jaise 2 × 2 inch). Galat size ki photo daalne par portal aksar photo leta hi nahi, ya print mein chehra kat jaata hai.</p><ul><li>Bharat mein passport-size photo aksar <b>3.5 × 4.5 cm</b> maangi jaati hai — 300 DPI par yeh 413 × 531 px hai.</li><li>Bank exam ke forms mein photo aksar <b>200 × 230 px</b> ki hoti hai.</li><li>Kai visa aur profile photos <b>600 × 600 px</b> ya 2 × 2 inch (square) maangte hain.</li><li>Square post aksar 1080 × 1080, status/story 1080 × 1920 aur video thumbnail 1280 × 720 px ka hota hai.</li></ul><p>Har notification alag ho sakti hai, isliye jo likha ho wahi size daalo — yeh tool kisi bhi size ko bilkul exact bana deta hai.</p>",
+    probH: "Aam dikkatein aur unka hal",
+    probs: [["Portal \"invalid dimension\" bolta hai", "Unit dhyan se dekho: px likha ho to px chuno, cm likha ho to cm. \"= … px\" wali line mein asli px dikhte hain, aur result mein bhi — unhe portal ki maang se milao."], ["Chehra kat gaya ya bahut chhota hai", "Crop mein zoom slider se chehra bada karo aur ungli se beech mein lao. Poori photo chahiye to \"Poori photo + rang\" chuno."], ["Photo dhundhli lag rahi hai", "Shayad chhoti photo ko bada kiya gaya. Asli photo chuno — chat apps se aayi photo pehle hi chhoti ho chuki hoti hai — ya camera se nayi lo."], ["File KB limit se badi hai", "\"Zyada se zyada KB\" mein limit likho aur JPG ya WebP chuno; PNG ka KB kam nahi hota."], ["Print mein size alag aaya", "cm ya inch unit aur JPG/PNG chuno — tool file mein DPI likh deta hai. Printer mein \"Fit to page\" nahi, \"Actual size\" chuno."]],
+    faqH: 'Aksar pooche jaane wale sawaal',
+    faq: [['Kya meri photo kisi server par jaati hai?', 'Nahi. Photo aapke phone/browser mein hi resize hoti hai. Page ek baar khul jaaye to internet band karke bhi chalta hai.'], ['3.5 × 4.5 cm kitne pixel hote hain?', '300 DPI par 413 × 531 px. Upar unit "cm" chuno aur 3.5 × 4.5 likho, ya seedha passport wala size dabao.'], ['DPI kya hai?', 'Ek inch mein kitne pixel. 300 DPI par 1 inch = 300 px aur 1 cm ≈ 118 px. Screen par DPI se kuch farq nahi padta; print size isi se tay hota hai.'], ['Crop aur "Poori photo + rang" mein kya fark hai?', 'Crop mein frame poora bharta hai aur photo ka kuch hissa kat sakta hai. "Poori photo + rang" mein kuch nahi kat-ta, bas kinaaron par rang aa jaata hai.'], ['KB bhi kam karna hai, kaise?', '"Zyada se zyada KB" mein number daalo. Tool px wahi rakhta hai aur sirf quality utni kam karta hai jitni zaroori ho.'], ['Photo ulti/tedhi kyun nahi hoti?', 'Phone ki photo mein ghumane ki jaankari hoti hai; tool use padh kar photo seedhi rakhta hai.']],
+    aboutH: 'Is tool ke baare mein', aboutText: 'NextGrade ka yeh free tool kisi bhi photo ko ek tay size mein badalta hai — px, cm, mm ya inch mein. Aap chun sakte ho ki photo ka kaunsa hissa rahe, kinaare par kaunsa rang aaye, file kis format mein bane aur kitne KB tak ho. Koi sign-up nahi, koi watermark nahi.',
+    privH: 'Aapki photo, aapke paas', privText: 'Yeh tool bina kisi server ke aapke phone/browser mein chalta hai. Aapki photo kahin upload nahi hoti, kahin save nahi hoti, aur hum use dekh bhi nahi sakte. Page band karte hi sab mit jaata hai.',
+    footer: 'Free tool · kuch bhi upload nahi hota',
+  },
+  hi: {
+    brandSub: 'फ़्री · फ़ोटो फ़ोन से बाहर नहीं जाती', title: 'फ़ोटो का साइज़ बदलें — px, cm, mm, inch में',
+    sub: 'फ़ोटो को ठीक उसी साइज़ में लाएँ जो चाहिए: 3.5×4.5 cm, 200×230 px, 600×600 या अपना। जो हिस्सा रखना है वह चुनें, या किनारों पर सफ़ेद/नीला रंग भरें। JPG, PNG या WebP में डाउनलोड।',
+    privacy: 'आपकी फ़ोटो कहीं अपलोड नहीं होती। सारा काम आपके फ़ोन/ब्राउज़र में होता है।',
+    sizeH: 'कौन सा साइज़ चाहिए?',
+    pl: { pass: 'पासपोर्ट फ़ोटो (भारत)', in2: '2×2 इंच फ़ोटो', sq600: 'चौकोर, 600 px', f200: 'फ़ॉर्म फ़ोटो', sq1080: 'चौकोर पोस्ट', story: 'स्टेटस / स्टोरी', thumb: 'वीडियो थंबनेल' },
+    wL: 'चौड़ाई', hL: 'लंबाई', unitL: 'यूनिट', lock: '🔗 फ़ोटो का अनुपात वही रखें (एक लिखें, दूसरा अपने आप)',
+    dpiL: 'DPI', dpiNote: 'cm, mm या inch को px में बदलने के लिए। प्रिंट करनी हो तो 300 ठीक है।',
+    pxEq: (w, h) => `= ${w} × ${h} px`, pxPrint: (w, h, d) => `= ${w} × ${h} px (${d} DPI पर)`,
+    fitH: 'फ़ोटो का आकार अलग हो तो?', fitCrop: '✂️ क्रॉप करके भरें', fitPad: '🖼️ पूरी फ़ोटो + रंग', fitStretch: '↔️ खींच दें',
+    fitNotes: { crop: 'फ़्रेम पूरा भर जाता है; बाहर का हिस्सा कट जाता है। फ़ोटो को फ़्रेम में खिसकाएँ और ज़ूम करें।', pad: 'पूरी फ़ोटो दिखती है; ख़ाली जगह में चुना हुआ रंग भरता है।', stretch: 'पूरी फ़ोटो फ़्रेम में खींच दी जाती है — चेहरा पतला या चौड़ा दिख सकता है।' },
+    bgL: 'रंग:', bgWhite: 'सफ़ेद', bgBlue: 'नीला', bgCustom: 'अपना',
+    fmtH: 'किस फ़ॉर्मेट में?', fmtNote: 'फ़ॉर्म और प्रिंट के लिए JPG। स्क्रीनशॉट या लोगो के लिए PNG। वेबसाइट के लिए WebP (छोटी फ़ाइल)।',
+    qualL: 'क्वालिटी', maxKbL: 'ज़्यादा से ज़्यादा KB (ख़ाली = कोई सीमा नहीं)',
+    pngKb: 'PNG की क्वालिटी कम नहीं होती, इसलिए KB सीमा सिर्फ़ JPG और WebP पर लगती है।',
+    formNote: 'परीक्षा फ़ॉर्म के लिए सटीक px + KB रेंज चाहिए? फ़ॉर्म हेल्पर इस्तेमाल करें',
+    pickTitle: 'फ़ोटो चुनें', pickHint: 'JPG, PNG, WebP। फ़ोटो आपके फ़ोन में ही रहती है।', pickBtn: '🖼️ गैलरी से चुनें', camBtn: '📸 कैमरा से लें',
+    orig: (w, h, s) => `असली फ़ोटो: ${w} × ${h} px · ${s}`, change: '↺ दूसरी फ़ोटो',
+    editCrop: 'कौन सा हिस्सा रखना है', editView: 'ऐसी दिखेगी', zoom: 'ज़ूम', reset: '🎯 बीच में',
+    dragHint: 'उँगली या माउस से फ़ोटो खिसकाएँ। ज़ूम के लिए स्लाइडर, दो उँगलियाँ या माउस का व्हील।',
+    resH: 'तैयार फ़ोटो', working: 'बन रही है…',
+    print: (a, b, u, d) => `प्रिंट पर: ${a} × ${b} ${u} (${d} DPI)`,
+    dpiIn: (d) => `फ़ाइल के अंदर ${d} DPI लिखा है, इसलिए प्रिंट करने पर यही साइज़ आएगा।`,
+    webpDpi: 'WebP फ़ाइल में DPI नहीं लिखा जाता। प्रिंट के लिए JPG या PNG चुनें।',
+    tooBig: (kb) => `सबसे कम क्वालिटी पर भी ${kb} KB से नीचे नहीं आई। साइज़ (px) छोटा करें या KB बढ़ाएँ।`,
+    pngOver: (kb) => `PNG ${kb} KB से बड़ी है। KB कम चाहिए तो JPG या WebP चुनें।`,
+    upscale: 'असली फ़ोटो इस साइज़ से छोटी थी, इसलिए बड़ी की गई — थोड़ी धुँधली लग सकती है।',
+    capped: 'फ़ोटो बहुत बड़ी थी, इसलिए फ़ोन की मेमोरी के लिए पहले थोड़ी छोटी की गई।',
+    tooLarge: 'इतना बड़ा साइज़ फ़ोन पर नहीं बनेगा। चौड़ाई × लंबाई 16 MP (जैसे 4000 × 4000) से कम रखें।',
+    badSize: 'चौड़ाई और लंबाई लिखें।',
+    failed: 'यह फ़ोटो नहीं खुल पाई। iPhone की HEIC फ़ोटो हो तो Settings → Camera → Formats → "Most Compatible" चुनें, या फ़ोटो का स्क्रीनशॉट लेकर डालें।',
+    dl: '⬇️ डाउनलोड', share: '📲 शेयर', saved: '✅ फ़ोन में सेव हो गया',
+    linksH: 'सीधे इस साइज़ के लिए', linksNote: 'हर साइज़ का अपना पेज है, वही साइज़ पहले से चुना हुआ।',
+    links: { '3.5x4.5-cm': ['फ़ोटो 3.5 × 4.5 cm', 'पासपोर्ट, वीज़ा, फ़ॉर्म'], '200x230': ['फ़ोटो 200 × 230 px', 'बैंक परीक्षा फ़ॉर्म'], '600x600': ['फ़ोटो 600 × 600 px', 'वीज़ा, प्रोफ़ाइल फ़ोटो'] },
+    ownSize: ['अपना साइज़', 'px · cm · mm · inch'], formHelper: ['फ़ॉर्म हेल्पर', 'परीक्षा फ़ॉर्म: px + KB रेंज'], compress: ['इमेज कंप्रेसर', 'सिर्फ़ KB कम करना हो'],
+    howH: 'कैसे करें', how: ['ऊपर <b>साइज़</b> चुनें, या अपनी चौड़ाई-लंबाई लिखें और यूनिट (px, cm, mm, inch) चुनें।', '<b>गैलरी से चुनें</b> या <b>कैमरा से लें</b>।', 'आकार अलग हो तो <b>क्रॉप</b> में फ़ोटो को फ़्रेम में खिसकाएँ और ज़ूम करें — या <b>पूरी फ़ोटो + रंग</b> चुनें।', 'फ़ॉर्मेट (JPG/PNG/WebP) और ज़रूरत हो तो <b>ज़्यादा से ज़्यादा KB</b> डालें।', 'साइज़ और KB देख लें, फिर <b>डाउनलोड</b> या <b>शेयर</b>।'],
+    tableH: 'आम साइज़ — कितने px होते हैं?', tableNote: 'cm और inch वाले साइज़ 300 DPI पर। फ़ॉर्म या दुकान जो साइज़ लिखे, वही मानें।', thUse: 'कहाँ', thSize: 'साइज़', thPx: 'px (300 DPI)',
+    uses: [['पासपोर्ट / वीज़ा फ़ोटो (भारत)', '3.5 × 4.5 cm', '413 × 531'], ['स्टैम्प साइज़ फ़ोटो', '2 × 2.5 cm', '236 × 295'], ['2×2 इंच फ़ोटो (कुछ वीज़ा)', '2 × 2 inch', '600 × 600'], ['बैंक परीक्षा फ़ॉर्म फ़ोटो', '200 × 230 px', '200 × 230'], ['पोस्टकार्ड प्रिंट', '4 × 6 inch', '1200 × 1800'], ['A4 पेज', '21 × 29.7 cm', '2480 × 3508'], ['चौकोर पोस्ट', '1080 × 1080 px', '1080 × 1080'], ['स्टेटस / स्टोरी', '1080 × 1920 px', '1080 × 1920'], ['वीडियो थंबनेल', '1280 × 720 px', '1280 × 720']],
+    tipsH: 'काम की बातें', tips: ['cm या inch में साइज़ लिखा हो तो वही यूनिट चुनें — टूल 300 DPI पर px निकाल देता है और फ़ाइल में DPI भी लिख देता है।', 'पासपोर्ट फ़ोटो में चेहरा फ़्रेम का लगभग 70–80% हो। क्रॉप में ज़ूम करके सेट करें।', 'बैकग्राउंड बदलना हो (सफ़ेद/नीला) तो पहले बैकग्राउंड रिमूवर से फ़ोटो का बैकग्राउंड हटाएँ।', 'छोटी फ़ोटो को बहुत बड़ा करने से वह धुँधली होगी। हो सके तो असली, बड़ी फ़ोटो लें।', 'फ़ॉर्म KB रेंज भी माँगे (जैसे 20–50 KB) तो फ़ॉर्म हेल्पर बेहतर है — वह कम से कम KB भी पूरा करता है।'],
+    whenH: "सटीक साइज़ वाली फ़ोटो कब चाहिए?",
+    whenText: "<p>ऑनलाइन फ़ॉर्म, वीज़ा आवेदन, ID कार्ड, स्कूल का एडमिट कार्ड, प्रिंट की दुकान — हर जगह फ़ोटो का एक तय साइज़ माँगा जाता है। कहीं साइज़ <b>px</b> में लिखा होता है (जैसे 200 × 230 px), कहीं <b>cm</b> में (जैसे 3.5 × 4.5 cm) और कहीं <b>inch</b> में (जैसे 2 × 2 inch)। ग़लत साइज़ की फ़ोटो डालने पर पोर्टल अक्सर फ़ोटो लेता ही नहीं, या प्रिंट में चेहरा कट जाता है।</p><ul><li>भारत में पासपोर्ट साइज़ फ़ोटो अक्सर <b>3.5 × 4.5 cm</b> माँगी जाती है — 300 DPI पर यह 413 × 531 px है।</li><li>बैंक परीक्षा के फ़ॉर्म में फ़ोटो अक्सर <b>200 × 230 px</b> की होती है।</li><li>कई वीज़ा और प्रोफ़ाइल फ़ोटो <b>600 × 600 px</b> या 2 × 2 inch (चौकोर) माँगते हैं।</li><li>चौकोर पोस्ट अक्सर 1080 × 1080, स्टेटस/स्टोरी 1080 × 1920 और वीडियो थंबनेल 1280 × 720 px का होता है।</li></ul><p>हर नोटिफ़िकेशन अलग हो सकता है, इसलिए जो लिखा हो वही साइज़ डालें — यह टूल किसी भी साइज़ को बिल्कुल सटीक बना देता है।</p>",
+    probH: "आम दिक़्क़तें और उनका हल",
+    probs: [["पोर्टल \"invalid dimension\" बताता है", "यूनिट ध्यान से देखें: px लिखा हो तो px चुनें, cm लिखा हो तो cm। \"= … px\" वाली लाइन में असली px दिखते हैं, और रिज़ल्ट में भी — उन्हें पोर्टल की माँग से मिलाएँ।"], ["चेहरा कट गया या बहुत छोटा है", "क्रॉप में ज़ूम स्लाइडर से चेहरा बड़ा करें और उँगली से बीच में लाएँ। पूरी फ़ोटो चाहिए तो \"पूरी फ़ोटो + रंग\" चुनें।"], ["फ़ोटो धुँधली लग रही है", "शायद छोटी फ़ोटो को बड़ा किया गया। असली फ़ोटो चुनें — चैट ऐप से आई फ़ोटो पहले ही छोटी हो चुकी होती है — या कैमरा से नई लें।"], ["फ़ाइल KB सीमा से बड़ी है", "\"ज़्यादा से ज़्यादा KB\" में सीमा लिखें और JPG या WebP चुनें; PNG का KB कम नहीं होता।"], ["प्रिंट में साइज़ अलग आया", "cm या inch यूनिट और JPG/PNG चुनें — टूल फ़ाइल में DPI लिख देता है। प्रिंटर में \"Fit to page\" नहीं, \"Actual size\" चुनें।"]],
+    faqH: 'अक्सर पूछे जाने वाले सवाल',
+    faq: [['क्या मेरी फ़ोटो किसी सर्वर पर जाती है?', 'नहीं। फ़ोटो आपके फ़ोन/ब्राउज़र में ही रीसाइज़ होती है। पेज एक बार खुल जाए तो इंटरनेट बंद करके भी चलता है।'], ['3.5 × 4.5 cm कितने पिक्सेल होते हैं?', '300 DPI पर 413 × 531 px। ऊपर यूनिट "cm" चुनें और 3.5 × 4.5 लिखें, या सीधे पासपोर्ट वाला साइज़ दबाएँ।'], ['DPI क्या है?', 'एक इंच में कितने पिक्सेल। 300 DPI पर 1 इंच = 300 px और 1 cm ≈ 118 px। स्क्रीन पर DPI से कोई फ़र्क नहीं पड़ता; प्रिंट साइज़ इसी से तय होता है।'], ['क्रॉप और "पूरी फ़ोटो + रंग" में क्या फ़र्क है?', 'क्रॉप में फ़्रेम पूरा भरता है और फ़ोटो का कुछ हिस्सा कट सकता है। "पूरी फ़ोटो + रंग" में कुछ नहीं कटता, बस किनारों पर रंग आ जाता है।'], ['KB भी कम करना है, कैसे?', '"ज़्यादा से ज़्यादा KB" में नंबर डालें। टूल px वही रखता है और सिर्फ़ क्वालिटी उतनी कम करता है जितनी ज़रूरी हो।'], ['फ़ोटो उलटी/टेढ़ी क्यों नहीं होती?', 'फ़ोन की फ़ोटो में घुमाने की जानकारी होती है; टूल उसे पढ़कर फ़ोटो सीधी रखता है।']],
+    aboutH: 'इस टूल के बारे में', aboutText: 'NextGrade का यह फ़्री टूल किसी भी फ़ोटो को एक तय साइज़ में बदलता है — px, cm, mm या inch में। आप चुन सकते हैं कि फ़ोटो का कौन सा हिस्सा रहे, किनारों पर कौन सा रंग आए, फ़ाइल किस फ़ॉर्मेट में बने और कितने KB तक हो। कोई साइन-अप नहीं, कोई वॉटरमार्क नहीं।',
+    privH: 'आपकी फ़ोटो, आपके पास', privText: 'यह टूल बिना किसी सर्वर के आपके फ़ोन/ब्राउज़र में चलता है। आपकी फ़ोटो कहीं अपलोड नहीं होती, कहीं सेव नहीं होती, और हम उसे देख भी नहीं सकते। पेज बंद करते ही सब मिट जाता है।',
+    footer: 'फ़्री टूल · कुछ भी अपलोड नहीं होता',
+  },
+  en: {
+    brandSub: 'Free · your photo never leaves your phone', title: 'Resize a photo — in px, cm, mm or inch',
+    sub: 'Get a photo to exactly the size you need: 3.5×4.5 cm, 200×230 px, 600×600 or your own. Choose the part to keep, or fill the edges with white or blue. Download as JPG, PNG or WebP.',
+    privacy: 'Your photo is never uploaded. Everything runs on your phone/browser.',
+    sizeH: 'Which size do you need?',
+    pl: { pass: 'Passport photo (India)', in2: '2×2 inch photo', sq600: 'Square, 600 px', f200: 'Form photo', sq1080: 'Square post', story: 'Status / story', thumb: 'Video thumbnail' },
+    wL: 'Width', hL: 'Height', unitL: 'Unit', lock: '🔗 Keep the photo\'s shape (type one, the other follows)',
+    dpiL: 'DPI', dpiNote: 'Used to turn cm, mm or inch into px. For printing, 300 is right.',
+    pxEq: (w, h) => `= ${w} × ${h} px`, pxPrint: (w, h, d) => `= ${w} × ${h} px (at ${d} DPI)`,
+    fitH: 'If the photo has a different shape?', fitCrop: '✂️ Crop to fill', fitPad: '🖼️ Whole photo + colour', fitStretch: '↔️ Stretch',
+    fitNotes: { crop: 'The frame is filled; whatever falls outside is cut off. Move and zoom the photo inside the frame.', pad: 'The whole photo shows; the empty space is filled with the colour you choose.', stretch: 'The whole photo is pulled to the frame — faces may look thin or wide.' },
+    bgL: 'Colour:', bgWhite: 'White', bgBlue: 'Blue', bgCustom: 'Own',
+    fmtH: 'Which format?', fmtNote: 'JPG for forms and printing. PNG for screenshots or logos. WebP for websites (smaller file).',
+    qualL: 'Quality', maxKbL: 'At most KB (empty = no limit)',
+    pngKb: 'PNG keeps full quality, so the KB limit works only for JPG and WebP.',
+    formNote: 'Need exact px plus a KB range for an exam form? Use the Form Helper',
+    pickTitle: 'Choose a photo', pickHint: 'JPG, PNG, WebP. The photo stays on your phone.', pickBtn: '🖼️ From gallery', camBtn: '📸 Use camera',
+    orig: (w, h, s) => `Original: ${w} × ${h} px · ${s}`, change: '↺ Another photo',
+    editCrop: 'Which part to keep', editView: 'How it will look', zoom: 'Zoom', reset: '🎯 Centre',
+    dragHint: 'Drag the photo with a finger or the mouse. Zoom with the slider, two fingers or the mouse wheel.',
+    resH: 'Your photo', working: 'Making it…',
+    print: (a, b, u, d) => `Prints at: ${a} × ${b} ${u} (${d} DPI)`,
+    dpiIn: (d) => `${d} DPI is written inside the file, so it prints at this size.`,
+    webpDpi: 'WebP files do not carry a DPI. Choose JPG or PNG for printing.',
+    tooBig: (kb) => `Even at the lowest quality it is above ${kb} KB. Make the size (px) smaller or allow more KB.`,
+    pngOver: (kb) => `The PNG is above ${kb} KB. For fewer KB choose JPG or WebP.`,
+    upscale: 'The original was smaller than this size, so it was enlarged — it may look a little soft.',
+    capped: 'The photo was very large, so it was first reduced a little to fit the phone\'s memory.',
+    tooLarge: 'A size this big will not fit in a phone\'s memory. Keep width × height under 16 MP (e.g. 4000 × 4000).',
+    badSize: 'Enter a width and a height.',
+    failed: 'This photo could not be opened. For an iPhone HEIC photo, set Settings → Camera → Formats → "Most Compatible", or add a screenshot of the photo.',
+    dl: '⬇️ Download', share: '📲 Share', saved: '✅ Saved to your phone',
+    linksH: 'Straight to a size', linksNote: 'Each size has its own page with that size already chosen.',
+    links: { '3.5x4.5-cm': ['Photo 3.5 × 4.5 cm', 'Passport, visa, forms'], '200x230': ['Photo 200 × 230 px', 'Bank exam form'], '600x600': ['Photo 600 × 600 px', 'Visa, profile photo'] },
+    ownSize: ['Your own size', 'px · cm · mm · inch'], formHelper: ['Form Helper', 'Exam forms: px + KB range'], compress: ['Image Compressor', 'Only need fewer KB'],
+    howH: 'How to use', how: ['Pick a <b>size</b> above, or type your own width and height and choose the unit (px, cm, mm, inch).', '<b>Pick from gallery</b> or <b>use the camera</b>.', 'If the shape differs, use <b>Crop</b> and move/zoom the photo in the frame — or choose <b>Whole photo + colour</b>.', 'Choose the format (JPG/PNG/WebP) and, if needed, the <b>most KB</b>.', 'Check the size and KB, then <b>Download</b> or <b>Share</b>.'],
+    tableH: 'Common sizes — how many px?', tableNote: 'cm and inch sizes at 300 DPI. Whatever the form or print shop says comes first.', thUse: 'For', thSize: 'Size', thPx: 'px (300 DPI)',
+    uses: [['Passport / visa photo (India)', '3.5 × 4.5 cm', '413 × 531'], ['Stamp-size photo', '2 × 2.5 cm', '236 × 295'], ['2×2 inch photo (some visas)', '2 × 2 inch', '600 × 600'], ['Bank exam form photo', '200 × 230 px', '200 × 230'], ['Postcard print', '4 × 6 inch', '1200 × 1800'], ['A4 page', '21 × 29.7 cm', '2480 × 3508'], ['Square post', '1080 × 1080 px', '1080 × 1080'], ['Status / story', '1080 × 1920 px', '1080 × 1920'], ['Video thumbnail', '1280 × 720 px', '1280 × 720']],
+    tipsH: 'Good to know', tips: ['If the size is given in cm or inch, choose that unit — the tool works out the px at 300 DPI and also writes the DPI into the file.', 'In a passport photo the face should fill about 70–80% of the frame. Zoom in Crop to set it.', 'To change the background itself (white/blue), first remove it with the Background Remover.', 'Blowing a small photo up a lot makes it soft. Start from the original, larger photo when you can.', 'If a form also wants a KB range (like 20–50 KB), the Form Helper is better — it meets the minimum KB too.'],
+    whenH: "When do you need a photo of an exact size?",
+    whenText: "<p>Online forms, visa applications, ID cards, school admit cards, print shops — they all want a photo of one fixed size. Sometimes the size is given in <b>px</b> (like 200 × 230 px), sometimes in <b>cm</b> (like 3.5 × 4.5 cm) and sometimes in <b>inches</b> (like 2 × 2 inch). Upload the wrong size and the portal often refuses it, or the face gets cut off in print.</p><ul><li>In India a passport-size photo is often asked for at <b>3.5 × 4.5 cm</b> — that is 413 × 531 px at 300 DPI.</li><li>Bank exam forms often want the photo at <b>200 × 230 px</b>.</li><li>Many visa and profile photos ask for <b>600 × 600 px</b> or 2 × 2 inch (square).</li><li>A square post is often 1080 × 1080, a status/story 1080 × 1920 and a video thumbnail 1280 × 720 px.</li></ul><p>Every notice can differ, so enter whatever size it states — this tool makes any size exactly.</p>",
+    probH: "Common problems and fixes",
+    probs: [["The portal says \"invalid dimension\"", "Check the unit: if it says px, choose px; if it says cm, choose cm. The \"= … px\" line and the result both show the real px — match them to what the portal asks."], ["The face is cut off or too small", "In Crop, make the face bigger with the zoom slider and drag it to the middle. If you need the whole photo, choose \"Whole photo + colour\"."], ["The photo looks blurry", "A small photo was probably enlarged. Pick the original photo — pictures received in chat apps are already shrunk — or take a new one with the camera."], ["The file is over the KB limit", "Type the limit in \"At most KB\" and choose JPG or WebP; PNG cannot be squeezed."], ["The print came out the wrong size", "Use a cm or inch unit and JPG/PNG — the tool writes the DPI into the file. In the printer, choose \"Actual size\", not \"Fit to page\"."]],
+    faqH: 'Frequently asked questions',
+    faq: [['Does my photo go to any server?', 'No. The photo is resized inside your phone/browser. Once the page has loaded, it even works with the internet off.'], ['How many pixels is 3.5 × 4.5 cm?', '413 × 531 px at 300 DPI. Choose the unit "cm" above and type 3.5 × 4.5, or just tap the passport size.'], ['What is DPI?', 'How many pixels go into one inch. At 300 DPI, 1 inch = 300 px and 1 cm ≈ 118 px. DPI makes no difference on a screen; it decides the printed size.'], ['Crop or "Whole photo + colour"?', 'Crop fills the frame and may cut off part of the photo. "Whole photo + colour" cuts nothing and adds colour at the edges instead.'], ['I also need fewer KB. How?', 'Type a number in "At most KB". The tool keeps the px and lowers the quality only as much as needed.'], ['Why doesn\'t my photo come out sideways?', 'Phone photos carry a note about how they were turned; the tool reads it and keeps the photo upright.']],
+    aboutH: 'About this tool', aboutText: 'This free NextGrade tool turns any photo into a set size — in px, cm, mm or inch. You choose which part of the photo stays, what colour fills the edges, the file format and how many KB it may be. No sign-up, no watermark.',
+    privH: 'Your photo stays with you', privText: 'This tool runs inside your phone/browser without any server. Your photo is never uploaded or stored, and we cannot see it. Closing the page clears everything.',
+    footer: 'Free tool · nothing is uploaded',
+  },
+  bn: {
+    brandSub: 'ফ্রি · ছবি ফোনের বাইরে যায় না', title: 'ছবির মাপ বদলান — px, cm, mm, inch-এ',
+    sub: 'ছবিকে ঠিক যে মাপ দরকার সেই মাপে আনুন: 3.5×4.5 cm, 200×230 px, 600×600 বা নিজের মাপ। কোন অংশ রাখবেন বাছুন, বা ধারে সাদা/নীল রং ভরুন। JPG, PNG বা WebP-তে ডাউনলোড।',
+    privacy: 'আপনার ছবি কোথাও আপলোড হয় না। সব কাজ আপনার ফোন/ব্রাউজারেই হয়।',
+    sizeH: 'কোন মাপ দরকার?',
+    pl: { pass: 'পাসপোর্ট ছবি (ভারত)', in2: '2×2 ইঞ্চি ছবি', sq600: 'চৌকো, 600 px', f200: 'ফর্মের ছবি', sq1080: 'চৌকো পোস্ট', story: 'স্ট্যাটাস / স্টোরি', thumb: 'ভিডিও থাম্বনেল' },
+    wL: 'চওড়া', hL: 'লম্বা', unitL: 'একক', lock: '🔗 ছবির অনুপাত একই রাখুন (একটা লিখুন, অন্যটা নিজে থেকে)',
+    dpiL: 'DPI', dpiNote: 'cm, mm বা inch-কে px-এ বদলাতে লাগে। প্রিন্ট করলে 300 ঠিক আছে।',
+    pxEq: (w, h) => `= ${w} × ${h} px`, pxPrint: (w, h, d) => `= ${w} × ${h} px (${d} DPI-তে)`,
+    fitH: 'ছবির আকার আলাদা হলে?', fitCrop: '✂️ ক্রপ করে ভরুন', fitPad: '🖼️ পুরো ছবি + রং', fitStretch: '↔️ টেনে দিন',
+    fitNotes: { crop: 'ফ্রেম পুরো ভরে যায়; বাইরের অংশ কেটে যায়। ফ্রেমের মধ্যে ছবি সরান আর জুম করুন।', pad: 'পুরো ছবি দেখা যায়; ফাঁকা জায়গায় বাছা রং ভরে।', stretch: 'পুরো ছবি ফ্রেমে টেনে বসানো হয় — মুখ সরু বা চওড়া লাগতে পারে।' },
+    bgL: 'রং:', bgWhite: 'সাদা', bgBlue: 'নীল', bgCustom: 'নিজের',
+    fmtH: 'কোন ফরম্যাটে?', fmtNote: 'ফর্ম আর প্রিন্টের জন্য JPG। স্ক্রিনশট বা লোগোর জন্য PNG। ওয়েবসাইটের জন্য WebP (ছোট ফাইল)।',
+    qualL: 'কোয়ালিটি', maxKbL: 'সর্বোচ্চ KB (ফাঁকা = কোনো সীমা নেই)',
+    pngKb: 'PNG-এর কোয়ালিটি কমে না, তাই KB সীমা শুধু JPG আর WebP-তে খাটে।',
+    formNote: 'পরীক্ষার ফর্মে ঠিক px + KB রেঞ্জ দরকার? ফর্ম হেল্পার ব্যবহার করুন',
+    pickTitle: 'ছবি বাছুন', pickHint: 'JPG, PNG, WebP। ছবি আপনার ফোনেই থাকে।', pickBtn: '🖼️ গ্যালারি থেকে', camBtn: '📸 ক্যামেরায় তুলুন',
+    orig: (w, h, s) => `আসল ছবি: ${w} × ${h} px · ${s}`, change: '↺ অন্য ছবি',
+    editCrop: 'কোন অংশ রাখবেন', editView: 'এমন দেখাবে', zoom: 'জুম', reset: '🎯 মাঝখানে',
+    dragHint: 'আঙুল বা মাউস দিয়ে ছবি সরান। জুমের জন্য স্লাইডার, দুই আঙুল বা মাউসের হুইল।',
+    resH: 'তৈরি ছবি', working: 'তৈরি হচ্ছে…',
+    print: (a, b, u, d) => `প্রিন্টে: ${a} × ${b} ${u} (${d} DPI)`,
+    dpiIn: (d) => `ফাইলের ভেতরে ${d} DPI লেখা আছে, তাই প্রিন্ট করলে এই মাপই আসবে।`,
+    webpDpi: 'WebP ফাইলে DPI লেখা থাকে না। প্রিন্টের জন্য JPG বা PNG বাছুন।',
+    tooBig: (kb) => `সবচেয়ে কম কোয়ালিটিতেও ${kb} KB-র নিচে নামল না। মাপ (px) ছোট করুন বা KB বাড়ান।`,
+    pngOver: (kb) => `PNG ${kb} KB-র চেয়ে বড়। KB কম চাইলে JPG বা WebP বাছুন।`,
+    upscale: 'আসল ছবি এই মাপের চেয়ে ছোট ছিল, তাই বড় করা হল — একটু ঝাপসা লাগতে পারে।',
+    capped: 'ছবিটি খুব বড় ছিল, তাই ফোনের মেমরির জন্য আগে একটু ছোট করা হল।',
+    tooLarge: 'এত বড় মাপ ফোনে তৈরি হবে না। চওড়া × লম্বা 16 MP-র (যেমন 4000 × 4000) কম রাখুন।',
+    badSize: 'চওড়া আর লম্বা লিখুন।',
+    failed: 'এই ছবি খোলা গেল না। iPhone-এর HEIC ছবি হলে Settings → Camera → Formats → "Most Compatible" বাছুন, বা ছবির স্ক্রিনশট দিন।',
+    dl: '⬇️ ডাউনলোড', share: '📲 শেয়ার', saved: '✅ ফোনে সেভ হয়েছে',
+    linksH: 'সরাসরি এই মাপের জন্য', linksNote: 'প্রতিটি মাপের নিজের পেজ আছে, সেই মাপ আগে থেকেই বাছা।',
+    links: { '3.5x4.5-cm': ['ছবি 3.5 × 4.5 cm', 'পাসপোর্ট, ভিসা, ফর্ম'], '200x230': ['ছবি 200 × 230 px', 'ব্যাংক পরীক্ষার ফর্ম'], '600x600': ['ছবি 600 × 600 px', 'ভিসা, প্রোফাইল ছবি'] },
+    ownSize: ['নিজের মাপ', 'px · cm · mm · inch'], formHelper: ['ফর্ম হেল্পার', 'পরীক্ষার ফর্ম: px + KB রেঞ্জ'], compress: ['ইমেজ কম্প্রেসার', 'শুধু KB কমাতে চাইলে'],
+    howH: 'কীভাবে করবেন', how: ['ওপরে <b>মাপ</b> বাছুন, বা নিজের চওড়া-লম্বা লিখে একক (px, cm, mm, inch) বাছুন।', '<b>গ্যালারি থেকে বাছুন</b> বা <b>ক্যামেরায় তুলুন</b>।', 'আকার আলাদা হলে <b>ক্রপ</b>-এ ছবি ফ্রেমের মধ্যে সরান আর জুম করুন — বা <b>পুরো ছবি + রং</b> বাছুন।', 'ফরম্যাট (JPG/PNG/WebP) আর দরকার হলে <b>সর্বোচ্চ KB</b> দিন।', 'মাপ আর KB দেখে নিন, তারপর <b>ডাউনলোড</b> বা <b>শেয়ার</b>।'],
+    tableH: 'চেনা মাপ — কত px হয়?', tableNote: 'cm আর inch-এর মাপ 300 DPI-তে। ফর্ম বা দোকান যে মাপ বলে সেটাই মানুন।', thUse: 'কোথায়', thSize: 'মাপ', thPx: 'px (300 DPI)',
+    uses: [['পাসপোর্ট / ভিসা ছবি (ভারত)', '3.5 × 4.5 cm', '413 × 531'], ['স্ট্যাম্প সাইজ ছবি', '2 × 2.5 cm', '236 × 295'], ['2×2 ইঞ্চি ছবি (কিছু ভিসা)', '2 × 2 inch', '600 × 600'], ['ব্যাংক পরীক্ষার ফর্মের ছবি', '200 × 230 px', '200 × 230'], ['পোস্টকার্ড প্রিন্ট', '4 × 6 inch', '1200 × 1800'], ['A4 পাতা', '21 × 29.7 cm', '2480 × 3508'], ['চৌকো পোস্ট', '1080 × 1080 px', '1080 × 1080'], ['স্ট্যাটাস / স্টোরি', '1080 × 1920 px', '1080 × 1920'], ['ভিডিও থাম্বনেল', '1280 × 720 px', '1280 × 720']],
+    tipsH: 'কাজের কথা', tips: ['মাপ cm বা inch-এ লেখা থাকলে সেই একক বাছুন — টুল 300 DPI-তে px হিসাব করে আর ফাইলে DPI-ও লিখে দেয়।', 'পাসপোর্ট ছবিতে মুখ ফ্রেমের প্রায় 70–80% হওয়া উচিত। ক্রপে জুম করে ঠিক করুন।', 'ব্যাকগ্রাউন্ড বদলাতে (সাদা/নীল) আগে ব্যাকগ্রাউন্ড রিমুভার দিয়ে ছবির ব্যাকগ্রাউন্ড সরান।', 'ছোট ছবি অনেক বড় করলে ঝাপসা হবে। পারলে আসল, বড় ছবি নিন।', 'ফর্ম KB রেঞ্জও চাইলে (যেমন 20–50 KB) ফর্ম হেল্পার ভালো — সেটা কমপক্ষে KB-ও পূরণ করে।'],
+    whenH: "ঠিক মাপের ছবি কখন লাগে?",
+    whenText: "<p>অনলাইন ফর্ম, ভিসার আবেদন, পরিচয়পত্র, স্কুলের অ্যাডমিট কার্ড, প্রিন্টের দোকান — সব জায়গাতেই ছবির একটা নির্দিষ্ট মাপ চাওয়া হয়। কোথাও মাপ লেখা থাকে <b>px</b>-এ (যেমন 200 × 230 px), কোথাও <b>cm</b>-এ (যেমন 3.5 × 4.5 cm), আবার কোথাও <b>inch</b>-এ (যেমন 2 × 2 inch)। ভুল মাপের ছবি দিলে পোর্টাল প্রায়ই ছবিটা নেয়ই না, বা প্রিন্টে মুখ কেটে যায়।</p><ul><li>ভারতে পাসপোর্ট সাইজ ছবি প্রায়ই <b>3.5 × 4.5 cm</b> চাওয়া হয় — 300 DPI-তে এটা 413 × 531 px।</li><li>ব্যাংক পরীক্ষার ফর্মে ছবি প্রায়ই <b>200 × 230 px</b> হয়।</li><li>অনেক ভিসা আর প্রোফাইলের ছবি <b>600 × 600 px</b> বা 2 × 2 inch (চৌকো) চায়।</li><li>চৌকো পোস্ট প্রায়ই 1080 × 1080, স্ট্যাটাস/স্টোরি 1080 × 1920 আর ভিডিও থাম্বনেল 1280 × 720 px হয়।</li></ul><p>প্রতিটি বিজ্ঞপ্তি আলাদা হতে পারে, তাই যে মাপ লেখা আছে সেটাই দিন — এই টুল যেকোনো মাপ একদম ঠিকঠাক বানিয়ে দেয়।</p>",
+    probH: "সাধারণ সমস্যা আর তার সমাধান",
+    probs: [["পোর্টাল \"invalid dimension\" দেখায়", "একক ভালো করে দেখুন: px লেখা থাকলে px বাছুন, cm লেখা থাকলে cm। \"= … px\" লাইনে আর ফলাফলে আসল px দেখা যায় — সেটা পোর্টালের চাহিদার সঙ্গে মিলিয়ে নিন।"], ["মুখ কেটে গেছে বা খুব ছোট", "ক্রপে জুম স্লাইডার দিয়ে মুখ বড় করুন আর আঙুল দিয়ে মাঝখানে আনুন। পুরো ছবি দরকার হলে \"পুরো ছবি + রং\" বাছুন।"], ["ছবি ঝাপসা লাগছে", "সম্ভবত ছোট ছবিকে বড় করা হয়েছে। আসল ছবি বাছুন — চ্যাট অ্যাপে আসা ছবি আগেই ছোট হয়ে যায় — বা ক্যামেরায় নতুন তুলুন।"], ["ফাইল KB সীমার চেয়ে বড়", "\"সর্বোচ্চ KB\"-তে সীমা লিখুন আর JPG বা WebP বাছুন; PNG-এর KB কমানো যায় না।"], ["প্রিন্টে মাপ আলাদা এল", "cm বা inch একক আর JPG/PNG বাছুন — টুল ফাইলে DPI লিখে দেয়। প্রিন্টারে \"Fit to page\" নয়, \"Actual size\" বাছুন।"]],
+    faqH: 'সাধারণ প্রশ্ন',
+    faq: [['আমার ছবি কি কোনো সার্ভারে যায়?', 'না। ছবি আপনার ফোন/ব্রাউজারেই রিসাইজ হয়। পেজ একবার খুলে গেলে ইন্টারনেট বন্ধ রেখেও চলে।'], ['3.5 × 4.5 cm কত পিক্সেল?', '300 DPI-তে 413 × 531 px। ওপরে একক "cm" বেছে 3.5 × 4.5 লিখুন, বা সরাসরি পাসপোর্টের মাপে চাপুন।'], ['DPI কী?', 'এক ইঞ্চিতে কত পিক্সেল। 300 DPI-তে 1 ইঞ্চি = 300 px আর 1 cm ≈ 118 px। স্ক্রিনে DPI-তে কিছু বদলায় না; প্রিন্টের মাপ এতেই ঠিক হয়।'], ['ক্রপ আর "পুরো ছবি + রং"-এর তফাত কী?', 'ক্রপে ফ্রেম পুরো ভরে আর ছবির কিছু অংশ কাটতে পারে। "পুরো ছবি + রং"-এ কিছু কাটে না, শুধু ধারে রং আসে।'], ['KB-ও কমাতে চাই, কীভাবে?', '"সর্বোচ্চ KB"-তে সংখ্যা দিন। টুল px একই রাখে আর শুধু যতটা দরকার ততটা কোয়ালিটি কমায়।'], ['ছবি উল্টো/কাত হয়ে আসে না কেন?', 'ফোনের ছবিতে ঘোরানোর তথ্য থাকে; টুল সেটা পড়ে ছবি সোজা রাখে।']],
+    aboutH: 'এই টুল সম্পর্কে', aboutText: 'NextGrade-এর এই ফ্রি টুল যেকোনো ছবিকে একটা নির্দিষ্ট মাপে বদলায় — px, cm, mm বা inch-এ। ছবির কোন অংশ থাকবে, ধারে কোন রং আসবে, ফাইল কোন ফরম্যাটে হবে আর কত KB পর্যন্ত — সব আপনি বাছেন। কোনো সাইন-আপ নেই, কোনো ওয়াটারমার্ক নেই।',
+    privH: 'আপনার ছবি আপনার কাছেই', privText: 'এই টুল কোনো সার্ভার ছাড়াই আপনার ফোন/ব্রাউজারে চলে। আপনার ছবি কোথাও আপলোড বা সেভ হয় না, আমরা দেখতেও পাই না। পেজ বন্ধ করলেই সব মুছে যায়।',
+    footer: 'ফ্রি টুল · কিছুই আপলোড হয় না',
+  },
+};
+
+// ---------- helpers
+const $ = (id) => document.getElementById(id);
+const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+const params = new URLSearchParams(location.search);
+const SELFTEST = params.has('selftest');
+const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('ir-lang')) ? store.get('ir-lang') : deviceLang();
+const t = (k) => T[lang][k];
+const mk = (w, h) => { const c = document.createElement('canvas'); c.width = Math.max(1, Math.round(w)); c.height = Math.max(1, Math.round(h)); return c; };
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fmtSize = (b) => (b >= 1024 * 1024 ? `${(b / 1048576).toFixed(1)} MB` : `${Math.max(1, Math.round(b / 1024))} KB`);
+const fmtKb = (b) => (b >= 1024 * 1024 ? `${(b / 1048576).toFixed(2)} MB` : `${(b / 1024).toFixed(b < 10240 ? 1 : 0)} KB`);
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+let toastTimer = 0;
+const toast = (msg) => { let el = document.querySelector('.toast'); if (!el) { el = document.createElement('div'); el.className = 'toast'; document.body.appendChild(el); } el.textContent = msg; el.classList.remove('hidden'); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.add('hidden'), 3200); };
+
+// Size pages (e.g. ./200x230/) set window.IR_PAGE = { preset, base, T: { lang: { title, sub, info } } } before this script.
+const PAGE = window.IR_PAGE || null;
+const BASE = PAGE ? PAGE.base || '../' : './';
+if (PAGE) for (const l in PAGE.T) { if (T[l]) { if (PAGE.T[l].title) T[l].title = PAGE.T[l].title; if (PAGE.T[l].sub) T[l].sub = PAGE.T[l].sub; } }
+
+// ---------- units: cm/mm/inch become px through the DPI
+const PER_IN = { cm: 2.54, mm: 25.4, in: 1 };
+const toPx = (v, u, dpi) => (u === 'px' ? Math.round(v) : Math.round((v * dpi) / PER_IN[u]));
+const DEC = { px: 0, cm: 2, mm: 1, in: 2 };
+const fromPx = (px, u, dpi) => (u === 'px' ? Math.round(px) : +((px * PER_IN[u]) / dpi).toFixed(DEC[u]));
+const unitName = (u) => (u === 'in' ? 'inch' : u);
+const MAX_AREA = 16e6;   // iPhone canvas limit is about 16.7 MP
+const MAX_SIDE = 10000;
+
+// ---------- state
+const st = { unit: 'px', dpi: 300, lock: true, fit: 'crop', bg: '#ffffff', fmt: store.get('ir-fmt') || 'jpeg', q: 0.9, maxKb: 0, preset: null };
+let S = null;            // the photo: { levels, w, h, w0, h0, size, name, capped }
+const crop = { z: 1, cx: 0, cy: 0 };
+
+const webpOk = (() => { try { return mk(2, 2).toDataURL('image/webp').startsWith('data:image/webp'); } catch (e) { return false; } })();
+if (!webpOk) { $('webpOpt').classList.add('hidden'); if (st.fmt === 'webp') st.fmt = 'jpeg'; }
+if (!['jpeg', 'png', 'webp'].includes(st.fmt)) st.fmt = 'jpeg';
+
+const readNum = (id) => { const v = Number(String($(id).value).replace(',', '.')); return Number.isFinite(v) && v > 0 ? v : 0; };
+const target = () => {
+  const w = readNum('wIn'); const h = readNum('hIn'); if (!w || !h) return null;
+  const W = toPx(w, st.unit, st.dpi); const H = toPx(h, st.unit, st.dpi);
+  if (W < 1 || H < 1) return null;
+  return { W, H, w, h };
+};
+
+// ---------- decode (EXIF rotation applied by the browser)
+const decode = async (file) => {
+  if (window.createImageBitmap) { try { return await createImageBitmap(file, { imageOrientation: 'from-image' }); } catch (e) { /* fall back */ } }
+  const url = URL.createObjectURL(file);
+  try { const img = new Image(); img.src = url; await img.decode(); return img; } finally { URL.revokeObjectURL(url); }
+};
+const dims = (s) => [s.naturalWidth || s.width, s.naturalHeight || s.height];
+
+// Half-size copies made once per photo: each draw starts from the smallest copy that is still at least as
+// big as the result, so shrinking a lot does not look jagged and the live preview stays quick.
+const buildLevels = (src, w, h) => {
+  const L = [src]; let cur = src; let cw = w; let ch = h;
+  while (Math.min(cw, ch) >= 128) {
+    const c = mk(cw / 2, ch / 2); const x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(cur, 0, 0, c.width, c.height);
+    L.push(c); cur = c; cw = c.width; ch = c.height;
+  }
+  return L;
+};
+const drawRegion = (ctx, sx, sy, sw, sh, dx, dy, dw, dh) => {
+  const k = Math.max(dw / sw, dh / sh); let i = S.levels.length - 1;
+  for (; i > 0; i -= 1) if (S.levels[i].width / S.w >= k) break;
+  const lv = S.levels[i]; const fx = lv.width / S.w; const fy = lv.height / S.h;
+  ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(lv, sx * fx, sy * fy, sw * fx, sh * fy, dx, dy, dw, dh);
+};
+
+// The part of the photo that fills the frame in crop mode (aspect = width / height of the result).
+const cropRect = (aspect) => {
+  let bw; let bh;
+  if (S.w / S.h > aspect) { bh = S.h; bw = S.h * aspect; } else { bw = S.w; bh = S.w / aspect; }
+  const sw = bw / crop.z; const sh = bh / crop.z;
+  crop.cx = clamp(crop.cx, sw / 2, S.w - sw / 2); crop.cy = clamp(crop.cy, sh / 2, S.h - sh / 2);
+  return [crop.cx - sw / 2, crop.cy - sh / 2, sw, sh];
+};
+
+// Paints the result into ctx at W×H; aspect is the true result shape (the preview is drawn smaller).
+const paint = (ctx, W, H, o) => {
+  ctx.clearRect(0, 0, W, H);
+  if (o.fit === 'pad' || o.opaque) { ctx.fillStyle = o.fit === 'pad' ? o.bg : '#ffffff'; ctx.fillRect(0, 0, W, H); }
+  if (o.fit === 'crop') { const [sx, sy, sw, sh] = cropRect(o.aspect); drawRegion(ctx, sx, sy, sw, sh, 0, 0, W, H); } else if (o.fit === 'pad') {
+    const s = Math.min(W / S.w, H / S.h); const dw = Math.max(1, Math.round(S.w * s)); const dh = Math.max(1, Math.round(S.h * s));
+    if (o.opaque) { ctx.fillStyle = '#ffffff'; ctx.fillRect(Math.floor((W - dw) / 2), Math.floor((H - dh) / 2), dw, dh); }
+    drawRegion(ctx, 0, 0, S.w, S.h, Math.floor((W - dw) / 2), Math.floor((H - dh) / 2), dw, dh);
+  } else drawRegion(ctx, 0, 0, S.w, S.h, 0, 0, W, H);
+};
+
+// ---------- DPI inside the file
+const CRC = (() => { const tb = new Uint32Array(256); for (let n = 0; n < 256; n += 1) { let c = n; for (let k = 0; k < 8; k += 1) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1; tb[n] = c >>> 0; } return tb; })();
+const crc32 = (u) => { let c = 0xffffffff; for (let i = 0; i < u.length; i += 1) c = CRC[(c ^ u[i]) & 0xff] ^ (c >>> 8); return (c ^ 0xffffffff) >>> 0; };
+// JPEG: the JFIF header (APP0) holds the density. Patch it when the encoder wrote one, else add one after SOI.
+const setJpegDpi = async (blob, dpi) => {
+  const b = new Uint8Array(await blob.arrayBuffer()); const d = clamp(Math.round(dpi), 1, 65535);
+  if (b[0] !== 0xff || b[1] !== 0xd8) return blob;
+  if (b[2] === 0xff && b[3] === 0xe0 && b[6] === 0x4a && b[7] === 0x46 && b[8] === 0x49 && b[9] === 0x46 && b[10] === 0) {
+    b[13] = 1; b[14] = d >> 8; b[15] = d & 255; b[16] = d >> 8; b[17] = d & 255;
+    return new Blob([b], { type: 'image/jpeg' });
+  }
+  const app0 = new Uint8Array([0xff, 0xe0, 0, 16, 0x4a, 0x46, 0x49, 0x46, 0, 1, 1, 1, d >> 8, d & 255, d >> 8, d & 255, 0, 0]);
+  return new Blob([b.subarray(0, 2), app0, b.subarray(2)], { type: 'image/jpeg' });
+};
+// PNG: a pHYs chunk (pixels per metre) right after IHDR; an old pHYs is dropped.
+const setPngDpi = async (blob, dpi) => {
+  const b = new Uint8Array(await blob.arrayBuffer()); const dv = new DataView(b.buffer);
+  if (b[1] !== 0x50 || b[2] !== 0x4e || b[3] !== 0x47) return blob;
+  const ppm = Math.round(dpi / 0.0254);
+  const ch = new Uint8Array(21); const cv = new DataView(ch.buffer);
+  cv.setUint32(0, 9); ch.set([0x70, 0x48, 0x59, 0x73], 4); cv.setUint32(8, ppm); cv.setUint32(12, ppm); ch[16] = 1; cv.setUint32(17, crc32(ch.subarray(4, 17)));
+  const parts = [b.subarray(0, 8)]; let p = 8;
+  while (p + 12 <= b.length) {
+    const len = dv.getUint32(p); const type = String.fromCharCode(b[p + 4], b[p + 5], b[p + 6], b[p + 7]); const end = p + 12 + len;
+    if (type !== 'pHYs') parts.push(b.subarray(p, end));
+    if (type === 'IHDR') parts.push(ch);
+    p = end;
+  }
+  return new Blob(parts, { type: 'image/png' });
+};
+
+const encodeAt = async (c, type, q, dpi) => {
+  let b = await new Promise((r) => c.toBlob(r, type, q));
+  if (!b) throw new Error('encode');
+  if (dpi && type === 'image/jpeg') b = await setJpegDpi(b, dpi);
+  if (dpi && type === 'image/png') b = await setPngDpi(b, dpi);
+  return b;
+};
+
+// Makes the file: exact W×H px. With a KB limit (JPG/WebP) the px stay and only the quality goes down.
+// Returns { blob, w, h, q, dpi, notes: [] , ok }
+const makeOutput = async (o) => {
+  const type = `image/${o.fmt}`;
+  const c = mk(o.W, o.H); const ctx = c.getContext('2d');
+  paint(ctx, o.W, o.H, { fit: o.fit, bg: o.bg, opaque: o.fmt === 'jpeg', aspect: o.W / o.H });
+  const dpi = o.dpi || 0; const notes = []; let ok = true; let q = o.q;
+  let best = await encodeAt(c, type, q, dpi);
+  const maxB = o.maxKb * 1024;
+  if (maxB && best.size > maxB) {
+    if (o.fmt === 'png') { notes.push(['pngOver', o.maxKb]); ok = false; } else {
+      let lo = 0.02; let hi = q; const low = await encodeAt(c, type, lo, dpi);
+      if (low.size > maxB) { best = low; q = lo; notes.push(['tooBig', o.maxKb]); ok = false; } else {
+        best = low; q = lo;
+        for (let i = 0; i < 7; i += 1) { const mid = (lo + hi) / 2; const b = await encodeAt(c, type, mid, dpi); if (b.size <= maxB) { best = b; q = mid; lo = mid; } else hi = mid; }
+      }
+    }
+  }
+  const crop0 = o.fit === 'crop' ? cropRect(o.W / o.H) : [0, 0, S.w, S.h];
+  if (Math.max(o.W / crop0[2], o.H / crop0[3]) > 1.15 && o.fit !== 'pad') notes.push(['upscale']);
+  if (o.fit === 'pad' && Math.min(o.W / S.w, o.H / S.h) > 1.15) notes.push(['upscale']);
+  if (dpi && o.fmt !== 'webp') notes.push(['dpiIn', dpi]);
+  if (dpi && o.fmt === 'webp') notes.push(['webpDpi']);
+  return { blob: best, w: o.W, h: o.H, q, dpi, notes, ok, fmt: o.fmt };
+};
+
+// ---------- load a photo
+const loadFile = async (file) => {
+  let src;
+  try { src = await decode(file); } catch (e) { toast(t('failed')); return false; }
+  let [w, h] = dims(src); let capped = false;
+  if (w * h > MAX_AREA) {
+    const s = Math.sqrt(MAX_AREA / (w * h)) * 0.98; const c = mk(w * s, h * s); const x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(src, 0, 0, c.width, c.height);
+    if (src.close) src.close(); src = c; capped = true;
+  }
+  const [w0, h0] = dims(file.__dims ? { width: file.__dims[0], height: file.__dims[1] } : src);
+  if (S && S.levels[0].close) S.levels[0].close();
+  [w, h] = dims(src);
+  S = { levels: buildLevels(src, w, h), w, h, w0: capped ? Math.round(dims(src)[0]) : w0, h0, size: file.size, name: file.name || 'photo.jpg', capped };
+  if (capped) { S.w0 = w; S.h0 = h; }
+  crop.z = 1; crop.cx = w / 2; crop.cy = h / 2; $('zoomIn').value = '100';
+  if (!readNum('wIn') || !readNum('hIn')) { $('wIn').value = fromPx(w, st.unit, st.dpi); $('hIn').value = fromPx(h, st.unit, st.dpi); } else if (st.lock) followLock('w');
+  $('origLine').textContent = t('orig')(w, h, fmtSize(file.size));
+  $('drop').classList.add('hidden'); $('work').classList.remove('hidden');
+  refreshSize();
+  await update();
+  return true;
+};
+
+// ---------- the view (crop frame / preview)
+const viewBox = () => {
+  const tp = target(); if (!tp || !S) return null;
+  const maxW = Math.min(($('stage').clientWidth || 340) - 20, 420); const maxH = 380;
+  let cw = maxW; let ch = (cw * tp.H) / tp.W; if (ch > maxH) { ch = maxH; cw = (ch * tp.W) / tp.H; }
+  return { tp, cw: Math.max(20, cw), ch: Math.max(20, ch) };
+};
+let viewRaf = 0;
+const drawView = () => {
+  cancelAnimationFrame(viewRaf);
+  viewRaf = requestAnimationFrame(() => {
+    const vb = viewBox(); if (!vb) return;
+    const v = $('view'); const dpr = Math.min(2, window.devicePixelRatio || 1);
+    v.style.width = `${vb.cw}px`; v.style.height = `${vb.ch}px`;
+    const pw = Math.round(vb.cw * dpr); const ph = Math.round(vb.ch * dpr);
+    if (v.width !== pw || v.height !== ph) { v.width = pw; v.height = ph; }
+    paint(v.getContext('2d'), pw, ph, { fit: st.fit, bg: st.bg, opaque: st.fmt === 'jpeg', aspect: vb.tp.W / vb.tp.H });
+  });
+};
+
+// ---------- result
+let outTok = 0; let lastOut = null; let outUrl = '';
+const notesHtml = (out) => out.notes.map(([k, a]) => `<div class="note${k === 'tooBig' || k === 'pngOver' ? ' bad' : ''}">${esc(t(k) instanceof Function ? t(k)(a) : t(k))}</div>`).join('');
+const renderResult = () => {
+  const tp = target();
+  if (!S) return;
+  if (!tp) { $('resLine').innerHTML = `<span class="note bad">${esc(t('badSize'))}</span>`; $('printLine').textContent = ''; $('notes').innerHTML = ''; return; }
+  if (!lastOut) return;
+  const o = lastOut;
+  $('resLine').className = `resline${o.ok ? '' : ' bad'}`;
+  $('resLine').innerHTML = `${o.w} × ${o.h} px · <b>${fmtKb(o.blob.size)}</b> · ${o.fmt === 'jpeg' ? 'JPG' : o.fmt.toUpperCase()}`;
+  $('printLine').textContent = o.dpi ? t('print')(fromPx(o.w, st.unit, o.dpi), fromPx(o.h, st.unit, o.dpi), unitName(st.unit), o.dpi) : '';
+  $('notes').innerHTML = (S.capped ? `<div class="note">${esc(t('capped'))}</div>` : '') + notesHtml(o);
+};
+const update = async () => {
+  if (!S) return null;
+  const tp = target();
+  const busy = () => { $('resLine').innerHTML = `<span class="spin"></span>${esc(t('working'))}`; };
+  if (!tp) { outTok += 1; renderResult(); return null; }
+  if (tp.W > MAX_SIDE || tp.H > MAX_SIDE || tp.W * tp.H > MAX_AREA) { outTok += 1; $('resLine').innerHTML = `<span class="note bad">${esc(t('tooLarge'))}</span>`; $('notes').innerHTML = ''; $('printLine').textContent = ''; return null; }
+  const tok = ++outTok; busy();
+  const out = await makeOutput({ W: tp.W, H: tp.H, fit: st.fit, bg: st.bg, fmt: st.fmt, q: st.q, maxKb: st.maxKb, dpi: st.unit === 'px' ? 0 : st.dpi });
+  if (tok !== outTok) return out;
+  lastOut = out;
+  if (outUrl) URL.revokeObjectURL(outUrl);
+  outUrl = URL.createObjectURL(out.blob); $('outImg').src = outUrl;
+  renderResult();
+  return out;
+};
+let ut = 0; const updateLater = (ms = 300) => { clearTimeout(ut); ut = setTimeout(update, ms); };
+
+// ---------- size inputs
+const refreshSize = () => {
+  const tp = target();
+  $('dpiBox').classList.toggle('hidden', st.unit === 'px');
+  const eq = $('pxEq');
+  if (!tp) { eq.textContent = ''; } else {
+    eq.textContent = st.unit === 'px' ? '' : t('pxPrint')(tp.W, tp.H, st.dpi);
+    eq.classList.toggle('bad', tp.W > MAX_SIDE || tp.H > MAX_SIDE || tp.W * tp.H > MAX_AREA);
+  }
+  document.querySelectorAll('#chips .chip').forEach((b) => {
+    const p = PRESETS.find((x) => x.id === b.dataset.id);
+    const on = !!tp && p.u === st.unit && Number(readNum('wIn')) === p.w && Number(readNum('hIn')) === p.h && (p.u === 'px' || st.dpi === 300);
+    b.classList.toggle('on', on);
+  });
+  const isCrop = st.fit === 'crop';
+  $('editH').textContent = isCrop ? t('editCrop') : t('editView');
+  $('cropCtl').classList.toggle('hidden', !isCrop);
+  $('view').classList.toggle('nodrag', !isCrop);
+  $('stage').classList.toggle('hidden', !tp);
+  drawView();
+};
+const followLock = (from) => {
+  if (!st.lock || !S) return;
+  const r = S.h / S.w; const d = DEC[st.unit];
+  if (from === 'w') { const w = readNum('wIn'); if (w) $('hIn').value = +(w * r).toFixed(d); } else { const h = readNum('hIn'); if (h) $('wIn').value = +(h / r).toFixed(d); }
+};
+const setPreset = (id) => {
+  const p = PRESETS.find((x) => x.id === id); if (!p) return;
+  st.preset = id; st.unit = p.u; $('unitSel').value = p.u;
+  if (p.u !== 'px') { st.dpi = 300; $('dpiIn').value = '300'; }
+  st.lock = false; $('lockChk').checked = false;
+  $('wIn').value = p.w; $('hIn').value = p.h;
+  refreshSize();
+};
+const setUnit = (u) => {
+  const tp = target(); st.unit = u;
+  if (tp) { $('wIn').value = fromPx(tp.W, u, st.dpi); $('hIn').value = fromPx(tp.H, u, st.dpi); }
+  refreshSize();
+};
+
+// ---------- crop dragging / zoom
+const ptrs = new Map(); let pinch0 = 0;
+const viewScale = () => { const vb = viewBox(); if (!vb) return 1; const r = cropRect(vb.tp.W / vb.tp.H); return r[2] / vb.cw; };
+const setZoom = (z) => { crop.z = clamp(z, 1, 8); $('zoomIn').value = String(Math.round(crop.z * 100)); drawView(); updateLater(); };
+$('view').addEventListener('pointerdown', (e) => { if (st.fit !== 'crop') return; $('view').setPointerCapture(e.pointerId); ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY }); if (ptrs.size === 2) { const [a, b] = [...ptrs.values()]; pinch0 = Math.hypot(a.x - b.x, a.y - b.y); } });
+$('view').addEventListener('pointermove', (e) => {
+  if (!ptrs.has(e.pointerId) || st.fit !== 'crop') return;
+  const prev = ptrs.get(e.pointerId); const cur = { x: e.clientX, y: e.clientY }; ptrs.set(e.pointerId, cur);
+  if (ptrs.size === 1) { const k = viewScale(); crop.cx -= (cur.x - prev.x) * k; crop.cy -= (cur.y - prev.y) * k; drawView(); updateLater(); } else if (ptrs.size === 2) {
+    const [a, b] = [...ptrs.values()]; const d = Math.hypot(a.x - b.x, a.y - b.y); if (pinch0) setZoom((crop.z * d) / pinch0); pinch0 = d;
+  }
+});
+const endPtr = (e) => { ptrs.delete(e.pointerId); pinch0 = 0; };
+$('view').addEventListener('pointerup', endPtr); $('view').addEventListener('pointercancel', endPtr);
+$('view').addEventListener('wheel', (e) => { if (st.fit !== 'crop') return; e.preventDefault(); setZoom(crop.z * Math.exp(-e.deltaY * 0.0015)); }, { passive: false });
+$('zoomIn').addEventListener('input', (e) => setZoom(Number(e.target.value) / 100));
+$('resetBtn').addEventListener('click', () => { if (!S) return; crop.cx = S.w / 2; crop.cy = S.h / 2; setZoom(1); });
+
+// ---------- download / share
+const extOf = (f) => (f === 'jpeg' ? 'jpg' : f);
+const baseName = (n) => (n || 'photo').replace(/\.[^.]+$/, '').replace(/[^\wऀ-ॿঀ-৿-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || 'photo';
+const outName = () => `${baseName(S.name)}-${lastOut.w}x${lastOut.h}.${extOf(lastOut.fmt)}`;
+const download = (blob, name) => { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); };
+const shareOut = async () => {
+  const f = new File([lastOut.blob], outName(), { type: lastOut.blob.type });
+  if (navigator.canShare && navigator.canShare({ files: [f] })) { try { await navigator.share({ files: [f] }); } catch (e) { /* cancelled */ } return; }
+  download(f, f.name); toast(t('saved'));
+};
+
+// ---------- UI text
+const applyLang = () => {
+  document.documentElement.lang = lang === 'hinglish' ? 'hi-Latn' : lang;
+  document.querySelectorAll('[data-t]').forEach((el) => { const v = t(el.dataset.t); if (typeof v === 'string') el.textContent = v; });
+  $('langSel').value = lang;
+  $('chips').innerHTML = PRESETS.map((p) => `<button class="chip" type="button" data-id="${p.id}">${p.w} × ${p.h} ${unitName(p.u)}<small>${esc(t('pl')[p.id])}</small></button>`).join('');
+  $('fitNote').textContent = t('fitNotes')[st.fit];
+  $('kbNote').textContent = st.fmt === 'png' ? t('pngKb') : '';
+  $('howList').innerHTML = t('how').map((s) => `<li>${s}</li>`).join('');
+  $('tipList').innerHTML = t('tips').map((s) => `<li>${s}</li>`).join('');
+  // A size page brings its own FAQ and text; the general sections are only on the main page.
+  const faq = (PAGE && PAGE.T[lang] && PAGE.T[lang].faq) || t('faq');
+  $('faqList').innerHTML = faq.map(([q, a]) => `<details class="faq"><summary>${q}</summary><p>${a}</p></details>`).join('');
+  const plain = (h) => { const d = document.createElement('div'); d.innerHTML = h; return d.textContent; };
+  $('faqLd').textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', inLanguage: document.documentElement.lang, mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: plain(q), acceptedAnswer: { '@type': 'Answer', text: plain(a) } })) });
+  document.querySelectorAll('section.gen').forEach((el) => el.classList.toggle('hidden', !!PAGE));
+  $('whenBox').innerHTML = t('whenText');
+  $('probList').innerHTML = t('probs').map(([a, b]) => `<li><b>${a}:</b> ${b}</li>`).join('');
+  $('useTable').innerHTML = `<tr><th>${t('thUse')}</th><th>${t('thSize')}</th><th>${t('thPx')}</th></tr>` + t('uses').map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('');
+  const L = t('links'); const card = (href, [a, b], here) => `<a href="${href}"${here ? ' class="here"' : ''}>${esc(a)}<small>${esc(b)}</small></a>`;
+  $('sizeLinks').innerHTML = PRESETS.filter((p) => p.page).map((p) => card(`${BASE}${p.page}/?lang=${lang}`, L[p.page], PAGE && PAGE.preset === p.id)).join('')
+    + (PAGE ? card(`${BASE}?lang=${lang}`, t('ownSize')) : '')
+    + card(`${BASE}../form-helper/?lang=${lang}`, t('formHelper')) + card(`${BASE}../image-compress/?lang=${lang}`, t('compress'));
+  $('formLink').href = `${BASE}../form-helper/?lang=${lang}`;
+  const info = PAGE && PAGE.T[lang] && PAGE.T[lang].info;
+  $('pageInfo').classList.toggle('hidden', !info); if (info) $('pageInfo').innerHTML = info;
+  if (S) $('origLine').textContent = t('orig')(S.w, S.h, fmtSize(S.size));
+  refreshSize(); renderResult();
+};
+
+// ---------- events
+$('langSel').addEventListener('change', (e) => { lang = e.target.value; store.set('ir-lang', lang); applyLang(); });
+$('chips').addEventListener('click', (e) => { const b = e.target.closest('.chip'); if (!b) return; setPreset(b.dataset.id); update(); });
+$('wIn').addEventListener('input', () => { st.preset = null; followLock('w'); refreshSize(); updateLater(); });
+$('hIn').addEventListener('input', () => { st.preset = null; followLock('h'); refreshSize(); updateLater(); });
+$('unitSel').addEventListener('change', (e) => { setUnit(e.target.value); update(); });
+$('dpiIn').addEventListener('input', () => { const v = Math.round(readNum('dpiIn')); if (v >= 50 && v <= 1200) { st.dpi = v; refreshSize(); updateLater(); } });
+$('lockChk').addEventListener('change', (e) => { st.lock = e.target.checked; if (st.lock) { followLock('w'); refreshSize(); update(); } });
+document.querySelectorAll('input[name=fit]').forEach((r) => r.addEventListener('change', (e) => { st.fit = e.target.value; $('bgBox').classList.toggle('hidden', st.fit !== 'pad'); $('fitNote').textContent = t('fitNotes')[st.fit]; refreshSize(); update(); }));
+const readBg = () => { const v = document.querySelector('input[name=bg]:checked').value; st.bg = v === 'custom' ? $('bgColor').value : v; };
+document.querySelectorAll('input[name=bg]').forEach((r) => r.addEventListener('change', () => { readBg(); drawView(); update(); }));
+$('bgColor').addEventListener('input', () => { document.querySelector('input[name=bg][value=custom]').checked = true; readBg(); drawView(); updateLater(); });
+document.querySelectorAll('input[name=fmt]').forEach((r) => r.addEventListener('change', (e) => { st.fmt = e.target.value; store.set('ir-fmt', st.fmt); $('qBox').classList.toggle('hidden', st.fmt === 'png'); $('kbNote').textContent = st.fmt === 'png' ? t('pngKb') : ''; drawView(); update(); }));
+$('qIn').addEventListener('input', (e) => { st.q = Number(e.target.value) / 100; $('qVal').textContent = `${e.target.value}%`; updateLater(); });
+$('kbIn').addEventListener('input', () => { st.maxKb = readNum('kbIn'); updateLater(); });
+$('pickBtn').addEventListener('click', (e) => { e.stopPropagation(); $('file').click(); });
+$('camBtn').addEventListener('click', (e) => { e.stopPropagation(); $('cam').click(); });
+$('changeBtn').addEventListener('click', () => $('file').click());
+$('drop').addEventListener('click', () => $('file').click());
+$('drop').addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $('file').click(); } });
+$('drop').addEventListener('dragover', (e) => { e.preventDefault(); $('drop').classList.add('over'); });
+$('drop').addEventListener('dragleave', () => $('drop').classList.remove('over'));
+$('drop').addEventListener('drop', (e) => { e.preventDefault(); $('drop').classList.remove('over'); const f = e.dataTransfer.files[0]; if (f) loadFile(f); });
+document.addEventListener('paste', (e) => { const f = e.clipboardData && e.clipboardData.files[0]; if (f) loadFile(f); });
+$('file').addEventListener('change', (e) => { const f = e.target.files[0]; if (f) loadFile(f); e.target.value = ''; });
+$('cam').addEventListener('change', (e) => { const f = e.target.files[0]; if (f) loadFile(f); e.target.value = ''; });
+$('dlBtn').addEventListener('click', () => { if (!lastOut) return; download(lastOut.blob, outName()); toast(t('saved')); });
+$('shareBtn').addEventListener('click', () => { if (lastOut) shareOut(); });
+window.addEventListener('resize', drawView);
+
+// ---------- start
+$('year').textContent = new Date().getFullYear();
+document.querySelector(`input[name=fmt][value=${st.fmt}]`).checked = true;
+$('qBox').classList.toggle('hidden', st.fmt === 'png');
+applyLang();
+if (PAGE && PAGE.preset) setPreset(PAGE.preset);
+if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register(`${BASE}sw.js`).catch(() => {});
+
+// ---------- ?selftest: draws a sample photo, runs every preset × fit mode, KB limits, DPI, units, EXIF turn, languages
+if (SELFTEST) (async () => {
+  const box = $('selftest'); box.classList.remove('hidden'); let pass = 0; let fail = 0;
+  const log = (ok, msg) => { if (ok) pass += 1; else fail += 1; const line = `${ok ? 'PASS' : 'FAIL'} ${msg}`; box.textContent += `${line}\n`; console.log(line); };
+  const blobOf = (c, type, q) => new Promise((r) => c.toBlob(r, type, q));
+  const bytes = async (b) => new Uint8Array(await b.arrayBuffer());
+  const decDims = async (b) => { const bm = await createImageBitmap(b); const d = [bm.width, bm.height]; bm.close(); return d; };
+  const jfif = (u) => (u[2] === 0xff && u[3] === 0xe0 && u[6] === 0x4a ? { unit: u[13], x: (u[14] << 8) | u[15], y: (u[16] << 8) | u[17] } : null);
+  const phys = (u) => { const dv = new DataView(u.buffer); let p = 8; while (p + 12 <= u.length) { const len = dv.getUint32(p); const ty = String.fromCharCode(u[p + 4], u[p + 5], u[p + 6], u[p + 7]); if (ty === 'pHYs') return { x: dv.getUint32(p + 8), y: dv.getUint32(p + 12), unit: u[p + 16], crcOk: dv.getUint32(p + 17) === crc32(u.subarray(p + 4, p + 17)) }; p += 12 + len; } return null; };
+  const setFit = (f) => { const r = document.querySelector(`input[name=fit][value=${f}]`); r.checked = true; r.dispatchEvent(new Event('change')); };
+  const setFmt = (f) => { const r = document.querySelector(`input[name=fmt][value=${f}]`); r.checked = true; r.dispatchEvent(new Event('change')); };
+  const setKb = (v) => { $('kbIn').value = v || ''; st.maxKb = readNum('kbIn'); };
+  try {
+    // sample photo: 1600×1200, gradients, shapes and noise so the KB numbers are like a real photo
+    const c = mk(1600, 1200); const x = c.getContext('2d');
+    const g = x.createLinearGradient(0, 0, 1600, 1200); g.addColorStop(0, '#2b6cb0'); g.addColorStop(0.5, '#f6ad55'); g.addColorStop(1, '#2f855a'); x.fillStyle = g; x.fillRect(0, 0, 1600, 1200);
+    for (let i = 0; i < 60; i += 1) { x.fillStyle = `hsl(${(i * 47) % 360} 70% 55%)`; x.beginPath(); x.arc((i * 263) % 1600, (i * 151) % 1200, 20 + ((i * 37) % 90), 0, 7); x.fill(); }
+    const id = x.getImageData(0, 0, 1600, 1200); let seed = 7; for (let i = 0; i < id.data.length; i += 4) { seed = (seed * 1103515245 + 12345) & 0x7fffffff; const n = (seed % 41) - 20; id.data[i] += n; id.data[i + 1] += n; id.data[i + 2] += n; } x.putImageData(id, 0, 0);
+    x.fillStyle = '#fff'; x.font = 'bold 120px sans-serif'; x.fillText('SAMPLE', 500, 640);
+    const sample = new File([await blobOf(c, 'image/jpeg', 0.92)], 'sample.jpg', { type: 'image/jpeg' });
+    log(await loadFile(sample) && S.w === 1600 && S.h === 1200, `load sample 1600x1200 (${fmtSize(sample.size)})`);
+
+    // every preset × every fit mode → exact px (checked in the decoded file too)
+    setFmt('jpeg'); setKb(0);
+    const expect = { pass: [413, 531], in2: [600, 600], sq600: [600, 600], f200: [200, 230], sq1080: [1080, 1080], story: [1080, 1920], thumb: [1280, 720] };
+    for (const fit of ['crop', 'pad', 'stretch']) {
+      setFit(fit);
+      for (const p of PRESETS) {
+        document.querySelector(`#chips .chip[data-id="${p.id}"]`).click();
+        const out = await update(); const [dw, dh] = await decDims(out.blob); const [ew, eh] = expect[p.id];
+        const chipOn = document.querySelector(`#chips .chip[data-id="${p.id}"]`).classList.contains('on');
+        log(out.w === ew && out.h === eh && dw === ew && dh === eh && chipOn, `${fit} ${p.id} → ${dw}x${dh} (want ${ew}x${eh}) ${fmtKb(out.blob.size)}`);
+      }
+    }
+    // pad keeps the background colour in the corner; crop with zoom + far drag stays exact
+    setFit('pad'); document.querySelector('input[name=bg][value="#4f8fd8"]').click(); document.querySelector('#chips .chip[data-id="story"]').click();
+    { const out = await update(); const bm = await createImageBitmap(out.blob); const cc = mk(bm.width, bm.height); const cx = cc.getContext('2d'); cx.drawImage(bm, 0, 0); const px = cx.getImageData(5, 5, 1, 1).data; log(Math.abs(px[0] - 0x4f) < 12 && Math.abs(px[1] - 0x8f) < 12 && Math.abs(px[2] - 0xd8) < 12, `pad blue background corner rgb(${px[0]},${px[1]},${px[2]})`); }
+    document.querySelector('input[name=bg][value="#ffffff"]').click();
+    setFit('crop'); document.querySelector('#chips .chip[data-id="pass"]').click(); crop.z = 3; crop.cx = 99999; crop.cy = -500;
+    { const out = await update(); const r = cropRect(413 / 531); log(out.w === 413 && out.h === 531 && r[0] + r[2] <= 1600.01 && r[1] >= 0, `crop zoom 3x dragged past the edge stays inside: x=${r[0].toFixed(0)} w=${r[2].toFixed(0)}`); }
+    crop.z = 1; crop.cx = 800; crop.cy = 600;
+
+    // max KB (quality search, px unchanged)
+    const kbCases = [['pass', 'jpeg', 50], ['f200', 'jpeg', 20], ['sq600', 'jpeg', 30], ['story', 'webp', 120], ['thumb', 'jpeg', 60], ['sq1080', 'webp', 50]];
+    for (const [pid, f, kb] of kbCases) {
+      if (f === 'webp' && !webpOk) continue;
+      setFmt(f); setKb(kb); document.querySelector(`#chips .chip[data-id="${pid}"]`).click();
+      const out = await update(); const [dw, dh] = await decDims(out.blob); const [ew, eh] = expect[pid];
+      log(out.ok && out.blob.size <= kb * 1024 && dw === ew && dh === eh, `maxKB ${pid} ${f} ≤${kb} KB → ${fmtKb(out.blob.size)} q=${out.q.toFixed(2)} ${dw}x${dh}`);
+    }
+    setFmt('jpeg'); setKb(3); document.querySelector('#chips .chip[data-id="story"]').click();
+    { const out = await update(); log(!out.ok && out.notes.some((n) => n[0] === 'tooBig') && out.w === 1080 && out.h === 1920, `impossible 3 KB at 1080x1920 is reported (${fmtKb(out.blob.size)}), px kept`); }
+    setKb(0);
+
+    // DPI written into the file
+    setFmt('jpeg'); document.querySelector('#chips .chip[data-id="pass"]').click();
+    { const out = await update(); const j = jfif(await bytes(out.blob)); log(!!j && j.unit === 1 && j.x === 300 && j.y === 300, `JPEG JFIF density 3.5x4.5 cm → ${j ? `${j.x}x${j.y} unit ${j.unit}` : 'none'}`); }
+    setFmt('png');
+    { const out = await update(); const ph = phys(await bytes(out.blob)); const [dw, dh] = await decDims(out.blob); log(!!ph && ph.unit === 1 && ph.x === 11811 && ph.crcOk && dw === 413 && dh === 531, `PNG pHYs 300 DPI → ${ph ? `${ph.x} px/m crc ${ph.crcOk}` : 'none'} ${dw}x${dh}`); }
+    setFmt('jpeg'); $('unitSel').value = 'mm'; setUnit('mm'); $('wIn').value = 35; $('hIn').value = 45; $('dpiIn').value = 600; $('dpiIn').dispatchEvent(new Event('input'));
+    { const out = await update(); const j = jfif(await bytes(out.blob)); log(out.w === 827 && out.h === 1063 && j && j.x === 600, `35x45 mm at 600 DPI → ${out.w}x${out.h}, density ${j && j.x}`); }
+    $('unitSel').value = 'in'; setUnit('in'); $('wIn').value = 2; $('hIn').value = 2; $('dpiIn').value = 200; $('dpiIn').dispatchEvent(new Event('input'));
+    { const out = await update(); const j = jfif(await bytes(out.blob)); log(out.w === 400 && out.h === 400 && j && j.x === 200, `2x2 inch at 200 DPI → ${out.w}x${out.h}, density ${j && j.x}`); }
+    $('dpiIn').value = 300; $('dpiIn').dispatchEvent(new Event('input'));
+    // unit switch keeps the px
+    document.querySelector('#chips .chip[data-id="pass"]').click(); $('unitSel').value = 'px'; setUnit('px');
+    log($('wIn').value === '413' && $('hIn').value === '531', `cm → px switch shows ${$('wIn').value} x ${$('hIn').value}`);
+    $('unitSel').value = 'cm'; setUnit('cm'); log($('wIn').value === '3.5' && $('hIn').value === '4.5', `px → cm switch shows ${$('wIn').value} x ${$('hIn').value}`);
+    // px output has no DPI forced
+    $('unitSel').value = 'px'; setUnit('px');
+    { const out = await update(); log(out.dpi === 0 && !out.notes.some((n) => n[0] === 'dpiIn'), 'px size: no DPI written'); }
+    // lock aspect
+    $('lockChk').checked = true; $('lockChk').dispatchEvent(new Event('change')); $('wIn').value = 800; $('wIn').dispatchEvent(new Event('input'));
+    { const out = await update(); log($('hIn').value === '600' && out.w === 800 && out.h === 600, `lock: width 800 → height ${$('hIn').value}`); }
+    $('lockChk').checked = false; $('lockChk').dispatchEvent(new Event('change'));
+
+    // EXIF orientation: a 40×20 JPEG marked "turn 90°" must load as 20×40
+    { const e = mk(40, 20); const ex = e.getContext('2d'); ex.fillStyle = '#f00'; ex.fillRect(0, 0, 40, 20); const u = await bytes(await blobOf(e, 'image/jpeg', 0.9));
+      const at = u[2] === 0xff && u[3] === 0xe0 ? 4 + ((u[4] << 8) | u[5]) : 2;
+      const app1 = new Uint8Array([0xff, 0xe1, 0, 34, 0x45, 0x78, 0x69, 0x66, 0, 0, 0x4d, 0x4d, 0, 0x2a, 0, 0, 0, 8, 0, 1, 0x01, 0x12, 0, 3, 0, 0, 0, 1, 0, 6, 0, 0, 0, 0, 0, 0]);
+      const f = new File([u.subarray(0, at), app1, u.subarray(at)], 'turned.jpg', { type: 'image/jpeg' });
+      await loadFile(f); log(S.w === 20 && S.h === 40, `EXIF orientation 6: 40x20 file loads as ${S.w}x${S.h}`); }
+
+    // languages: same keys everywhere, every data-t filled, no "undefined"
+    const keys = Object.keys(T.hinglish).sort().join();
+    const keep = lang;
+    for (const l of LANGS) {
+      lang = l; applyLang();
+      const empty = [...document.querySelectorAll('[data-t]')].filter((el) => !el.textContent.trim()).map((el) => el.dataset.t);
+      const sameKeys = Object.keys(T[l]).sort().join() === keys;
+      const undef = [...document.querySelectorAll('header, h1, .sub, .privacy, .card, section.info, footer')].some((el) => /undefined|\[object/.test(el.innerText));
+      log(sameKeys && !empty.length && !undef && $('chips').children.length === PRESETS.length, `language ${l}: keys ${sameKeys ? 'ok' : 'MISSING'}, empty [${empty.join(',')}], undefined ${undef}`);
+    }
+    // page text: at least ~500 words of reading below the tool, and the FAQ JSON-LD matches the visible FAQ
+    for (const l of LANGS) {
+      lang = l; applyLang();
+      const words = [...document.querySelectorAll('section.info')].filter((el) => !el.classList.contains('hidden') && el.id !== 'linksSec').map((el) => el.textContent).join(' ').split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
+      const ld = JSON.parse($('faqLd').textContent); const nFaq = $('faqList').children.length;
+      log(words >= 500 && ld['@type'] === 'FAQPage' && ld.mainEntity.length === nFaq && nFaq >= 4 && ld.mainEntity[0].name === $('faqList').querySelector('summary').textContent, `content ${l}: ${words} words, FAQ ${nFaq} questions = JSON-LD ${ld.mainEntity.length}`);
+    }
+    lang = keep; applyLang();
+  } catch (err) { log(false, `exception ${err && err.stack ? err.stack : err}`); }
+  const done = `SELFTEST DONE pass=${pass} fail=${fail}`; box.textContent += done; console.log(done); document.body.dataset.selftest = fail ? 'fail' : 'pass';
+})();
+</script>
+</body>
+</html>

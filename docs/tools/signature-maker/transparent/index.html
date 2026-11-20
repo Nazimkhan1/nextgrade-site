@@ -1,0 +1,707 @@
+<!doctype html>
+<html data-prerendered="hi" lang="hi">
+<head>
+<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Transparent signature PNG banaye — Signature Background Remove Online Free | NextGrade Tools</title>
+<meta name="description" content="Make a signature PNG with a see-through background: draw it, or remove the paper from a photo of your signature. Place it on letters, invoices and PDFs without a white box. Free, on your phone, nothing is uploaded.">
+<meta name="theme-color" content="#3b5bdb">
+<link rel="canonical" href="https://nextgrade.in/tools/signature-maker/transparent/">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<link rel="manifest" href="../manifest.json">
+<link rel="icon" href="../icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Handwriting styles, bundled in ./fonts (SIL Open Font License 1.1, licence files next to them) */
+@font-face { font-family: "Great Vibes"; src: url(../fonts/GreatVibes-Latin.woff2) format("woff2"); font-display: swap; }
+@font-face { font-family: "Allura"; src: url(../fonts/Allura-Latin.woff2) format("woff2"); font-display: swap; }
+@font-face { font-family: "Dancing Script"; src: url(../fonts/DancingScript-wght.ttf) format("truetype"); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: "Sacramento"; src: url(../fonts/Sacramento-Regular.ttf) format("truetype"); font-display: swap; }
+:root { --bg: #edf2ff; --card: #fff; --ink: #141b3a; --muted: #555d7d; --brand: #3b5bdb; --brand2: #4c6ef5; --line: #d0dbff; --soft: #f5f7ff; --ok: #2b8a3e; --warn: #c92a2a; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 8px; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 21px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand small { display: block; font-family: Inter, sans-serif; font-size: 12px; font-weight: 600; color: var(--muted); }
+select, button, input { font: inherit; }
+.langsel, .inp { padding: 7px 9px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+.inp { width: 100%; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: clamp(26px, 6vw, 36px); line-height: 1.15; margin: 4px 0; }
+.sub { color: var(--muted); margin: 0 0 10px; }
+.privacy { background: #ebfbee; border: 1px solid #b2f2bb; color: #1b5e20; border-radius: 12px; padding: 8px 12px; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 4px 18px rgba(59, 91, 219, 0.08); }
+.card + .card { margin-top: 12px; }
+.lbl { font-weight: 700; margin: 0 0 8px; }
+.tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+.tab { padding: 10px 4px; border-radius: 12px; border: 1px solid var(--line); background: #fff; font-weight: 700; cursor: pointer; color: var(--ink); font-size: 14px; }
+.tab.on { background: linear-gradient(90deg, var(--brand), var(--brand2)); color: #fff; border-color: transparent; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.chip { padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line); background: #fff; font-weight: 700; cursor: pointer; color: var(--ink); }
+.chip.on { background: linear-gradient(90deg, var(--brand), var(--brand2)); color: #fff; border-color: transparent; }
+.dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; vertical-align: -2px; margin-right: 4px; border: 2px solid #fff; box-shadow: 0 0 0 1px #0003; }
+.hint { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+.padwrap { position: relative; border: 2px dashed #91a7ff; border-radius: 14px; background: #fff; height: clamp(180px, 38vw, 300px); touch-action: none; overflow: hidden; }
+.padwrap::after { content: ""; position: absolute; left: 6%; right: 6%; bottom: 26%; border-bottom: 2px solid #dbe4ff; pointer-events: none; }
+.padwrap span { position: absolute; left: 6%; bottom: calc(26% + 6px); color: #bac8ff; font-weight: 700; pointer-events: none; font-size: 14px; }
+#pad { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 1; cursor: crosshair; }
+.tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin-top: 10px; }
+.sl { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; margin-top: 10px; gap: 8px; }
+input[type=range] { width: 100%; accent-color: var(--brand); }
+.drop { border: 2px dashed #91a7ff; border-radius: 16px; padding: 22px 16px; text-align: center; background: var(--soft); cursor: pointer; }
+.drop.over { background: #dbe4ff; }
+.drop b { display: block; font-size: 18px; margin-bottom: 4px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 700; cursor: pointer; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, var(--brand), var(--brand2)); color: #fff; border: 0; }
+.btn-ok { background: var(--ok); color: #fff; border: 0; }
+.btn-sm { padding: 7px 10px; font-size: 13.5px; border-radius: 10px; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.fonts { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin-top: 10px; }
+.fontbtn { border: 1px solid var(--line); background: #fff; border-radius: 12px; padding: 6px 10px; font-size: 34px; line-height: 1.4; cursor: pointer; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fontbtn.on { border-color: var(--brand); box-shadow: 0 0 0 2px rgba(59, 91, 219, 0.3); }
+.preview { background: repeating-conic-gradient(#e9ecef 0 25%, #fff 0 50%) 50% / 16px 16px; border-radius: 12px; min-height: 120px; display: flex; align-items: center; justify-content: center; padding: 12px; border: 1px solid var(--line); }
+.preview img { max-width: 100%; max-height: 240px; display: block; }
+.preview em { color: var(--muted); font-style: normal; font-size: 14px; text-align: center; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 8px; }
+@media (max-width: 480px) { .grid3 { grid-template-columns: 1fr 1fr; } }
+.chk { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; margin-top: 10px; font-weight: 600; }
+.info { font-weight: 700; font-size: 14px; margin: 10px 0 0; }
+.info.bad { color: var(--warn); }
+.formlink { display: block; margin-top: 10px; background: var(--soft); border: 1px solid var(--line); border-radius: 12px; padding: 9px 12px; color: var(--ink); text-decoration: none; font-weight: 700; font-size: 14px; }
+.formlink small { display: block; font-weight: 400; color: var(--muted); }
+.hidden { display: none !important; }
+section.info { margin: 26px 0; font-weight: 400; font-size: 16px; }
+section.info h2 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: 22px; margin: 0 0 6px; }
+section.info h3 { font-size: 17px; margin: 16px 0 4px; }
+.links { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; }
+.links a { display: block; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; color: var(--ink); text-decoration: none; font-weight: 700; }
+.links a small { display: block; color: var(--muted); font-weight: 400; font-size: 12.5px; }
+.links a.here { border-color: var(--brand); box-shadow: 0 0 0 2px rgba(59, 91, 219, 0.2); }
+details.faq { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin: 8px 0; }
+details.faq summary { font-weight: 700; cursor: pointer; }
+footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top: 1px solid var(--line); margin-top: 24px; }
+.toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 12px; font-weight: 600; z-index: 30; max-width: 92vw; text-align: center; }
+#selftest { white-space: pre-wrap; font: 12px/1.4 monospace; background: #fff; border: 1px solid var(--line); padding: 8px; }
+</style>
+<script type="application/ld+json" id="faqLd">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Signature ka background kaise hatayein?", "acceptedAnswer": {"@type": "Answer", "text": "\"Kaagaz se\" chuno, safed kaagaz par kiye sign ki photo daalo aur \"PNG (transparent)\" download karo. Tool kaagaz hata kar sirf ink rakhta hai."}}, {"@type": "Question", "name": "Meri PNG mein peeche kaala kyon dikh raha hai?", "acceptedAnswer": {"@type": "Answer", "text": "Kuch photo viewer transparent jagah ko kaala dikhate hain. File theek hai — use document ya slide par rakh kar dekho, peeche ka rang hi dikhega."}}, {"@type": "Question", "name": "Kya JPG bhi transparent ho sakta hai?", "acceptedAnswer": {"@type": "Answer", "text": "Nahi. JPG mein transparent jagah ki suvidha hi nahi hoti, isliye peeche safed bhar diya jaata hai. Transparent ke liye PNG hi lo."}}, {"@type": "Question", "name": "Chat par bheja to sign ka background safed kyon ho gaya?", "acceptedAnswer": {"@type": "Answer", "text": "Bahut se chat apps photo ko chhota karne ke liye JPG bana dete hain. File ko document/attachment ki tarah bhejo to PNG waisi hi pahunchegi."}}]}</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://nextgrade.in/tools/">✍️ NextGrade Tools<small data-t="brandSub">फ़्री · साइन फ़ोन से बाहर नहीं जाता</small></a>
+    <select class="langsel" id="langSel" aria-label="Language">
+      <option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option>
+    </select>
+  </header>
+  <h1 data-t="title">ट्रांसपेरेंट सिग्नेचर PNG बनाएँ — बिना बैकग्राउंड</h1>
+  <p class="sub" data-t="sub">साइन के पीछे का काग़ज़ या सफ़ेद हिस्सा हटाकर सिर्फ़ स्याही वाली PNG पाएँ, जो किसी भी पत्र, बिल या PDF पर सीधे बैठ जाए। सब फ़ोन पर, कुछ अपलोड नहीं होता।</p>
+  <div class="privacy">🔒 <span data-t="privacy">आपका साइन कहीं अपलोड नहीं होता। सारा काम आपके फ़ोन/ब्राउज़र में होता है।</span></div>
+
+  <div class="card">
+    <div class="tabs" role="tablist">
+      <button class="tab" type="button" data-mode="draw" data-t="modeDraw"></button>
+      <button class="tab" type="button" data-mode="photo" data-t="modePhoto"></button>
+      <button class="tab" type="button" data-mode="type" data-t="modeType"></button>
+    </div>
+    <div class="chips" id="colours"><span class="lbl" style="margin:0" data-t="colour">रंग:</span>
+      <button class="chip" type="button" data-col="black"><i class="dot" style="background:#111"></i><span data-t="black">काला</span></button>
+      <button class="chip" type="button" data-col="blue"><i class="dot" style="background:#123d9e"></i><span data-t="blue">नीला</span></button>
+    </div>
+
+    <div id="panelDraw" style="margin-top:12px">
+      <div class="padwrap" id="padwrap"><span data-t="padHint">यहाँ साइन करें</span><canvas id="pad"></canvas></div>
+      <div class="tools">
+        <label style="flex:1;min-width:160px"><span class="sl" style="margin:0"><span data-t="thick">पेन की मोटाई</span><b id="thVal">3</b></span><input type="range" id="thick" min="1" max="8" step="0.5" value="3"></label>
+        <div class="row"><button class="btn btn-sm" type="button" id="undoBtn" data-t="undo"></button><button class="btn btn-sm" type="button" id="clearBtn" data-t="clear"></button></div>
+      </div>
+    </div>
+
+    <div id="panelPhoto" class="hidden" style="margin-top:12px">
+      <div class="drop" id="drop" role="button" tabindex="0">
+        <b data-t="photoPick"></b><span class="hint" data-t="photoHint"></span>
+        <div class="row" style="justify-content:center;margin-top:12px">
+          <button class="btn btn-main" id="pickBtn" type="button" data-t="pickBtn"></button>
+          <button class="btn" id="camBtn" type="button" data-t="camBtn"></button>
+        </div>
+      </div>
+      <input type="file" id="file" accept="image/*" hidden>
+      <input type="file" id="cam" accept="image/*" capture="environment" hidden>
+      <div id="photoOpts" class="hidden">
+        <label class="sl" for="inkLvl"><span data-t="inkLvl"></span></label>
+        <input type="range" id="inkLvl" min="0" max="100" step="1" value="50">
+        <div class="row" style="margin-top:8px"><button class="btn btn-sm" type="button" id="rotBtn" data-t="rot90"></button><button class="btn btn-sm" type="button" id="newBtn" data-t="newPhoto"></button></div>
+      </div>
+    </div>
+
+    <div id="panelType" class="hidden" style="margin-top:12px">
+      <label><span class="lbl" data-t="typeL"></span><input class="inp" id="nameIn" type="text" maxlength="40" autocomplete="name"></label>
+      <p class="hint" data-t="typeNote"></p>
+      <div class="fonts" id="fonts"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="lbl" data-t="resH">आपका सिग्नेचर</p>
+    <div class="preview" id="preview"><em data-t="empty"></em></div>
+    <label class="chk"><input type="checkbox" id="exact"> <span data-t="exact">सही साइज़ चाहिए (फ़ॉर्म के लिए)</span></label>
+    <div class="grid3">
+      <label><span class="hint" data-t="wL">चौड़ाई (px)</span><input class="inp" id="wIn" type="number" inputmode="numeric" min="20" max="3000" value="140"></label>
+      <label><span class="hint" data-t="hL">ऊँचाई (px)</span><input class="inp" id="hIn" type="number" inputmode="numeric" min="20" max="3000" value="60"></label>
+      <label><span class="hint" data-t="maxKbL">JPG अधिकतम KB</span><input class="inp" id="kbIn" type="number" inputmode="numeric" min="2" max="2000" placeholder="—"></label>
+    </div>
+    <a class="formlink" id="formLink" href="../form-helper/"><span data-t="formLink">📝 परीक्षा फ़ॉर्म के लिए: फ़ॉर्म हेल्पर →</span><small data-t="formHint">SSC, UPSC, बैंक, NEET के तय नाप और KB वहाँ पहले से भरे हैं।</small></a>
+    <div class="row" style="margin-top:12px">
+      <button class="btn btn-ok" type="button" id="dlPng" data-t="dlPng"></button>
+      <button class="btn btn-ok" type="button" id="dlJpg" data-t="dlJpg"></button>
+      <button class="btn" type="button" id="shareBtn" data-t="share"></button>
+    </div>
+    <p class="info" id="outInfo"></p>
+  </div>
+
+  <pre id="selftest" class="hidden"></pre>
+  <section class="info" id="pageInfo"><h2>ट्रांसपेरेंट सिग्नेचर का मतलब क्या है?</h2><p>आम फ़ोटो में साइन के चारों तरफ़ काग़ज़ का सफ़ेद या हल्का धूसर हिस्सा भी होता है। उसे किसी रंगीन लेटरहेड, टेबल की लाइन या मुहर के पास रखें तो एक <b>सफ़ेद डिब्बा</b> साफ़ दिखता है और साइन चिपकाया हुआ लगता है। ट्रांसपेरेंट PNG में सिर्फ़ स्याही के पिक्सेल होते हैं; बाक़ी सब <b>आर-पार दिखने वाला</b> होता है। इसलिए साइन काग़ज़ पर असली पेन जैसा बैठता है।</p><h3>कहाँ काम आता है?</h3><ul><li>दफ़्तर का पत्र, ऑफ़र लेटर, कोटेशन या बिल जो कंप्यूटर पर बनता है।</li><li>PDF फ़ॉर्म या अनुबंध पर अपनी कॉपी के लिए साइन लगाना।</li><li>प्रेज़ेंटेशन, सर्टिफ़िकेट डिज़ाइन या रंगीन बैकग्राउंड वाले पोस्टर।</li><li>अपनी वेबसाइट या ईमेल के अंत में नाम के नीचे साइन।</li></ul><h3>क़दम-दर-क़दम</h3><ol><li><b>बनाकर</b> चुनें और पैड पर साइन करें — यह पहले से ट्रांसपेरेंट होता है। या <b>काग़ज़ से</b> चुनें और सफ़ेद काग़ज़ पर किए साइन की फ़ोटो डालें।</li><li>काग़ज़ वाली फ़ोटो में टूल रोशनी का फ़र्क बराबर करता है, काग़ज़ को पूरी तरह हटा देता है और स्याही को एक साफ़ रंग (काला या नीला) में बदल देता है।</li><li>प्रीव्यू के पीछे <b>चारख़ाना (चेकरबोर्ड)</b> दिखे तो समझें वहाँ कुछ नहीं है — वही ट्रांसपेरेंट हिस्सा है।</li><li><b>PNG (ट्रांसपेरेंट)</b> डाउनलोड करें। JPG न लें: JPG ट्रांसपेरेंट नहीं रह सकता, उसके पीछे हमेशा सफ़ेद भरता है।</li></ol><h3>अच्छा नतीजा कैसे मिले</h3><ul><li>काग़ज़ बिल्कुल सादा हो — लाइन वाली कॉपी का पन्ना हो तो लाइनें भी स्याही समझी जा सकती हैं।</li><li>जेल या बॉल पेन की गहरी स्याही सबसे साफ़ निकलती है; पेंसिल से न करें।</li><li>फ़ोन को काग़ज़ के ठीक ऊपर रखें और अपनी परछाईं काग़ज़ पर न पड़े।</li><li>स्याही हल्की आ रही हो तो "स्याही कितनी गहरी" स्लाइडर बढ़ाएँ; किनारे ख़राब लगें तो थोड़ा घटाएँ।</li></ul><h3>आम दिक़्क़तें</h3><p><b>किसी ऐप में पीछे काला दिख रहा है:</b> कुछ फ़ोटो व्यूअर पारदर्शी हिस्से को काला दिखाते हैं; फ़ाइल सही है, डॉक्यूमेंट में डालकर देखें। <b>चैट ऐप ने सफ़ेद बना दिया:</b> कई चैट ऐप PNG को JPG में बदल देते हैं — फ़ाइल को "डॉक्यूमेंट" की तरह भेजें। <b>साइन बहुत बड़ा है:</b> "सही साइज़" में जैसे 600×200 px लिख दें।</p><p><b>ध्यान रहे:</b> यह साइन की तस्वीर है, क़ानूनी डिजिटल सिग्नेचर नहीं। ज़रूरी काग़ज़ों पर यह मान्य है या नहीं, संबंधित दफ़्तर से पूछ लें, और फ़ाइल किसी अनजान को न दें।</p></section>
+  <section class="info" id="guideSec"></section>
+  <section class="info"><h2 data-t="howH">कैसे करें</h2><ol id="howList"><li>ऊपर <b>बनाकर</b>, <b>काग़ज़ से</b> या <b>नाम से</b> चुनें और रंग (काला/नीला) चुनें।</li><li>साइन करें, फ़ोटो डालें या नाम लिखकर स्टाइल चुनें। नीचे तुरंत नतीजा दिखता है।</li><li>फ़ॉर्म के लिए <b>सही साइज़</b> चालू करें, px (जैसे 140 × 60) और JPG का अधिकतम KB (जैसे 20) भरें।</li><li><b>PNG (ट्रांसपेरेंट)</b> या <b>JPG (सफ़ेद)</b> डाउनलोड करें, या <b>शेयर</b> करें।</li></ol></section>
+  <section class="info"><h2 data-t="tipsH">काम की बातें</h2><ul id="tipList"><li>फ़ॉर्म में जैसा साइन करते हैं वैसा ही यहाँ भी करें — परीक्षा केंद्र में वही साइन मिलाया जाता है।</li><li>सरकारी फ़ॉर्म अक्सर <b>JPG</b> माँगते हैं; डॉक्यूमेंट पर लगाने के लिए <b>PNG</b> बेहतर है।</li><li>छोटे नाप (140×60) में साइन पूरी जगह लेना चाहिए — टूल ख़ाली किनारे ख़ुद काट देता है।</li><li>नीला रंग सिर्फ़ तब चुनें जब फ़ॉर्म नीला माँगे; वरना काला सबसे साफ़ दिखता है।</li><li>जब तक फ़ॉर्म न कहे, साइन बड़े अक्षरों (capital) में न लिखें।</li></ul></section>
+  <section class="info"><h2 data-t="faqH">अक्सर पूछे जाने वाले सवाल</h2><div id="faqList"><details class="faq"><summary>सिग्नेचर का बैकग्राउंड कैसे हटाएँ?</summary><p>"काग़ज़ से" चुनें, सफ़ेद काग़ज़ पर किए साइन की फ़ोटो डालें और "PNG (ट्रांसपेरेंट)" डाउनलोड करें। टूल काग़ज़ हटाकर सिर्फ़ स्याही रखता है।</p></details><details class="faq"><summary>मेरी PNG में पीछे काला क्यों दिख रहा है?</summary><p>कुछ फ़ोटो व्यूअर पारदर्शी जगह को काला दिखाते हैं। फ़ाइल ठीक है — उसे डॉक्यूमेंट या स्लाइड पर रखकर देखें, पीछे का रंग ही दिखेगा।</p></details><details class="faq"><summary>क्या JPG भी ट्रांसपेरेंट हो सकता है?</summary><p>नहीं। JPG में पारदर्शी जगह की सुविधा ही नहीं होती, इसलिए पीछे सफ़ेद भर दिया जाता है। ट्रांसपेरेंट के लिए PNG ही लें।</p></details><details class="faq"><summary>चैट पर भेजा तो साइन का बैकग्राउंड सफ़ेद क्यों हो गया?</summary><p>बहुत से चैट ऐप फ़ोटो को छोटा करने के लिए JPG बना देते हैं। फ़ाइल को डॉक्यूमेंट/अटैचमेंट की तरह भेजें तो PNG वैसी ही पहुँचेगी।</p></details></div></section>
+  <section class="info"><h2 data-t="privH">आपका साइन, आपके पास</h2><p data-t="privText">यह टूल बिना किसी सर्वर के आपके फ़ोन/ब्राउज़र में चलता है। आपका साइन या फ़ोटो कहीं अपलोड नहीं होती, कहीं सेव नहीं होती, और हम उसे देख भी नहीं सकते। पेज बंद करते ही सब मिट जाता है।</p></section>
+  <section class="info"><h2 data-t="moreH">और टूल</h2><div class="links" id="links"><a href="../?lang=hi">✍️ सिग्नेचर मेकर<small>बनाएँ, काग़ज़ से, नाम से</small></a><a href="../transparent/?lang=hi" class="here">🫥 ट्रांसपेरेंट सिग्नेचर PNG<small>बिना बैकग्राउंड का साइन</small></a><a href="../../form-helper/?lang=hi">📝 फ़ॉर्म फ़ोटो रीसाइज़र<small>SSC · UPSC · बैंक · NEET</small></a><a href="../../image-crop/?lang=hi">✂️ फ़ोटो क्रॉप और रोटेट<small>काटें, घुमाएँ, सीधा करें</small></a><a href="../../image-compress/?lang=hi">🗜️ फ़ोटो का KB कम करें<small>20 KB, 50 KB, 100 KB…</small></a></div></section>
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer">फ़्री टूल · कुछ भी अपलोड नहीं होता</span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+</div>
+
+<script>window.SG_PAGE = {"id": "transparent", "base": "../", "T": {"hinglish": {"title": "Transparent signature PNG banao — bina background", "sub": "Sign ke peeche ka kaagaz ya safed hissa hata kar sirf ink wali PNG pao, jo kisi bhi letter, bill ya PDF par seedhi baith jaaye. Sab phone par, kuch upload nahi hota.", "info": "<h2>Transparent signature ka matlab kya hai?</h2><p>Aam photo mein sign ke chaaron taraf kaagaz ka safed ya halka grey hissa bhi hota hai. Use kisi rangeen letterhead, table ki line ya stamp ke paas rakho to ek <b>safed dabba</b> saaf dikhta hai aur sign chipkaya hua lagta hai. Transparent PNG mein sirf ink ke pixel hote hain; baaki sab <b>aar-paar dikhne wala</b> hota hai. Isliye sign kaagaz par asli pen jaisa baithta hai.</p><h3>Kahan kaam aata hai?</h3><ul><li>Office ka letter, offer letter, quotation ya bill jo computer par banta hai.</li><li>PDF form ya agreement par apni copy ke liye sign lagana.</li><li>Presentation, certificate design ya rangeen background wale poster.</li><li>Apni website ya email ke end mein naam ke neeche sign.</li></ul><h3>Step by step</h3><ol><li><b>Bana kar</b> chuno aur pad par sign karo — yeh pehle se transparent hota hai. Ya <b>Kaagaz se</b> chuno aur safed kaagaz par kiye sign ki photo daalo.</li><li>Kaagaz wali photo mein tool roshni ka farq barabar karta hai, kaagaz ko poori tarah hata deta hai aur ink ko ek saaf rang (kaala ya neela) mein badal deta hai.</li><li>Preview ke peeche <b>chaarkhaana (checkerboard)</b> dikhe to samjho wahan kuch nahi hai — wahi transparent hissa hai.</li><li><b>PNG (transparent)</b> download karo. JPG mat lo: JPG transparent nahi reh sakta, uske peeche hamesha safed bharta hai.</li></ol><h3>Achha result kaise mile</h3><ul><li>Kaagaz bilkul saada ho — line wala copy ka panna ho to lines bhi ink samjhi ja sakti hain.</li><li>Gel ya ball pen ki gehri ink sabse saaf nikalti hai; pencil se mat karo.</li><li>Phone ko kaagaz ke seedha upar rakho aur apni parchhai kaagaz par na pade.</li><li>Ink halki aa rahi ho to \"Ink kitni gehri\" slider badhao; kinaare kharab lagein to thoda ghatao.</li></ul><h3>Aam dikkatein</h3><p><b>Kisi app mein peeche kaala dikh raha hai:</b> kuch photo viewer transparent hisse ko kaala dikhate hain; file sahi hai, document mein daal kar dekho. <b>Chat app ne safed bana diya:</b> kai chat apps PNG ko JPG mein badal dete hain — file ko \"document\" ki tarah bhejo. <b>Sign bahut bada hai:</b> \"Exact size\" mein jaise 600×200 px likh do.</p><p><b>Dhyan rahe:</b> yeh sign ki tasveer hai, kanooni digital signature nahi. Zaroori kaagazon par yeh maanya hai ya nahi, sambandhit office se poochh lo, aur file kisi anjaan ko na do.</p>", "faq": [["Signature ka background kaise hatayein?", "\"Kaagaz se\" chuno, safed kaagaz par kiye sign ki photo daalo aur \"PNG (transparent)\" download karo. Tool kaagaz hata kar sirf ink rakhta hai."], ["Meri PNG mein peeche kaala kyon dikh raha hai?", "Kuch photo viewer transparent jagah ko kaala dikhate hain. File theek hai — use document ya slide par rakh kar dekho, peeche ka rang hi dikhega."], ["Kya JPG bhi transparent ho sakta hai?", "Nahi. JPG mein transparent jagah ki suvidha hi nahi hoti, isliye peeche safed bhar diya jaata hai. Transparent ke liye PNG hi lo."], ["Chat par bheja to sign ka background safed kyon ho gaya?", "Bahut se chat apps photo ko chhota karne ke liye JPG bana dete hain. File ko document/attachment ki tarah bhejo to PNG waisi hi pahunchegi."]]}, "hi": {"title": "ट्रांसपेरेंट सिग्नेचर PNG बनाएँ — बिना बैकग्राउंड", "sub": "साइन के पीछे का काग़ज़ या सफ़ेद हिस्सा हटाकर सिर्फ़ स्याही वाली PNG पाएँ, जो किसी भी पत्र, बिल या PDF पर सीधे बैठ जाए। सब फ़ोन पर, कुछ अपलोड नहीं होता।", "info": "<h2>ट्रांसपेरेंट सिग्नेचर का मतलब क्या है?</h2><p>आम फ़ोटो में साइन के चारों तरफ़ काग़ज़ का सफ़ेद या हल्का धूसर हिस्सा भी होता है। उसे किसी रंगीन लेटरहेड, टेबल की लाइन या मुहर के पास रखें तो एक <b>सफ़ेद डिब्बा</b> साफ़ दिखता है और साइन चिपकाया हुआ लगता है। ट्रांसपेरेंट PNG में सिर्फ़ स्याही के पिक्सेल होते हैं; बाक़ी सब <b>आर-पार दिखने वाला</b> होता है। इसलिए साइन काग़ज़ पर असली पेन जैसा बैठता है।</p><h3>कहाँ काम आता है?</h3><ul><li>दफ़्तर का पत्र, ऑफ़र लेटर, कोटेशन या बिल जो कंप्यूटर पर बनता है।</li><li>PDF फ़ॉर्म या अनुबंध पर अपनी कॉपी के लिए साइन लगाना।</li><li>प्रेज़ेंटेशन, सर्टिफ़िकेट डिज़ाइन या रंगीन बैकग्राउंड वाले पोस्टर।</li><li>अपनी वेबसाइट या ईमेल के अंत में नाम के नीचे साइन।</li></ul><h3>क़दम-दर-क़दम</h3><ol><li><b>बनाकर</b> चुनें और पैड पर साइन करें — यह पहले से ट्रांसपेरेंट होता है। या <b>काग़ज़ से</b> चुनें और सफ़ेद काग़ज़ पर किए साइन की फ़ोटो डालें।</li><li>काग़ज़ वाली फ़ोटो में टूल रोशनी का फ़र्क बराबर करता है, काग़ज़ को पूरी तरह हटा देता है और स्याही को एक साफ़ रंग (काला या नीला) में बदल देता है।</li><li>प्रीव्यू के पीछे <b>चारख़ाना (चेकरबोर्ड)</b> दिखे तो समझें वहाँ कुछ नहीं है — वही ट्रांसपेरेंट हिस्सा है।</li><li><b>PNG (ट्रांसपेरेंट)</b> डाउनलोड करें। JPG न लें: JPG ट्रांसपेरेंट नहीं रह सकता, उसके पीछे हमेशा सफ़ेद भरता है।</li></ol><h3>अच्छा नतीजा कैसे मिले</h3><ul><li>काग़ज़ बिल्कुल सादा हो — लाइन वाली कॉपी का पन्ना हो तो लाइनें भी स्याही समझी जा सकती हैं।</li><li>जेल या बॉल पेन की गहरी स्याही सबसे साफ़ निकलती है; पेंसिल से न करें।</li><li>फ़ोन को काग़ज़ के ठीक ऊपर रखें और अपनी परछाईं काग़ज़ पर न पड़े।</li><li>स्याही हल्की आ रही हो तो \"स्याही कितनी गहरी\" स्लाइडर बढ़ाएँ; किनारे ख़राब लगें तो थोड़ा घटाएँ।</li></ul><h3>आम दिक़्क़तें</h3><p><b>किसी ऐप में पीछे काला दिख रहा है:</b> कुछ फ़ोटो व्यूअर पारदर्शी हिस्से को काला दिखाते हैं; फ़ाइल सही है, डॉक्यूमेंट में डालकर देखें। <b>चैट ऐप ने सफ़ेद बना दिया:</b> कई चैट ऐप PNG को JPG में बदल देते हैं — फ़ाइल को \"डॉक्यूमेंट\" की तरह भेजें। <b>साइन बहुत बड़ा है:</b> \"सही साइज़\" में जैसे 600×200 px लिख दें।</p><p><b>ध्यान रहे:</b> यह साइन की तस्वीर है, क़ानूनी डिजिटल सिग्नेचर नहीं। ज़रूरी काग़ज़ों पर यह मान्य है या नहीं, संबंधित दफ़्तर से पूछ लें, और फ़ाइल किसी अनजान को न दें।</p>", "faq": [["सिग्नेचर का बैकग्राउंड कैसे हटाएँ?", "\"काग़ज़ से\" चुनें, सफ़ेद काग़ज़ पर किए साइन की फ़ोटो डालें और \"PNG (ट्रांसपेरेंट)\" डाउनलोड करें। टूल काग़ज़ हटाकर सिर्फ़ स्याही रखता है।"], ["मेरी PNG में पीछे काला क्यों दिख रहा है?", "कुछ फ़ोटो व्यूअर पारदर्शी जगह को काला दिखाते हैं। फ़ाइल ठीक है — उसे डॉक्यूमेंट या स्लाइड पर रखकर देखें, पीछे का रंग ही दिखेगा।"], ["क्या JPG भी ट्रांसपेरेंट हो सकता है?", "नहीं। JPG में पारदर्शी जगह की सुविधा ही नहीं होती, इसलिए पीछे सफ़ेद भर दिया जाता है। ट्रांसपेरेंट के लिए PNG ही लें।"], ["चैट पर भेजा तो साइन का बैकग्राउंड सफ़ेद क्यों हो गया?", "बहुत से चैट ऐप फ़ोटो को छोटा करने के लिए JPG बना देते हैं। फ़ाइल को डॉक्यूमेंट/अटैचमेंट की तरह भेजें तो PNG वैसी ही पहुँचेगी।"]]}, "en": {"title": "Make a transparent signature PNG — no background", "sub": "Remove the paper or white area behind your signature and get a PNG with only the ink, ready to sit on any letter, invoice or PDF. All on your phone; nothing is uploaded.", "info": "<h2>What does a transparent signature mean?</h2><p>An ordinary photo of a signature also carries the white or light-grey paper around it. Put it on a coloured letterhead, next to a table line or a stamp, and a <b>white box</b> shows clearly, making the signature look pasted on. A transparent PNG holds only the ink pixels; everything else is <b>see-through</b>. So the signature sits on the page like real pen.</p><h3>Where is it useful?</h3><ul><li>Office letters, offer letters, quotations or invoices made on a computer.</li><li>Signing a PDF form or agreement for your own copy.</li><li>Presentations, certificate designs or posters with a coloured background.</li><li>Under your name at the end of an email or on your website.</li></ul><h3>Step by step</h3><ol><li>Choose <b>Draw</b> and sign on the pad — that is transparent from the start. Or choose <b>From paper</b> and add a photo of a signature made on white paper.</li><li>For a paper photo, the tool evens out the light, removes the paper completely and turns the ink into one clean colour (black or blue).</li><li>Where the preview shows a <b>checkerboard</b>, there is nothing — that is the transparent part.</li><li>Download the <b>PNG (transparent)</b>. Don't pick JPG: a JPG cannot stay transparent and always fills the back with white.</li></ol><h3>Getting a good result</h3><ul><li>Use completely plain paper — on a ruled notebook page the lines may be taken as ink.</li><li>Dark gel or ballpoint ink comes out cleanest; don't use a pencil.</li><li>Hold the phone straight above the paper and keep your shadow off it.</li><li>If the ink comes out faint, raise the \"Ink darkness\" slider; if the edges look rough, lower it a little.</li></ul><h3>Common problems</h3><p><b>An app shows a black background:</b> some photo viewers display transparent areas as black; the file is fine — try it in a document. <b>A chat app turned it white:</b> many chat apps convert PNG to JPG — send the file as a \"document\" instead. <b>The signature is too big:</b> set something like 600×200 px under \"Exact size\".</p><p><b>Keep in mind:</b> this is a picture of a signature, not a legal digital signature. Check with the office concerned whether it is accepted on important papers, and never give the file to strangers.</p>", "faq": [["How do I remove the background from my signature?", "Choose \"From paper\", add a photo of the signature on white paper and download \"PNG (transparent)\". The tool removes the paper and keeps only the ink."], ["Why does my PNG show a black background?", "Some photo viewers show transparent areas as black. The file is fine — place it on a document or slide and the page colour shows through."], ["Can a JPG be transparent?", "No. JPG has no way to store see-through areas, so the background is filled with white. Use PNG for transparency."], ["Why did the background turn white when I sent it in a chat?", "Many chat apps turn photos into JPG to make them smaller. Send the file as a document/attachment and the PNG arrives unchanged."]]}, "bn": {"title": "স্বচ্ছ সই PNG বানান — ব্যাকগ্রাউন্ড ছাড়া", "sub": "সইয়ের পেছনের কাগজ বা সাদা অংশ সরিয়ে শুধু কালির PNG পান, যা যে কোনো চিঠি, বিল বা PDF-এর ওপর সোজা বসে যায়। সব ফোনেই, কিছু আপলোড হয় না।", "info": "<h2>স্বচ্ছ সই মানে কী?</h2><p>সাধারণ ছবিতে সইয়ের চারপাশে কাগজের সাদা বা হালকা ধূসর অংশও থাকে। সেটা রঙিন লেটারহেড, টেবিলের লাইন বা সিলমোহরের পাশে রাখলে একটা <b>সাদা বাক্স</b> স্পষ্ট দেখা যায়, সই সাঁটানো মনে হয়। স্বচ্ছ PNG-তে শুধু কালির পিক্সেল থাকে; বাকি সব <b>আরপার দেখা যায়</b>। তাই সই কাগজে আসল কলমের মতো বসে।</p><h3>কোথায় কাজে লাগে?</h3><ul><li>কম্পিউটারে বানানো অফিসের চিঠি, অফার লেটার, কোটেশন বা বিল।</li><li>নিজের কপির জন্য PDF ফর্ম বা চুক্তিপত্রে সই বসানো।</li><li>প্রেজেন্টেশন, সার্টিফিকেট ডিজাইন বা রঙিন ব্যাকগ্রাউন্ডের পোস্টার।</li><li>ইমেলের শেষে বা নিজের ওয়েবসাইটে নামের নিচে সই।</li></ul><h3>ধাপে ধাপে</h3><ol><li><b>এঁকে</b> বেছে প্যাডে সই করুন — এটা শুরু থেকেই স্বচ্ছ। অথবা <b>কাগজ থেকে</b> বেছে সাদা কাগজে করা সইয়ের ছবি দিন।</li><li>কাগজের ছবিতে টুল আলোর তারতম্য সমান করে, কাগজ পুরো সরিয়ে দেয় আর কালিকে একটা পরিষ্কার রঙে (কালো বা নীল) বদলায়।</li><li>প্রিভিউয়ের পেছনে <b>চেকারবোর্ড</b> দেখা গেলে বুঝবেন সেখানে কিছু নেই — ওটাই স্বচ্ছ অংশ।</li><li><b>PNG (স্বচ্ছ)</b> ডাউনলোড করুন। JPG নেবেন না: JPG স্বচ্ছ থাকতে পারে না, পেছনে সবসময় সাদা ভরে।</li></ol><h3>ভালো ফল পেতে</h3><ul><li>কাগজ একদম সাদামাটা হোক — লাইন টানা খাতার পাতায় লাইনগুলোও কালি বলে ধরা হতে পারে।</li><li>জেল বা বল পেনের গাঢ় কালি সবচেয়ে পরিষ্কার আসে; পেনসিল ব্যবহার করবেন না।</li><li>ফোন কাগজের ঠিক ওপরে ধরুন, নিজের ছায়া যেন কাগজে না পড়ে।</li><li>কালি হালকা এলে \"কালি কতটা গাঢ়\" স্লাইডার বাড়ান; ধার খসখসে লাগলে একটু কমান।</li></ul><h3>সাধারণ সমস্যা</h3><p><b>কোনো অ্যাপে পেছনে কালো দেখাচ্ছে:</b> কিছু ছবি দেখার অ্যাপ স্বচ্ছ অংশ কালো দেখায়; ফাইল ঠিক আছে, ডকুমেন্টে বসিয়ে দেখুন। <b>চ্যাট অ্যাপ সাদা করে দিল:</b> অনেক চ্যাট অ্যাপ PNG-কে JPG বানায় — ফাইলটা \"ডকুমেন্ট\" হিসেবে পাঠান। <b>সই খুব বড়:</b> \"ঠিক মাপ\"-এ যেমন 600×200 px দিন।</p><p><b>মনে রাখবেন:</b> এটা সইয়ের ছবি, আইনি ডিজিটাল সিগনেচার নয়। জরুরি কাগজে এটা চলবে কি না সংশ্লিষ্ট অফিসে জেনে নিন, আর ফাইল অচেনা কাউকে দেবেন না।</p>", "faq": [["সইয়ের ব্যাকগ্রাউন্ড কীভাবে সরাব?", "\"কাগজ থেকে\" বেছে সাদা কাগজে করা সইয়ের ছবি দিন আর \"PNG (স্বচ্ছ)\" ডাউনলোড করুন। টুল কাগজ সরিয়ে শুধু কালি রাখে।"], ["আমার PNG-র পেছনে কালো দেখাচ্ছে কেন?", "কিছু ছবি দেখার অ্যাপ স্বচ্ছ জায়গা কালো দেখায়। ফাইল ঠিক আছে — ডকুমেন্ট বা স্লাইডে বসালে পাতার রংই দেখা যাবে।"], ["JPG কি স্বচ্ছ হতে পারে?", "না। JPG-তে স্বচ্ছ জায়গা রাখার ব্যবস্থাই নেই, তাই পেছনে সাদা ভরে দেওয়া হয়। স্বচ্ছতার জন্য PNG নিন।"], ["চ্যাটে পাঠালে সইয়ের পেছন সাদা হয়ে গেল কেন?", "অনেক চ্যাট অ্যাপ ছবি ছোট করতে JPG বানিয়ে দেয়। ফাইলটা ডকুমেন্ট/অ্যাটাচমেন্ট হিসেবে পাঠালে PNG যেমন আছে তেমনই পৌঁছবে।"]]}}};</script>
+<script>
+'use strict';
+const T = {
+  hinglish: {
+    brandSub: 'Free · sign phone se bahar nahi jaata', title: 'Online signature banaye — free Signature Maker',
+    sub: 'Screen par ungli, mouse ya pen se sign karo, kaagaz par kiye sign ki photo saaf karo, ya naam likh kar sundar likhai mein sign pao. Transparent PNG aur safed JPG, form ke px aur KB ke saath.',
+    privacy: 'Aapka sign kahin upload nahi hota. Saara kaam aapke phone/browser mein hota hai.',
+    modeDraw: '✍️ Bana kar', modePhoto: '📷 Kaagaz se', modeType: '🔤 Naam se', colour: 'Rang:', black: 'Kaala', blue: 'Neela',
+    padHint: 'Yahan sign karo', thick: 'Pen ki motai', undo: '↶ Wapas', clear: '🗑️ Saaf',
+    photoPick: 'Kaagaz par kiye sign ki photo chuno', photoHint: 'Safed kaagaz, kaala/neela pen. Upar se seedhi photo lo, parchhai na pade.', pickBtn: '🖼️ Gallery se chuno', camBtn: '📸 Camera se lo',
+    inkLvl: 'Ink kitni gehri', rot90: '↻ 90° ghumao', newPhoto: '🖼️ Doosri photo',
+    typeL: 'Apna naam likho', typeNote: 'English akshar (A–Z). Neeche jo style pasand ho us par tap karo.',
+    resH: 'Aapka signature', empty: 'Upar sign karo, photo daalo ya naam likho — yahan dikhega.',
+    exact: 'Exact size chahiye (form ke liye)', wL: 'Chaudai (px)', hL: 'Unchai (px)', maxKbL: 'JPG max KB',
+    formLink: '📝 Exam form ke liye: Form Helper →', formHint: 'SSC, UPSC, bank, NEET ke tay naap aur KB wahan pehle se bhare hain.',
+    dlPng: '⬇️ PNG (transparent)', dlJpg: '⬇️ JPG (safed)', share: '📲 Share',
+    outInfo: (p, j) => `PNG ${p} · JPG ${j}`, tooBig: (kb) => `JPG ${kb} KB se neeche nahi aaya — px chhota karo ya KB badhao.`,
+    noInk: 'Photo mein sign nahi mila. Safed kaagaz par gehri ink wali saaf photo lo.', saved: '✅ Phone mein save ho gaya',
+    failed: 'Yeh file nahi khul payi. iPhone ki HEIC photo ho to Settings → Camera → Formats → "Most Compatible" chuno, ya screenshot daalo.',
+    guide: `<h2>Signature Maker kya hai?</h2><p>Yeh ek chhota sa free tool hai jo aapke signature ki <b>photo-file</b> banata hai — PNG ya JPG. Teen tarike hain: screen par seedha sign karo, kaagaz par kiye sign ki photo ko saaf karo, ya apna naam likh kar haath ki likhai jaisa style chuno. Tool kaagaz ko safed (ya bilkul transparent) karta hai, ink ko gehra karta hai aur sign ke aas-paas ki khaali jagah apne aap kaat deta hai.</p>
+<h3>Kab kaam aata hai?</h3><p>Sarkari naukri, exam, admission aur scholarship ke online forms mein sign ki scan ki hui photo maangi jaati hai. Office ke letter, quotation, bill, certificate ya resume par sign lagana ho to transparent PNG seedha document par rakh sakte ho — peeche ka safed dabba nahi dikhta. Email ke end mein ya apni website par bhi yeh kaam aata hai.</p>
+<h3>Teeno tarike, aasaan bhasha mein</h3><ul><li><b>Bana kar:</b> phone ko aaram se pakdo aur ek baar mein sign karo. Tez chalaoge to line patli, dheere chalaoge to moti — bilkul pen jaisa. Galti ho to "Wapas".</li><li><b>Kaagaz se:</b> sabse asli sign isi se aata hai. Saade safed kaagaz par sign karke din ki roshni mein upar se photo lo. "Ink kitni gehri" slider se halki ink gehri karo.</li><li><b>Naam se:</b> jaldi chahiye ya sirf design ke liye. Dhyan rahe, yeh aapke asli sign jaisa nahi hai — sarkari forms ke liye apna asli sign hi use karo.</li></ul>
+<h3>Aam dikkatein aur hal</h3><ul><li><b>Photo mein kaagaz grey dikh raha hai:</b> roshni kam hai. Khidki ke paas photo lo, flash band rakho; slider thoda badhao.</li><li><b>Sign ke paas daag-dhabbe:</b> chhote dhabbe tool hata deta hai. Bade nishaan ho to kaagaz badal kar dobara photo lo.</li><li><b>140×60 jaise chhote naap mein sign dhundhla:</b> pen ki motai badhao ya kaagaz par thode mote pen se sign karo.</li><li><b>Form file nahi le raha:</b> form aksar sirf JPG leta hai aur KB ki seema rakhta hai. JPG download karo aur "JPG max KB" bharo, ya Form Helper use karo.</li></ul>
+<h3>Kya sign ki photo kanooni roop se maanya hai?</h3><p>Online application forms sign ki aisi photo hi maangte hain aur use lete hain. Lekin yeh <b>"digital signature" nahi hai</b>. Kanoon jis electronic signature ko maanta hai (jaise certificate wala digital signature ya e-Sign), usmein aapki pehchaan ki jaanch hoti hai; ek chipkayi hui photo mein nahi. Agreement, affidavit, bank ya court ke kaagaz par photo wala sign chalega ya nahi, yeh us jagah ke niyam par nirbhar hai — zaroori kaam mein pehle sambandhit office se poochh lo. Apne sign ki file kisi anjaan ko mat bhejo.</p>`,
+    howH: 'Kaise karein', how: ['Upar <b>Bana kar</b>, <b>Kaagaz se</b> ya <b>Naam se</b> chuno aur rang (kaala/neela) chuno.', 'Sign karo, photo daalo ya naam likh kar style chuno. Neeche turant result dikhta hai.', 'Form ke liye <b>Exact size</b> chalu karo, px (jaise 140 × 60) aur JPG ka max KB (jaise 20) bharo.', '<b>PNG (transparent)</b> ya <b>JPG (safed)</b> download karo, ya <b>Share</b> karo.'],
+    tipsH: 'Kaam ki baatein', tips: ['Form mein jaisa sign karte ho waisa hi yahan bhi karo — exam hall mein wahi sign milaaya jaata hai.', 'Sarkari forms aksar <b>JPG</b> maangte hain; document par chipkane ke liye <b>PNG</b> behtar hai.', 'Chhote naap (140×60) mein sign poori jagah lena chahiye — tool khaali kinare khud kaat deta hai.', 'Neela rang sirf tab chuno jab form neela maange; varna kaala sabse saaf dikhta hai.', 'Signature ko capital letters mein mat likho jab tak form na kahe.'],
+    faqH: 'Aksar pooche jaane wale sawaal',
+    faq: [['Kya mera signature kisi server par jaata hai?', 'Nahi. Sign aapke phone/browser mein hi banta aur saaf hota hai. Page ek baar khul jaaye to internet band karke bhi chalta hai.'], ['Transparent PNG aur safed JPG mein kya fark hai?', 'PNG mein sign ke peeche kuch nahi hota, isliye kisi bhi document ya rang par rakhne se sirf ink dikhti hai. JPG mein peeche safed rang hota hai; online forms zyaadatar JPG maangte hain.'], ['Sign ko 140×60 px aur 20 KB se kam kaise karein?', '"Exact size" chalu karke chaudai 140, unchai 60 aur "JPG max KB" mein 20 likho, phir JPG download karo. File ka size button ke neeche dikh jaata hai.'], ['Naam likh kar bana sign form mein chalega?', 'Behtar hai nahi. Form mein wahi sign do jo aap haath se karte ho, kyunki baad mein use milaaya ja sakta hai. Typed style design ya email ke liye theek hai.'], ['Kya yeh digital signature (DSC) hai?', 'Nahi. Yeh sirf sign ki photo hai. Certificate wala digital signature ya e-Sign ek alag cheez hai jo pehchaan ki jaanch ke baad milti hai.']],
+    privH: 'Aapka sign, aapke paas', privText: 'Yeh tool bina kisi server ke aapke phone/browser mein chalta hai. Aapka sign ya photo kahin upload nahi hoti, kahin save nahi hoti, aur hum use dekh bhi nahi sakte. Page band karte hi sab mit jaata hai.',
+    moreH: 'Aur tools', lMain: ['Signature Maker', 'Banao, kaagaz se, naam se'], lTr: ['Transparent signature PNG', 'Bina background ka sign'], lForm: ['Form Photo Resizer', 'SSC · UPSC · Bank · NEET'], lCrop: ['Photo crop & rotate', 'Kaato, ghumao, seedha karo'], lComp: ['Photo ka KB kam karo', '20 KB, 50 KB, 100 KB…'],
+    footer: 'Free tool · kuch bhi upload nahi hota',
+  },
+  hi: {
+    brandSub: 'फ़्री · साइन फ़ोन से बाहर नहीं जाता', title: 'ऑनलाइन सिग्नेचर बनाएँ — फ़्री सिग्नेचर मेकर',
+    sub: 'स्क्रीन पर उँगली, माउस या पेन से साइन करें, काग़ज़ पर किए साइन की फ़ोटो साफ़ करें, या नाम लिखकर सुंदर लिखावट में साइन पाएँ। ट्रांसपेरेंट PNG और सफ़ेद JPG, फ़ॉर्म के px और KB के साथ।',
+    privacy: 'आपका साइन कहीं अपलोड नहीं होता। सारा काम आपके फ़ोन/ब्राउज़र में होता है।',
+    modeDraw: '✍️ बनाकर', modePhoto: '📷 काग़ज़ से', modeType: '🔤 नाम से', colour: 'रंग:', black: 'काला', blue: 'नीला',
+    padHint: 'यहाँ साइन करें', thick: 'पेन की मोटाई', undo: '↶ वापस', clear: '🗑️ साफ़',
+    photoPick: 'काग़ज़ पर किए साइन की फ़ोटो चुनें', photoHint: 'सफ़ेद काग़ज़, काला/नीला पेन। ऊपर से सीधी फ़ोटो लें, परछाईं न पड़े।', pickBtn: '🖼️ गैलरी से चुनें', camBtn: '📸 कैमरा से लें',
+    inkLvl: 'स्याही कितनी गहरी', rot90: '↻ 90° घुमाएँ', newPhoto: '🖼️ दूसरी फ़ोटो',
+    typeL: 'अपना नाम लिखें', typeNote: 'अंग्रेज़ी अक्षर (A–Z)। नीचे जो स्टाइल पसंद हो उस पर टैप करें।',
+    resH: 'आपका सिग्नेचर', empty: 'ऊपर साइन करें, फ़ोटो डालें या नाम लिखें — यहाँ दिखेगा।',
+    exact: 'सही साइज़ चाहिए (फ़ॉर्म के लिए)', wL: 'चौड़ाई (px)', hL: 'ऊँचाई (px)', maxKbL: 'JPG अधिकतम KB',
+    formLink: '📝 परीक्षा फ़ॉर्म के लिए: फ़ॉर्म हेल्पर →', formHint: 'SSC, UPSC, बैंक, NEET के तय नाप और KB वहाँ पहले से भरे हैं।',
+    dlPng: '⬇️ PNG (ट्रांसपेरेंट)', dlJpg: '⬇️ JPG (सफ़ेद)', share: '📲 शेयर',
+    outInfo: (p, j) => `PNG ${p} · JPG ${j}`, tooBig: (kb) => `JPG ${kb} KB से नीचे नहीं आया — px छोटा करें या KB बढ़ाएँ।`,
+    noInk: 'फ़ोटो में साइन नहीं मिला। सफ़ेद काग़ज़ पर गहरी स्याही वाली साफ़ फ़ोटो लें।', saved: '✅ फ़ोन में सेव हो गया',
+    failed: 'यह फ़ाइल नहीं खुल पाई। iPhone की HEIC फ़ोटो हो तो Settings → Camera → Formats → "Most Compatible" चुनें, या स्क्रीनशॉट डालें।',
+    guide: `<h2>सिग्नेचर मेकर क्या है?</h2><p>यह एक छोटा-सा फ़्री टूल है जो आपके हस्ताक्षर की <b>फ़ोटो-फ़ाइल</b> बनाता है — PNG या JPG। तीन तरीक़े हैं: स्क्रीन पर सीधे साइन करें, काग़ज़ पर किए साइन की फ़ोटो साफ़ करें, या अपना नाम लिखकर हाथ की लिखावट जैसा स्टाइल चुनें। टूल काग़ज़ को सफ़ेद (या पूरी तरह पारदर्शी) करता है, स्याही को गहरा करता है और साइन के आस-पास की ख़ाली जगह अपने आप काट देता है।</p>
+<h3>कब काम आता है?</h3><p>सरकारी नौकरी, परीक्षा, एडमिशन और स्कॉलरशिप के ऑनलाइन फ़ॉर्म में साइन की स्कैन की हुई फ़ोटो माँगी जाती है। दफ़्तर के पत्र, कोटेशन, बिल, सर्टिफ़िकेट या बायोडाटा पर साइन लगाना हो तो ट्रांसपेरेंट PNG सीधे डॉक्यूमेंट पर रख सकते हैं — पीछे का सफ़ेद डिब्बा नहीं दिखता। ईमेल के अंत में या अपनी वेबसाइट पर भी यह काम आता है।</p>
+<h3>तीनों तरीक़े, आसान भाषा में</h3><ul><li><b>बनाकर:</b> फ़ोन आराम से पकड़ें और एक बार में साइन करें। तेज़ चलाएँगे तो लाइन पतली, धीरे चलाएँगे तो मोटी — बिल्कुल पेन जैसी। ग़लती हो तो "वापस" दबाएँ।</li><li><b>काग़ज़ से:</b> सबसे असली साइन इसी से आता है। सादे सफ़ेद काग़ज़ पर साइन करके दिन की रोशनी में ऊपर से फ़ोटो लें। "स्याही कितनी गहरी" स्लाइडर से हल्की स्याही गहरी करें।</li><li><b>नाम से:</b> जल्दी चाहिए या सिर्फ़ डिज़ाइन के लिए। ध्यान रहे, यह आपके असली साइन जैसा नहीं है — सरकारी फ़ॉर्म के लिए अपना असली साइन ही इस्तेमाल करें।</li></ul>
+<h3>आम दिक़्क़तें और हल</h3><ul><li><b>फ़ोटो में काग़ज़ धूसर दिख रहा है:</b> रोशनी कम है। खिड़की के पास फ़ोटो लें, फ़्लैश बंद रखें; स्लाइडर थोड़ा बढ़ाएँ।</li><li><b>साइन के पास दाग़-धब्बे:</b> छोटे धब्बे टूल हटा देता है। बड़े निशान हों तो काग़ज़ बदलकर दोबारा फ़ोटो लें।</li><li><b>140×60 जैसे छोटे नाप में साइन धुँधला:</b> पेन की मोटाई बढ़ाएँ या काग़ज़ पर थोड़े मोटे पेन से साइन करें।</li><li><b>फ़ॉर्म फ़ाइल नहीं ले रहा:</b> फ़ॉर्म अक्सर सिर्फ़ JPG लेता है और KB की सीमा रखता है। JPG डाउनलोड करें और "JPG अधिकतम KB" भरें, या फ़ॉर्म हेल्पर इस्तेमाल करें।</li></ul>
+<h3>क्या साइन की फ़ोटो क़ानूनी रूप से मान्य है?</h3><p>ऑनलाइन आवेदन फ़ॉर्म साइन की ऐसी फ़ोटो ही माँगते हैं और उसे स्वीकार करते हैं। लेकिन यह <b>"डिजिटल सिग्नेचर" नहीं है</b>। क़ानून जिस इलेक्ट्रॉनिक हस्ताक्षर को मानता है (जैसे सर्टिफ़िकेट वाला डिजिटल सिग्नेचर या ई-साइन), उसमें आपकी पहचान की जाँच होती है; एक चिपकाई हुई फ़ोटो में नहीं। अनुबंध, शपथ-पत्र, बैंक या अदालत के काग़ज़ पर फ़ोटो वाला साइन चलेगा या नहीं, यह उस जगह के नियम पर निर्भर है — ज़रूरी काम में पहले संबंधित दफ़्तर से पूछ लें। अपने साइन की फ़ाइल किसी अनजान को न भेजें।</p>`,
+    howH: 'कैसे करें', how: ['ऊपर <b>बनाकर</b>, <b>काग़ज़ से</b> या <b>नाम से</b> चुनें और रंग (काला/नीला) चुनें।', 'साइन करें, फ़ोटो डालें या नाम लिखकर स्टाइल चुनें। नीचे तुरंत नतीजा दिखता है।', 'फ़ॉर्म के लिए <b>सही साइज़</b> चालू करें, px (जैसे 140 × 60) और JPG का अधिकतम KB (जैसे 20) भरें।', '<b>PNG (ट्रांसपेरेंट)</b> या <b>JPG (सफ़ेद)</b> डाउनलोड करें, या <b>शेयर</b> करें।'],
+    tipsH: 'काम की बातें', tips: ['फ़ॉर्म में जैसा साइन करते हैं वैसा ही यहाँ भी करें — परीक्षा केंद्र में वही साइन मिलाया जाता है।', 'सरकारी फ़ॉर्म अक्सर <b>JPG</b> माँगते हैं; डॉक्यूमेंट पर लगाने के लिए <b>PNG</b> बेहतर है।', 'छोटे नाप (140×60) में साइन पूरी जगह लेना चाहिए — टूल ख़ाली किनारे ख़ुद काट देता है।', 'नीला रंग सिर्फ़ तब चुनें जब फ़ॉर्म नीला माँगे; वरना काला सबसे साफ़ दिखता है।', 'जब तक फ़ॉर्म न कहे, साइन बड़े अक्षरों (capital) में न लिखें।'],
+    faqH: 'अक्सर पूछे जाने वाले सवाल',
+    faq: [['क्या मेरा सिग्नेचर किसी सर्वर पर जाता है?', 'नहीं। साइन आपके फ़ोन/ब्राउज़र में ही बनता और साफ़ होता है। पेज एक बार खुल जाए तो इंटरनेट बंद करके भी चलता है।'], ['ट्रांसपेरेंट PNG और सफ़ेद JPG में क्या फ़र्क है?', 'PNG में साइन के पीछे कुछ नहीं होता, इसलिए किसी भी डॉक्यूमेंट या रंग पर रखने से सिर्फ़ स्याही दिखती है। JPG में पीछे सफ़ेद रंग होता है; ऑनलाइन फ़ॉर्म ज़्यादातर JPG माँगते हैं।'], ['साइन को 140×60 px और 20 KB से कम कैसे करें?', '"सही साइज़" चालू करके चौड़ाई 140, ऊँचाई 60 और "JPG अधिकतम KB" में 20 लिखें, फिर JPG डाउनलोड करें। फ़ाइल का साइज़ बटन के नीचे दिख जाता है।'], ['नाम लिखकर बना साइन फ़ॉर्म में चलेगा?', 'बेहतर है नहीं। फ़ॉर्म में वही साइन दें जो आप हाथ से करते हैं, क्योंकि बाद में उसे मिलाया जा सकता है। टाइप वाला स्टाइल डिज़ाइन या ईमेल के लिए ठीक है।'], ['क्या यह डिजिटल सिग्नेचर (DSC) है?', 'नहीं। यह सिर्फ़ साइन की फ़ोटो है। सर्टिफ़िकेट वाला डिजिटल सिग्नेचर या ई-साइन अलग चीज़ है जो पहचान की जाँच के बाद मिलती है।']],
+    privH: 'आपका साइन, आपके पास', privText: 'यह टूल बिना किसी सर्वर के आपके फ़ोन/ब्राउज़र में चलता है। आपका साइन या फ़ोटो कहीं अपलोड नहीं होती, कहीं सेव नहीं होती, और हम उसे देख भी नहीं सकते। पेज बंद करते ही सब मिट जाता है।',
+    moreH: 'और टूल', lMain: ['सिग्नेचर मेकर', 'बनाएँ, काग़ज़ से, नाम से'], lTr: ['ट्रांसपेरेंट सिग्नेचर PNG', 'बिना बैकग्राउंड का साइन'], lForm: ['फ़ॉर्म फ़ोटो रीसाइज़र', 'SSC · UPSC · बैंक · NEET'], lCrop: ['फ़ोटो क्रॉप और रोटेट', 'काटें, घुमाएँ, सीधा करें'], lComp: ['फ़ोटो का KB कम करें', '20 KB, 50 KB, 100 KB…'],
+    footer: 'फ़्री टूल · कुछ भी अपलोड नहीं होता',
+  },
+  en: {
+    brandSub: 'Free · your signature never leaves your phone', title: 'Make your signature online — free Signature Maker',
+    sub: 'Sign on the screen with a finger, mouse or pen, clean up a photo of a signature on paper, or type your name in a handwriting style. Transparent PNG and white JPG, at the px and KB a form asks for.',
+    privacy: 'Your signature is never uploaded. Everything runs on your phone/browser.',
+    modeDraw: '✍️ Draw', modePhoto: '📷 From paper', modeType: '🔤 Type name', colour: 'Colour:', black: 'Black', blue: 'Blue',
+    padHint: 'Sign here', thick: 'Pen thickness', undo: '↶ Undo', clear: '🗑️ Clear',
+    photoPick: 'Choose a photo of your signature on paper', photoHint: 'White paper, black/blue pen. Shoot straight from above, without shadows.', pickBtn: '🖼️ From gallery', camBtn: '📸 Use camera',
+    inkLvl: 'Ink darkness', rot90: '↻ Turn 90°', newPhoto: '🖼️ Another photo',
+    typeL: 'Type your name', typeNote: 'English letters (A–Z). Tap the style you like below.',
+    resH: 'Your signature', empty: 'Sign above, add a photo or type your name — it shows up here.',
+    exact: 'Exact size (for a form)', wL: 'Width (px)', hL: 'Height (px)', maxKbL: 'JPG max KB',
+    formLink: '📝 For exam forms: Form Helper →', formHint: 'The fixed sizes and KB for SSC, UPSC, bank and NEET are already filled in there.',
+    dlPng: '⬇️ PNG (transparent)', dlJpg: '⬇️ JPG (white)', share: '📲 Share',
+    outInfo: (p, j) => `PNG ${p} · JPG ${j}`, tooBig: (kb) => `The JPG could not get under ${kb} KB — use fewer px or allow more KB.`,
+    noInk: 'No signature found in the photo. Take a clear photo of dark ink on white paper.', saved: '✅ Saved to your phone',
+    failed: 'This file could not be opened. For an iPhone HEIC photo, set Settings → Camera → Formats → "Most Compatible", or add a screenshot.',
+    guide: `<h2>What is the Signature Maker?</h2><p>It is a small free tool that turns your signature into an <b>image file</b> — PNG or JPG. There are three ways in: sign straight on the screen, clean up a photo of a signature you made on paper, or type your name and pick a handwriting-style look. The tool makes the paper white (or fully transparent), deepens the ink and trims the empty space around the signature by itself.</p>
+<h3>When is it useful?</h3><p>Online forms for government jobs, exams, admissions and scholarships ask for a scanned image of your signature. To sign an office letter, quotation, invoice, certificate or CV, a transparent PNG sits right on the page without a white box behind it. It also works at the end of an email or on your own website.</p>
+<h3>The three ways, simply put</h3><ul><li><b>Draw:</b> hold the phone comfortably and sign in one go. Move fast and the line gets thinner, move slowly and it gets thicker — just like a pen. Made a mistake? Tap "Undo".</li><li><b>From paper:</b> this gives the most genuine signature. Sign on plain white paper and photograph it from above in daylight. The "Ink darkness" slider deepens faint ink.</li><li><b>Type name:</b> for when you need something quickly or just for a design. Remember it is not your real signature — use your own handwritten one for official forms.</li></ul>
+<h3>Common problems and fixes</h3><ul><li><b>The paper looks grey in the photo:</b> the light is too low. Shoot near a window with the flash off, and move the slider up a little.</li><li><b>Spots and marks around the signature:</b> the tool removes small specks. For large marks, use a fresh sheet and take the photo again.</li><li><b>The signature looks faint at a small size like 140×60:</b> raise the pen thickness, or sign on paper with a slightly bolder pen.</li><li><b>The form will not accept the file:</b> forms often take only JPG and set a KB limit. Download the JPG and fill in "JPG max KB", or use the Form Helper.</li></ul>
+<h3>Is a signature image legally valid?</h3><p>Online application forms ask for exactly this kind of image and accept it. But it is <b>not a "digital signature"</b>. The electronic signatures that the law recognises (such as a certificate-based digital signature or e-Sign) involve checking who you are; a pasted picture does not. Whether an image signature is accepted on an agreement, affidavit, bank or court paper depends on the rules of that place — for anything important, ask the office concerned first. Never send your signature file to someone you do not know.</p>`,
+    howH: 'How to use', how: ['Choose <b>Draw</b>, <b>From paper</b> or <b>Type name</b> at the top, and pick a colour (black/blue).', 'Sign, add a photo, or type your name and choose a style. The result shows up below straight away.', 'For a form, turn on <b>Exact size</b> and fill in the px (like 140 × 60) and the JPG max KB (like 20).', 'Download the <b>PNG (transparent)</b> or <b>JPG (white)</b>, or <b>Share</b> it.'],
+    tipsH: 'Good to know', tips: ['Sign the way you sign on paper — the same signature may be matched at the exam centre.', 'Government forms usually want <b>JPG</b>; for placing on a document, <b>PNG</b> is better.', 'At small sizes (140×60) the signature should fill the space — the tool trims empty edges for you.', 'Choose blue only if the form asks for it; otherwise black reads most clearly.', 'Don\'t sign in capital letters unless the form says so.'],
+    faqH: 'Frequently asked questions',
+    faq: [['Does my signature go to any server?', 'No. The signature is made and cleaned inside your phone/browser. Once the page has loaded, it even works with the internet off.'], ['What is the difference between a transparent PNG and a white JPG?', 'A PNG has nothing behind the signature, so on any document or colour only the ink shows. A JPG has a white background; most online forms ask for JPG.'], ['How do I make a signature 140×60 px and under 20 KB?', 'Turn on "Exact size", set width 140, height 60 and "JPG max KB" to 20, then download the JPG. The file size shows below the buttons.'], ['Can I use a typed-name signature on a form?', 'Better not. Give the form the signature you make by hand, because it may be compared later. Typed styles are fine for designs or email.'], ['Is this a digital signature (DSC)?', 'No. It is only a picture of a signature. A certificate-based digital signature or e-Sign is a different thing that you get after your identity is checked.']],
+    privH: 'Your signature stays with you', privText: 'This tool runs inside your phone/browser without any server. Your signature or photo is never uploaded or stored, and we cannot see it. Closing the page clears everything.',
+    moreH: 'More tools', lMain: ['Signature Maker', 'Draw, from paper, typed'], lTr: ['Transparent signature PNG', 'Signature with no background'], lForm: ['Form Photo Resizer', 'SSC · UPSC · Bank · NEET'], lCrop: ['Photo crop & rotate', 'Cut, turn, straighten'], lComp: ['Reduce photo KB', '20 KB, 50 KB, 100 KB…'],
+    footer: 'Free tool · nothing is uploaded',
+  },
+  bn: {
+    brandSub: 'ফ্রি · সই ফোনের বাইরে যায় না', title: 'অনলাইনে সই বানান — ফ্রি সিগনেচার মেকার',
+    sub: 'স্ক্রিনে আঙুল, মাউস বা পেন দিয়ে সই করুন, কাগজে করা সইয়ের ছবি পরিষ্কার করুন, বা নাম লিখে সুন্দর হাতের লেখার মতো সই পান। স্বচ্ছ PNG আর সাদা JPG, ফর্মের px আর KB মেনে।',
+    privacy: 'আপনার সই কোথাও আপলোড হয় না। সব কাজ আপনার ফোন/ব্রাউজারেই হয়।',
+    modeDraw: '✍️ এঁকে', modePhoto: '📷 কাগজ থেকে', modeType: '🔤 নাম দিয়ে', colour: 'রং:', black: 'কালো', blue: 'নীল',
+    padHint: 'এখানে সই করুন', thick: 'কলমের মোটা', undo: '↶ ফেরান', clear: '🗑️ মুছুন',
+    photoPick: 'কাগজে করা সইয়ের ছবি বাছুন', photoHint: 'সাদা কাগজ, কালো/নীল কলম। ওপর থেকে সোজা ছবি তুলুন, ছায়া যেন না পড়ে।', pickBtn: '🖼️ গ্যালারি থেকে', camBtn: '📸 ক্যামেরায় তুলুন',
+    inkLvl: 'কালি কতটা গাঢ়', rot90: '↻ 90° ঘোরান', newPhoto: '🖼️ অন্য ছবি',
+    typeL: 'আপনার নাম লিখুন', typeNote: 'ইংরেজি অক্ষর (A–Z)। নিচে যে স্টাইল পছন্দ, তাতে ট্যাপ করুন।',
+    resH: 'আপনার সই', empty: 'ওপরে সই করুন, ছবি দিন বা নাম লিখুন — এখানে দেখা যাবে।',
+    exact: 'ঠিক মাপ চাই (ফর্মের জন্য)', wL: 'চওড়া (px)', hL: 'উচ্চতা (px)', maxKbL: 'JPG সর্বোচ্চ KB',
+    formLink: '📝 পরীক্ষার ফর্মের জন্য: ফর্ম হেল্পার →', formHint: 'SSC, UPSC, ব্যাংক, NEET-এর নির্দিষ্ট মাপ আর KB সেখানে আগে থেকেই ভরা।',
+    dlPng: '⬇️ PNG (স্বচ্ছ)', dlJpg: '⬇️ JPG (সাদা)', share: '📲 শেয়ার',
+    outInfo: (p, j) => `PNG ${p} · JPG ${j}`, tooBig: (kb) => `JPG ${kb} KB-র নিচে নামল না — px কমান বা KB বাড়ান।`,
+    noInk: 'ছবিতে সই পাওয়া গেল না। সাদা কাগজে গাঢ় কালির পরিষ্কার ছবি তুলুন।', saved: '✅ ফোনে সেভ হয়েছে',
+    failed: 'এই ফাইল খোলা গেল না। iPhone-এর HEIC ছবি হলে Settings → Camera → Formats → "Most Compatible" বাছুন, বা স্ক্রিনশট দিন।',
+    guide: `<h2>সিগনেচার মেকার কী?</h2><p>এটি একটি ছোট ফ্রি টুল, যা আপনার সইকে একটি <b>ছবির ফাইল</b> বানায় — PNG বা JPG। তিনটি উপায় আছে: স্ক্রিনে সরাসরি সই করুন, কাগজে করা সইয়ের ছবি পরিষ্কার করুন, বা নিজের নাম লিখে হাতের লেখার মতো একটা স্টাইল বাছুন। টুল কাগজকে সাদা (বা পুরো স্বচ্ছ) করে, কালি গাঢ় করে আর সইয়ের চারপাশের ফাঁকা জায়গা নিজেই কেটে দেয়।</p>
+<h3>কখন কাজে লাগে?</h3><p>সরকারি চাকরি, পরীক্ষা, ভর্তি আর স্কলারশিপের অনলাইন ফর্মে সইয়ের স্ক্যান করা ছবি চাওয়া হয়। অফিসের চিঠি, কোটেশন, বিল, সার্টিফিকেট বা বায়োডেটায় সই বসাতে হলে স্বচ্ছ PNG সরাসরি পাতার ওপর রাখা যায় — পেছনে সাদা বাক্স দেখা যায় না। ইমেলের শেষে বা নিজের ওয়েবসাইটেও কাজে লাগে।</p>
+<h3>তিনটি উপায়, সহজ কথায়</h3><ul><li><b>এঁকে:</b> ফোন আরাম করে ধরুন আর এক টানে সই করুন। জোরে টানলে লাইন সরু, আস্তে টানলে মোটা — ঠিক কলমের মতো। ভুল হলে "ফেরান" চাপুন।</li><li><b>কাগজ থেকে:</b> সবচেয়ে আসল সই এভাবেই আসে। সাধারণ সাদা কাগজে সই করে দিনের আলোয় ওপর থেকে ছবি তুলুন। "কালি কতটা গাঢ়" স্লাইডারে হালকা কালি গাঢ় করুন।</li><li><b>নাম দিয়ে:</b> তাড়াতাড়ি দরকার বা শুধু ডিজাইনের জন্য। মনে রাখবেন, এটা আপনার আসল সই নয় — সরকারি ফর্মে নিজের হাতের সই-ই দিন।</li></ul>
+<h3>সাধারণ সমস্যা আর সমাধান</h3><ul><li><b>ছবিতে কাগজ ধূসর দেখাচ্ছে:</b> আলো কম। জানালার কাছে, ফ্ল্যাশ বন্ধ রেখে ছবি তুলুন; স্লাইডার একটু বাড়ান।</li><li><b>সইয়ের পাশে দাগ-ছোপ:</b> ছোট দাগ টুল নিজেই সরায়। বড় দাগ থাকলে নতুন কাগজে আবার ছবি তুলুন।</li><li><b>140×60-এর মতো ছোট মাপে সই ঝাপসা:</b> কলমের মোটা বাড়ান, বা কাগজে একটু মোটা কলমে সই করুন।</li><li><b>ফর্ম ফাইল নিচ্ছে না:</b> ফর্ম প্রায়ই শুধু JPG নেয় আর KB-র সীমা রাখে। JPG ডাউনলোড করে "JPG সর্বোচ্চ KB" ভরুন, বা ফর্ম হেল্পার ব্যবহার করুন।</li></ul>
+<h3>সইয়ের ছবি কি আইনত বৈধ?</h3><p>অনলাইন আবেদন ফর্ম ঠিক এই রকম ছবিই চায় আর গ্রহণ করে। কিন্তু এটা <b>"ডিজিটাল সিগনেচার" নয়</b>। আইন যে ইলেকট্রনিক সইকে মানে (যেমন সার্টিফিকেট-ভিত্তিক ডিজিটাল সিগনেচার বা ই-সাইন), তাতে আপনার পরিচয় যাচাই হয়; একটা বসানো ছবিতে তা হয় না। চুক্তিপত্র, হলফনামা, ব্যাংক বা আদালতের কাগজে ছবির সই চলবে কি না, তা সেই জায়গার নিয়মের ওপর নির্ভর করে — জরুরি কাজে আগে সংশ্লিষ্ট অফিসে জেনে নিন। নিজের সইয়ের ফাইল অচেনা কাউকে পাঠাবেন না।</p>`,
+    howH: 'কীভাবে করবেন', how: ['ওপরে <b>এঁকে</b>, <b>কাগজ থেকে</b> বা <b>নাম দিয়ে</b> বাছুন আর রং (কালো/নীল) বাছুন।', 'সই করুন, ছবি দিন বা নাম লিখে স্টাইল বাছুন। নিচে সঙ্গে সঙ্গে ফল দেখা যায়।', 'ফর্মের জন্য <b>ঠিক মাপ</b> চালু করে px (যেমন 140 × 60) আর JPG-র সর্বোচ্চ KB (যেমন 20) দিন।', '<b>PNG (স্বচ্ছ)</b> বা <b>JPG (সাদা)</b> ডাউনলোড করুন, বা <b>শেয়ার</b> করুন।'],
+    tipsH: 'কাজের কথা', tips: ['কাগজে যেমন সই করেন, এখানেও তেমনই করুন — পরীক্ষাকেন্দ্রে সেই সই মেলানো হতে পারে।', 'সরকারি ফর্ম সাধারণত <b>JPG</b> চায়; ডকুমেন্টে বসানোর জন্য <b>PNG</b> ভালো।', 'ছোট মাপে (140×60) সই যেন পুরো জায়গা নেয় — ফাঁকা ধার টুল নিজেই কাটে।', 'ফর্ম না চাইলে নীল বাছবেন না; কালো সবচেয়ে পরিষ্কার পড়া যায়।', 'ফর্ম না বললে বড় হাতের (capital) অক্ষরে সই করবেন না।'],
+    faqH: 'সাধারণ প্রশ্ন',
+    faq: [['আমার সই কি কোনো সার্ভারে যায়?', 'না। সই আপনার ফোন/ব্রাউজারেই তৈরি আর পরিষ্কার হয়। পেজ একবার খুলে গেলে ইন্টারনেট বন্ধ রেখেও চলে।'], ['স্বচ্ছ PNG আর সাদা JPG-র তফাত কী?', 'PNG-তে সইয়ের পেছনে কিছু থাকে না, তাই যে কোনো ডকুমেন্ট বা রঙের ওপর শুধু কালি দেখা যায়। JPG-র পেছনে সাদা রং থাকে; বেশিরভাগ অনলাইন ফর্ম JPG চায়।'], ['সই 140×60 px আর 20 KB-র কম কীভাবে করব?', '"ঠিক মাপ" চালু করে চওড়া 140, উচ্চতা 60 আর "JPG সর্বোচ্চ KB"-তে 20 দিন, তারপর JPG ডাউনলোড করুন। ফাইলের মাপ বোতামের নিচে দেখা যায়।'], ['নাম লিখে বানানো সই কি ফর্মে চলবে?', 'না দেওয়াই ভালো। ফর্মে নিজের হাতের সই দিন, কারণ পরে সেটা মেলানো হতে পারে। টাইপ করা স্টাইল ডিজাইন বা ইমেলের জন্য ঠিক আছে।'], ['এটা কি ডিজিটাল সিগনেচার (DSC)?', 'না। এটা শুধু সইয়ের ছবি। সার্টিফিকেট-ভিত্তিক ডিজিটাল সিগনেচার বা ই-সাইন আলাদা জিনিস, যা পরিচয় যাচাইয়ের পরে পাওয়া যায়।']],
+    privH: 'আপনার সই আপনার কাছেই', privText: 'এই টুল কোনো সার্ভার ছাড়াই আপনার ফোন/ব্রাউজারে চলে। আপনার সই বা ছবি কোথাও আপলোড বা সেভ হয় না, আমরা দেখতেও পাই না। পেজ বন্ধ করলেই সব মুছে যায়।',
+    moreH: 'আরও টুল', lMain: ['সিগনেচার মেকার', 'এঁকে, কাগজ থেকে, নাম দিয়ে'], lTr: ['স্বচ্ছ সই PNG', 'ব্যাকগ্রাউন্ড ছাড়া সই'], lForm: ['ফর্ম ফটো রিসাইজার', 'SSC · UPSC · ব্যাংক · NEET'], lCrop: ['ছবি ক্রপ ও রোটেট', 'কাটুন, ঘোরান, সোজা করুন'], lComp: ['ছবির KB কমান', '20 KB, 50 KB, 100 KB…'],
+    footer: 'ফ্রি টুল · কিছুই আপলোড হয় না',
+  },
+};
+
+// ---------- helpers
+const $ = (id) => document.getElementById(id);
+const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+const params = new URLSearchParams(location.search);
+const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('sg-lang')) ? store.get('sg-lang') : deviceLang();
+const t = (k) => T[lang][k];
+const mk = (w, h) => { const c = document.createElement('canvas'); c.width = Math.max(1, Math.round(w)); c.height = Math.max(1, Math.round(h)); return c; };
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const fmtSize = (b) => (b >= 1024 * 1024 ? `${(b / 1048576).toFixed(1)} MB` : `${Math.max(1, Math.round(b / 1024))} KB`);
+let toastTimer = 0;
+const toast = (msg) => { let el = document.querySelector('.toast'); if (!el) { el = document.createElement('div'); el.className = 'toast'; document.body.appendChild(el); } el.textContent = msg; el.classList.remove('hidden'); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.add('hidden'), 3200); };
+
+// Sub-pages (e.g. ./transparent/) set window.SG_PAGE = { id, base, T: { lang: { title, sub, info, faq } } } before this script.
+const PAGE = window.SG_PAGE || null;
+const BASE = PAGE ? PAGE.base || '../' : './';
+if (PAGE) for (const l in PAGE.T) { if (T[l]) ['title', 'sub', 'faq'].forEach((k) => { if (PAGE.T[l][k]) T[l][k] = PAGE.T[l][k]; }); }
+
+// ---------- state
+const INK = { black: [17, 17, 17], blue: [18, 61, 158] };
+const FONTS = [{ fam: 'Great Vibes', size: 1 }, { fam: 'Dancing Script', size: 0.9 }, { fam: 'Sacramento', size: 1.1 }, { fam: 'Allura', size: 1 }];
+let mode = ['draw', 'photo', 'type'].includes(store.get('sg-mode')) ? store.get('sg-mode') : 'draw';
+let colour = store.get('sg-col') === 'blue' ? 'blue' : 'black';
+let fontIdx = clamp(Number(store.get('sg-font')) || 0, 0, FONTS.length - 1);
+const rgb = () => INK[colour];
+const css = (c) => `rgb(${c.join(',')})`;
+
+// ---------- drawing pad. Points are stored relative to the pad width, so they can be redrawn at any size.
+let strokes = []; let cur = null; let padW = 1, padH = 1;
+const pad = $('pad'), pctx = pad.getContext('2d');
+const thick = () => Number($('thick').value);
+const mid = (a, b) => ({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
+// One piece of a stroke: a curve between the midpoints around point i-1, so the line stays smooth.
+const drawSeg = (ctx, p, i, kk) => {
+  if (i === 0) { ctx.beginPath(); ctx.arc(p[0].x * kk, p[0].y * kk, (p[0].w * kk) / 2, 0, Math.PI * 2); ctx.fill(); return; }
+  const a = i === 1 ? p[0] : mid(p[i - 2], p[i - 1]), b = mid(p[i - 1], p[i]);
+  ctx.lineWidth = ((p[i - 1].w + p[i].w) / 2) * kk;
+  ctx.beginPath(); ctx.moveTo(a.x * kk, a.y * kk); ctx.quadraticCurveTo(p[i - 1].x * kk, p[i - 1].y * kk, b.x * kk, b.y * kk); ctx.stroke();
+};
+const drawTail = (ctx, p, kk) => { const n = p.length; if (n < 2) return; const a = mid(p[n - 2], p[n - 1]); ctx.lineWidth = p[n - 1].w * kk; ctx.beginPath(); ctx.moveTo(a.x * kk, a.y * kk); ctx.lineTo(p[n - 1].x * kk, p[n - 1].y * kk); ctx.stroke(); };
+const prepCtx = (ctx) => { ctx.strokeStyle = ctx.fillStyle = css(rgb()); ctx.lineCap = 'round'; ctx.lineJoin = 'round'; };
+const renderStrokes = (ctx, kk) => { prepCtx(ctx); strokes.forEach((s) => { s.pts.forEach((_, i) => drawSeg(ctx, s.pts, i, kk)); if (s !== cur) drawTail(ctx, s.pts, kk); }); };
+const redrawPad = () => { const dpr = pad.width / padW; pctx.setTransform(1, 0, 0, 1, 0, 0); pctx.clearRect(0, 0, pad.width, pad.height); renderStrokes(pctx, padW * dpr); };
+const sizePad = () => {
+  const r = $('padwrap').getBoundingClientRect(); if (r.width < 10) return;
+  const dpr = Math.min(3, window.devicePixelRatio || 1);
+  padW = r.width; padH = r.height; pad.width = Math.round(padW * dpr); pad.height = Math.round(padH * dpr); redrawPad();
+};
+// Pen width from speed (fast = thin, slow = thick); a real stylus' pressure is used when there is one.
+const addPoint = (px, py, time, pressure, pen) => {
+  const p = cur.pts, last = p[p.length - 1], base = thick() / padW;
+  const x = px / padW, y = py / padW;
+  if (last) {
+    const d = Math.hypot(x - last.x, y - last.y) * padW; if (d < 1.2) return false;
+    const v = d / Math.max(1, time - last.t);
+    let target = base * clamp(1.35 - v * 0.32, 0.42, 1.35);
+    if (pen && pressure > 0) target = base * clamp(0.35 + pressure * 1.3, 0.35, 1.6);
+    p.push({ x, y, t: time, w: last.w * 0.62 + target * 0.38 });
+  } else p.push({ x, y, t: time, w: pen && pressure > 0 ? base * clamp(0.35 + pressure * 1.3, 0.35, 1.6) : base * 0.9 });
+  return true;
+};
+const startStroke = (px, py, time, pressure, pen) => { cur = { pts: [] }; strokes.push(cur); addPoint(px, py, time, pressure, pen); const dpr = pad.width / padW; prepCtx(pctx); drawSeg(pctx, cur.pts, 0, padW * dpr); };
+const moveStroke = (px, py, time, pressure, pen) => { if (!cur) return; if (addPoint(px, py, time, pressure, pen)) { const dpr = pad.width / padW; prepCtx(pctx); drawSeg(pctx, cur.pts, cur.pts.length - 1, padW * dpr); } };
+const endStroke = () => { if (!cur) return; const dpr = pad.width / padW; prepCtx(pctx); drawTail(pctx, cur.pts, padW * dpr); cur = null; later(); };
+
+// Cut away empty space around the ink (alpha > 10), keeping a small margin.
+const trimAlpha = (c) => {
+  const w = c.width, h = c.height, d = c.getContext('2d').getImageData(0, 0, w, h).data;
+  let x0 = w, y0 = h, x1 = -1, y1 = -1;
+  for (let y = 0; y < h; y += 1) for (let x = 0; x < w; x += 1) if (d[(y * w + x) * 4 + 3] > 10) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+  if (x1 < 0) return null;
+  const m = Math.round(Math.max(x1 - x0, y1 - y0) * 0.04) + 4;
+  x0 = Math.max(0, x0 - m); y0 = Math.max(0, y0 - m); x1 = Math.min(w - 1, x1 + m); y1 = Math.min(h - 1, y1 + m);
+  const o = mk(x1 - x0 + 1, y1 - y0 + 1); o.getContext('2d').drawImage(c, x0, y0, o.width, o.height, 0, 0, o.width, o.height); return o;
+};
+const fromDraw = () => {
+  if (!strokes.some((s) => s.pts.length)) return null;
+  const kk = Math.max(1000, padW * 2), c = mk(kk, (kk * padH) / padW);
+  renderStrokes(c.getContext('2d'), kk); return trimAlpha(c);
+};
+
+// ---------- signature photographed on paper (same approach as Form Helper): paper -> transparent, ink -> chosen colour
+let photo = null; let photoRot = 0;
+const cleanInk = (c, lvl, inkRGB) => {
+  const w = c.width, h = c.height, p = c.getContext('2d').getImageData(0, 0, w, h).data;
+  const n = w * h, lum = new Float32Array(n);
+  for (let i = 0; i < n; i += 1) lum[i] = 0.299 * p[i * 4] + 0.587 * p[i * 4 + 1] + 0.114 * p[i * 4 + 2];
+  // uneven light: estimate the local paper brightness on a coarse grid (90th percentile) and divide it out
+  const G = 24, gw = Math.ceil(w / G), gh = Math.ceil(h / G), grid = new Float32Array(gw * gh);
+  for (let gy = 0; gy < gh; gy += 1) for (let gx = 0; gx < gw; gx += 1) {
+    const vals = [];
+    for (let y = gy * G; y < Math.min(h, gy * G + G); y += 3) for (let x = gx * G; x < Math.min(w, gx * G + G); x += 3) vals.push(lum[y * w + x]);
+    vals.sort((a, b) => a - b); grid[gy * gw + gx] = vals[Math.floor(vals.length * 0.9)] || 255;
+  }
+  const g2 = new Float32Array(gw * gh); // spread the paper estimate so ink strokes do not pull it down
+  for (let gy = 0; gy < gh; gy += 1) for (let gx = 0; gx < gw; gx += 1) {
+    let m = 0; for (let yy = Math.max(0, gy - 1); yy <= Math.min(gh - 1, gy + 1); yy += 1) for (let xx = Math.max(0, gx - 1); xx <= Math.min(gw - 1, gx + 1); xx += 1) m = Math.max(m, grid[yy * gw + xx]);
+    g2[gy * gw + gx] = Math.max(40, m);
+  }
+  const paperAt = (x, y) => {
+    const fx = clamp(x / G - 0.5, 0, gw - 1), fy = clamp(y / G - 0.5, 0, gh - 1), x1 = Math.floor(fx), y1 = Math.floor(fy), x2 = Math.min(gw - 1, x1 + 1), y2 = Math.min(gh - 1, y1 + 1), ax = fx - x1, ay = fy - y1;
+    return (g2[y1 * gw + x1] * (1 - ax) + g2[y1 * gw + x2] * ax) * (1 - ay) + (g2[y2 * gw + x1] * (1 - ax) + g2[y2 * gw + x2] * ax) * ay;
+  };
+  const white = 0.88 - lvl * 0.18, black = 0.35 + lvl * 0.3; // ratio above `white` -> paper, below `black` -> full ink
+  const A = new Float32Array(n);
+  for (let y = 0; y < h; y += 1) for (let x = 0; x < w; x += 1) {
+    const i = y * w + x, r = lum[i] / paperAt(x, y);
+    const a = r >= white ? 0 : r <= black ? 1 : (white - r) / (white - black);
+    A[i] = a * a * (3 - 2 * a);
+  }
+  // drop specks and dirt: ink blobs that are tiny and far from the main writing
+  const f = Math.max(1, Math.ceil(Math.max(w, h) / 500)), cw = Math.ceil(w / f), ch = Math.ceil(h / f), cell = new Uint8Array(cw * ch);
+  for (let y = 0; y < h; y += 1) for (let x = 0; x < w; x += 1) if (A[y * w + x] > 0.5) cell[Math.floor(y / f) * cw + Math.floor(x / f)] = 1;
+  const lab = new Int32Array(cw * ch).fill(-1), comps = [];
+  for (let s0 = 0; s0 < cw * ch; s0 += 1) {
+    if (!cell[s0] || lab[s0] >= 0) continue;
+    const cc = { area: 0, x0: cw, y0: ch, x1: 0, y1: 0, keep: false }, st = [s0]; lab[s0] = comps.length;
+    while (st.length) {
+      const i = st.pop(), x = i % cw, y = (i - x) / cw; cc.area += 1; cc.x0 = Math.min(cc.x0, x); cc.x1 = Math.max(cc.x1, x); cc.y0 = Math.min(cc.y0, y); cc.y1 = Math.max(cc.y1, y);
+      for (let dy = -2; dy <= 2; dy += 1) for (let dx = -2; dx <= 2; dx += 1) { const xx = x + dx, yy = y + dy; if (xx < 0 || yy < 0 || xx >= cw || yy >= ch) continue; const j = yy * cw + xx; if (cell[j] && lab[j] < 0) { lab[j] = comps.length; st.push(j); } }
+    }
+    comps.push(cc);
+  }
+  if (comps.length) {
+    const big = Math.max(...comps.map((cc) => cc.area));
+    const box = { x0: cw, y0: ch, x1: 0, y1: 0 };
+    comps.forEach((cc) => { if (cc.area >= big * 0.08) { cc.keep = true; box.x0 = Math.min(box.x0, cc.x0); box.y0 = Math.min(box.y0, cc.y0); box.x1 = Math.max(box.x1, cc.x1); box.y1 = Math.max(box.y1, cc.y1); } });
+    const m = Math.max(box.x1 - box.x0, box.y1 - box.y0) * 0.12 + 2; // dots of i and full stops close to the writing stay
+    comps.forEach((cc) => { if (!cc.keep && cc.x1 >= box.x0 - m && cc.x0 <= box.x1 + m && cc.y1 >= box.y0 - m && cc.y0 <= box.y1 + m) cc.keep = true; });
+  }
+  const dropped = (x, y) => {
+    const cx = Math.floor(x / f), cy = Math.floor(y / f);
+    for (let dy = -1; dy <= 1; dy += 1) for (let dx = -1; dx <= 1; dx += 1) { const xx = cx + dx, yy = cy + dy; if (xx < 0 || yy < 0 || xx >= cw || yy >= ch) continue; const l = lab[yy * cw + xx]; if (l >= 0) return !comps[l].keep; }
+    return false;
+  };
+  const o = mk(w, h), ox = o.getContext('2d'), out = ox.createImageData(w, h), q = out.data;
+  for (let i = 0; i < n; i += 1) {
+    let a = A[i]; if (a > 0.02 && dropped(i % w, (i - (i % w)) / w)) a = 0;
+    const j = i * 4; q[j] = inkRGB[0]; q[j + 1] = inkRGB[1]; q[j + 2] = inkRGB[2]; q[j + 3] = Math.round(a * 255);
+  }
+  ox.putImageData(out, 0, 0);
+  return trimAlpha(o);
+};
+const photoCanvas = () => {
+  const w = photo.width, h = photo.height, c = photoRot % 180 ? mk(h, w) : mk(w, h), x = c.getContext('2d');
+  x.fillStyle = '#fff'; x.fillRect(0, 0, c.width, c.height);
+  x.translate(c.width / 2, c.height / 2); x.rotate((photoRot * Math.PI) / 180); x.drawImage(photo, -w / 2, -h / 2); return c;
+};
+const fromPhoto = () => (photo ? cleanInk(photoCanvas(), Number($('inkLvl').value) / 100, rgb()) : null);
+const decode = async (file) => {
+  if (window.createImageBitmap) { try { return await createImageBitmap(file, { imageOrientation: 'from-image' }); } catch (e) { /* fall back */ } }
+  const url = URL.createObjectURL(file);
+  try { const img = new Image(); img.src = url; await img.decode(); return img; } finally { URL.revokeObjectURL(url); }
+};
+const loadPhoto = async (file) => {
+  if (!file) return;
+  let img; try { img = await decode(file); } catch (e) { toast(t('failed')); return; }
+  const w = img.naturalWidth || img.width, h = img.naturalHeight || img.height, s = Math.min(1, 1600 / Math.max(w, h));
+  const c = mk(w * s, h * s), x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(img, 0, 0, c.width, c.height);
+  if (img.close) img.close();
+  photo = c; photoRot = 0; $('photoOpts').classList.remove('hidden'); $('drop').classList.add('hidden');
+  await update();
+};
+
+// ---------- typed name in a handwriting font
+const fontsReady = async (fam) => { try { await document.fonts.load(`80px "${fam}"`, 'Abc'); } catch (e) { /* use what is there */ } };
+const typedName = () => ($('nameIn').value || '').replace(/[^\x20-\x7e -ÿ]/g, '').trim();
+const fromType = async () => {
+  const name = typedName(); if (!name) return null;
+  const F = FONTS[fontIdx]; await fontsReady(F.fam);
+  const fs = Math.round(150 * F.size), font = `${F.fam === 'Dancing Script' ? 600 : 400} ${fs}px "${F.fam}", cursive`;
+  const m = mk(10, 10).getContext('2d'); m.font = font;
+  const c = mk(m.measureText(name).width + fs * 1.2, fs * 2), x = c.getContext('2d');
+  x.font = font; x.fillStyle = css(rgb()); x.textBaseline = 'alphabetic'; x.fillText(name, fs * 0.6, fs * 1.35);
+  return trimAlpha(c);
+};
+
+// ---------- output
+const getSig = async () => (mode === 'draw' ? fromDraw() : mode === 'photo' ? fromPhoto() : fromType());
+const exactSize = () => {
+  if (!$('exact').checked) return null;
+  const w = Math.round(Number($('wIn').value)), h = Math.round(Number($('hIn').value));
+  return w >= 20 && h >= 20 && w <= 3000 && h <= 3000 ? [w, h] : null;
+};
+// Places the signature into w × h (whole signature visible), on white for JPG.
+const place = (sig, w, h, bg, fill) => {
+  const c = mk(w, h), x = c.getContext('2d');
+  if (bg) { x.fillStyle = bg; x.fillRect(0, 0, w, h); }
+  const s = Math.min(w / sig.width, h / sig.height) * fill;
+  let src = sig;
+  if (s < 0.4) { // a big shrink breaks thin pen lines up: thicken them by about one output pixel first
+    const d = Math.max(1, Math.round(0.7 / s)); src = mk(sig.width + d, sig.height + d); const tx = src.getContext('2d');
+    [[0, 0], [d, 0], [0, d], [d, d]].forEach(([dx, dy]) => tx.drawImage(sig, dx, dy));
+  }
+  x.imageSmoothingEnabled = true; x.imageSmoothingQuality = 'high';
+  x.drawImage(src, (w - sig.width * s) / 2, (h - sig.height * s) / 2, src.width * s, src.height * s);
+  return c;
+};
+const encode = (c, type, q) => new Promise((r) => c.toBlob(r, type, q));
+const MAX_SIDE = 1000;
+const build = async () => {
+  const sig = await getSig(); if (!sig) return null;
+  const ex = exactSize(); let w, h;
+  if (ex) [w, h] = ex; else { const s = Math.min(1, MAX_SIDE / Math.max(sig.width, sig.height)); w = Math.max(1, Math.round(sig.width * s)); h = Math.max(1, Math.round(sig.height * s)); }
+  const fill = ex ? 0.92 : 1;
+  const png = await encode(place(sig, w, h, null, fill), 'image/png');
+  // JPG: best quality under the KB limit; without a fixed size, use fewer px if quality alone is not enough
+  const maxKb = Number($('kbIn').value) || 0, maxB = maxKb * 1024 - 256;
+  let jw = w, jh = h, jpg = null, ok = true;
+  for (let round = 0; round < 10; round += 1) {
+    const c = place(sig, jw, jh, '#ffffff', fill);
+    jpg = await encode(c, 'image/jpeg', 0.92);
+    if (!maxKb || jpg.size <= maxB) break;
+    let lo = 0.2, hi = 0.92, best = null;
+    for (let i = 0; i < 7; i += 1) { const q = (lo + hi) / 2; const b = await encode(c, 'image/jpeg', q); if (b.size <= maxB) { best = b; lo = q; } else hi = q; }
+    if (best) { jpg = best; break; }
+    if (ex) { jpg = await encode(c, 'image/jpeg', 0.2); ok = jpg.size <= maxKb * 1024; break; }
+    jw = Math.max(20, Math.round(jw * 0.8)); jh = Math.max(20, Math.round(jh * 0.8));
+  }
+  if (maxKb && jpg.size > maxKb * 1024) ok = false;
+  return { png, jpg, w, h, jw, jh, ok, maxKb };
+};
+
+let out = null; let outUrl = ''; let token = 0; let timer = 0;
+const update = async () => {
+  const my = ++token; const r = await build(); if (my !== token) return r;
+  out = r; if (outUrl) URL.revokeObjectURL(outUrl); outUrl = '';
+  const pv = $('preview');
+  if (!r) { pv.innerHTML = `<em>${esc(mode === 'photo' && photo ? t('noInk') : t('empty'))}</em>`; $('outInfo').textContent = ''; }
+  else {
+    outUrl = URL.createObjectURL(r.png); pv.innerHTML = `<img alt="" src="${outUrl}">`;
+    $('outInfo').textContent = t('outInfo')(`${r.w}×${r.h} px · ${fmtSize(r.png.size)}`, `${r.jw}×${r.jh} px · ${fmtSize(r.jpg.size)}`) + (r.ok ? '' : ` — ${t('tooBig')(r.maxKb)}`);
+  }
+  $('outInfo').classList.toggle('bad', !!r && !r.ok);
+  ['dlPng', 'dlJpg', 'shareBtn'].forEach((id) => { $(id).disabled = !r; });
+  return r;
+};
+function later() { clearTimeout(timer); timer = setTimeout(update, 220); }
+const fileBase = () => `signature-${out.w}x${out.h}`;
+const download = (blob, name) => { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); toast(t('saved')); };
+
+// ---------- UI
+const applyMode = () => {
+  document.querySelectorAll('.tab').forEach((b) => b.classList.toggle('on', b.dataset.mode === mode));
+  $('panelDraw').classList.toggle('hidden', mode !== 'draw'); $('panelPhoto').classList.toggle('hidden', mode !== 'photo'); $('panelType').classList.toggle('hidden', mode !== 'type');
+  if (mode === 'draw') sizePad();
+};
+const applyColour = () => { document.querySelectorAll('#colours .chip').forEach((b) => b.classList.toggle('on', b.dataset.col === colour)); document.querySelectorAll('.fontbtn').forEach((b) => { b.style.color = css(rgb()); }); redrawPad(); };
+const renderFonts = () => {
+  const name = typedName() || 'Signature';
+  $('fonts').innerHTML = FONTS.map((f, i) => `<button class="fontbtn${i === fontIdx ? ' on' : ''}" type="button" data-i="${i}" style="font-family:'${f.fam}',cursive;font-weight:${f.fam === 'Dancing Script' ? 600 : 400};color:${css(rgb())}">${esc(name)}</button>`).join('');
+};
+const setFaqLd = () => {
+  let el = $('faqLd'); if (!el) { el = document.createElement('script'); el.type = 'application/ld+json'; el.id = 'faqLd'; document.head.appendChild(el); }
+  const plain = (s) => s.replace(/<[^>]+>/g, '');
+  el.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: t('faq').map(([q, a]) => ({ '@type': 'Question', name: plain(q), acceptedAnswer: { '@type': 'Answer', text: plain(a) } })) });
+};
+const applyLang = () => {
+  document.documentElement.lang = lang === 'hinglish' ? 'hi-Latn' : lang;
+  document.querySelectorAll('[data-t]').forEach((el) => { const v = t(el.dataset.t); if (typeof v === 'string') el.textContent = v; });
+  $('langSel').value = lang;
+  $('nameIn').placeholder = lang === 'en' ? 'e.g. Priya Sharma' : 'Priya Sharma';
+  $('howList').innerHTML = t('how').map((s) => `<li>${s}</li>`).join('');
+  $('tipList').innerHTML = t('tips').map((s) => `<li>${s}</li>`).join('');
+  $('faqList').innerHTML = t('faq').map(([q, a]) => `<details class="faq"><summary>${q}</summary><p>${a}</p></details>`).join('');
+  const L = (href, key, emoji, here) => `<a href="${href}?lang=${lang}"${here ? ' class="here"' : ''}>${emoji} ${esc(t(key)[0])}<small>${esc(t(key)[1])}</small></a>`;
+  $('links').innerHTML = L(BASE, 'lMain', '✍️', !PAGE) + L(`${BASE}transparent/`, 'lTr', '🫥', PAGE && PAGE.id === 'transparent')
+    + L(`${BASE}../form-helper/`, 'lForm', '📝') + L(`${BASE}../image-crop/`, 'lCrop', '✂️') + L(`${BASE}../image-compress/`, 'lComp', '🗜️');
+  $('formLink').href = `${BASE}../form-helper/?lang=${lang}`;
+  const info = PAGE && PAGE.T[lang] && PAGE.T[lang].info;
+  $('pageInfo').classList.toggle('hidden', !info); if (info) $('pageInfo').innerHTML = info;
+  // a sub-page has its own long text instead of the main page's guide
+  $('guideSec').classList.toggle('hidden', !!PAGE); if (!PAGE) $('guideSec').innerHTML = t('guide');
+  setFaqLd();
+  if (out) { $('outInfo').textContent = t('outInfo')(`${out.w}×${out.h} px · ${fmtSize(out.png.size)}`, `${out.jw}×${out.jh} px · ${fmtSize(out.jpg.size)}`) + (out.ok ? '' : ` — ${t('tooBig')(out.maxKb)}`); } else update();
+};
+
+// ---------- events
+$('langSel').addEventListener('change', (e) => { lang = e.target.value; store.set('sg-lang', lang); applyLang(); });
+document.querySelectorAll('.tab').forEach((b) => b.addEventListener('click', () => { mode = b.dataset.mode; store.set('sg-mode', mode); applyMode(); if (mode === 'type') renderFonts(); update(); }));
+$('colours').addEventListener('click', (e) => { const b = e.target.closest('.chip'); if (!b) return; colour = b.dataset.col; store.set('sg-col', colour); applyColour(); update(); });
+$('thick').addEventListener('input', (e) => { $('thVal').textContent = e.target.value; });
+pad.addEventListener('pointerdown', (e) => { e.preventDefault(); pad.setPointerCapture(e.pointerId); const r = pad.getBoundingClientRect(); startStroke(e.clientX - r.left, e.clientY - r.top, e.timeStamp, e.pressure, e.pointerType === 'pen'); });
+pad.addEventListener('pointermove', (e) => {
+  if (!cur) return; const r = pad.getBoundingClientRect();
+  const list = e.getCoalescedEvents ? e.getCoalescedEvents() : [e];
+  (list.length ? list : [e]).forEach((ev) => moveStroke(ev.clientX - r.left, ev.clientY - r.top, ev.timeStamp, ev.pressure, ev.pointerType === 'pen'));
+});
+['pointerup', 'pointercancel'].forEach((n) => pad.addEventListener(n, endStroke));
+$('undoBtn').addEventListener('click', () => { strokes.pop(); cur = null; redrawPad(); update(); });
+$('clearBtn').addEventListener('click', () => { strokes = []; cur = null; redrawPad(); update(); });
+$('pickBtn').addEventListener('click', (e) => { e.stopPropagation(); $('file').click(); });
+$('camBtn').addEventListener('click', (e) => { e.stopPropagation(); $('cam').click(); });
+$('drop').addEventListener('click', () => $('file').click());
+$('drop').addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $('file').click(); } });
+$('drop').addEventListener('dragover', (e) => { e.preventDefault(); $('drop').classList.add('over'); });
+$('drop').addEventListener('dragleave', () => $('drop').classList.remove('over'));
+$('drop').addEventListener('drop', (e) => { e.preventDefault(); $('drop').classList.remove('over'); loadPhoto(e.dataTransfer.files[0]); });
+['file', 'cam'].forEach((id) => $(id).addEventListener('change', (e) => { loadPhoto(e.target.files[0]); e.target.value = ''; }));
+$('newBtn').addEventListener('click', () => $('file').click());
+$('rotBtn').addEventListener('click', () => { photoRot = (photoRot + 90) % 360; update(); });
+$('inkLvl').addEventListener('input', later);
+$('nameIn').addEventListener('input', () => { renderFonts(); later(); });
+$('fonts').addEventListener('click', (e) => { const b = e.target.closest('.fontbtn'); if (!b) return; fontIdx = Number(b.dataset.i); store.set('sg-font', String(fontIdx)); renderFonts(); update(); });
+$('exact').addEventListener('change', update);
+['wIn', 'hIn', 'kbIn'].forEach((id) => $(id).addEventListener('input', later));
+$('dlPng').addEventListener('click', () => { if (out) download(out.png, `${fileBase()}.png`); });
+$('dlJpg').addEventListener('click', () => { if (out) download(out.jpg, `signature-${out.jw}x${out.jh}.jpg`); });
+$('shareBtn').addEventListener('click', async () => {
+  if (!out) return;
+  const files = [new File([out.png], `${fileBase()}.png`, { type: 'image/png' }), new File([out.jpg], `signature-${out.jw}x${out.jh}.jpg`, { type: 'image/jpeg' })];
+  for (const fl of [files, [files[0]]]) if (navigator.canShare && navigator.canShare({ files: fl })) { try { await navigator.share({ files: fl }); } catch (e) { /* cancelled */ } return; }
+  download(out.png, files[0].name);
+});
+let rz = 0; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(sizePad, 120); });
+
+// ---------- start
+$('year').textContent = new Date().getFullYear();
+applyMode(); applyColour(); renderFonts(); applyLang();
+if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register(`${BASE}sw.js`).catch(() => {});
+
+// ---------- self test (?selftest): drawn strokes, exports, paper clean-up and typed styles on made-up input
+const selftest = async () => {
+  const box = $('selftest'); box.classList.remove('hidden'); let pass = 0, fail = 0;
+  const log = (ok, name, info) => { if (ok) pass += 1; else fail += 1; box.textContent += `${ok ? 'PASS' : 'FAIL'} ${name}${info ? ` — ${info}` : ''}\n`; };
+  const pixels = async (blob) => { const b = await createImageBitmap(blob); const c = mk(b.width, b.height); const x = c.getContext('2d', { willReadFrequently: true }); x.drawImage(b, 0, 0); return { w: b.width, h: b.height, d: x.getImageData(0, 0, b.width, b.height).data }; };
+  const at = (g, X, Y) => [...g.d.slice((Y * g.w + X) * 4, (Y * g.w + X) * 4 + 4)];
+  const inked = (g) => { let best = null; for (let i = 0; i < g.d.length; i += 4) { const a = g.d[i + 3], l = g.d[i] + g.d[i + 1] + g.d[i + 2]; if (a > 200 && (!best || l < best[3])) best = [g.d[i], g.d[i + 1], g.d[i + 2], l, a]; } return best; };
+  const darkest = (g) => { let m = 999; for (let i = 0; i < g.d.length; i += 4) m = Math.min(m, (g.d[i] + g.d[i + 1] + g.d[i + 2]) / 3); return m; };
+  try {
+    // 1. draw: two strokes made through the same code the finger uses
+    mode = 'draw'; applyMode(); colour = 'black'; applyColour(); $('exact').checked = false; $('kbIn').value = ''; strokes = [];
+    const W = padW, H = padH; let tm = 0;
+    startStroke(W * 0.1, H * 0.6, tm, 0.5, false);
+    for (let i = 1; i <= 80; i += 1) { tm += 8 + (i % 5) * 4; moveStroke(W * (0.1 + 0.7 * i / 80), H * (0.55 - 0.18 * Math.sin(i / 6)), tm, 0.5, false); }
+    endStroke();
+    startStroke(W * 0.3, H * 0.3, tm + 200, 0.5, false); for (let i = 1; i <= 40; i += 1) moveStroke(W * (0.3 + 0.15 * Math.cos(i / 6.4)), H * (0.45 + 0.15 * Math.sin(i / 6.4)), tm + 200 + i * 20, 0.5, false); endStroke();
+    const widths = strokes[0].pts.map((p) => p.w * padW);
+    log(strokes.length === 2 && strokes[0].pts.length > 40, 'draw: strokes recorded', `${strokes.length} strokes, ${strokes[0].pts.length}+${strokes[1].pts.length} points`);
+    log(Math.max(...widths) - Math.min(...widths) > 0.3, 'draw: width follows speed', `width ${Math.min(...widths).toFixed(2)}–${Math.max(...widths).toFixed(2)} px`);
+    let r = await update(); let g = await pixels(r.png);
+    log(r.png.type === 'image/png' && at(g, 0, 0)[3] === 0 && at(g, g.w - 1, g.h - 1)[3] === 0, 'PNG: transparent corners', `${g.w}×${g.h}, corner alpha ${at(g, 0, 0)[3]},${at(g, g.w - 1, g.h - 1)[3]}`);
+    const ink = inked(g); log(ink && ink[3] < 120, 'PNG: black ink present', ink ? `rgb ${ink.slice(0, 3)}` : 'none');
+    log(Math.max(g.w, g.h) <= MAX_SIDE && g.w > g.h, 'PNG: trimmed, wide signature', `${g.w}×${g.h}`);
+    // 2. form size: 140 × 60, JPG under 20 KB
+    $('exact').checked = true; $('wIn').value = '140'; $('hIn').value = '60'; $('kbIn').value = '20';
+    r = await update(); g = await pixels(r.jpg); const jw = at(g, 0, 0);
+    log(r.jpg.type === 'image/jpeg' && g.w === 140 && g.h === 60 && r.jpg.size < 20 * 1024 && r.ok, 'JPG 140×60 under 20 KB', `${g.w}×${g.h}, ${r.jpg.size} B`);
+    log(jw[0] > 245 && jw[1] > 245 && jw[2] > 245 && darkest(g) < 110, 'JPG: white background, dark ink', `corner ${jw.slice(0, 3)}, darkest ${darkest(g).toFixed(0)}`);
+    g = await pixels(r.png); log(g.w === 140 && g.h === 60 && at(g, 0, 0)[3] === 0, 'PNG 140×60 transparent', `${g.w}×${g.h}, ${r.png.size} B`);
+    $('kbIn').value = '3'; r = await update(); log(r.jpg.size <= 3 * 1024 && r.jw === 140, 'JPG 140×60 squeezed under 3 KB', `${r.jpg.size} B`);
+    $('exact').checked = false; $('kbIn').value = '6'; r = await update(); log(r.jpg.size <= 6 * 1024, 'JPG free size under 6 KB (fewer px if needed)', `${r.jw}×${r.jh}, ${r.jpg.size} B`); $('kbIn').value = '';
+    // 3. blue ink
+    colour = 'blue'; applyColour(); r = await update(); g = await pixels(r.png); const bi = inked(g);
+    log(bi && bi[2] > bi[0] + 60, 'blue ink', bi ? `rgb ${bi.slice(0, 3)}` : 'none');
+    colour = 'black'; applyColour();
+    // 4. undo / clear
+    strokes.pop(); redrawPad(); log(strokes.length === 1 && !!(await update()), 'undo removes the last stroke');
+    strokes = []; redrawPad(); log((await update()) === null, 'clear empties the pad');
+    // 5. paper photo: uneven grey-yellow paper, a dark scribble, specks far away
+    const pc = mk(900, 600), px = pc.getContext('2d');
+    const grad = px.createLinearGradient(0, 0, 900, 600); grad.addColorStop(0, 'rgb(150,146,130)'); grad.addColorStop(1, 'rgb(232,228,214)'); px.fillStyle = grad; px.fillRect(0, 0, 900, 600);
+    px.strokeStyle = 'rgb(55,58,95)'; px.lineWidth = 7; px.lineCap = 'round'; px.beginPath(); px.moveTo(250, 330);
+    for (let i = 0; i <= 60; i += 1) px.lineTo(250 + i * 6.5, 300 - 70 * Math.sin(i / 5)); px.stroke();
+    px.fillStyle = 'rgb(60,60,60)'; [[40, 40], [860, 560], [850, 50], [60, 550]].forEach(([x, y]) => { px.beginPath(); px.arc(x, y, 2.5, 0, 7); px.fill(); });
+    const pb = await encode(pc, 'image/jpeg', 0.9);
+    mode = 'photo'; applyMode(); await loadPhoto(new File([pb], 'paper.jpg', { type: 'image/jpeg' }));
+    r = out; g = await pixels(r.png); const pi = inked(g);
+    log(!!r && at(g, 0, 0)[3] === 0 && at(g, g.w - 1, 0)[3] === 0, 'paper: background made transparent', r ? `${g.w}×${g.h}, corner alpha ${at(g, 0, 0)[3]}` : 'no result');
+    log(g.w > 390 && g.w < 520 && g.h > 140 && g.h < 260, 'paper: cropped to the signature, specks dropped', `${g.w}×${g.h} (scribble ≈ 400×150)`);
+    let maxA = 0, solid = 0; for (let i = 3; i < g.d.length; i += 4) { maxA = Math.max(maxA, g.d[i]); if (g.d[i] === 255) solid += 1; }
+    log(pi && pi[3] < 120 && maxA === 255 && solid > 500, 'paper: ink made dark and solid', pi ? `rgb ${pi.slice(0, 3)}, ${solid} fully solid ink px` : 'none');
+    g = await pixels(r.jpg); const pj = at(g, 2, 2); log(pj[0] > 245 && pj[1] > 245 && pj[2] > 245, 'paper: JPG background pure white', `corner ${pj.slice(0, 3)}`);
+    photoRot = 90; r = await update(); g = await pixels(r.png); log(g.h > g.w, 'paper: turn 90°', `${g.w}×${g.h}`); photoRot = 0;
+    // 6. typed name in each bundled style
+    mode = 'type'; applyMode(); $('nameIn').value = 'Priya Sharma'; renderFonts(); $('exact').checked = false;
+    const ws = [];
+    for (let i = 0; i < FONTS.length; i += 1) {
+      fontIdx = i; await fontsReady(FONTS[i].fam);
+      const loaded = document.fonts.check(`80px "${FONTS[i].fam}"`, 'Priya');
+      r = await update(); g = await pixels(r.png); ws.push(g.w / g.h);
+      log(loaded && g.w > g.h * 2 && at(g, 0, 0)[3] === 0, `typed style ${i + 1} (${FONTS[i].fam}, bundled)`, `font loaded=${loaded}, ${g.w}×${g.h}`);
+    }
+    log(new Set(ws.map((v) => v.toFixed(2))).size === FONTS.length, 'typed styles all look different', ws.map((v) => v.toFixed(2)).join(' / '));
+    fontIdx = 0; $('nameIn').value = ''; renderFonts();
+    // 7. languages: same keys everywhere, every label filled, FAQ + JSON-LD match
+    const keys = Object.keys(T.hinglish).sort().join();
+    for (const l of LANGS) {
+      lang = l; applyLang();
+      const empty = [...document.querySelectorAll('[data-t]')].filter((el) => !el.textContent.trim()).map((el) => el.dataset.t);
+      const ld = JSON.parse($('faqLd').textContent); const words = document.querySelector('.wrap').innerText.split(/\s+/).length;
+      log(Object.keys(T[l]).sort().join() === keys && !empty.length && ld.mainEntity.length === t('faq').length && ld.mainEntity[0].name === t('faq')[0][0], `language ${l}`, `${document.querySelectorAll('[data-t]').length} labels, ${ld.mainEntity.length} FAQ in JSON-LD, ~${words} words on page`);
+    }
+    lang = 'hinglish'; applyLang(); mode = 'draw'; applyMode();
+  } catch (e) { log(false, 'crashed', String(e && e.stack || e)); }
+  box.textContent += `SELFTEST DONE: ${pass} pass, ${fail} fail\n`;
+};
+// Headless Chrome's virtual clock runs ahead while the page waits on picture decoding; a chain of tiny
+// image loads keeps it paused until the test is done (test only).
+const holdClock = (p) => { let done = false; p.then(() => { done = true; }, () => { done = true; }); const tiny = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='; let n = 0; const tick = () => { if (done || (n += 1) > 3000000) return; const i = new Image(); i.onload = tick; i.onerror = tick; i.src = `${tiny}#${Math.random()}`; }; tick(); return p; };
+if (params.has('selftest')) holdClock(selftest());
+</script>
+</body>
+</html>
