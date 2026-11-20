@@ -95,6 +95,11 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 **12. Promo videos** — `~/www/videos/` (not in this repo): Hisab Kitab videos, 6 wish Reels (`wishes/`: `capture.js` → `compose.js`), post texts `POSTS.md`.
 
+## 20 Nov 2026: Khel rules pages (/khel/)
+- [x] `src/khel.mjs`: real-life rules of Carrom, Kanche, Gilli-Danda, Pitthu (4 languages, own words): what you need, steps (HowTo JSON-LD), win/points, other names, tips, FAQ (FAQPage), "play online" button. Hub `/khel/` + button on `/games/`, sitemap + llms.txt.
+- Not scheduled separately: each rules page goes live with its game (`game:<slug>` in releases.mjs); `/khel/` appears once the first one (carrom, 21 Nov) is live. To add one: new entry in `rules` with the game's slug.
+- Tested: `RELEASE_TODAY=2026-12-10` build → 413 pages, all 4 rules pages × 4 languages, JSON-LD parses.
+
 ## 16 Nov 2026: 4 games (home laptop; user: "yeh 4 bana ke scheduled kar do")
 - [x] `/games/basant-sargam/` **Basant ki Sargam** (Vasant Panchami): 7-petal flower = Sa Re Ga Ma Pa Dha Ni (C major / Bilawal), Simon-style: tune grows by one note per round, one "ek mauka aur" per game, then over. Score = longest tune. 🎶 free-play practice mode. Playable muted (petals glow). Keys 1–7. CACHE `ng-basant-sargam-v1`, storage `bs-*`.
 - [x] `/games/rang-barsao/` **Rang Barsao** (Holi): Braj lane, 6/8 windows+doors; tap friends with dry gulal (10, favourite colour 20); 🙅 people who said no and 🐄🐕 animals = −10; 🥟 gujiya +5. 60 s, no music. Message: consent, no colour on animals, herbal gulal, save water. CACHE `ng-rang-barsao-v1`, storage `rb-*`.
