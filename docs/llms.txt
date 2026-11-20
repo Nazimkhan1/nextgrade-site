@@ -90,6 +90,13 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [Journey of the Year 2026 → 2027](https://nextgrade.in/games/saal-ka-safar/?lang=en)
 - [Langar Seva](https://nextgrade.in/games/langar-seva/?lang=en)
 
+## Tools
+
+- [Passport Size Photo Maker](https://nextgrade.in/tools/passport-photo/): White or blue background, face centred automatically, 3.5×4.5 cm / 2×2 inch, a 4×6 print sheet and a digital photo under any KB limit.
+- [Document Scanner → PDF](https://nextgrade.in/tools/doc-scanner/): Scan documents with your phone: auto crop, black & white, many pages in one PDF, and under 100/200 KB.
+- [Image Compressor — 20/50/100 KB](https://nextgrade.in/tools/image-compress/): Make a photo 20, 50, 100, 200 KB or any size. JPG or WebP, many photos at once, ZIP download.
+- [Exam Form Photo & Signature Resizer](https://nextgrade.in/tools/form-helper/): Photo, signature, thumb and declaration at the exact px and KB that SSC, UPSC, IBPS / SBI, NEET and JEE forms ask for. Cleans up a signature on paper.
+
 ## About
 
 - [About NextGrade](https://nextgrade.in/en/about/)

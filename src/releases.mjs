@@ -69,9 +69,10 @@ const LINES = [
   { prefix: 'nibandh', start: '2026-11-22', gap: [2, 4], seed: 23, slugs: [
     'sardi-ka-mausam', 'mera-vidyalaya', 'gaay', 'meri-maa', 'ped', 'jal', 'diwali', 'mera-priya-mitra',
   ] },
+  // Live since 20 Nov 2026 (user said yes: on-device tools live now): form-helper, image-compress, passport-photo,
+  // doc-scanner — not listed = live. Still waiting (real-phone testing first):
   { prefix: 'tool', start: TOOLS_START, gap: [3, 6], seed: 13, slugs: [
-    'form-helper', // most searched, first
-    'passport-photo', 'doc-scanner', 'bg-remover', 'hair-tryon',
+    'bg-remover', 'hair-tryon',
   ] },
 ];
 

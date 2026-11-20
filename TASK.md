@@ -95,6 +95,11 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 **12. Promo videos** — `~/www/videos/` (not in this repo): Hisab Kitab videos, 6 wish Reels (`wishes/`: `capture.js` → `compose.js`), post texts `POSTS.md`.
 
+## 20 Nov 2026: 4 tools live (before AdSense approval, user said yes)
+- [x] Live now with the /tools/ page + menu link + Privacy Policy paragraph: **Form Helper** (+ ssc/upsc/bank/neet), **Image Compressor** (new, copied with `scripts/copy-tool.py image-compress`; + 20kb/50kb/100kb/200kb), **Passport Photo**, **Doc Scanner**. All on-device.
+- Still waiting on the tool line (`TOOLS_START`): bg-remover, hair-tryon (real-phone test first). Branch tools not merged: photo-frame, stylish-name, krutidev.
+- Tools hub text and privacy text no longer name the held tools. Tested: all tool pages load in headless Chrome with no console errors.
+
 ## 20 Nov 2026: Calculators (/calculator/) + 5 essays (from the other computer, merged here)
 - [x] 8 calculators, live 20 Nov with a "Calculators" menu link (user: "global kaam live kar sakte ho"): age, percentage, emi, gst, sip, bmi, discount, date-difference. Content `src/calculators.mjs`, maths `src/assets/calc.js` (browser only). Menu: `CALC_IN_NAV` in build.mjs.
 - GST page uses GST 2.0 rates (from 22 Sep 2025: 5%, 18%, 40%; 12% and 28% removed). Re-check if the GST Council changes slabs.

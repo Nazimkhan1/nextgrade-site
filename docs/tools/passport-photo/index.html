@@ -1,0 +1,452 @@
+<!doctype html>
+<html data-prerendered="hi" lang="hi">
+<head>
+<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Passport Size Photo Maker — free, white background, print sheet | NextGrade Tools</title>
+<meta name="description" content="Make a passport size photo for free: white or blue background, face centred automatically, 3.5×4.5 cm, 2×2 inch or stamp size, a 4×6 print sheet or A4 PDF, and a digital photo under any KB limit. Everything runs on your phone; the photo is never uploaded.">
+<meta name="theme-color" content="#1864ab">
+<link rel="canonical" href="https://nextgrade.in/tools/passport-photo/">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #eef4fb; --card: #fff; --ink: #14243a; --muted: #5b6b80; --brand: #1864ab; --brand2: #339af0; --line: #d6e4f3; --ok: #2b8a3e; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 8px; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 21px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand small { display: block; font-family: Inter, sans-serif; font-size: 12px; font-weight: 600; color: var(--muted); }
+select, button, input { font: inherit; }
+.langsel, .inp { padding: 7px 9px; border-radius: 10px; border: 1px solid var(--line); background: #fff; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(26px, 6vw, 36px); line-height: 1.15; margin: 4px 0; }
+.sub { color: var(--muted); margin: 0 0 10px; }
+.privacy { background: #ebfbee; border: 1px solid #b2f2bb; color: #1b5e20; border-radius: 12px; padding: 8px 12px; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 4px 18px rgba(24, 100, 171, 0.06); }
+.drop { border: 2px dashed #a5c8ee; border-radius: 16px; padding: 28px 16px; text-align: center; background: #f6faff; cursor: pointer; }
+.drop b { display: block; font-size: 18px; margin-bottom: 6px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 700; cursor: pointer; }
+.btn-main { background: linear-gradient(90deg, var(--brand), var(--brand2)); color: #fff; border: 0; }
+.btn-ok { background: var(--ok); color: #fff; border: 0; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.editor { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 14px; margin-top: 12px; }
+@media (max-width: 760px) { .editor { grid-template-columns: 1fr; } }
+.stagebox { position: relative; border-radius: 14px; background: #dfe7f1; display: flex; align-items: center; justify-content: center; padding: 14px; min-height: 260px; touch-action: none; user-select: none; -webkit-user-select: none; }
+#view { display: block; max-width: 100%; max-height: 62vh; box-shadow: 0 6px 20px rgba(0,0,0,.18); cursor: grab; background: #fff; }
+.busy { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.88); font-weight: 700; color: var(--brand); text-align: center; padding: 16px; border-radius: 14px; }
+.spin { width: 34px; height: 34px; border-radius: 50%; border: 4px solid #a5d8ff; border-top-color: var(--brand); animation: sp 0.9s linear infinite; }
+@keyframes sp { to { transform: rotate(360deg); } }
+.side h3 { margin: 12px 0 6px; font-size: 15px; } .side h3:first-child { margin-top: 0; }
+.sizes { display: grid; gap: 6px; }
+.sz { text-align: start; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line); background: #fff; cursor: pointer; font-weight: 700; font-size: 14px; }
+.sz small { display: block; font-weight: 500; color: var(--muted); font-size: 12px; }
+.sz.on { border-color: var(--brand); background: #e7f5ff; color: var(--brand); }
+.swatches { display: flex; gap: 8px; flex-wrap: wrap; }
+.sw { width: 40px; height: 40px; border-radius: 10px; border: 2px solid var(--line); cursor: pointer; }
+.sw.on { border-color: var(--brand); box-shadow: 0 0 0 2px #a5d8ff; }
+label.sl { display: block; font-size: 13px; color: var(--muted); margin-top: 8px; }
+input[type=range] { width: 100%; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.hint { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+.warnmsg { font-size: 13px; color: #c92a2a; font-weight: 600; margin: 6px 0 0; }
+.result { font-weight: 700; font-size: 14px; margin-top: 6px; color: var(--ok); }
+.hidden { display: none !important; }
+section.info { margin: 26px 0; }
+section.info h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 22px; margin: 0 0 6px; }
+footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top: 1px solid var(--line); margin-top: 24px; }
+.toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: #14243a; color: #fff; padding: 10px 16px; border-radius: 12px; font-weight: 600; z-index: 20; }
+</style>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://nextgrade.in/tools/">🪪 NextGrade Tools<small data-t="brandSub">मुफ़्त · फ़ोटो फ़ोन से बाहर नहीं जाती</small></a>
+    <select class="langsel" id="lang" aria-label="Language"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+  </header>
+
+  <h1 data-t="title">पासपोर्ट साइज़ फ़ोटो बनाओ — मुफ़्त</h1>
+  <p class="sub" data-t="sub">सफ़ेद या नीला बैकग्राउंड, चेहरा अपने आप बीच में, 3.5×4.5 cm / 2×2 इंच / स्टाम्प साइज़, 4×6 प्रिंट शीट या A4 PDF, और फ़ॉर्म के लिए KB लिमिट वाली डिजिटल फ़ोटो।</p>
+  <div class="privacy">🔒 <span data-t="privacy">आपकी फ़ोटो कहीं अपलोड नहीं होती। सारा काम फ़ोन/ब्राउज़र में होता है, डाउनलोड भी फ़ोन में ही।</span></div>
+
+  <div class="card" id="pickCard">
+    <div class="drop" id="drop" role="button" tabindex="0">
+      <b data-t="pickTitle">अपनी फ़ोटो चुनो</b>
+      <span class="hint" data-t="pickHint">सीधा चेहरा, कंधे तक, अच्छी रोशनी। सादी दीवार के सामने हो तो और अच्छा।</span>
+      <div class="row" style="justify-content:center;margin-top:12px">
+        <button class="btn btn-main" id="pickBtn" type="button" data-t="pickBtn"></button>
+        <button class="btn" id="camBtn" type="button" data-t="camBtn"></button>
+      </div>
+    </div>
+    <input type="file" id="file" accept="image/*" class="hidden">
+    <input type="file" id="cam" accept="image/*" capture="user" class="hidden">
+  </div>
+
+  <div class="editor hidden" id="editor">
+    <div class="card">
+      <div class="stagebox" id="stagebox">
+        <canvas id="view" aria-label="Passport photo preview"></canvas>
+        <div class="busy hidden" id="busy"><div class="spin"></div><div id="busyText"></div></div>
+      </div>
+      <p class="hint" data-t="dragHint"></p>
+      <label class="sl"><span data-t="zoom"></span></label>
+      <input type="range" id="zoom" min="70" max="140" step="1" value="100">
+      <div class="row" style="margin-top:8px">
+        <button class="btn" id="newBtn" type="button" data-t="newPhoto"></button>
+        <button class="btn" id="autoBtn" type="button" data-t="autoFit"></button>
+      </div>
+      <p class="warnmsg hidden" id="noFace" data-t="noFace"></p>
+    </div>
+
+    <div class="card side">
+      <h3 data-t="sizeH"></h3>
+      <div class="sizes" id="sizes"></div>
+      <div class="grid2 hidden" id="customBox" style="margin-top:6px">
+        <label><span class="hint" data-t="wMm"></span><input class="inp" id="cw" type="number" min="15" max="100" value="35"></label>
+        <label><span class="hint" data-t="hMm"></span><input class="inp" id="ch" type="number" min="15" max="120" value="45"></label>
+      </div>
+
+      <h3 data-t="bgH"></h3>
+      <div class="swatches" id="bgs"></div>
+
+      <h3 data-t="saveH"></h3>
+      <label class="sl" for="kb" data-t="kbLabel"></label>
+      <select class="inp" id="kb" style="width:100%"><option value="0" data-t="noLimit"></option><option value="20">20 KB</option><option value="50">50 KB</option><option value="100">100 KB</option><option value="200">200 KB</option><option value="500">500 KB</option></select>
+      <div class="row" style="margin-top:8px"><button class="btn btn-ok" id="dlPhoto" type="button" data-t="dlPhoto"></button></div>
+      <div class="result" id="result"></div>
+      <label class="sl" for="sheet" data-t="sheetLabel"></label>
+      <select class="inp" id="sheet" style="width:100%"><option value="4x6" data-t="sheet46"></option><option value="a4" data-t="sheetA4"></option></select>
+      <div class="row" style="margin-top:8px">
+        <button class="btn btn-main" id="dlSheet" type="button" data-t="dlSheet"></button>
+        <button class="btn" id="shareBtn" type="button" data-t="share"></button>
+      </div>
+      <p class="hint" id="sheetInfo"></p>
+      <p class="hint" data-t="checkRules"></p>
+    </div>
+  </div>
+
+  <section class="info"><h2 data-t="howH">कैसे बनाएँ</h2><ol id="howList"><li><b>फ़ोटो चुनो</b> या <b>फ़ोटो लो</b> — सीधा चेहरा, कंधे तक।</li><li>बैकग्राउंड अपने आप हटकर <b>सफ़ेद</b> हो जाता है और चेहरा बीच में सेट हो जाता है।</li><li><b>साइज़</b> चुनो (3.5×4.5 cm, 2×2 इंच, स्टाम्प या अपना) और बैकग्राउंड का रंग।</li><li>ज़रूरत हो तो फ़ोटो खिसकाओ या छोटा-बड़ा करो।</li><li>फ़ॉर्म के लिए <b>डिजिटल फ़ोटो</b> (KB लिमिट के साथ) या प्रिंट के लिए <b>4×6 शीट / A4 PDF</b> डाउनलोड करो — किसी भी फ़ोटो दुकान पर प्रिंट करवा लो।</li></ol></section>
+  <section class="info"><h2 data-t="tipsH">अच्छी पासपोर्ट फ़ोटो के लिए</h2><ul id="tipList"><li>सीधे कैमरे की तरफ़ देखो, मुँह बंद, चेहरा साफ़ दिखे।</li><li>चश्मा, टोपी या चेहरे पर बाल न हों (जब तक फ़ॉर्म अनुमति न दे)।</li><li>दिन की रोशनी, चेहरे पर परछाईं नहीं।</li><li>4×6 शीट को फ़ोटो पेपर पर "actual size / 100%" पर प्रिंट करवाओ, "fit to page" नहीं।</li></ul></section>
+  <section class="info"><h2 data-t="privH">आपकी फ़ोटो, आपके पास</h2><p data-t="privText">यह टूल AI मॉडल एक बार डाउनलोड करके आपके फ़ोन/ब्राउज़र में ही चलाता है। आपकी फ़ोटो किसी सर्वर पर नहीं जाती, कहीं सेव नहीं होती, और हम उसे देख भी नहीं सकते। पेज बंद करते ही सब मिट जाता है।</p></section>
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer">मुफ़्त टूल · फ़ोटो अपलोड नहीं होती</span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+</div>
+
+<script src="lib/jspdf.umd.min.js"></script>
+<script type="module">
+import { FilesetResolver, ImageSegmenter, FaceLandmarker } from './lib/vision_bundle.mjs';
+
+const WASM = new URL('./lib/wasm', location.href).href; // MediaPipe tasks-vision 0.10.14 (Apache-2.0), kept in this folder
+const MODEL_PERSON = 'models/selfie_multiclass_256x256.tflite';
+const MODEL_FACE = 'models/face_landmarker.task';
+const MAX_SIDE = 2048, DPI = 300;
+const mmToPx = (mm) => Math.round((mm / 25.4) * DPI);
+
+// head = chin to top of hair, as a share of the photo height; top = gap above the head
+const SIZES = [
+  { id: 'p35', w: 35, h: 45, head: 0.74, top: 0.09 },
+  { id: 'in2', w: 51, h: 51, head: 0.6, top: 0.13 },
+  { id: 'stamp', w: 20, h: 25, head: 0.72, top: 0.1 },
+  { id: 'p45', w: 45, h: 35, head: 0.72, top: 0.1 },
+  { id: 'custom', w: 35, h: 45, head: 0.72, top: 0.1 },
+];
+const BGS = ['#ffffff', '#dbe9f7', '#9ec5ec', '#eceff2', 'original'];
+
+const T = {
+  hinglish: {
+    brandSub: 'Free · photo phone se bahar nahi jaati', title: 'Passport size photo banao — free',
+    sub: 'Safed ya neela background, chehra apne aap beech mein, 3.5×4.5 cm / 2×2 inch / stamp size, 4×6 print sheet ya A4 PDF, aur form ke liye KB limit wali digital photo.',
+    privacy: 'Aapki photo kahin upload nahi hoti. Saara kaam phone/browser mein hota hai, download bhi phone mein hi.',
+    pickTitle: 'Apni photo chuno', pickHint: 'Seedha chehra, kandhe tak, achhi roshni. Saada deewar ke saamne ho to aur achha.',
+    pickBtn: '🖼️ Photo chuno', camBtn: '🤳 Photo lo', dragHint: 'Photo ko ungli se khiskao; neeche slider se chhota-bada karo.', zoom: 'Chehra chhota / bada',
+    newPhoto: '↺ Nayi photo', autoFit: '🎯 Apne aap set karo', noFace: 'Chehra nahi mila — seedhe chehre wali saaf photo lo.',
+    sizeH: 'Size', bgH: 'Background', saveH: 'Download', kbLabel: 'Digital photo (form ke liye) ka size', noLimit: 'Koi limit nahi',
+    dlPhoto: '⬇️ Digital photo (JPG)', sheetLabel: 'Print ke liye sheet', sheet46: '4×6 inch photo paper (JPG)', sheetA4: 'A4 page (PDF)', dlSheet: '🖨️ Print sheet download', share: '📲 Share',
+    sheetInfo: (n) => `Is sheet par ${n} photo aayengi, kaatne ki lines ke saath.`, made: (w, h, kb) => `✅ ${w}×${h} px, ${kb} KB`, notFit: (kb, lim) => `⚠️ ${kb} KB — ${lim} KB se kam nahi ho payi`,
+    checkRules: 'Har form/office ke apne niyam hote hain (size, background, KB) — bhejne se pehle unke niyam zaroor padh lo.',
+    wMm: 'Chaudai (mm)', hMm: 'Lambai (mm)',
+    sizes: { p35: ['Passport size 3.5 × 4.5 cm', 'Zyadatar forms, ID card, admission'], in2: ['2 × 2 inch (5.1 × 5.1 cm)', 'Kuch visa / OCI type forms'], stamp: ['Stamp size 2 × 2.5 cm', 'Chhote forms'], p45: ['4.5 × 3.5 cm (aadi)', 'Landscape forms'], custom: ['Apna size', 'mm mein likho'] },
+    loading: 'AI taiyaar ho raha hai… (pehli baar thoda samay, phir offline bhi)', working: 'Background hata rahe hain, chehra dhund rahe hain… (phone par hi)', failed: 'Yeh photo nahi khul payi. Doosri try karo.', saved: '✅ Phone mein save ho gaya',
+    howH: 'Kaise banayein', how: ['<b>Photo chuno</b> ya <b>photo lo</b> — seedha chehra, kandhe tak.', 'Background apne aap hat kar <b>safed</b> ho jaata hai aur chehra beech mein set ho jaata hai.', '<b>Size</b> chuno (3.5×4.5 cm, 2×2 inch, stamp ya apna) aur background ka rang.', 'Zaroorat ho to photo khiskao ya chhota-bada karo.', 'Form ke liye <b>digital photo</b> (KB limit ke saath) ya print ke liye <b>4×6 sheet / A4 PDF</b> download karo — kisi bhi photo dukaan par print karwa lo.'],
+    tipsH: 'Achhi passport photo ke liye', tips: ['Seedha camera ki taraf dekho, muh band, chehra saaf dikhe.', 'Chashma, topi ya chehre par baal na ho (jab tak form allow na kare).', 'Din ki roshni, chehre par parchhai nahi.', '4×6 sheet ko photo paper par "actual size / 100%" par print karwao, "fit to page" nahi.'],
+    privH: 'Aapki photo, aapke paas', privText: 'Yeh tool AI model ek baar download karke aapke phone/browser mein hi chalata hai. Aapki photo kisi server par nahi jaati, kahin save nahi hoti, aur hum use dekh bhi nahi sakte. Page band karte hi sab mit jaata hai.',
+    footer: 'Free tool · photo upload nahi hoti',
+  },
+  hi: {
+    brandSub: 'मुफ़्त · फ़ोटो फ़ोन से बाहर नहीं जाती', title: 'पासपोर्ट साइज़ फ़ोटो बनाओ — मुफ़्त',
+    sub: 'सफ़ेद या नीला बैकग्राउंड, चेहरा अपने आप बीच में, 3.5×4.5 cm / 2×2 इंच / स्टाम्प साइज़, 4×6 प्रिंट शीट या A4 PDF, और फ़ॉर्म के लिए KB लिमिट वाली डिजिटल फ़ोटो।',
+    privacy: 'आपकी फ़ोटो कहीं अपलोड नहीं होती। सारा काम फ़ोन/ब्राउज़र में होता है, डाउनलोड भी फ़ोन में ही।',
+    pickTitle: 'अपनी फ़ोटो चुनो', pickHint: 'सीधा चेहरा, कंधे तक, अच्छी रोशनी। सादी दीवार के सामने हो तो और अच्छा।',
+    pickBtn: '🖼️ फ़ोटो चुनो', camBtn: '🤳 फ़ोटो लो', dragHint: 'फ़ोटो को उँगली से खिसकाओ; नीचे स्लाइडर से छोटा-बड़ा करो।', zoom: 'चेहरा छोटा / बड़ा',
+    newPhoto: '↺ नई फ़ोटो', autoFit: '🎯 अपने आप सेट करो', noFace: 'चेहरा नहीं मिला — सीधे चेहरे वाली साफ़ फ़ोटो लो।',
+    sizeH: 'साइज़', bgH: 'बैकग्राउंड', saveH: 'डाउनलोड', kbLabel: 'डिजिटल फ़ोटो (फ़ॉर्म के लिए) का साइज़', noLimit: 'कोई लिमिट नहीं',
+    dlPhoto: '⬇️ डिजिटल फ़ोटो (JPG)', sheetLabel: 'प्रिंट के लिए शीट', sheet46: '4×6 इंच फ़ोटो पेपर (JPG)', sheetA4: 'A4 पेज (PDF)', dlSheet: '🖨️ प्रिंट शीट डाउनलोड', share: '📲 शेयर',
+    sheetInfo: (n) => `इस शीट पर ${n} फ़ोटो आएँगी, काटने की लाइनों के साथ।`, made: (w, h, kb) => `✅ ${w}×${h} px, ${kb} KB`, notFit: (kb, lim) => `⚠️ ${kb} KB — ${lim} KB से कम नहीं हो पाई`,
+    checkRules: 'हर फ़ॉर्म/दफ़्तर के अपने नियम होते हैं (साइज़, बैकग्राउंड, KB) — भेजने से पहले उनके नियम ज़रूर पढ़ लो।',
+    wMm: 'चौड़ाई (mm)', hMm: 'लंबाई (mm)',
+    sizes: { p35: ['पासपोर्ट साइज़ 3.5 × 4.5 cm', 'ज़्यादातर फ़ॉर्म, ID कार्ड, एडमिशन'], in2: ['2 × 2 इंच (5.1 × 5.1 cm)', 'कुछ वीज़ा / OCI जैसे फ़ॉर्म'], stamp: ['स्टाम्प साइज़ 2 × 2.5 cm', 'छोटे फ़ॉर्म'], p45: ['4.5 × 3.5 cm (आड़ी)', 'आड़े फ़ॉर्म'], custom: ['अपना साइज़', 'mm में लिखो'] },
+    loading: 'AI तैयार हो रहा है… (पहली बार थोड़ा समय, फिर ऑफ़लाइन भी)', working: 'बैकग्राउंड हटा रहे हैं, चेहरा ढूँढ रहे हैं… (फ़ोन पर ही)', failed: 'यह फ़ोटो नहीं खुल पाई। दूसरी आज़माओ।', saved: '✅ फ़ोन में सेव हो गया',
+    howH: 'कैसे बनाएँ', how: ['<b>फ़ोटो चुनो</b> या <b>फ़ोटो लो</b> — सीधा चेहरा, कंधे तक।', 'बैकग्राउंड अपने आप हटकर <b>सफ़ेद</b> हो जाता है और चेहरा बीच में सेट हो जाता है।', '<b>साइज़</b> चुनो (3.5×4.5 cm, 2×2 इंच, स्टाम्प या अपना) और बैकग्राउंड का रंग।', 'ज़रूरत हो तो फ़ोटो खिसकाओ या छोटा-बड़ा करो।', 'फ़ॉर्म के लिए <b>डिजिटल फ़ोटो</b> (KB लिमिट के साथ) या प्रिंट के लिए <b>4×6 शीट / A4 PDF</b> डाउनलोड करो — किसी भी फ़ोटो दुकान पर प्रिंट करवा लो।'],
+    tipsH: 'अच्छी पासपोर्ट फ़ोटो के लिए', tips: ['सीधे कैमरे की तरफ़ देखो, मुँह बंद, चेहरा साफ़ दिखे।', 'चश्मा, टोपी या चेहरे पर बाल न हों (जब तक फ़ॉर्म अनुमति न दे)।', 'दिन की रोशनी, चेहरे पर परछाईं नहीं।', '4×6 शीट को फ़ोटो पेपर पर "actual size / 100%" पर प्रिंट करवाओ, "fit to page" नहीं।'],
+    privH: 'आपकी फ़ोटो, आपके पास', privText: 'यह टूल AI मॉडल एक बार डाउनलोड करके आपके फ़ोन/ब्राउज़र में ही चलाता है। आपकी फ़ोटो किसी सर्वर पर नहीं जाती, कहीं सेव नहीं होती, और हम उसे देख भी नहीं सकते। पेज बंद करते ही सब मिट जाता है।',
+    footer: 'मुफ़्त टूल · फ़ोटो अपलोड नहीं होती',
+  },
+  en: {
+    brandSub: 'Free · your photo never leaves your phone', title: 'Make a passport size photo — free',
+    sub: 'White or blue background, face centred automatically, 3.5×4.5 cm / 2×2 inch / stamp size, a 4×6 print sheet or A4 PDF, and a digital photo under any KB limit for forms.',
+    privacy: 'Your photo is never uploaded. Everything happens on your phone/browser, and the download stays on your phone.',
+    pickTitle: 'Choose your photo', pickHint: 'Face straight on, down to the shoulders, good light. A plain wall behind you helps.',
+    pickBtn: '🖼️ Choose photo', camBtn: '🤳 Take photo', dragHint: 'Drag the photo to move it; use the slider below to make the face smaller or bigger.', zoom: 'Face smaller / bigger',
+    newPhoto: '↺ New photo', autoFit: '🎯 Auto fit', noFace: 'No face found — use a clear, straight-on photo.',
+    sizeH: 'Size', bgH: 'Background', saveH: 'Download', kbLabel: 'Digital photo (for forms) file size', noLimit: 'No limit',
+    dlPhoto: '⬇️ Digital photo (JPG)', sheetLabel: 'Sheet for printing', sheet46: '4×6 inch photo paper (JPG)', sheetA4: 'A4 page (PDF)', dlSheet: '🖨️ Download print sheet', share: '📲 Share',
+    sheetInfo: (n) => `${n} photos fit on this sheet, with cutting lines.`, made: (w, h, kb) => `✅ ${w}×${h} px, ${kb} KB`, notFit: (kb, lim) => `⚠️ ${kb} KB — could not get under ${lim} KB`,
+    checkRules: 'Every form or office has its own rules (size, background, KB) — always read them before you send.',
+    wMm: 'Width (mm)', hMm: 'Height (mm)',
+    sizes: { p35: ['Passport size 3.5 × 4.5 cm', 'Most forms, ID cards, admissions'], in2: ['2 × 2 inch (5.1 × 5.1 cm)', 'Some visa / OCI style forms'], stamp: ['Stamp size 2 × 2.5 cm', 'Small forms'], p45: ['4.5 × 3.5 cm (landscape)', 'Landscape forms'], custom: ['Custom size', 'Type it in mm'] },
+    loading: 'Getting the AI ready… (a moment the first time, then it works offline)', working: 'Removing the background and finding the face… (on your phone)', failed: 'This photo could not be opened. Try another.', saved: '✅ Saved to your phone',
+    howH: 'How to make it', how: ['<b>Choose a photo</b> or <b>take one</b> — face straight on, down to the shoulders.', 'The background is removed and turned <b>white</b>, and the face is centred automatically.', 'Pick a <b>size</b> (3.5×4.5 cm, 2×2 inch, stamp or custom) and a background colour.', 'Move or resize the photo if needed.', 'Download a <b>digital photo</b> for forms (with a KB limit) or a <b>4×6 sheet / A4 PDF</b> for printing — any photo shop can print it.'],
+    tipsH: 'For a good passport photo', tips: ['Look straight at the camera, mouth closed, face clearly visible.', 'No glasses, cap or hair over the face (unless the form allows it).', 'Daylight, no shadows on the face.', 'Print the 4×6 sheet on photo paper at "actual size / 100%", not "fit to page".'],
+    privH: 'Your photo stays with you', privText: 'This tool downloads the AI model once and runs it inside your phone/browser. Your photo is not sent to any server, not saved anywhere, and we cannot see it. Closing the page clears everything.',
+    footer: 'Free tool · no photo upload',
+  },
+  bn: {
+    brandSub: 'বিনামূল্যে · ছবি ফোনের বাইরে যায় না', title: 'পাসপোর্ট সাইজ ছবি বানাও — বিনামূল্যে',
+    sub: 'সাদা বা নীল ব্যাকগ্রাউন্ড, মুখ নিজে থেকেই মাঝখানে, 3.5×4.5 cm / 2×2 ইঞ্চি / স্ট্যাম্প সাইজ, 4×6 প্রিন্ট শিট বা A4 PDF, আর ফর্মের জন্য KB সীমার ডিজিটাল ছবি।',
+    privacy: 'তোমার ছবি কোথাও আপলোড হয় না। সব কাজ ফোন/ব্রাউজারেই হয়, ডাউনলোডও ফোনেই।',
+    pickTitle: 'নিজের ছবি বাছো', pickHint: 'সোজা মুখ, কাঁধ পর্যন্ত, ভালো আলো। সাদা দেওয়ালের সামনে হলে আরও ভালো।',
+    pickBtn: '🖼️ ছবি বাছো', camBtn: '🤳 ছবি তোলো', dragHint: 'আঙুল দিয়ে ছবি সরাও; নিচের স্লাইডারে ছোট-বড় করো।', zoom: 'মুখ ছোট / বড়',
+    newPhoto: '↺ নতুন ছবি', autoFit: '🎯 নিজে থেকে বসাও', noFace: 'মুখ পাওয়া গেল না — সোজা, পরিষ্কার মুখের ছবি নাও।',
+    sizeH: 'সাইজ', bgH: 'ব্যাকগ্রাউন্ড', saveH: 'ডাউনলোড', kbLabel: 'ডিজিটাল ছবির (ফর্মের জন্য) মাপ', noLimit: 'কোনো সীমা নেই',
+    dlPhoto: '⬇️ ডিজিটাল ছবি (JPG)', sheetLabel: 'প্রিন্টের শিট', sheet46: '4×6 ইঞ্চি ফটো পেপার (JPG)', sheetA4: 'A4 পাতা (PDF)', dlSheet: '🖨️ প্রিন্ট শিট ডাউনলোড', share: '📲 শেয়ার',
+    sheetInfo: (n) => `এই শিটে ${n}টা ছবি আসবে, কাটার দাগ সহ।`, made: (w, h, kb) => `✅ ${w}×${h} px, ${kb} KB`, notFit: (kb, lim) => `⚠️ ${kb} KB — ${lim} KB-র নিচে আনা গেল না`,
+    checkRules: 'প্রতিটা ফর্ম/অফিসের নিজের নিয়ম থাকে (সাইজ, ব্যাকগ্রাউন্ড, KB) — পাঠানোর আগে অবশ্যই পড়ে নাও।',
+    wMm: 'চওড়া (mm)', hMm: 'লম্বা (mm)',
+    sizes: { p35: ['পাসপোর্ট সাইজ 3.5 × 4.5 cm', 'বেশিরভাগ ফর্ম, ID কার্ড, ভর্তি'], in2: ['2 × 2 ইঞ্চি (5.1 × 5.1 cm)', 'কিছু ভিসা / OCI ধরনের ফর্ম'], stamp: ['স্ট্যাম্প সাইজ 2 × 2.5 cm', 'ছোট ফর্ম'], p45: ['4.5 × 3.5 cm (আড়াআড়ি)', 'আড়াআড়ি ফর্ম'], custom: ['নিজের সাইজ', 'mm-এ লেখো'] },
+    loading: 'AI তৈরি হচ্ছে… (প্রথমবার একটু সময়, তারপর অফলাইনেও)', working: 'ব্যাকগ্রাউন্ড সরানো আর মুখ খোঁজা হচ্ছে… (ফোনেই)', failed: 'এই ছবিটা খোলা গেল না। অন্যটা দেখো।', saved: '✅ ফোনে সেভ হয়েছে',
+    howH: 'কীভাবে বানাবে', how: ['<b>ছবি বাছো</b> বা <b>ছবি তোলো</b> — সোজা মুখ, কাঁধ পর্যন্ত।', 'ব্যাকগ্রাউন্ড নিজে থেকেই সরে <b>সাদা</b> হয়, মুখ মাঝখানে বসে যায়।', '<b>সাইজ</b> বাছো (3.5×4.5 cm, 2×2 ইঞ্চি, স্ট্যাম্প বা নিজের) আর ব্যাকগ্রাউন্ডের রং।', 'দরকার হলে ছবি সরাও বা ছোট-বড় করো।', 'ফর্মের জন্য <b>ডিজিটাল ছবি</b> (KB সীমা সহ) বা প্রিন্টের জন্য <b>4×6 শিট / A4 PDF</b> ডাউনলোড করো — যেকোনো ফটো দোকানে প্রিন্ট করাও।'],
+    tipsH: 'ভালো পাসপোর্ট ছবির জন্য', tips: ['সোজা ক্যামেরার দিকে তাকাও, মুখ বন্ধ, মুখ পরিষ্কার।', 'চশমা, টুপি বা মুখে চুল নয় (ফর্ম না চাইলে)।', 'দিনের আলো, মুখে ছায়া নয়।', '4×6 শিট ফটো পেপারে "actual size / 100%"-এ প্রিন্ট করাও, "fit to page" নয়।'],
+    privH: 'তোমার ছবি তোমার কাছেই', privText: 'এই টুল AI মডেল একবার ডাউনলোড করে তোমার ফোন/ব্রাউজারের ভেতরেই চালায়। তোমার ছবি কোনো সার্ভারে যায় না, কোথাও সেভ হয় না, আমরা দেখতেও পাই না। পেজ বন্ধ করলেই সব মুছে যায়।',
+    footer: 'বিনামূল্যের টুল · ছবি আপলোড হয় না',
+  },
+};
+
+// ---------- helpers
+const $ = (id) => document.getElementById(id);
+const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+const params = new URLSearchParams(location.search);
+const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('pp-lang')) ? store.get('pp-lang') : deviceLang();
+const t = (k) => T[lang][k];
+const mk = (w, h) => { const c = document.createElement('canvas'); c.width = Math.max(1, Math.round(w)); c.height = Math.max(1, Math.round(h)); return c; };
+let toastTimer = 0;
+const toast = (msg) => { let el = document.querySelector('.toast'); if (!el) { el = document.createElement('div'); el.className = 'toast'; document.body.appendChild(el); } el.textContent = msg; el.classList.remove('hidden'); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.add('hidden'), 2600); };
+const busy = (msg) => { $('busy').classList.toggle('hidden', !msg); $('busyText').textContent = msg || ''; };
+
+// ---------- state
+let vision = null, personSeg = null, faceLm = null;
+let img = null, W = 0, H = 0, cutout = null, head = null;
+let sizeId = 'p35', bg = '#ffffff', zoom = 1, offX = 0, offY = 0;
+const size = () => { const s = SIZES.find((x) => x.id === sizeId); if (s.id === 'custom') return { ...s, w: Number($('cw').value) || 35, h: Number($('ch').value) || 45 }; return s; };
+
+const getVision = async () => { if (!vision) vision = await FilesetResolver.forVisionTasks(WASM); return vision; };
+const withFallback = async (Cls, opts) => { const v = await getVision(); return Cls.createFromOptions(v, { ...opts, baseOptions: { ...opts.baseOptions, delegate: 'GPU' } }).catch(() => Cls.createFromOptions(v, { ...opts, baseOptions: { ...opts.baseOptions, delegate: 'CPU' } })); };
+const getPerson = async () => { if (!personSeg) personSeg = await withFallback(ImageSegmenter, { baseOptions: { modelAssetPath: MODEL_PERSON }, runningMode: 'IMAGE', outputCategoryMask: false, outputConfidenceMasks: true }); return personSeg; };
+const getFace = async () => { if (!faceLm) faceLm = await withFallback(FaceLandmarker, { baseOptions: { modelAssetPath: MODEL_FACE }, runningMode: 'IMAGE', numFaces: 1 }); return faceLm; };
+
+// ---------- person cut-out: model mask (background class 0) -> soft alpha, main blob only
+const personMask = (seg) => {
+  let keep = null, mw = 0, mh = 0;
+  seg.segment(img, (res) => { const b = res.confidenceMasks[0]; const d = b.getAsFloat32Array(); keep = new Float32Array(d.length); for (let i = 0; i < d.length; i += 1) keep[i] = 1 - d[i]; mw = b.width; mh = b.height; });
+  // largest blob only (drops other people / objects)
+  const seen = new Uint8Array(mw * mh); let best = null; const stack = [];
+  for (let s0 = 0; s0 < mw * mh; s0 += 1) {
+    if (seen[s0] || keep[s0] < 0.5) continue;
+    const blob = []; stack.push(s0); seen[s0] = 1;
+    while (stack.length) { const i = stack.pop(); blob.push(i); const x = i % mw, y = (i - x) / mw; for (const j of [x > 0 ? i - 1 : -1, x < mw - 1 ? i + 1 : -1, y > 0 ? i - mw : -1, y < mh - 1 ? i + mw : -1]) if (j >= 0 && !seen[j] && keep[j] >= 0.5) { seen[j] = 1; stack.push(j); } }
+    if (!best || blob.length > best.length) best = blob;
+  }
+  const inBest = new Uint8Array(mw * mh); if (best) for (const i of best) inBest[i] = 1;
+  const sm = mk(mw, mh), sx = sm.getContext('2d'), sd = sx.createImageData(mw, mh);
+  for (let i = 0; i < mw * mh; i += 1) {
+    // keep soft edge pixels next to the main blob, drop everything else
+    const near = inBest[i] || (keep[i] > 0.15 && keep[i] < 0.5 && ((i % mw > 0 && inBest[i - 1]) || (i % mw < mw - 1 && inBest[i + 1]) || inBest[i - mw] || inBest[i + mw]));
+    const c = near ? keep[i] : 0; const a = c <= 0.35 ? 0 : c >= 0.65 ? 1 : (c - 0.35) / 0.3;
+    sd.data[i * 4 + 3] = Math.round(a * 255);
+  }
+  sx.putImageData(sd, 0, 0);
+  const m = mk(W, H), mx = m.getContext('2d'); mx.imageSmoothingQuality = 'high';
+  if ('filter' in mx) mx.filter = `blur(${Math.max(1, Math.round(Math.max(W, H) / 900))}px)`;
+  mx.drawImage(sm, 0, 0, W, H); mx.filter = 'none';
+  return m;
+};
+
+const analyse = async () => {
+  busy(personSeg ? t('working') : t('loading'));
+  const [ps, fl] = await Promise.all([getPerson(), getFace()]);
+  busy(t('working')); await new Promise((r) => setTimeout(r, 30));
+  const mask = personMask(ps);
+  cutout = mk(W, H); const cx = cutout.getContext('2d'); cx.drawImage(img, 0, 0); cx.globalCompositeOperation = 'destination-in'; cx.drawImage(mask, 0, 0);
+  const r = fl.detect(img);
+  const lm = r.faceLandmarks && r.faceLandmarks[0];
+  if (lm) {
+    const P = (i) => ({ x: lm[i].x * W, y: lm[i].y * H });
+    const top = P(10), chin = P(152), l = P(234), rr = P(454);
+    const faceLen = Math.hypot(chin.x - top.x, chin.y - top.y);
+    // top of the hair is about 0.3 face-lengths above the forehead point
+    const headTop = top.y - faceLen * 0.32;
+    head = { cx: (l.x + rr.x) / 2, top: headTop, chin: chin.y, h: chin.y - headTop };
+  } else head = null;
+  $('noFace').classList.toggle('hidden', Boolean(head));
+  busy(''); zoom = 1; offX = 0; offY = 0; $('zoom').value = 100; render();
+};
+
+// ---------- the photo at print resolution
+const cropBox = () => {
+  const s = size(), outAR = s.w / s.h;
+  let ch, cx, cy;
+  if (head) {
+    ch = head.h / s.head / zoom; cy = head.top - s.top * ch; cx = head.cx;
+  } else { ch = Math.min(H, W / outAR) / zoom; cy = (H - ch) / 2; cx = W / 2; }
+  const cw = ch * outAR;
+  return { x: cx - cw / 2 - offX * cw, y: cy - offY * ch, w: cw, h: ch };
+};
+const photo = (scale = 1) => {
+  const s = size(), pw = Math.round(mmToPx(s.w) * scale), ph = Math.round(mmToPx(s.h) * scale);
+  const c = mk(pw, ph), x = c.getContext('2d'), b = cropBox();
+  if (bg === 'original') x.drawImage(img, b.x, b.y, b.w, b.h, 0, 0, pw, ph);
+  else { x.fillStyle = bg; x.fillRect(0, 0, pw, ph); x.drawImage(cutout || img, b.x, b.y, b.w, b.h, 0, 0, pw, ph); }
+  return c;
+};
+const view = $('view');
+const render = () => {
+  if (!img) return;
+  const p = photo(0.7);
+  view.width = p.width; view.height = p.height; view.getContext('2d').drawImage(p, 0, 0);
+  const s = size(); const n = sheetLayout().n;
+  $('sheetInfo').textContent = t('sheetInfo')(n);
+  $('result').textContent = '';
+};
+
+// ---------- move / zoom
+let drag = null;
+view.addEventListener('pointerdown', (e) => { if (!img) return; drag = { x: e.clientX, y: e.clientY, ox: offX, oy: offY }; view.setPointerCapture(e.pointerId); view.style.cursor = 'grabbing'; });
+view.addEventListener('pointermove', (e) => { if (!drag) return; const r = view.getBoundingClientRect(); offX = drag.ox + (e.clientX - drag.x) / r.width; offY = drag.oy + (e.clientY - drag.y) / r.height; render(); });
+['pointerup', 'pointercancel'].forEach((ev) => view.addEventListener(ev, () => { drag = null; view.style.cursor = 'grab'; }));
+$('zoom').addEventListener('input', (e) => { zoom = Number(e.target.value) / 100; render(); });
+$('autoBtn').addEventListener('click', () => { zoom = 1; offX = 0; offY = 0; $('zoom').value = 100; render(); });
+
+// ---------- sizes and backgrounds
+const drawSizes = () => {
+  $('sizes').innerHTML = SIZES.map((s) => `<button type="button" class="sz ${sizeId === s.id ? 'on' : ''}" data-v="${s.id}">${t('sizes')[s.id][0]}<small>${t('sizes')[s.id][1]}</small></button>`).join('');
+  $('customBox').classList.toggle('hidden', sizeId !== 'custom');
+  $('bgs').innerHTML = BGS.map((b) => `<button type="button" class="sw ${bg === b ? 'on' : ''}" data-v="${b}" aria-label="${b}" style="background:${b === 'original' ? 'linear-gradient(135deg,#8d6e63,#a1887f 50%,#cfd8dc 50%)' : b}"></button>`).join('');
+};
+$('sizes').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; sizeId = b.dataset.v; drawSizes(); render(); });
+$('bgs').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; bg = b.dataset.v; drawSizes(); render(); });
+['cw', 'ch'].forEach((id) => $(id).addEventListener('input', render));
+
+// ---------- downloads (all on the device)
+const blobOf = (c, q) => new Promise((r) => c.toBlob(r, 'image/jpeg', q));
+const download = (blob, name) => { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 600); toast(t('saved')); };
+const stamp = () => new Date().toISOString().slice(0, 10);
+const digitalPhoto = async () => {
+  const limit = Number($('kb').value) * 1024;
+  const steps = limit ? [[0.92, 1], [0.85, 1], [0.75, 1], [0.65, 1], [0.55, 0.85], [0.5, 0.7], [0.45, 0.6], [0.4, 0.5], [0.35, 0.42], [0.3, 0.35]] : [[0.95, 1]];
+  let out = null;
+  for (const [q, sc] of steps) { const c = photo(sc); const b = await blobOf(c, q); out = { b, w: c.width, h: c.height }; if (!limit || b.size <= limit) break; }
+  return out;
+};
+$('dlPhoto').addEventListener('click', async () => {
+  if (!img) return;
+  const r = await digitalPhoto(), lim = Number($('kb').value), kb = Math.round(r.b.size / 1024);
+  $('result').textContent = lim && r.b.size > lim * 1024 ? t('notFit')(kb, lim) : t('made')(r.w, r.h, kb);
+  download(r.b, `passport-photo-${stamp()}.jpg`);
+});
+// print sheet: as many photos as fit, 2 mm gaps, thin grey cutting lines
+const sheetLayout = () => {
+  const s = size(), a4 = $('sheet').value === 'a4';
+  const SW = a4 ? mmToPx(210) : mmToPx(101.6), SH = a4 ? mmToPx(297) : mmToPx(152.4);
+  const pw = mmToPx(s.w), ph = mmToPx(s.h), gap = mmToPx(2), margin = mmToPx(a4 ? 10 : 4);
+  const cols = Math.max(1, Math.floor((SW - 2 * margin + gap) / (pw + gap))), rows = Math.max(1, Math.floor((SH - 2 * margin + gap) / (ph + gap)));
+  return { SW, SH, pw, ph, gap, cols, rows, n: cols * rows, a4 };
+};
+const sheetCanvas = () => {
+  const L = sheetLayout(), c = mk(L.SW, L.SH), x = c.getContext('2d'), p = photo(1);
+  x.fillStyle = '#ffffff'; x.fillRect(0, 0, L.SW, L.SH);
+  const gw = L.cols * L.pw + (L.cols - 1) * L.gap, gh = L.rows * L.ph + (L.rows - 1) * L.gap;
+  const x0 = Math.round((L.SW - gw) / 2), y0 = Math.round((L.SH - gh) / 2);
+  for (let r = 0; r < L.rows; r += 1) for (let k = 0; k < L.cols; k += 1) {
+    const px = x0 + k * (L.pw + L.gap), py = y0 + r * (L.ph + L.gap);
+    x.drawImage(p, px, py, L.pw, L.ph);
+    x.strokeStyle = '#bbbbbb'; x.lineWidth = 1; x.strokeRect(px - 0.5, py - 0.5, L.pw + 1, L.ph + 1);
+  }
+  return { c, L };
+};
+$('dlSheet').addEventListener('click', async () => {
+  if (!img) return;
+  const { c, L } = sheetCanvas();
+  if (!L.a4) { download(await blobOf(c, 0.95), `passport-photos-4x6-${stamp()}.jpg`); return; }
+  const { jsPDF } = window.jspdf; const doc = new jsPDF({ unit: 'mm', format: 'a4', compress: true });
+  doc.addImage(c.toDataURL('image/jpeg', 0.93), 'JPEG', 0, 0, 210, 297);
+  download(doc.output('blob'), `passport-photos-A4-${stamp()}.pdf`);
+});
+$('sheet').addEventListener('change', render);
+$('shareBtn').addEventListener('click', async () => {
+  if (!img) return;
+  const r = await digitalPhoto(); const file = new File([r.b], `passport-photo-${stamp()}.jpg`, { type: 'image/jpeg' });
+  if (navigator.canShare && navigator.canShare({ files: [file] })) navigator.share({ files: [file] }).catch(() => {}); else download(r.b, file.name);
+});
+
+// ---------- load
+const loadBitmap = (file) => new Promise((resolve, reject) => { const url = URL.createObjectURL(file); const im = new Image(); im.onload = () => { URL.revokeObjectURL(url); resolve(im); }; im.onerror = () => { URL.revokeObjectURL(url); reject(new Error('load')); }; im.src = url; });
+const fail = (err) => { busy(''); console.error(err); toast(t('failed')); };
+const useImage = async (im) => {
+  const w0 = im.naturalWidth || im.width, h0 = im.naturalHeight || im.height, k = Math.min(1, MAX_SIDE / Math.max(w0, h0));
+  W = Math.round(w0 * k); H = Math.round(h0 * k);
+  img = mk(W, H); img.getContext('2d').drawImage(im, 0, 0, W, H);
+  cutout = null; head = null;
+  $('pickCard').classList.add('hidden'); $('editor').classList.remove('hidden');
+  render(); await analyse();
+};
+const onFile = (f) => { if (f) loadBitmap(f).then(useImage).catch(fail); };
+$('pickBtn').addEventListener('click', (e) => { e.stopPropagation(); $('file').click(); });
+$('camBtn').addEventListener('click', (e) => { e.stopPropagation(); $('cam').click(); });
+$('drop').addEventListener('click', () => $('file').click());
+$('file').addEventListener('change', (e) => { onFile(e.target.files[0]); e.target.value = ''; });
+$('cam').addEventListener('change', (e) => { onFile(e.target.files[0]); e.target.value = ''; });
+$('newBtn').addEventListener('click', () => $('file').click());
+
+// ---------- language
+const applyLang = () => {
+  document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+  $('lang').value = lang;
+  document.querySelectorAll('[data-t]').forEach((el) => { const v = t(el.dataset.t); if (typeof v === 'string') el.textContent = v; });
+  $('howList').innerHTML = t('how').map((x) => `<li>${x}</li>`).join('');
+  $('tipList').innerHTML = t('tips').map((x) => `<li>${x}</li>`).join('');
+  drawSizes(); render();
+};
+$('lang').addEventListener('change', (e) => { lang = e.target.value; store.set('pp-lang', lang); applyLang(); });
+$('year').textContent = new Date().getFullYear();
+applyLang();
+
+if (params.get('test')) { const im = new Image(); im.crossOrigin = 'anonymous'; im.onload = () => useImage(im).catch(fail); im.src = params.get('test'); }
+window.__pp = {
+  get state() { return { img: Boolean(img), cut: Boolean(cutout), head: Boolean(head), sizeId, bg, n: img ? sheetLayout().n : 0 }; },
+  set: (o) => { if (o.size) sizeId = o.size; if (o.bg) bg = o.bg; if (o.sheet) $('sheet').value = o.sheet; drawSizes(); render(); },
+  photoUrl: () => photo(1).toDataURL('image/jpeg', 0.9),
+  sheetUrl: () => { const { c } = sheetCanvas(); const k = 600 / c.width, s = mk(c.width * k, c.height * k); s.getContext('2d').drawImage(c, 0, 0, s.width, s.height); return s.toDataURL('image/jpeg', 0.85); },
+  digitalKb: async (kb) => { $('kb').value = String(kb); const r = await digitalPhoto(); return [r.w, r.h, Math.round(r.b.size / 1024)]; },
+};
+if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+</script>
+</body>
+</html>

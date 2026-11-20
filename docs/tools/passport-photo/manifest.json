@@ -1,0 +1,16 @@
+{
+  "name": "Passport Size Photo Maker — NextGrade Tools",
+  "short_name": "Passport Photo",
+  "description": "Passport size photo with white or blue background, print sheet and KB-limited digital photo. Runs on your phone; the photo is never uploaded.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#eef4fb",
+  "theme_color": "#1864ab",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
