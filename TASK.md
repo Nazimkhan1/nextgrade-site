@@ -95,6 +95,12 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 **12. Promo videos** — `~/www/videos/` (not in this repo): Hisab Kitab videos, 6 wish Reels (`wishes/`: `capture.js` → `compose.js`), post texts `POSTS.md`.
 
+## 20 Nov 2026: Calculators (/calculator/) + 5 essays (from the other computer, merged here)
+- [x] 8 calculators, live 20 Nov with a "Calculators" menu link (user: "global kaam live kar sakte ho"): age, percentage, emi, gst, sip, bmi, discount, date-difference. Content `src/calculators.mjs`, maths `src/assets/calc.js` (browser only). Menu: `CALC_IN_NAV` in build.mjs.
+- GST page uses GST 2.0 rates (from 22 Sep 2025: 5%, 18%, 40%; 12% and 28% removed). Re-check if the GST Council changes slabs.
+- calc.js fixes: Indian number grouping (10,00,000), birthday today = 0 days. Tested with sample inputs (EMI 10L/8.5%/20y = ₹8,678; SIP 5000/12%/10y ≈ ₹11.6L; GST, %, BMI, dates).
+- 5 essays (meri-maa, ped, jal, diwali, mera-priya-mitra) on the nibandh line (1–14 Dec).
+
 ## 20 Nov 2026: Khel rules pages (/khel/)
 - [x] `src/khel.mjs`: real-life rules of Carrom, Kanche, Gilli-Danda, Pitthu (4 languages, own words): what you need, steps (HowTo JSON-LD), win/points, other names, tips, FAQ (FAQPage), "play online" button. Hub `/khel/` + button on `/games/`, sitemap + llms.txt.
 - Not scheduled separately: each rules page goes live with its game (`game:<slug>` in releases.mjs); `/khel/` appears once the first one (carrom, 21 Nov) is live. To add one: new entry in `rules` with the game's slug.

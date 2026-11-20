@@ -13,7 +13,7 @@
  *   - wishes  : fixed dates, well before each festival (these never move)
  *   - tools   : every 3–6 days, starting only after AdSense approval (TOOLS_START). The first live tool also
  *               adds the /tools/ page, the menu link and a Privacy Policy paragraph — hence the wait.
- * Keys: 'game:<slug>', 'story:<slug>', 'celebrate:<slug>' (animated wish), 'festival:<slug>' (festival guide) or 'tool:<slug>' (free tool).
+ * Keys: 'game:<slug>', 'story:<slug>', 'celebrate:<slug>' (animated wish), 'festival:<slug>' (festival guide) or 'tool:<slug>' (free tool), 'calc:<slug>' (calculator).
  * To add a page: append its slug to its line. New category: add a LINES entry. Publish now: take it out.
  */
 const addDays = (ymd, n) => new Date(Date.parse(`${ymd}T00:00:00Z`) + n * 864e5).toISOString().slice(0, 10);
@@ -67,7 +67,7 @@ const LINES = [
   ] },
   // Essays (/nibandh/<slug>/), own line (user, 19 Nov 2026: content for AI search / school children); winter first while it is searched
   { prefix: 'nibandh', start: '2026-11-22', gap: [2, 4], seed: 23, slugs: [
-    'sardi-ka-mausam', 'mera-vidyalaya', 'gaay',
+    'sardi-ka-mausam', 'mera-vidyalaya', 'gaay', 'meri-maa', 'ped', 'jal', 'diwali', 'mera-priya-mitra',
   ] },
   { prefix: 'tool', start: TOOLS_START, gap: [3, 6], seed: 13, slugs: [
     'form-helper', // most searched, first

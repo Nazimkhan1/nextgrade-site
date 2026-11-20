@@ -22,6 +22,7 @@ import { NAAM_OCCASIONS, NAAM_UI } from './src/naam-image.mjs';
 import { PAHELI, PAHELI_UI } from './src/paheliyan.mjs';
 import { speeches as allSpeeches, SPEECH_UI } from './src/speeches.mjs';
 import { essays as allEssays, NIBANDH_UI } from './src/nibandh.mjs';
+import { calculators as allCalculators, CALC_UI } from './src/calculators.mjs';
 import { whyFaq } from './src/festival-why.mjs';
 import { rules as allRules, KHEL_UI } from './src/khel.mjs';
 import { LIST_YEAR, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
@@ -41,6 +42,7 @@ const PAHELI_LIVE = isLive('page:paheliyan');
 const SPEECHES = allSpeeches.filter((sp) => isLive(`speech:${sp.slug}`));
 const ESSAYS = allEssays.filter((e) => isLive(`nibandh:${e.slug}`));
 const KHEL = allRules.filter((r) => isLive(`game:${r.slug}`)); // rules page goes live with its game
+const CALCS = allCalculators.filter((c) => isLive(`calc:${c.slug}`));
 const heldTools = allTools.filter((tl) => !isLive(`tool:${tl.slug}`)).map((tl) => tl.slug);
 import * as islamic from './src/islamic.mjs';
 import { ui } from './src/i18n/ui.mjs';
@@ -126,8 +128,10 @@ const lapp = (a, L) => {
 
 // ---- Page shell
 const P = (L, path) => `${L.prefix}${path}`;
-const NAV = ['/', '/kahani/', '/wishes/', '/festivals/', '/games/', ...(tools.length ? ['/tools/'] : []), '/wish-card/', '/apps/', '/about/'];
-const NAV_KEYS = ['home', 'stories', 'wishes', 'festivals', 'games', ...(tools.length ? ['tools'] : []), 'card', 'apps', 'about'];
+// Calculator menu link (user, 20 Nov 2026: calculators live now, with the menu link)
+const CALC_IN_NAV = true;
+const NAV = ['/', '/kahani/', '/wishes/', '/festivals/', '/games/', ...(CALC_IN_NAV && CALCS.length ? ['/calculator/'] : []), ...(tools.length ? ['/tools/'] : []), '/wish-card/', '/apps/', '/about/'];
+const NAV_KEYS = ['home', 'stories', 'wishes', 'festivals', 'games', ...(CALC_IN_NAV && CALCS.length ? ['calc'] : []), ...(tools.length ? ['tools'] : []), 'card', 'apps', 'about'];
 // Voice used by the browser to read stories aloud.
 const SPEECH = { hi: 'hi-IN', en: 'en-IN', hinglish: 'en-IN', bn: 'bn-IN' };
 
@@ -949,6 +953,60 @@ ${others.length ? `<h2>${esc(U.more)}</h2>\n<div class="grid">${others.map(card)
     });
   }
 
+  // Calculators (/calculator/<slug>/), each scheduled as 'calc:<slug>'. The maths runs in the browser (assets/calc.js).
+  if (CALCS.length) {
+    const U = CALC_UI[L.code];
+    const name = (c) => c[L.code].h1.replace(/^\S+\s/, '');
+    const card = (c) => `<a class="card" href="${P(L, `/calculator/${c.slug}/`)}"><span class="emoji" aria-hidden="true">${c.emoji}</span><h3>${esc(name(c))}</h3><p>${esc(c[L.code].lead)}</p></a>`;
+    const field = (c, f) => {
+      const x = c[L.code], lab = esc((x.label && x.label[f.name]) || f.name);
+      if (f.kind === 'date') return `<label class="calc-field"><span>${lab}</span><input type="date" name="${f.name}"></label>`;
+      if (f.kind === 'select') return `<label class="calc-field"><span>${lab}</span><select name="${f.name}">${f.options.map((o) => `<option value="${o}">${esc((x.opt && x.opt[o]) || o)}</option>`).join('')}</select></label>`;
+      return `<label class="calc-field"><span>${lab}</span><input type="number" inputmode="decimal" step="${f.step || 'any'}" name="${f.name}"></label>`;
+    };
+    const calcStyle = `<style>.calc-form{display:grid;gap:.9rem;margin:1.1rem 0}.calc-field{display:grid;gap:.3rem}.calc-field span{font-weight:600}.calc-field input,.calc-field select{padding:.6rem .7rem;font-size:1.05rem;border:1px solid var(--line,#ccd);border-radius:.5rem;background:var(--card,#fff);color:inherit;width:100%}.calc-result{margin-top:1rem;padding:1rem 1.1rem;border:1px solid var(--line,#ccd);border-radius:.6rem;background:var(--card,#fff)}.calc-row{display:flex;justify-content:space-between;gap:1rem;padding:.4rem 0;border-bottom:1px dashed var(--line,#eee)}.calc-row:last-child{border-bottom:0}.calc-strong{font-size:1.15rem}.calc-strong b{color:var(--accent,#c0392b)}.calc-note{margin:.6rem 0 0;font-size:.9rem;opacity:.8}.calc-err{color:#c0392b;margin:0}</style>`;
+    write(L, '/calculator/', page(L, {
+      path: '/calculator/', title: U.hubTitle, description: U.hubLead,
+      jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.hub, '/calculator/']])],
+      body: `<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(U.hub)}</p>
+<h1>🧮 ${esc(U.hub)}</h1>
+<p class="lead">${esc(U.hubLead)}</p>
+<div class="grid">${CALCS.map(card).join('')}</div>
+</div>`,
+    }));
+    CALCS.forEach((c) => {
+      const x = c[L.code], path = `/calculator/${c.slug}/`, faq = x.faq.map(([q, a]) => ({ q, a }));
+      const others = CALCS.filter((o) => o.slug !== c.slug);
+      write(L, path, page(L, {
+        path, title: x.title, description: x.desc,
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.hub, '/calculator/'], [name(c), path]]), articleLd(L, name(c), path), faqLd(faq)],
+        scripts: ['/assets/calc.js'],
+        body: `<article class="wrap narrow article">
+${calcStyle}
+<p class="crumbs no-print"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/calculator/')}">${esc(U.hub)}</a> › ${esc(name(c))}</p>
+<h1>${esc(x.h1)}</h1>
+<p class="lead">${esc(x.lead)}</p>
+<form class="calc-form" data-calc="${c.type}" data-strings="${esc(JSON.stringify(x.strings))}">
+${c.fields.map((f) => field(c, f)).join('\n')}
+<button class="btn" type="submit">${esc(x.btn)}</button>
+<div class="calc-result" hidden></div>
+</form>
+<h2>${esc(x.introH)}</h2>
+${paragraphs(x.intro)}
+<div class="ad no-print" aria-hidden="true"></div>
+<h2>${esc(x.formulaH)}</h2>
+${paragraphs(x.formula)}
+<h2>${esc(x.exampleH)}</h2>
+${paragraphs(x.example)}
+<h2>${esc(U.faqH)}</h2>
+${faqBlock(faq)}
+${others.length ? `<h2 class="no-print">${esc(U.more)}</h2>\n<div class="grid no-print">${others.map(card).join('')}</div>` : ''}
+</article>`,
+      }));
+    });
+  }
+
   // Paheliyan (riddles with answers), scheduled as 'page:paheliyan'; "riddle of the day" changes with the daily build
   if (PAHELI_LIVE) {
     const Q = PAHELI_UI[L.code], list = PAHELI[L.code];
@@ -1212,7 +1270,7 @@ writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SI
 > Free Indian festival wishes, festival dates, children's stories, desi games and small tools, in Hindi, English, Hinglish and Bengali. No sign-up, works on any phone. Every page exists in 4 languages: Hindi at ${SITE}/, English at ${SITE}/en/, Hinglish at ${SITE}/hinglish/, Bengali at ${SITE}/bn/.
 
 All text is written by NextGrade or is public domain (old folk tales retold in our own words).
-${sec('Festival dates and guides', [line(`Indian festival dates ${LIST_YEAR}`, en(`/festivals/${LIST_YEAR}/`), `every major festival with date and weekday`), ...festivals.map((f) => line(`${f.nameEn}: date, meaning, how it is celebrated, wishes`, en(`/festivals/${f.slug}/`)))])}${sec('Wishes and greeting cards', [line('Festival wish card maker', en('/wish-card/'), 'make a card with your name and share on WhatsApp'), line('Wishes for every day', en('/wishes/')), ...(NAAM_LIVE ? [line('Name on image (naam wali image)', en('/naam-wali-image/'), 'write your name on a festival image')] : []), line('Islamic (Hijri) calendar', en('/islamic-calendar/'), "today's Islamic date and Ramadan / Eid dates")])}${sec("Children's stories (kahani)", [line('All stories', en('/kahani/')), ...stories.map((st) => line(st.en.title, en(`/kahani/${st.slug}/`)))])}${sec('School speeches', SPEECHES.length ? [line('All speeches', en('/speech/')), ...SPEECHES.map((sp) => line(sp.en.h1.replace(/^\S+\s/, ''), en(`/speech/${sp.slug}/`)))] : [])}${sec('Essays for students (10 lines, short and long)', ESSAYS.length ? [line('All essays', en('/nibandh/')), ...ESSAYS.map((e) => line(e.en.h1.replace(/^\S+\s/, ''), en(`/nibandh/${e.slug}/`)))] : [])}${sec('Riddles', PAHELI_LIVE ? [line('Riddles with answers (paheliyan)', en('/paheliyan/'), 'Hindi, English and Bengali riddles')] : [])}${sec('Free online games (desi and puzzle, play in the browser)', [line('All games', en('/games/')), ...games.map((g) => line(g.nameEn, `${SITE}/games/${g.slug}/?lang=en`))])}${sec('Rules of Indian desi games (how to play in real life)', KHEL.length ? [line('All rules', en('/khel/')), ...KHEL.map((r) => line(r.en.h1.replace(/^\S+\s/, ''), en(`/khel/${r.slug}/`)))] : [])}${sec('Tools', tools.map((tl) => line(tl.en[0], `${SITE}/tools/${tl.slug}/`, tl.en[1])))}
+${sec('Festival dates and guides', [line(`Indian festival dates ${LIST_YEAR}`, en(`/festivals/${LIST_YEAR}/`), `every major festival with date and weekday`), ...festivals.map((f) => line(`${f.nameEn}: date, meaning, how it is celebrated, wishes`, en(`/festivals/${f.slug}/`)))])}${sec('Wishes and greeting cards', [line('Festival wish card maker', en('/wish-card/'), 'make a card with your name and share on WhatsApp'), line('Wishes for every day', en('/wishes/')), ...(NAAM_LIVE ? [line('Name on image (naam wali image)', en('/naam-wali-image/'), 'write your name on a festival image')] : []), line('Islamic (Hijri) calendar', en('/islamic-calendar/'), "today's Islamic date and Ramadan / Eid dates")])}${sec("Children's stories (kahani)", [line('All stories', en('/kahani/')), ...stories.map((st) => line(st.en.title, en(`/kahani/${st.slug}/`)))])}${sec('School speeches', SPEECHES.length ? [line('All speeches', en('/speech/')), ...SPEECHES.map((sp) => line(sp.en.h1.replace(/^\S+\s/, ''), en(`/speech/${sp.slug}/`)))] : [])}${sec('Essays for students (10 lines, short and long)', ESSAYS.length ? [line('All essays', en('/nibandh/')), ...ESSAYS.map((e) => line(e.en.h1.replace(/^\S+\s/, ''), en(`/nibandh/${e.slug}/`)))] : [])}${sec('Riddles', PAHELI_LIVE ? [line('Riddles with answers (paheliyan)', en('/paheliyan/'), 'Hindi, English and Bengali riddles')] : [])}${sec('Free online calculators (run in the browser)', CALCS.length ? [line('All calculators', en('/calculator/')), ...CALCS.map((c) => line(c.en.h1.replace(/^\S+\s/, ''), en(`/calculator/${c.slug}/`), c.en.lead))] : [])}${sec('Free online games (desi and puzzle, play in the browser)', [line('All games', en('/games/')), ...games.map((g) => line(g.nameEn, `${SITE}/games/${g.slug}/?lang=en`))])}${sec('Rules of Indian desi games (how to play in real life)', KHEL.length ? [line('All rules', en('/khel/')), ...KHEL.map((r) => line(r.en.h1.replace(/^\S+\s/, ''), en(`/khel/${r.slug}/`)))] : [])}${sec('Tools', tools.map((tl) => line(tl.en[0], `${SITE}/tools/${tl.slug}/`, tl.en[1])))}
 ## About
 
 - [About NextGrade](${en('/about/')})
