@@ -95,6 +95,10 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 **12. Promo videos** — `~/www/videos/` (not in this repo): Hisab Kitab videos, 6 wish Reels (`wishes/`: `capture.js` → `compose.js`), post texts `POSTS.md`.
 
+## 21 Nov 2026: grouped header menu (user: "header ko menu hierarchy wala banao", list too long)
+- [x] Home + 5 dropdowns: Kahaniyan (all + 6 collections), Padhai (nibandh, speech, paheliyan, full forms, baby names), Tyohaar (festivals, dates, wishes, wish card, naam wali image, Islamic calendar), Games (all + khel rules), Tools (all, calculators, apps). About/Contact in the footer.
+- `MENU_T` + `menuFor()` in build.mjs (labels in 4 languages); a link shows only when its section is live. `<details class="nav-group">` (no JS needed); site.js closes others / on Escape. Checked desktop, phone (390 px) and dark mode.
+
 ## 21 Nov 2026: fonts self-hosted (user: "sare links and content apna hona chahiye")
 - [x] No page loads Google Fonts any more: `scripts/vendor-fonts.py` downloaded every font used (Inter, Noto Sans Devanagari/Bengali/Gurmukhi, Noto Nastaliq Urdu, Baloo 2, Baloo Da 2, Amiri; SIL OFL, licences in `src/static/fonts/OFL.txt`) to `src/static/fonts/`; the build swaps each Google link for `/fonts/css/<id>.css` (map.json). If the build prints "NOT in map.json", run `python3 scripts/vendor-fonts.py` (needs internet) and commit.
 - Bengali pages now really use Noto Sans Bengali (it was missing from the font list in style.css).

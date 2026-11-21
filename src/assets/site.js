@@ -51,7 +51,9 @@ document.querySelectorAll('.share-box:not(.video-share)').forEach((box) => {
   });
 });
 
-// Close the language dropdown when tapping anywhere else.
+// Close the language and menu dropdowns when tapping anywhere else (so only one is open), or on Escape.
+const openMenus = () => document.querySelectorAll('details.lang-menu[open], details.nav-group[open]');
 document.addEventListener('click', (e) => {
-  document.querySelectorAll('details.lang-menu[open]').forEach((d) => { if (!d.contains(e.target)) d.removeAttribute('open'); });
+  openMenus().forEach((d) => { if (!d.contains(e.target)) d.removeAttribute('open'); });
 });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') openMenus().forEach((d) => d.removeAttribute('open')); });

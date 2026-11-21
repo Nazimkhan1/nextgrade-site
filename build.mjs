@@ -132,17 +132,36 @@ const lapp = (a, L) => {
 
 // ---- Page shell
 const P = (L, path) => `${L.prefix}${path}`;
-// Calculator menu link (user, 20 Nov 2026: calculators live now, with the menu link)
-const CALC_IN_NAV = true;
-const NAV = ['/', '/kahani/', '/wishes/', '/festivals/', '/games/', ...(CALC_IN_NAV && CALCS.length ? ['/calculator/'] : []), ...(BABY_LIVE ? ['/naam/'] : []), ...(FF_LIVE ? ['/full-form/'] : []), ...(tools.length ? ['/tools/'] : []), '/wish-card/', '/apps/', '/about/'];
-const NAV_KEYS = ['home', 'stories', 'wishes', 'festivals', 'games', ...(CALC_IN_NAV && CALCS.length ? ['calc'] : []), ...(BABY_LIVE ? ['naam'] : []), ...(FF_LIVE ? ['ff'] : []), ...(tools.length ? ['tools'] : []), 'card', 'apps', 'about'];
+// Main menu, grouped (user, 21 Nov 2026: "header ko menu hierarchy wala banao", the flat list was too long).
+// Each group is a <details> dropdown (works without JavaScript); a link only shows when its section is live.
+const MENU_T = {
+  hi: { stories: 'कहानियाँ', study: 'पढ़ाई', fest: 'त्योहार', games: 'Games', tools: 'Tools', allStories: 'सभी कहानियाँ', panchatantra: 'पंचतंत्र', 'akbar-birbal': 'अकबर-बीरबल', 'tenali-raman': 'तेनाली राम', jataka: 'जातक कथाएँ', aesop: 'ईसप की कहानियाँ', 'lok-katha': 'लोक कथाएँ', nibandh: 'निबंध', speech: 'भाषण', paheli: 'पहेलियाँ', ff: 'Full Forms', naam: 'बच्चों के नाम', festivals: 'सभी त्योहार', dates: (y) => `त्योहार ${y} कब है`, wishes: 'Wishes', card: 'Wish Card', naamImg: 'नाम वाली इमेज', islamic: 'इस्लामी कैलेंडर', allGames: 'सभी गेम्स', khel: 'देसी खेलों के नियम', allTools: 'सभी टूल्स', calc: 'Calculators', apps: 'Apps', menu: 'मेनू' },
+  en: { stories: 'Stories', study: 'Study', fest: 'Festivals', games: 'Games', tools: 'Tools', allStories: 'All stories', panchatantra: 'Panchatantra', 'akbar-birbal': 'Akbar-Birbal', 'tenali-raman': 'Tenali Raman', jataka: 'Jataka Tales', aesop: "Aesop's Fables", 'lok-katha': 'Folk Tales', nibandh: 'Essays', speech: 'Speeches', paheli: 'Riddles', ff: 'Full Forms', naam: 'Baby Names', festivals: 'All festivals', dates: (y) => `Festival dates ${y}`, wishes: 'Wishes', card: 'Wish Card', naamImg: 'Name on image', islamic: 'Islamic calendar', allGames: 'All games', khel: 'Rules of desi games', allTools: 'All tools', calc: 'Calculators', apps: 'Apps', menu: 'Menu' },
+  hinglish: { stories: 'Kahaniyan', study: 'Padhai', fest: 'Tyohaar', games: 'Games', tools: 'Tools', allStories: 'Sabhi kahaniyan', panchatantra: 'Panchatantra', 'akbar-birbal': 'Akbar-Birbal', 'tenali-raman': 'Tenali Raman', jataka: 'Jataka Kathayein', aesop: 'Aesop ki Kahaniyan', 'lok-katha': 'Lok Kathayein', nibandh: 'Nibandh', speech: 'Bhashan', paheli: 'Paheliyan', ff: 'Full Forms', naam: 'Baby Names', festivals: 'Sabhi tyohaar', dates: (y) => `Tyohaar ${y} kab hai`, wishes: 'Wishes', card: 'Wish Card', naamImg: 'Naam wali image', islamic: 'Islamic calendar', allGames: 'Sabhi games', khel: 'Desi khelon ke niyam', allTools: 'Sabhi tools', calc: 'Calculators', apps: 'Apps', menu: 'Menu' },
+  bn: { stories: 'গল্প', study: 'পড়াশোনা', fest: 'উৎসব', games: 'গেম', tools: 'টুলস', allStories: 'সব গল্প', panchatantra: 'পঞ্চতন্ত্র', 'akbar-birbal': 'আকবর-বীরবল', 'tenali-raman': 'তেনালি রামন', jataka: 'জাতকের গল্প', aesop: 'ঈশপের গল্প', 'lok-katha': 'লোককথা', nibandh: 'রচনা', speech: 'বক্তৃতা', paheli: 'ধাঁধা', ff: 'ফুল ফর্ম', naam: 'শিশুর নাম', festivals: 'সব উৎসব', dates: (y) => `উৎসবের তারিখ ${y}`, wishes: 'শুভেচ্ছা', card: 'উইশ কার্ড', naamImg: 'নামের ছবি', islamic: 'ইসলামি ক্যালেন্ডার', allGames: 'সব গেম', khel: 'দেশি খেলার নিয়ম', allTools: 'সব টুলস', calc: 'ক্যালকুলেটর', apps: 'অ্যাপ', menu: 'মেনু' },
+};
+const menuFor = (L) => {
+  const M = MENU_T[L.code];
+  const groups = [
+    [M.stories, [['/kahani/', M.allStories], ...['panchatantra', 'akbar-birbal', 'tenali-raman', 'jataka', 'aesop', 'lok-katha'].map((s) => [`/kahani/${s}/`, M[s]])]],
+    [M.study, [...(ESSAYS.length ? [['/nibandh/', M.nibandh]] : []), ...(SPEECHES.length ? [['/speech/', M.speech]] : []), ...(PAHELI_LIVE ? [['/paheliyan/', M.paheli]] : []), ...(FF_LIVE ? [['/full-form/', M.ff]] : []), ...(BABY_LIVE ? [['/naam/', M.naam]] : [])]],
+    [M.fest, [['/festivals/', M.festivals], [`/festivals/${LIST_YEAR}/`, M.dates(LIST_YEAR)], ['/wishes/', M.wishes], ['/wish-card/', M.card], ...(NAAM_LIVE ? [['/naam-wali-image/', M.naamImg]] : []), ['/islamic-calendar/', M.islamic]]],
+    [M.games, [['/games/', M.allGames], ...(KHEL.length ? [['/khel/', M.khel]] : [])]],
+    [M.tools, [...(tools.length ? [['/tools/', M.allTools]] : []), ...(CALCS.length ? [['/calculator/', M.calc]] : []), ['/apps/', M.apps]]],
+  ];
+  return groups.filter(([, items]) => items.length);
+};
 // Voice used by the browser to read stories aloud.
 const SPEECH = { hi: 'hi-IN', en: 'en-IN', hinglish: 'en-IN', bn: 'bn-IN' };
 
 function page(L, { path, title, description, body, jsonLd = [], scripts = [], langs = LANGS, extraFonts = '' }) {
   const T = ui[L.code];
   const url = `${SITE}${P(L, path)}`;
-  const nav = NAV.map((href, i) => `<a href="${P(L, href)}"${href === path || (href !== '/' && path.startsWith(href)) ? ' aria-current="page"' : ''}>${T.nav[NAV_KEYS[i]]}</a>`).join('');
+  const inSec = (href) => href !== '/' && path.startsWith(href);
+  const nav = `<a href="${P(L, '/')}"${path === '/' ? ' aria-current="page"' : ''}>${esc(T.nav.home)}</a>` + menuFor(L).map(([label, items]) => {
+    const cur = items.some(([h]) => inSec(h));
+    return `<details class="nav-group"><summary${cur ? ' aria-current="page"' : ''}>${esc(label)}</summary><ul>${items.map(([h, t]) => `<li><a href="${P(L, h)}"${h === path ? ' aria-current="page"' : ''}>${esc(t)}</a></li>`).join('')}</ul></details>`;
+  }).join('');
   // Language dropdown (details/summary: works without JavaScript; site.js closes it on outside click).
   const switcher = langs.length > 1
     ? `<details class="lang-menu"><summary aria-label="${T.langLabel}">🌐 <span>${ui[L.code].langName}</span></summary><ul>${langs.map((l) => `<li><a href="${P(l, path)}" hreflang="${l.hreflang}" lang="${l.html}"${l.code === L.code ? ' aria-current="true"' : ''}>${ui[l.code].langName}${l.code === L.code ? ' ✓' : ''}</a></li>`).join('')}</ul></details>`
