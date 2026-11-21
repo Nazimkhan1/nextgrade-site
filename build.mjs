@@ -23,6 +23,7 @@ import { PAHELI, PAHELI_UI } from './src/paheliyan.mjs';
 import { speeches as allSpeeches, SPEECH_UI } from './src/speeches.mjs';
 import { essays as allEssays, NIBANDH_UI } from './src/nibandh.mjs';
 import { calculators as allCalculators, CALC_UI } from './src/calculators.mjs';
+import { babyNames, BABY_UI } from './src/naam.mjs';
 import { whyFaq } from './src/festival-why.mjs';
 import { rules as allRules, KHEL_UI } from './src/khel.mjs';
 import { LIST_YEAR, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
@@ -43,6 +44,7 @@ const SPEECHES = allSpeeches.filter((sp) => isLive(`speech:${sp.slug}`));
 const ESSAYS = allEssays.filter((e) => isLive(`nibandh:${e.slug}`));
 const KHEL = allRules.filter((r) => isLive(`game:${r.slug}`)); // rules page goes live with its game
 const CALCS = allCalculators.filter((c) => isLive(`calc:${c.slug}`));
+const BABY_LIVE = isLive('page:naam');
 const heldTools = allTools.filter((tl) => !isLive(`tool:${tl.slug}`)).map((tl) => tl.slug);
 import * as islamic from './src/islamic.mjs';
 import { ui } from './src/i18n/ui.mjs';
@@ -130,8 +132,8 @@ const lapp = (a, L) => {
 const P = (L, path) => `${L.prefix}${path}`;
 // Calculator menu link (user, 20 Nov 2026: calculators live now, with the menu link)
 const CALC_IN_NAV = true;
-const NAV = ['/', '/kahani/', '/wishes/', '/festivals/', '/games/', ...(CALC_IN_NAV && CALCS.length ? ['/calculator/'] : []), ...(tools.length ? ['/tools/'] : []), '/wish-card/', '/apps/', '/about/'];
-const NAV_KEYS = ['home', 'stories', 'wishes', 'festivals', 'games', ...(CALC_IN_NAV && CALCS.length ? ['calc'] : []), ...(tools.length ? ['tools'] : []), 'card', 'apps', 'about'];
+const NAV = ['/', '/kahani/', '/wishes/', '/festivals/', '/games/', ...(CALC_IN_NAV && CALCS.length ? ['/calculator/'] : []), ...(BABY_LIVE ? ['/naam/'] : []), ...(tools.length ? ['/tools/'] : []), '/wish-card/', '/apps/', '/about/'];
+const NAV_KEYS = ['home', 'stories', 'wishes', 'festivals', 'games', ...(CALC_IN_NAV && CALCS.length ? ['calc'] : []), ...(BABY_LIVE ? ['naam'] : []), ...(tools.length ? ['tools'] : []), 'card', 'apps', 'about'];
 // Voice used by the browser to read stories aloud.
 const SPEECH = { hi: 'hi-IN', en: 'en-IN', hinglish: 'en-IN', bn: 'bn-IN' };
 
@@ -1004,6 +1006,80 @@ ${faqBlock(faq)}
 ${others.length ? `<h2 class="no-print">${esc(U.more)}</h2>\n<div class="grid no-print">${others.map(card).join('')}</div>` : ''}
 </article>`,
       }));
+    });
+  }
+
+  // Baby names (/naam/, /naam/boy|girl/, /naam/boy|girl/<letter>/), scheduled 'page:naam'
+  if (BABY_LIVE) {
+    const U = BABY_UI[L.code];
+    const mean = (x) => (L.code === 'hi' ? x.mHi : x.mEn);
+    const boys = babyNames.filter((x) => x.g === 'b');
+    const girls = babyNames.filter((x) => x.g === 'g');
+    const lettersOf = (list) => [...new Set(list.map((x) => x.r[0].toUpperCase()))].sort();
+    const byName = (a, b) => a.r.localeCompare(b.r);
+    const row = (x) => `<li class="naam-row"><span class="naam-n"><b>${esc(x.n)}</b> <span class="naam-r">${esc(x.r)}</span></span><span class="naam-m">${esc(mean(x))}</span></li>`;
+    const slugOf = (g) => (g === 'b' ? 'boy' : 'girl');
+    const titleOf = (g) => (g === 'b' ? U.boy : U.girl);
+    const leadOf = (g) => (g === 'b' ? U.boyLead : U.girlLead);
+    const letterNav = (g, active) => `<nav class="naam-letters" aria-label="${esc(U.byLetter)}">${lettersOf(g === 'b' ? boys : girls).map((l) => `<a class="naam-letter${l === active ? ' is-active' : ''}" href="${P(L, `/naam/${slugOf(g)}/${l.toLowerCase()}/`)}">${l}</a>`).join('')}</nav>`;
+    const naamStyle = `<style>.naam-letters{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0}.naam-letter{display:inline-flex;align-items:center;justify-content:center;min-width:2.3rem;height:2.3rem;padding:0 .4rem;border:1px solid var(--line);border-radius:.5rem;background:var(--surface);color:var(--text);font-weight:700;text-decoration:none}.naam-letter.is-active,.naam-letter:hover{background:var(--brand);color:#fff;border-color:var(--brand)}.naam-list{list-style:none;padding:0;margin:1rem 0;display:grid;gap:0}.naam-row{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;padding:.6rem .2rem;border-bottom:1px dashed var(--line)}.naam-n b{font-size:1.15rem}.naam-r{color:var(--muted);font-weight:600;margin-left:.35rem}.naam-m{color:var(--muted);text-align:right;flex-shrink:0;max-width:55%}</style>`;
+    // hub
+    const hubFaq = U.faq.map(([q, a]) => ({ q, a }));
+    write(L, '/naam/', page(L, {
+      path: '/naam/', title: U.hubTitle, description: U.hubLead,
+      jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.hub, '/naam/']]), faqLd(hubFaq)],
+      body: `<article class="wrap narrow article">${naamStyle}
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(U.hub)}</p>
+<h1>👶 ${esc(U.hub)}</h1>
+<p class="lead">${esc(U.hubLead)}</p>
+<div class="grid">
+<a class="card" href="${P(L, '/naam/boy/')}"><span class="emoji" aria-hidden="true">👦</span><h3>${esc(U.boy)}</h3><p>${esc(U.boyLead)}</p></a>
+<a class="card" href="${P(L, '/naam/girl/')}"><span class="emoji" aria-hidden="true">👧</span><h3>${esc(U.girl)}</h3><p>${esc(U.girlLead)}</p></a>
+</div>
+<h2>${esc(U.popular)}</h2>
+<ul class="naam-list">${[...boys.slice(0, 6), ...girls.slice(0, 6)].map(row).join('')}</ul>
+<div class="ad no-print" aria-hidden="true"></div>
+<h2>${esc(U.faqH)}</h2>
+${faqBlock(hubFaq)}
+</article>`,
+    }));
+    // gender hubs + per-letter pages
+    ['b', 'g'].forEach((g) => {
+      const list = g === 'b' ? boys : girls;
+      const hubPath = `/naam/${slugOf(g)}/`;
+      write(L, hubPath, page(L, {
+        path: hubPath, title: `${titleOf(g)} — ${U.hub} | ${NAME}`, description: leadOf(g),
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.hub, '/naam/'], [titleOf(g), hubPath]])],
+        body: `<article class="wrap narrow article">${naamStyle}
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/naam/')}">${esc(U.hub)}</a> › ${esc(titleOf(g))}</p>
+<h1>${g === 'b' ? '👦' : '👧'} ${esc(titleOf(g))}</h1>
+<p class="lead">${esc(leadOf(g))}</p>
+<h2>${esc(U.byLetter)}</h2>
+${letterNav(g)}
+<ul class="naam-list">${list.slice().sort(byName).map(row).join('')}</ul>
+</article>`,
+      }));
+      lettersOf(list).forEach((l) => {
+        const sub = list.filter((x) => x.r[0].toUpperCase() === l).sort(byName);
+        const path = `/naam/${slugOf(g)}/${l.toLowerCase()}/`;
+        const title = g === 'b' ? U.boyTitleT(l) : U.girlTitleT(l);
+        const h1 = g === 'b' ? U.boyH1T(l) : U.girlH1T(l);
+        const lead = U.letterLeadT(l, g === 'b' ? U.boyKind : U.girlKind);
+        write(L, path, page(L, {
+          path, title, description: lead,
+          jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.hub, '/naam/'], [titleOf(g), hubPath], [l, path]]), articleLd(L, h1, path)],
+          body: `<article class="wrap narrow article">${naamStyle}
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/naam/')}">${esc(U.hub)}</a> › <a href="${P(L, hubPath)}">${esc(titleOf(g))}</a> › ${esc(l)}</p>
+<h1>${esc(h1)}</h1>
+<p class="lead">${esc(lead)} · ${esc(U.countT(sub.length))}</p>
+<ul class="naam-list">${sub.map(row).join('')}</ul>
+<div class="ad no-print" aria-hidden="true"></div>
+<h2 class="no-print">${esc(U.otherLetters)}</h2>
+${letterNav(g, l)}
+<p class="no-print"><a href="${P(L, hubPath)}">← ${esc(titleOf(g))}</a> · <a href="${P(L, '/naam/')}">${esc(U.backHub)}</a></p>
+</article>`,
+        }));
+      });
     });
   }
 
