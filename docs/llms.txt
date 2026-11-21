@@ -79,6 +79,8 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [FD (Fixed Deposit) Calculator](https://nextgrade.in/en/calculator/fd/): Enter the deposit, interest rate and time to find how much interest your FD earns and the total at maturity.
 - [Mileage Calculator](https://nextgrade.in/en/calculator/mileage/): Enter the distance you travelled and the fuel used to find your mileage — and the trip cost too, if you add the fuel price.
 - [Marks Percentage Calculator](https://nextgrade.in/en/calculator/marks-percentage/): Enter your marks obtained and the total marks to instantly find your percentage and grade.
+- [RD (Recurring Deposit) Calculator](https://nextgrade.in/en/calculator/rd/): Enter how much you deposit each month, for how many months and the interest rate, to find the total at maturity.
+- [Loan Eligibility Calculator](https://nextgrade.in/en/calculator/loan-eligibility/): Enter the EMI you can comfortably pay each month, the interest rate and tenure, to find how much loan that EMI can get you.
 
 ## Free online games (desi and puzzle, play in the browser)
 

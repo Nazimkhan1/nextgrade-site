@@ -178,6 +178,25 @@
       var grade = pct >= 90 ? 'A+' : pct >= 80 ? 'A' : pct >= 70 ? 'B+' : pct >= 60 ? 'B' : pct >= 50 ? 'C' : pct >= 33 ? 'D' : 'F';
       show(row(S('percentage', 'Percentage'), '<b>' + fmt(pct, 2) + '%</b>', true) + row(S('obtained', 'Marks'), fmt(got) + ' / ' + fmt(total)) + row(S('grade', 'Grade'), grade));
     },
+    rd: function () {
+      var m = num('m'), r = num('r'), months = num('n');
+      if (isNaN(m) || isNaN(r) || isNaN(months) || m <= 0 || months <= 0) return err(S('fill', 'Please fill the monthly deposit, rate and months.'));
+      var maturity = 0;
+      for (var k = 1; k <= Math.round(months); k++) {
+        var remYears = (Math.round(months) - k + 1) / 12;
+        maturity += m * Math.pow(1 + r / 400, 4 * remYears); // quarterly compounding
+      }
+      var invested = m * Math.round(months), interest = maturity - invested;
+      show(row(S('maturity', 'Maturity amount'), '₹ ' + fmt(maturity), true) + row(S('invested', 'You deposit'), '₹ ' + fmt(invested)) + row(S('interest', 'Interest earned'), '₹ ' + fmt(interest)));
+    },
+    loaneli: function () {
+      var emi = num('emi'), r = num('r'), t = num('t');
+      if (isNaN(emi) || isNaN(r) || isNaN(t) || emi <= 0 || t <= 0) return err(S('fill', 'Please fill the EMI, rate and tenure.'));
+      var i = r / 1200, n = t * 12;
+      var p = i === 0 ? emi * n : emi * (Math.pow(1 + i, n) - 1) / (i * Math.pow(1 + i, n));
+      var total = emi * n;
+      show(row(S('eligible', 'Loan you can get'), '₹ ' + fmt(p), true) + row(S('emiRow', 'Monthly EMI'), '₹ ' + fmt(emi)) + row(S('interest', 'Total interest'), '₹ ' + fmt(total - p)) + row(S('total', 'Total payment'), '₹ ' + fmt(total)));
+    },
     bmi: function () {
       var w = num('w'), h = num('h'), unit = val('hunit') || 'cm';
       if (isNaN(w) || isNaN(h) || w <= 0 || h <= 0) return err(S('fill', 'Please enter weight and height.'));
