@@ -24,6 +24,7 @@ import { speeches as allSpeeches, SPEECH_UI } from './src/speeches.mjs';
 import { essays as allEssays, NIBANDH_UI } from './src/nibandh.mjs';
 import { calculators as allCalculators, CALC_UI } from './src/calculators.mjs';
 import { babyNames, BABY_UI } from './src/naam.mjs';
+import { FULLFORMS, FF_UI, ffSlug } from './src/fullforms.mjs';
 import { whyFaq } from './src/festival-why.mjs';
 import { rules as allRules, KHEL_UI } from './src/khel.mjs';
 import { LIST_YEAR, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
@@ -45,6 +46,7 @@ const ESSAYS = allEssays.filter((e) => isLive(`nibandh:${e.slug}`));
 const KHEL = allRules.filter((r) => isLive(`game:${r.slug}`)); // rules page goes live with its game
 const CALCS = allCalculators.filter((c) => isLive(`calc:${c.slug}`));
 const BABY_LIVE = isLive('page:naam');
+const FF_LIVE = isLive('page:full-form');
 const heldTools = allTools.filter((tl) => !isLive(`tool:${tl.slug}`)).map((tl) => tl.slug);
 import * as islamic from './src/islamic.mjs';
 import { ui } from './src/i18n/ui.mjs';
@@ -132,8 +134,8 @@ const lapp = (a, L) => {
 const P = (L, path) => `${L.prefix}${path}`;
 // Calculator menu link (user, 20 Nov 2026: calculators live now, with the menu link)
 const CALC_IN_NAV = true;
-const NAV = ['/', '/kahani/', '/wishes/', '/festivals/', '/games/', ...(CALC_IN_NAV && CALCS.length ? ['/calculator/'] : []), ...(BABY_LIVE ? ['/naam/'] : []), ...(tools.length ? ['/tools/'] : []), '/wish-card/', '/apps/', '/about/'];
-const NAV_KEYS = ['home', 'stories', 'wishes', 'festivals', 'games', ...(CALC_IN_NAV && CALCS.length ? ['calc'] : []), ...(BABY_LIVE ? ['naam'] : []), ...(tools.length ? ['tools'] : []), 'card', 'apps', 'about'];
+const NAV = ['/', '/kahani/', '/wishes/', '/festivals/', '/games/', ...(CALC_IN_NAV && CALCS.length ? ['/calculator/'] : []), ...(BABY_LIVE ? ['/naam/'] : []), ...(FF_LIVE ? ['/full-form/'] : []), ...(tools.length ? ['/tools/'] : []), '/wish-card/', '/apps/', '/about/'];
+const NAV_KEYS = ['home', 'stories', 'wishes', 'festivals', 'games', ...(CALC_IN_NAV && CALCS.length ? ['calc'] : []), ...(BABY_LIVE ? ['naam'] : []), ...(FF_LIVE ? ['ff'] : []), ...(tools.length ? ['tools'] : []), 'card', 'apps', 'about'];
 // Voice used by the browser to read stories aloud.
 const SPEECH = { hi: 'hi-IN', en: 'en-IN', hinglish: 'en-IN', bn: 'bn-IN' };
 
@@ -1080,6 +1082,72 @@ ${letterNav(g, l)}
 </article>`,
         }));
       });
+    });
+  }
+
+  // Full forms (/full-form/, /full-form/letter/<l>/, /full-form/<slug>/), scheduled 'page:full-form'
+  if (FF_LIVE) {
+    const U = FF_UI[L.code];
+    const note = (x) => (L.code === 'hi' ? x.dHi : x.dEn);
+    const lettersFF = [...new Set(FULLFORMS.map((x) => x.a[0].toUpperCase()))].sort();
+    const byAbbr = (a, b) => a.a.localeCompare(b.a);
+    const ffRow = (x) => `<li class="ff-row"><a class="ff-a" href="${P(L, `/full-form/${ffSlug(x)}/`)}"><b>${esc(x.a)}</b></a><span class="ff-f">${esc(x.f)}</span></li>`;
+    const ffLetterNav = (active) => `<nav class="naam-letters" aria-label="${esc(U.byLetter)}">${lettersFF.map((l) => `<a class="naam-letter${l === active ? ' is-active' : ''}" href="${P(L, `/full-form/letter/${l.toLowerCase()}/`)}">${l}</a>`).join('')}</nav>`;
+    const ffStyle = `<style>.naam-letters{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0}.naam-letter{display:inline-flex;align-items:center;justify-content:center;min-width:2.3rem;height:2.3rem;padding:0 .4rem;border:1px solid var(--line);border-radius:.5rem;background:var(--surface);color:var(--text);font-weight:700;text-decoration:none}.naam-letter.is-active,.naam-letter:hover{background:var(--brand);color:#fff;border-color:var(--brand)}.ff-list{list-style:none;padding:0;margin:1rem 0;display:grid;gap:0}.ff-row{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;padding:.6rem .2rem;border-bottom:1px dashed var(--line)}.ff-a b{font-size:1.1rem}.ff-f{color:var(--muted);text-align:right}.ff-def{margin:1rem 0;padding:1rem 1.1rem;border:1px solid var(--line);border-radius:.6rem;background:var(--surface)}.ff-def b{color:var(--brand)}</style>`;
+    // hub
+    write(L, '/full-form/', page(L, {
+      path: '/full-form/', title: U.hubTitle, description: U.hubLead,
+      jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.hub, '/full-form/']])],
+      body: `<article class="wrap narrow article">${ffStyle}
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(U.hub)}</p>
+<h1>🔤 ${esc(U.hub)}</h1>
+<p class="lead">${esc(U.hubLead)}</p>
+<h2>${esc(U.byLetter)}</h2>
+${ffLetterNav()}
+<h2>${esc(U.popular)}</h2>
+<ul class="ff-list">${FULLFORMS.slice(0, 16).map(ffRow).join('')}</ul>
+<div class="ad no-print" aria-hidden="true"></div>
+</article>`,
+    }));
+    // per-letter pages
+    lettersFF.forEach((l) => {
+      const sub = FULLFORMS.filter((x) => x.a[0].toUpperCase() === l).sort(byAbbr);
+      const path = `/full-form/letter/${l.toLowerCase()}/`;
+      write(L, path, page(L, {
+        path, title: U.letterTitleT(l), description: U.letterLeadT(l),
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.hub, '/full-form/'], [l, path]]), articleLd(L, U.letterH1T(l), path)],
+        body: `<article class="wrap narrow article">${ffStyle}
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/full-form/')}">${esc(U.hub)}</a> › ${esc(l)}</p>
+<h1>${esc(U.letterH1T(l))}</h1>
+<p class="lead">${esc(U.letterLeadT(l))} · ${esc(U.countT(sub.length))}</p>
+<ul class="ff-list">${sub.map(ffRow).join('')}</ul>
+<div class="ad no-print" aria-hidden="true"></div>
+<h2 class="no-print">${esc(U.otherLetters)}</h2>
+${ffLetterNav(l)}
+</article>`,
+      }));
+    });
+    // per-term pages
+    FULLFORMS.forEach((x) => {
+      const path = `/full-form/${ffSlug(x)}/`;
+      const l = x.a[0].toUpperCase();
+      const related = FULLFORMS.filter((o) => o.a[0].toUpperCase() === l && o.a !== x.a).slice(0, 8);
+      const faq = U.faqT(x.a, x.f).map(([q, a]) => ({ q, a }));
+      write(L, path, page(L, {
+        path, title: U.termTitleT(x.a), description: U.termLeadT(x.a, x.f) + ' ' + note(x),
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.hub, '/full-form/'], [`${x.a}`, path]]), articleLd(L, U.termH1T(x.a), path), faqLd(faq)],
+        body: `<article class="wrap narrow article">${ffStyle}
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/full-form/')}">${esc(U.hub)}</a> › <a href="${P(L, `/full-form/letter/${l.toLowerCase()}/`)}">${esc(l)}</a> › ${esc(x.a)}</p>
+<h1>${esc(U.termH1T(x.a))}</h1>
+<p class="lead">${esc(U.termLeadT(x.a, x.f))}</p>
+<div class="ff-def"><b>${esc(x.a)}</b> ${esc(U.stands)} <b>${esc(x.f)}</b>.<br>${esc(note(x))}</div>
+<div class="ad no-print" aria-hidden="true"></div>
+<h2>${esc(U.faqH)}</h2>
+${faqBlock(faq)}
+${related.length ? `<h2 class="no-print">${esc(U.relH)}</h2>\n<ul class="ff-list no-print">${related.map(ffRow).join('')}</ul>` : ''}
+<p class="no-print"><a href="${P(L, `/full-form/letter/${l.toLowerCase()}/`)}">← ${esc(l)}</a> · <a href="${P(L, '/full-form/')}">${esc(U.backHub)}</a></p>
+</article>`,
+      }));
     });
   }
 
