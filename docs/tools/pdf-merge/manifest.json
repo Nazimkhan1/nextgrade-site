@@ -1,0 +1,16 @@
+{
+  "name": "PDF Merge & Split — NextGrade Tools",
+  "short_name": "PDF Merge",
+  "description": "Join PDFs and photos into one PDF, or take out, delete and rotate pages. Runs on your phone; nothing is uploaded.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f3f0ff",
+  "theme_color": "#6741d9",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

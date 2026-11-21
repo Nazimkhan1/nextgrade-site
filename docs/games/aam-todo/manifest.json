@@ -1,0 +1,16 @@
+{
+  "name": "Aam Todo Gulel Se — Slingshot Mango Game",
+  "short_name": "Aam Todo",
+  "description": "Pull back the gulel and knock ripe mangoes off the tree — leave the green ones and never hit the beehive. The childhood slingshot game in 4 languages.",
+  "start_url": "/games/aam-todo/",
+  "scope": "/games/aam-todo/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#102a14",
+  "theme_color": "#2b8a3e",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -1,0 +1,758 @@
+<!doctype html>
+<html data-prerendered="hi" lang="hi">
+<head>
+<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PDF Compressor — PDF ko 100 KB, 200 KB, 500 KB, 1 MB mein chhota karo | NextGrade Tools</title>
+<meta name="description" content="Compress a PDF to 100 KB, 200 KB, 500 KB, 1 MB or any size you choose, for online forms. Black &amp; white mode for scanned pages, before/after check. Free, and it runs on your phone: nothing is uploaded.">
+<meta name="theme-color" content="#c92a2a">
+<link rel="canonical" href="https://nextgrade.in/tools/pdf-compress/">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/css/6a45250a9a38.css">
+<style>
+:root { --bg: #fff4f1; --card: #fff; --ink: #2e1412; --muted: #745450; --brand: #c92a2a; --brand2: #e8590c; --line: #f5d2ca; --soft: #fff8f6; --ok: #2b8a3e; --warn: #c92a2a; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 8px; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 21px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand small { display: block; font-family: Inter, sans-serif; font-size: 12px; font-weight: 600; color: var(--muted); }
+select, button, input { font: inherit; }
+.langsel { padding: 7px 9px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: clamp(26px, 6vw, 36px); line-height: 1.15; margin: 4px 0; }
+.sub { color: var(--muted); margin: 0 0 10px; }
+.privacy { background: #ebfbee; border: 1px solid #b2f2bb; color: #1b5e20; border-radius: 12px; padding: 8px 12px; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 4px 18px rgba(201, 42, 42, 0.08); }
+.lbl { font-weight: 700; margin: 0 0 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.chip { padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line); background: #fff; font-weight: 700; cursor: pointer; color: var(--ink); min-width: 74px; }
+.chip.on { background: linear-gradient(90deg, var(--brand), var(--brand2)); color: #fff; border-color: transparent; }
+.kbin { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px; padding: 4px 6px 4px 12px; background: #fff; }
+.kbin.on { border-color: var(--brand); box-shadow: 0 0 0 2px rgba(201, 42, 42, 0.2); }
+.kbin input { width: 72px; border: 0; outline: 0; font-weight: 700; background: transparent; color: var(--ink); }
+.kbin span { color: var(--muted); font-weight: 600; font-size: 14px; }
+.chk { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; margin-top: 12px; cursor: pointer; }
+.hint { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+.note { font-size: 13px; color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; margin-top: 10px; }
+.drop { margin-top: 14px; border: 2px dashed #ee9f93; border-radius: 16px; padding: 24px 16px; text-align: center; background: var(--soft); cursor: pointer; }
+.drop.over { background: #ffe3dd; }
+.drop b { display: block; font-size: 18px; margin-bottom: 4px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 700; cursor: pointer; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, var(--brand), var(--brand2)); color: #fff; border: 0; }
+.btn-ok { background: var(--ok); color: #fff; border: 0; }
+.btn-sm { padding: 7px 10px; font-size: 13.5px; border-radius: 10px; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.filebox { margin-top: 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 14px; background: var(--soft); }
+.filebox > div { min-width: 0; }
+.iname { font-weight: 700; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ipx { font-size: 12.5px; color: var(--muted); }
+.prog { margin-top: 12px; }
+.bar { height: 10px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--brand), var(--brand2)); transition: width 0.2s; }
+.err { margin-top: 12px; background: #fff5f5; border: 1px solid #ffc9c9; color: var(--warn); border-radius: 12px; padding: 10px 12px; font-weight: 600; font-size: 14px; }
+#results { margin-top: 14px; }
+.reshead h2 { margin: 0 0 8px; font-size: 18px; }
+.res { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 12px; align-items: start; padding: 10px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+@media (max-width: 420px) { .res { grid-template-columns: 96px minmax(0, 1fr); } }
+.pv { width: 100%; aspect-ratio: 3 / 4; border-radius: 10px; background: #f1f3f5; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: zoom-in; border: 1px solid var(--line); padding: 0; }
+.pv img { max-width: 100%; max-height: 100%; display: block; }
+.isize { font-size: 15px; }
+.isize b { color: var(--ok); }
+.isize.bad b { color: var(--warn); }
+.inote { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.inote.bad { color: var(--warn); font-weight: 600; }
+.iact { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.spin { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--line); border-top-color: var(--brand); border-radius: 50%; animation: sp 0.8s linear infinite; vertical-align: -2px; margin-right: 6px; }
+@keyframes sp { to { transform: rotate(360deg); } }
+.hidden { display: none !important; }
+section.info { margin: 26px 0; }
+section.info h2 { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: 22px; margin: 0 0 6px; }
+.sizes { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.sizes a { display: block; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; color: var(--ink); text-decoration: none; font-weight: 700; }
+.sizes a small { display: block; color: var(--muted); font-weight: 400; font-size: 12.5px; }
+.sizes a.here { border-color: var(--brand); box-shadow: 0 0 0 2px rgba(201, 42, 42, 0.2); }
+.tbl { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; }
+.tbl th, .tbl td { border: 1px solid var(--line); padding: 6px 8px; text-align: start; vertical-align: top; }
+.tbl th { background: var(--soft); }
+.tblwrap { overflow-x: auto; }
+.probs dt { font-weight: 700; margin-top: 10px; }
+.probs dd { margin: 2px 0 0; }
+details.faq { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin: 8px 0; }
+details.faq summary { font-weight: 700; cursor: pointer; }
+footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top: 1px solid var(--line); margin-top: 24px; }
+.toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 12px; font-weight: 600; z-index: 30; max-width: 92vw; text-align: center; }
+/* before / after */
+.modal { position: fixed; inset: 0; background: rgba(30, 10, 8, 0.88); z-index: 20; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 14px; gap: 10px; }
+.cmp { position: relative; width: min(92vw, 900px); height: min(68vh, 900px); user-select: none; -webkit-user-select: none; touch-action: none; }
+.cmp img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+.cmp .line { position: absolute; top: 0; bottom: 0; width: 2px; background: #fff; box-shadow: 0 0 6px rgba(0,0,0,.6); pointer-events: none; }
+.cmp .tag { position: absolute; top: 8px; background: rgba(0,0,0,.6); color: #fff; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 8px; }
+.modal input[type=range] { width: min(92vw, 520px); }
+.modal .cap { color: #fff; font-size: 13px; text-align: center; }
+#selftest { white-space: pre-wrap; font-size: 12px; }
+</style>
+<script type="application/ld+json" id="faqLd">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does my PDF go to any server?","acceptedAnswer":{"@type":"Answer","text":"No. The PDF is made smaller inside your phone/browser. Once the page has loaded, it even works with the internet off."}},{"@type":"Question","name":"How do I make a PDF 100 KB?","acceptedAnswer":{"@type":"Answer","text":"Choose 100 KB above and add the PDF. The tool turns each page into a JPG picture and lowers its quality; if it is still too big, it lowers the page resolution (DPI) a little until the whole PDF is under 100 KB."}},{"@type":"Question","name":"Why can't I select the text?","acceptedAnswer":{"@type":"Answer","text":"To make it small, every page becomes a picture. So the text cannot be copied or searched, but for reading and for uploading to a form the page looks the same."}},{"@type":"Question","name":"Does it work with a password-protected PDF?","acceptedAnswer":{"@type":"Answer","text":"No. Open the PDF with its password first, save a copy without the password, then add that copy here."}},{"@type":"Question","name":"Can the file come out bigger than the original?","acceptedAnswer":{"@type":"Answer","text":"No. If squeezing would make it bigger, the tool gives back the original PDF and tells you so."}}]}</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://nextgrade.in/tools/">📄 NextGrade Tools<small data-t="brandSub">फ़्री · PDF फ़ोन से बाहर नहीं जाती</small></a>
+    <select class="langsel" id="langSel" aria-label="Language">
+      <option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option>
+    </select>
+  </header>
+  <h1 data-t="title">PDF का साइज़ कम करें — 100 KB, 200 KB, 500 KB, 1 MB</h1>
+  <p class="sub" data-t="sub">ऑनलाइन फ़ॉर्म के लिए PDF को जितने KB में चाहिए उतने में छोटा करें। कितने भी पेज हों, सारा काम आपके फ़ोन पर ही होता है।</p>
+  <div class="privacy">🔒 <span data-t="privacy">आपकी PDF कहीं अपलोड नहीं होती। सारा काम आपके फ़ोन/ब्राउज़र में होता है।</span></div>
+
+  <div class="card">
+    <p class="lbl" data-t="targetH">PDF कितने KB से छोटी चाहिए?</p>
+    <div class="chips" id="chips">
+      <button class="chip" type="button" data-kb="100">100 KB</button>
+      <button class="chip" type="button" data-kb="200">200 KB</button>
+      <button class="chip" type="button" data-kb="300">300 KB</button>
+      <button class="chip" type="button" data-kb="500">500 KB</button>
+      <button class="chip" type="button" data-kb="1000">1 MB</button>
+      <label class="kbin" id="kbinBox"><span data-t="custom">अपना:</span><input id="kbIn" type="number" inputmode="numeric" min="10" max="20000" placeholder="KB" aria-label="KB"><span>KB</span></label>
+      <button class="chip" type="button" data-kb="0" data-t="smaller"></button>
+    </div>
+    <label class="chk"><input type="checkbox" id="gray"> <span data-t="grayL">ब्लैक एंड व्हाइट करें — स्कैन किए या फ़ोटो खींचे काग़ज़ के लिए (फ़ाइल और छोटी बनती है)</span></label>
+    <p class="note">ℹ️ <span data-t="imgNote">ध्यान दें: छोटी PDF के पेज फ़ोटो जैसे बन जाते हैं, इसलिए उसका टेक्स्ट सेलेक्ट या कॉपी नहीं होगा। फ़ॉर्म में अपलोड करने के लिए इससे कोई फ़र्क नहीं पड़ता।</span></p>
+
+    <div class="drop" id="drop" role="button" tabindex="0">
+      <b data-t="pickTitle">PDF चुनें</b>
+      <span class="hint" data-t="pickHint">एक PDF फ़ाइल चुनें, या उसे यहाँ खींचकर छोड़ें।</span>
+      <div class="row" style="justify-content:center;margin-top:12px">
+        <button class="btn btn-main" id="pickBtn" type="button" data-t="pickBtn"></button>
+      </div>
+    </div>
+    <input type="file" id="file" accept="application/pdf,.pdf" hidden>
+
+    <div class="filebox hidden" id="fileBox">
+      <div><div class="iname" id="fName"></div><div class="ipx" id="fInfo"></div></div>
+      <button class="btn btn-sm" id="anotherBtn" type="button" data-t="another"></button>
+    </div>
+    <div class="prog hidden" id="prog"><div class="bar"><i id="progBar"></i></div><p class="hint" id="progTxt"></p></div>
+    <div class="err hidden" id="errBox" role="alert"></div>
+
+    <div id="results" class="hidden">
+      <div class="reshead"><h2 data-t="resH"></h2></div>
+      <div class="res">
+        <button class="pv" id="pvBtn" type="button"><img id="pvImg" alt=""></button>
+        <div>
+          <div class="isize" id="resSize"></div>
+          <div class="ipx" id="resDetail"></div>
+          <div class="inote" id="resNote"></div>
+          <div class="iact">
+            <button class="btn btn-ok btn-sm" id="dlBtn" type="button" data-t="dl"></button>
+            <button class="btn btn-sm" id="shareBtn" type="button" data-t="share"></button>
+            <button class="btn btn-sm" id="cmpBtn" type="button" data-t="compare"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="info hidden" id="pageInfo"></section>
+  <section class="info hidden" id="pageFaq"><h2 data-t="faqH"></h2><div id="pageFaqList"></div></section>
+  <section class="info"><h2 data-t="sizesH">सीधे इस साइज़ के लिए</h2><p class="hint" data-t="sizesNote">हर साइज़ का अपना पेज है, वही साइज़ पहले से चुना हुआ।</p><div class="sizes" id="sizeLinks"><a href="./100kb/?lang=hi">PDF 100 KB में<small>सर्टिफ़िकेट, मार्कशीट</small></a><a href="./200kb/?lang=hi">PDF 200 KB में<small>स्कॉलरशिप, एडमिशन</small></a><a href="./500kb/?lang=hi">PDF 500 KB में<small>नौकरी का फ़ॉर्म</small></a><a href="./1mb/?lang=hi">PDF 1 MB में<small>रिज़्यूमे, लंबी PDF</small></a><a href="./../image-compress/?lang=hi">🗜️ फ़ोटो का KB कम करें<small>JPG · WebP</small></a><a href="./../doc-scanner/?lang=hi">📷 काग़ज़ की फ़ोटो से PDF<small>PDF</small></a></div></section>
+  <section class="info gen"><h2 data-t="aboutH">यह PDF कंप्रेसर क्या करता है</h2><div id="aboutBox"><p>नौकरी, एडमिशन, स्कॉलरशिप और प्रमाण-पत्र के ऑनलाइन फ़ॉर्म हर डॉक्यूमेंट पर साइज़ की एक सीमा रखते हैं। फ़ोन स्कैनर या फ़ोटोकॉपी की दुकान से बनी PDF अक्सर कई MB की होती है, और फ़ॉर्म उसे लेने से मना कर देता है। यह टूल ऐसी PDF को आपके चुने हुए साइज़ तक ले आता है, ताकि फ़ॉर्म पहली बार में ही फ़ाइल ले ले।</p><p>तरीक़ा सीधा है: हर पेज को एक तस्वीर की तरह बनाया जाता है, उसे JPG में उस सबसे अच्छी क्वालिटी पर सेव किया जाता है जो साइज़ में फ़िट हो, और फिर सारी तस्वीरों को जोड़कर नई PDF बनती है — उतने ही पेज और वही पेज साइज़। सिर्फ़ क्वालिटी कम करने से काम न बने तो टूल पेज की साफ़ी (DPI) भी धीरे-धीरे कम करता है। जो फ़ाइल आपने दी, उससे बड़ी फ़ाइल यह कभी वापस नहीं देता।</p></div></section>
+  <section class="info gen"><h2 data-t="howH">कैसे करें</h2><ol id="howList"><li>ऊपर <b>KB</b> चुनें — 100, 200, 300, 500, 1 MB, अपना लिखें, या <b>बस छोटी कर दें</b>।</li><li>स्कैन किया या फ़ोटो खींचा काग़ज़ हो तो <b>ब्लैक एंड व्हाइट</b> चालू कर दें — फ़ाइल काफ़ी छोटी बनती है।</li><li><b>PDF चुनें</b> (या उसे यहाँ खींचकर छोड़ें)।</li><li>टूल हर पेज को सबसे अच्छी क्वालिटी के साथ उस साइज़ के अंदर लाता है। एक-एक पेज करके चलता है, प्रोग्रेस दिखता रहता है।</li><li><b>👁️ पहले/बाद</b> से पहला पेज देख लें, फिर <b>डाउनलोड</b> या <b>शेयर</b> करें।</li></ol></section>
+  <section class="info gen"><h2 data-t="tableH">कौन सा साइज़ कब?</h2><p class="hint" data-t="tableNote">यह आम अंदाज़ा है। फ़ॉर्म जो लिखे, वही मानें।</p><div class="tblwrap"><table class="tbl" id="useTable"><tbody><tr><th>कहाँ चाहिए</th><th>अक्सर साइज़</th><th>सुझाव</th></tr><tr><td>सर्टिफ़िकेट, मार्कशीट (1–2 पेज)</td><td>100–300 KB</td><td>ब्लैक एंड व्हाइट चालू करें</td></tr><tr><td>जाति / आय / निवास प्रमाण-पत्र</td><td>100–500 KB</td><td>ब्लैक एंड व्हाइट चालू करें</td></tr><tr><td>स्कॉलरशिप, एडमिशन के डॉक्यूमेंट</td><td>200–500 KB</td><td>हर डॉक्यूमेंट की अलग PDF</td></tr><tr><td>नौकरी के फ़ॉर्म में रिज़्यूमे, अनुभव पत्र</td><td>500 KB – 1 MB</td><td>रंगीन रख सकते हैं</td></tr><tr><td>कई पेज वाली PDF (10+ पेज)</td><td>1–2 MB</td><td>पहले बेकार पेज हटा दें</td></tr></tbody></table></div></section>
+  <section class="info gen"><h2 data-t="tipsH">काम की बातें</h2><ul id="tipList"><li>फ़ॉर्म "100 KB तक" माँगे तो <b>100 KB</b> चुनें। टूल फ़ाइल को थोड़ा नीचे ही रखता है, ताकि अपलोड में दिक़्क़त न हो।</li><li>स्कैन या फ़ोटो से बनी PDF में <b>ब्लैक एंड व्हाइट</b> सबसे ज़्यादा फ़र्क लाता है: काग़ज़ सफ़ेद और लिखाई गहरी हो जाती है।</li><li>जितने कम पेज, उतनी बेहतर क्वालिटी। फ़ॉर्म एक ही पेज माँगे तो सिर्फ़ वही पेज वाली PDF बनाएँ।</li><li>बहुत कम KB में कई पेज हों तो लिखाई धुँधली हो सकती है — पहले/बाद में ज़ूम करके ज़रूर देखें।</li><li>असली PDF सँभालकर रखें; छोटी वाली सिर्फ़ अपलोड के लिए है।</li></ul></section>
+  <section class="info gen"><h2 data-t="probH">आम दिक़्क़तें और उनका हल</h2><div id="probList"><dl class="probs"><dt>फ़ॉर्म अब भी कहता है फ़ाइल बड़ी है</dt><dd>कुछ वेबसाइट 1 KB को 1000 बाइट मानती हैं और कुछ 1024। यह टूल पहले से सख़्त वाला हिसाब लगाता है, यानी यहाँ की "100 KB" फ़ाइल 1,00,000 बाइट से कम होती है। फिर भी मना हो तो थोड़ा छोटा साइज़ चुनें, जैसे 90 KB।</dd><dt>लिखाई धुँधली आ रही है</dt><dd>KB कम और पेज ज़्यादा हैं। जो पेज फ़ॉर्म को नहीं चाहिए उन्हें हटा दें, ब्लैक एंड व्हाइट चालू करें, या फ़ॉर्म इजाज़त दे तो बड़ा साइज़ चुनें।</dd><dt>"पासवर्ड" वाला संदेश आया</dt><dd>PDF को किसी भी PDF ऐप में पासवर्ड डालकर खोलें, बिना पासवर्ड के नई PDF के रूप में सेव या प्रिंट करें, और वह नई फ़ाइल यहाँ डालें।</dd><dt>PDF खुलती ही नहीं</dt><dd>फ़ाइल अधूरी हो सकती है। उसे दोबारा डाउनलोड करें; WhatsApp से आई हो तो प्रीव्यू फ़ॉरवर्ड करने की जगह डॉक्यूमेंट के रूप में सेव करें।</dd><dt>लंबी PDF में देर लगती है</dt><dd>हर पेज आपके फ़ोन पर एक-एक करके बनता है। स्क्रीन चालू रखें और प्रोग्रेस बार पूरा होने दें; पुराने फ़ोन पर लंबी PDF में एक-दो मिनट लग सकते हैं।</dd></dl></div></section>
+  <section class="info gen"><h2 data-t="faqH"></h2><div id="faqList"><details class="faq"><summary>क्या मेरी PDF किसी सर्वर पर जाती है?</summary><p>नहीं। PDF आपके फ़ोन/ब्राउज़र में ही छोटी होती है। पेज एक बार खुल जाए तो इंटरनेट बंद करके भी चलता है।</p></details><details class="faq"><summary>PDF 100 KB कैसे करें?</summary><p>ऊपर 100 KB चुनें और PDF डालें। टूल हर पेज को JPG फ़ोटो में बदलकर क्वालिटी कम करता है; फिर भी बड़ी रहे तो पेज का रेज़ोल्यूशन (DPI) थोड़ा कम करता है, जब तक पूरी PDF 100 KB से नीचे न आ जाए।</p></details><details class="faq"><summary>टेक्स्ट सेलेक्ट क्यों नहीं होता?</summary><p>छोटा करने के लिए हर पेज एक फ़ोटो बन जाता है। इसलिए टेक्स्ट कॉपी या सर्च नहीं होता, लेकिन पढ़ने और फ़ॉर्म में अपलोड करने के लिए पेज वैसा ही दिखता है।</p></details><details class="faq"><summary>पासवर्ड वाली PDF चलेगी?</summary><p>नहीं। पहले PDF को पासवर्ड डालकर खोलें, बिना पासवर्ड वाली कॉपी सेव करें, फिर उसे यहाँ डालें।</p></details><details class="faq"><summary>फ़ाइल असली से बड़ी तो नहीं बनेगी?</summary><p>नहीं। छोटा करने पर फ़ाइल बड़ी बनती हो तो टूल असली PDF ही वापस देता है और बता देता है।</p></details></div></section>
+  <section class="info gen"><h2 data-t="privH">आपकी PDF, आपके पास</h2><p data-t="privText">यह टूल बिना किसी सर्वर के आपके फ़ोन/ब्राउज़र में चलता है। आपकी PDF कहीं अपलोड नहीं होती, कहीं सेव नहीं होती, और हम उसे देख भी नहीं सकते। पेज बंद करते ही सब मिट जाता है।</p></section>
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer">फ़्री टूल · कुछ भी अपलोड नहीं होता</span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+</div>
+
+<div class="modal hidden" id="modal" role="dialog" aria-modal="true">
+  <div class="cmp" id="cmp"><img id="cmpA" alt=""><img id="cmpB" alt=""><div class="line" id="cmpLine"></div><span class="tag" style="left:8px" data-t="before"></span><span class="tag" style="right:8px" data-t="after"></span></div>
+  <input type="range" id="cmpR" min="0" max="100" value="50" aria-label="before / after">
+  <div class="cap" id="cmpCap"></div>
+  <button class="btn" id="cmpClose" type="button" data-t="close"></button>
+</div>
+
+<script>
+'use strict';
+const PRESETS = [100, 200, 300, 500, 1000];
+// Pages per size (./100kb/ …) for search; the size links point to them.
+const PAGES = [[100, '100kb'], [200, '200kb'], [500, '500kb'], [1000, '1mb']];
+
+const T = {
+  hinglish: {
+    brandSub: 'Free · PDF phone se bahar nahi jaati', title: 'PDF ka size kam karo — 100 KB, 200 KB, 500 KB, 1 MB',
+    sub: 'Online form ke liye PDF ko jitne KB mein chahiye utne mein chhota karo. Kitne bhi pages ho, saara kaam aapke phone par hi hota hai.',
+    privacy: 'Aapki PDF kahin upload nahi hoti. Saara kaam aapke phone/browser mein hota hai.',
+    targetH: 'PDF kitne KB se chhoti chahiye?', custom: 'Apna:', smaller: '✨ Bas chhoti kar do',
+    grayL: 'Black & white karo — scan kiye ya photo kheeche kaagaz ke liye (file aur chhoti banti hai)',
+    imgNote: 'Dhyaan dein: chhoti PDF ke pages photo jaise ban jaate hain, isliye uska text select ya copy nahi hoga. Form mein upload karne ke liye isse koi farq nahi padta.',
+    pickTitle: 'PDF chuno', pickHint: 'Ek PDF file chuno, ya use yahan kheench kar chhodo.', pickBtn: '📄 PDF chuno',
+    opening: 'PDF khul rahi hai…', pagesInfo: (n, s) => `${n} page · ${s}`, another: '🔄 Doosri PDF',
+    working: 'Chhoti ho rahi hai…', step: (p, i, n) => `Koshish ${p}: page ${i} / ${n}`,
+    resH: 'Chhoti PDF taiyaar', dl: '⬇️ Download', share: '📲 Share', compare: '👁️ Pehle/Baad',
+    detail: (n, dpi, q) => `${n} page · ${dpi} DPI · quality ${q}%`, same: (n) => `${n} page · asli PDF, koi badlaav nahi`,
+    already: 'Yeh PDF pehle se is size se chhoti hai, isliye waisi hi rakhi. Aur chhoti chahiye to "Bas chhoti kar do" chuno.',
+    noGain: 'Yeh PDF pehle se kaafi halki hai; ise aur dabane par file badi ho jaati. Isliye asli PDF hi rakhi.',
+    cantReach: (kb) => `${kb} tak nahi pahunch paayi — itne pages ke liye yeh size bahut kam hai. Jo sabse chhoti ban saki, woh yeh hai. KB badhao, "Black & white" chalu karo, ya kuch pages hata do.`,
+    lowQ: 'Size mein laane ke liye quality kaafi kam karni padi. Pehle/Baad mein zoom karke dekh lo ki likhai padhi ja rahi hai.',
+    errPassword: 'Is PDF par password laga hai. Password wali PDF yahan nahi khulti — pehle use password daal kar kholo aur bina password wali copy save karke yahan daalo.',
+    errBroken: 'Yeh PDF khul nahi payi — file kharab ya adhuri lagti hai. Dobara download karke try karo.',
+    errNotPdf: 'Yeh PDF file nahi hai. Photo ka size kam karna ho to "Photo ka KB kam karo" tool use karo.',
+    errLib: 'Tool ki file load nahi hui. Internet chalu karke page dobara kholo (ek baar khulne ke baad offline bhi chalega).',
+    errFail: 'Kuch gadbad ho gayi. Page dobara kholkar try karo; bahut lambi PDF ho to "Black & white" ke saath ya kam pages ke saath try karo.',
+    saved: '✅ Phone mein save ho gaya', badKb: 'KB 10 se 20000 ke beech likho.',
+    before: 'Pehle', after: 'Baad', close: '✕ Band karo', cmpCap: (a, b) => `Page 1 · Pehle ${a} · Baad ${b} — slider khiskao`,
+    sizesH: 'Seedha is size ke liye', sizesNote: 'Har size ka apna page hai, wahi size pehle se chuna hua.', sizeLink: (s) => `PDF ${s} mein`,
+    sizeFor: { 100: 'Certificate, marksheet', 200: 'Scholarship, admission', 500: 'Naukri ka form', 1000: 'Resume, lambi PDF' },
+    imageTool: 'Photo ka KB kam karo', docTool: 'Kaagaz ki photo se PDF',
+    howH: 'Kaise karein', how: ['Upar <b>KB</b> chuno — 100, 200, 300, 500, 1 MB, apna likho, ya <b>Bas chhoti kar do</b>.', 'Scan kiya ya photo kheecha kaagaz ho to <b>Black & white</b> chalu kar do — file kaafi chhoti banti hai.', '<b>PDF chuno</b> (ya use yahan kheench kar chhodo).', 'Tool har page ko sabse achhi quality ke saath us size ke andar laata hai. Ek-ek page karke chalta hai, progress dikhta rehta hai.', '<b>👁️ Pehle/Baad</b> se pehla page dekh lo, phir <b>Download</b> ya <b>Share</b> karo.'],
+    tableH: 'Kaun sa size kab?', tableNote: 'Yeh aam andaaza hai. Form jo likhe, wahi maano.', thUse: 'Kahan chahiye', thKb: 'Aksar size', thTip: 'Sujhaav',
+    uses: [['Certificate, marksheet (1–2 page)', '100–300 KB', 'Black & white chalu karo'], ['Jaati / aay / niwas praman-patra', '100–500 KB', 'Black & white chalu karo'], ['Scholarship, admission ke documents', '200–500 KB', 'Har document ki alag PDF'], ['Naukri ke form mein resume, experience letter', '500 KB – 1 MB', 'Colour rakh sakte ho'], ['Kai pages wali PDF (10+ page)', '1–2 MB', 'Pehle bekaar pages hata do']],
+    tipsH: 'Kaam ki baatein', tips: ['Form "100 KB tak" maange to <b>100 KB</b> chuno. Tool file ko thoda neeche hi rakhta hai, taaki upload mein dikkat na ho.', 'Scan ya photo se bani PDF mein <b>Black & white</b> sabse zyada farq laata hai: kaagaz safed aur likhai gehri ho jaati hai.', 'Jitne kam pages, utni behtar quality. Form ek hi page maange to sirf wahi page wali PDF banao.', 'Bahut kam KB mein kai pages ho to likhai dhundhli ho sakti hai — Pehle/Baad mein zoom karke zaroor dekho.', 'Asli PDF sambhaal kar rakho; chhoti wali sirf upload ke liye hai.'],
+    aboutH: "Yeh PDF compressor kya karta hai", about: ["Naukri, admission, scholarship aur certificate ke online forms har document par size ki ek seema rakhte hain. Phone scanner ya photocopy dukaan se bani PDF aksar kai MB ki hoti hai, aur form use lene se mana kar deta hai. Yeh tool aisi PDF ko aapke chune hue size tak le aata hai, taaki form pehli baar mein hi file le le.", "Tareeka seedha hai: har page ko ek tasveer ki tarah banaya jaata hai, use JPG mein us sabse achhi quality par save kiya jaata hai jo size mein fit ho, aur phir saari tasveeron ko jodkar nayi PDF banti hai — utne hi pages aur wahi page size. Sirf quality kam karne se kaam na bane to tool page ki saafi (DPI) bhi dheere-dheere kam karta hai. Jo file aapne di, usse badi file yeh kabhi waapas nahi deta."],
+    probH: "Aam dikkatein aur unka hal", probs: [["Form ab bhi kehta hai file badi hai", "Kuch websites 1 KB ko 1000 byte maanti hain aur kuch 1024. Yeh tool pehle se sakht wala hisaab lagata hai, yaani yahan ki \"100 KB\" file 1,00,000 byte se kam hoti hai. Phir bhi mana ho to thoda chhota size chuno, jaise 90 KB."], ["Likhai dhundhli aa rahi hai", "KB kam aur pages zyada hain. Jo pages form ko nahi chahiye unhe hata do, Black & white chalu karo, ya form ijaazat de to bada size chuno."], ["\"Password\" wala sandesh aaya", "PDF ko kisi bhi PDF app mein password daal kar kholo, bina password ke nayi PDF ke roop mein save ya print karo, aur woh nayi file yahan daalo."], ["PDF khulti hi nahi", "File adhuri ho sakti hai. Use dobara download karo; WhatsApp se aayi ho to preview forward karne ki jagah document ke roop mein save karo."], ["Lambi PDF mein der lagti hai", "Har page aapke phone par ek-ek karke banta hai. Screen chalu rakho aur progress bar poora hone do; purane phone par lambi PDF mein ek-do minute lag sakte hain."]],
+    faqH: 'Aksar pooche jaane wale sawaal',
+    faq: [['Kya meri PDF kisi server par jaati hai?', 'Nahi. PDF aapke phone/browser mein hi chhoti hoti hai. Page ek baar khul jaaye to internet band karke bhi chalta hai.'], ['PDF 100 KB kaise karein?', 'Upar 100 KB chuno aur PDF daalo. Tool har page ko JPG photo mein badalkar quality kam karta hai; phir bhi badi rahe to page ki resolution (DPI) thodi kam karta hai, jab tak poori PDF 100 KB se neeche na aa jaaye.'], ['Text select kyun nahi hota?', 'Chhota karne ke liye har page ek photo ban jaata hai. Isliye text copy ya search nahi hota, lekin padhne aur form mein upload karne ke liye page waisa hi dikhta hai.'], ['Password wali PDF chalegi?', 'Nahi. Pehle PDF ko password daal kar kholo, bina password wali copy save karo, phir use yahan daalo.'], ['File asli se badi to nahi banegi?', 'Nahi. Chhota karne par file badi banti ho to tool asli PDF hi waapas deta hai aur bata deta hai.']],
+    privH: 'Aapki PDF, aapke paas', privText: 'Yeh tool bina kisi server ke aapke phone/browser mein chalta hai. Aapki PDF kahin upload nahi hoti, kahin save nahi hoti, aur hum use dekh bhi nahi sakte. Page band karte hi sab mit jaata hai.',
+    footer: 'Free tool · kuch bhi upload nahi hota',
+  },
+  hi: {
+    brandSub: 'फ़्री · PDF फ़ोन से बाहर नहीं जाती', title: 'PDF का साइज़ कम करें — 100 KB, 200 KB, 500 KB, 1 MB',
+    sub: 'ऑनलाइन फ़ॉर्म के लिए PDF को जितने KB में चाहिए उतने में छोटा करें। कितने भी पेज हों, सारा काम आपके फ़ोन पर ही होता है।',
+    privacy: 'आपकी PDF कहीं अपलोड नहीं होती। सारा काम आपके फ़ोन/ब्राउज़र में होता है।',
+    targetH: 'PDF कितने KB से छोटी चाहिए?', custom: 'अपना:', smaller: '✨ बस छोटी कर दें',
+    grayL: 'ब्लैक एंड व्हाइट करें — स्कैन किए या फ़ोटो खींचे काग़ज़ के लिए (फ़ाइल और छोटी बनती है)',
+    imgNote: 'ध्यान दें: छोटी PDF के पेज फ़ोटो जैसे बन जाते हैं, इसलिए उसका टेक्स्ट सेलेक्ट या कॉपी नहीं होगा। फ़ॉर्म में अपलोड करने के लिए इससे कोई फ़र्क नहीं पड़ता।',
+    pickTitle: 'PDF चुनें', pickHint: 'एक PDF फ़ाइल चुनें, या उसे यहाँ खींचकर छोड़ें।', pickBtn: '📄 PDF चुनें',
+    opening: 'PDF खुल रही है…', pagesInfo: (n, s) => `${n} पेज · ${s}`, another: '🔄 दूसरी PDF',
+    working: 'छोटी हो रही है…', step: (p, i, n) => `कोशिश ${p}: पेज ${i} / ${n}`,
+    resH: 'छोटी PDF तैयार', dl: '⬇️ डाउनलोड', share: '📲 शेयर', compare: '👁️ पहले/बाद',
+    detail: (n, dpi, q) => `${n} पेज · ${dpi} DPI · क्वालिटी ${q}%`, same: (n) => `${n} पेज · असली PDF, कोई बदलाव नहीं`,
+    already: 'यह PDF पहले से इस साइज़ से छोटी है, इसलिए वैसी ही रखी। और छोटी चाहिए तो "बस छोटी कर दें" चुनें।',
+    noGain: 'यह PDF पहले से काफ़ी हल्की है; इसे और दबाने पर फ़ाइल बड़ी हो जाती। इसलिए असली PDF ही रखी।',
+    cantReach: (kb) => `${kb} तक नहीं पहुँच पाई — इतने पेज के लिए यह साइज़ बहुत कम है। जो सबसे छोटी बन सकी, वह यह है। KB बढ़ाएँ, "ब्लैक एंड व्हाइट" चालू करें, या कुछ पेज हटा दें।`,
+    lowQ: 'साइज़ में लाने के लिए क्वालिटी काफ़ी कम करनी पड़ी। पहले/बाद में ज़ूम करके देख लें कि लिखाई पढ़ी जा रही है।',
+    errPassword: 'इस PDF पर पासवर्ड लगा है। पासवर्ड वाली PDF यहाँ नहीं खुलती — पहले उसे पासवर्ड डालकर खोलें और बिना पासवर्ड वाली कॉपी सेव करके यहाँ डालें।',
+    errBroken: 'यह PDF खुल नहीं पाई — फ़ाइल ख़राब या अधूरी लगती है। दोबारा डाउनलोड करके कोशिश करें।',
+    errNotPdf: 'यह PDF फ़ाइल नहीं है। फ़ोटो का साइज़ कम करना हो तो "फ़ोटो का KB कम करें" टूल इस्तेमाल करें।',
+    errLib: 'टूल की फ़ाइल लोड नहीं हुई। इंटरनेट चालू करके पेज दोबारा खोलें (एक बार खुलने के बाद ऑफ़लाइन भी चलेगा)।',
+    errFail: 'कुछ गड़बड़ हो गई। पेज दोबारा खोलकर कोशिश करें; बहुत लंबी PDF हो तो "ब्लैक एंड व्हाइट" के साथ या कम पेज के साथ कोशिश करें।',
+    saved: '✅ फ़ोन में सेव हो गया', badKb: 'KB 10 से 20000 के बीच लिखें।',
+    before: 'पहले', after: 'बाद', close: '✕ बंद करें', cmpCap: (a, b) => `पेज 1 · पहले ${a} · बाद ${b} — स्लाइडर खिसकाएँ`,
+    sizesH: 'सीधे इस साइज़ के लिए', sizesNote: 'हर साइज़ का अपना पेज है, वही साइज़ पहले से चुना हुआ।', sizeLink: (s) => `PDF ${s} में`,
+    sizeFor: { 100: 'सर्टिफ़िकेट, मार्कशीट', 200: 'स्कॉलरशिप, एडमिशन', 500: 'नौकरी का फ़ॉर्म', 1000: 'रिज़्यूमे, लंबी PDF' },
+    imageTool: 'फ़ोटो का KB कम करें', docTool: 'काग़ज़ की फ़ोटो से PDF',
+    howH: 'कैसे करें', how: ['ऊपर <b>KB</b> चुनें — 100, 200, 300, 500, 1 MB, अपना लिखें, या <b>बस छोटी कर दें</b>।', 'स्कैन किया या फ़ोटो खींचा काग़ज़ हो तो <b>ब्लैक एंड व्हाइट</b> चालू कर दें — फ़ाइल काफ़ी छोटी बनती है।', '<b>PDF चुनें</b> (या उसे यहाँ खींचकर छोड़ें)।', 'टूल हर पेज को सबसे अच्छी क्वालिटी के साथ उस साइज़ के अंदर लाता है। एक-एक पेज करके चलता है, प्रोग्रेस दिखता रहता है।', '<b>👁️ पहले/बाद</b> से पहला पेज देख लें, फिर <b>डाउनलोड</b> या <b>शेयर</b> करें।'],
+    tableH: 'कौन सा साइज़ कब?', tableNote: 'यह आम अंदाज़ा है। फ़ॉर्म जो लिखे, वही मानें।', thUse: 'कहाँ चाहिए', thKb: 'अक्सर साइज़', thTip: 'सुझाव',
+    uses: [['सर्टिफ़िकेट, मार्कशीट (1–2 पेज)', '100–300 KB', 'ब्लैक एंड व्हाइट चालू करें'], ['जाति / आय / निवास प्रमाण-पत्र', '100–500 KB', 'ब्लैक एंड व्हाइट चालू करें'], ['स्कॉलरशिप, एडमिशन के डॉक्यूमेंट', '200–500 KB', 'हर डॉक्यूमेंट की अलग PDF'], ['नौकरी के फ़ॉर्म में रिज़्यूमे, अनुभव पत्र', '500 KB – 1 MB', 'रंगीन रख सकते हैं'], ['कई पेज वाली PDF (10+ पेज)', '1–2 MB', 'पहले बेकार पेज हटा दें']],
+    tipsH: 'काम की बातें', tips: ['फ़ॉर्म "100 KB तक" माँगे तो <b>100 KB</b> चुनें। टूल फ़ाइल को थोड़ा नीचे ही रखता है, ताकि अपलोड में दिक़्क़त न हो।', 'स्कैन या फ़ोटो से बनी PDF में <b>ब्लैक एंड व्हाइट</b> सबसे ज़्यादा फ़र्क लाता है: काग़ज़ सफ़ेद और लिखाई गहरी हो जाती है।', 'जितने कम पेज, उतनी बेहतर क्वालिटी। फ़ॉर्म एक ही पेज माँगे तो सिर्फ़ वही पेज वाली PDF बनाएँ।', 'बहुत कम KB में कई पेज हों तो लिखाई धुँधली हो सकती है — पहले/बाद में ज़ूम करके ज़रूर देखें।', 'असली PDF सँभालकर रखें; छोटी वाली सिर्फ़ अपलोड के लिए है।'],
+    aboutH: "यह PDF कंप्रेसर क्या करता है", about: ["नौकरी, एडमिशन, स्कॉलरशिप और प्रमाण-पत्र के ऑनलाइन फ़ॉर्म हर डॉक्यूमेंट पर साइज़ की एक सीमा रखते हैं। फ़ोन स्कैनर या फ़ोटोकॉपी की दुकान से बनी PDF अक्सर कई MB की होती है, और फ़ॉर्म उसे लेने से मना कर देता है। यह टूल ऐसी PDF को आपके चुने हुए साइज़ तक ले आता है, ताकि फ़ॉर्म पहली बार में ही फ़ाइल ले ले।", "तरीक़ा सीधा है: हर पेज को एक तस्वीर की तरह बनाया जाता है, उसे JPG में उस सबसे अच्छी क्वालिटी पर सेव किया जाता है जो साइज़ में फ़िट हो, और फिर सारी तस्वीरों को जोड़कर नई PDF बनती है — उतने ही पेज और वही पेज साइज़। सिर्फ़ क्वालिटी कम करने से काम न बने तो टूल पेज की साफ़ी (DPI) भी धीरे-धीरे कम करता है। जो फ़ाइल आपने दी, उससे बड़ी फ़ाइल यह कभी वापस नहीं देता।"],
+    probH: "आम दिक़्क़तें और उनका हल", probs: [["फ़ॉर्म अब भी कहता है फ़ाइल बड़ी है", "कुछ वेबसाइट 1 KB को 1000 बाइट मानती हैं और कुछ 1024। यह टूल पहले से सख़्त वाला हिसाब लगाता है, यानी यहाँ की \"100 KB\" फ़ाइल 1,00,000 बाइट से कम होती है। फिर भी मना हो तो थोड़ा छोटा साइज़ चुनें, जैसे 90 KB।"], ["लिखाई धुँधली आ रही है", "KB कम और पेज ज़्यादा हैं। जो पेज फ़ॉर्म को नहीं चाहिए उन्हें हटा दें, ब्लैक एंड व्हाइट चालू करें, या फ़ॉर्म इजाज़त दे तो बड़ा साइज़ चुनें।"], ["\"पासवर्ड\" वाला संदेश आया", "PDF को किसी भी PDF ऐप में पासवर्ड डालकर खोलें, बिना पासवर्ड के नई PDF के रूप में सेव या प्रिंट करें, और वह नई फ़ाइल यहाँ डालें।"], ["PDF खुलती ही नहीं", "फ़ाइल अधूरी हो सकती है। उसे दोबारा डाउनलोड करें; WhatsApp से आई हो तो प्रीव्यू फ़ॉरवर्ड करने की जगह डॉक्यूमेंट के रूप में सेव करें।"], ["लंबी PDF में देर लगती है", "हर पेज आपके फ़ोन पर एक-एक करके बनता है। स्क्रीन चालू रखें और प्रोग्रेस बार पूरा होने दें; पुराने फ़ोन पर लंबी PDF में एक-दो मिनट लग सकते हैं।"]],
+    faqH: 'अक्सर पूछे जाने वाले सवाल',
+    faq: [['क्या मेरी PDF किसी सर्वर पर जाती है?', 'नहीं। PDF आपके फ़ोन/ब्राउज़र में ही छोटी होती है। पेज एक बार खुल जाए तो इंटरनेट बंद करके भी चलता है।'], ['PDF 100 KB कैसे करें?', 'ऊपर 100 KB चुनें और PDF डालें। टूल हर पेज को JPG फ़ोटो में बदलकर क्वालिटी कम करता है; फिर भी बड़ी रहे तो पेज का रेज़ोल्यूशन (DPI) थोड़ा कम करता है, जब तक पूरी PDF 100 KB से नीचे न आ जाए।'], ['टेक्स्ट सेलेक्ट क्यों नहीं होता?', 'छोटा करने के लिए हर पेज एक फ़ोटो बन जाता है। इसलिए टेक्स्ट कॉपी या सर्च नहीं होता, लेकिन पढ़ने और फ़ॉर्म में अपलोड करने के लिए पेज वैसा ही दिखता है।'], ['पासवर्ड वाली PDF चलेगी?', 'नहीं। पहले PDF को पासवर्ड डालकर खोलें, बिना पासवर्ड वाली कॉपी सेव करें, फिर उसे यहाँ डालें।'], ['फ़ाइल असली से बड़ी तो नहीं बनेगी?', 'नहीं। छोटा करने पर फ़ाइल बड़ी बनती हो तो टूल असली PDF ही वापस देता है और बता देता है।']],
+    privH: 'आपकी PDF, आपके पास', privText: 'यह टूल बिना किसी सर्वर के आपके फ़ोन/ब्राउज़र में चलता है। आपकी PDF कहीं अपलोड नहीं होती, कहीं सेव नहीं होती, और हम उसे देख भी नहीं सकते। पेज बंद करते ही सब मिट जाता है।',
+    footer: 'फ़्री टूल · कुछ भी अपलोड नहीं होता',
+  },
+  en: {
+    brandSub: 'Free · your PDF never leaves your phone', title: 'Compress a PDF to 100 KB, 200 KB, 500 KB or 1 MB',
+    sub: 'Make a PDF as small as an online form needs. Any number of pages, and all the work happens on your own phone.',
+    privacy: 'Your PDF is never uploaded. Everything runs on your phone/browser.',
+    targetH: 'Make the PDF smaller than how many KB?', custom: 'Own:', smaller: '✨ Just make it smaller',
+    grayL: 'Black & white — for scanned or photographed paper (makes the file much smaller)',
+    imgNote: 'Please note: in the smaller PDF each page becomes a picture, so its text can no longer be selected or copied. For uploading to a form this makes no difference.',
+    pickTitle: 'Choose a PDF', pickHint: 'Pick one PDF file, or drag and drop it here.', pickBtn: '📄 Choose PDF',
+    opening: 'Opening the PDF…', pagesInfo: (n, s) => `${n} page${n > 1 ? 's' : ''} · ${s}`, another: '🔄 Another PDF',
+    working: 'Compressing…', step: (p, i, n) => `Try ${p}: page ${i} / ${n}`,
+    resH: 'Smaller PDF ready', dl: '⬇️ Download', share: '📲 Share', compare: '👁️ Before/After',
+    detail: (n, dpi, q) => `${n} page${n > 1 ? 's' : ''} · ${dpi} DPI · quality ${q}%`, same: (n) => `${n} page${n > 1 ? 's' : ''} · original PDF, unchanged`,
+    already: 'This PDF is already under that size, so it was kept as it is. For an even smaller file choose "Just make it smaller".',
+    noGain: 'This PDF is already very light; squeezing it further would make the file bigger. So the original PDF was kept.',
+    cantReach: (kb) => `Could not get down to ${kb} — that is too small for this many pages. This is the smallest it could make. Choose more KB, turn on "Black & white", or remove some pages.`,
+    lowQ: 'The quality had to drop quite a lot to fit. Zoom in on Before/After to check that the writing is still readable.',
+    errPassword: 'This PDF is password-protected and cannot be opened here. Open it with its password first, save a copy without the password, and add that copy.',
+    errBroken: 'This PDF could not be opened — the file looks damaged or incomplete. Download it again and retry.',
+    errNotPdf: 'This is not a PDF file. To make a photo smaller, use the "Photo KB" tool.',
+    errLib: 'A tool file did not load. Turn on the internet and open the page again (once loaded, it also works offline).',
+    errFail: 'Something went wrong. Reload the page and try again; for a very long PDF, try with "Black & white" or with fewer pages.',
+    saved: '✅ Saved to your phone', badKb: 'Enter a KB between 10 and 20000.',
+    before: 'Before', after: 'After', close: '✕ Close', cmpCap: (a, b) => `Page 1 · Before ${a} · After ${b} — move the slider`,
+    sizesH: 'Straight to a size', sizesNote: 'Each size has its own page with that size already chosen.', sizeLink: (s) => `PDF to ${s}`,
+    sizeFor: { 100: 'Certificates, marksheets', 200: 'Scholarship, admission', 500: 'Job application forms', 1000: 'Resume, long PDFs' },
+    imageTool: 'Photo KB reducer', docTool: 'Paper photo to PDF',
+    howH: 'How to use', how: ['Choose the <b>KB</b> above — 100, 200, 300, 500, 1 MB, type your own, or <b>Just make it smaller</b>.', 'For scanned or photographed paper, turn on <b>Black & white</b> — the file gets much smaller.', '<b>Choose the PDF</b> (or drag and drop it here).', 'The tool brings every page under that size at the best quality that fits. It works page by page and shows its progress.', 'Check page 1 with <b>👁️ Before/After</b>, then <b>Download</b> or <b>Share</b>.'],
+    tableH: 'Which size for what?', tableNote: 'A rough guide. Whatever the form says comes first.', thUse: 'Where', thKb: 'Often asked', thTip: 'Tip',
+    uses: [['Certificate, marksheet (1–2 pages)', '100–300 KB', 'Turn on Black & white'], ['Caste / income / domicile certificate', '100–500 KB', 'Turn on Black & white'], ['Scholarship, admission documents', '200–500 KB', 'One PDF per document'], ['Resume or experience letter for a job form', '500 KB – 1 MB', 'Colour is fine'], ['A PDF with many pages (10+)', '1–2 MB', 'Remove unneeded pages first']],
+    tipsH: 'Good to know', tips: ['If a form says "up to 100 KB", choose <b>100 KB</b>. The tool keeps the file a little under, so the upload is not refused.', 'For PDFs made from scans or photos, <b>Black & white</b> helps the most: the paper turns white and the writing gets darker.', 'Fewer pages means better quality. If the form needs one page, make a PDF of just that page.', 'With many pages and very few KB, writing can get blurry — always zoom in on Before/After.', 'Keep the original PDF safe; the small one is only for uploading.'],
+    aboutH: "What this PDF compressor does", about: ["Online forms for jobs, admissions, scholarships and certificates put a size limit on every document you upload. A PDF made with a phone scanner or at a photocopy shop is often several MB, and the form refuses it. This tool brings such a PDF down to the size you choose, so the form accepts it on the first try.", "The method is simple: each page is drawn as a picture, saved as a JPG at the best quality that still fits, and the pictures are joined into a new PDF with the same number of pages and the same page size. If lowering the quality is not enough, the tool also lowers the sharpness (DPI) step by step. It never hands back a file bigger than the one you gave it."],
+    probH: "Common problems and fixes", probs: [["The form still says the file is too big", "Some websites count 1 KB as 1000 bytes and some as 1024. This tool already uses the stricter count, so a \"100 KB\" file here is under 100,000 bytes. If the form still refuses it, choose a slightly smaller size, such as 90 KB."], ["The writing looks blurry", "There are too many pages for too few KB. Remove pages the form does not need, turn on Black & white, or choose a bigger size if the form allows it."], ["A \"password\" message appears", "Open the PDF with its password in any PDF app, save or print it as a new PDF without the password, and add that new file here."], ["The PDF does not open at all", "The file may be incomplete. Download it again; if it came over WhatsApp, save it as a document instead of forwarding a preview."], ["A long PDF takes time", "Every page is made on your phone, one after another. Keep the screen on and let the progress bar finish; on an older phone a long PDF can take a minute or two."]],
+    faqH: 'Frequently asked questions',
+    faq: [['Does my PDF go to any server?', 'No. The PDF is made smaller inside your phone/browser. Once the page has loaded, it even works with the internet off.'], ['How do I make a PDF 100 KB?', 'Choose 100 KB above and add the PDF. The tool turns each page into a JPG picture and lowers its quality; if it is still too big, it lowers the page resolution (DPI) a little until the whole PDF is under 100 KB.'], ['Why can\'t I select the text?', 'To make it small, every page becomes a picture. So the text cannot be copied or searched, but for reading and for uploading to a form the page looks the same.'], ['Does it work with a password-protected PDF?', 'No. Open the PDF with its password first, save a copy without the password, then add that copy here.'], ['Can the file come out bigger than the original?', 'No. If squeezing would make it bigger, the tool gives back the original PDF and tells you so.']],
+    privH: 'Your PDF stays with you', privText: 'This tool runs inside your phone/browser without any server. Your PDF is never uploaded or stored, and we cannot see it. Closing the page clears everything.',
+    footer: 'Free tool · nothing is uploaded',
+  },
+  bn: {
+    brandSub: 'ফ্রি · PDF ফোনের বাইরে যায় না', title: 'PDF-এর সাইজ কমান — 100 KB, 200 KB, 500 KB, 1 MB',
+    sub: 'অনলাইন ফর্মের জন্য PDF যত KB-তে দরকার তত ছোট করুন। যত পাতাই হোক, সব কাজ আপনার ফোনেই হয়।',
+    privacy: 'আপনার PDF কোথাও আপলোড হয় না। সব কাজ আপনার ফোন/ব্রাউজারেই হয়।',
+    targetH: 'PDF কত KB-র নিচে আনতে চান?', custom: 'নিজের:', smaller: '✨ শুধু ছোট করে দিন',
+    grayL: 'সাদা-কালো করুন — স্ক্যান করা বা ছবি তোলা কাগজের জন্য (ফাইল আরও ছোট হয়)',
+    imgNote: 'খেয়াল রাখবেন: ছোট PDF-এর পাতাগুলো ছবির মতো হয়ে যায়, তাই তার লেখা সিলেক্ট বা কপি করা যাবে না। ফর্মে আপলোডের জন্য এতে কোনো অসুবিধা নেই।',
+    pickTitle: 'PDF বাছুন', pickHint: 'একটা PDF ফাইল বাছুন, বা এখানে টেনে এনে ছেড়ে দিন।', pickBtn: '📄 PDF বাছুন',
+    opening: 'PDF খুলছে…', pagesInfo: (n, s) => `${n} পাতা · ${s}`, another: '🔄 অন্য PDF',
+    working: 'ছোট হচ্ছে…', step: (p, i, n) => `চেষ্টা ${p}: পাতা ${i} / ${n}`,
+    resH: 'ছোট PDF তৈরি', dl: '⬇️ ডাউনলোড', share: '📲 শেয়ার', compare: '👁️ আগে/পরে',
+    detail: (n, dpi, q) => `${n} পাতা · ${dpi} DPI · কোয়ালিটি ${q}%`, same: (n) => `${n} পাতা · আসল PDF, কোনো বদল নেই`,
+    already: 'এই PDF আগে থেকেই এই সাইজের চেয়ে ছোট, তাই যেমন ছিল রাখা হল। আরও ছোট চাইলে "শুধু ছোট করে দিন" বাছুন।',
+    noGain: 'এই PDF আগে থেকেই বেশ হালকা; আরও চাপলে ফাইল বড় হয়ে যেত। তাই আসল PDF-ই রাখা হল।',
+    cantReach: (kb) => `${kb} পর্যন্ত নামানো গেল না — এত পাতার জন্য এই সাইজ খুব কম। সবচেয়ে ছোট যা হল, সেটা এই। KB বাড়ান, "সাদা-কালো" চালু করুন, বা কিছু পাতা বাদ দিন।`,
+    lowQ: 'সাইজে আনতে কোয়ালিটি অনেকটা কমাতে হয়েছে। আগে/পরে-তে জুম করে দেখে নিন লেখা পড়া যাচ্ছে কিনা।',
+    errPassword: 'এই PDF-এ পাসওয়ার্ড দেওয়া আছে, তাই এখানে খোলে না। আগে পাসওয়ার্ড দিয়ে খুলে পাসওয়ার্ড ছাড়া একটা কপি সেভ করুন, তারপর সেটা দিন।',
+    errBroken: 'এই PDF খোলা গেল না — ফাইলটা নষ্ট বা অসম্পূর্ণ মনে হচ্ছে। আবার ডাউনলোড করে চেষ্টা করুন।',
+    errNotPdf: 'এটা PDF ফাইল নয়। ছবির সাইজ কমাতে "ছবির KB কমান" টুল ব্যবহার করুন।',
+    errLib: 'টুলের ফাইল লোড হয়নি। ইন্টারনেট চালু করে পেজ আবার খুলুন (একবার খুললে অফলাইনেও চলবে)।',
+    errFail: 'কিছু একটা গোলমাল হয়েছে। পেজ আবার খুলে চেষ্টা করুন; খুব লম্বা PDF হলে "সাদা-কালো" দিয়ে বা কম পাতা নিয়ে চেষ্টা করুন।',
+    saved: '✅ ফোনে সেভ হয়েছে', badKb: '10 থেকে 20000-এর মধ্যে KB লিখুন।',
+    before: 'আগে', after: 'পরে', close: '✕ বন্ধ করুন', cmpCap: (a, b) => `পাতা 1 · আগে ${a} · পরে ${b} — স্লাইডার সরান`,
+    sizesH: 'সরাসরি এই সাইজের জন্য', sizesNote: 'প্রতিটি সাইজের নিজের পেজ আছে, সেই সাইজ আগে থেকেই বাছা।', sizeLink: (s) => `PDF ${s}-তে`,
+    sizeFor: { 100: 'সার্টিফিকেট, মার্কশিট', 200: 'স্কলারশিপ, ভর্তি', 500: 'চাকরির ফর্ম', 1000: 'রেজিউমে, লম্বা PDF' },
+    imageTool: 'ছবির KB কমান', docTool: 'কাগজের ছবি থেকে PDF',
+    howH: 'কীভাবে করবেন', how: ['ওপরে <b>KB</b> বাছুন — 100, 200, 300, 500, 1 MB, নিজে লিখুন, বা <b>শুধু ছোট করে দিন</b>।', 'স্ক্যান করা বা ছবি তোলা কাগজ হলে <b>সাদা-কালো</b> চালু করুন — ফাইল অনেক ছোট হয়।', '<b>PDF বাছুন</b> (বা এখানে টেনে এনে ছেড়ে দিন)।', 'টুল প্রতিটি পাতা যতটা সম্ভব ভালো কোয়ালিটিতে সেই সাইজের মধ্যে আনে। এক-এক পাতা করে চলে, অগ্রগতি দেখা যায়।', '<b>👁️ আগে/পরে</b> দিয়ে প্রথম পাতা দেখে নিন, তারপর <b>ডাউনলোড</b> বা <b>শেয়ার</b> করুন।'],
+    tableH: 'কোন কাজে কত সাইজ?', tableNote: 'এটা মোটামুটি হিসাব। ফর্ম যা বলে সেটাই মানুন।', thUse: 'কোথায়', thKb: 'প্রায়ই চাওয়া হয়', thTip: 'পরামর্শ',
+    uses: [['সার্টিফিকেট, মার্কশিট (1–2 পাতা)', '100–300 KB', 'সাদা-কালো চালু করুন'], ['জাতি / আয় / বাসস্থানের শংসাপত্র', '100–500 KB', 'সাদা-কালো চালু করুন'], ['স্কলারশিপ, ভর্তির ডকুমেন্ট', '200–500 KB', 'প্রতিটি ডকুমেন্টের আলাদা PDF'], ['চাকরির ফর্মে রেজিউমে, অভিজ্ঞতার চিঠি', '500 KB – 1 MB', 'রঙিন রাখতে পারেন'], ['অনেক পাতার PDF (10+ পাতা)', '1–2 MB', 'আগে অদরকারি পাতা বাদ দিন']],
+    tipsH: 'কাজের কথা', tips: ['ফর্ম "100 KB পর্যন্ত" চাইলে <b>100 KB</b> বাছুন। টুল ফাইলটা একটু নিচেই রাখে, যাতে আপলোডে সমস্যা না হয়।', 'স্ক্যান বা ছবি থেকে বানানো PDF-এ <b>সাদা-কালো</b> সবচেয়ে বেশি কাজে দেয়: কাগজ সাদা আর লেখা গাঢ় হয়।', 'পাতা যত কম, কোয়ালিটি তত ভালো। ফর্ম একটাই পাতা চাইলে শুধু সেই পাতার PDF বানান।', 'খুব কম KB-তে অনেক পাতা হলে লেখা ঝাপসা হতে পারে — আগে/পরে-তে জুম করে অবশ্যই দেখুন।', 'আসল PDF যত্ন করে রাখুন; ছোটটা শুধু আপলোডের জন্য।'],
+    aboutH: "এই PDF কম্প্রেসর কী করে", about: ["চাকরি, ভর্তি, স্কলারশিপ আর শংসাপত্রের অনলাইন ফর্ম প্রতিটি ডকুমেন্টের জন্য সাইজের একটা সীমা রাখে। ফোনের স্ক্যানার বা ফটোকপির দোকানে বানানো PDF প্রায়ই কয়েক MB হয়, আর ফর্ম সেটা নিতে চায় না। এই টুল এমন PDF-কে আপনার বাছা সাইজে নামিয়ে আনে, যাতে ফর্ম প্রথমবারেই ফাইলটা নেয়।", "পদ্ধতি সহজ: প্রতিটি পাতাকে একটা ছবির মতো আঁকা হয়, যতটা ভালো কোয়ালিটিতে সাইজে আঁটে সেভাবে JPG-তে সেভ হয়, তারপর সব ছবি জুড়ে নতুন PDF তৈরি হয় — একই সংখ্যক পাতা আর একই পাতার মাপ। শুধু কোয়ালিটি কমিয়ে না হলে টুল ধাপে ধাপে পাতার স্পষ্টতা (DPI)-ও কমায়। আপনি যে ফাইল দিয়েছেন তার চেয়ে বড় ফাইল এটা কখনো ফেরত দেয় না।"],
+    probH: "সাধারণ সমস্যা আর তার সমাধান", probs: [["ফর্ম এখনও বলছে ফাইল বড়", "কিছু ওয়েবসাইট 1 KB-কে 1000 বাইট ধরে, কিছু 1024। এই টুল আগে থেকেই কড়া হিসাবটা ধরে, অর্থাৎ এখানকার \"100 KB\" ফাইল 1,00,000 বাইটের কম। তবুও না নিলে একটু ছোট সাইজ বাছুন, যেমন 90 KB।"], ["লেখা ঝাপসা দেখাচ্ছে", "KB কম, পাতা বেশি। ফর্মের যে পাতা দরকার নেই সেগুলো বাদ দিন, সাদা-কালো চালু করুন, বা ফর্ম অনুমতি দিলে বড় সাইজ বাছুন।"], ["\"পাসওয়ার্ড\"-এর বার্তা এল", "যেকোনো PDF অ্যাপে পাসওয়ার্ড দিয়ে PDF খুলুন, পাসওয়ার্ড ছাড়া নতুন PDF হিসেবে সেভ বা প্রিন্ট করুন, আর সেই নতুন ফাইল এখানে দিন।"], ["PDF একেবারেই খুলছে না", "ফাইলটা অসম্পূর্ণ হতে পারে। আবার ডাউনলোড করুন; WhatsApp-এ এলে প্রিভিউ ফরোয়ার্ড না করে ডকুমেন্ট হিসেবে সেভ করুন।"], ["লম্বা PDF-এ সময় লাগে", "প্রতিটি পাতা আপনার ফোনে একটার পর একটা তৈরি হয়। স্ক্রিন চালু রাখুন আর প্রোগ্রেস বার শেষ হতে দিন; পুরনো ফোনে লম্বা PDF-এ এক-দু মিনিট লাগতে পারে।"]],
+    faqH: 'সাধারণ প্রশ্ন',
+    faq: [['আমার PDF কি কোনো সার্ভারে যায়?', 'না। PDF আপনার ফোন/ব্রাউজারেই ছোট হয়। পেজ একবার খুলে গেলে ইন্টারনেট বন্ধ রেখেও চলে।'], ['PDF 100 KB কীভাবে করব?', 'ওপরে 100 KB বাছুন আর PDF দিন। টুল প্রতিটি পাতাকে JPG ছবিতে বদলে কোয়ালিটি কমায়; তারপরও বড় থাকলে পাতার রেজোলিউশন (DPI) একটু কমায়, যতক্ষণ না পুরো PDF 100 KB-র নিচে আসে।'], ['লেখা সিলেক্ট হয় না কেন?', 'ছোট করার জন্য প্রতিটি পাতা একটা ছবি হয়ে যায়। তাই লেখা কপি বা সার্চ করা যায় না, কিন্তু পড়া আর ফর্মে আপলোডের জন্য পাতা একই রকম দেখায়।'], ['পাসওয়ার্ড দেওয়া PDF চলবে?', 'না। আগে পাসওয়ার্ড দিয়ে PDF খুলুন, পাসওয়ার্ড ছাড়া একটা কপি সেভ করুন, তারপর সেটা এখানে দিন।'], ['ফাইল কি আসলের চেয়ে বড় হয়ে যেতে পারে?', 'না। চাপলে ফাইল বড় হলে টুল আসল PDF-ই ফেরত দেয় আর জানিয়ে দেয়।']],
+    privH: 'আপনার PDF আপনার কাছেই', privText: 'এই টুল কোনো সার্ভার ছাড়াই আপনার ফোন/ব্রাউজারে চলে। আপনার PDF কোথাও আপলোড বা সেভ হয় না, আমরা দেখতেও পাই না। পেজ বন্ধ করলেই সব মুছে যায়।',
+    footer: 'ফ্রি টুল · কিছুই আপলোড হয় না',
+  },
+};
+
+// ---------- helpers
+const $ = (id) => document.getElementById(id);
+const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+const params = new URLSearchParams(location.search);
+const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('pc-lang')) ? store.get('pc-lang') : deviceLang();
+const t = (k) => T[lang][k];
+const mk = (w, h) => { const c = document.createElement('canvas'); c.width = Math.max(1, Math.round(w)); c.height = Math.max(1, Math.round(h)); return c; };
+const free = (c) => { c.width = 0; c.height = 0; };
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fmtSize = (b) => (b >= 1024 * 1024 ? `${(b / 1048576).toFixed(1)} MB` : `${Math.max(1, Math.round(b / 1024))} KB`);
+const kbLabel = (kb) => (kb >= 1000 && kb % 1000 === 0 ? `${kb / 1000} MB` : `${kb} KB`);
+let toastTimer = 0;
+const toast = (msg) => { let el = document.querySelector('.toast'); if (!el) { el = document.createElement('div'); el.className = 'toast'; document.body.appendChild(el); } el.textContent = msg; el.classList.remove('hidden'); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.add('hidden'), 3200); };
+
+// Size pages (e.g. ./100kb/) set window.PC_PAGE = { kb, base, T: { lang: { title, sub, info } } } before this script.
+const PAGE = window.PC_PAGE || null;
+const BASE = PAGE ? PAGE.base || '../' : './';
+if (PAGE) for (const l in PAGE.T) { if (T[l]) { if (PAGE.T[l].title) T[l].title = PAGE.T[l].title; if (PAGE.T[l].sub) T[l].sub = PAGE.T[l].sub; } }
+
+// ---------- libraries (local copies in lib/, loaded the first time a PDF is picked)
+const loadScript = (src) => new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = () => { s.remove(); rej(new Error('lib')); }; document.head.appendChild(s); });
+let libsP = null;
+const libs = () => libsP || (libsP = Promise.all([loadScript(`${BASE}lib/pdf.min.js`), loadScript(`${BASE}lib/jspdf.umd.min.js`)])
+  .then(() => { window.pdfjsLib.GlobalWorkerOptions.workerSrc = `${BASE}lib/pdf.worker.min.js`; })
+  .catch((e) => { libsP = null; e.code = 'lib'; throw e; }));
+
+// ---------- settings
+const savedKb = Number(store.get('pc-kb'));
+let targetKb = PAGE ? PAGE.kb : (savedKb === 0 && store.get('pc-kb') === '0') || (savedKb >= 10 && savedKb <= 20000) ? savedKb : 200;
+$('gray').checked = store.get('pc-gray') === '1';
+const opts = () => ({ kb: targetKb, gray: $('gray').checked });
+
+// ---------- PDF in, pages out
+const MAX_PX = 4.2e6;                     // pixels per rendered page (phone memory)
+const LADDER = [150, 125, 100, 85, 72, 60, 50]; // DPI steps, best first
+const Q_LIST = [0.85, 0.72, 0.6, 0.5, 0.4, 0.3, 0.22, 0.15]; // JPEG qualities tried in one pass
+const Q_SMALL = [0.6, 0.45, 0.3];         // "just make it smaller"
+const DPI_SMALL = 110;
+const Q_REF = 0.5;                        // always measured: used to pick the next DPI
+const Q_SENSIBLE = 0.4;                   // below this, lower the DPI first while a lower step exists
+const snap = (d) => LADDER.find((v) => v <= d) || LADDER[LADDER.length - 1];
+const lower = (d) => LADDER.find((v) => v < d);
+
+const openPdf = async (file) => {
+  await libs();
+  const data = new Uint8Array(await file.arrayBuffer());
+  const head = new TextDecoder('latin1').decode(data.subarray(0, 1024));
+  if (!head.includes('%PDF')) { const e = new Error('notpdf'); e.code = 'notPdf'; throw e; }
+  let doc;
+  try {
+    doc = await window.pdfjsLib.getDocument({ data, isEvalSupported: false, verbosity: 0 }).promise;
+  } catch (err) {
+    const e = new Error('open'); e.code = err && err.name === 'PasswordException' ? 'password' : 'broken'; throw e;
+  }
+  const dims = [];
+  try {
+    for (let i = 1; i <= doc.numPages; i += 1) { const p = await doc.getPage(i); const v = p.getViewport({ scale: 1 }); dims.push([v.width, v.height]); p.cleanup(); }
+  } catch (err) { doc.destroy(); const e = new Error('pages'); e.code = 'broken'; throw e; }
+  if (!dims.length) { doc.destroy(); const e = new Error('empty'); e.code = 'broken'; throw e; }
+  return { doc, dims };
+};
+
+// Scanned paper: grey, with the paper pushed to white and the ink darker (much smaller JPEG).
+const toGray = (x, w, h) => {
+  const im = x.getImageData(0, 0, w, h); const d = im.data;
+  for (let p = 0; p < d.length; p += 4) {
+    let g = ((d[p] * 77 + d[p + 1] * 150 + d[p + 2] * 29) >> 8) - 40;
+    g = g <= 0 ? 0 : g >= 165 ? 255 : g * 1.545;
+    d[p] = g; d[p + 1] = g; d[p + 2] = g;
+  }
+  x.putImageData(im, 0, 0);
+};
+const renderPage = async (doc, i, dpi, gray) => {
+  const page = await doc.getPage(i);
+  try {
+    let sc = dpi / 72; const v1 = page.getViewport({ scale: 1 });
+    const area = v1.width * v1.height * sc * sc; if (area > MAX_PX) sc *= Math.sqrt(MAX_PX / area);
+    const vp = page.getViewport({ scale: sc });
+    const c = mk(vp.width, vp.height); const x = c.getContext('2d', { willReadFrequently: !!gray });
+    x.fillStyle = '#fff'; x.fillRect(0, 0, c.width, c.height);
+    await page.render({ canvasContext: x, viewport: vp, background: '#fff' }).promise;
+    if (gray) toGray(x, c.width, c.height);
+    return c;
+  } finally { page.cleanup(); }
+};
+const encode = (c, q) => new Promise((res, rej) => c.toBlob((b) => (b ? b.arrayBuffer().then((a) => res(new Uint8Array(a)), rej) : rej(new Error('encode'))), 'image/jpeg', q));
+
+// One pass at one DPI: every page is drawn once and saved at all qualities still in the race.
+// A quality drops out (and its bytes are freed) as soon as its running total is over the budget.
+const runPass = async (doc, dpi, qs, gray, budget, prog, alive) => {
+  const n = doc.numPages; const low = qs[qs.length - 1];
+  const sizes = {}; const bytes = {}; qs.forEach((q) => { sizes[q] = 0; bytes[q] = []; });
+  let live = qs.slice();
+  for (let i = 1; i <= n; i += 1) {
+    if (!alive()) throw Object.assign(new Error('cancel'), { code: 'cancel' });
+    prog(i, n);
+    const c = await renderPage(doc, i, dpi, gray);
+    for (const q of qs) {
+      if (!live.includes(q) && q !== Q_REF) continue;
+      const u = await encode(c, q);
+      sizes[q] += u.length;
+      if (live.includes(q)) bytes[q].push(u);
+    }
+    free(c);
+    live = live.filter((q) => { if (q === low || sizes[q] <= budget) return true; bytes[q] = null; return false; });
+  }
+  qs.forEach((q) => { if (!live.includes(q)) bytes[q] = null; });
+  return { dpi, sizes, bytes };
+};
+
+const buildPdf = (pages, dims) => {
+  const { jsPDF } = window.jspdf;
+  let pdf = null;
+  pages.forEach((u, i) => {
+    const [w, h] = dims[i]; const or = w > h ? 'l' : 'p';
+    if (!pdf) pdf = new jsPDF({ unit: 'pt', format: [w, h], orientation: or, compress: true });
+    else pdf.addPage([w, h], or);
+    pdf.addImage(u, 'JPEG', 0, 0, w, h, `p${i}`, 'NONE');
+  });
+  return new Blob([pdf.output('arraybuffer')], { type: 'application/pdf' });
+};
+
+// Returns { blob, same, note: ''|'already'|'noGain'|'cantReach'|'lowQ', ok, dpi, q, first (page-1 JPEG) }
+const compressPdf = async (cur, o, onProg, alive) => {
+  const { doc, file, dims } = cur; const n = doc.numPages; const orig = file.size;
+  const maxB = o.kb ? o.kb * 1000 : Infinity; // 1 KB = 1000 bytes here: safe whichever way a form counts
+  if (o.kb && orig <= maxB && !o.gray) return { blob: file, same: true, note: 'already', ok: true };
+  const ovh = 1200 + n * 420;                 // what jsPDF adds around the pictures (checked after the build)
+  const limit = Math.min(maxB, orig - 1);
+  const budget = Math.min(maxB - 800, orig - 1) - ovh;
+  const qs = o.kb ? Q_LIST : Q_SMALL;
+  let dpi = DPI_SMALL;
+  if (o.kb) {
+    // quick guess from page 1 at 72 DPI: bytes grow with the area, so with DPI squared
+    const c = await renderPage(doc, 1, 72, o.gray); const b = (await encode(c, Q_REF)).length; free(c);
+    dpi = snap(72 * Math.sqrt(Math.max(0.01, ((budget / n) * 0.9) / b)));
+  }
+  const cands = []; const tried = new Set(); let smallest = null; let passNo = 0; let wentUp = false;
+  const low = qs[qs.length - 1];
+  while (passNo < 5) {
+    passNo += 1; tried.add(dpi);
+    const r = await runPass(doc, dpi, qs, o.gray, budget, (i, k) => onProg(passNo, i, k), alive);
+    if (!smallest || r.sizes[low] < smallest.r.sizes[low]) smallest = { r };
+    const fits = qs.filter((q) => r.bytes[q] && r.sizes[q] <= budget);
+    if (fits.length) cands.push({ r, q: fits[0], fits });
+    if (!o.kb) break;
+    const top = fits[0] || 0;
+    if (top >= Q_SENSIBLE) {
+      // lots of room left at the best quality: one step up in sharpness
+      if (!wentUp && top === qs[0] && r.sizes[qs[0]] < budget * 0.45) {
+        const up = snap(dpi * Math.sqrt((budget * 0.7) / r.sizes[qs[0]]));
+        if (up > dpi && !tried.has(up)) { dpi = up; wentUp = true; continue; }
+      }
+      break;
+    }
+    if (wentUp) break; // the lower DPI before this one already fitted well
+    let next = snap(dpi * Math.sqrt(budget / Math.max(1, r.sizes[Q_REF])) * 0.95);
+    if (next >= dpi) next = lower(dpi);
+    while (next && tried.has(next)) next = lower(next);
+    if (!next) break;
+    dpi = next;
+  }
+  const good = cands.filter((c) => c.q >= Q_SENSIBLE);
+  const pick = good.length ? good.sort((a, b) => b.r.dpi - a.r.dpi || b.q - a.q)[0] : cands.sort((a, b) => b.q - a.q || b.r.dpi - a.r.dpi)[0];
+  if (pick) {
+    for (const q of pick.fits) {
+      if (!alive()) throw Object.assign(new Error('cancel'), { code: 'cancel' });
+      const blob = buildPdf(pick.r.bytes[q], dims);
+      if (blob.size <= limit) return { blob, same: false, note: q < Q_SENSIBLE ? 'lowQ' : '', ok: true, dpi: pick.r.dpi, q, first: pick.r.bytes[q][0] };
+    }
+  }
+  // Nothing fitted: offer the smallest we could make, unless that is not smaller than the original.
+  const sb = buildPdf(smallest.r.bytes[low], dims);
+  if (sb.size >= orig) return { blob: file, same: true, note: o.kb ? 'cantReach' : 'noGain', ok: orig <= maxB };
+  return { blob: sb, same: false, note: o.kb && sb.size > maxB ? 'cantReach' : 'lowQ', ok: sb.size <= maxB, dpi: smallest.r.dpi, q: low, first: smallest.r.bytes[low][0] };
+};
+
+// ---------- state
+let cur = null;     // { file, doc, dims, beforeUrl }
+let out = null;     // compressPdf result + { url, pvUrl }
+let errCode = '';
+let busy = false; let prog = null; let runToken = 0;
+const outName = () => `${(cur.file.name || 'document').replace(/\.pdf$/i, '').replace(/[^\wऀ-ॿঀ-৿-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 50) || 'document'}-compressed.pdf`;
+const ERR = { password: 'errPassword', broken: 'errBroken', notPdf: 'errNotPdf', lib: 'errLib' };
+
+const render = () => {
+  const loaded = !!(cur && cur.doc);
+  $('drop').classList.toggle('hidden', !!cur);
+  $('fileBox').classList.toggle('hidden', !cur);
+  if (cur) { $('fName').textContent = cur.file.name || 'document.pdf'; $('fInfo').textContent = loaded ? t('pagesInfo')(cur.dims.length, fmtSize(cur.file.size)) : t('opening'); }
+  $('errBox').classList.toggle('hidden', !errCode); if (errCode) $('errBox').textContent = t(ERR[errCode] || 'errFail');
+  $('prog').classList.toggle('hidden', !busy);
+  if (busy) {
+    const p = prog || { p: 1, i: 0, n: 1 };
+    $('progBar').style.width = `${Math.round((p.i / p.n) * 100)}%`;
+    $('progTxt').innerHTML = `<span class="spin"></span>${esc(loaded && prog ? t('step')(p.p, p.i, p.n) : loaded ? t('working') : t('opening'))}`;
+  }
+  $('results').classList.toggle('hidden', !out || busy);
+  if (out && !busy) {
+    const n = cur.dims.length; const a = cur.file.size; const b = out.blob.size;
+    const pct = Math.max(0, Math.round((1 - b / a) * 100));
+    $('resSize').className = `isize${out.ok ? '' : ' bad'}`;
+    $('resSize').innerHTML = `${fmtSize(a)} → <b>${fmtSize(b)}</b>${pct ? ` (−${pct}%)` : ''}`;
+    $('resDetail').textContent = out.same ? t('same')(n) : t('detail')(n, out.dpi, Math.round(out.q * 100));
+    const note = out.note === 'cantReach' ? t('cantReach')(kbLabel(targetKb)) : out.note ? t(out.note) : '';
+    $('resNote').textContent = note; $('resNote').className = `inote${out.ok && out.note !== 'lowQ' ? '' : ' bad'}`;
+    $('cmpBtn').classList.toggle('hidden', out.same); $('pvBtn').disabled = out.same;
+    if (out.pvUrl) $('pvImg').src = out.pvUrl;
+  }
+};
+
+const setProg = (p, i, n) => { prog = { p, i, n }; render(); };
+const clearOut = () => { if (out) { if (out.url) URL.revokeObjectURL(out.url); if (out.pvUrl) URL.revokeObjectURL(out.pvUrl); } out = null; };
+
+const runCompress = async () => {
+  if (!cur || !cur.doc) return;
+  const token = ++runToken; const alive = () => token === runToken;
+  clearOut(); busy = true; prog = null; errCode = ''; render();
+  try {
+    const r = await compressPdf(cur, opts(), (p, i, n) => { if (alive()) setProg(p, i, n); }, alive);
+    if (!alive()) return;
+    let pv = r.first ? new Blob([r.first], { type: 'image/jpeg' }) : null;
+    if (!pv) { const c = await renderPage(cur.doc, 1, 60, false); pv = new Blob([await encode(c, 0.8)], { type: 'image/jpeg' }); free(c); }
+    if (!alive()) return;
+    out = Object.assign(r, { pvUrl: URL.createObjectURL(pv) });
+  } catch (e) {
+    if (!alive() || e.code === 'cancel') return;
+    console.warn('compress failed', e); errCode = e.code || 'fail';
+  }
+  busy = false; render();
+};
+
+const loadFile = async (file) => {
+  if (!file) return;
+  runToken += 1; clearOut();
+  if (cur && cur.doc) cur.doc.destroy();
+  if (cur && cur.beforeUrl) URL.revokeObjectURL(cur.beforeUrl);
+  cur = { file, doc: null, dims: [] }; errCode = ''; busy = true; prog = null; render();
+  const mine = cur;
+  try {
+    const { doc, dims } = await openPdf(file);
+    if (cur !== mine) { doc.destroy(); return; }
+    cur.doc = doc; cur.dims = dims;
+  } catch (e) {
+    if (cur !== mine) return;
+    cur = null; busy = false; errCode = e.code || 'fail'; render(); return;
+  }
+  await runCompress();
+};
+
+const download = (blob, name) => { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); };
+const shareOut = async () => {
+  if (!out) return;
+  const f = new File([out.blob], outName(), { type: 'application/pdf' });
+  if (navigator.canShare && navigator.canShare({ files: [f] })) { try { await navigator.share({ files: [f] }); } catch (e) { /* cancelled */ } return; }
+  download(f, f.name); toast(t('saved'));
+};
+
+// ---------- before / after (page 1)
+const openCmp = async () => {
+  if (!out || out.same) return;
+  if (!cur.beforeUrl) { const c = await renderPage(cur.doc, 1, 110, false); cur.beforeUrl = URL.createObjectURL(new Blob([await encode(c, 0.92)], { type: 'image/jpeg' })); free(c); }
+  $('cmpA').src = cur.beforeUrl; $('cmpB').src = out.pvUrl;
+  $('cmpCap').textContent = t('cmpCap')(fmtSize(cur.file.size), fmtSize(out.blob.size));
+  $('cmpR').value = '50'; setCmp(50); $('modal').classList.remove('hidden');
+};
+const setCmp = (p) => { $('cmpB').style.clipPath = `inset(0 0 0 ${p}%)`; $('cmpLine').style.left = `${p}%`; };
+const closeCmp = () => { $('modal').classList.add('hidden'); };
+
+// ---------- UI text
+const applyChips = () => {
+  let custom = true;
+  document.querySelectorAll('.chip').forEach((b) => { const on = Number(b.dataset.kb) === targetKb; b.classList.toggle('on', on); if (on) custom = false; });
+  $('kbinBox').classList.toggle('on', custom);
+  if (custom) $('kbIn').value = String(targetKb); else if (document.activeElement !== $('kbIn')) $('kbIn').value = '';
+};
+const applyLang = () => {
+  document.documentElement.lang = lang === 'hinglish' ? 'hi-Latn' : lang;
+  document.querySelectorAll('[data-t]').forEach((el) => { const v = t(el.dataset.t); if (typeof v === 'string') el.textContent = v; });
+  $('langSel').value = lang;
+  $('howList').innerHTML = t('how').map((s) => `<li>${s}</li>`).join('');
+  $('tipList').innerHTML = t('tips').map((s) => `<li>${s}</li>`).join('');
+  $('faqList').innerHTML = t('faq').map(([q, a]) => `<details class="faq"><summary>${q}</summary><p>${a}</p></details>`).join('');
+  $('useTable').innerHTML = `<tr><th>${t('thUse')}</th><th>${t('thKb')}</th><th>${t('thTip')}</th></tr>` + t('uses').map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('');
+  $('sizeLinks').innerHTML = PAGES.map(([kb, slug]) => `<a href="${BASE}${slug}/?lang=${lang}"${PAGE && PAGE.kb === kb ? ' class="here"' : ''}>${esc(t('sizeLink')(kbLabel(kb)))}<small>${esc(t('sizeFor')[kb])}</small></a>`).join('')
+    + (PAGE ? `<a href="${BASE}?lang=${lang}">📄 ${esc(t('custom').replace(':', ''))} KB<small>${esc(t('smaller').replace('✨ ', ''))}</small></a>` : '')
+    + `<a href="${BASE}../image-compress/?lang=${lang}">🗜️ ${esc(t('imageTool'))}<small>JPG · WebP</small></a>`
+    + `<a href="${BASE}../doc-scanner/?lang=${lang}">📷 ${esc(t('docTool'))}<small>PDF</small></a>`;
+  $('aboutBox').innerHTML = t('about').map((s) => `<p>${s}</p>`).join('');
+  $('probList').innerHTML = `<dl class="probs">${t('probs').map(([q, a]) => `<dt>${q}</dt><dd>${a}</dd>`).join('')}</dl>`;
+  const info = PAGE && PAGE.T[lang] && PAGE.T[lang].info;
+  $('pageInfo').classList.toggle('hidden', !info); if (info) $('pageInfo').innerHTML = info;
+  // A size page has its own text and questions; the general sections are for the main page only.
+  const faq = PAGE && PAGE.T[lang] && PAGE.T[lang].faq ? PAGE.T[lang].faq : t('faq');
+  document.querySelectorAll('section.gen').forEach((el) => el.classList.toggle('hidden', !!PAGE));
+  $('pageFaq').classList.toggle('hidden', !PAGE);
+  if (PAGE) $('pageFaqList').innerHTML = faq.map(([q, a]) => `<details class="faq"><summary>${q}</summary><p>${a}</p></details>`).join('');
+  const plain = (h) => String(h).replace(/<[^>]+>/g, '');
+  const ld = $('faqLd'); if (ld) ld.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: plain(q), acceptedAnswer: { '@type': 'Answer', text: plain(a) } })) });
+  applyChips(); render();
+};
+
+// ---------- events
+$('langSel').addEventListener('change', (e) => { lang = e.target.value; store.set('pc-lang', lang); applyLang(); });
+$('chips').addEventListener('click', (e) => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  targetKb = Number(b.dataset.kb); if (!PAGE) store.set('pc-kb', String(targetKb)); applyChips(); if (cur && cur.doc) runCompress();
+});
+let rt = 0;
+$('kbIn').addEventListener('input', () => {
+  const v = Math.round(Number($('kbIn').value));
+  if (!v) return;
+  if (v < 10 || v > 20000) { toast(t('badKb')); return; }
+  targetKb = v; if (!PAGE) store.set('pc-kb', String(v));
+  document.querySelectorAll('.chip').forEach((b) => b.classList.toggle('on', Number(b.dataset.kb) === v));
+  $('kbinBox').classList.toggle('on', !PRESETS.includes(v));
+  clearTimeout(rt); if (cur && cur.doc) rt = setTimeout(runCompress, 500);
+});
+$('gray').addEventListener('change', () => { store.set('pc-gray', $('gray').checked ? '1' : '0'); if (cur && cur.doc) runCompress(); });
+const pickPdf = (files) => { const f = [...(files || [])].find((x) => x && (x.type === 'application/pdf' || /\.pdf$/i.test(x.name))) || (files && files[0]); if (f) loadFile(f); };
+$('pickBtn').addEventListener('click', (e) => { e.stopPropagation(); $('file').click(); });
+$('anotherBtn').addEventListener('click', () => $('file').click());
+$('drop').addEventListener('click', () => $('file').click());
+$('drop').addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $('file').click(); } });
+// drop anywhere on the page (the drop box hides once a PDF is open)
+document.addEventListener('dragover', (e) => { e.preventDefault(); $('drop').classList.add('over'); });
+document.addEventListener('dragleave', (e) => { if (!e.relatedTarget) $('drop').classList.remove('over'); });
+document.addEventListener('drop', (e) => { e.preventDefault(); $('drop').classList.remove('over'); pickPdf(e.dataTransfer && e.dataTransfer.files); });
+$('file').addEventListener('change', (e) => { pickPdf(e.target.files); e.target.value = ''; });
+$('dlBtn').addEventListener('click', () => { if (out) { download(out.blob, outName()); toast(t('saved')); } });
+$('shareBtn').addEventListener('click', shareOut);
+$('cmpBtn').addEventListener('click', openCmp);
+$('pvBtn').addEventListener('click', openCmp);
+$('cmpR').addEventListener('input', (e) => setCmp(Number(e.target.value)));
+const cmpDrag = (e) => { const r = $('cmp').getBoundingClientRect(); const p = Math.min(100, Math.max(0, ((e.clientX - r.left) / r.width) * 100)); $('cmpR').value = String(p); setCmp(p); };
+$('cmp').addEventListener('pointerdown', (e) => { $('cmp').setPointerCapture(e.pointerId); cmpDrag(e); });
+$('cmp').addEventListener('pointermove', (e) => { if (e.buttons || e.pointerType === 'touch') cmpDrag(e); });
+$('cmpClose').addEventListener('click', closeCmp);
+$('modal').addEventListener('click', (e) => { if (e.target === $('modal')) closeCmp(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !$('modal').classList.contains('hidden')) closeCmp(); });
+
+// ---------- start
+$('year').textContent = new Date().getFullYear();
+applyLang();
+if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register(`${BASE}sw.js`).catch(() => {});
+
+// ---------- self test (?selftest, local checks only): builds sample PDFs in the page and runs the real pipeline.
+// ?selftest&src=file.pdf also runs a real PDF from the same folder.
+if (params.has('selftest')) (async () => {
+  const box = document.createElement('pre'); box.id = 'selftest'; box.textContent = 'SELFTEST RUNNING'; document.querySelector('.wrap').appendChild(box);
+  const rows = []; let pass = true;
+  const check = (name, ok, info) => { rows.push({ name, ok: !!ok, ...info }); if (!ok) pass = false; box.textContent = `SELFTEST RUNNING\n${JSON.stringify(rows, null, 1)}`; };
+  const rnd = (() => { let s = 7; return () => { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; }; })();
+  const picture = (w, h) => {
+    const c = mk(w, h); const x = c.getContext('2d');
+    const g = x.createLinearGradient(0, 0, w, h); g.addColorStop(0, '#1971c2'); g.addColorStop(0.5, '#f59f00'); g.addColorStop(1, '#2f9e44'); x.fillStyle = g; x.fillRect(0, 0, w, h);
+    for (let k = 0; k < 40; k += 1) { x.fillStyle = `hsla(${rnd() * 360},70%,55%,.6)`; x.beginPath(); x.arc(rnd() * w, rnd() * h, 10 + rnd() * 80, 0, 7); x.fill(); }
+    const im = x.getImageData(0, 0, w, h); for (let p = 0; p < im.data.length; p += 4) { const n = (rnd() - 0.5) * 16; im.data[p] += n; im.data[p + 1] += n; im.data[p + 2] += n; } x.putImageData(im, 0, 0);
+    return c.toDataURL('image/jpeg', 0.95);
+  };
+  const sample = (pages, opt) => {
+    const { jsPDF } = window.jspdf; const d = new jsPDF(Object.assign({ unit: 'pt', format: 'a4' }, opt || {}));
+    for (let i = 0; i < pages; i += 1) {
+      if (i) d.addPage();
+      d.setFontSize(22); d.text(`Sample page ${i + 1}`, 50, 70);
+      d.setFontSize(11); for (let l = 0; l < 12; l += 1) d.text(`Line ${l + 1}: roll number 12345, marks 87/100, this text is only a test.`, 50, 100 + l * 16);
+      if (!opt || !opt.encryption) d.addImage(picture(900, 640), 'JPEG', 50, 320, 495, 352, `img${i}`, 'NONE');
+    }
+    return new File([d.output('arraybuffer')], `sample-${pages}.pdf`, { type: 'application/pdf' });
+  };
+  const countPages = async (blob) => { const d = await window.pdfjsLib.getDocument({ data: new Uint8Array(await blob.arrayBuffer()), isEvalSupported: false, verbosity: 0 }).promise; const n = d.numPages; await d.destroy(); return n; };
+  const runCase = async (name, file, kb, gray, expect) => {
+    targetKb = kb; applyChips(); $('gray').checked = gray;
+    const t0 = performance.now(); await loadFile(file); const ms = Math.round(performance.now() - t0);
+    if (expect === 'error') { check(name, !!errCode, { err: errCode, inKB: +(file.size / 1024).toFixed(1) }); return; }
+    if (!out) { check(name, false, { err: errCode || 'no result' }); return; }
+    const pages = await countPages(out.blob);
+    const info = { inKB: +(file.size / 1024).toFixed(1), outKB: +(out.blob.size / 1024).toFixed(1), outBytes: out.blob.size, target: kb, pages, wantPages: cur.dims.length, dpi: out.dpi || null, q: out.q || null, note: out.note, underTarget: out.ok, ms, shown: $('resSize').textContent, file: outName() };
+    let good = pages === cur.dims.length && out.blob.size <= file.size;
+    if (expect === 'fit') good = good && out.ok && out.blob.size <= kb * 1000 && !out.same;
+    if (expect === 'smaller') good = good && out.blob.size < file.size;
+    if (expect === 'cantReach') good = good && out.note === 'cantReach' && !out.ok;
+    if (expect === 'already') good = good && out.same && out.note === 'already';
+    if (expect === 'any') good = good && out.ok;
+    check(name, good && !$('results').classList.contains('hidden'), info);
+  };
+  try {
+    await libs();
+    if (params.get('src')) {
+      const b = await (await fetch(params.get('src'))).blob(); const kb = params.has('kb') ? Number(params.get('kb')) : 100;
+      await runCase(`real ${params.get('src')} → ${kb} KB`, new File([b], params.get('src').split('/').pop(), { type: 'application/pdf' }), kb, params.has('gray'), params.get('expect') || 'any');
+    } else {
+      await runCase('2 pages → 100 KB', sample(2), 100, false, 'fit');
+      const s6 = sample(6);
+      await runCase('6 pages → 200 KB', s6, 200, false, 'fit');
+      await runCase('6 pages → 100 KB, black & white', s6, 100, true, 'fit');
+      await runCase('6 pages → just smaller', s6, 0, false, 'smaller');
+      const s30 = sample(30);
+      await runCase('30 pages → 1 MB', s30, 1000, false, 'fit');
+      await runCase('30 pages → 50 KB (too small: smallest offered)', s30, 50, false, 'cantReach');
+      const txt = (() => { const { jsPDF } = window.jspdf; const d = new jsPDF(); d.text('Only text, very small file', 20, 20); return new File([d.output('arraybuffer')], 'text.pdf', { type: 'application/pdf' }); })();
+      await runCase('small text PDF → 100 KB (already under)', txt, 100, false, 'already');
+      await runCase('small text PDF → just smaller (never bigger)', txt, 0, false, 'any');
+      await runCase('password PDF', sample(1, { encryption: { userPassword: 'abc', ownerPassword: 'abc', userPermissions: ['print'] } }), 100, false, 'error');
+      check('password message', errCode === 'password' && $('errBox').textContent === t('errPassword'), { msg: $('errBox').textContent });
+      await runCase('broken PDF', new File([new TextEncoder().encode('%PDF-1.4\n garbage garbage \n%%EOF')], 'broken.pdf', { type: 'application/pdf' }), 100, false, 'error');
+      check('broken message', errCode === 'broken', { msg: $('errBox').textContent });
+      await runCase('not a PDF', new File([new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3])], 'photo.jpg', { type: 'image/jpeg' }), 100, false, 'error');
+      check('not-PDF message', errCode === 'notPdf', { msg: $('errBox').textContent });
+    }
+  } catch (e) { check('exception', false, { err: String(e && e.stack || e) }); }
+  box.textContent = `SELFTEST ${pass ? 'PASS' : 'FAIL'} lang=${lang} page=${PAGE ? PAGE.kb : '-'}\n${JSON.stringify(rows, null, 1)}`;
+})();
+</script>
+</body>
+</html>

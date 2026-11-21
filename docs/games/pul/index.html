@@ -1,1 +1,255 @@
-<!doctype html><html data-prerendered="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Games | NextGrade</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://nextgrade.in/games/"><meta http-equiv="refresh" content="0; url=/games/"></head><body><p><a href="/games/">Games →</a></p></body></html>
+<!doctype html>
+<html data-prerendered="hi" lang="hi">
+<head>
+<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Raat ka Pul 🔦 — Bridge and Torch Puzzle Game | NextGrade</title>
+<meta name="description" content="Raat ka Pul: the classic bridge-and-torch puzzle as a free game. Four people, one torch, a narrow bridge and 17 minutes — get everyone across. Three levels, hints. Hindi, Hinglish, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/games/pul/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Raat ka Pul 🔦 — 17 minute mein sabko paar karao!">
+<meta property="og:description" content="Ek torch, kamzor pul, sabki raftaar alag. Kar paoge?">
+<meta property="og:url" content="https://nextgrade.in/games/pul/">
+<meta property="og:image" content="https://nextgrade.in/games/pul/icons/icon-512.png">
+<meta name="theme-color" content="#5f3dc4">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/css/557e297c3bb5.css">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoGame", "name": "Raat ka Pul", "alternateName": "Bridge and Torch Puzzle", "url": "https://nextgrade.in/games/pul/", "genre": "Puzzle", "gamePlatform": "Web browser", "applicationCategory": "Game", "operatingSystem": "Any", "inLanguage": ["hi", "en", "bn"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "publisher": {"@type": "Organization", "name": "NextGrade", "url": "https://nextgrade.in/"}}</script>
+<link rel="stylesheet" href="/games/kit/puzzle.css?v=1">
+<style>
+:root { --bg: #0b0b1e; --accent: #5f3dc4; --glow: #3b2f80; }
+.night { position: relative; display: grid; grid-template-columns: 1fr 34% 1fr; min-height: 260px; border-radius: 14px; overflow: hidden; background: radial-gradient(circle at 80% 15%, #fff9db 0 10px, transparent 11px), linear-gradient(#0b0b2e, #1e1b4b 60%, #10301c 60%); }
+.side { display: flex; flex-wrap: wrap; align-content: flex-end; justify-content: center; gap: 6px; padding: 10px 4px 16px; position: relative; z-index: 2; }
+.gap { position: relative; }
+.gap .bridge { position: absolute; left: -6px; right: -6px; bottom: 34px; height: 14px; background: repeating-linear-gradient(90deg, #8d5524 0 12px, #6b3e17 12px 14px); border-top: 3px solid #b08850; }
+.gap .rope { position: absolute; left: -6px; right: -6px; bottom: 64px; border-top: 2px dashed #b08850; }
+.gap .chasm { position: absolute; left: 0; right: 0; bottom: 0; height: 34px; background: #050510; }
+.p { border: 2px solid transparent; background: rgba(255,255,255,.08); border-radius: 12px; padding: 4px 6px; cursor: pointer; display: flex; flex-direction: column; align-items: center; font: inherit; color: var(--ink); min-width: 54px; }
+.p .e { font-size: 30px; line-height: 1; }
+.p .s { font-size: 11px; font-weight: 800; color: #ffe8a3; }
+.p.sel { border-color: var(--gold); background: rgba(255,212,59,.18); transform: translateY(-4px); }
+.torch { position: absolute; top: 10px; font-size: 26px; z-index: 3; transition: left .6s ease; filter: drop-shadow(0 0 10px #ffd43b); }
+.clock { display: flex; align-items: center; gap: 8px; font-weight: 800; margin: 10px 0 0; }
+.clock .bar { flex: 1; height: 10px; border-radius: 99px; background: rgba(255,255,255,.12); overflow: hidden; }
+.clock .bar i { display: block; height: 100%; background: linear-gradient(90deg, #ffd43b, #ff6b6b); transition: width .5s; }
+.go { width: 100%; margin-top: 10px; font-size: 17px; }
+
+</style>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/"><img src="/favicon.svg" alt="" width="30" height="30"><span>NextGrade<small>Puzzle</small></span></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title">रात का पुल</h1>
+  <p class="sub" data-i18n="sub">अँधेरी रात, कमज़ोर पुल और सिर्फ़ एक टॉर्च। सबको समय रहते पार कराओ!</p>
+  <div class="levels" id="levels"><button type="button" data-l="0" aria-pressed="true">लेवल 1</button><button type="button" data-l="1" aria-pressed="false" disabled="">🔒 लेवल 2</button><button type="button" data-l="2" aria-pressed="false" disabled="">🔒 लेवल 3</button></div>
+  <div class="rules" id="rules"><b>4 लोग</b> रात में पुल पार करना चाहते हैं। पुल पर <b>एक बार में सिर्फ़ 2</b> लोग चल सकते हैं, और <b>टॉर्च साथ होनी चाहिए</b> — इसलिए किसी को टॉर्च लेकर वापस आना पड़ेगा। दो लोग साथ चलें तो <b>धीमे वाले की रफ़्तार</b> से चलते हैं। कुल समय: <b>17 मिनट</b>।</div>
+
+  <div class="board" id="board">
+    <div class="night" id="night">
+      <div class="side" id="sideL"><button type="button" class="p" data-i="0"><span class="e">🧒</span><span>मुन्ना</span><span class="s">1 मिनट</span></button><button type="button" class="p" data-i="1"><span class="e">👩</span><span>दीदी</span><span class="s">2 मिनट</span></button><button type="button" class="p" data-i="2"><span class="e">👨</span><span>पापा</span><span class="s">5 मिनट</span></button><button type="button" class="p" data-i="3"><span class="e">👵</span><span>दादी</span><span class="s">10 मिनट</span></button></div>
+      <div class="gap"><div class="rope"></div><div class="bridge"></div><div class="chasm"></div></div>
+      <div class="side" id="sideR"></div>
+      <div class="torch" id="torch">🔦</div>
+    </div>
+    <div class="clock"><span id="clockText">⏱️ 0 / 17 मिनट</span><div class="bar"><i id="clockBar"></i></div></div>
+    <button class="btn btn-main go" id="go" type="button"></button>
+  </div>
+
+  <div class="controls">
+    <button class="btn btn-ghost" id="undo" type="button"></button>
+    <button class="btn btn-ghost" id="hint" type="button"></button>
+    <button class="btn btn-ghost" id="reset" type="button"></button>
+  </div>
+  <div class="status"><span id="moves"></span><span id="target">सीमा: 17 मिनट</span></div>
+  <p class="msg" id="msg" role="status" aria-live="polite">टॉर्च वाले किनारे से 1 या 2 लोग चुनो, फिर "पुल पार करो"।</p>
+
+  <div class="win" id="win" hidden>
+    <h2 id="winTitle"></h2>
+    <div class="stars" id="winStars"></div>
+    <p id="winLine"></p>
+    <div class="btns">
+      <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
+      <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+      <button class="btn btn-main" id="nextLevel" type="button"></button>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle">कैसे खेलें</h2>
+    <ol id="howList"><li>जिस किनारे पर टॉर्च है, वहाँ 1 या 2 लोगों पर टैप करो।</li><li>"🔦 पुल पार करो" दबाओ — चुने हुए लोग टॉर्च लेकर दूसरे किनारे चले जाएँगे। समय में धीमे वाले का समय जुड़ेगा।</li><li>टॉर्च को वापस लाने के लिए किसी को अकेले या दो लोगों को वापस भेजना होगा।</li><li>कुल समय सीमा से ज़्यादा हुआ तो टॉर्च बुझ जाएगी — लेवल फिर से।</li><li>टिप: सबसे धीमे दो लोगों को साथ भेजना समय बचाता है! "💡 हिंट" अगली सही चाल बताता है।</li></ol>
+  </section>
+  <section>
+    <h2 data-i18n="aboutTitle">यह पहेली कहाँ से आई?</h2>
+    <p data-i18n="aboutText">पुल और टॉर्च वाली पहेली 20वीं सदी की एक मशहूर दिमाग़ी पहेली है, जो पहेली-किताबों और नौकरी के इंटरव्यू तक में पूछी जाती है। इसकी ख़ासियत यह है कि सीधा तरीक़ा — सबसे तेज़ आदमी हर किसी को ले जाए — सबसे अच्छा नहीं होता।</p>
+    <p data-i18n="aboutText2">असली चाल है दो सबसे धीमे लोगों को एक साथ भेजना, ताकि उनका लंबा समय एक ही बार जुड़े। यह "समय को जोड़ो, बाँटो नहीं" वाली सोच प्लानिंग और कंप्यूटर एल्गोरिद्म में भी काम आती है।</p>
+    <p><span data-i18n="readMore">और भी:</span> <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames">और गेम</a> · <a data-game="nadi-paar" href="https://nextgrade.in/games/nadi-paar/" data-i18n="nadiLink">नदी पार पहेली</a> · <a data-game="matke" href="https://nextgrade.in/games/matke/" data-i18n="matkeLink">दो मटके पहेली</a></p>
+    <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
+  </section>
+  <section>
+    <h2 data-i18n="privacyTitle">प्राइवेसी</h2>
+    <p data-i18n="privacyText">कोई लॉगिन नहीं। आपके लेवल और बेस्ट स्कोर सिर्फ़ इसी फ़ोन में सेव होते हैं।</p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script src="/games/kit/puzzle.js?v=1"></script>
+<script>
+(() => {
+  const P = {
+    munna: { e: '🧒', hinglish: 'Munna', hi: 'मुन्ना', en: 'Munna', bn: 'মুন্না' }, didi: { e: '👩', hinglish: 'Didi', hi: 'दीदी', en: 'Didi', bn: 'দিদি' },
+    papa: { e: '👨', hinglish: 'Papa', hi: 'पापा', en: 'Dad', bn: 'বাবা' }, dadi: { e: '👵', hinglish: 'Dadi', hi: 'दादी', en: 'Grandma', bn: 'ঠাকুমা' },
+    bhaiya: { e: '👦', hinglish: 'Bhaiya', hi: 'भैया', en: 'Bhaiya', bn: 'দাদা' }, dada: { e: '👴', hinglish: 'Dada', hi: 'दादा', en: 'Grandpa', bn: 'ঠাকুরদা' },
+  };
+  const LEVELS = [
+    { people: [['munna', 1], ['didi', 2], ['papa', 5], ['dadi', 10]], limit: 17 },
+    { people: [['munna', 1], ['didi', 2], ['papa', 5], ['dadi', 8]], limit: 15 },
+    { people: [['munna', 1], ['bhaiya', 3], ['didi', 6], ['papa', 8], ['dada', 12]], limit: 29 },
+  ];
+  const T = {
+    hinglish: {
+      title: 'Raat ka Pul', sub: 'Andheri raat, kamzor pul aur sirf ek torch. Sabko samay rehte paar karao!', winTitle: '🎉 Shabaash! Sab samay par paar!',
+      rules: (n, lim) => `<b>${n} log</b> raat mein pul paar karna chahte hain. Pul par <b>ek baar mein sirf 2</b> log chal sakte hain, aur <b>torch saath honi chahiye</b> — isliye kisi ko torch lekar wapas aana padega. Do log saath chalein to <b>dheeme wale ki raftaar</b> se chalte hain. Kul samay: <b>${lim} minute</b>.`,
+      min: (m) => `${m} min`, go: '🔦 Pul paar karo', clock: (u, l) => `⏱️ ${u} / ${l} minute`, pick: 'Torch wale kinare se 1 ya 2 log chuno, phir "Pul paar karo".', two: 'Pul par ek baar mein sirf 2 log!', noTorch: 'Torch doosre kinare par hai.', none: 'Pehle kisi ko chuno.',
+      late: (u, l) => `😱 ${u} minute ho gaye — torch ${l} minute mein bujh gayi! Phir se koshish karo.`, hintSay: (names) => `💡 Agli chaal: ${names} pul paar karein.`, hintLate: '💡 Is raaste se samay par nahi ho payega — "Phir se" dabao.',
+      winLine: (u, l, h) => `${u} minute mein sab paar (seema ${l})! ${h ? `Hint liye: ${h}.` : 'Bina hint ke!'}`, share: (lv, u) => `🔦 Raat ka Pul level ${lv}: maine sabko ${u} minute mein pul paar karaya! Aap kar paoge? 👉 `,
+      target: (l) => `Seema: ${l} min`,
+      howTitle: 'Kaise khelein', how: ['Jis kinare par torch hai, wahan 1 ya 2 logon par tap karo.', '"🔦 Pul paar karo" dabao — chune hue log torch lekar doosre kinare chale jaayenge. Samay mein dheeme wale ka samay judega.', 'Torch ko wapas laane ke liye kisi ko akela ya do logon ko wapas bhejna hoga.', 'Kul samay seema se zyada hua to torch bujh jaayegi — level phir se.', 'Tip: sabse dheeme do logon ko saath bhejna samay bachata hai! "💡 Hint" agli sahi chaal batata hai.'],
+      aboutTitle: 'Yeh paheli kahan se aayi?', aboutText: 'Pul aur torch wali paheli 20vi sadi ki ek mashhoor dimaagi paheli hai, jo puzzle-kitaabon aur naukri ke interview tak mein poochhi jaati hai. Iski khaasiyat yeh hai ki seedha tareeka — sabse tez aadmi har kisi ko le jaaye — sabse achha nahi hota.',
+      aboutText2: 'Asli chaal hai do sabse dheeme logon ko ek saath bhejna, taaki unka lamba samay ek hi baar jude. Yeh "samay ko jodo, baanto nahi" wali soch planning aur computer algorithms mein bhi kaam aati hai.',
+      nadiLink: 'Nadi Paar paheli', matkeLink: 'Do Matke paheli',
+    },
+    hi: {
+      title: 'रात का पुल', sub: 'अँधेरी रात, कमज़ोर पुल और सिर्फ़ एक टॉर्च। सबको समय रहते पार कराओ!', winTitle: '🎉 शाबाश! सब समय पर पार!',
+      rules: (n, lim) => `<b>${n} लोग</b> रात में पुल पार करना चाहते हैं। पुल पर <b>एक बार में सिर्फ़ 2</b> लोग चल सकते हैं, और <b>टॉर्च साथ होनी चाहिए</b> — इसलिए किसी को टॉर्च लेकर वापस आना पड़ेगा। दो लोग साथ चलें तो <b>धीमे वाले की रफ़्तार</b> से चलते हैं। कुल समय: <b>${lim} मिनट</b>।`,
+      min: (m) => `${m} मिनट`, go: '🔦 पुल पार करो', clock: (u, l) => `⏱️ ${u} / ${l} मिनट`, pick: 'टॉर्च वाले किनारे से 1 या 2 लोग चुनो, फिर "पुल पार करो"।', two: 'पुल पर एक बार में सिर्फ़ 2 लोग!', noTorch: 'टॉर्च दूसरे किनारे पर है।', none: 'पहले किसी को चुनो।',
+      late: (u, l) => `😱 ${u} मिनट हो गए — टॉर्च ${l} मिनट में बुझ गई! फिर से कोशिश करो।`, hintSay: (names) => `💡 अगली चाल: ${names} पुल पार करें।`, hintLate: '💡 इस रास्ते से समय पर नहीं हो पाएगा — "फिर से" दबाओ।',
+      winLine: (u, l, h) => `${u} मिनट में सब पार (सीमा ${l})! ${h ? `हिंट लिए: ${h}।` : 'बिना हिंट के!'}`, share: (lv, u) => `🔦 रात का पुल लेवल ${lv}: मैंने सबको ${u} मिनट में पुल पार कराया! आप कर पाओगे? 👉 `,
+      target: (l) => `सीमा: ${l} मिनट`,
+      howTitle: 'कैसे खेलें', how: ['जिस किनारे पर टॉर्च है, वहाँ 1 या 2 लोगों पर टैप करो।', '"🔦 पुल पार करो" दबाओ — चुने हुए लोग टॉर्च लेकर दूसरे किनारे चले जाएँगे। समय में धीमे वाले का समय जुड़ेगा।', 'टॉर्च को वापस लाने के लिए किसी को अकेले या दो लोगों को वापस भेजना होगा।', 'कुल समय सीमा से ज़्यादा हुआ तो टॉर्च बुझ जाएगी — लेवल फिर से।', 'टिप: सबसे धीमे दो लोगों को साथ भेजना समय बचाता है! "💡 हिंट" अगली सही चाल बताता है।'],
+      aboutTitle: 'यह पहेली कहाँ से आई?', aboutText: 'पुल और टॉर्च वाली पहेली 20वीं सदी की एक मशहूर दिमाग़ी पहेली है, जो पहेली-किताबों और नौकरी के इंटरव्यू तक में पूछी जाती है। इसकी ख़ासियत यह है कि सीधा तरीक़ा — सबसे तेज़ आदमी हर किसी को ले जाए — सबसे अच्छा नहीं होता।',
+      aboutText2: 'असली चाल है दो सबसे धीमे लोगों को एक साथ भेजना, ताकि उनका लंबा समय एक ही बार जुड़े। यह "समय को जोड़ो, बाँटो नहीं" वाली सोच प्लानिंग और कंप्यूटर एल्गोरिद्म में भी काम आती है।',
+      nadiLink: 'नदी पार पहेली', matkeLink: 'दो मटके पहेली',
+    },
+    en: {
+      title: 'Raat ka Pul — Bridge & Torch', sub: 'A dark night, a weak bridge and one torch. Get everyone across in time!', winTitle: '🎉 Well done! Everyone crossed in time!',
+      rules: (n, lim) => `<b>${n} people</b> must cross a bridge at night. <b>Only 2</b> can be on the bridge at a time, and <b>they must carry the torch</b> — so someone has to bring it back. Two people walk together at the <b>slower one's pace</b>. Total time: <b>${lim} minutes</b>.`,
+      min: (m) => `${m} min`, go: '🔦 Cross the bridge', clock: (u, l) => `⏱️ ${u} / ${l} minutes`, pick: 'Pick 1 or 2 people on the torch side, then "Cross the bridge".', two: 'Only 2 people on the bridge at a time!', noTorch: 'The torch is on the other side.', none: 'Pick someone first.',
+      late: (u, l) => `😱 ${u} minutes — the torch died at ${l}! Try again.`, hintSay: (names) => `💡 Next move: ${names} cross.`, hintLate: '💡 You can\'t make it in time from here — press "Restart".',
+      winLine: (u, l, h) => `Everyone across in ${u} minutes (limit ${l})! ${h ? `Hints used: ${h}.` : 'No hints!'}`, share: (lv, u) => `🔦 Raat ka Pul level ${lv}: I got everyone across the bridge in ${u} minutes! Can you? 👉 `,
+      target: (l) => `Limit: ${l} min`,
+      howTitle: 'How to play', how: ['Tap 1 or 2 people on the side where the torch is.', 'Press "🔦 Cross the bridge" — they walk over with the torch. The slower person\'s time is added.', 'To bring the torch back, someone (or two people) must walk back.', 'If the total goes over the limit, the torch dies and the level restarts.', 'Tip: sending the two slowest people together saves time! "💡 Hint" shows the next right move.'],
+      aboutTitle: 'Where does this puzzle come from?', aboutText: 'The bridge-and-torch puzzle is a famous 20th-century brain teaser, found in puzzle books and even job interviews. Its trick is that the obvious plan — the fastest person walks everyone over — is not the best one.',
+      aboutText2: 'The real idea is to send the two slowest people together so their long times count only once. This "group the slow parts" thinking shows up in planning and computer algorithms too.',
+      nadiLink: 'River crossing puzzle', matkeLink: 'Water jug puzzle',
+    },
+    bn: {
+      title: 'রাতের সাঁকো', sub: 'অন্ধকার রাত, নড়বড়ে সাঁকো আর একটাই টর্চ। সময় থাকতে সবাইকে পার করাও!', winTitle: '🎉 শাবাশ! সবাই সময়মতো পার!',
+      rules: (n, lim) => `<b>${n} জন</b> রাতে সাঁকো পার হতে চায়। সাঁকোয় <b>একবারে শুধু ২ জন</b> হাঁটতে পারে, আর <b>টর্চ সঙ্গে থাকতেই হবে</b> — তাই কাউকে টর্চ নিয়ে ফিরে আসতে হবে। দুজন একসঙ্গে হাঁটলে <b>ধীর জনের গতিতে</b> হাঁটে। মোট সময়: <b>${lim} মিনিট</b>।`,
+      min: (m) => `${m} মিনিট`, go: '🔦 সাঁকো পার করো', clock: (u, l) => `⏱️ ${u} / ${l} মিনিট`, pick: 'টর্চ যে পাড়ে, সেখান থেকে ১ বা ২ জন বাছো, তারপর "সাঁকো পার করো"।', two: 'সাঁকোয় একবারে শুধু ২ জন!', noTorch: 'টর্চ অন্য পাড়ে।', none: 'আগে কাউকে বাছো।',
+      late: (u, l) => `😱 ${u} মিনিট হয়ে গেল — টর্চ ${l} মিনিটে নিভে গেছে! আবার চেষ্টা করো।`, hintSay: (names) => `💡 পরের চাল: ${names} পার হোক।`, hintLate: '💡 এখান থেকে সময়মতো হবে না — "আবার" টেপো।',
+      winLine: (u, l, h) => `${u} মিনিটে সবাই পার (সীমা ${l})! ${h ? `হিন্ট নিয়েছ: ${h}।` : 'হিন্ট ছাড়াই!'}`, share: (lv, u) => `🔦 রাতের সাঁকো লেভেল ${lv}: আমি সবাইকে ${u} মিনিটে পার করিয়েছি! তুমি পারবে? 👉 `,
+      target: (l) => `সীমা: ${l} মিনিট`,
+      howTitle: 'কীভাবে খেলবে', how: ['যে পাড়ে টর্চ আছে, সেখানে ১ বা ২ জনের উপর ট্যাপ করো।', '"🔦 সাঁকো পার করো" টেপো — তারা টর্চ নিয়ে ওপারে যাবে। ধীর জনের সময় যোগ হবে।', 'টর্চ ফেরাতে কাউকে (বা দুজনকে) ফিরে আসতে হবে।', 'মোট সময় সীমা ছাড়ালে টর্চ নিভে যাবে — লেভেল আবার।', 'টিপ: সবচেয়ে ধীর দুজনকে একসঙ্গে পাঠালে সময় বাঁচে! "💡 হিন্ট" পরের ঠিক চাল দেখায়।'],
+      aboutTitle: 'এই ধাঁধা কোথা থেকে এল?', aboutText: 'সাঁকো আর টর্চের ধাঁধা বিংশ শতকের এক বিখ্যাত মাথা খাটানোর ধাঁধা, ধাঁধার বই থেকে চাকরির ইন্টারভিউ পর্যন্ত জিজ্ঞেস করা হয়। এর মজা হলো, সোজা উপায় — সবচেয়ে দ্রুত জন সবাইকে নিয়ে যাবে — সেরা উপায় নয়।',
+      aboutText2: 'আসল কৌশল হলো সবচেয়ে ধীর দুজনকে একসঙ্গে পাঠানো, যাতে তাদের লম্বা সময় একবারই যোগ হয়। "ধীর অংশগুলো একসঙ্গে করো" — এই ভাবনা পরিকল্পনা আর কম্পিউটার অ্যালগরিদমেও কাজে লাগে।',
+      nadiLink: 'নদী পার ধাঁধা', matkeLink: 'দুই কলসি ধাঁধা',
+    },
+  };
+
+  let L = null, at = [], torch = 'L', used = 0, sel = [], hist = [], over = false, hints = 0, hintSet = [];
+  const kit = window.PuzzleKit({ key: 'pl', site: 'https://nextgrade.in/games/pul/', emoji: '🔦', titleTail: 'Bridge and Torch Puzzle', T, levels: LEVELS.length, onLevel: (i) => start(i), onLang: () => draw() });
+  const t = kit.t;
+  const name = (i) => P[L.people[i][0]][kit.lang];
+  const speed = (i) => L.people[i][1];
+
+  // ---- shortest total time to get everyone across from a state (Dijkstra); returns { cost, first }
+  const plan = (pos, side) => {
+    const key = (p, s) => p.join('') + s;
+    const dist = new Map([[key(pos, side), 0]]), first = new Map([[key(pos, side), null]]);
+    const open = [[0, pos, side]];
+    while (open.length) {
+      open.sort((a, b) => a[0] - b[0]);
+      const [d, p, s] = open.shift(), k = key(p, s);
+      if (d > dist.get(k)) continue;
+      if (p.every((x) => x === 'R')) return { cost: d, first: first.get(k) };
+      const here = p.map((x, i) => (x === s ? i : -1)).filter((i) => i >= 0);
+      const groups = [];
+      here.forEach((a, ai) => { groups.push([a]); here.slice(ai + 1).forEach((b) => groups.push([a, b])); });
+      groups.forEach((g) => {
+        const ns = s === 'L' ? 'R' : 'L', np = p.map((x, i) => (g.includes(i) ? ns : x)), nd = d + Math.max(...g.map(speed)), nk = key(np, ns);
+        if (!dist.has(nk) || nd < dist.get(nk)) { dist.set(nk, nd); first.set(nk, first.get(k) || g); open.push([nd, np, ns]); }
+      });
+    }
+    return null;
+  };
+
+  const btn = (i) => `<button type="button" class="p${sel.includes(i) ? ' sel' : ''}${hintSet.includes(i) && !sel.includes(i) ? ' hinted' : ''}" data-i="${i}"><span class="e">${P[L.people[i][0]].e}</span><span>${name(i)}</span><span class="s">${t('min')(speed(i))}</span></button>`;
+  const draw = () => {
+    kit.$('rules').innerHTML = t('rules')(L.people.length, L.limit);
+    kit.$('sideL').innerHTML = at.map((s, i) => (s === 'L' ? btn(i) : '')).join('');
+    kit.$('sideR').innerHTML = at.map((s, i) => (s === 'R' ? btn(i) : '')).join('');
+    kit.$('torch').style.left = torch === 'L' ? '8%' : '84%';
+    kit.$('clockText').textContent = t('clock')(used, L.limit);
+    kit.$('clockBar').style.width = `${Math.min(100, (used / L.limit) * 100)}%`;
+    kit.$('go').textContent = t('go'); kit.$('go').disabled = over;
+    kit.status(null, t('target')(L.limit));
+  };
+  const tap = (i) => {
+    if (over) return;
+    if (at[i] !== torch) { kit.sfx.no(); kit.say(t('noTorch'), 'bad'); return; }
+    if (sel.includes(i)) sel = sel.filter((x) => x !== i);
+    else if (sel.length >= 2) { kit.sfx.no(); kit.say(t('two'), 'bad'); return; } else sel.push(i);
+    kit.sfx.tap(); kit.say(''); draw();
+  };
+  kit.$('night').addEventListener('click', (e) => { const b = e.target.closest('[data-i]'); if (b) tap(Number(b.dataset.i)); });
+  kit.$('go').addEventListener('click', () => {
+    if (over) return;
+    if (!sel.length) { kit.sfx.no(); kit.say(t('none'), 'bad'); return; }
+    hist.push({ at: at.slice(), torch, used });
+    const ns = torch === 'L' ? 'R' : 'L';
+    used += Math.max(...sel.map(speed)); sel.forEach((i) => { at[i] = ns; }); torch = ns; sel = []; hintSet = [];
+    kit.sfx.move(); kit.say(''); draw();
+    if (used > L.limit) { over = true; kit.sfx.fail(); kit.shake(); kit.say(t('late')(used, L.limit), 'bad'); draw(); return; }
+    if (at.every((x) => x === 'R')) { over = true; draw(); kit.win({ stars: hints === 0 ? 3 : hints <= 2 ? 2 : 1, line: t('winLine')(used, L.limit, hints), share: t('share')(kit.lv + 1, used), bestKey: kit.lv, score: used }); }
+  });
+  kit.$('undo').addEventListener('click', () => { if (!hist.length) return; const h = hist.pop(); at = h.at; torch = h.torch; used = h.used; over = false; sel = []; hintSet = []; kit.say(''); draw(); });
+  kit.$('hint').addEventListener('click', () => {
+    if (over) return;
+    const p = plan(at, torch); sel = [];
+    if (!p || used + p.cost > L.limit) { kit.say(t('hintLate'), 'bad'); hintSet = []; draw(); return; }
+    hints += 1; hintSet = p.first || [];
+    kit.say(t('hintSay')(hintSet.map(name).join(' + ')), 'good'); draw();
+  });
+  kit.$('reset').addEventListener('click', () => start(kit.lv));
+  const start = (i) => {
+    L = LEVELS[i]; at = L.people.map(() => 'L'); torch = 'L'; used = 0; sel = []; hist = []; over = false; hints = 0; hintSet = [];
+    kit.hideWin(); kit.say(t('pick')); draw();
+  };
+  kit.start();
+})();
+
+</script>
+<script src="/assets/game-share.js?v=3" defer></script>
+</body>
+</html>

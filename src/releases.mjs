@@ -35,7 +35,7 @@ const FIXED = {
 
   // single pages / sections (fixed dates)
   'page:naam-wali-image': '2026-12-12', // before Christmas and New Year
-  'page:paheliyan': '2026-11-25', // riddles with answers
+  'page:paheliyan': '2026-11-20', // riddles with answers — live now (user 21 Nov)
   // school speeches and essays (about 3–4 weeks before the day)
   'speech:republic-day': '2026-12-28', // 26 Jan
   'speech:netaji-jayanti': '2027-01-02', // 23 Jan (Parakram Diwas)
@@ -45,7 +45,7 @@ const FIXED = {
 const LINES = [
   // User (19 Nov 2026): games were sitting unreleased until Feb, bringing no traffic — release one every 1–2 days,
   // the most-searched games first ("carrom game", "saanp seedhi"…), festival games still well before their day.
-  { prefix: 'game', start: '2026-11-21', gap: [1, 2], seed: 7, slugs: [
+  { prefix: 'game', start: '2026-11-20', gap: [0, 0], seed: 7, slugs: [ // user 21 Nov: all evergreen games live now
     'carrom', 'saanp-seedhi', 'kanche', 'bagh-bakri', 'kattam-katti',
     'parade-ki-taal', // Republic Day, 26 Jan
     'raja-mantri-chor-sipahi', 'gilli-danda', 'pitthu', 'aam-todo', 'chidiya-udd',
@@ -55,7 +55,7 @@ const LINES = [
     'rang-barsao', // Holi, ~22 Mar
   ] },
   // User (19 Nov 2026): stories faster too — every 2–3 days.
-  { prefix: 'story', start: '2026-11-22', gap: [2, 3], seed: 11, slugs: [
+  { prefix: 'story', start: '2026-11-20', gap: [0, 0], seed: 11, slugs: [ // user 21 Nov: all stories live now
     'neela-siyaar', 'bagula-aur-kekda', 'billiyan-aur-bandar', 'hawa-aur-suraj', 'shehar-gaon-chooha',
     'sher-ki-khaal-gadha', 'birbal-andhon-ki-ginti', 'tenali-kuen-ka-khazana', 'mulla-ki-degchi', 'chidiya-kauwa-ghar',
     'kabuliwala', 'phir-se-chooha', 'do-bailon-ki-katha', 'chaand-par-khargosh', 'sachcha-dost-kauwa',
@@ -66,12 +66,12 @@ const LINES = [
     'guru-gobind-singh-jayanti', 'pongal', 'baisakhi', 'eid-ul-adha', 'janmashtami', 'ganesh-chaturthi', 'onam', 'navratri', 'dussehra',
   ] },
   // Essays (/nibandh/<slug>/), own line (user, 19 Nov 2026: content for AI search / school children); winter first while it is searched
-  { prefix: 'nibandh', start: '2026-11-22', gap: [2, 4], seed: 23, slugs: [
+  { prefix: 'nibandh', start: '2026-11-20', gap: [0, 0], seed: 23, slugs: [ // user 21 Nov: all essays live now
     'sardi-ka-mausam', 'mera-vidyalaya', 'gaay', 'meri-maa', 'ped', 'jal', 'diwali', 'mera-priya-mitra', 'yoga', 'pradushan',
   ] },
   // 10 tools built 21 Nov 2026 — user: "releases ke liye schedule kar do": one every 1–2 days, most-searched first.
   // Not tied to TOOLS_START (these go out before AdSense approval, like the 4 live tools).
-  { prefix: 'tool', start: '2026-11-22', gap: [1, 2], seed: 31, slugs: [
+  { prefix: 'tool', start: '2026-11-20', gap: [0, 0], seed: 31, slugs: [ // user 21 Nov: all ready tools live now
     'pdf-compress', 'jpg-to-pdf', 'image-resize', 'pdf-merge', 'typing-test',
     'qr-maker', 'signature-maker', 'land-converter', 'image-crop', 'sticker-maker',
   ] },

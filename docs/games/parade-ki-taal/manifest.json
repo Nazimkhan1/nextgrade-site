@@ -1,0 +1,16 @@
+{
+  "name": "Parade ki Taal — Republic Day Game",
+  "short_name": "Parade ki Taal",
+  "description": "A Republic Day rhythm game: tap on the drum beat so the parade marches in step, then watch the tricolour flypast.",
+  "start_url": "/games/parade-ki-taal/",
+  "scope": "/games/parade-ki-taal/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#141238",
+  "theme_color": "#f76707",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

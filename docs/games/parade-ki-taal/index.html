@@ -1,1 +1,870 @@
-<!doctype html><html data-prerendered="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Games | NextGrade</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://nextgrade.in/games/"><meta http-equiv="refresh" content="0; url=/games/"></head><body><p><a href="/games/">Games →</a></p></body></html>
+<!doctype html>
+<html data-prerendered="hi" lang="hi">
+<head>
+<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Parade ki Taal 🇮🇳 — Republic Day Game | NextGrade</title>
+<meta name="description" content="Parade ki Taal: a free Republic Day rhythm game in Hinglish, Hindi, English and Bengali. Tap on the drum beat so the parade marches in step — Army, BSF camels, NCC band — then watch the tricolour flypast. With Republic Day facts and a WhatsApp challenge.">
+<link rel="canonical" href="https://nextgrade.in/games/parade-ki-taal/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Parade ki Taal 🇮🇳 — Republic Day Game">
+<meta property="og:description" content="Lef-Rait! Dhol ki taal pe tap karo, parade kadam se kadam milake chale. Tiranga flypast tak pahuncho!">
+<meta property="og:url" content="https://nextgrade.in/games/parade-ki-taal/">
+<meta property="og:image" content="https://nextgrade.in/games/parade-ki-taal/icons/icon-512.png">
+<meta name="theme-color" content="#f76707">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/css/ef020bc1c48c.css">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Parade ki Taal","url":"https://nextgrade.in/games/parade-ki-taal/","genre":"Rhythm","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #141238; --bg2: #2b1d6b; --gold: #ffd43b; --pink: #f06595; --ink: #f8f9fa; --muted: #c5c3e6; --card: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #3b2a8c, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2, :lang(bn) .banner { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #e8590c, #f59f00); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+
+/* ---- stage */
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.45); height: min(74vh, 620px, 150vw); min-height: 460px; background: #a5d8ff; touch-action: manipulation; user-select: none; -webkit-user-select: none; cursor: pointer; }
+#cv { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hud { position: absolute; top: 10px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 17px; color: #10305a; pointer-events: none; z-index: 3; gap: 8px; }
+.hud span { background: rgba(255,255,255,0.8); border-radius: 12px; padding: 2px 10px; white-space: nowrap; }
+.hud .round { font-size: 14px; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.banner { position: absolute; left: 50%; top: 32%; transform: translate(-50%, -50%); background: rgba(16, 20, 50, 0.85); color: #fff; padding: 12px 18px; border-radius: 16px; font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-weight: 800; font-size: clamp(20px, 5.5vw, 28px); text-align: center; line-height: 1.25; max-width: 88%; pointer-events: none; z-index: 4; opacity: 0; transition: opacity 0.25s; }
+.banner small { display: block; font-family: Inter, "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-size: 14px; font-weight: 600; color: #ffe8a3; margin-top: 2px; }
+.banner.show { opacity: 1; }
+.tapbtn { position: absolute; left: 50%; bottom: 3%; transform: translateX(-50%); width: min(70%, 300px); padding: 10px; border-radius: 16px; border: 0; font: inherit; font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-weight: 800; font-size: 22px; color: #fff; background: linear-gradient(90deg, #f76707, #e03131); box-shadow: 0 5px 0 #a61e1e; cursor: pointer; z-index: 3; }
+.tapbtn:active { transform: translateX(-50%) translateY(3px); box-shadow: 0 2px 0 #a61e1e; }
+
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(8, 6, 30, 0.72); padding: 16px; overflow-y: auto; z-index: 10; cursor: default; }
+.panel { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 18px; width: min(420px, 100%); text-align: center; margin: auto; color: var(--ink); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: var(--muted); }
+.panel .fact { background: rgba(255,212,59,0.12); border: 1px solid rgba(255,212,59,0.35); border-radius: 12px; padding: 8px 10px; color: #ffe8a3; font-size: 15px; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 54px; font-weight: 800; color: var(--gold); line-height: 1; margin: 6px 0; }
+.medal { font-size: 46px; line-height: 1; }
+.stats { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; font-weight: 700; font-size: 15px; margin: 6px 0; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 8px 0; }
+input::placeholder { color: #a9a6d6; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #f76707, #e03131); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+@media (max-width: 480px) { .panel { padding: 14px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .hud { font-size: 15px; } }
+</style>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🇮🇳 NextGrade<small>Republic Day</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title">परेड की ताल 🇮🇳</h1>
+  <p class="sub" data-i18n="sub">गणतंत्र दिवस की परेड अब आपके हाथ में! ढोल की ताल पर टैप करो — "लेफ़्ट… राइट…" — ताकि जवान क़दम से क़दम मिलाकर चलें। फ़ौज, BSF के ऊँट और NCC बैंड के बाद तिरंगा फ़्लाईपास्ट!</p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <canvas id="cv" aria-hidden="true"></canvas>
+    <div class="hud" aria-hidden="true"><span id="hudScore">⭐ 0</span><span class="round" id="hudRound"></span><span id="hudCombo">×0</span></div>
+    <div class="banner" id="banner" aria-live="polite"></div>
+    <button class="tapbtn" id="tap" type="button" data-i18n="tapBtn"></button>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle">परेड तैयार है! 🎖️</h2>
+        <p data-i18n="controls">जब ढोल का गोला बीच वाले घेरे पर आए, तभी टैप करो (स्क्रीन, बटन या Space)। ठीक समय = Perfect, थोड़ा आगे-पीछे = Good। लगातार सही = कॉम्बो!</p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <button class="btn btn-main" id="play" type="button" data-i18n="play"></button>
+        <p id="bestLine"></p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="pauseScreen">
+      <div class="panel">
+        <h2 data-i18n="paused"></h2>
+        <button class="btn btn-main" id="restart" type="button" data-i18n="again"></button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <div class="medal" id="medal"></div>
+        <h2 id="endTitle"></h2>
+        <div class="big" id="finalScore">0</div>
+        <div class="stats" id="endStats"></div>
+        <p id="endNote"></p>
+        <p class="fact" id="endFact"></p>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle">कैसे खेलें</h2>
+    <div class="card2"><ol id="howList"><li><b>▶ परेड शुरू करो</b> दबाओ। नीचे पट्टी में ढोल के गोले दाईं ओर से आते हैं।</li><li>जब गोला <b>बाईं ओर वाले घेरे</b> पर पहुँचे, तभी टैप करो — स्क्रीन पर कहीं भी, <b>लेफ़्ट-राइट</b> बटन, या Space।</li><li>बिल्कुल सही समय = <b>Perfect</b>, थोड़ा आगे-पीछे = <b>Good</b>। चूक गए तो एक जवान का क़दम बिगड़ जाता है!</li><li>लगातार सही टैप = <b>कॉम्बो</b>, स्कोर तेज़ बढ़ता है। 3 राउंड: फ़ौज, BSF ऊँट दस्ता, NCC बैंड — हर राउंड थोड़ा तेज़।</li><li>आख़िर में तिरंगा फ़्लाईपास्ट, आपका मेडल और गणतंत्र दिवस का एक तथ्य। WhatsApp पर दोस्तों को चैलेंज भेजो!</li></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle">गणतंत्र दिवस और परेड</h2>
+    <p data-i18n="aboutText">26 जनवरी 1950 को भारत का संविधान लागू हुआ और भारत एक गणतंत्र बना। इसी दिन की याद में हर साल नई दिल्ली में कर्तव्य पथ पर शानदार परेड होती है — तीनों सेनाओं के दस्ते, बैंड, BSF का मशहूर ऊँट दस्ता, NCC कैडेट और राज्यों की रंग-बिरंगी झाँकियाँ।</p>
+    <p data-i18n="aboutText2">इस गेम में आप परेड की ताल संभालते हो: ढोल की हर थाप पर टैप करके जवानों के क़दम मिलाओ। गेम हमारे अपने बनाए ढोल और बिगुल की धुन के साथ चलता है — कोई असली रिकॉर्डिंग नहीं।</p>
+    <p><a id="guideLink" href="https://nextgrade.in/festivals/republic-day/" data-i18n="readMore">गणतंत्र दिवस के बारे में पूरा पढ़ें →</a></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="factsTitle">गणतंत्र दिवस के तथ्य</h2>
+    <div class="card2"><ul id="factList"><li>26 जनवरी 1950 को भारत का संविधान लागू हुआ और भारत गणतंत्र बना।</li><li>26 जनवरी इसलिए चुना गया क्योंकि 26 जनवरी 1930 को "पूर्ण स्वराज" का ऐलान हुआ था।</li><li>संविधान 26 नवंबर 1949 को अपनाया गया था — यह दिन अब "संविधान दिवस" कहलाता है।</li><li>डॉ. राजेंद्र प्रसाद 26 जनवरी 1950 को भारत के पहले राष्ट्रपति बने।</li><li>संविधान की ड्राफ़्टिंग कमेटी के अध्यक्ष डॉ. बी. आर. आंबेडकर थे।</li><li>गणतंत्र दिवस पर नई दिल्ली में राष्ट्रपति तिरंगा फहराते हैं।</li><li>परेड कर्तव्य पथ पर होती है — 2022 से पहले इसका नाम राजपथ था।</li><li>गणतंत्र दिवस का समारोह 29 जनवरी को विजय चौक पर "बीटिंग रिट्रीट" के साथ पूरा होता है।</li></ul></div>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames">और गेम खेलो →</a></p>
+    <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle">आपका डेटा</h2>
+    <p data-i18n="privacyText">नाम और बेस्ट स्कोर सिर्फ़ आपके फ़ोन में रहते हैं। शेयर लिंक में सिर्फ़ नाम और स्कोर जाता है। कोई लॉगिन नहीं, कोई सर्वर नहीं।</p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/parade-ki-taal/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+
+  // Three contingents. Each bar is a list of beat offsets (0..3.5) where a drum note falls.
+  const ROUNDS = [
+    { key: 'army', bpm: 92, bars: [[0, 1, 2, 3], [0, 1, 2, 3], [0, 1, 2, 3], [0, 1, 2, 3], [0, 1, 2, 3], [0, 1, 2, 3]], coat: '#5c7a3a', cap: '#c92a2a' },
+    { key: 'camel', bpm: 102, bars: [[0, 1, 2], [0, 1, 2, 3], [0, 2, 3], [0, 1, 2, 3], [0, 1, 2], [0, 1, 2, 3], [0, 1, 3], [0, 1, 2, 3]], coat: '#8d5524', cap: '#e8590c' },
+    { key: 'band', bpm: 114, bars: [[0, 1, 2, 3], [0, 1, 2, 2.5, 3], [0, 1, 2, 3], [0, 0.5, 1, 2, 3], [0, 1, 2, 3], [0, 1, 1.5, 2, 3], [0, 1, 2, 3], [0, 1, 2, 2.5, 3, 3.5]], coat: '#1864ab', cap: '#ffd43b' },
+  ];
+  const FACT_KEYS = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8'];
+
+  const T = {
+    hinglish: {
+      title: 'Parade ki Taal 🇮🇳',
+      sub: 'Gantantra Diwas ki parade ab aapke haath mein! Dhol ki taal pe tap karo — "Lef… Rait…" — taaki jawan kadam se kadam milake chalein. Fauj, BSF ke oont aur NCC band ke baad tiranga flypast!',
+      tapBtn: '🥁 Lef-Rait!',
+      startTitle: 'Parade taiyaar hai! 🎖️',
+      controls: 'Jab dhol ka gola beech wale ghere par aaye, tabhi tap karo (screen, button ya Space). Theek waqt = Perfect, thoda aage-peeche = Good. Lagaataar sahi = combo!',
+      namePh: 'Aapka naam (optional)',
+      play: '▶ Parade shuru karo',
+      paused: '⏸ Parade ruki hui hai',
+      again: '🔁 Phir se parade',
+      best: (n) => `Aapka best: ${n}`,
+      challenge: (name, n) => `🏆 ${name} ne Parade ki Taal mein ${n} score kiya! Kya aap kadam mila paoge?`,
+      rounds: { army: 'Fauj ka Dasta 🪖', camel: 'BSF ka Oont Dasta 🐪', band: 'NCC Cadets aur Band 🥁' },
+      roundN: (n) => `Round ${n}/3`,
+      ready: '1… 2… 3… 4…',
+      perfect: 'Perfect!', good: 'Good', miss: 'Kadam milao!',
+      flypast: '✈️ Tiranga Flypast!',
+      jaiHind: 'Jai Hind! 🇮🇳',
+      medals: { gold: 'Gold medal — shaandaar parade! 🥇', silver: 'Silver medal — bahut badhiya! 🥈', bronze: 'Bronze medal — achhi koshish! 🥉', none: 'Thodi practice aur — agli baar medal pakka! 💪' },
+      stats: (p, g, m, acc) => `🎯 ${acc}%  ·  ✨ ${p}  ·  👍 ${g}  ·  ❌ ${m}`,
+      endNote: (best, isNew, combo) => `${isNew ? '🏅 Naya best score!' : `Aapka best: ${best}`} · Sabse lamba combo: ${combo}`,
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo',
+      shareOther: '🔗 Link share / copy karo',
+      copied: '✅ Copy ho gaya',
+      copyPrompt: 'Yeh text copy karo:',
+      shareText: (name, n, url) => `🇮🇳 ${name ? `${name} ne` : 'Maine'} Parade ki Taal mein ${n} score kiya! Gantantra Diwas ki parade mein kadam milao: ${url}`,
+      howTitle: 'Kaise khelein',
+      how: ['<b>▶ Parade shuru karo</b> dabao. Neeche patti mein dhol ke gole daayein se aate hain.', 'Jab gola <b>baayein wale ghere</b> par pahunche, tabhi tap karo — screen pe kahin bhi, <b>Lef-Rait</b> button, ya Space.', 'Bilkul sahi waqt = <b>Perfect</b>, thoda aage-peeche = <b>Good</b>. Chook gaye to ek jawan ka kadam bigad jaata hai!', 'Lagaataar sahi tap = <b>combo</b>, score tez badhta hai. 3 round: Fauj, BSF oont dasta, NCC band — har round thoda tez.', 'Aakhir mein tiranga flypast, aapka medal aur ek Gantantra Diwas ka tathya. WhatsApp pe doston ko challenge bhejo!'],
+      aboutTitle: 'Gantantra Diwas aur parade',
+      aboutText: '26 January 1950 ko Bharat ka Samvidhan laagu hua aur Bharat ek gantantra (republic) bana. Isi din ki yaad mein har saal Nayi Dilli mein Kartavya Path par shaandaar parade hoti hai — teeno senaon ke daste, bands, BSF ka mashhoor oont dasta, NCC cadets aur rajyon ki rang-birangi jhaankiyan.',
+      aboutText2: 'Is game mein aap parade ki taal sambhalte ho: dhol ki har thaap pe tap karke jawanon ke kadam milao. Game hamare apne banaye dhol aur bugle ki dhun ke saath chalta hai — koi asli recording nahi.',
+      readMore: 'Gantantra Diwas ke baare mein poora padhein →',
+      factsTitle: 'Gantantra Diwas ke tathya',
+      facts: {
+        f1: '26 January 1950 ko Bharat ka Samvidhan laagu hua aur Bharat gantantra bana.',
+        f2: '26 January isliye chuna gaya kyunki 26 January 1930 ko "Poorna Swaraj" ka elaan hua tha.',
+        f3: 'Samvidhan 26 November 1949 ko apnaya gaya tha — yeh din ab "Samvidhan Diwas" kehlata hai.',
+        f4: 'Dr Rajendra Prasad 26 January 1950 ko Bharat ke pehle Rashtrapati bane.',
+        f5: 'Samvidhan ki Drafting Committee ke adhyaksh Dr B. R. Ambedkar the.',
+        f6: 'Gantantra Diwas par Nayi Dilli mein Rashtrapati tiranga phehraate hain.',
+        f7: 'Parade Kartavya Path par hoti hai — 2022 se pehle iska naam Rajpath tha.',
+        f8: 'Gantantra Diwas ka samaroh 29 January ko Vijay Chowk par "Beating Retreat" ke saath poora hota hai.',
+      },
+      moreGames: 'Aur games khelo →',
+      privacyTitle: 'Aapka data',
+      privacyText: 'Naam aur best score sirf aapke phone mein rehte hain. Share link mein sirf naam aur score jaata hai. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'परेड की ताल 🇮🇳',
+      sub: 'गणतंत्र दिवस की परेड अब आपके हाथ में! ढोल की ताल पर टैप करो — "लेफ़्ट… राइट…" — ताकि जवान क़दम से क़दम मिलाकर चलें। फ़ौज, BSF के ऊँट और NCC बैंड के बाद तिरंगा फ़्लाईपास्ट!',
+      tapBtn: '🥁 लेफ़्ट-राइट!',
+      startTitle: 'परेड तैयार है! 🎖️',
+      controls: 'जब ढोल का गोला बीच वाले घेरे पर आए, तभी टैप करो (स्क्रीन, बटन या Space)। ठीक समय = Perfect, थोड़ा आगे-पीछे = Good। लगातार सही = कॉम्बो!',
+      namePh: 'आपका नाम (ज़रूरी नहीं)',
+      play: '▶ परेड शुरू करो',
+      paused: '⏸ परेड रुकी हुई है',
+      again: '🔁 फिर से परेड',
+      best: (n) => `आपका बेस्ट: ${n}`,
+      challenge: (name, n) => `🏆 ${name} ने परेड की ताल में ${n} स्कोर किया! क्या आप क़दम मिला पाओगे?`,
+      rounds: { army: 'सेना का दस्ता 🪖', camel: 'BSF का ऊँट दस्ता 🐪', band: 'NCC कैडेट और बैंड 🥁' },
+      roundN: (n) => `राउंड ${n}/3`,
+      ready: '1… 2… 3… 4…',
+      perfect: 'Perfect!', good: 'Good', miss: 'क़दम मिलाओ!',
+      flypast: '✈️ तिरंगा फ़्लाईपास्ट!',
+      jaiHind: 'जय हिंद! 🇮🇳',
+      medals: { gold: 'गोल्ड मेडल — शानदार परेड! 🥇', silver: 'सिल्वर मेडल — बहुत बढ़िया! 🥈', bronze: 'ब्रॉन्ज़ मेडल — अच्छी कोशिश! 🥉', none: 'थोड़ी प्रैक्टिस और — अगली बार मेडल पक्का! 💪' },
+      stats: (p, g, m, acc) => `🎯 ${acc}%  ·  ✨ ${p}  ·  👍 ${g}  ·  ❌ ${m}`,
+      endNote: (best, isNew, combo) => `${isNew ? '🏅 नया बेस्ट स्कोर!' : `आपका बेस्ट: ${best}`} · सबसे लंबा कॉम्बो: ${combo}`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो',
+      shareOther: '🔗 लिंक शेयर / कॉपी करो',
+      copied: '✅ कॉपी हो गया',
+      copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareText: (name, n, url) => `🇮🇳 ${name ? `${name} ने` : 'मैंने'} परेड की ताल में ${n} स्कोर किया! गणतंत्र दिवस की परेड में क़दम मिलाओ: ${url}`,
+      howTitle: 'कैसे खेलें',
+      how: ['<b>▶ परेड शुरू करो</b> दबाओ। नीचे पट्टी में ढोल के गोले दाईं ओर से आते हैं।', 'जब गोला <b>बाईं ओर वाले घेरे</b> पर पहुँचे, तभी टैप करो — स्क्रीन पर कहीं भी, <b>लेफ़्ट-राइट</b> बटन, या Space।', 'बिल्कुल सही समय = <b>Perfect</b>, थोड़ा आगे-पीछे = <b>Good</b>। चूक गए तो एक जवान का क़दम बिगड़ जाता है!', 'लगातार सही टैप = <b>कॉम्बो</b>, स्कोर तेज़ बढ़ता है। 3 राउंड: फ़ौज, BSF ऊँट दस्ता, NCC बैंड — हर राउंड थोड़ा तेज़।', 'आख़िर में तिरंगा फ़्लाईपास्ट, आपका मेडल और गणतंत्र दिवस का एक तथ्य। WhatsApp पर दोस्तों को चैलेंज भेजो!'],
+      aboutTitle: 'गणतंत्र दिवस और परेड',
+      aboutText: '26 जनवरी 1950 को भारत का संविधान लागू हुआ और भारत एक गणतंत्र बना। इसी दिन की याद में हर साल नई दिल्ली में कर्तव्य पथ पर शानदार परेड होती है — तीनों सेनाओं के दस्ते, बैंड, BSF का मशहूर ऊँट दस्ता, NCC कैडेट और राज्यों की रंग-बिरंगी झाँकियाँ।',
+      aboutText2: 'इस गेम में आप परेड की ताल संभालते हो: ढोल की हर थाप पर टैप करके जवानों के क़दम मिलाओ। गेम हमारे अपने बनाए ढोल और बिगुल की धुन के साथ चलता है — कोई असली रिकॉर्डिंग नहीं।',
+      readMore: 'गणतंत्र दिवस के बारे में पूरा पढ़ें →',
+      factsTitle: 'गणतंत्र दिवस के तथ्य',
+      facts: {
+        f1: '26 जनवरी 1950 को भारत का संविधान लागू हुआ और भारत गणतंत्र बना।',
+        f2: '26 जनवरी इसलिए चुना गया क्योंकि 26 जनवरी 1930 को "पूर्ण स्वराज" का ऐलान हुआ था।',
+        f3: 'संविधान 26 नवंबर 1949 को अपनाया गया था — यह दिन अब "संविधान दिवस" कहलाता है।',
+        f4: 'डॉ. राजेंद्र प्रसाद 26 जनवरी 1950 को भारत के पहले राष्ट्रपति बने।',
+        f5: 'संविधान की ड्राफ़्टिंग कमेटी के अध्यक्ष डॉ. बी. आर. आंबेडकर थे।',
+        f6: 'गणतंत्र दिवस पर नई दिल्ली में राष्ट्रपति तिरंगा फहराते हैं।',
+        f7: 'परेड कर्तव्य पथ पर होती है — 2022 से पहले इसका नाम राजपथ था।',
+        f8: 'गणतंत्र दिवस का समारोह 29 जनवरी को विजय चौक पर "बीटिंग रिट्रीट" के साथ पूरा होता है।',
+      },
+      moreGames: 'और गेम खेलो →',
+      privacyTitle: 'आपका डेटा',
+      privacyText: 'नाम और बेस्ट स्कोर सिर्फ़ आपके फ़ोन में रहते हैं। शेयर लिंक में सिर्फ़ नाम और स्कोर जाता है। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Parade ki Taal 🇮🇳 (Parade Beat)',
+      sub: 'The Republic Day parade is in your hands! Tap on the drum beat — "Left… Right…" — so the soldiers march in step. Army, BSF camels and the NCC band, then the tricolour flypast!',
+      tapBtn: '🥁 Left-Right!',
+      startTitle: 'The parade is ready! 🎖️',
+      controls: 'Tap when a drum ball reaches the ring (anywhere on the screen, the button or Space). Right on time = Perfect, a little early or late = Good. Keep it going for a combo!',
+      namePh: 'Your name (optional)',
+      play: '▶ Start the parade',
+      paused: '⏸ The parade is paused',
+      again: '🔁 Parade again',
+      best: (n) => `Your best: ${n}`,
+      challenge: (name, n) => `🏆 ${name} scored ${n} in Parade ki Taal! Can you keep in step?`,
+      rounds: { army: 'Army Contingent 🪖', camel: 'BSF Camel Contingent 🐪', band: 'NCC Cadets & Band 🥁' },
+      roundN: (n) => `Round ${n}/3`,
+      ready: '1… 2… 3… 4…',
+      perfect: 'Perfect!', good: 'Good', miss: 'Keep in step!',
+      flypast: '✈️ Tricolour Flypast!',
+      jaiHind: 'Jai Hind! 🇮🇳',
+      medals: { gold: 'Gold medal — a superb parade! 🥇', silver: 'Silver medal — very good! 🥈', bronze: 'Bronze medal — nice try! 🥉', none: 'A little more practice — a medal next time! 💪' },
+      stats: (p, g, m, acc) => `🎯 ${acc}%  ·  ✨ ${p}  ·  👍 ${g}  ·  ❌ ${m}`,
+      endNote: (best, isNew, combo) => `${isNew ? '🏅 New best score!' : `Your best: ${best}`} · Longest combo: ${combo}`,
+      shareWa: '📲 Challenge on WhatsApp', shareFb: 'Share on Facebook',
+      shareOther: '🔗 Share / copy link',
+      copied: '✅ Copied',
+      copyPrompt: 'Copy this text:',
+      shareText: (name, n, url) => `🇮🇳 ${name || 'I'} scored ${n} in Parade ki Taal! March in step with the Republic Day parade: ${url}`,
+      howTitle: 'How to play',
+      how: ['Tap <b>▶ Start the parade</b>. Drum balls come in from the right along the strip at the bottom.', 'When a ball reaches the <b>ring on the left</b>, tap — anywhere on the screen, the <b>Left-Right</b> button, or Space.', 'Right on time = <b>Perfect</b>, a little off = <b>Good</b>. Miss it and one soldier falls out of step!', 'Hits in a row build a <b>combo</b> and your score grows faster. 3 rounds: Army, BSF camel contingent, NCC band — each a little faster.', 'At the end: the tricolour flypast, your medal and a Republic Day fact. Challenge friends on WhatsApp!'],
+      aboutTitle: 'Republic Day and the parade',
+      aboutText: 'On 26 January 1950 the Constitution of India came into force and India became a republic. Every year, to mark the day, a grand parade takes place on Kartavya Path in New Delhi — contingents of the three services, military bands, the famous BSF camel contingent, NCC cadets and colourful tableaux from the states.',
+      aboutText2: 'In this game you keep the parade\'s beat: tap on every drum beat so the soldiers march in step. The game uses our own drum and bugle tune — no real recordings.',
+      readMore: 'Read all about Republic Day →',
+      factsTitle: 'Republic Day facts',
+      facts: {
+        f1: 'The Constitution of India came into force on 26 January 1950, and India became a republic.',
+        f2: '26 January was chosen because "Purna Swaraj" (complete independence) was declared on 26 January 1930.',
+        f3: 'The Constitution was adopted on 26 November 1949 — now celebrated as Constitution Day (Samvidhan Divas).',
+        f4: 'Dr Rajendra Prasad became India\'s first President on 26 January 1950.',
+        f5: 'Dr B. R. Ambedkar chaired the Constitution\'s Drafting Committee.',
+        f6: 'On Republic Day, the President unfurls the national flag in New Delhi.',
+        f7: 'The parade is held on Kartavya Path — called Rajpath until 2022.',
+        f8: 'The Republic Day celebrations end on 29 January with the "Beating Retreat" ceremony at Vijay Chowk.',
+      },
+      moreGames: 'Play more games →',
+      privacyTitle: 'Your data',
+      privacyText: 'Your name and best score stay only on your phone. The share link carries only your name and score. No login, no server.',
+    },
+    bn: {
+      title: 'প্যারেডের তাল 🇮🇳',
+      sub: 'প্রজাতন্ত্র দিবসের প্যারেড এখন তোমার হাতে! ঢোলের তালে ট্যাপ করো — "লেফট… রাইট…" — যাতে জওয়ানরা পা মিলিয়ে চলে। সেনা, BSF-এর উট আর NCC ব্যান্ডের পর তেরঙা ফ্লাইপাস্ট!',
+      tapBtn: '🥁 লেফট-রাইট!',
+      startTitle: 'প্যারেড তৈরি! 🎖️',
+      controls: 'ঢোলের বল যখন রিংয়ে পৌঁছোবে, তখনই ট্যাপ করো (স্ক্রিন, বোতাম বা Space)। ঠিক সময় = Perfect, একটু আগে-পরে = Good। টানা ঠিক = কম্বো!',
+      namePh: 'তোমার নাম (ঐচ্ছিক)',
+      play: '▶ প্যারেড শুরু করো',
+      paused: '⏸ প্যারেড থেমে আছে',
+      again: '🔁 আবার প্যারেড',
+      best: (n) => `তোমার সেরা: ${n}`,
+      challenge: (name, n) => `🏆 ${name} প্যারেডের তালে ${n} স্কোর করেছে! তুমি কি পা মেলাতে পারবে?`,
+      rounds: { army: 'সেনাবাহিনীর দল 🪖', camel: 'BSF-এর উটের দল 🐪', band: 'NCC ক্যাডেট আর ব্যান্ড 🥁' },
+      roundN: (n) => `রাউন্ড ${n}/3`,
+      ready: '১… ২… ৩… ৪…',
+      perfect: 'Perfect!', good: 'Good', miss: 'পা মেলাও!',
+      flypast: '✈️ তেরঙা ফ্লাইপাস্ট!',
+      jaiHind: 'জয় হিন্দ! 🇮🇳',
+      medals: { gold: 'সোনার পদক — দারুণ প্যারেড! 🥇', silver: 'রুপোর পদক — খুব ভালো! 🥈', bronze: 'ব্রোঞ্জ পদক — ভালো চেষ্টা! 🥉', none: 'আরেকটু অনুশীলন — পরের বার পদক পাকা! 💪' },
+      stats: (p, g, m, acc) => `🎯 ${acc}%  ·  ✨ ${p}  ·  👍 ${g}  ·  ❌ ${m}`,
+      endNote: (best, isNew, combo) => `${isNew ? '🏅 নতুন সেরা স্কোর!' : `তোমার সেরা: ${best}`} · সবচেয়ে লম্বা কম্বো: ${combo}`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো',
+      shareOther: '🔗 লিংক শেয়ার / কপি',
+      copied: '✅ কপি হয়েছে',
+      copyPrompt: 'এই লেখাটা কপি করো:',
+      shareText: (name, n, url) => (name ? `🇮🇳 ${name} প্যারেডের তালে ${n} স্কোর করেছে! প্রজাতন্ত্র দিবসের প্যারেডে পা মেলাও: ${url}` : `🇮🇳 আমি প্যারেডের তালে ${n} স্কোর করেছি! প্রজাতন্ত্র দিবসের প্যারেডে পা মেলাও: ${url}`),
+      howTitle: 'কীভাবে খেলবে',
+      how: ['<b>▶ প্যারেড শুরু করো</b> টিপো। নিচের পট্টিতে ডান দিক থেকে ঢোলের বল আসে।', 'বল যখন <b>বাঁ দিকের রিংয়ে</b> পৌঁছোবে, তখন ট্যাপ করো — স্ক্রিনে যেকোনো জায়গায়, <b>লেফট-রাইট</b> বোতামে, বা Space।', 'একদম ঠিক সময় = <b>Perfect</b>, একটু এদিক-ওদিক = <b>Good</b>। ফসকালে একজন জওয়ানের পা বেতালা হয়ে যায়!', 'টানা ঠিক ট্যাপে <b>কম্বো</b>, স্কোর তাড়াতাড়ি বাড়ে। ৩টে রাউন্ড: সেনা, BSF উটের দল, NCC ব্যান্ড — প্রতিটা একটু দ্রুত।', 'শেষে তেরঙা ফ্লাইপাস্ট, তোমার পদক আর প্রজাতন্ত্র দিবসের একটা তথ্য। WhatsApp-এ বন্ধুদের চ্যালেঞ্জ পাঠাও!'],
+      aboutTitle: 'প্রজাতন্ত্র দিবস আর প্যারেড',
+      aboutText: '১৯৫০ সালের ২৬ জানুয়ারি ভারতের সংবিধান চালু হয় আর ভারত প্রজাতন্ত্র হয়। এই দিনটা মনে রেখে প্রতি বছর নয়াদিল্লির কর্তব্য পথে জমকালো প্যারেড হয় — তিন বাহিনীর দল, ব্যান্ড, BSF-এর বিখ্যাত উটের দল, NCC ক্যাডেট আর রাজ্যগুলোর রঙিন ট্যাবলো।',
+      aboutText2: 'এই গেমে তুমি প্যারেডের তাল ধরো: ঢোলের প্রতিটা বোলে ট্যাপ করে জওয়ানদের পা মেলাও। গেমে আমাদের নিজেদের বানানো ঢোল আর বিউগলের সুর — কোনো আসল রেকর্ডিং নয়।',
+      readMore: 'প্রজাতন্ত্র দিবস নিয়ে পুরোটা পড়ো →',
+      factsTitle: 'প্রজাতন্ত্র দিবসের তথ্য',
+      facts: {
+        f1: '১৯৫০ সালের ২৬ জানুয়ারি ভারতের সংবিধান চালু হয় আর ভারত প্রজাতন্ত্র হয়।',
+        f2: '২৬ জানুয়ারি বেছে নেওয়া হয়, কারণ ১৯৩০ সালের ২৬ জানুয়ারি "পূর্ণ স্বরাজ" ঘোষণা হয়েছিল।',
+        f3: 'সংবিধান গৃহীত হয় ১৯৪৯ সালের ২৬ নভেম্বর — এই দিনটা এখন "সংবিধান দিবস"।',
+        f4: 'ড. রাজেন্দ্র প্রসাদ ১৯৫০ সালের ২৬ জানুয়ারি ভারতের প্রথম রাষ্ট্রপতি হন।',
+        f5: 'সংবিধানের খসড়া কমিটির সভাপতি ছিলেন ড. বি. আর. আম্বেদকর।',
+        f6: 'প্রজাতন্ত্র দিবসে নয়াদিল্লিতে রাষ্ট্রপতি জাতীয় পতাকা উত্তোলন করেন।',
+        f7: 'প্যারেড হয় কর্তব্য পথে — ২০২২ পর্যন্ত এর নাম ছিল রাজপথ।',
+        f8: 'প্রজাতন্ত্র দিবসের অনুষ্ঠান শেষ হয় ২৯ জানুয়ারি বিজয় চকে "বিটিং রিট্রিট"-এর মধ্যে দিয়ে।',
+      },
+      moreGames: 'আরও গেম খেলো →',
+      privacyTitle: 'তোমার ডেটা',
+      privacyText: 'নাম আর সেরা স্কোর শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর স্কোর। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const urlLang = params.get('lang');
+  const savedLang = store.get('pt-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(999999, parseInt(params.get('score'), 10) || 0));
+  const best = () => parseInt(store.get('pt-best'), 10) || 0;
+  const debug = params.has('debug') ? (parseInt(params.get('debug'), 10) || 1) : 0;
+
+  // ---------- page texts
+  let last = null;
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Republic Day Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    const F = t('facts');
+    $('factList').innerHTML = FACT_KEYS.map((k) => `<li>${F[k]}</li>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    $('guideLink').href = `https://nextgrade.in${p}/festivals/republic-day/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+    updateHud();
+    if (last) fillEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('pt-lang', lang); applyLang(); });
+  $('name').value = store.get('pt-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- sound (all synthesised: drums, bugle, crowd)
+  let muted = store.get('pt-muted') === '1';
+  let ac = null, master = null, noiseBuf = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setIcons();
+  $('mute').addEventListener('click', (e) => { e.stopPropagation(); muted = !muted; store.set('pt-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.9; });
+  const initAudio = () => {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    ac = new AC();
+    master = ac.createGain(); master.gain.value = muted ? 0 : 0.9; master.connect(ac.destination);
+    noiseBuf = ac.createBuffer(1, ac.sampleRate, ac.sampleRate);
+    const d = noiseBuf.getChannelData(0);
+    for (let i = 0; i < d.length; i += 1) d[i] = Math.random() * 2 - 1;
+  };
+  const tone = (f, dur, type, vol, when, f2) => {
+    if (!ac) return;
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, when);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, when + dur);
+    g.gain.setValueAtTime(0.0001, when); g.gain.exponentialRampToValueAtTime(vol, when + 0.012); g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+    o.connect(g); g.connect(master); o.start(when); o.stop(when + dur + 0.03);
+  };
+  const noise = (dur, vol, ftype, ff, when, ff2) => {
+    if (!ac) return;
+    const s = ac.createBufferSource(), f = ac.createBiquadFilter(), g = ac.createGain();
+    s.buffer = noiseBuf; f.type = ftype; f.frequency.setValueAtTime(ff, when);
+    if (ff2) f.frequency.exponentialRampToValueAtTime(ff2, when + dur);
+    g.gain.setValueAtTime(vol, when); g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+    s.connect(f); f.connect(g); g.connect(master); s.start(when, Math.random() * 0.5); s.stop(when + dur + 0.03);
+  };
+  const now = () => (ac ? ac.currentTime : 0);
+  const sfx = {
+    bass: (w) => tone(95, 0.22, 'sine', 0.32, w, 50),
+    snare: (w, v = 0.16) => { noise(0.12, v, 'highpass', 1800, w); tone(190, 0.07, 'triangle', 0.05, w); },
+    click: (w) => tone(1500, 0.05, 'square', 0.05, w),
+    stomp: () => { const w = now(); noise(0.08, 0.2, 'lowpass', 700, w); tone(120, 0.08, 'sine', 0.2, w, 70); },
+    miss: () => { const w = now(); tone(180, 0.18, 'sawtooth', 0.05, w, 120); },
+    cheer: () => { const w = now(); for (let i = 0; i < 4; i += 1) noise(0.9, 0.05, 'bandpass', 900 + i * 300, w + i * 0.12, 600); },
+    jet: () => { const w = now(); noise(2.6, 0.18, 'lowpass', 300, w, 2400); },
+  };
+  // Our own short bugle-style march tune (C major), in eighth notes; 0 = rest.
+  const TUNE = [
+    523, 0, 659, 0, 784, 0, 784, 659, 880, 0, 784, 0, 659, 0, 523, 0,
+    587, 0, 659, 0, 698, 0, 659, 587, 523, 0, 587, 0, 659, 0, 0, 0,
+    523, 0, 659, 0, 784, 0, 880, 784, 1047, 0, 880, 0, 784, 0, 659, 0,
+    698, 0, 659, 0, 587, 0, 659, 587, 523, 0, 0, 0, 523, 0, 0, 0,
+  ];
+
+  // ---------- game state
+  const cv = $('cv');
+  const ctx = cv.getContext('2d');
+  let W = 400, H = 600, dpr = 1;
+  let state = 'idle'; // idle | play | flypast | over
+  let roundIdx = 0, notes = [], songT0 = 0, acT0 = 0, beatMs = 600, roundEnd = 0;
+  let score = 0, combo = 0, maxCombo = 0, nP = 0, nG = 0, nM = 0, total = 0;
+  let schedIdx = 0, tuneIdx = 0, beatsScheduled = 0;
+  let marchers = [], stepCount = 0, lastStepT = 0, pops = [], flyT0 = 0, confetti = [];
+  let playerName = '', paused = false, timers = [];
+  const APPROACH = 1700; // ms a note takes to cross the lane
+  const PERFECT = 70, GOOD = 140;
+  const later = (fn, ms) => { const id = setTimeout(fn, ms); timers.push(id); return id; };
+  const clearTimers = () => { timers.forEach(clearTimeout); timers = []; };
+
+  const resize = () => {
+    const r = $('stage').getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+    W = Math.max(280, r.width); H = Math.max(400, r.height);
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+  };
+
+  const updateHud = () => {
+    $('hudScore').textContent = `⭐ ${score}`;
+    $('hudCombo').textContent = `🔥×${combo}`;
+    $('hudRound').textContent = state === 'play' || state === 'flypast' ? `${t('roundN')(Math.min(roundIdx + 1, 3))} · ${t('rounds')[ROUNDS[Math.min(roundIdx, 2)].key]}` : '';
+  };
+  let bannerTimer = 0;
+  const banner = (html, ms) => {
+    const b = $('banner'); b.innerHTML = html; b.classList.add('show');
+    clearTimeout(bannerTimer);
+    if (ms) bannerTimer = setTimeout(() => b.classList.remove('show'), ms);
+  };
+
+  const makeMarchers = (r) => {
+    marchers = [];
+    const n = r.key === 'camel' ? 4 : 6;
+    for (let i = 0; i < n; i += 1) marchers.push({ off: -9999, bob: 0 });
+  };
+
+  // ---------- rounds
+  const startRound = (i) => {
+    roundIdx = i;
+    const r = ROUNDS[i];
+    beatMs = 60000 / r.bpm;
+    makeMarchers(r);
+    updateHud();
+    banner(`${t('roundN')(i + 1)}<br>${t('rounds')[r.key]}<small>${t('ready')}</small>`, 2400);
+    // timeline: 4 count-in beats, then the bars
+    const lead = 650;
+    songT0 = performance.now() + lead;
+    acT0 = now() + lead / 1000;
+    notes = [];
+    r.bars.forEach((bar, bi) => bar.forEach((b) => notes.push({ t: songT0 + (4 + bi * 4 + b) * beatMs, hit: null })));
+    total += notes.length;
+    roundEnd = songT0 + (4 + r.bars.length * 4) * beatMs;
+    schedIdx = 0; tuneIdx = 0; beatsScheduled = 0;
+    state = 'play';
+  };
+
+  // audio scheduler: drums on every beat + the tune, a little ahead of time
+  const schedule = () => {
+    if (!ac || state !== 'play') return;
+    const horizon = now() + 0.25;
+    const r = ROUNDS[roundIdx];
+    const totalBeats = 4 + r.bars.length * 4;
+    while (beatsScheduled < totalBeats) {
+      const w = acT0 + (beatsScheduled * beatMs) / 1000;
+      if (w > horizon) break;
+      if (w >= now() - 0.02) {
+        if (beatsScheduled < 4) sfx.click(w);
+        else { sfx.bass(w); if (beatsScheduled % 2 === 1) sfx.snare(w, 0.08); }
+      }
+      beatsScheduled += 1;
+    }
+    // tune: eighth notes from the first bar
+    while (tuneIdx < (totalBeats - 4) * 2) {
+      const w = acT0 + ((4 + tuneIdx / 2) * beatMs) / 1000;
+      if (w > horizon) break;
+      const f = TUNE[tuneIdx % TUNE.length] * (roundIdx === 2 ? 1 : 1);
+      if (f && w >= now() - 0.02) { tone(f, beatMs / 1000 * 0.45, 'square', 0.035, w); tone(f / 2, beatMs / 1000 * 0.45, 'triangle', 0.04, w); }
+      tuneIdx += 1;
+    }
+    // a soft snare under each note
+    while (schedIdx < notes.length) {
+      const w = acT0 + (notes[schedIdx].t - songT0) / 1000;
+      if (w > horizon) break;
+      if (w >= now() - 0.02) sfx.snare(w, 0.11);
+      schedIdx += 1;
+    }
+  };
+
+  const judge = (n, dt) => {
+    const a = Math.abs(dt);
+    if (a <= PERFECT) { n.hit = 'p'; nP += 1; combo += 1; score += Math.round(100 * mult()); pop(t('perfect'), '#2b8a3e'); }
+    else { n.hit = 'g'; nG += 1; combo += 1; score += Math.round(60 * mult()); pop(t('good'), '#1864ab'); }
+    maxCombo = Math.max(maxCombo, combo);
+    stepCount += 1; lastStepT = performance.now();
+    sfx.stomp();
+    updateHud();
+  };
+  const mult = () => Math.min(3, 1 + Math.floor(combo / 10) * 0.5);
+  const missOne = () => {
+    nM += 1; combo = 0;
+    const m = marchers[Math.floor(Math.random() * marchers.length)];
+    if (m) m.off = performance.now();
+    pop(t('miss'), '#c92a2a');
+    sfx.miss();
+    updateHud();
+  };
+  const pop = (text, col) => { pops.push({ text, col, t0: performance.now() }); if (pops.length > 4) pops.shift(); };
+
+  const tap = () => {
+    if (state !== 'play' || paused) return;
+    const tnow = performance.now();
+    let bestN = null, bestDt = 1e9;
+    for (const n of notes) {
+      if (n.hit) continue;
+      const dt = tnow - n.t;
+      if (Math.abs(dt) < Math.abs(bestDt)) { bestDt = dt; bestN = n; }
+      if (n.t > tnow + GOOD) break;
+    }
+    if (bestN && Math.abs(bestDt) <= GOOD) judge(bestN, bestDt);
+    else if (bestN && bestDt < 0 && -bestDt < GOOD * 2.2) { /* too early: soft miss without losing the note */ combo = 0; pop(t('miss'), '#c92a2a'); sfx.miss(); updateHud(); }
+  };
+
+  const tick = () => {
+    if (state === 'play' && !paused) {
+      schedule();
+      const tnow = performance.now();
+      for (const n of notes) {
+        if (!n.hit && tnow - n.t > GOOD) { n.hit = 'm'; missOne(); }
+        if (debug && !n.hit && tnow >= n.t - 8) {
+          if (n.botOk === undefined) n.botOk = Math.random() > (debug >= 2 ? 0.5 : 0.08);
+          if (n.botOk) judge(n, tnow - n.t);
+        }
+      }
+      if (tnow > roundEnd + 300) {
+        if (roundIdx < ROUNDS.length - 1) { state = 'between'; sfx.cheer(); later(() => startRound(roundIdx + 1), 900); }
+        else flypast();
+      }
+    }
+    draw();
+    requestAnimationFrame(tick);
+  };
+
+  const flypast = () => {
+    state = 'flypast';
+    flyT0 = performance.now();
+    sfx.jet(); sfx.cheer();
+    banner(`${t('flypast')}<small>${t('jaiHind')}</small>`, 3200);
+    const cols = ['#ff9933', '#ffffff', '#138808'];
+    for (let i = 0; i < 120; i += 1) confetti.push({ t0: flyT0 + 1200 + Math.random() * 800, x: Math.random(), vx: (Math.random() - 0.5) * 0.15, vy: 0.08 + Math.random() * 0.12, r: Math.random() * 6, vr: (Math.random() - 0.5) * 8, col: cols[i % 3] });
+    later(gameOver, debug ? 300 : 4200);
+  };
+
+  // ---------- drawing
+  const drawIndiaGate = (cx, base, s) => {
+    ctx.fillStyle = '#e0b07a';
+    ctx.fillRect(cx - 34 * s, base - 70 * s, 68 * s, 70 * s);
+    ctx.fillRect(cx - 40 * s, base - 78 * s, 80 * s, 10 * s);
+    ctx.fillRect(cx - 22 * s, base - 92 * s, 44 * s, 14 * s);
+    ctx.beginPath(); ctx.ellipse(cx, base - 92 * s, 16 * s, 7 * s, 0, Math.PI, 0); ctx.fill();
+    ctx.fillStyle = '#c9dff3';
+    ctx.beginPath(); ctx.moveTo(cx - 14 * s, base); ctx.lineTo(cx - 14 * s, base - 40 * s); ctx.arc(cx, base - 40 * s, 14 * s, Math.PI, 0); ctx.lineTo(cx + 14 * s, base); ctx.closePath(); ctx.fill();
+  };
+  const drawFlag = (x, y, s, wave) => {
+    ctx.strokeStyle = '#666'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y - 46 * s); ctx.stroke();
+    const fw = 26 * s, fh = 18 * s, top = y - 46 * s;
+    const cols = ['#ff9933', '#ffffff', '#138808'];
+    for (let i = 0; i < 3; i += 1) {
+      ctx.fillStyle = cols[i];
+      ctx.beginPath();
+      for (let k = 0; k <= 8; k += 1) { const xx = x + (fw * k) / 8; const yy = top + (fh * i) / 3 + Math.sin(wave + k * 0.7) * 1.6 * s; if (k === 0) ctx.moveTo(xx, yy); else ctx.lineTo(xx, yy); }
+      for (let k = 8; k >= 0; k -= 1) { const xx = x + (fw * k) / 8; const yy = top + (fh * (i + 1)) / 3 + Math.sin(wave + k * 0.7) * 1.6 * s; ctx.lineTo(xx, yy); }
+      ctx.fill();
+    }
+    ctx.fillStyle = '#000080'; ctx.beginPath(); ctx.arc(x + fw / 2, top + fh / 2 + Math.sin(wave + 2.8) * 1.6 * s, 2.2 * s, 0, Math.PI * 2); ctx.fill();
+  };
+  const drawSoldier = (x, y, s, r, phase, out, tnow) => {
+    // phase: -1..1 leg swing; out = stumbling
+    const sw = out ? -phase : phase;
+    const legL = 26 * s, hip = y - legL;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = '#212529'; ctx.lineWidth = 6 * s;
+    ctx.beginPath(); ctx.moveTo(x, hip); ctx.lineTo(x + sw * 9 * s, y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x, hip); ctx.lineTo(x - sw * 9 * s, y); ctx.stroke();
+    ctx.fillStyle = r.coat; ctx.fillRect(x - 8 * s, hip - 26 * s, 16 * s, 28 * s);
+    ctx.fillStyle = '#f1f3f5'; ctx.fillRect(x - 8 * s, hip - 3 * s, 16 * s, 4 * s);
+    ctx.strokeStyle = r.coat; ctx.lineWidth = 5 * s;
+    ctx.beginPath(); ctx.moveTo(x, hip - 22 * s); ctx.lineTo(x - sw * 10 * s, hip - 6 * s); ctx.stroke();
+    ctx.fillStyle = '#e0a370'; ctx.beginPath(); ctx.arc(x, hip - 33 * s, 7 * s, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = r.cap; ctx.beginPath(); ctx.ellipse(x - 1 * s, hip - 38 * s, 9 * s, 4.5 * s, -0.15, 0, Math.PI * 2); ctx.fill();
+    if (r.key === 'band') {
+      ctx.font = `${16 * s}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText('🥁', x + 9 * s, hip - 8 * s);
+    } else {
+      ctx.strokeStyle = '#495057'; ctx.lineWidth = 2.5 * s; ctx.beginPath(); ctx.moveTo(x + 6 * s, hip - 4 * s); ctx.lineTo(x + 9 * s, hip - 40 * s); ctx.stroke();
+    }
+    if (out) { ctx.fillStyle = '#e03131'; ctx.font = `800 ${16 * s}px Inter, sans-serif`; ctx.textAlign = 'center'; ctx.fillText('!', x, hip - 52 * s - Math.sin(tnow / 80) * 2); }
+  };
+  const drawCamel = (x, y, s, r, phase, out, tnow) => {
+    const bob = Math.abs(phase) * 3 * s;
+    ctx.font = `${58 * s}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    ctx.save(); ctx.translate(x, y - bob); ctx.scale(-1, 1); ctx.fillText('🐪', 0, 0); ctx.restore();
+    // rider
+    const ry = y - 33 * s - bob;
+    ctx.fillStyle = r.coat; ctx.fillRect(x - 6 * s, ry - 16 * s, 12 * s, 18 * s);
+    ctx.fillStyle = '#e0a370'; ctx.beginPath(); ctx.arc(x, ry - 22 * s, 6 * s, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = r.cap; ctx.beginPath(); ctx.ellipse(x, ry - 27 * s, 8 * s, 5 * s, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillRect(x - 9 * s, ry - 27 * s, 3 * s, 12 * s);
+    if (out) { ctx.fillStyle = '#e03131'; ctx.font = `800 ${16 * s}px Inter, sans-serif`; ctx.fillText('!', x, ry - 38 * s - Math.sin(tnow / 80) * 2); }
+  };
+
+  const draw = () => {
+    const tnow = performance.now();
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // sky
+    const g = ctx.createLinearGradient(0, 0, 0, H);
+    g.addColorStop(0, '#74c0fc'); g.addColorStop(0.5, '#c9dff3'); g.addColorStop(1, '#e7f5ff');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    const s = Math.min(W / 420, H / 620) * 1.05;
+    const horizon = H * 0.42;
+    // sun haze
+    ctx.fillStyle = 'rgba(255, 236, 179, 0.6)'; ctx.beginPath(); ctx.arc(W * 0.82, H * 0.14, 30 * s, 0, Math.PI * 2); ctx.fill();
+    // flypast jets + smoke
+    if (state === 'flypast' || state === 'over') {
+      const ft = (tnow - flyT0) / 1000;
+      const cols = ['#ff9933', '#ffffff', '#138808'];
+      for (let i = 0; i < 3; i += 1) {
+        const y = H * 0.12 + i * 14 * s;
+        const x = Math.min(W + 60, -60 + ft * W * 0.55);
+        ctx.strokeStyle = cols[i]; ctx.globalAlpha = 0.85; ctx.lineWidth = 11 * s; ctx.lineCap = 'round';
+        ctx.beginPath(); ctx.moveTo(Math.max(-10, x - W * 1.4), y); ctx.lineTo(x - 18 * s, y); ctx.stroke();
+        ctx.globalAlpha = 1;
+        ctx.font = `${24 * s}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.save(); ctx.translate(x, y); ctx.rotate(Math.PI / 4); ctx.fillText('✈️', 0, 0); ctx.restore();
+      }
+    }
+    // India Gate far away, trees
+    ctx.fillStyle = '#8ce99a';
+    for (let i = 0; i < 12; i += 1) { ctx.beginPath(); ctx.arc((i / 11) * W, horizon + 2, 18 * s, Math.PI, 0); ctx.fill(); }
+    drawIndiaGate(W * 0.5, horizon, s * 1.25);
+    // stands with crowd
+    ctx.fillStyle = '#ced4da'; ctx.fillRect(0, horizon, W, 30 * s);
+    const crowdC = ['#ff922b', '#fff', '#51cf66', '#f06595', '#339af0', '#fcc419'];
+    for (let i = 0; i < 46; i += 1) {
+      const cx = (i / 45) * W, cy = horizon + 10 * s + (i % 2) * 9 * s + Math.sin(tnow / 300 + i) * (state === 'flypast' ? 3 : 1);
+      ctx.fillStyle = crowdC[i % crowdC.length]; ctx.beginPath(); ctx.arc(cx, cy, 4 * s, 0, Math.PI * 2); ctx.fill();
+    }
+    // road (Kartavya Path)
+    const roadTop = horizon + 30 * s, roadBot = H * 0.74;
+    ctx.fillStyle = '#c2a27a'; ctx.fillRect(0, roadTop, W, roadBot - roadTop);
+    ctx.fillStyle = '#d6b88e'; ctx.fillRect(0, roadTop, W, 6 * s);
+    // flags and lamps scrolling past
+    const scroll = (state === 'play' || state === 'between') ? (tnow / 1000) * 60 * s : 0;
+    for (let i = -1; i < 6; i += 1) {
+      const x = ((i * 110 * s - scroll) % (660 * s) + 660 * s) % (660 * s) - 40 * s;
+      drawFlag(x, roadTop + 8 * s, s * 0.8, tnow / 250 + i);
+    }
+    // marchers
+    const r = ROUNDS[Math.min(roundIdx, 2)];
+    const sinceStep = (tnow - lastStepT) / 220;
+    const sw = (stepCount % 2 ? 1 : -1) * Math.max(0, 1 - sinceStep);
+    const gap = r.key === 'camel' ? 78 * s : 52 * s;
+    const n = marchers.length || 6;
+    const startX = W / 2 - ((n - 1) * gap) / 2;
+    const feetY = roadBot - 10 * s;
+    marchers.forEach((m, i) => {
+      const out = tnow - m.off < 700;
+      const x = startX + i * gap;
+      if (r.key === 'camel') drawCamel(x, feetY, s, r, sw, out, tnow);
+      else drawSoldier(x, feetY, s * 1.2, r, sw, out, tnow);
+    });
+    // note lane
+    const laneY = H * 0.82, laneH = 44 * s, hitX = W * 0.2;
+    ctx.fillStyle = 'rgba(16, 20, 50, 0.72)'; ctx.fillRect(0, laneY - laneH / 2, W, laneH);
+    ctx.strokeStyle = '#ffd43b'; ctx.lineWidth = 4 * s; ctx.beginPath(); ctx.arc(hitX, laneY, 18 * s, 0, Math.PI * 2); ctx.stroke();
+    if (state === 'play') {
+      const speed = (W - hitX + 20) / APPROACH;
+      let k = 0;
+      notes.forEach((nt, i) => {
+        if (nt.hit === 'p' || nt.hit === 'g') return;
+        const x = hitX + (nt.t - tnow) * speed;
+        if (x > W + 30 || x < -30) return;
+        const left = i % 2 === 0;
+        ctx.globalAlpha = nt.hit === 'm' ? 0.3 : 1;
+        ctx.fillStyle = left ? '#ff9933' : '#2f9e44';
+        ctx.beginPath(); ctx.arc(x, laneY, 14 * s, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = '#fff'; ctx.lineWidth = 2.5 * s; ctx.stroke();
+        ctx.fillStyle = '#fff'; ctx.font = `800 ${12 * s}px Inter, sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(left ? 'L' : 'R', x, laneY + 1);
+        ctx.globalAlpha = 1; k += 1;
+      });
+    }
+    // hit feedback pops
+    pops = pops.filter((p) => tnow - p.t0 < 700);
+    pops.forEach((p, i) => {
+      const a = 1 - (tnow - p.t0) / 700;
+      ctx.globalAlpha = a; ctx.fillStyle = p.col; ctx.font = `800 ${18 * s}px "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", Inter, sans-serif`; ctx.textAlign = 'center';
+      ctx.fillText(p.text, hitX + 70 * s, laneY - laneH / 2 - 10 * s - (1 - a) * 18 * s - i * 2);
+      ctx.globalAlpha = 1;
+    });
+    // confetti
+    if (confetti.length) {
+      confetti.forEach((c) => {
+        const tt = (tnow - c.t0) / 1000; if (tt < 0 || tt > 5) return;
+        const x = (c.x + c.vx * tt) * W, y = (-0.05 + c.vy * tt + 0.05 * tt * tt) * H;
+        ctx.save(); ctx.translate(x, y); ctx.rotate(c.r + tt * c.vr); ctx.fillStyle = c.col; ctx.strokeStyle = 'rgba(0,0,0,0.15)'; ctx.fillRect(-5 * s, -2.5 * s, 10 * s, 5 * s); ctx.restore();
+      });
+    }
+  };
+
+  // ---------- start / end
+  const start = () => {
+    initAudio();
+    clearTimers();
+    playerName = cleanName($('name').value);
+    store.set('pt-name', playerName);
+    score = 0; combo = 0; maxCombo = 0; nP = 0; nG = 0; nM = 0; total = 0; pops = []; confetti = []; last = null; stepCount = 0; paused = false;
+    ['startScreen', 'endScreen', 'pauseScreen'].forEach((id) => $(id).classList.add('hidden'));
+    $('shareOther').textContent = t('shareOther');
+    startRound(0);
+  };
+  const medalOf = (acc) => (acc >= 90 ? 'gold' : acc >= 70 ? 'silver' : acc >= 45 ? 'bronze' : 'none');
+  const gameOver = () => {
+    clearTimers();
+    state = 'over';
+    const acc = total ? Math.round(((nP + 0.6 * nG) / total) * 100) : 0;
+    const prev = best();
+    if (score > prev) store.set('pt-best', String(score));
+    last = { score, acc, p: nP, g: nG, m: nM, combo: maxCombo, isNew: score > prev && prev > 0, name: playerName, fact: FACT_KEYS[Math.floor(Math.random() * FACT_KEYS.length)] };
+    fillEnd();
+    $('endScreen').classList.remove('hidden');
+    updateHud();
+  };
+  const fillEnd = () => {
+    const md = medalOf(last.acc);
+    $('medal').textContent = { gold: '🥇', silver: '🥈', bronze: '🥉', none: '🎖️' }[md];
+    $('endTitle').textContent = `${last.name ? `${last.name}: ` : ''}${t('medals')[md].replace(/\s*(🥇|🥈|🥉|💪)$/u, '')}`;
+    $('finalScore').textContent = String(last.score);
+    $('endStats').textContent = t('stats')(last.p, last.g, last.m, last.acc);
+    $('endNote').textContent = t('endNote')(best(), last.isNew, last.combo);
+    $('endFact').textContent = `💡 ${t('facts')[last.fact]}`;
+    $('bestLine').textContent = best() ? t('best')(best()) : '';
+  };
+  const pause = () => {
+    if (state !== 'play' && state !== 'between') return;
+    paused = true; clearTimers(); state = 'idle';
+    $('pauseScreen').classList.remove('hidden');
+  };
+
+  // ---------- input
+  $('stage').addEventListener('pointerdown', (e) => {
+    if (e.target.closest('.overlay')) return;
+    e.preventDefault();
+    initAudio();
+    tap();
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.target && e.target.tagName === 'INPUT') return;
+    if (['Space', 'Enter', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.code) && state === 'play') { e.preventDefault(); tap(); }
+  });
+
+  // ---------- share
+  const shareText = () => {
+    const u = new URL(SITE);
+    if (playerName) u.searchParams.set('from', playerName);
+    u.searchParams.set('score', String(score));
+    u.searchParams.set('lang', lang);
+    return t('shareText')(playerName, score, u.toString());
+  };
+  $('play').addEventListener('click', start);
+  $('again').addEventListener('click', start);
+  $('restart').addEventListener('click', start);
+  $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
+  $('shareWa').addEventListener('click', () => { window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener'); });
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => window.prompt(t('copyPrompt'), text));
+  });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
+
+  if ('ResizeObserver' in window) new ResizeObserver(resize).observe($('stage'));
+  window.addEventListener('resize', resize);
+  resize();
+  makeMarchers(ROUNDS[0]);
+  applyLang();
+  requestAnimationFrame(tick);
+  if (debug && params.has('auto')) start();
+  window.__pt = { get state() { return state; }, get score() { return score; }, get round() { return roundIdx; }, get stats() { return { p: nP, g: nG, m: nM, total, combo: maxCombo }; } };
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+<script src="/assets/game-share.js?v=3" defer></script>
+</body>
+</html>

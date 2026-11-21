@@ -1,0 +1,16 @@
+{
+  "name": "Sticker Maker — NextGrade Tools",
+  "short_name": "Stickers",
+  "description": "Make stickers from your photos or text: background removed on your phone, white border, 512×512 WebP under 100 KB. Nothing is uploaded.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff0f6",
+  "theme_color": "#c2255c",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

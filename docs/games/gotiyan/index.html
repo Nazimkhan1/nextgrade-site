@@ -1,1 +1,253 @@
-<!doctype html><html data-prerendered="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Games | NextGrade</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://nextgrade.in/games/"><meta http-equiv="refresh" content="0; url=/games/"></head><body><p><a href="/games/">Games →</a></p></body></html>
+<!doctype html>
+<html data-prerendered="hi" lang="hi">
+<head>
+<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gotiyan ⚪ — Peg Solitaire / Brainvita Puzzle Game | NextGrade</title>
+<meta name="description" content="Gotiyan: the classic peg solitaire (Brainvita) puzzle as a free game. Jump a marble over another to remove it — finish with just one, ideally in the centre. Three levels including the full 32-marble board, hints and undo. Hindi, Hinglish, English and Bengali.">
+<link rel="canonical" href="https://nextgrade.in/games/gotiyan/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Gotiyan ⚪ — sirf ek goti bacha ke dikhao!">
+<meta property="og:description" content="Brainvita wali purani paheli: goti ke upar se koodo, aakhir mein sirf ek bache.">
+<meta property="og:url" content="https://nextgrade.in/games/gotiyan/">
+<meta property="og:image" content="https://nextgrade.in/games/gotiyan/icons/icon-512.png">
+<meta name="theme-color" content="#0c8599">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/css/557e297c3bb5.css">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoGame", "name": "Gotiyan", "alternateName": "Peg Solitaire (Brainvita)", "url": "https://nextgrade.in/games/gotiyan/", "genre": "Puzzle", "gamePlatform": "Web browser", "applicationCategory": "Game", "operatingSystem": "Any", "inLanguage": ["hi", "en", "bn"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "publisher": {"@type": "Organization", "name": "NextGrade", "url": "https://nextgrade.in/"}}</script>
+<link rel="stylesheet" href="/games/kit/puzzle.css?v=1">
+<style>
+:root { --bg: #071c22; --accent: #0c8599; --glow: #0b5d6e; }
+.pegboard { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; width: min(360px, 88vw); margin: 0 auto; padding: 12px; border-radius: 50%; background: radial-gradient(circle, #b5835a, #8a5a35 70%, #6b4226); box-shadow: inset 0 0 0 6px #5a361d, 0 10px 24px rgba(0,0,0,.4); }
+.hole { aspect-ratio: 1; border-radius: 50%; border: 0; padding: 0; cursor: pointer; background: radial-gradient(circle at 50% 60%, #4a2c16, #6b4226 70%); box-shadow: inset 0 3px 5px rgba(0,0,0,.5); }
+.hole.x { visibility: hidden; }
+.hole.peg { background: radial-gradient(circle at 35% 30%, #fff, #c5f6fa 25%, #3bc9db 60%, #0b7285); box-shadow: 0 3px 4px rgba(0,0,0,.45); }
+.hole.sel { outline: 3px solid var(--gold); outline-offset: 2px; transform: translateY(-3px); }
+.hole.target { box-shadow: inset 0 0 0 3px var(--gold); }
+.left { text-align: center; margin-top: 10px; font-weight: 800; color: #c5f6fa; }
+
+</style>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/"><img src="/favicon.svg" alt="" width="30" height="30"><span>NextGrade<small>Puzzle</small></span></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title">गोटियाँ</h1>
+  <p class="sub" data-i18n="sub">ब्रेनविटा वाली पुरानी पहेली: गोटी के ऊपर से कूदो, आख़िर में सिर्फ़ एक गोटी बचाओ।</p>
+  <div class="levels" id="levels"><button type="button" data-l="0" aria-pressed="true">आसान</button><button type="button" data-l="1" aria-pressed="false" disabled="">🔒 मध्यम</button><button type="button" data-l="2" aria-pressed="false" disabled="">🔒 पूरा बोर्ड</button></div>
+  <div class="rules" id="rules"><b>एक गोटी पर टैप</b> करो, फिर <b>दो ख़ाने दूर ख़ाली छेद</b> पर — गोटी बीच वाली गोटी के ऊपर से कूद जाएगी और <b>बीच वाली हट जाएगी</b>। सिर्फ़ सीधा (ऊपर-नीचे-दाएँ-बाएँ) कूद सकते हो। <b>आख़िर में सिर्फ़ 1 गोटी</b> बचनी चाहिए — बीच में बचे तो सबसे बढ़िया!</div>
+
+  <div class="board" id="board">
+    <div class="pegboard" id="pegs"></div>
+    <div class="left" id="left">⚪ 5 गोटी बची</div>
+  </div>
+
+  <div class="controls">
+    <button class="btn btn-ghost" id="undo" type="button"></button>
+    <button class="btn btn-ghost" id="hint" type="button"></button>
+    <button class="btn btn-ghost" id="reset" type="button"></button>
+  </div>
+  <div class="status"><span id="moves"></span><span id="target">लक्ष्य: 1 गोटी</span></div>
+  <p class="msg" id="msg" role="status" aria-live="polite">गोटी चुनो, फिर चमकते ख़ाली छेद पर टैप करो।</p>
+
+  <div class="win" id="win" hidden>
+    <h2 id="winTitle"></h2>
+    <div class="stars" id="winStars"></div>
+    <p id="winLine"></p>
+    <div class="btns">
+      <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+      <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
+      <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+      <button class="btn btn-main" id="nextLevel" type="button"></button>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle">कैसे खेलें</h2>
+    <ol id="howList"><li>किसी गोटी पर टैप करो — जहाँ वह कूद सकती है, वे ख़ाली छेद चमकेंगे।</li><li>चमकते छेद पर टैप करो — गोटी बीच वाली गोटी के ऊपर से कूदेगी और बीच वाली बोर्ड से हट जाएगी।</li><li>हर चाल में एक गोटी कम होती है। जब कोई कूद न बचे, खेल ख़त्म।</li><li>लक्ष्य: सिर्फ़ 1 गोटी — और अगर वह बीच वाले छेद में हो तो ⭐⭐⭐।</li><li>"↶ वापस" से ग़लती सुधारो, "💡 हिंट" से अगली सही चाल देखो।</li></ol>
+  </section>
+  <section>
+    <h2 data-i18n="aboutTitle">ब्रेनविटा की कहानी</h2>
+    <p data-i18n="aboutText">इस पहेली को दुनिया "पेग सॉलिटेयर" कहती है और भारत में यह "ब्रेनविटा" नाम के बोर्ड से घर-घर पहुँचा। कहते हैं यह 17वीं सदी के फ़्रांस में मशहूर हुआ; 1697 की एक पुरानी तस्वीर (एनग्रेविंग) में भी एक महिला यह बोर्ड लिए दिखती है।</p>
+    <p data-i18n="aboutText2">33 छेदों वाले इस बोर्ड पर 32 गोटियों से शुरू करके सिर्फ़ एक गोटी — वह भी बीच में — बचाना सच में मुश्किल है। इसमें "पीछे से सोचो" वाली सोच काम आती है: आख़िरी चालों को पहले सोचो, फिर वहाँ तक पहुँचो।</p>
+    <p><span data-i18n="readMore">और भी:</span> <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames">और गेम</a> · <a data-game="meenar" href="https://nextgrade.in/games/meenar/" data-i18n="meenarLink">ब्रह्मा की मीनार</a> · <a data-game="diye" href="https://nextgrade.in/games/diye/" data-i18n="diyeLink">दीये जलाओ</a></p>
+    <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
+  </section>
+  <section>
+    <h2 data-i18n="privacyTitle">प्राइवेसी</h2>
+    <p data-i18n="privacyText">कोई लॉगिन नहीं। आपके लेवल और बेस्ट स्कोर सिर्फ़ इसी फ़ोन में सेव होते हैं।</p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script src="/games/kit/puzzle.js?v=1"></script>
+<script>
+(() => {
+  // English board: 33 holes on a 7×7 grid without the corners
+  const ok = (r, c) => r >= 0 && r < 7 && c >= 0 && c < 7 && !((r < 2 || r > 4) && (c < 2 || c > 4));
+  const IDX = {}, CELLS = [];
+  for (let r = 0; r < 7; r += 1) for (let c = 0; c < 7; c += 1) if (ok(r, c)) { IDX[r * 7 + c] = CELLS.length; CELLS.push([r, c]); }
+  const MOVES = []; // [from, over, to]
+  CELLS.forEach(([r, c], a) => [[0, 1], [1, 0], [0, -1], [-1, 0]].forEach(([dr, dc]) => { if (ok(r + dr, c + dc) && ok(r + 2 * dr, c + 2 * dc)) MOVES.push([a, IDX[(r + dr) * 7 + c + dc], IDX[(r + 2 * dr) * 7 + c + 2 * dc]]); }));
+  const CENTER = IDX[24];
+  const LEVELS = [{ back: 4 }, { back: 9 }, { full: true }];
+  const T = {
+    hinglish: {
+      title: 'Gotiyan', sub: 'Brainvita wali purani paheli: goti ke upar se koodo, aakhir mein sirf ek goti bachao.', winTitle: '🎉 Shabaash! Sirf ek goti bachi!',
+      rules: '<b>Ek goti par tap</b> karo, phir <b>do khaane door khaali chhed</b> par — goti beech wali goti ke upar se kood jaayegi aur <b>beech wali hat jaayegi</b>. Sirf seedha (upar-neeche-daayein-baayein) kood sakte ho. <b>Aakhir mein sirf 1 goti</b> bachni chahiye — beech mein bache to sabse badhiya!',
+      levelLabel: (i) => ['Aasaan', 'Madhyam', 'Poora board'][i], left: (n) => `⚪ ${n} goti bachi`, tap: 'Goti chuno, phir chamakte khaali chhed par tap karo.', noJump: 'Yeh goti abhi kood nahi sakti.', stuck: (n) => `😮 Ab koi chaal nahi bachi — ${n} goti reh gayi. "↶ Wapas" ya "Phir se" dabao.`,
+      hintSay: '💡 Chamakti goti ko chamakte chhed par koodao.', winLine: (center, h) => `${center ? 'Aakhri goti theek beech mein — kamaal!' : 'Ek goti bachi!'} ${h ? `Hint: ${h}` : 'Bina hint ke!'}`,
+      share: (lv) => `⚪ Gotiyan (${lv}): maine sirf ek goti bacha di! Aap kar paoge? 👉 `, target: () => 'Lakshya: 1 goti',
+      howTitle: 'Kaise khelein', how: ['Kisi goti par tap karo — jahan woh kood sakti hai, woh khaali chhed chamkenge.', 'Chamakte chhed par tap karo — goti beech wali goti ke upar se koodegi aur beech wali board se hat jaayegi.', 'Har chaal mein ek goti kam hoti hai. Jab koi kood na bache, khel khatam.', 'Lakshya: sirf 1 goti — aur agar woh beech wale chhed mein ho to ⭐⭐⭐.', '"↶ Wapas" se galti sudhaaro, "💡 Hint" se agli sahi chaal dekho.'],
+      aboutTitle: 'Brainvita ki kahani', aboutText: 'Is paheli ko duniya "Peg Solitaire" kehti hai aur Bharat mein yeh "Brainvita" naam ke board se ghar-ghar pahuncha. Kehte hain yeh 17vi sadi ke France mein mashhoor hua; 1697 ki ek purani tasveer (engraving) mein bhi ek mahila yeh board liye dikhti hai.',
+      aboutText2: '33 chhedon wale is board par 32 gotiyon se shuru karke sirf ek goti — woh bhi beech mein — bachana sach mein mushkil hai. Isme "peeche se socho" wali soch kaam aati hai: aakhri chaalon ko pehle socho, phir wahan tak pahuncho.',
+      meenarLink: 'Brahma ki Meenar', diyeLink: 'Diye Jalao',
+    },
+    hi: {
+      title: 'गोटियाँ', sub: 'ब्रेनविटा वाली पुरानी पहेली: गोटी के ऊपर से कूदो, आख़िर में सिर्फ़ एक गोटी बचाओ।', winTitle: '🎉 शाबाश! सिर्फ़ एक गोटी बची!',
+      rules: '<b>एक गोटी पर टैप</b> करो, फिर <b>दो ख़ाने दूर ख़ाली छेद</b> पर — गोटी बीच वाली गोटी के ऊपर से कूद जाएगी और <b>बीच वाली हट जाएगी</b>। सिर्फ़ सीधा (ऊपर-नीचे-दाएँ-बाएँ) कूद सकते हो। <b>आख़िर में सिर्फ़ 1 गोटी</b> बचनी चाहिए — बीच में बचे तो सबसे बढ़िया!',
+      levelLabel: (i) => ['आसान', 'मध्यम', 'पूरा बोर्ड'][i], left: (n) => `⚪ ${n} गोटी बची`, tap: 'गोटी चुनो, फिर चमकते ख़ाली छेद पर टैप करो।', noJump: 'यह गोटी अभी कूद नहीं सकती।', stuck: (n) => `😮 अब कोई चाल नहीं बची — ${n} गोटी रह गई। "↶ वापस" या "फिर से" दबाओ।`,
+      hintSay: '💡 चमकती गोटी को चमकते छेद पर कुदाओ।', winLine: (center, h) => `${center ? 'आख़िरी गोटी ठीक बीच में — कमाल!' : 'एक गोटी बची!'} ${h ? `हिंट: ${h}` : 'बिना हिंट के!'}`,
+      share: (lv) => `⚪ गोटियाँ (${lv}): मैंने सिर्फ़ एक गोटी बचा दी! आप कर पाओगे? 👉 `, target: () => 'लक्ष्य: 1 गोटी',
+      howTitle: 'कैसे खेलें', how: ['किसी गोटी पर टैप करो — जहाँ वह कूद सकती है, वे ख़ाली छेद चमकेंगे।', 'चमकते छेद पर टैप करो — गोटी बीच वाली गोटी के ऊपर से कूदेगी और बीच वाली बोर्ड से हट जाएगी।', 'हर चाल में एक गोटी कम होती है। जब कोई कूद न बचे, खेल ख़त्म।', 'लक्ष्य: सिर्फ़ 1 गोटी — और अगर वह बीच वाले छेद में हो तो ⭐⭐⭐।', '"↶ वापस" से ग़लती सुधारो, "💡 हिंट" से अगली सही चाल देखो।'],
+      aboutTitle: 'ब्रेनविटा की कहानी', aboutText: 'इस पहेली को दुनिया "पेग सॉलिटेयर" कहती है और भारत में यह "ब्रेनविटा" नाम के बोर्ड से घर-घर पहुँचा। कहते हैं यह 17वीं सदी के फ़्रांस में मशहूर हुआ; 1697 की एक पुरानी तस्वीर (एनग्रेविंग) में भी एक महिला यह बोर्ड लिए दिखती है।',
+      aboutText2: '33 छेदों वाले इस बोर्ड पर 32 गोटियों से शुरू करके सिर्फ़ एक गोटी — वह भी बीच में — बचाना सच में मुश्किल है। इसमें "पीछे से सोचो" वाली सोच काम आती है: आख़िरी चालों को पहले सोचो, फिर वहाँ तक पहुँचो।',
+      meenarLink: 'ब्रह्मा की मीनार', diyeLink: 'दीये जलाओ',
+    },
+    en: {
+      title: 'Gotiyan — Peg Solitaire', sub: 'The old Brainvita puzzle: jump marbles over each other and leave just one.', winTitle: '🎉 Well done! Only one marble left!',
+      rules: '<b>Tap a marble</b>, then an <b>empty hole two steps away</b> — it jumps over the marble in between, which is <b>removed</b>. Jumps go straight only (up, down, left, right). <b>Leave just 1 marble</b> — in the centre is best!',
+      levelLabel: (i) => ['Easy', 'Medium', 'Full board'][i], left: (n) => `⚪ ${n} left`, tap: 'Pick a marble, then tap a glowing empty hole.', noJump: 'This marble cannot jump right now.', stuck: (n) => `😮 No moves left — ${n} marbles remain. Press "↶ Undo" or "Restart".`,
+      hintSay: '💡 Jump the glowing marble into the glowing hole.', winLine: (center, h) => `${center ? 'The last marble is right in the centre — brilliant!' : 'One marble left!'} ${h ? `Hints: ${h}` : 'No hints!'}`,
+      share: (lv) => `⚪ Gotiyan (${lv}): I got it down to one marble! Can you? 👉 `, target: () => 'Goal: 1 marble',
+      howTitle: 'How to play', how: ['Tap a marble — the empty holes it can jump to light up.', 'Tap a lit hole — the marble jumps over its neighbour, which leaves the board.', 'Every move removes one marble. When no jump is possible, the game ends.', 'Goal: just 1 marble — and ⭐⭐⭐ if it ends in the centre hole.', 'Use "↶ Undo" to fix mistakes and "💡 Hint" to see the next right move.'],
+      aboutTitle: 'The story of Brainvita', aboutText: 'The world calls this puzzle "Peg Solitaire"; in India it reached many homes as the "Brainvita" board. It is said to have become popular in 17th-century France, where an engraving from 1697 even shows a lady holding the board.',
+      aboutText2: 'Starting with 32 marbles on the 33-hole board and ending with just one — in the centre — is genuinely hard. It rewards thinking backwards: picture the last few moves first, then work towards them.',
+      meenarLink: 'Tower of Hanoi', diyeLink: 'Light the lamps',
+    },
+    bn: {
+      title: 'গুটি', sub: 'ব্রেনভিটার পুরনো ধাঁধা: গুটির উপর দিয়ে লাফাও, শেষে শুধু একটা গুটি রাখো।', winTitle: '🎉 শাবাশ! শুধু একটা গুটি বাকি!',
+      rules: '<b>একটা গুটিতে ট্যাপ</b> করো, তারপর <b>দুই ঘর দূরের খালি গর্তে</b> — গুটি মাঝেরটার উপর দিয়ে লাফাবে আর <b>মাঝেরটা সরে যাবে</b>। শুধু সোজা (উপর-নিচ-ডান-বাঁ) লাফানো যায়। <b>শেষে শুধু ১টা গুটি</b> থাকা চাই — মাঝখানে থাকলে সবচেয়ে ভালো!',
+      levelLabel: (i) => ['সহজ', 'মাঝারি', 'পুরো বোর্ড'][i], left: (n) => `⚪ ${n}টা বাকি`, tap: 'গুটি বাছো, তারপর ঝলমলে খালি গর্তে ট্যাপ করো।', noJump: 'এই গুটি এখন লাফাতে পারবে না।', stuck: (n) => `😮 আর কোনো চাল নেই — ${n}টা গুটি রয়ে গেল। "↶ ফেরাও" বা "আবার" টেপো।`,
+      hintSay: '💡 ঝলমলে গুটিটা ঝলমলে গর্তে লাফাও।', winLine: (center, h) => `${center ? 'শেষ গুটি ঠিক মাঝখানে — দারুণ!' : 'একটা গুটি বাকি!'} ${h ? `হিন্ট: ${h}` : 'হিন্ট ছাড়াই!'}`,
+      share: (lv) => `⚪ গুটি (${lv}): আমি শুধু একটা গুটি রেখেছি! তুমি পারবে? 👉 `, target: () => 'লক্ষ্য: ১টা গুটি',
+      howTitle: 'কীভাবে খেলবে', how: ['একটা গুটিতে ট্যাপ করো — যেসব খালি গর্তে লাফাতে পারে সেগুলো জ্বলে উঠবে।', 'জ্বলা গর্তে ট্যাপ করো — গুটি পাশেরটার উপর দিয়ে লাফাবে, পাশেরটা বোর্ড থেকে সরে যাবে।', 'প্রতি চালে একটা গুটি কমে। আর কোনো লাফ না থাকলে খেলা শেষ।', 'লক্ষ্য: শুধু ১টা গুটি — আর সেটা মাঝের গর্তে থাকলে ⭐⭐⭐।', '"↶ ফেরাও" দিয়ে ভুল শোধরাও, "💡 হিন্ট" দিয়ে পরের ঠিক চাল দেখো।'],
+      aboutTitle: 'ব্রেনভিটার গল্প', aboutText: 'পৃথিবী এই ধাঁধাকে "পেগ সলিটেয়ার" বলে, আর ভারতে এটা "ব্রেনভিটা" বোর্ড হিসেবে ঘরে ঘরে পৌঁছেছে। শোনা যায় সপ্তদশ শতকের ফ্রান্সে এটা জনপ্রিয় হয়; ১৬৯৭ সালের এক পুরনো ছবিতেও এক মহিলাকে এই বোর্ড হাতে দেখা যায়।',
+      aboutText2: '৩৩ গর্তের বোর্ডে ৩২টা গুটি দিয়ে শুরু করে শুধু একটা — তাও মাঝখানে — রাখা সত্যিই কঠিন। এখানে "উল্টো দিক থেকে ভাবো" কাজে লাগে: শেষ চালগুলো আগে ভাবো, তারপর সেখানে পৌঁছাও।',
+      meenarLink: 'ব্রহ্মার মিনার', diyeLink: 'প্রদীপ জ্বালাও',
+    },
+  };
+
+  let board = [], sel = -1, hist = [], over = false, hints = 0, hintMove = null;
+  const kit = window.PuzzleKit({ key: 'gt', site: 'https://nextgrade.in/games/gotiyan/', emoji: '⚪', titleTail: 'Peg Solitaire / Brainvita', T, levels: LEVELS.length, levelLabel: (i, lang) => T[lang].levelLabel(i), onLevel: (i) => start(i), onLang: () => draw() });
+  const t = kit.t;
+  const count = () => board.reduce((s, x) => s + x, 0);
+  const legal = (b) => MOVES.filter(([a, m, c]) => b[a] && b[m] && !b[c]);
+
+  // ---- hint: depth-first search with a memo of dead positions; prefers finishing in the centre; time-limited
+  const solve = (b0, mustCenter, ms) => {
+    const b = b0.slice(), dead = new Set(), path = [], until = Date.now() + ms; let pegs = b.reduce((s, x) => s + x, 0);
+    const go = () => {
+      if (Date.now() > until) throw new Error('slow');
+      if (pegs === 1) return !mustCenter || b[CENTER] === 1;
+      const key = b.join(''); if (dead.has(key)) return false;
+      for (const [a, m, c] of MOVES) {
+        if (b[a] && b[m] && !b[c]) {
+          b[a] = 0; b[m] = 0; b[c] = 1; pegs -= 1; path.push([a, m, c]);
+          if (go()) return true;
+          b[a] = 1; b[m] = 1; b[c] = 0; pegs += 1; path.pop();
+        }
+      }
+      dead.add(key); return false;
+    };
+    try { return go() ? path : null; } catch (e) { return undefined; }
+  };
+
+  const draw = () => {
+    kit.$('rules').innerHTML = t('rules');
+    const targets = sel >= 0 ? legal(board).filter(([a]) => a === sel).map(([, , c]) => c) : [];
+    let html = '';
+    for (let r = 0; r < 7; r += 1) for (let c = 0; c < 7; c += 1) {
+      const i = IDX[r * 7 + c];
+      if (i === undefined) { html += '<span class="hole x"></span>'; continue; }
+      const hinted = hintMove && (hintMove[0] === i || hintMove[2] === i) ? ' hinted' : '';
+      html += `<button type="button" class="hole${board[i] ? ' peg' : ''}${sel === i ? ' sel' : ''}${targets.includes(i) ? ' target' : ''}${hinted}" data-i="${i}" aria-label="${board[i] ? 'marble' : 'empty'}"></button>`;
+    }
+    kit.$('pegs').innerHTML = html;
+    kit.$('left').textContent = t('left')(count());
+    kit.status(null, t('target')());
+  };
+  const after = () => {
+    if (count() === 1) { over = true; const center = board[CENTER] === 1; draw(); kit.win({ stars: center ? (hints ? 2 : 3) : (hints ? 1 : 2), line: t('winLine')(center, hints), share: t('share')(t('levelLabel')(kit.lv)), bestKey: kit.lv, score: hints }); return; }
+    if (!legal(board).length) { kit.sfx.fail(); kit.say(t('stuck')(count()), 'bad'); }
+  };
+  kit.$('pegs').addEventListener('click', (e) => {
+    const h = e.target.closest('[data-i]'); if (!h || over) return;
+    const i = Number(h.dataset.i);
+    if (board[i]) { if (!legal(board).some(([a]) => a === i)) { kit.sfx.no(); kit.say(t('noJump'), 'bad'); sel = -1; draw(); return; } sel = sel === i ? -1 : i; kit.sfx.tap(); kit.say(''); draw(); return; }
+    const mv = legal(board).find(([a, , c]) => a === sel && c === i);
+    if (!mv) { sel = -1; draw(); return; }
+    hist.push(board.slice()); board[mv[0]] = 0; board[mv[1]] = 0; board[mv[2]] = 1; sel = -1; hintMove = null;
+    kit.sfx.move(); kit.say(''); draw(); after();
+  });
+  kit.$('undo').addEventListener('click', () => { if (over || !hist.length) return; board = hist.pop(); sel = -1; hintMove = null; kit.say(''); draw(); });
+  kit.$('hint').addEventListener('click', () => {
+    if (over) return;
+    kit.say(t('thinking'));
+    setTimeout(() => {
+      let p = solve(board, true, 1200);
+      if (!p) p = solve(board, false, 1500);
+      if (!p || !p.length) { kit.say(t('noHint'), 'bad'); return; }
+      hints += 1; hintMove = p[0]; sel = -1; kit.say(t('hintSay'), 'good'); draw();
+    }, 30);
+  });
+  kit.$('reset').addEventListener('click', () => start(kit.lv, true));
+  let saved = {};
+  const start = (i, same) => {
+    const L = LEVELS[i];
+    if (same && saved[i]) board = saved[i].slice();
+    else if (L.full) board = CELLS.map((_, k) => (k === CENTER ? 0 : 1));
+    else {
+      // play backwards from a single marble in the centre: the puzzle is always solvable (ending in the centre)
+      for (let tries = 0; tries < 50; tries += 1) {
+        board = CELLS.map((_, k) => (k === CENTER ? 1 : 0));
+        let made = 0;
+        for (let s = 0; s < 200 && made < L.back; s += 1) {
+          const opts = MOVES.filter(([a, m, c]) => !board[a] && !board[m] && board[c]);
+          if (!opts.length) break;
+          const [a, m, c] = opts[Math.floor(Math.random() * opts.length)];
+          board[a] = 1; board[m] = 1; board[c] = 0; made += 1;
+        }
+        if (made === L.back) break;
+      }
+    }
+    saved[i] = board.slice();
+    sel = -1; hist = []; over = false; hints = 0; hintMove = null;
+    kit.hideWin(); kit.say(t('tap')); draw();
+  };
+  kit.start();
+})();
+
+</script>
+<script src="/assets/game-share.js?v=3" defer></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "Kattam-Katti — Tic Tac Toe on a slate",
+  "short_name": "Kattam-Katti",
+  "description": "Zero-Kaata / tic tac toe on a school slate: play the computer (easy, medium, unbeatable hard) or a friend. 4 languages.",
+  "start_url": "/games/kattam-katti/",
+  "scope": "/games/kattam-katti/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f1f18",
+  "theme_color": "#1f3b2f",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

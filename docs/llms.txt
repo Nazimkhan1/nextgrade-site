@@ -62,6 +62,40 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [The Father, the Son and the Donkey](https://nextgrade.in/en/kahani/baap-beta-aur-gadha/)
 - [The Farmer’s Treasure](https://nextgrade.in/en/kahani/kisan-ka-khazana/)
 - [The Golden Deer](https://nextgrade.in/en/kahani/sone-ka-hiran/)
+- [The Blue Jackal](https://nextgrade.in/en/kahani/neela-siyaar/)
+- [The Crane and the Crab](https://nextgrade.in/en/kahani/bagula-aur-kekda/)
+- [Two Cats and the Monkey](https://nextgrade.in/en/kahani/billiyan-aur-bandar/)
+- [The Wind and the Sun](https://nextgrade.in/en/kahani/hawa-aur-suraj/)
+- [The Town Mouse and the Village Mouse](https://nextgrade.in/en/kahani/shehar-gaon-chooha/)
+- [The Donkey in the Lion's Skin](https://nextgrade.in/en/kahani/sher-ki-khaal-gadha/)
+- [Birbal Counts the Blind](https://nextgrade.in/en/kahani/birbal-andhon-ki-ginti/)
+- [Tenali Raman and the Treasure in the Well](https://nextgrade.in/en/kahani/tenali-kuen-ka-khazana/)
+- [Mulla Nasruddin's Cooking Pot](https://nextgrade.in/en/kahani/mulla-ki-degchi/)
+- [The Sparrow's House and the Crow's House](https://nextgrade.in/en/kahani/chidiya-kauwa-ghar/)
+- [Idgah — Hamid's Tongs](https://nextgrade.in/en/kahani/idgah/)
+- [The Story of Two Bullocks — Heera and Moti](https://nextgrade.in/en/kahani/do-bailon-ki-katha/)
+- [The Kabuliwala](https://nextgrade.in/en/kahani/kabuliwala/)
+- [A Mouse Once More](https://nextgrade.in/en/kahani/phir-se-chooha/)
+- [The Rabbit in the Moon](https://nextgrade.in/en/kahani/chaand-par-khargosh/)
+- [A True Friend — the Deer, the Crow and the Jackal](https://nextgrade.in/en/kahani/sachcha-dost-kauwa/)
+
+## Essays for students (10 lines, short and long)
+
+- [All essays](https://nextgrade.in/en/nibandh/)
+- [Essay on Winter Season](https://nextgrade.in/en/nibandh/sardi-ka-mausam/)
+- [Essay on My School](https://nextgrade.in/en/nibandh/mera-vidyalaya/)
+- [Essay on Cow](https://nextgrade.in/en/nibandh/gaay/)
+- [Essay on My Mother](https://nextgrade.in/en/nibandh/meri-maa/)
+- [Essay on the Importance of Trees](https://nextgrade.in/en/nibandh/ped/)
+- [Essay on Water — "Water is Life"](https://nextgrade.in/en/nibandh/jal/)
+- [Essay on Diwali](https://nextgrade.in/en/nibandh/diwali/)
+- [Essay on My Best Friend](https://nextgrade.in/en/nibandh/mera-priya-mitra/)
+- [Essay on Yoga](https://nextgrade.in/en/nibandh/yoga/)
+- [Essay on Pollution](https://nextgrade.in/en/nibandh/pradushan/)
+
+## Riddles
+
+- [Riddles with answers (paheliyan)](https://nextgrade.in/en/paheliyan/): Hindi, English and Bengali riddles
 
 ## Free online calculators (run in the browser)
 
@@ -87,6 +121,12 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [All games](https://nextgrade.in/en/games/)
 - [River Crossing Puzzle](https://nextgrade.in/games/nadi-paar/?lang=en)
 - [Tower of Hanoi](https://nextgrade.in/games/meenar/?lang=en)
+- [Water Jug Puzzle](https://nextgrade.in/games/matke/?lang=en)
+- [Bridge & Torch](https://nextgrade.in/games/pul/?lang=en)
+- [Light the Lamps](https://nextgrade.in/games/diye/?lang=en)
+- [Peg Solitaire (Brainvita)](https://nextgrade.in/games/gotiyan/?lang=en)
+- [Magic Square](https://nextgrade.in/games/jaadui-varg/?lang=en)
+- [Sliding Puzzle](https://nextgrade.in/games/khiskao/?lang=en)
 - [Bharat Quiz](https://nextgrade.in/games/quiz/?lang=en)
 - [Word of the Day](https://nextgrade.in/games/shabd/?lang=en)
 - [Kite Fight](https://nextgrade.in/games/patang/?lang=en)
@@ -96,18 +136,44 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [Fireworks Pop](https://nextgrade.in/games/new-year/?lang=en)
 - [Catch Santa's Gifts](https://nextgrade.in/games/christmas/?lang=en)
 - [Journey of the Year 2026 → 2027](https://nextgrade.in/games/saal-ka-safar/?lang=en)
+- [Chidiya Udd (Birdie, Fly!)](https://nextgrade.in/games/chidiya-udd/?lang=en)
+- [Saanp-Seedhi (Snakes & Ladders)](https://nextgrade.in/games/saanp-seedhi/?lang=en)
+- [Parade ki Taal (Parade Beat)](https://nextgrade.in/games/parade-ki-taal/?lang=en)
+- [Chaand Dhundo (Find the Crescent)](https://nextgrade.in/games/chaand-dhundo/?lang=en)
 - [Langar Seva](https://nextgrade.in/games/langar-seva/?lang=en)
+- [Basant ki Sargam](https://nextgrade.in/games/basant-sargam/?lang=en)
+- [Rang Barsao (Holi)](https://nextgrade.in/games/rang-barsao/?lang=en)
+- [Kanche (Marbles)](https://nextgrade.in/games/kanche/?lang=en)
+- [Gilli-Danda](https://nextgrade.in/games/gilli-danda/?lang=en)
+- [Pitthu (Lagori / Seven Stones)](https://nextgrade.in/games/pitthu/?lang=en)
+- [Aam Todo (Slingshot Mangoes)](https://nextgrade.in/games/aam-todo/?lang=en)
+- [Bagh-Bakri (Tigers and Goats)](https://nextgrade.in/games/bagh-bakri/?lang=en)
+- [Kattam-Katti (Tic Tac Toe)](https://nextgrade.in/games/kattam-katti/?lang=en)
+- [Raja Mantri Chor Sipahi](https://nextgrade.in/games/raja-mantri-chor-sipahi/?lang=en)
 
 ## Rules of Indian desi games (how to play in real life)
 
 - [All rules](https://nextgrade.in/en/khel/)
 - [How to play Carrom — full rules](https://nextgrade.in/en/khel/carrom/)
+- [How to play Kanche (Marbles) — full rules](https://nextgrade.in/en/khel/kanche/)
+- [How to play Gilli-Danda — full rules](https://nextgrade.in/en/khel/gilli-danda/)
+- [How to play Pitthu (Lagori / Seven Stones) — full rules](https://nextgrade.in/en/khel/pitthu/)
 
 ## Tools
 
 - [Passport Size Photo Maker](https://nextgrade.in/tools/passport-photo/): White or blue background, face centred automatically, 3.5×4.5 cm / 2×2 inch, a 4×6 print sheet and a digital photo under any KB limit.
 - [Document Scanner → PDF](https://nextgrade.in/tools/doc-scanner/): Scan documents with your phone: auto crop, black & white, many pages in one PDF, and under 100/200 KB.
 - [Image Compressor — 20/50/100 KB](https://nextgrade.in/tools/image-compress/): Make a photo 20, 50, 100, 200 KB or any size. JPG or WebP, many photos at once, ZIP download.
+- [PDF Compressor — 100/200/500 KB](https://nextgrade.in/tools/pdf-compress/): Make a PDF smaller than 100, 200, 500 KB or 1 MB for form uploads. Black & white option for scans.
+- [JPG / Photo to PDF](https://nextgrade.in/tools/jpg-to-pdf/): Many photos (marksheet, ID, certificates) into one PDF — A4, reorder, rotate, and a KB limit.
+- [PDF Merge & Split](https://nextgrade.in/tools/pdf-merge/): Join PDFs into one, take out or delete pages, rotate pages — text and quality stay the same.
+- [Image Resizer — px / cm / inch](https://nextgrade.in/tools/image-resize/): Resize a photo to an exact size: 3.5×4.5 cm, 200×230, 600×600 or your own — with crop, background and a KB limit.
+- [Image Crop & Rotate](https://nextgrade.in/tools/image-crop/): Crop a photo (1:1, 4:3, 16:9, passport), rotate, straighten and flip — save as JPG, PNG or WebP.
+- [Signature Maker](https://nextgrade.in/tools/signature-maker/): Sign on the screen or clean up a photo of a signature on paper — transparent PNG or white JPG, at form size and KB.
+- [Hindi & English Typing Test](https://nextgrade.in/tools/typing-test/): 1 to 15 minute typing test: WPM, accuracy and wrong words. Practise for SSC-style tests, backspace on/off.
+- [Land Unit Converter — Bigha, Katha, Acre](https://nextgrade.in/tools/land-converter/): Bigha, katha, biswa, kanal, acre, hectare, gaj and sq ft — by state.
+- [QR Code Maker — UPI, Link, WhatsApp](https://nextgrade.in/tools/qr-maker/): UPI payment QR (with amount), link, text, phone, WhatsApp and Wi-Fi QR codes — download PNG or SVG.
+- [Sticker Maker](https://nextgrade.in/tools/sticker-maker/): Turn a photo into a sticker: background removed, white outline, top/bottom text — 512×512 WebP. Text stickers too.
 - [Exam Form Photo & Signature Resizer](https://nextgrade.in/tools/form-helper/): Photo, signature, thumb and declaration at the exact px and KB that SSC, UPSC, IBPS / SBI, NEET and JEE forms ask for. Cleans up a signature on paper.
 
 ## About

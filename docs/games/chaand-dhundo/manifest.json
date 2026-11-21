@@ -1,0 +1,16 @@
+{
+  "name": "Chaand Dhundo — Ramzan Moon Sighting Game",
+  "short_name": "Chaand Dhundo",
+  "description": "Find the thin new crescent in the evening sky with a telescope before it sets. A Ramzan game in 4 languages.",
+  "start_url": "/games/chaand-dhundo/",
+  "scope": "/games/chaand-dhundo/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#141238",
+  "theme_color": "#1b3a5c",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
