@@ -156,6 +156,28 @@
       var a = p * Math.pow(1 + r / (100 * n), n * t), ci = a - p;
       show(row(S('interest', 'Compound interest'), '₹ ' + fmt(ci), true) + row(S('principal', 'Principal'), '₹ ' + fmt(p)) + row(S('total', 'Total amount'), '₹ ' + fmt(a)));
     },
+    fd: function () {
+      var p = num('p'), r = num('r'), t = num('t');
+      if (isNaN(p) || isNaN(r) || isNaN(t) || p < 0) return err(S('fill', 'Please fill deposit, rate and time.'));
+      var a = p * Math.pow(1 + r / 400, 4 * t), it = a - p; // compounded quarterly
+      show(row(S('maturity', 'Maturity amount'), '₹ ' + fmt(a), true) + row(S('principal', 'Deposit'), '₹ ' + fmt(p)) + row(S('interest', 'Interest earned'), '₹ ' + fmt(it)));
+    },
+    mileage: function () {
+      var dist = num('dist'), fuel = num('fuel'), price = num('price');
+      if (isNaN(dist) || isNaN(fuel) || fuel <= 0 || dist <= 0) return err(S('fill', 'Please fill distance and fuel.'));
+      var mil = dist / fuel, html = row(S('mileage', 'Mileage'), '<b>' + fmt(mil, 1) + '</b> km/l', true);
+      if (!isNaN(price) && price > 0) {
+        html += row(S('tripCost', 'Fuel cost for this distance'), '₹ ' + fmt(fuel * price)) + row(S('perKm', 'Cost per km'), '₹ ' + fmt(fuel * price / dist));
+      }
+      show(html);
+    },
+    marks: function () {
+      var got = num('got'), total = num('total');
+      if (isNaN(got) || isNaN(total) || total <= 0) return err(S('fill', 'Please fill marks obtained and total.'));
+      var pct = got / total * 100;
+      var grade = pct >= 90 ? 'A+' : pct >= 80 ? 'A' : pct >= 70 ? 'B+' : pct >= 60 ? 'B' : pct >= 50 ? 'C' : pct >= 33 ? 'D' : 'F';
+      show(row(S('percentage', 'Percentage'), '<b>' + fmt(pct, 2) + '%</b>', true) + row(S('obtained', 'Marks'), fmt(got) + ' / ' + fmt(total)) + row(S('grade', 'Grade'), grade));
+    },
     bmi: function () {
       var w = num('w'), h = num('h'), unit = val('hunit') || 'cm';
       if (isNaN(w) || isNaN(h) || w <= 0 || h <= 0) return err(S('fill', 'Please enter weight and height.'));

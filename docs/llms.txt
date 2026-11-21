@@ -76,6 +76,9 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [Date Difference Calculator](https://nextgrade.in/en/calculator/date-difference/): Choose two dates and find the difference between them in days, weeks, months and years.
 - [Simple Interest Calculator](https://nextgrade.in/en/calculator/simple-interest/): Enter the principal, interest rate and time to find the simple interest and the total amount.
 - [Compound Interest Calculator](https://nextgrade.in/en/calculator/compound-interest/): Enter the principal, rate, time and how often interest is added, to find the compound interest and total amount.
+- [FD (Fixed Deposit) Calculator](https://nextgrade.in/en/calculator/fd/): Enter the deposit, interest rate and time to find how much interest your FD earns and the total at maturity.
+- [Mileage Calculator](https://nextgrade.in/en/calculator/mileage/): Enter the distance you travelled and the fuel used to find your mileage — and the trip cost too, if you add the fuel price.
+- [Marks Percentage Calculator](https://nextgrade.in/en/calculator/marks-percentage/): Enter your marks obtained and the total marks to instantly find your percentage and grade.
 
 ## Free online games (desi and puzzle, play in the browser)
 
