@@ -144,6 +144,18 @@
         row(S('inWeeks', 'In weeks'), fmt(Math.floor(days / 7), 0) + ' + ' + (days % 7) + ' ' + S('days', 'days'))
       );
     },
+    si: function () {
+      var p = num('p'), r = num('r'), t = num('t');
+      if (isNaN(p) || isNaN(r) || isNaN(t) || p < 0) return err(S('fill', 'Please fill principal, rate and time.'));
+      var si = p * r * t / 100;
+      show(row(S('interest', 'Interest'), '₹ ' + fmt(si), true) + row(S('principal', 'Principal'), '₹ ' + fmt(p)) + row(S('total', 'Total amount'), '₹ ' + fmt(p + si)));
+    },
+    ci: function () {
+      var p = num('p'), r = num('r'), t = num('t'), n = parseFloat(val('n')) || 1;
+      if (isNaN(p) || isNaN(r) || isNaN(t) || p < 0) return err(S('fill', 'Please fill principal, rate and time.'));
+      var a = p * Math.pow(1 + r / (100 * n), n * t), ci = a - p;
+      show(row(S('interest', 'Compound interest'), '₹ ' + fmt(ci), true) + row(S('principal', 'Principal'), '₹ ' + fmt(p)) + row(S('total', 'Total amount'), '₹ ' + fmt(a)));
+    },
     bmi: function () {
       var w = num('w'), h = num('h'), unit = val('hunit') || 'cm';
       if (isNaN(w) || isNaN(h) || w <= 0 || h <= 0) return err(S('fill', 'Please enter weight and height.'));

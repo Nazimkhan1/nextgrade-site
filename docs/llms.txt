@@ -74,6 +74,8 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [GST Calculator](https://nextgrade.in/en/calculator/gst/): Enter an amount and the GST rate — whether you want to add GST or find the base price from a GST-inclusive amount.
 - [Discount Calculator](https://nextgrade.in/en/calculator/discount/): Enter the original price and the discount percentage to instantly see how much you save and the new price.
 - [Date Difference Calculator](https://nextgrade.in/en/calculator/date-difference/): Choose two dates and find the difference between them in days, weeks, months and years.
+- [Simple Interest Calculator](https://nextgrade.in/en/calculator/simple-interest/): Enter the principal, interest rate and time to find the simple interest and the total amount.
+- [Compound Interest Calculator](https://nextgrade.in/en/calculator/compound-interest/): Enter the principal, rate, time and how often interest is added, to find the compound interest and total amount.
 
 ## Free online games (desi and puzzle, play in the browser)
 
