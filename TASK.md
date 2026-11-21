@@ -95,7 +95,7 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 **12. Promo videos** — `~/www/videos/` (not in this repo): Hisab Kitab videos, 6 wish Reels (`wishes/`: `capture.js` → `compose.js`), post texts `POSTS.md`.
 
-## 21 Nov 2026: 10 more tools (branch feat/tools-batch-2, waiting for the user's go-live)
+## 21 Nov 2026: 10 more tools — scheduled on their own tool line, one every 1–2 days, 22 Nov → 6 Dec (user: "releases ke liye schedule kar do")
 - [x] Built in nextgrade-tools (branch feat/tools-batch-2, local) and copied with `scripts/copy-tool.py`: pdf-compress (100kb/200kb/500kb/1mb), jpg-to-pdf (photo-to-pdf, pdf-under-100kb, pdf-under-200kb), pdf-merge (split, delete-pages), image-resize (3.5x4.5-cm, 200x230, 600x600), image-crop (rotate), signature-maker (transparent), typing-test (hindi, english, ssc), land-converter (bigha-to-sq-ft, katha-to-sq-ft, acre-to-bigha), qr-maker (upi, whatsapp), sticker-maker (text-sticker; 25 MB incl. on-device model).
 - Each: 4 languages, on-device, own long text (600–1900 words) + FAQ with static FAQPage JSON-LD, `?selftest`. Tested on the built site: all 33 pages load (canonical, AdSense tag, FAQ), all 10 selftests pass. Test runner: headless Chrome over DevTools protocol (virtual-time-budget cuts these selftests short).
 - Before/after go-live, user should check on a real phone: UPI QR scan in a UPI app, camera/share, iPhone Safari (no WebP → PNG), state bigha values.
