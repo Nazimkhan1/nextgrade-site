@@ -67,7 +67,7 @@ const LINES = [
   ] },
   // Essays (/nibandh/<slug>/), own line (user, 19 Nov 2026: content for AI search / school children); winter first while it is searched
   { prefix: 'nibandh', start: '2026-11-22', gap: [2, 4], seed: 23, slugs: [
-    'sardi-ka-mausam', 'mera-vidyalaya', 'gaay', 'meri-maa', 'ped', 'jal', 'diwali', 'mera-priya-mitra',
+    'sardi-ka-mausam', 'mera-vidyalaya', 'gaay', 'meri-maa', 'ped', 'jal', 'diwali', 'mera-priya-mitra', 'yoga', 'pradushan',
   ] },
   // 10 tools built 21 Nov 2026 — user: "releases ke liye schedule kar do": one every 1–2 days, most-searched first.
   // Not tied to TOOLS_START (these go out before AdSense approval, like the 4 live tools).
