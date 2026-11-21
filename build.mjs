@@ -1351,3 +1351,26 @@ console.log(`Built ${allUrls.length} pages in ${LANGS.map((l) => l.code).join(',
 
 // Write the text that JavaScript fills on game / animated-wish pages into their HTML (see scripts/prerender.mjs)
 await (await import('./scripts/prerender.mjs')).default();
+
+// Self-hosted fonts: swap every Google Fonts link for our own copy in /fonts/ (made by scripts/vendor-fonts.py),
+// so pages load nothing from Google Fonts. An unknown font query keeps its Google link and is reported below.
+{
+  const fontMap = JSON.parse(readFileSync('src/static/fonts/map.json', 'utf8'));
+  const missing = new Set(); let swapped = 0;
+  const walk = (dir) => readdirSync(dir, { withFileTypes: true }).forEach((e) => {
+    const p = join(dir, e.name);
+    if (e.isDirectory()) return walk(p);
+    if (!e.name.endsWith('.html')) return;
+    let h = readFileSync(p, 'utf8');
+    if (!h.includes('fonts.googleapis.com')) return;
+    h = h.replace(/<link[^>]*href="https:\/\/fonts\.googleapis\.com\/css2\?([^"]+)"[^>]*>/g, (m, q) => {
+      const local = fontMap[q.replace(/&amp;/g, '&')];
+      if (!local) { missing.add(q); return m; }
+      swapped++; return `<link rel="stylesheet" href="${local}">`;
+    });
+    if (!h.includes('fonts.googleapis.com/css2')) h = h.replace(/<link rel="preconnect" href="https:\/\/fonts\.(googleapis|gstatic)\.com"[^>]*>\n?/g, '');
+    writeFileSync(p, h);
+  });
+  walk(OUT);
+  console.log(`Fonts: ${swapped} links now self-hosted${missing.size ? `; NOT in src/static/fonts/map.json (run scripts/vendor-fonts.py): ${[...missing].join(' | ')}` : ''}`);
+}

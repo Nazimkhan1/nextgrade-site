@@ -95,6 +95,11 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 **12. Promo videos** — `~/www/videos/` (not in this repo): Hisab Kitab videos, 6 wish Reels (`wishes/`: `capture.js` → `compose.js`), post texts `POSTS.md`.
 
+## 21 Nov 2026: fonts self-hosted (user: "sare links and content apna hona chahiye")
+- [x] No page loads Google Fonts any more: `scripts/vendor-fonts.py` downloaded every font used (Inter, Noto Sans Devanagari/Bengali/Gurmukhi, Noto Nastaliq Urdu, Baloo 2, Baloo Da 2, Amiri; SIL OFL, licences in `src/static/fonts/OFL.txt`) to `src/static/fonts/`; the build swaps each Google link for `/fonts/css/<id>.css` (map.json). If the build prints "NOT in map.json", run `python3 scripts/vendor-fonts.py` (needs internet) and commit.
+- Bengali pages now really use Noto Sans Bengali (it was missing from the font list in style.css).
+- Remaining outside requests are needed: AdSense, Google Analytics, Cloudflare analytics, WhatsApp share links, policy links on the Privacy Policy page.
+
 ## 21 Nov 2026: 10 more tools — scheduled on their own tool line, one every 1–2 days, 22 Nov → 6 Dec (user: "releases ke liye schedule kar do")
 - [x] Built in nextgrade-tools (branch feat/tools-batch-2, local) and copied with `scripts/copy-tool.py`: pdf-compress (100kb/200kb/500kb/1mb), jpg-to-pdf (photo-to-pdf, pdf-under-100kb, pdf-under-200kb), pdf-merge (split, delete-pages), image-resize (3.5x4.5-cm, 200x230, 600x600), image-crop (rotate), signature-maker (transparent), typing-test (hindi, english, ssc), land-converter (bigha-to-sq-ft, katha-to-sq-ft, acre-to-bigha), qr-maker (upi, whatsapp), sticker-maker (text-sticker; 25 MB incl. on-device model).
 - Each: 4 languages, on-device, own long text (600–1900 words) + FAQ with static FAQPage JSON-LD, `?selftest`. Tested on the built site: all 33 pages load (canonical, AdSense tag, FAQ), all 10 selftests pass. Test runner: headless Chrome over DevTools protocol (virtual-time-budget cuts these selftests short).
