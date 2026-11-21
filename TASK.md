@@ -95,6 +95,10 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 **12. Promo videos** — `~/www/videos/` (not in this repo): Hisab Kitab videos, 6 wish Reels (`wishes/`: `capture.js` → `compose.js`), post texts `POSTS.md`.
 
+## 21 Nov 2026: 4 old-fashion desi board games (scheduled; user: "merge kar ke live ke liye schedule kar dena")
+- [x] `chaupar` (22 Nov), `sholo-guti` (23 Nov), `nau-gutti` (25 Nov), `pallanguzhi` (26 Nov) — own game line in releases.mjs. Each: vs computer (Aasaan/Medium/Mushkil) or friends on one phone, 4 languages, challenge share (WhatsApp/Facebook), `/khel/<slug>/` real-life rules page, `?debug&auto` selftest (all pass on the built site).
+- Rules notes: Chaupar — no stopping 1 square before home (no throw is worth 1); Pallanguzhi — 40 moves without capture ends a round, starter alternates; Sholo Guti — majboori setting; Nau Gutti — flying setting. Plan for more in MY-PLANS/games/GAMES.md.
+
 ## 21 Nov 2026: grouped header menu (user: "header ko menu hierarchy wala banao", list too long)
 - [x] Home + 5 dropdowns: Kahaniyan (all + 6 collections), Padhai (nibandh, speech, paheliyan, full forms, baby names), Tyohaar (festivals, dates, wishes, wish card, naam wali image, Islamic calendar), Games (all + khel rules), Tools (all, calculators, apps). About/Contact in the footer.
 - `MENU_T` + `menuFor()` in build.mjs (labels in 4 languages); a link shows only when its section is live. `<details class="nav-group">` (no JS needed); site.js closes others / on Escape. Checked desktop, phone (390 px) and dark mode.

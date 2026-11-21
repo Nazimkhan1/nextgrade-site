@@ -54,6 +54,10 @@ const LINES = [
     'basant-sargam', // Vasant Panchami, ~11 Feb
     'rang-barsao', // Holi, ~22 Mar
   ] },
+  // Old-fashion desi board games (user 21 Nov 2026: Kattam-Katti's Facebook post brought village players; "merge kar ke live ke liye schedule kar dena"): one every 1–2 days.
+  { prefix: 'game', start: '2026-11-22', gap: [1, 2], seed: 41, slugs: [
+    'chaupar', 'sholo-guti', 'nau-gutti', 'pallanguzhi',
+  ] },
   // User (19 Nov 2026): stories faster too — every 2–3 days.
   { prefix: 'story', start: '2026-11-20', gap: [0, 0], seed: 11, slugs: [ // user 21 Nov: all stories live now
     'neela-siyaar', 'bagula-aur-kekda', 'billiyan-aur-bandar', 'hawa-aur-suraj', 'shehar-gaon-chooha',

@@ -1,0 +1,985 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sholo Guti (16 Goti) 🔴⚪ — Solah Goti Board Game Online | NextGrade</title>
+<meta name="description" content="Sholo Guti (16 Goti, Solah Goti, ষোলো গুটি): the village board game drawn on the ground, now free on your phone in Hinglish, Hindi, English and Bengali. 16 pieces each, jump to capture, chain jumps. Play the computer (easy, medium, hard) or a friend on one phone.">
+<link rel="canonical" href="https://nextgrade.in/games/sholo-guti/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Sholo Guti 🔴⚪ — bachpan wala 16 goti ka khel">
+<meta property="og:description" content="Zameen par lakeerein, dono taraf 16 gotiyan: kood kar maaro, lagaataar maaro! Computer ya dost ke saath, ek phone par.">
+<meta property="og:url" content="https://nextgrade.in/games/sholo-guti/">
+<meta property="og:image" content="https://nextgrade.in/games/sholo-guti/icons/icon-512.png">
+<meta name="theme-color" content="#7a3e22">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Sholo Guti (16 Goti)","alternateName":["Solah Goti","Sola Guti","16 Guti","Sixteen Soldiers","ষোলো গুটি","सोलह गोटी"],"url":"https://nextgrade.in/games/sholo-guti/","genre":["Board game","Traditional"],"gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you play Sholo Guti (16 Guti)?","acceptedAnswer":{"@type":"Answer","text":"Each player has 16 pieces on a board of 37 points: a 5 by 5 grid with diagonal lines and a triangle on two opposite sides. On your turn you move one piece along a line to the next empty point. You capture by jumping over an enemy piece that is next to yours, in a straight line, to the empty point just behind it; if the same piece can capture again, it may keep jumping in the same turn. Whoever captures all the other side's pieces, or leaves them with no move, wins."}},{"@type":"Question","name":"Can pieces move backwards in Sholo Guti?","acceptedAnswer":{"@type":"Answer","text":"In the most common village version, yes: pieces move and capture in every direction along the lines. Some places do not allow backward moves, so agree on the rules before a real game."}},{"@type":"Question","name":"What is the majboori (compulsory capture) rule?","acceptedAnswer":{"@type":"Answer","text":"In many villages, if you can capture you must capture, and a chain must be finished. Our game lets you switch this house rule on or off; it is off by default."}},{"@type":"Question","name":"When is a game of Sholo Guti a draw?","acceptedAnswer":{"@type":"Answer","text":"In this game, if 60 moves go by without any capture, the game is called a draw. On a real board players usually agree to a draw when neither side can make progress."}}]}</script>
+<style>
+:root { --bg: #1e130c; --gold: #ffd43b; --ink: #fbf6ee; --muted: #e2d3c2; --card: rgba(255,255,255,0.08); --accent: #c2552d; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #7a3e22, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-x: hidden; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 8px; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #7a3e22, #e8590c); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5); width: 100%; aspect-ratio: 1 / 1.6; max-height: 90vh; margin: 0 auto; background: #3b2617; user-select: none; -webkit-user-select: none; }
+.hud { position: absolute; top: 8px; left: 8px; right: 8px; display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 15px; color: #2b1a0e; z-index: 3; gap: 6px; pointer-events: none; }
+.hud span { background: rgba(255,248,235,0.92); border-radius: 12px; padding: 2px 10px; white-space: nowrap; }
+.hud .turn { background: #ffd43b; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+#board { position: absolute; top: 38px; left: 50%; transform: translateX(-50%); height: calc(100% - 104px); max-width: calc(100% - 6px); aspect-ratio: 124 / 184; touch-action: manipulation; }
+#board .pt { cursor: pointer; }
+#board .pop { animation: pop 0.28s ease-out; transform-box: fill-box; transform-origin: center; }
+@keyframes pop { from { transform: scale(0.6); } to { transform: scale(1); } }
+#board .pulse { animation: pulse 1s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: 0.35; } }
+.msg { position: absolute; left: 8px; right: 8px; bottom: 40px; margin: 0; line-height: 1.3; text-align: center; font-weight: 800; font-size: 14px; color: #fff3df; text-shadow: 0 1px 2px rgba(0,0,0,0.7); pointer-events: none; z-index: 3; }
+.bar { position: absolute; left: 8px; right: 8px; bottom: 6px; z-index: 4; display: flex; justify-content: space-between; gap: 6px; }
+.bar .grp { display: flex; gap: 6px; }
+.bar button { font: inherit; font-weight: 800; font-size: 13px; padding: 5px 10px; border-radius: 10px; border: 0; background: rgba(20,12,6,0.85); color: #fff; cursor: pointer; white-space: nowrap; }
+.bar .passbtn { background: #ffd43b; color: #2b1a0e; }
+
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(28, 16, 8, 0.8); padding: 14px; overflow-y: auto; z-index: 10; }
+.panel { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 16px; width: min(420px, 100%); text-align: center; margin: auto; color: var(--ink); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: #f3e9dc; }
+.panel .small { font-size: 13px; color: var(--muted); }
+.panel .fact { background: rgba(255,212,59,0.12); border: 1px solid rgba(255,212,59,0.35); border-radius: 12px; padding: 8px 10px; color: #ffe8a3; font-size: 15px; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 34px; font-weight: 800; color: var(--gold); line-height: 1.1; margin: 6px 0; }
+.label { font-size: 13px; color: var(--muted); margin: 10px 0 0; font-weight: 700; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 6px 0; }
+.seg3 { grid-template-columns: repeat(3, 1fr); }
+.seg button { font: inherit; font-weight: 800; font-size: 15px; padding: 8px 4px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.1); color: var(--ink); cursor: pointer; line-height: 1.25; }
+.seg button.on { background: var(--accent); border-color: var(--accent); }
+.seg button small { display: block; font-size: 12px; font-weight: 600; color: var(--gold); }
+input { width: 100%; font: inherit; font-size: 16px; padding: 9px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 8px 0 2px; }
+input::placeholder { color: #cdbba7; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #d9480f, #a8361a); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+.card2 li { margin: 4px 0; }
+details { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 10px 14px; margin: 8px 0; }
+summary { font-weight: 700; cursor: pointer; }
+details p { margin: 8px 0 0; color: var(--muted); }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+#selftest { white-space: pre-wrap; font: 12px/1.4 monospace; background: #000; color: #9f9; padding: 8px; }
+@media (max-width: 480px) { .panel { padding: 12px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .hud { font-size: 13px; } .hud span { padding: 2px 7px; } .bar button { font-size: 12px; padding: 5px 8px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🔴 NextGrade<small>Bachpan</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <div class="hud" aria-hidden="true"><span id="hudA">🔴 16</span><span class="turn" id="hudTurn"></span><span id="hudB">⚪ 16</span></div>
+    <svg id="board" viewBox="-12 -12 124 184" role="img" aria-label="Sholo Guti board"></svg>
+    <p class="msg" id="msg" role="status"></p>
+    <div class="bar">
+      <div class="grp"><button class="hidden" id="undoBtn" type="button" data-i18n="undo"></button><button class="hidden" id="hintBtn" type="button" data-i18n="hint"></button></div>
+      <button class="passbtn hidden" id="passBtn" type="button" data-i18n="pass"></button>
+      <button class="hidden" id="menuBtn" type="button" data-i18n="menuBtn"></button>
+    </div>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle"></h2>
+        <p data-i18n="controls"></p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <p class="label" data-i18n="firstLabel"></p>
+        <div class="seg" id="firstSeg"><button type="button" data-f="1" data-i18n="firstRed"></button><button type="button" data-f="2" data-i18n="firstWhite"></button></div>
+        <p class="label" data-i18n="majLabel"></p>
+        <div class="seg" id="majSeg"><button type="button" data-m="0" data-i18n="majOff"></button><button type="button" data-m="1" data-i18n="majOn"></button></div>
+        <p class="label" data-i18n="vsComputer"></p>
+        <div class="seg seg3" id="levelSeg">
+          <button type="button" data-l="easy"><span data-i18n="easy"></span><small id="wEasy"></small></button>
+          <button type="button" data-l="medium"><span data-i18n="medium"></span><small id="wMedium"></small></button>
+          <button type="button" data-l="hard"><span data-i18n="hard"></span><small id="wHard"></small></button>
+        </div>
+        <p class="small" data-i18n="youAreRed"></p>
+        <button type="button" class="btn btn-ghost" id="twoBtn" data-i18n="twoPlayers"></button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big" id="endBig"></div>
+        <p id="endNote"></p>
+        <p class="fact" id="endFact"></p>
+        <button class="btn btn-main" id="againBtn" type="button" data-i18n="again"></button>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-ghost" id="toMenu" type="button" data-i18n="menuBtn"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card2"><ol id="howList"></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="tipsTitle"></h2>
+    <div class="card2"><ul id="tipList"></ul></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+    <p data-i18n="aboutText3"></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="factsTitle"></h2>
+    <div class="card2"><ul id="factList"></ul></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="faqTitle"></h2>
+    <div id="faqList"></div>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+    <div id="topShare"></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/sholo-guti/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const FACT_KEYS = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6'];
+  const PIECES = 16, DRAW_MOVES = 60;
+
+  const T = {
+    hinglish: {
+      title: 'Sholo Guti (16 Goti) 🔴⚪',
+      sub: 'Gaon ka purana khel: zameen par lakeerein, dono taraf 16-16 gotiyan. Lakeer ke saath ek kadam chalo, aur saamne wale ki goti ke upar se kood kar use maar do. Computer ke saath ya dost ke saath, ek hi phone par.',
+      startTitle: 'Chalo Sholo Guti khelein 🔴⚪',
+      controls: 'Apni goti par tap karo — jahan ja sakti hai wahan hare nishaan dikhenge, aur maarne wali kood laal nishaan par. Phir us nishaan par tap karo.',
+      namePh: 'Aapka naam (optional)', firstLabel: 'Pehli chaal kaun chalega?', firstRed: '🔴 Laal', firstWhite: '⚪ Safed',
+      majLabel: 'Majboori — maar sakte ho to maarna zaroori?', majOff: 'Nahi', majOn: 'Haan',
+      vsComputer: 'Computer ke saath:', easy: 'Aasaan', medium: 'Medium', hard: 'Mushkil', twoPlayers: '👥 2 khiladi (ek phone)',
+      youAreRed: 'Computer ke saath aap hamesha 🔴 Laal (neeche) ho.',
+      wins: (n) => `${n} jeet`, menuBtn: '☰ Menu', undo: '↶ Wapas', hint: '💡 Salaah', pass: '✋ Bas, ruko', again: '🔁 Phir khelo',
+      turnRed: '🔴 Laal ki baari', turnWhite: '⚪ Safed ki baari', turnYou: 'Aapki baari', thinking: 'Computer soch raha hai…',
+      msgPick: 'Apni goti chuno, phir hara ya laal nishaan', msgChain: 'Aur maar sakte ho! Laal nishaan par kudo, ya "Bas"', msgChainComp: 'Majboori: aage bhi maarna hoga', msgMust: 'Majboori hai — jo goti maar sakti hai, wahi chalo', captured: 'Goti mar gayi! 💥', hintMsg: '💡 Peeli ghanti wali chaal socho',
+      winRed: 'Laal jeet gaya! 🔴🎉', winWhite: 'Safed jeet gaya! ⚪🎉', draw: 'Barabar! 🤝',
+      youWin: (name) => `Jeet gaye${name ? `, ${name}` : ''}! 🎉`, youLose: 'Computer jeet gaya 😅',
+      noteMoves: (n) => `${n} chaal mein`, noteAll: 'Saamne wale ki saari gotiyan mar gayi', noteStuck: 'Saamne wale ke paas koi chaal nahi bachi', noteDraw: `${DRAW_MOVES} chaal tak koi goti nahi mari — barabar`,
+      challenge: (name, n) => `🔴 ${name} ne Sholo Guti mein computer ko ${n} baar haraaya! Aap haraa paoge?`,
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo', shareOther: '🔗 Share / link copy karo', copied: '✅ Copy ho gaya', copyPrompt: 'Yeh text copy karo:',
+      shareWin: (name, lvl, url) => `🔴⚪ ${name ? `${name} ne` : 'Maine'} computer ko Sholo Guti mein hara diya! (${lvl}) Tum harao: ${url}`,
+      sharePlain: (url) => `🔴⚪ Bachpan wala Sholo Guti (16 goti) ab phone par! Computer ya dost ke saath khelo: ${url}`,
+      howTitle: 'Kaise khelein',
+      how: [
+        'Board mein <b>37 nishaan</b> hain: beech mein 5×5 ka chaukor jaal (seedhi aur tirchhi lakeeron ke saath) aur upar-neeche ek-ek tikona. Har khiladi ki 16 gotiyan apne tikone aur paas ki do lakeeron par lagti hain; beech wali lakeer khaali rehti hai.',
+        'Baari-baari se chalo. Apni ek goti <b>lakeer ke saath agle khaali nishaan</b> par le jao — aage, peeche, daayein, baayein ya tirchha, bas wahan jahan lakeer bani ho.',
+        '<b>Maarna (kaatna):</b> agar aapki goti ke bagal mein saamne wale ki goti ho, aur uske theek peeche usi seedhi lakeer par nishaan khaali ho, to kood kar wahan pahuncho. Beech wali goti board se bahar.',
+        '<b>Lagaataar maar:</b> kood ke baad agar wahi goti phir kisi ko maar sakti hai, to usi baari mein aage kood sakte ho. Chaaho to "Bas" dabakar ruk bhi sakte ho.',
+        '<b>Majboori:</b> kai gaon mein niyam hai ki maar sakte ho to maarna hi padega. Yeh niyam menu mein chalu ya band kar sakte ho (shuru mein band rehta hai).',
+        '<b>Jeet:</b> jo saamne wale ki saari 16 gotiyan maar de, ya use aisa gher le ki uske paas koi chaal na bache, woh jeeta. 60 chaal tak kisi ki goti na mare to baazi barabar.',
+        'Har gaon ke apne niyam hote hain — kahin goti peeche nahi chal sakti, kahin maar chhodne par saza mein goti chheen li jaati hai. Yahan sabse aam roop hai: har disha mein chalna aur maarna.',
+      ],
+      tipsTitle: 'Jeetne ke tips',
+      tips: [
+        'Apni goti ke peeche khaali nishaan mat chhodo — wahin se saamne wala kood kar maarta hai.',
+        'Gotiyan jodi mein ya kataar mein rakho; aise woh ek-doosre ki hifaazat karti hain.',
+        'Chaal chalne se pehle socho: kya badle mein saamne wala do gotiyan ek saath maar lega?',
+        'Jin nishaanon se tirchhi lakeerein guzarti hain, wahan se goti 8 taraf ja sakti hai — beech ke yeh nishaan sabse taakatwar hain.',
+        'Kabhi ek goti jaan-boojh kar dena bhi faayde ka hota hai, agar badle mein aap do-teen maar sako.',
+        'Tikone ke kone wali gotiyan der se nikalti hain; unhe samay par baahar lao, warna woh phans jaati hain.',
+      ],
+      aboutTitle: 'Sholo Guti — mitti par lakeeron wala khel',
+      aboutText: 'Sholo Guti ("sholo" yaani solah, "guti" yaani goti) Bengal, Bihar, Jharkhand, Odisha aur Uttar Pradesh ke gaon mein khoob khela jaata hai, aur Bangladesh mein bhi. Board kharidna nahi padta: aangan ki mitti ya chabootre par lakdi ya chaak se lakeerein kheench lo, ek taraf kankad, doosri taraf imli ke beej ya tooti chudiyon ke tukde. Garmi ki dopahar ped ki chhaon mein do log khelte aur baaki gherkar salaah dete.',
+      aboutText2: 'Iski shuruaat kab aur kahan hui, iska pakka likha hua itihaas nahi milta, aur alag-alag ilaaqon mein naam aur niyam thode badal jaate hain. Kood kar maarne wale aise khel duniya mein kai jagah purane samay se khele jaate rahe hain — "Alquerque" naam ka khel isi tarah ke 5×5 jaal par khela jaata hai, aur checkers ko bhi isi parivaar ka maana jaata hai. Angrezi mein ise kabhi-kabhi "Sixteen Soldiers" kehte hain.',
+      aboutText3: 'Yeh khel sabr aur aage ki sochna sikhata hai: ek galat kadam aur saamne wala ek hi baari mein do-teen gotiyan maar le jaata hai. Is game mein koi daav, shart ya paisa nahi — sirf bachpan ki yaad aur dimaag ka khel.',
+      factsTitle: 'Sholo Guti ke tathya',
+      facts: { f1: 'Board par kul 37 nishaan hote hain: 25 chaukor mein aur 6-6 dono tikonon mein.', f2: 'Shuru mein 32 gotiyan board par hoti hain aur sirf 5 nishaan khaali — beech wali lakeer.', f3: 'Bangla mein "sholo" yaani solah aur "guti" yaani goti — isliye naam Sholo Guti.', f4: 'Jis nishaan se tirchhi lakeerein guzarti hain, wahan se goti 8 taraf ja sakti hai; baaki nishaanon se sirf 4 taraf (kinaare par aur kam).', f5: 'Ek hi baari mein lagaataar kood kar 3-4 gotiyan maar lena is khel ka sabse mazedaar pal hota hai.', f6: 'Ise khelne ke liye kuchh nahi chahiye — mitti par lakeerein, aur 32 kankad ya beej.' },
+      faqTitle: 'Aksar pooche jaane wale sawaal',
+      faq: [
+        ['Sholo Guti kaise khelte hain?', 'Dono khiladiyon ki 16-16 gotiyan 37 nishaan wale board par hoti hain. Baari mein ek goti lakeer ke saath agle khaali nishaan par jaati hai. Bagal wali dushman goti ke upar se seedha kood kar uske peeche khaali nishaan par jaao to woh goti mar jaati hai, aur wahi goti aage bhi maar sake to lagaataar kood sakti hai. Saari gotiyan maarne wala (ya saamne wale ki chaal band karne wala) jeetta hai.'],
+        ['Kya goti peeche bhi chal sakti hai?', 'Is game mein haan — har disha mein, lakeer ke saath, chalna aur maarna dono. Kuchh jagah peeche chalna mana hota hai, isliye asli board par dost ke saath pehle niyam tay kar lo.'],
+        ['Majboori (maarna zaroori) wala niyam kya hai?', 'Kai gaon mein agar aap maar sakte ho to maarna hi padta hai, aur lagaataar maar bhi poori karni padti hai. Is game mein yeh niyam start screen par chalu ya band kar sakte ho; shuru mein band hai.'],
+        ['Ek baari mein kitni gotiyan maar sakte hain?', 'Jitni baar wahi goti seedhi lakeer mein kood sake. Har kood ke baad agla kood bhi usi goti se hota hai, aur disha badal sakti hai.'],
+        ['Baazi barabar kab hoti hai?', `Yahan ${DRAW_MOVES} chaal tak kisi ki goti na mare to barabar maana jaata hai. Asli khel mein jab dono taraf do-chaar gotiyan bachti hain aur koi aage nahi badh paata, to log aapas mein barabar maan lete hain.`],
+      ],
+      moreGames: 'Aur games khelo →',
+      privacyTitle: 'Aapka data', privacyText: 'Naam, settings aur jeet ki ginti sirf aapke phone mein rehti hai. Share link mein sirf naam aur jeet jaati hai. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'सोलह गोटी (शोलो गुटी) 🔴⚪',
+      sub: 'गाँव का पुराना खेल: ज़मीन पर लकीरें, दोनों तरफ़ 16-16 गोटियाँ। लकीर के साथ एक क़दम चलो, और सामने वाले की गोटी के ऊपर से कूदकर उसे मार दो। कंप्यूटर के साथ या दोस्त के साथ, एक ही फ़ोन पर।',
+      startTitle: 'चलो सोलह गोटी खेलें 🔴⚪',
+      controls: 'अपनी गोटी पर टैप करो — जहाँ जा सकती है वहाँ हरे निशान दिखेंगे, और मारने वाली कूद लाल निशान पर। फिर उस निशान पर टैप करो।',
+      namePh: 'आपका नाम (ज़रूरी नहीं)', firstLabel: 'पहली चाल कौन चलेगा?', firstRed: '🔴 लाल', firstWhite: '⚪ सफ़ेद',
+      majLabel: 'मजबूरी — मार सकते हो तो मारना ज़रूरी?', majOff: 'नहीं', majOn: 'हाँ',
+      vsComputer: 'कंप्यूटर के साथ:', easy: 'आसान', medium: 'मीडियम', hard: 'मुश्किल', twoPlayers: '👥 2 खिलाड़ी (एक फ़ोन)',
+      youAreRed: 'कंप्यूटर के साथ आप हमेशा 🔴 लाल (नीचे) हो।',
+      wins: (n) => `${n} जीत`, menuBtn: '☰ मेन्यू', undo: '↶ वापस', hint: '💡 सलाह', pass: '✋ बस, रुको', again: '🔁 फिर खेलो',
+      turnRed: '🔴 लाल की बारी', turnWhite: '⚪ सफ़ेद की बारी', turnYou: 'आपकी बारी', thinking: 'कंप्यूटर सोच रहा है…',
+      msgPick: 'अपनी गोटी चुनो, फिर हरा या लाल निशान', msgChain: 'और मार सकते हो! लाल निशान पर कूदो, या "बस"', msgChainComp: 'मजबूरी: आगे भी मारना होगा', msgMust: 'मजबूरी है — जो गोटी मार सकती है, वही चलो', captured: 'गोटी मर गई! 💥', hintMsg: '💡 पीले घेरे वाली चाल सोचो',
+      winRed: 'लाल जीत गया! 🔴🎉', winWhite: 'सफ़ेद जीत गया! ⚪🎉', draw: 'बराबर! 🤝',
+      youWin: (name) => `जीत गए${name ? `, ${name}` : ''}! 🎉`, youLose: 'कंप्यूटर जीत गया 😅',
+      noteMoves: (n) => `${n} चालों में`, noteAll: 'सामने वाले की सारी गोटियाँ मर गईं', noteStuck: 'सामने वाले के पास कोई चाल नहीं बची', noteDraw: `${DRAW_MOVES} चालों तक कोई गोटी नहीं मरी — बराबर`,
+      challenge: (name, n) => `🔴 ${name} ने सोलह गोटी में कंप्यूटर को ${n} बार हराया! आप हरा पाओगे?`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो', shareOther: '🔗 शेयर / लिंक कॉपी करो', copied: '✅ कॉपी हो गया', copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareWin: (name, lvl, url) => `🔴⚪ ${name ? `${name} ने` : 'मैंने'} कंप्यूटर को सोलह गोटी (शोलो गुटी) में हरा दिया! (${lvl}) तुम हराओ: ${url}`,
+      sharePlain: (url) => `🔴⚪ बचपन वाला सोलह गोटी अब फ़ोन पर! कंप्यूटर या दोस्त के साथ खेलो: ${url}`,
+      howTitle: 'कैसे खेलें',
+      how: [
+        'बोर्ड में <b>37 निशान</b> हैं: बीच में 5×5 का चौकोर जाल (सीधी और तिरछी लकीरों के साथ) और ऊपर-नीचे एक-एक तिकोना। हर खिलाड़ी की 16 गोटियाँ अपने तिकोने और पास की दो लकीरों पर लगती हैं; बीच वाली लकीर ख़ाली रहती है।',
+        'बारी-बारी से चलो। अपनी एक गोटी <b>लकीर के साथ अगले ख़ाली निशान</b> पर ले जाओ — आगे, पीछे, दाएँ, बाएँ या तिरछा, बस वहाँ जहाँ लकीर बनी हो।',
+        '<b>मारना (काटना):</b> अगर आपकी गोटी के बगल में सामने वाले की गोटी हो, और उसके ठीक पीछे उसी सीधी लकीर पर निशान ख़ाली हो, तो कूदकर वहाँ पहुँचो। बीच वाली गोटी बोर्ड से बाहर।',
+        '<b>लगातार मार:</b> कूद के बाद अगर वही गोटी फिर किसी को मार सकती है, तो उसी बारी में आगे कूद सकते हो। चाहो तो "बस" दबाकर रुक भी सकते हो।',
+        '<b>मजबूरी:</b> कई गाँवों में नियम है कि मार सकते हो तो मारना ही पड़ेगा। यह नियम मेन्यू में चालू या बंद कर सकते हो (शुरू में बंद रहता है)।',
+        '<b>जीत:</b> जो सामने वाले की सारी 16 गोटियाँ मार दे, या उसे ऐसा घेर ले कि उसके पास कोई चाल न बचे, वह जीता। 60 चालों तक किसी की गोटी न मरे तो बाज़ी बराबर।',
+        'हर गाँव के अपने नियम होते हैं — कहीं गोटी पीछे नहीं चल सकती, कहीं मार छोड़ने पर सज़ा में गोटी छीन ली जाती है। यहाँ सबसे आम रूप है: हर दिशा में चलना और मारना।',
+      ],
+      tipsTitle: 'जीतने के टिप्स',
+      tips: [
+        'अपनी गोटी के पीछे ख़ाली निशान मत छोड़ो — वहीं से सामने वाला कूदकर मारता है।',
+        'गोटियाँ जोड़ी में या क़तार में रखो; ऐसे वे एक-दूसरे की हिफ़ाज़त करती हैं।',
+        'चाल चलने से पहले सोचो: क्या बदले में सामने वाला दो गोटियाँ एक साथ मार लेगा?',
+        'जिन निशानों से तिरछी लकीरें गुज़रती हैं, वहाँ से गोटी 8 तरफ़ जा सकती है — बीच के ये निशान सबसे ताक़तवर हैं।',
+        'कभी एक गोटी जान-बूझकर देना भी फ़ायदे का होता है, अगर बदले में आप दो-तीन मार सको।',
+        'तिकोने के कोने वाली गोटियाँ देर से निकलती हैं; उन्हें समय पर बाहर लाओ, वरना वे फँस जाती हैं।',
+      ],
+      aboutTitle: 'सोलह गोटी — मिट्टी पर लकीरों वाला खेल',
+      aboutText: 'सोलह गोटी (बांग्ला में "शोलो गुटी" — शोलो यानी सोलह, गुटी यानी गोटी) बंगाल, बिहार, झारखंड, ओडिशा और उत्तर प्रदेश के गाँवों में ख़ूब खेला जाता है, और बांग्लादेश में भी। बोर्ड ख़रीदना नहीं पड़ता: आँगन की मिट्टी या चबूतरे पर लकड़ी या चॉक से लकीरें खींच लो, एक तरफ़ कंकड़, दूसरी तरफ़ इमली के बीज या टूटी चूड़ियों के टुकड़े। गर्मी की दोपहर पेड़ की छाँव में दो लोग खेलते और बाक़ी घेरकर सलाह देते।',
+      aboutText2: 'इसकी शुरुआत कब और कहाँ हुई, इसका पक्का लिखा हुआ इतिहास नहीं मिलता, और अलग-अलग इलाक़ों में नाम और नियम थोड़े बदल जाते हैं। कूदकर मारने वाले ऐसे खेल दुनिया में कई जगह पुराने समय से खेले जाते रहे हैं — "अल्केर्के" (Alquerque) नाम का खेल इसी तरह के 5×5 जाल पर खेला जाता है, और चेकर्स को भी इसी परिवार का माना जाता है। अंग्रेज़ी में इसे कभी-कभी "सिक्सटीन सोल्जर्स" कहते हैं।',
+      aboutText3: 'यह खेल सब्र और आगे की सोचना सिखाता है: एक ग़लत क़दम और सामने वाला एक ही बारी में दो-तीन गोटियाँ मार ले जाता है। इस गेम में कोई दाँव, शर्त या पैसा नहीं — सिर्फ़ बचपन की याद और दिमाग़ का खेल।',
+      factsTitle: 'सोलह गोटी के तथ्य',
+      facts: { f1: 'बोर्ड पर कुल 37 निशान होते हैं: 25 चौकोर में और 6-6 दोनों तिकोनों में।', f2: 'शुरू में 32 गोटियाँ बोर्ड पर होती हैं और सिर्फ़ 5 निशान ख़ाली — बीच वाली लकीर।', f3: 'बांग्ला में "शोलो" यानी सोलह और "गुटी" यानी गोटी — इसलिए नाम शोलो गुटी।', f4: 'जिस निशान से तिरछी लकीरें गुज़रती हैं, वहाँ से गोटी 8 तरफ़ जा सकती है; बाक़ी निशानों से सिर्फ़ 4 तरफ़ (किनारे पर और कम)।', f5: 'एक ही बारी में लगातार कूदकर 3-4 गोटियाँ मार लेना इस खेल का सबसे मज़ेदार पल होता है।', f6: 'इसे खेलने के लिए कुछ नहीं चाहिए — मिट्टी पर लकीरें, और 32 कंकड़ या बीज।' },
+      faqTitle: 'अक्सर पूछे जाने वाले सवाल',
+      faq: [
+        ['सोलह गोटी कैसे खेलते हैं?', 'दोनों खिलाड़ियों की 16-16 गोटियाँ 37 निशान वाले बोर्ड पर होती हैं। बारी में एक गोटी लकीर के साथ अगले ख़ाली निशान पर जाती है। बगल वाली दुश्मन गोटी के ऊपर से सीधा कूदकर उसके पीछे ख़ाली निशान पर जाओ तो वह गोटी मर जाती है, और वही गोटी आगे भी मार सके तो लगातार कूद सकती है। सारी गोटियाँ मारने वाला (या सामने वाले की चाल बंद करने वाला) जीतता है।'],
+        ['क्या गोटी पीछे भी चल सकती है?', 'इस गेम में हाँ — हर दिशा में, लकीर के साथ, चलना और मारना दोनों। कुछ जगह पीछे चलना मना होता है, इसलिए असली बोर्ड पर दोस्त के साथ पहले नियम तय कर लो।'],
+        ['मजबूरी (मारना ज़रूरी) वाला नियम क्या है?', 'कई गाँवों में अगर आप मार सकते हो तो मारना ही पड़ता है, और लगातार मार भी पूरी करनी पड़ती है। इस गेम में यह नियम स्टार्ट स्क्रीन पर चालू या बंद कर सकते हो; शुरू में बंद है।'],
+        ['एक बारी में कितनी गोटियाँ मार सकते हैं?', 'जितनी बार वही गोटी सीधी लकीर में कूद सके। हर कूद के बाद अगली कूद भी उसी गोटी से होती है, और दिशा बदल सकती है।'],
+        ['बाज़ी बराबर कब होती है?', `यहाँ ${DRAW_MOVES} चालों तक किसी की गोटी न मरे तो बराबर माना जाता है। असली खेल में जब दोनों तरफ़ दो-चार गोटियाँ बचती हैं और कोई आगे नहीं बढ़ पाता, तो लोग आपस में बराबर मान लेते हैं।`],
+      ],
+      moreGames: 'और गेम खेलो →',
+      privacyTitle: 'आपका डेटा', privacyText: 'नाम, सेटिंग और जीत की गिनती सिर्फ़ आपके फ़ोन में रहती है। शेयर लिंक में सिर्फ़ नाम और जीत जाती है। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Sholo Guti (16 Pieces) 🔴⚪',
+      sub: 'An old village board game: lines drawn on the ground and 16 pieces on each side. Step along a line, and jump over an enemy piece to capture it. Play the computer or a friend on one phone.',
+      startTitle: 'Let\'s play Sholo Guti 🔴⚪',
+      controls: 'Tap one of your pieces — green dots show where it can go, red dots show a capturing jump. Then tap that dot.',
+      namePh: 'Your name (optional)', firstLabel: 'Who moves first?', firstRed: '🔴 Red', firstWhite: '⚪ White',
+      majLabel: 'Majboori — must you capture when you can?', majOff: 'No', majOn: 'Yes',
+      vsComputer: 'Against the computer:', easy: 'Easy', medium: 'Medium', hard: 'Hard', twoPlayers: '👥 2 players (one phone)',
+      youAreRed: 'Against the computer you are always 🔴 Red (at the bottom).',
+      wins: (n) => `${n} win${n === 1 ? '' : 's'}`, menuBtn: '☰ Menu', undo: '↶ Undo', hint: '💡 Hint', pass: '✋ Stop here', again: '🔁 Play again',
+      turnRed: '🔴 Red to move', turnWhite: '⚪ White to move', turnYou: 'Your turn', thinking: 'Computer is thinking…',
+      msgPick: 'Pick your piece, then a green or red dot', msgChain: 'You can capture again! Jump to a red dot, or "Stop"', msgChainComp: 'Majboori: you must keep capturing', msgMust: 'Majboori is on — move a piece that can capture', captured: 'Captured! 💥', hintMsg: '💡 Think about the move in yellow',
+      winRed: 'Red wins! 🔴🎉', winWhite: 'White wins! ⚪🎉', draw: 'A draw! 🤝',
+      youWin: (name) => `You won${name ? `, ${name}` : ''}! 🎉`, youLose: 'The computer won 😅',
+      noteMoves: (n) => `in ${n} moves`, noteAll: 'Every enemy piece captured', noteStuck: 'The other side had no move left', noteDraw: `No capture in ${DRAW_MOVES} moves — a draw`,
+      challenge: (name, n) => `🔴 ${name} beat the computer at Sholo Guti ${n} time${n === 1 ? '' : 's'}! Can you?`,
+      shareWa: '📲 Challenge on WhatsApp', shareFb: 'Share on Facebook', shareOther: '🔗 Share / copy link', copied: '✅ Copied', copyPrompt: 'Copy this text:',
+      shareWin: (name, lvl, url) => `🔴⚪ ${name || 'I'} beat the computer (${lvl}) at Sholo Guti, the 16-piece village game! Your turn: ${url}`,
+      sharePlain: (url) => `🔴⚪ Sholo Guti, the 16-piece game from our childhood, now on your phone! Play the computer or a friend: ${url}`,
+      howTitle: 'How to play',
+      how: [
+        'The board has <b>37 points</b>: a 5×5 square grid in the middle (with straight and diagonal lines) and a triangle at the top and bottom. Each player\'s 16 pieces fill their own triangle and the two nearest rows; the middle row starts empty.',
+        'Take turns. Move one of your pieces <b>along a line to the next empty point</b> — forwards, backwards, sideways or diagonally, but only where a line is drawn.',
+        '<b>Capturing:</b> if an enemy piece is next to yours and the point right behind it, on the same straight line, is empty, jump over it to that point. The jumped piece leaves the board.',
+        '<b>Chain captures:</b> after a jump, if the same piece can capture again, it may keep jumping in the same turn. You can also tap "Stop" to end the turn.',
+        '<b>Majboori:</b> in many villages, if you can capture, you must. You can switch this house rule on or off in the menu (it starts off).',
+        '<b>Winning:</b> capture all 16 enemy pieces, or block them so they have no move left. If 60 moves pass without a capture, the game is a draw.',
+        'Every village has its own rules — in some places pieces cannot move backwards, in others a piece is taken away as a penalty if you miss a capture. Here we play the most common version: move and capture in every direction.',
+      ],
+      tipsTitle: 'Tips to win',
+      tips: [
+        'Never leave an empty point behind your piece — that is exactly where the enemy lands after jumping.',
+        'Keep your pieces in pairs or rows; they protect each other.',
+        'Before each move, ask yourself: will the other side capture two of my pieces in return?',
+        'Points crossed by diagonal lines let a piece move in 8 directions — these central points are the strongest.',
+        'Giving away one piece on purpose can pay off if you capture two or three in return.',
+        'Pieces in the corners of your triangle are slow to come out; bring them out in time or they get stuck.',
+      ],
+      aboutTitle: 'Sholo Guti — the game of lines on the ground',
+      aboutText: 'Sholo Guti ("sholo" means sixteen and "guti" means piece in Bengali) is widely played in the villages of Bengal, Bihar, Jharkhand, Odisha and Uttar Pradesh, and in Bangladesh too. You never need to buy a board: draw the lines on the mud of a courtyard or on a stone platform with a stick or chalk, use pebbles for one side and tamarind seeds or bits of broken bangles for the other. On hot afternoons two people played in the shade of a tree while everyone around gave advice.',
+      aboutText2: 'There is no reliable written record of where or when it began, and its name and rules change a little from region to region. Games where you capture by jumping have been played in many parts of the world for a long time — a game called Alquerque uses a very similar 5×5 grid, and checkers is often counted in the same family. In English it is sometimes called "Sixteen Soldiers".',
+      aboutText3: 'The game teaches patience and thinking ahead: one careless step and the other side can take two or three pieces in a single turn. No bets, stakes or money here — just childhood memories and a game for the mind.',
+      factsTitle: 'Facts about Sholo Guti',
+      facts: { f1: 'The board has 37 points in all: 25 in the square and 6 in each triangle.', f2: 'At the start 32 pieces are on the board and only 5 points are empty — the middle row.', f3: 'In Bengali "sholo" means sixteen and "guti" means a playing piece — hence the name.', f4: 'From a point crossed by diagonals a piece can move in 8 directions; from the other points only 4 (fewer on the edges).', f5: 'Capturing 3 or 4 pieces in one turn with a chain of jumps is the most exciting moment of the game.', f6: 'You need nothing to play it — just lines in the dirt and 32 pebbles or seeds.' },
+      faqTitle: 'Frequently asked questions',
+      faq: [
+        ['How do you play Sholo Guti (16 Guti)?', 'Each player has 16 pieces on a board of 37 points. On your turn one piece moves along a line to the next empty point. Jump straight over an enemy piece next to yours to the empty point behind it and that piece is captured; if the same piece can capture again, it may keep jumping. Whoever captures every enemy piece (or leaves the other side with no move) wins.'],
+        ['Can pieces move backwards?', 'In this game, yes — pieces move and capture in every direction along the lines. Some places do not allow backward moves, so agree on the rules with your friend before playing on a real board.'],
+        ['What is the majboori (compulsory capture) rule?', 'In many villages, if you can capture you must, and a chain of captures must be finished. In this game you can switch the rule on or off on the start screen; it is off by default.'],
+        ['How many pieces can I capture in one turn?', 'As many as the same piece can jump in straight lines. After each jump the next one must be made by the same piece, and it may change direction.'],
+        ['When is it a draw?', `Here, if ${DRAW_MOVES} moves go by without a capture, the game is a draw. On a real board, when both sides are down to a few pieces and nobody can make progress, players usually agree to a draw.`],
+      ],
+      moreGames: 'Play more games →',
+      privacyTitle: 'Your data', privacyText: 'Your name, settings and win count stay only on your phone. The share link carries only your name and wins. No login, no server.',
+    },
+    bn: {
+      title: 'ষোলো গুটি 🔴⚪',
+      sub: 'গ্রামের পুরোনো খেলা: মাটিতে দাগ কেটে ঘর, দুই দিকে ষোলোটা করে গুটি। দাগ ধরে এক ঘর এগোও, আর প্রতিপক্ষের গুটির ওপর দিয়ে লাফিয়ে সেটা কেটে নাও। কম্পিউটারের সঙ্গে বা এক ফোনে বন্ধুর সঙ্গে খেলো।',
+      startTitle: 'চলো ষোলো গুটি খেলি 🔴⚪',
+      controls: 'নিজের গুটিতে ট্যাপ করো — যেখানে যেতে পারে সেখানে সবুজ বিন্দু, আর কাটার লাফ লাল বিন্দুতে দেখাবে। তারপর সেই বিন্দুতে ট্যাপ করো।',
+      namePh: 'তোমার নাম (ঐচ্ছিক)', firstLabel: 'প্রথম চাল কার?', firstRed: '🔴 লাল', firstWhite: '⚪ সাদা',
+      majLabel: 'বাধ্যতামূলক কাটা — কাটতে পারলে কাটতেই হবে?', majOff: 'না', majOn: 'হ্যাঁ',
+      vsComputer: 'কম্পিউটারের সঙ্গে:', easy: 'সহজ', medium: 'মাঝারি', hard: 'কঠিন', twoPlayers: '👥 ২ জন (এক ফোনে)',
+      youAreRed: 'কম্পিউটারের সঙ্গে খেললে তুমি সবসময় 🔴 লাল (নিচে)।',
+      wins: (n) => `${n} জয়`, menuBtn: '☰ মেনু', undo: '↶ ফেরাও', hint: '💡 পরামর্শ', pass: '✋ থামো', again: '🔁 আবার খেলো',
+      turnRed: '🔴 লালের পালা', turnWhite: '⚪ সাদার পালা', turnYou: 'তোমার পালা', thinking: 'কম্পিউটার ভাবছে…',
+      msgPick: 'নিজের গুটি বাছো, তারপর সবুজ বা লাল বিন্দু', msgChain: 'আরও কাটতে পারো! লাল বিন্দুতে লাফাও, নয়তো "থামো"', msgChainComp: 'বাধ্যতামূলক: আরও কাটতেই হবে', msgMust: 'কাটা বাধ্যতামূলক — যে গুটি কাটতে পারে, সেটাই চালো', captured: 'গুটি কাটা গেল! 💥', hintMsg: '💡 হলুদ দাগের চালটা ভেবে দেখো',
+      winRed: 'লাল জিতল! 🔴🎉', winWhite: 'সাদা জিতল! ⚪🎉', draw: 'ড্র! 🤝',
+      youWin: (name) => `জিতে গেছ${name ? `, ${name}` : ''}! 🎉`, youLose: 'কম্পিউটার জিতে গেল 😅',
+      noteMoves: (n) => `${n} চালে`, noteAll: 'প্রতিপক্ষের সব গুটি কাটা গেছে', noteStuck: 'প্রতিপক্ষের আর কোনো চাল নেই', noteDraw: `${DRAW_MOVES} চালে কোনো গুটি কাটা যায়নি — ড্র`,
+      challenge: (name, n) => `🔴 ${name} ষোলো গুটিতে কম্পিউটারকে ${n} বার হারিয়েছে! তুমি পারবে?`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো', shareOther: '🔗 শেয়ার / লিংক কপি', copied: '✅ কপি হয়েছে', copyPrompt: 'এই লেখাটা কপি করো:',
+      shareWin: (name, lvl, url) => `🔴⚪ ${name ? `${name} কম্পিউটারকে ষোলো গুটিতে হারিয়ে দিয়েছে!` : 'আমি কম্পিউটারকে ষোলো গুটিতে হারিয়ে দিয়েছি!'} (${lvl}) তুমিও হারাও: ${url}`,
+      sharePlain: (url) => `🔴⚪ ছোটবেলার ষোলো গুটি এখন ফোনে! কম্পিউটার বা বন্ধুর সঙ্গে খেলো: ${url}`,
+      howTitle: 'কীভাবে খেলবে',
+      how: [
+        'বোর্ডে <b>৩৭টা বিন্দু</b>: মাঝখানে ৫×৫ চৌকো ঘর (সোজা আর কোনাকুনি দাগ সহ), আর ওপরে-নিচে একটা করে ত্রিভুজ। প্রত্যেকের ১৬টা গুটি নিজের ত্রিভুজ আর কাছের দুই সারিতে বসে; মাঝের সারি ফাঁকা থাকে।',
+        'পালা করে চালো। নিজের একটা গুটি <b>দাগ ধরে পাশের ফাঁকা বিন্দুতে</b> নাও — সামনে, পিছনে, ডাইনে, বাঁয়ে বা কোনাকুনি, কিন্তু শুধু যেখানে দাগ আঁকা আছে।',
+        '<b>কাটা:</b> তোমার গুটির পাশে প্রতিপক্ষের গুটি থাকলে, আর তার ঠিক পিছনে একই সোজা দাগে বিন্দু ফাঁকা থাকলে, লাফিয়ে সেখানে যাও। মাঝের গুটি বোর্ড থেকে বাদ।',
+        '<b>একটানা কাটা:</b> লাফের পরে সেই গুটি আবার কাটতে পারলে একই পালায় আরও লাফাতে পারো। চাইলে "থামো" টিপে পালা শেষ করতেও পারো।',
+        '<b>বাধ্যতামূলক কাটা:</b> অনেক গ্রামে নিয়ম, কাটতে পারলে কাটতেই হবে। এই নিয়ম মেনুতে চালু বা বন্ধ করা যায় (শুরুতে বন্ধ)।',
+        '<b>জয়:</b> যে প্রতিপক্ষের ১৬টা গুটিই কেটে দেয়, বা এমন আটকে দেয় যে তার আর চাল নেই, সে জেতে। ৬০ চালে কারও গুটি না কাটলে খেলা ড্র।',
+        'প্রত্যেক গ্রামের নিজের নিয়ম আছে — কোথাও গুটি পিছনে যেতে পারে না, কোথাও কাটা ছেড়ে দিলে শাস্তি হিসেবে গুটি কেড়ে নেওয়া হয়। এখানে সবচেয়ে চেনা রূপটা: সব দিকে চলা আর কাটা।',
+      ],
+      tipsTitle: 'জেতার টিপস',
+      tips: [
+        'নিজের গুটির পিছনে ফাঁকা বিন্দু রেখো না — ঠিক সেখানেই প্রতিপক্ষ লাফিয়ে নামে।',
+        'গুটিগুলো জোড়ায় বা সারিতে রাখো; তাহলে তারা একে অপরকে বাঁচায়।',
+        'চাল দেওয়ার আগে ভাবো: বদলে প্রতিপক্ষ কি একসঙ্গে দুটো গুটি কেটে নেবে?',
+        'যে বিন্দু দিয়ে কোনাকুনি দাগ গেছে, সেখান থেকে গুটি ৮ দিকে যেতে পারে — মাঝের এই বিন্দুগুলোই সবচেয়ে শক্তিশালী।',
+        'কখনো ইচ্ছে করে একটা গুটি ছেড়ে দেওয়াও লাভের, যদি বদলে দুটো-তিনটে কাটতে পারো।',
+        'ত্রিভুজের কোণের গুটি দেরিতে বেরোয়; সময়মতো বের করো, নইলে আটকে যায়।',
+      ],
+      aboutTitle: 'ষোলো গুটি — মাটির দাগের খেলা',
+      aboutText: 'ষোলো গুটি বাংলা, বিহার, ঝাড়খণ্ড, ওড়িশা আর উত্তরপ্রদেশের গ্রামে খুব খেলা হয়, বাংলাদেশেও। বোর্ড কিনতে হয় না: উঠোনের মাটিতে বা দাওয়ায় কাঠি বা চক দিয়ে দাগ কেটে নাও, এক দিকে নুড়ি, অন্য দিকে তেঁতুলের বিচি বা ভাঙা চুড়ির টুকরো। গরমের দুপুরে গাছের ছায়ায় দুজন খেলত, আর চারপাশে ভিড় করে সবাই পরামর্শ দিত।',
+      aboutText2: 'খেলাটা কবে আর কোথায় শুরু হয়েছিল, তার নিশ্চিত লিখিত ইতিহাস পাওয়া যায় না, আর অঞ্চলভেদে নাম ও নিয়ম একটু-আধটু বদলে যায়। লাফিয়ে কাটার এমন খেলা পৃথিবীর অনেক জায়গায় অনেক কাল ধরে খেলা হয় — "আলকেরকে" (Alquerque) নামের একটা খেলা প্রায় একই রকম ৫×৫ ঘরে খেলা হয়, আর চেকার্সকেও এই পরিবারের ধরা হয়। ইংরেজিতে একে কখনো "সিক্সটিন সোলজার্স" বলে।',
+      aboutText3: 'এই খেলা ধৈর্য আর আগে থেকে ভাবতে শেখায়: একটা ভুল চাল, আর প্রতিপক্ষ এক পালাতেই দুটো-তিনটে গুটি কেটে নেয়। এখানে কোনো বাজি, শর্ত বা টাকা নেই — শুধু ছোটবেলার স্মৃতি আর মাথার খেলা।',
+      factsTitle: 'ষোলো গুটির তথ্য',
+      facts: { f1: 'বোর্ডে মোট ৩৭টা বিন্দু: চৌকো ঘরে ২৫টা আর দুই ত্রিভুজে ৬টা করে।', f2: 'শুরুতে বোর্ডে ৩২টা গুটি থাকে আর মাত্র ৫টা বিন্দু ফাঁকা — মাঝের সারি।', f3: '"ষোলো" মানে ১৬ আর "গুটি" মানে খেলার ঘুঁটি — তাই এই নাম।', f4: 'যে বিন্দু দিয়ে কোনাকুনি দাগ গেছে, সেখান থেকে গুটি ৮ দিকে যেতে পারে; বাকি বিন্দু থেকে শুধু ৪ দিকে (কিনারায় আরও কম)।', f5: 'এক পালায় একটানা লাফিয়ে ৩-৪টে গুটি কেটে নেওয়াই এই খেলার সবচেয়ে মজার মুহূর্ত।', f6: 'খেলতে কিছুই লাগে না — মাটিতে কয়েকটা দাগ আর ৩২টা নুড়ি বা বিচি।' },
+      faqTitle: 'সাধারণ প্রশ্ন',
+      faq: [
+        ['ষোলো গুটি কীভাবে খেলে?', 'দুজনেরই ১৬টা করে গুটি থাকে, ৩৭ বিন্দুর বোর্ডে। প্রতি পালায় একটা গুটি দাগ ধরে পাশের ফাঁকা বিন্দুতে যায়। পাশের প্রতিপক্ষের গুটির ওপর দিয়ে সোজা লাফিয়ে পিছনের ফাঁকা বিন্দুতে গেলে সেই গুটি কাটা যায়, আর একই গুটি আবার কাটতে পারলে একটানা লাফাতে পারে। যে সব গুটি কেটে দেয় (বা প্রতিপক্ষের চাল বন্ধ করে দেয়) সে জেতে।'],
+        ['গুটি কি পিছনেও যেতে পারে?', 'এই গেমে হ্যাঁ — দাগ ধরে সব দিকে চলা আর কাটা দুটোই চলে। কোথাও কোথাও পিছনে যাওয়া বারণ, তাই আসল বোর্ডে বন্ধুর সঙ্গে আগে নিয়ম ঠিক করে নাও।'],
+        ['বাধ্যতামূলক কাটার নিয়মটা কী?', 'অনেক গ্রামে কাটতে পারলে কাটতেই হয়, আর একটানা কাটাও শেষ করতে হয়। এই গেমে শুরুর স্ক্রিনে নিয়মটা চালু বা বন্ধ করা যায়; শুরুতে বন্ধ থাকে।'],
+        ['এক পালায় কটা গুটি কাটা যায়?', 'একই গুটি সোজা দাগে যতবার লাফাতে পারে, ততগুলো। প্রতিটা লাফের পরের লাফও সেই গুটি দিয়েই হয়, দিক বদলাতে পারে।'],
+        ['খেলা ড্র হয় কখন?', `এখানে ${DRAW_MOVES} চালে কারও গুটি না কাটলে ড্র। আসল খেলায় দুই দিকে অল্প কটা গুটি থাকলে আর কেউ এগোতে না পারলে সবাই মিলে ড্র মেনে নেয়।`],
+      ],
+      moreGames: 'আরও গেম খেলো →',
+      privacyTitle: 'তোমার ডেটা', privacyText: 'নাম, সেটিং আর জয়ের সংখ্যা শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর জয়। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+  const urlLang = params.get('lang'), savedLang = store.get('sg-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(999, parseInt(params.get('score'), 10) || 0));
+  const debug = params.has('debug') ? 1 : 0;
+  const auto = debug && params.has('auto');
+  const loadWins = () => { try { const o = JSON.parse(store.get('sg-wins') || '{}'); return { easy: +o.easy || 0, medium: +o.medium || 0, hard: +o.hard || 0 }; } catch (e) { return { easy: 0, medium: 0, hard: 0 }; } };
+  let wins = loadWins();
+  const totalWins = () => wins.easy + wins.medium + wins.hard;
+
+  // ---------- the board: 37 points. Rows -2..-1 = top triangle, 0..4 = the 5×5 square, 5..6 = bottom triangle.
+  // Every line is a list of points; neighbours = next point on a line, jumps = two points further on the same line.
+  const PTS = [];
+  [[-2, [0, 2, 4]], [-1, [1, 2, 3]], [0, [0, 1, 2, 3, 4]], [1, [0, 1, 2, 3, 4]], [2, [0, 1, 2, 3, 4]], [3, [0, 1, 2, 3, 4]], [4, [0, 1, 2, 3, 4]], [5, [1, 2, 3]], [6, [0, 2, 4]]]
+    .forEach(([r, cs]) => cs.forEach((c) => PTS.push([r, c])));
+  const P = PTS.length;
+  const AT = new Map(PTS.map(([r, c], i) => [`${r},${c}`, i]));
+  const at = (r, c) => AT.get(`${r},${c}`);
+  const LINES = [];
+  for (let r = 0; r < 5; r += 1) LINES.push([0, 1, 2, 3, 4].map((c) => [r, c]));
+  [0, 1, 3, 4].forEach((c) => LINES.push([0, 1, 2, 3, 4].map((r) => [r, c])));
+  LINES.push([-2, -1, 0, 1, 2, 3, 4, 5, 6].map((r) => [r, 2]));
+  LINES.push([[0, 0], [1, 1], [2, 2], [3, 3], [4, 4]], [[0, 4], [1, 3], [2, 2], [3, 1], [4, 0]]);
+  LINES.push([[-2, 0], [-1, 1], [0, 2], [1, 3], [2, 4]], [[-2, 4], [-1, 3], [0, 2], [1, 1], [2, 0]]);
+  LINES.push([[6, 0], [5, 1], [4, 2], [3, 3], [2, 4]], [[6, 4], [5, 3], [4, 2], [3, 1], [2, 0]]);
+  LINES.push([[-1, 1], [-1, 2], [-1, 3]], [[-2, 0], [-2, 2], [-2, 4]], [[5, 1], [5, 2], [5, 3]], [[6, 0], [6, 2], [6, 4]]);
+  const NEI = PTS.map(() => []), JMP = PTS.map(() => []);
+  LINES.forEach((line) => {
+    const ids = line.map(([r, c]) => at(r, c));
+    ids.forEach((id, k) => {
+      [-1, 1].forEach((d) => {
+        const a = ids[k + d], b = ids[k + 2 * d];
+        if (a != null && !NEI[id].includes(a)) NEI[id].push(a);
+        if (a != null && b != null) JMP[id].push([a, b]);
+      });
+    });
+  });
+  const DEG = NEI.map((n) => n.length);
+
+  // ---------- game state (pure, so the computer can search it)
+  // b[i]: 0 empty, 1 red (bottom), 2 white (top); side to move; chain: piece in the middle of a jump chain (-1 none);
+  // quiet: moves since the last capture; comp: majboori (compulsory capture); n: pieces left per side
+  const fresh = (first = 1, comp = false) => {
+    const b = PTS.map(([r]) => (r <= 1 ? 2 : r >= 3 ? 1 : 0));
+    return { b, side: first, chain: -1, quiet: 0, comp, n: [0, PIECES, PIECES] };
+  };
+  const jumpsFrom = (s, i, out) => { const me = s.b[i], op = 3 - me; JMP[i].forEach(([o, j]) => { if (s.b[o] === op && !s.b[j]) out.push({ from: i, to: j, over: o }); }); return out; };
+  const genMoves = (s) => {
+    if (s.chain >= 0) { const out = jumpsFrom(s, s.chain, []); if (!s.comp) out.push({ pass: true, from: s.chain, to: s.chain, over: -1 }); return out; }
+    const caps = [], steps = [];
+    for (let i = 0; i < P; i += 1) {
+      if (s.b[i] !== s.side) continue;
+      jumpsFrom(s, i, caps);
+      NEI[i].forEach((j) => { if (!s.b[j]) steps.push({ from: i, to: j, over: -1 }); });
+    }
+    return s.comp && caps.length ? caps : caps.concat(steps);
+  };
+  const apply = (s, m) => {
+    const n = { b: s.b.slice(), side: s.side, chain: -1, quiet: s.quiet, comp: s.comp, n: s.n.slice() };
+    if (m.pass) { n.side = 3 - s.side; return n; }
+    n.b[m.to] = n.b[m.from]; n.b[m.from] = 0;
+    if (m.over >= 0) {
+      n.b[m.over] = 0; n.n[3 - s.side] -= 1; n.quiet = 0;
+      if (jumpsFrom(n, m.to, []).length) { n.chain = m.to; return n; }
+    } else n.quiet += 1;
+    n.side = 3 - s.side;
+    return n;
+  };
+  // result: 0 still going, 1 red won, 2 white won, 3 draw
+  const result = (s) => {
+    if (!s.n[s.side] || !genMoves(s).length) return 3 - s.side;
+    if (s.quiet >= DRAW_MOVES) return 3;
+    return 0;
+  };
+
+  // ---------- computer: negamax alpha-beta with quiescence (captures), iterative deepening and a time limit
+  const WIN = 100000;
+  const TIMEUP = new Error('time');
+  let deadline = Infinity, nodes = 0, rootSide = 1;
+  const CONTEMPT = 80; // the computer treats a draw as a small loss, so it keeps playing for a win
+  const evaluate = (s) => {
+    const me = s.side, op = 3 - me;
+    let mob = 0, cen = 0;
+    for (let i = 0; i < P; i += 1) {
+      const v = s.b[i];
+      if (!v) continue;
+      let e = 0;
+      for (const j of NEI[i]) if (!s.b[j]) e += 1;
+      const sg = v === me ? 1 : -1;
+      mob += sg * e; cen += sg * DEG[i];
+    }
+    const diff = s.n[me] - s.n[op];
+    let v = diff * 100 + mob * 2 + cen;
+    if (diff !== 0) {
+      // the side that is ahead wants to trade down, close in and take away the other side's moves
+      const strong = diff > 0 ? me : op, weak = 3 - strong;
+      let dist = 0, wm = 0;
+      for (let i = 0; i < P; i += 1) {
+        if (s.b[i] === strong) {
+          let d = 9;
+          for (let j = 0; j < P; j += 1) if (s.b[j] === weak) { const dd = Math.max(Math.abs(PTS[i][0] - PTS[j][0]), Math.abs(PTS[i][1] - PTS[j][1])); if (dd < d) d = dd; }
+          dist += d;
+        } else if (s.b[i] === weak) { for (const j of NEI[i]) if (!s.b[j]) wm += 1; }
+      }
+      const hunt = (32 - s.n[1] - s.n[2]) * 4 - dist * 3 - wm * 4;
+      v += diff > 0 ? hunt : -hunt;
+    }
+    return v;
+  };
+  const tick = () => { if ((++nodes & 511) === 0 && performance.now() > deadline) throw TIMEUP; };
+  const qs = (s, a, b, ply, qd) => {
+    tick();
+    if (!s.n[s.side]) return -WIN + ply;
+    const ms = genMoves(s);
+    if (!ms.length) return -WIN + ply;
+    const caps = ms.filter((m) => m.over >= 0);
+    let best = -Infinity;
+    if (!(s.comp && caps.length)) {
+      const sp = evaluate(s);
+      if (sp >= b || qd <= 0 || !caps.length) return sp;
+      best = sp; if (sp > a) a = sp;
+    } else if (qd <= 0) return evaluate(s);
+    for (const m of caps) {
+      const c = apply(s, m);
+      const v = c.side === s.side ? qs(c, a, b, ply + 1, qd - 1) : -qs(c, -b, -a, ply + 1, qd - 1);
+      if (v > best) best = v;
+      if (best > a) a = best;
+      if (a >= b) break;
+    }
+    return best;
+  };
+  let QD = 6;
+  const search = (s, depth, a, b, ply) => {
+    tick();
+    if (!s.n[s.side]) return -WIN + ply;
+    if (s.quiet >= DRAW_MOVES) return s.side === rootSide ? -CONTEMPT : CONTEMPT;
+    if (depth <= 0) return qs(s, a, b, ply, QD);
+    const ms = genMoves(s);
+    if (!ms.length) return -WIN + ply;
+    let best = -Infinity;
+    for (const m of ms) {
+      const c = apply(s, m);
+      const v = c.side === s.side ? search(c, depth, a, b, ply + 1) : -search(c, depth - 1, -b, -a, ply + 1);
+      if (v > best) best = v;
+      if (best > a) a = best;
+      if (a >= b) break;
+    }
+    return best;
+  };
+  const LEVELS = {
+    easy: { maxD: 1, time: 150, rand: 0.4, q: 1, margin: 40 },
+    medium: { maxD: 3, time: 450, rand: 0, q: 4, margin: 6 },
+    hard: { maxD: 30, time: 900, rand: 0, q: 8, margin: 0 },
+  };
+  let timeScale = 1;
+  const pickMove = (s, lvl) => {
+    const ms = genMoves(s);
+    if (!ms.length) return null;
+    if (ms.length === 1) return ms[0];
+    const L = LEVELS[lvl] || LEVELS.medium;
+    if (L.rand && Math.random() < L.rand) {
+      const caps = ms.filter((m) => m.over >= 0);
+      const pool = caps.length && Math.random() < 0.5 ? caps : ms;
+      return pool[Math.floor(Math.random() * pool.length)];
+    }
+    QD = L.q; rootSide = s.side;
+    let order = ms.slice(), best = [ms[0]];
+    const t0 = performance.now();
+    for (let d = 1; d <= L.maxD; d += 1) {
+      deadline = d === 1 ? Infinity : t0 + L.time * timeScale;
+      const scored = [];
+      try {
+        let a = -Infinity;
+        for (const m of order) {
+          const c = apply(s, m);
+          const lo = a - L.margin - 1;
+          const v = c.side === s.side ? search(c, d, lo, WIN * 2, 1) : -search(c, d - 1, -WIN * 2, -lo, 1);
+          scored.push([v, m]);
+          if (v > a) a = v;
+        }
+      } catch (e) { if (e !== TIMEUP) throw e; break; }
+      scored.sort((x, y) => y[0] - x[0]);
+      order = scored.map((x) => x[1]);
+      const top = scored[0][0];
+      best = scored.filter((x) => x[0] >= top - L.margin).map((x) => x[1]);
+      if (Math.abs(top) > WIN - 1000) break;
+      if (performance.now() - t0 > L.time * timeScale * 0.5) break; // next depth would not finish
+    }
+    deadline = Infinity;
+    return best[Math.floor(Math.random() * best.length)];
+  };
+
+  // ---------- play state
+  let S = fresh(), history = [], mode = 'cpu', level = 'medium', first = 1, maj = false, state = 'menu', sel = -1, playerName = '', note = '';
+  let trail = null, hintM = null, turns = 0, last = null;
+  const HUMAN = 1;
+  const cpuSide = () => (mode === 'cpu' ? 2 : 0);
+  const isHumanTurn = () => mode === 'two' || S.side === HUMAN;
+
+  // ---------- drawing (SVG, chalk on mud)
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = $('board');
+  const X = (c) => c * 25, Y = (r) => (r + 2) * 20;
+  const el = (name, attrs, parent = svg) => { const e = document.createElementNS(NS, name); Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v)); parent.append(e); return e; };
+  const defs = () => {
+    const d = el('defs', {});
+    d.innerHTML = '<radialGradient id="mud" cx="50%" cy="45%" r="70%"><stop offset="0" stop-color="#6f4a2f"/><stop offset="1" stop-color="#3f2817"/></radialGradient>'
+      + '<filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 0.15  0 0 0 0 0.09  0 0 0 0 0.04  0 0 0 0.55 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>'
+      + '<filter id="chalk" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="1" seed="9" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="0.9"/></filter>'
+      + '<radialGradient id="pRed" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#f08a66"/><stop offset="0.55" stop-color="#c0432a"/><stop offset="1" stop-color="#7c2213"/></radialGradient>'
+      + '<radialGradient id="pWhite" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset="0.6" stop-color="#eee4cf"/><stop offset="1" stop-color="#b9a983"/></radialGradient>';
+  };
+  const draw = () => {
+    svg.replaceChildren();
+    defs();
+    el('rect', { x: -12, y: -12, width: 124, height: 184, fill: 'url(#mud)' });
+    el('rect', { x: -12, y: -12, width: 124, height: 184, fill: '#000', filter: 'url(#grain)', opacity: 0.9 });
+    const g = el('g', { stroke: '#f6efe0', 'stroke-width': 1.15, 'stroke-linecap': 'round', fill: 'none', opacity: 0.88, filter: 'url(#chalk)' });
+    LINES.forEach((line) => el('polyline', { points: line.map(([r, c]) => `${X(c)},${Y(r)}`).join(' ') }, g));
+    // last turn: path of the moving piece and the captured spots
+    if (trail && trail.pts.length > 1) {
+      el('polyline', { points: trail.pts.map((i) => `${X(PTS[i][1])},${Y(PTS[i][0])}`).join(' '), fill: 'none', stroke: '#ffd43b', 'stroke-width': 1.6, 'stroke-dasharray': '2.5 2', opacity: 0.85, 'stroke-linecap': 'round' });
+      el('circle', { cx: X(PTS[trail.pts[0]][1]), cy: Y(PTS[trail.pts[0]][0]), r: 4.5, fill: 'none', stroke: '#ffd43b', 'stroke-width': 1, opacity: 0.8 });
+    }
+    const ms = state === 'play' && isHumanTurn() ? genMoves(S) : [];
+    const sq = state === 'play' && sel >= 0 ? sel : -1;
+    const targets = sq >= 0 ? ms.filter((m) => m.from === sq && !m.pass) : [];
+    const movable = new Set(sel < 0 ? ms.map((m) => m.from) : []);
+    const endAt = trail ? trail.pts[trail.pts.length - 1] : -1;
+    for (let i = 0; i < P; i += 1) {
+      const [r, c] = PTS[i], x = X(c), y = Y(r), p = S.b[i];
+      const tgt = targets.find((m) => m.to === i);
+      const grp = el('g', { class: 'pt', 'data-i': i });
+      el('circle', { cx: x, cy: y, r: 9.8, fill: 'transparent' }, grp);
+      if (trail && trail.caps.includes(i) && !p) { const k = el('text', { x, y: y + 2.6, 'text-anchor': 'middle', 'font-size': 7.5, fill: '#ff8a7a', opacity: 0.85, 'font-weight': 700 }, grp); k.textContent = '✕'; }
+      else if (!p) el('circle', { cx: x, cy: y, r: tgt ? 3.6 : 1.7, fill: tgt ? (tgt.over >= 0 ? '#ff6b6b' : '#8ce99a') : '#f6efe0', opacity: tgt ? 1 : 0.85 }, grp);
+      if (tgt && tgt.over >= 0) el('circle', { cx: x, cy: y, r: 6, fill: 'none', stroke: '#ff6b6b', 'stroke-width': 1, class: 'pulse' }, grp);
+      if (p) {
+        const pg = el('g', { class: i === endAt && last && last.fresh ? 'pop' : '' }, grp);
+        el('ellipse', { cx: x + 0.6, cy: y + 1.6, rx: 7.6, ry: 6.6, fill: 'rgba(0,0,0,0.38)' }, pg);
+        const selNow = i === sq;
+        el('circle', { cx: x, cy: y, r: 7.4, fill: p === 1 ? 'url(#pRed)' : 'url(#pWhite)', stroke: selNow ? '#ffd43b' : p === 1 ? '#5b170b' : '#8a7a56', 'stroke-width': selNow ? 1.8 : 0.7 }, pg);
+        if (movable.has(i) && state === 'play') el('circle', { cx: x, cy: y, r: 9, fill: 'none', stroke: 'rgba(255,255,255,0.35)', 'stroke-width': 0.6, 'stroke-dasharray': '1.5 1.5' }, pg);
+      }
+      if (hintM && (hintM.from === i || hintM.to === i)) el('circle', { cx: x, cy: y, r: 9.2, fill: 'none', stroke: '#ffd43b', 'stroke-width': 1.6, class: 'pulse' }, grp);
+    }
+    if (last) last.fresh = false;
+  };
+  const updateHud = () => {
+    $('hudA').textContent = `🔴 ${S.n[1]}`;
+    $('hudB').textContent = `⚪ ${S.n[2]}`;
+    const thinking = state === 'play' && mode === 'cpu' && S.side === cpuSide();
+    $('hudTurn').textContent = state === 'play' ? (thinking ? t('thinking') : mode === 'cpu' ? t('turnYou') : S.side === 1 ? t('turnRed') : t('turnWhite')) : '';
+    $('hudTurn').classList.toggle('hidden', state !== 'play');
+    const human = state === 'play' && isHumanTurn();
+    let m = note;
+    if (!m && human) m = S.chain >= 0 ? (S.comp ? t('msgChainComp') : t('msgChain')) : t('msgPick');
+    $('msg').textContent = m;
+    $('passBtn').classList.toggle('hidden', !(human && S.chain >= 0 && !S.comp));
+    $('hintBtn').classList.toggle('hidden', !(human && S.chain < 0));
+    $('undoBtn').classList.toggle('hidden', !(state === 'play' && mode === 'cpu' && undoIndex() >= 0));
+  };
+  const undoIndex = () => { for (let k = history.length - 1; k >= 0; k -= 1) if (history[k].side === HUMAN && history[k].chain < 0) return k; return -1; };
+  const render = () => { draw(); updateHud(); };
+
+  // ---------- page texts
+  const renderWins = () => { $('wEasy').textContent = t('wins')(wins.easy); $('wMedium').textContent = t('wins')(wins.medium); $('wHard').textContent = t('wins')(wins.hard); };
+  const renderSegs = () => {
+    document.querySelectorAll('#firstSeg button').forEach((b) => b.classList.toggle('on', +b.dataset.f === first));
+    document.querySelectorAll('#majSeg button').forEach((b) => b.classList.toggle('on', (b.dataset.m === '1') === maj));
+  };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — 16 Goti Board Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((e) => { e.textContent = t(e.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((e) => { e.placeholder = t(e.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    $('tipList').innerHTML = t('tips').map((li) => `<li>${li}</li>`).join('');
+    const F = t('facts');
+    $('factList').innerHTML = FACT_KEYS.map((k) => `<li>${F[k]}</li>`).join('');
+    $('faqList').innerHTML = t('faq').map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    renderSegs(); renderWins(); render();
+    if (last && last.end) fillEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('sg-lang', lang); applyLang(); });
+  $('name').value = store.get('sg-name') || '';
+  $('year').textContent = new Date().getFullYear();
+  first = store.get('sg-first') === '2' ? 2 : 1;
+  maj = store.get('sg-majboori') === '1';
+
+  // ---------- sound (WebAudio, no files)
+  let muted = store.get('sg-muted') === '1';
+  let ac = null, master = null, noise = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setIcons();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('sg-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.8; });
+  const initAudio = () => {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    ac = new AC(); master = ac.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(ac.destination);
+    noise = ac.createBuffer(1, Math.floor(ac.sampleRate * 0.08), ac.sampleRate);
+    const d = noise.getChannelData(0); for (let i = 0; i < d.length; i += 1) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / d.length, 3);
+  };
+  const tone = (f, dur, type = 'sine', vol = 0.07, delay = 0, f2 = null) => {
+    if (!ac || muted) return;
+    const w = ac.currentTime + delay, o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, w);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, w + dur);
+    g.gain.setValueAtTime(0.0001, w); g.gain.exponentialRampToValueAtTime(vol, w + 0.004); g.gain.exponentialRampToValueAtTime(0.0001, w + dur);
+    o.connect(g); g.connect(master); o.start(w); o.stop(w + dur + 0.03);
+  };
+  const tok = (delay = 0, pitch = 1) => {
+    if (!ac || muted) return;
+    const w = ac.currentTime + delay, src = ac.createBufferSource(), bp = ac.createBiquadFilter(), g = ac.createGain();
+    src.buffer = noise; bp.type = 'bandpass'; bp.frequency.value = 1700 * pitch; bp.Q.value = 4; g.gain.value = 0.9;
+    src.connect(bp); bp.connect(g); g.connect(master); src.start(w);
+    tone(420 * pitch, 0.07, 'sine', 0.09, delay, 260 * pitch);
+  };
+  const sfx = {
+    move: () => tok(),
+    capture: () => { tok(0, 1.15); tok(0.08, 0.8); tone(320, 0.22, 'triangle', 0.06, 0.06, 140); },
+    win: () => { [523, 659, 784, 1047, 784, 1047].forEach((f, i) => tone(f, i > 3 ? 0.5 : 0.22, 'triangle', 0.06, i * 0.12)); },
+    lose: () => { tone(392, 0.25, 'triangle', 0.05); tone(311, 0.45, 'triangle', 0.05, 0.22, 220); },
+  };
+
+  // ---------- turns
+  const doMove = (m) => {
+    history.push(S);
+    const before = S;
+    if (!m.pass) {
+      if (before.chain < 0) trail = { pts: [m.from], caps: [] };
+      trail.pts.push(m.to);
+      if (m.over >= 0) trail.caps.push(m.over);
+    }
+    S = apply(S, m); hintM = null; note = '';
+    last = { fresh: !m.pass };
+    sel = S.chain >= 0 ? S.chain : -1;
+    if (S.side !== before.side) turns += 1;
+    if (m.over >= 0) { note = t('captured'); sfx.capture(); } else if (!m.pass) sfx.move();
+    const r = result(S);
+    if (r) return finish(r);
+    render();
+    next();
+  };
+  const next = () => {
+    if (state !== 'play') return;
+    if (mode === 'cpu' && S.side === cpuSide()) setTimeout(cpuTurn, debug ? 5 : S.chain >= 0 ? 420 : 380);
+    else if (auto) setTimeout(botTurn, 5);
+  };
+  const cpuTurn = () => {
+    if (state !== 'play' || S.side !== cpuSide()) return;
+    const m = pickMove(S, level);
+    if (m) doMove(m);
+  };
+  const botTurn = () => { // debug only: plays the "human" side(s)
+    if (state !== 'play' || !isHumanTurn()) return;
+    const m = pickMove(S, S.side === 1 ? (params.get('p1') || 'medium') : (params.get('p2') || 'easy'));
+    if (m) doMove(m);
+  };
+  const tap = (i) => {
+    if (state !== 'play' || !isHumanTurn()) return;
+    initAudio();
+    const ms = genMoves(S);
+    if (S.chain >= 0) {
+      if (i === S.chain) { const ps = ms.find((m) => m.pass); if (ps) doMove(ps); return; }
+      const m = ms.find((x) => !x.pass && x.to === i);
+      if (m) doMove(m);
+      return;
+    }
+    hintM = null;
+    if (S.b[i] === S.side) {
+      if (ms.some((m) => m.from === i)) { sel = sel === i ? -1 : i; note = ''; }
+      else { sel = -1; note = S.comp && ms.some((m) => m.over >= 0) ? t('msgMust') : ''; }
+      render(); return;
+    }
+    if (sel >= 0) { const m = ms.find((x) => x.from === sel && x.to === i); if (m) doMove(m); else { sel = -1; render(); } }
+  };
+  svg.addEventListener('click', (e) => { const g = e.target.closest('.pt'); if (g) tap(+g.dataset.i); });
+  $('passBtn').addEventListener('click', () => { if (state === 'play' && isHumanTurn() && S.chain >= 0) { const ps = genMoves(S).find((m) => m.pass); if (ps) doMove(ps); } });
+  $('hintBtn').addEventListener('click', () => {
+    if (state !== 'play' || !isHumanTurn() || S.chain >= 0) return;
+    initAudio();
+    hintM = pickMove(S, 'medium'); sel = hintM ? hintM.from : -1; note = t('hintMsg'); render();
+  });
+
+  // ---------- start / end
+  const hideOverlays = () => ['startScreen', 'endScreen'].forEach((id) => $(id).classList.add('hidden'));
+  const start = (m, lvl) => {
+    initAudio();
+    mode = m; if (lvl) level = lvl;
+    playerName = cleanName($('name').value); store.set('sg-name', playerName);
+    S = fresh(first, maj); history = []; sel = -1; last = null; note = ''; trail = null; hintM = null; turns = 0; state = 'play';
+    hideOverlays(); $('menuBtn').classList.remove('hidden');
+    $('shareOther').textContent = t('shareOther');
+    render();
+    next();
+  };
+  const finish = (r) => {
+    state = 'over';
+    const youWon = mode === 'cpu' && r === HUMAN;
+    if (youWon) { wins[level] += 1; store.set('sg-wins', JSON.stringify(wins)); }
+    (mode === 'two' || youWon || r === 3 ? sfx.win : sfx.lose)();
+    const loser = 3 - r;
+    const why = r === 3 ? 'draw' : S.n[loser] ? 'stuck' : 'all';
+    last = { end: true, r, why, youWon, mode, level, name: playerName, turns, n: S.n.slice(), fact: FACT_KEYS[Math.floor(Math.random() * FACT_KEYS.length)] };
+    fillEnd(); renderWins(); render();
+    setTimeout(() => $('endScreen').classList.remove('hidden'), debug ? 0 : 900);
+    if (auto && window.__sgDone) window.__sgDone(last);
+  };
+  const fillEnd = () => {
+    const L = last;
+    const sideWin = L.r === 1 ? t('winRed') : L.r === 2 ? t('winWhite') : t('draw');
+    $('endTitle').textContent = L.mode === 'cpu' && L.r !== 3 ? (L.youWon ? t('youWin')(L.name) : t('youLose')) : sideWin;
+    $('endBig').textContent = `🔴 ${L.n[1]} · ⚪ ${L.n[2]}`;
+    const why = L.why === 'draw' ? t('noteDraw') : L.why === 'stuck' ? t('noteStuck') : t('noteAll');
+    $('endNote').textContent = `${L.mode === 'cpu' && L.r !== 3 ? `${sideWin} · ` : ''}${why} · ${t('noteMoves')(L.turns)}`;
+    $('endFact').textContent = `💡 ${t('facts')[L.fact]}`;
+  };
+  const toMenu = () => { state = 'menu'; sel = -1; hintM = null; hideOverlays(); renderSegs(); renderWins(); render(); $('menuBtn').classList.add('hidden'); $('startScreen').classList.remove('hidden'); };
+  $('undoBtn').addEventListener('click', () => {
+    if (state !== 'play' || mode !== 'cpu') return;
+    const k = undoIndex();
+    if (k < 0) return;
+    S = history[k]; history.length = k;
+    sel = -1; trail = null; hintM = null; last = null; note = ''; render();
+  });
+
+  $('firstSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; first = +b.dataset.f; store.set('sg-first', String(first)); renderSegs(); });
+  $('majSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; maj = b.dataset.m === '1'; store.set('sg-majboori', maj ? '1' : '0'); renderSegs(); });
+  $('levelSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) start('cpu', b.dataset.l); });
+  $('twoBtn').addEventListener('click', () => start('two'));
+  $('againBtn').addEventListener('click', () => start(mode, level));
+  $('toMenu').addEventListener('click', toMenu);
+  $('menuBtn').addEventListener('click', toMenu);
+
+  // ---------- share
+  const shareText = () => {
+    const u = new URL(SITE);
+    if (playerName) u.searchParams.set('from', playerName);
+    if (playerName && totalWins()) u.searchParams.set('score', String(totalWins()));
+    u.searchParams.set('lang', lang);
+    if (last && last.end && last.youWon) return t('shareWin')(playerName, t(last.level), u.toString());
+    return t('sharePlain')(u.toString());
+  };
+  const openWa = (text) => window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+  $('shareWa').addEventListener('click', () => openWa(shareText()));
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => openWa(text));
+  });
+
+  applyLang();
+
+  // fast full game with the pure functions (self-test and strength checks)
+  const play = async (l1, l2, comp, firstSide = 1) => {
+    let g = fresh(firstSide, comp), n = 0, bad = false;
+    while (!result(g) && n < 1500) {
+      const m = pickMove(g, g.side === 1 ? l1 : l2);
+      if (!genMoves(g).some((x) => x.from === m.from && x.to === m.to && !!x.pass === !!m.pass)) bad = true;
+      g = apply(g, m); n += 1;
+      if (g.n[1] !== g.b.filter((v) => v === 1).length || g.n[2] !== g.b.filter((v) => v === 2).length) bad = true;
+      if (n % 4 === 0) await new Promise((r) => setTimeout(r, 0));
+    }
+    return { r: result(g), n, left: `${g.n[1]}-${g.n[2]}`, bad };
+  };
+
+  // ---------- self-test (?debug, ?debug&auto[&mode=cpu|two][&level=hard])
+  const selftest = async () => {
+    const box = document.createElement('div'); box.id = 'selftest'; document.body.prepend(box);
+    const lines = []; let ok = true;
+    const log = (s) => { lines.push(s); box.textContent = lines.join('\n'); };
+    const check = (name, cond) => { if (!cond) ok = false; log(`${cond ? 'ok  ' : 'FAIL'} ${name}`); };
+    const empty = (side = 1, comp = false) => ({ b: Array(P).fill(0), side, chain: -1, quiet: 0, comp, n: [0, 0, 0] });
+    const put = (s, r, c, v) => { s.b[at(r, c)] = v; s.n[v] += 1; };
+    const has = (ms, fr, to, ov) => ms.some((m) => m.from === at(...fr) && m.to === at(...to) && (ov ? m.over === at(...ov) : m.over < 0));
+    check('37 points', P === 37 && AT.size === 37);
+    check('76 lines between neighbours', NEI.reduce((n, a) => n + a.length, 0) === 152);
+    check('centre (2,2) has 8 neighbours, (2,1) has 4, tip (0,2) has 8, base (-2,2) has 3', DEG[at(2, 2)] === 8 && DEG[at(2, 1)] === 4 && DEG[at(0, 2)] === 8 && DEG[at(-2, 2)] === 3);
+    const f = fresh();
+    check('start: 16 + 16 pieces, middle row empty', f.b.filter((v) => v === 1).length === 16 && f.b.filter((v) => v === 2).length === 16 && [0, 1, 2, 3, 4].every((c) => !f.b[at(2, c)]));
+    check('start: every red move goes into the empty middle row', genMoves(f).length > 0 && genMoves(f).every((m) => PTS[m.to][0] === 2));
+    let s = empty(); put(s, 2, 2, 1); put(s, 1, 2, 2);
+    check('straight jump (2,2) over (1,2) to (0,2)', has(genMoves(s), [2, 2], [0, 2], [1, 2]));
+    s = empty(); put(s, 2, 1, 1); put(s, 1, 2, 2);
+    check('no jump where no diagonal line ((2,1) over (1,2))', !genMoves(s).some((m) => m.over >= 0));
+    s = empty(); put(s, 1, 3, 1); put(s, 0, 2, 2);
+    check('diagonal jump into the triangle (1,3)->(-1,1)', has(genMoves(s), [1, 3], [-1, 1], [0, 2]));
+    s = empty(); put(s, -2, 0, 1); put(s, -2, 2, 2);
+    check('jump along the triangle base', has(genMoves(s), [-2, 0], [-2, 4], [-2, 2]));
+    s = empty(); put(s, 4, 2, 1); put(s, 3, 2, 2); put(s, 1, 2, 2); put(s, 0, 0, 2);
+    let s2 = apply(s, { from: at(4, 2), to: at(2, 2), over: at(3, 2) });
+    check('chain: after first jump same side continues with same piece', s2.side === 1 && s2.chain === at(2, 2) && s2.n[2] === 2);
+    const cm = genMoves(s2);
+    check('chain: only that piece\'s jumps + stop', cm.filter((m) => !m.pass).every((m) => m.from === at(2, 2)) && cm.some((m) => m.pass));
+    const s3 = apply(s2, cm.find((m) => !m.pass && m.to === at(0, 2)));
+    check('chain: second jump ends the turn (no more captures)', s3.side === 2 && s3.chain < 0 && s3.n[2] === 1 && !s3.b[at(1, 2)] && !s3.b[at(3, 2)]);
+    s = empty(1, true); put(s, 4, 2, 1); put(s, 3, 2, 2); put(s, 1, 2, 2); put(s, 4, 0, 1); put(s, 0, 0, 2);
+    check('majboori: only captures allowed', genMoves(s).every((m) => m.over >= 0) && genMoves(s).length === 1);
+    s2 = apply(s, genMoves(s)[0]);
+    check('majboori: chain has no "stop"', !genMoves(s2).some((m) => m.pass));
+    s = empty(2); put(s, 0, 0, 2); put(s, 0, 1, 1); put(s, 1, 0, 1); put(s, 1, 1, 1); put(s, 0, 2, 1); put(s, 2, 0, 1); put(s, 2, 2, 1);
+    check('blocked side loses', result(s) === 1);
+    s = empty(1); put(s, 3, 3, 1); check('no pieces left loses', (() => { const q = { ...s, side: 2 }; return result(q) === 1; })());
+    check('draw after 60 quiet moves', result({ ...fresh(), quiet: DRAW_MOVES }) === 3);
+    // hard level keeps to its time limit (phones must not freeze)
+    let worst = 0, pos = fresh();
+    for (let k = 0; k < 6; k += 1) { const t0 = performance.now(); const m = pickMove(pos, 'hard'); worst = Math.max(worst, performance.now() - t0); pos = apply(pos, m); await new Promise((r) => setTimeout(r, 0)); }
+    check(`hard move time ${Math.round(worst)} ms ≤ ${LEVELS.hard.time + 300} ms`, worst <= LEVELS.hard.time + 300);
+    if (!auto) { log(`RESULT ${ok ? 'PASS' : 'FAIL'}`); document.body.dataset.selftest = ok ? 'pass' : 'fail'; return; }
+    // fast full games with the pure functions
+    timeScale = 0.12;
+    const tally = { 1: 0, 2: 0, 3: 0 };
+    for (const [l1, l2, comp] of [['easy', 'medium', false], ['medium', 'easy', true], ['hard', 'medium', false], ['medium', 'hard', true]]) {
+      const res = await play(l1, l2, comp);
+      tally[res.r] = (tally[res.r] || 0) + 1;
+      check(`game red ${l1} vs white ${l2}${comp ? ' (majboori)' : ''}: ${res.r === 3 ? 'draw' : res.r === 1 ? 'red won' : 'white won'} in ${res.n} plies, left ${res.left}`, !!res.r && !res.bad);
+    }
+    log(`tally: red ${tally[1]}, white ${tally[2]}, draw ${tally[3]}`);
+    // one full game through the real UI
+    const uiMode = params.get('mode') === 'cpu' ? 'cpu' : 'two';
+    await new Promise((resolve) => {
+      window.__sgDone = (L) => {
+        check(`UI game (${uiMode}${uiMode === 'cpu' ? `, computer ${level}` : ''}): ${L.r === 3 ? 'draw' : L.r === 1 ? 'red won' : 'white won'} (${L.why}) after ${L.turns} turns, left ${L.n[1]}-${L.n[2]}`, [1, 2, 3].includes(L.r));
+        check('end screen filled', !!$('endTitle').textContent && !!$('endNote').textContent);
+        resolve();
+      };
+      start(uiMode, params.get('level') || 'hard');
+    });
+    log(`RESULT ${ok ? 'PASS' : 'FAIL'}`);
+    document.body.dataset.selftest = ok ? 'pass' : 'fail';
+  };
+  window.__sg = { get state() { return state; }, get S() { return S; }, tap, genMoves: () => genMoves(S), pickMove: (lvl) => pickMove(S, lvl), result: () => result(S), match: async (l1, l2, k = 4, ts = 0.3, comp = false) => { timeScale = ts; const out = []; for (let i = 0; i < k; i += 1) { const a = await play(l1, l2, comp, 1 + (i % 2)); out.push(a); const b = await play(l2, l1, comp, 1 + (i % 2)); out.push({ ...b, swapped: true }); } timeScale = 1; return out.map((o) => `${o.swapped ? l2 + '(red) v ' + l1 : l1 + '(red) v ' + l2}: ${o.r === 3 ? 'draw' : o.r === 1 ? 'red' : 'white'} ${o.n} ${o.left}`); } };
+  if (debug) setTimeout(() => selftest().catch((e) => { document.body.dataset.selftest = 'fail'; const b = $('selftest'); if (b) b.textContent += `\nERROR ${e && e.stack}`; }), 50);
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+<script src="/assets/game-share.js?v=3" defer></script>
+</body>
+</html>

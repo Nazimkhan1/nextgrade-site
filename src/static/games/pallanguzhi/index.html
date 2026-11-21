@@ -1,0 +1,1036 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pallanguzhi 🌰 — Gutte ka Khel, Mancala Board Game | NextGrade</title>
+<meta name="description" content="Pallanguzhi (Ali Guli Mane, Vamana Guntalu): the old South Indian wooden-board seed game with 14 pits, free in Hinglish, Hindi, English and Bengali. Sow the seeds, capture the pit after an empty one, play the computer (easy, medium, hard) or a friend on one phone.">
+<link rel="canonical" href="https://nextgrade.in/games/pallanguzhi/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Pallanguzhi 🌰 — nani-dadi wala lakdi ka board">
+<meta property="og:description" content="14 gadde, imli ke beej: beej bono, khaali ghar ke baad wala ghar jeeto. Computer ya dost ke saath khelo — Hinglish, Hindi, English, Bangla.">
+<meta property="og:url" content="https://nextgrade.in/games/pallanguzhi/">
+<meta property="og:image" content="https://nextgrade.in/games/pallanguzhi/icons/icon-512.png">
+<meta name="theme-color" content="#7a4a1f">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Pallanguzhi (Gutte ka Khel)","alternateName":["Ali Guli Mane","Vamana Guntalu"],"url":"https://nextgrade.in/games/pallanguzhi/","genre":"Board game","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you play Pallanguzhi?","acceptedAnswer":{"@type":"Answer","text":"The board has 14 pits, 7 for each player, with 5 seeds in each at the start. On your turn you lift all seeds from one of your pits and drop them one by one into the next pits, going anticlockwise. When the last seed falls, look at the next pit: if it has seeds, lift them and keep sowing; if it is empty, you win the seeds in the pit after it and your turn ends. When the player to move has no seeds left, the round ends and whoever collected more seeds wins."}},{"@type":"Question","name":"What is pasu in Pallanguzhi?","acceptedAnswer":{"@type":"Answer","text":"Pasu is the rule of four: in many families, whenever a pit reaches exactly 4 seeds during sowing, the owner of that pit takes those 4 seeds at once. In this game it is a setting you can switch on or off."}},{"@type":"Question","name":"Are Ali Guli Mane and Pallanguzhi the same game?","acceptedAnswer":{"@type":"Answer","text":"Broadly yes. Pallanguzhi is the Tamil name, Ali Guli Mane is used in Karnataka and Vamana Guntalu in Andhra Pradesh and Telangana. The board and the idea are the same; the number of seeds and small rules change from place to place and even from family to family."}}]}</script>
+<style>
+:root { --bg: #1e130a; --gold: #f2c94c; --brass: #c9a227; --ink: #fdf6ea; --muted: #e2d3bb; --card: rgba(255,255,255,0.07); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #7a4a1f, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #7a4a1f, #c9a227); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+
+/* the table, the wooden board and the brass */
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5); width: 100%; min-height: 560px; margin: 0 auto; padding: 12px 8px 10px; background: radial-gradient(500px 300px at 50% 40%, #4a2e17, #24160b); user-select: none; -webkit-user-select: none; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+.prow { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 14px; border: 2px solid transparent; font-weight: 800; transition: border-color .2s, background .2s; }
+.prow.on { border-color: var(--gold); background: rgba(242,201,76,0.12); }
+.prow .who { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.prow .who small { display: block; font-size: 12px; font-weight: 600; color: var(--muted); line-height: 1.2; }
+.bowl { display: flex; align-items: center; gap: 6px; background: linear-gradient(180deg, #6b3f1c, #3f240f); border: 2px solid var(--brass); border-radius: 999px; padding: 2px 12px 2px 6px; font-family: "Baloo 2", sans-serif; font-size: 20px; color: var(--gold); white-space: nowrap; }
+.bowl i { width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 50% 35%, #2a170a 30%, #5a3818 70%); box-shadow: inset 0 3px 5px rgba(0,0,0,.7); position: relative; }
+.bowl i::after { content: ""; position: absolute; left: 6px; top: 7px; width: 9px; height: 6px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #e0a878, #6b3410 60%, #3d1c06); }
+.bowl.pop { animation: pop .45s ease-out; }
+@keyframes pop { 40% { transform: scale(1.18); } }
+.boardwrap { position: relative; }
+.board { position: relative; display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px 4px; padding: 10px 9px; border-radius: 26px; border: 3px solid var(--brass);
+  background-color: #8a5a2b;
+  background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 9px), repeating-linear-gradient(90deg, rgba(0,0,0,0.09) 0 1px, transparent 1px 23px), radial-gradient(120px 30px at 30% 50%, rgba(0,0,0,0.12), transparent), linear-gradient(180deg, #b47838, #8a5427 45%, #7b4a1f);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.55), inset 0 2px 0 rgba(255,255,255,0.18), inset 0 -3px 0 rgba(0,0,0,0.25); }
+.board::before { content: ""; position: absolute; left: 14px; right: 14px; top: 50%; height: 2px; margin-top: -1px; background: linear-gradient(90deg, transparent, var(--brass) 15%, var(--brass) 85%, transparent); opacity: .7; }
+.stud { position: absolute; width: 9px; height: 9px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff3b0, #c9a227 55%, #6d5410); box-shadow: 0 1px 2px rgba(0,0,0,.5); }
+.cell { display: flex; flex-direction: column; align-items: center; gap: 1px; position: relative; min-width: 0; }
+.cell.top { flex-direction: column-reverse; }
+.cnt { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 15px; line-height: 1.15; color: #fff3d6; text-shadow: 0 1px 2px rgba(0,0,0,.7); }
+.pit { position: relative; width: 100%; aspect-ratio: 1; border-radius: 50%; border: 0; padding: 0; cursor: default; background: radial-gradient(circle at 50% 42%, #331d0b 0%, #4f3015 50%, #6e4320 82%, #9a6633 100%); box-shadow: inset 0 5px 9px rgba(0,0,0,0.65), 0 1px 0 rgba(255,255,255,0.22); outline: none; }
+.pit.play { cursor: pointer; box-shadow: inset 0 5px 9px rgba(0,0,0,0.65), 0 0 0 2px var(--gold), 0 0 10px rgba(242,201,76,0.6); }
+.pit.hot { box-shadow: inset 0 5px 9px rgba(0,0,0,0.5), 0 0 0 3px #fff, 0 0 14px rgba(255,255,255,0.7); }
+.pit.last { box-shadow: inset 0 5px 9px rgba(0,0,0,0.65), 0 0 0 2px rgba(255,255,255,0.45); }
+.pit.cap { animation: capflash .5s ease-out; }
+@keyframes capflash { 0% { background: radial-gradient(circle, #ffe066, #c9a227); } }
+.cell.closed .pit { background: radial-gradient(circle at 50% 45%, #6e4320, #8a5a2b); box-shadow: inset 0 1px 2px rgba(0,0,0,0.4); }
+.cell.closed .pit::after { content: "✕"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: rgba(40,20,5,0.55); font-weight: 800; font-size: 20px; }
+.cell.closed .cnt { opacity: .5; }
+.seed { position: absolute; width: 23%; height: 16%; border-radius: 50%; transform: translate(-50%, -50%) rotate(var(--r)); background: radial-gradient(circle at 35% 30%, #e7b080, #7a3d12 55%, #3d1c06); box-shadow: 0 1px 1px rgba(0,0,0,.6); pointer-events: none; }
+.seed.red { background: radial-gradient(circle at 35% 30%, #ff9a8a, #b3261e 55%, #5c0f0a); width: 18%; height: 18%; }
+.seed.cow { background: radial-gradient(circle at 40% 35%, #fffdf3, #e9dcc0 60%, #b9a47c); width: 22%; height: 15%; }
+.hand { position: absolute; z-index: 5; transform: translate(-50%, 0); background: var(--gold); color: #3d2207; font-weight: 800; font-size: 14px; border-radius: 999px; padding: 0 8px; box-shadow: 0 2px 6px rgba(0,0,0,.5); pointer-events: none; transition: left .09s linear, top .09s linear; white-space: nowrap; }
+.dir { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); opacity: .8; padding: 0 10px; }
+.msg { margin: 0; min-height: 44px; line-height: 1.35; text-align: center; font-weight: 800; font-size: 15px; color: #fff3d6; display: flex; align-items: center; justify-content: center; }
+.ctrl { display: flex; gap: 8px; justify-content: space-between; }
+.ctrl button { font: inherit; font-weight: 800; font-size: 13px; padding: 6px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.35); color: #fff; cursor: pointer; }
+.ctrl .sp { flex: 1; }
+
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(30, 18, 8, 0.86); padding: 14px; overflow-y: auto; z-index: 10; }
+.panel { background: rgba(255,255,255,0.1); border: 1px solid rgba(242,201,76,0.35); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 16px; width: min(420px, 100%); text-align: center; margin: auto; color: var(--ink); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: #f3ead8; }
+.panel .fact { background: rgba(242,201,76,0.12); border: 1px solid rgba(242,201,76,0.35); border-radius: 12px; padding: 8px 10px; color: #ffe8a3; font-size: 15px; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 38px; font-weight: 800; color: var(--gold); line-height: 1.1; margin: 6px 0; }
+.label { font-size: 13px; color: var(--muted); margin: 8px 0 0; font-weight: 700; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 5px 0; }
+.seg3 { grid-template-columns: repeat(3, 1fr); }
+.seg button { font: inherit; font-weight: 800; font-size: 15px; padding: 8px 4px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08); color: var(--ink); cursor: pointer; line-height: 1.25; }
+.seg button.on { background: #a0621f; border-color: var(--gold); }
+.seg button small { display: block; font-size: 12px; font-weight: 600; color: var(--gold); }
+.opts { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+.opts .seg { grid-template-columns: 1fr; gap: 4px; margin: 2px 0; }
+.opts .seg button { font-size: 13px; padding: 5px 2px; }
+input { width: 100%; font: inherit; font-size: 16px; padding: 9px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 6px 0; }
+input::placeholder { color: #d9c9ad; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #c9a227, #a0621f); color: #2a1606; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+.note { color: var(--muted); font-size: 15px; }
+details { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 10px 14px; margin: 8px 0; }
+summary { font-weight: 700; cursor: pointer; }
+details p { margin: 8px 0 0; color: var(--muted); }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+#selftest { white-space: pre-wrap; font-size: 12px; background: #000; color: #9f9; padding: 8px; border-radius: 8px; }
+@media (max-width: 480px) { .panel { padding: 12px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .board { padding: 8px 6px; border-radius: 20px; gap: 2px 3px; } .cnt { font-size: 14px; } .bowl { font-size: 18px; } .msg { font-size: 14px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🌰 NextGrade<small>Bachpan</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <div class="prow" id="rowTop"><span class="who" id="nameTop"></span><span class="bowl" id="bowlTop"><i></i><b id="storeTop">0</b></span></div>
+    <div class="dir" aria-hidden="true"><span>◀ ◀</span><span>◀ ◀</span></div>
+    <div class="boardwrap">
+      <div class="board" id="board" role="group" aria-label="Pallanguzhi board"></div>
+      <span class="hand hidden" id="hand"></span>
+    </div>
+    <div class="dir" aria-hidden="true"><span>▶ ▶</span><span>▶ ▶</span></div>
+    <div class="prow" id="rowBot"><span class="who" id="nameBot"></span><span class="bowl" id="bowlBot"><i></i><b id="storeBot">0</b></span></div>
+    <p class="msg" id="msg" role="status"></p>
+    <div class="ctrl">
+      <button class="hidden" id="undoBtn" type="button" data-i18n="undo"></button>
+      <span class="sp"></span>
+      <button class="hidden" id="skipBtn" type="button" data-i18n="skip"></button>
+      <button class="hidden" id="menuBtn" type="button" data-i18n="menuBtn"></button>
+    </div>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle"></h2>
+        <p data-i18n="controls"></p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <div class="opts">
+          <div><p class="label" data-i18n="setSeeds"></p><div class="seg" id="seedSeg"><button type="button" data-v="5">5</button><button type="button" data-v="6">6</button></div></div>
+          <div><p class="label" data-i18n="setPasu"></p><div class="seg" id="pasuSeg"><button type="button" data-v="1" data-i18n="on"></button><button type="button" data-v="0" data-i18n="off"></button></div></div>
+          <div><p class="label" data-i18n="setRounds"></p><div class="seg" id="roundSeg"><button type="button" data-v="0" data-i18n="oneRound"></button><button type="button" data-v="1" data-i18n="fullGame"></button></div></div>
+        </div>
+        <p class="label" data-i18n="vsComputer"></p>
+        <div class="seg seg3" id="levelSeg">
+          <button type="button" data-l="easy"><span data-i18n="easy"></span><small id="wEasy"></small></button>
+          <button type="button" data-l="medium"><span data-i18n="medium"></span><small id="wMedium"></small></button>
+          <button type="button" data-l="hard"><span data-i18n="hard"></span><small id="wHard"></small></button>
+        </div>
+        <button type="button" class="btn btn-ghost" id="twoBtn" data-i18n="twoPlayers"></button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big" id="endBig"></div>
+        <p id="endNote"></p>
+        <p class="fact" id="endFact"></p>
+        <button class="btn btn-main" id="againBtn" type="button" data-i18n="again"></button>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-ghost" id="toMenu" type="button" data-i18n="menuBtn"></button>
+      </div>
+    </div>
+  </div>
+  <pre id="selftest" class="hidden"></pre>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card2"><ol id="howList"></ol></div>
+    <p class="note" data-i18n="rulesNote"></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="tipsTitle"></h2>
+    <div class="card2"><ul id="tipList"></ul></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+    <p data-i18n="aboutText3"></p>
+  </section>
+
+  <section>
+    <h2 data-i18n="factsTitle"></h2>
+    <div class="card2"><ul id="factList"></ul></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="faqTitle"></h2>
+    <div id="faqList"></div>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a></p>
+    <div id="topShare"></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/pallanguzhi/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const PITS = 14, SIDE = 7, MAX_ROUNDS = 10, QUIET = 40;
+
+  const T = {
+    hinglish: {
+      title: 'Pallanguzhi (Gutte ka khel) 🌰',
+      sub: 'Nani-dadi wala lakdi ka board: 14 gadde, har gadde mein imli ke beej. Beej ek-ek karke bono, aur khaali ghar ke baad wala ghar jeeto. Computer ke saath ya ek phone par dost ke saath.',
+      startTitle: 'Chalo Pallanguzhi khelein 🌰',
+      controls: 'Neeche ki line aapki hai. Apne kisi bhare ghar par tap karo — beej apne aap aage bonte jaayenge.',
+      namePh: 'Aapka naam (optional)', setSeeds: 'Beej / ghar', setPasu: 'Pasu (4)', setRounds: 'Khel',
+      on: 'On', off: 'Off', oneRound: '1 round', fullGame: 'Poori baazi',
+      vsComputer: 'Computer ke saath:', easy: 'Aasaan', medium: 'Medium', hard: 'Mushkil', twoPlayers: '👥 2 khiladi (ek phone)',
+      wins: (n) => `${n} jeet`, menuBtn: '☰ Menu', undo: '↶ Wapas', skip: '⏩ Jaldi', again: '🔁 Phir khelo',
+      you: 'Aap', computer: '🤖 Computer', player: (n) => `Khiladi ${n}`, roundLbl: (r) => `Round ${r}`,
+      turnOf: (w) => `${w} ki baari`, thinking: 'Computer soch raha hai…',
+      msgPick: 'Apna koi bhara ghar chuno (neeche ki line)', msgPickTop: 'Khiladi 2: upar ki line mein apna ghar chuno',
+      msgCap: (w, n) => `${w}: +${n} beej! 🎉`, msgPasu: (w, n) => `Pasu! ${w} ko ${n} beej`, msgNothing: 'Do khaali ghar — is baar kuch nahi mila',
+      msgNewRound: (r, a, b) => `${r} shuru · band ghar: neeche ${a}, upar ${b}`,
+      youWin: (name) => `Jeet gaye${name ? `, ${name}` : ''}! 🎉`, youLose: 'Computer jeet gaya 😅', draw: 'Barabar! 🤝', winP: (w) => `${w} jeeta! 🎉`,
+      noteSeeds: (a, b, r) => `Beej: ${a} – ${b}${r > 1 ? ` · ${r} round` : ''}`,
+      challenge: (name, n) => `🌰 ${name} ne Pallanguzhi mein computer ko ${n} baar haraaya! Aap haraa paoge?`,
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo', shareOther: '🔗 Link share / copy karo', copied: '✅ Copy ho gaya', copyPrompt: 'Yeh text copy karo:',
+      shareWin: (url) => `🌰 Pallanguzhi mein maine computer ko hara diya! Tum harao: ${url}`,
+      sharePlain: (url) => `🌰 Pallanguzhi — nani-dadi wala beej ka khel, ab phone par! Computer ya dost ke saath khelo: ${url}`,
+      howTitle: 'Kaise khelein (is game ke niyam)',
+      how: [
+        '<b>Board:</b> 2 line mein 14 ghar (gadde). Neeche ki 7 ghar aapke, upar ki 7 saamne wale ke. Shuru mein har ghar mein <b>5 beej</b> (setting mein 6). Pehli baazi neeche wala shuru karta hai, phir har nayi baazi mein shuru karne wala badalta hai — kyunki pehli chaal ka faayda bada hai.',
+        '<b>Bona:</b> apni baari mein apna koi bhara ghar chuno. Saare beej utha kar agle gharon mein <b>ek-ek</b> daalo — ulti ghadi ki disha mein: neeche baayen se daayen, phir upar daayen se baayen. Saamne wale ke gharon mein bhi beej jaate hain.',
+        '<b>Aage badho:</b> aakhri beej girne ke baad agla ghar dekho. Usme beej hain to unhe utha lo aur usi tarah aage bonte raho.',
+        '<b>Jeetna:</b> agla ghar <b>khaali</b> ho to uske baad wale ghar ke saare beej aapke — aapki baari khatam. Agar do khaali ghar saath-saath hon, to kuch nahi milta aur baari khatam.',
+        '<b>Pasu (4 ka niyam):</b> setting on ho to, bonte waqt jis ghar mein theek 4 beej ho jaayein, woh 4 beej turant us ghar ke maalik ko milte hain — chahe chaal kisi ki bhi ho.',
+        '<b>Round khatam:</b> jiski baari ho aur uske saare ghar khaali hon, round khatam. Saamne wala apni taraf ke bache beej le leta hai. Agar 40 chaalon tak koi beej na jeete (aakhir mein beej bas ghoomte rahein), to bhi round khatam aur har khiladi apni taraf ke beej le leta hai. "1 round" mein jiske beej zyada, woh jeeta.',
+        '<b>Poori baazi:</b> agle round mein har khiladi apne beejon se apne ghar 5-5 (ya 6-6) bharta hai. Jo ghar nahi bhar paata, woh <b>band</b> ho jaata hai (✕) — us round mein usme beej nahi girte. Jo ek bhi ghar na bhar sake, woh haar jaata hai. 10 round ke baad zyada beej wala jeeta.',
+      ],
+      rulesNote: 'Dhyaan dein: Pallanguzhi har ilaake — balki har ghar — mein thoda alag khela jaata hai. Kahin 6 ya 12 beej rakhte hain, kahin beech ka ghar alag hota hai, kahin jeetne par saamne wala ghar bhi milta hai. Upar wale niyam is game ke hain; ghar par khelte waqt pehle aapas mein niyam tay kar lein.',
+      tipsTitle: 'Jeetne ke tips',
+      tips: [
+        'Chaal se pehle gino: ghar mein jitne beej, utne ghar aage aakhri beej girega. Phir dekho uske aage ka ghar khaali hai ya nahi.',
+        'Sabse achhi chaal woh hai jahan aakhri beej ke baad ek khaali ghar ho aur uske baad bada dher — poora dher aapka.',
+        'Saamne wale ke liye aisa mauka mat chhodo: agar aapki taraf khaali ghar ke theek baad bada dher hai, to use pehle hi khel do.',
+        'Pasu on ho to 3 beej wale gharon par nazar rakho — ek beej aur gira to 4 ho jaayenge aur woh us ghar ke maalik ke.',
+        'Round ke aakhir mein apni taraf bache beej aapke hote hain, isliye khel ke aakhir mein apne gharon mein beej bachakar rakhna faayde ka hai.',
+      ],
+      aboutTitle: 'Pallanguzhi — nani-dadi ka lakdi wala board',
+      aboutText: 'Pallanguzhi Dakshin Bharat ka bahut purana "beej bone" wala khel hai. Tamil Nadu mein ise Pallanguzhi kehte hain, Karnataka mein Ali Guli Mane, aur Andhra Pradesh–Telangana mein Vamana Guntalu. Kerala aur Sri Lanka mein bhi iske milte-julte roop khele jaate hain. Ek lambe lakdi ke board par do line mein 14 gadde hote hain, aur goti ki jagah imli ke beej, kaudiyan ya laal manjadi beej istemaal hote the.',
+      aboutText2: 'Kai gharon mein yeh aangan ya baramde mein dopahar ka khel tha — dadi-nani, maa aur bachche saath baithkar khelte. Tyohaaron aur garmi ki chhuttiyon mein board nikalta tha. Board ke bina bhi khel ho jaata tha: zameen par 14 chhote gadde khodkar, ya 14 katoriyan rakhkar.',
+      aboutText3: 'Yeh duniya ke "mancala" parivaar ka khel hai — beej bone wale aise khel Africa, Arab deshon aur Asia mein sadiyon se khele jaate hain. Is khel mein kismat nahi, sirf ginti aur soch chalti hai: har chaal se pehle ginna padta hai ki aakhri beej kahan girega. Is game mein koi daav ya shart nahi.',
+      factsTitle: 'Pallanguzhi ke baare mein',
+      facts: [
+        'Naam ka matlab aksar "bahut saare gaddhon wala khel" bataya jaata hai — Tamil mein "kuzhi" ka matlab gaddha hai.',
+        'Purane board aksar sheesham ya kisi mazboot lakdi ke hote the; kuch machhli ya naav ki shakal ke, aur kai par peetal ka kaam hota tha.',
+        'Kai board beech se mud kar band ho jaate hain — andar beej rakh do, aur board ek dibba ban jaata hai.',
+        'Goti ke liye imli ke beej, kaudiyan ya chamakte laal manjadi beej sabse zyada istemaal hote the.',
+        'Kaha jaata hai ki is khel se bachchon ki ginti aur aage ki soch pakki hoti hai — bina kaagaz-pen ke maths.',
+        'Africa ka Oware, Arab deshon ka Mancala aur Philippines ka Sungka isi parivaar ke khel maane jaate hain.',
+      ],
+      faqTitle: 'Aksar pooche jaane wale sawaal',
+      faq: [
+        ['Pallanguzhi kaise khelte hain?', 'Board par 14 ghar hote hain, 7 har khiladi ke, aur shuru mein har ghar mein 5 beej. Apna ek ghar utha kar beej ek-ek karke aage ke gharon mein daalo. Aakhri beej ke baad agla ghar bhara ho to use utha kar aage bono; khaali ho to uske baad wale ghar ke beej aapke. Jab chalne wale ke paas beej na bachein, round khatam aur zyada beej wala jeeta.'],
+        ['Ek ghar mein kitne beej rakhte hain?', 'Is game mein 5 (ya setting mein 6). Ghar-ghar mein alag riwaaz hai — kahin 6, kahin 12 beej, aur kuch jagah beech ke ghar mein kam beej rakhte hain.'],
+        ['Pasu kya hota hai?', 'Kai parivaaron mein niyam hai ki bonte waqt kisi ghar mein theek 4 beej ho jaayein, to woh 4 beej us ghar ke maalik ke. Ise pasu kehte hain. Is game mein ise on ya off kar sakte hain.'],
+        ['Ali Guli Mane aur Pallanguzhi ek hi khel hain?', 'Mote taur par haan. Tamil mein Pallanguzhi, Kannada mein Ali Guli Mane aur Telugu mein Vamana Guntalu — board aur tareeka ek jaisa, chhote niyam jagah-jagah badalte hain.'],
+        ['Board na ho to ghar par kaise khelein?', 'Zameen par 2 line mein 14 chhote gadde bana lo, ya 14 katoriyan rakh lo. Imli ke beej, kankad ya rajma ke daane goti ban jaate hain.'],
+      ],
+      moreGames: 'Aur games khelo →',
+      privacyTitle: 'Aapka data', privacyText: 'Naam, setting aur jeet ki ginti sirf aapke phone mein rehti hai. Share link mein sirf naam aur jeet jaati hai. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'पल्लांगुझी (गुट्टे का खेल) 🌰',
+      sub: 'नानी-दादी वाला लकड़ी का बोर्ड: 14 गड्ढे, हर गड्ढे में इमली के बीज। बीज एक-एक करके बोओ, और ख़ाली घर के बाद वाला घर जीतो। कंप्यूटर के साथ या एक फ़ोन पर दोस्त के साथ।',
+      startTitle: 'चलो पल्लांगुझी खेलें 🌰',
+      controls: 'नीचे की लाइन आपकी है। अपने किसी भरे घर पर टैप करो — बीज अपने आप आगे बोते जाएँगे।',
+      namePh: 'आपका नाम (ज़रूरी नहीं)', setSeeds: 'बीज / घर', setPasu: 'पसु (4)', setRounds: 'खेल',
+      on: 'चालू', off: 'बंद', oneRound: '1 राउंड', fullGame: 'पूरी बाज़ी',
+      vsComputer: 'कंप्यूटर के साथ:', easy: 'आसान', medium: 'मीडियम', hard: 'मुश्किल', twoPlayers: '👥 2 खिलाड़ी (एक फ़ोन)',
+      wins: (n) => `${n} जीत`, menuBtn: '☰ मेन्यू', undo: '↶ वापस', skip: '⏩ जल्दी', again: '🔁 फिर खेलो',
+      you: 'आप', computer: '🤖 कंप्यूटर', player: (n) => `खिलाड़ी ${n}`, roundLbl: (r) => `राउंड ${r}`,
+      turnOf: (w) => `${w} की बारी`, thinking: 'कंप्यूटर सोच रहा है…',
+      msgPick: 'अपना कोई भरा घर चुनो (नीचे की लाइन)', msgPickTop: 'खिलाड़ी 2: ऊपर की लाइन में अपना घर चुनो',
+      msgCap: (w, n) => `${w}: +${n} बीज! 🎉`, msgPasu: (w, n) => `पसु! ${w} को ${n} बीज`, msgNothing: 'दो ख़ाली घर — इस बार कुछ नहीं मिला',
+      msgNewRound: (r, a, b) => `${r} शुरू · बंद घर: नीचे ${a}, ऊपर ${b}`,
+      youWin: (name) => `जीत गए${name ? `, ${name}` : ''}! 🎉`, youLose: 'कंप्यूटर जीत गया 😅', draw: 'बराबर! 🤝', winP: (w) => `${w} जीता! 🎉`,
+      noteSeeds: (a, b, r) => `बीज: ${a} – ${b}${r > 1 ? ` · ${r} राउंड` : ''}`,
+      challenge: (name, n) => `🌰 ${name} ने पल्लांगुझी में कंप्यूटर को ${n} बार हराया! आप हरा पाओगे?`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो', shareOther: '🔗 लिंक शेयर / कॉपी करो', copied: '✅ कॉपी हो गया', copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareWin: (url) => `🌰 पल्लांगुझी में मैंने कंप्यूटर को हरा दिया! तुम हराओ: ${url}`,
+      sharePlain: (url) => `🌰 पल्लांगुझी — नानी-दादी वाला बीज का खेल, अब फ़ोन पर! कंप्यूटर या दोस्त के साथ खेलो: ${url}`,
+      howTitle: 'कैसे खेलें (इस गेम के नियम)',
+      how: [
+        '<b>बोर्ड:</b> 2 लाइन में 14 घर (गड्ढे)। नीचे के 7 घर आपके, ऊपर के 7 सामने वाले के। शुरू में हर घर में <b>5 बीज</b> (सेटिंग में 6)। पहली बाज़ी नीचे वाला शुरू करता है, फिर हर नई बाज़ी में शुरू करने वाला बदलता है — क्योंकि पहली चाल का फ़ायदा बड़ा है।',
+        '<b>बोना:</b> अपनी बारी में अपना कोई भरा घर चुनो। सारे बीज उठाकर अगले घरों में <b>एक-एक</b> डालो — घड़ी की उल्टी दिशा में: नीचे बाएँ से दाएँ, फिर ऊपर दाएँ से बाएँ। सामने वाले के घरों में भी बीज जाते हैं।',
+        '<b>आगे बढ़ो:</b> आख़िरी बीज गिरने के बाद अगला घर देखो। उसमें बीज हैं तो उन्हें उठा लो और उसी तरह आगे बोते रहो।',
+        '<b>जीतना:</b> अगला घर <b>ख़ाली</b> हो तो उसके बाद वाले घर के सारे बीज आपके — आपकी बारी ख़त्म। अगर दो ख़ाली घर साथ-साथ हों, तो कुछ नहीं मिलता और बारी ख़त्म।',
+        '<b>पसु (4 का नियम):</b> सेटिंग चालू हो तो, बोते समय जिस घर में ठीक 4 बीज हो जाएँ, वे 4 बीज तुरंत उस घर के मालिक को मिलते हैं — चाहे चाल किसी की भी हो।',
+        '<b>राउंड ख़त्म:</b> जिसकी बारी हो और उसके सारे घर ख़ाली हों, राउंड ख़त्म। सामने वाला अपनी तरफ़ के बचे बीज ले लेता है। अगर 40 चालों तक कोई बीज न जीते (आख़िर में बीज बस घूमते रहें), तो भी राउंड ख़त्म और हर खिलाड़ी अपनी तरफ़ के बीज ले लेता है। "1 राउंड" में जिसके बीज ज़्यादा, वह जीता।',
+        '<b>पूरी बाज़ी:</b> अगले राउंड में हर खिलाड़ी अपने बीजों से अपने घर 5-5 (या 6-6) भरता है। जो घर नहीं भर पाता, वह <b>बंद</b> हो जाता है (✕) — उस राउंड में उसमें बीज नहीं गिरते। जो एक भी घर न भर सके, वह हार जाता है। 10 राउंड के बाद ज़्यादा बीज वाला जीता।',
+      ],
+      rulesNote: 'ध्यान दें: पल्लांगुझी हर इलाक़े — बल्कि हर घर — में थोड़ा अलग खेला जाता है। कहीं 6 या 12 बीज रखते हैं, कहीं बीच का घर अलग होता है, कहीं जीतने पर सामने वाला घर भी मिलता है। ऊपर वाले नियम इस गेम के हैं; घर पर खेलते समय पहले आपस में नियम तय कर लें।',
+      tipsTitle: 'जीतने के टिप्स',
+      tips: [
+        'चाल से पहले गिनो: घर में जितने बीज, उतने घर आगे आख़िरी बीज गिरेगा। फिर देखो उसके आगे का घर ख़ाली है या नहीं।',
+        'सबसे अच्छी चाल वह है जहाँ आख़िरी बीज के बाद एक ख़ाली घर हो और उसके बाद बड़ा ढेर — पूरा ढेर आपका।',
+        'सामने वाले के लिए ऐसा मौक़ा मत छोड़ो: अगर आपकी तरफ़ ख़ाली घर के ठीक बाद बड़ा ढेर है, तो उसे पहले ही खेल दो।',
+        'पसु चालू हो तो 3 बीज वाले घरों पर नज़र रखो — एक बीज और गिरा तो 4 हो जाएँगे और वे उस घर के मालिक के।',
+        'राउंड के आख़िर में अपनी तरफ़ बचे बीज आपके होते हैं, इसलिए खेल के आख़िर में अपने घरों में बीज बचाकर रखना फ़ायदे का है।',
+      ],
+      aboutTitle: 'पल्लांगुझी — नानी-दादी का लकड़ी वाला बोर्ड',
+      aboutText: 'पल्लांगुझी दक्षिण भारत का बहुत पुराना "बीज बोने" वाला खेल है। तमिलनाडु में इसे पल्लांगुझी कहते हैं, कर्नाटक में अली गुली मणे, और आंध्र प्रदेश–तेलंगाना में वामन गुंटलु। केरल और श्रीलंका में भी इसके मिलते-जुलते रूप खेले जाते हैं। एक लंबे लकड़ी के बोर्ड पर दो लाइन में 14 गड्ढे होते हैं, और गोटी की जगह इमली के बीज, कौड़ियाँ या लाल मंजाडी बीज इस्तेमाल होते थे।',
+      aboutText2: 'कई घरों में यह आँगन या बरामदे में दोपहर का खेल था — दादी-नानी, माँ और बच्चे साथ बैठकर खेलते। त्योहारों और गर्मी की छुट्टियों में बोर्ड निकलता था। बोर्ड के बिना भी खेल हो जाता था: ज़मीन पर 14 छोटे गड्ढे खोदकर, या 14 कटोरियाँ रखकर।',
+      aboutText3: 'यह दुनिया के "मंकाला" परिवार का खेल है — बीज बोने वाले ऐसे खेल अफ़्रीका, अरब देशों और एशिया में सदियों से खेले जाते हैं। इस खेल में क़िस्मत नहीं, सिर्फ़ गिनती और सोच चलती है: हर चाल से पहले गिनना पड़ता है कि आख़िरी बीज कहाँ गिरेगा। इस गेम में कोई दाँव या शर्त नहीं।',
+      factsTitle: 'पल्लांगुझी के बारे में',
+      facts: [
+        'नाम का मतलब अक्सर "बहुत सारे गड्ढों वाला खेल" बताया जाता है — तमिल में "कुझी" का मतलब गड्ढा है।',
+        'पुराने बोर्ड अक्सर शीशम या किसी मज़बूत लकड़ी के होते थे; कुछ मछली या नाव की शक्ल के, और कई पर पीतल का काम होता था।',
+        'कई बोर्ड बीच से मुड़कर बंद हो जाते हैं — अंदर बीज रख दो, और बोर्ड एक डिब्बा बन जाता है।',
+        'गोटी के लिए इमली के बीज, कौड़ियाँ या चमकते लाल मंजाडी बीज सबसे ज़्यादा इस्तेमाल होते थे।',
+        'कहा जाता है कि इस खेल से बच्चों की गिनती और आगे की सोच पक्की होती है — बिना काग़ज़-पेन के गणित।',
+        'अफ़्रीका का ओवारे, अरब देशों का मंकाला और फ़िलीपींस का सुंगका इसी परिवार के खेल माने जाते हैं।',
+      ],
+      faqTitle: 'अक्सर पूछे जाने वाले सवाल',
+      faq: [
+        ['पल्लांगुझी कैसे खेलते हैं?', 'बोर्ड पर 14 घर होते हैं, 7 हर खिलाड़ी के, और शुरू में हर घर में 5 बीज। अपना एक घर उठाकर बीज एक-एक करके आगे के घरों में डालो। आख़िरी बीज के बाद अगला घर भरा हो तो उसे उठाकर आगे बोओ; ख़ाली हो तो उसके बाद वाले घर के बीज आपके। जब चलने वाले के पास बीज न बचें, राउंड ख़त्म और ज़्यादा बीज वाला जीता।'],
+        ['एक घर में कितने बीज रखते हैं?', 'इस गेम में 5 (या सेटिंग में 6)। घर-घर में अलग रिवाज है — कहीं 6, कहीं 12 बीज, और कुछ जगह बीच के घर में कम बीज रखते हैं।'],
+        ['पसु क्या होता है?', 'कई परिवारों में नियम है कि बोते समय किसी घर में ठीक 4 बीज हो जाएँ, तो वे 4 बीज उस घर के मालिक के। इसे पसु कहते हैं। इस गेम में इसे चालू या बंद कर सकते हैं।'],
+        ['अली गुली मणे और पल्लांगुझी एक ही खेल हैं?', 'मोटे तौर पर हाँ। तमिल में पल्लांगुझी, कन्नड़ में अली गुली मणे और तेलुगु में वामन गुंटलु — बोर्ड और तरीक़ा एक जैसा, छोटे नियम जगह-जगह बदलते हैं।'],
+        ['बोर्ड न हो तो घर पर कैसे खेलें?', 'ज़मीन पर 2 लाइन में 14 छोटे गड्ढे बना लो, या 14 कटोरियाँ रख लो। इमली के बीज, कंकड़ या राजमा के दाने गोटी बन जाते हैं।'],
+      ],
+      moreGames: 'और गेम खेलो →',
+      privacyTitle: 'आपका डेटा', privacyText: 'नाम, सेटिंग और जीत की गिनती सिर्फ़ आपके फ़ोन में रहती है। शेयर लिंक में सिर्फ़ नाम और जीत जाती है। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Pallanguzhi (Gutte ka Khel) 🌰',
+      sub: 'Grandma\'s wooden board: 14 pits and a handful of tamarind seeds. Sow the seeds one by one and win the pit after an empty one. Play the computer or a friend on one phone.',
+      startTitle: 'Let\'s play Pallanguzhi 🌰',
+      controls: 'The bottom row is yours. Tap one of your pits that has seeds — they are sown forward automatically.',
+      namePh: 'Your name (optional)', setSeeds: 'Seeds / pit', setPasu: 'Pasu (4)', setRounds: 'Game',
+      on: 'On', off: 'Off', oneRound: '1 round', fullGame: 'Full game',
+      vsComputer: 'Against the computer:', easy: 'Easy', medium: 'Medium', hard: 'Hard', twoPlayers: '👥 2 players (one phone)',
+      wins: (n) => `${n} win${n === 1 ? '' : 's'}`, menuBtn: '☰ Menu', undo: '↶ Undo', skip: '⏩ Faster', again: '🔁 Play again',
+      you: 'You', computer: '🤖 Computer', player: (n) => `Player ${n}`, roundLbl: (r) => `Round ${r}`,
+      turnOf: (w) => (w === 'You' ? 'Your turn' : `${w}'s turn`), thinking: 'Computer is thinking…',
+      msgPick: 'Pick one of your pits with seeds (bottom row)', msgPickTop: 'Player 2: pick your pit in the top row',
+      msgCap: (w, n) => `${w}: +${n} seeds! 🎉`, msgPasu: (w, n) => `Pasu! ${n} seeds to ${w}`, msgNothing: 'Two empty pits — nothing this time',
+      msgNewRound: (r, a, b) => `${r} begins · closed pits: bottom ${a}, top ${b}`,
+      youWin: (name) => `You won${name ? `, ${name}` : ''}! 🎉`, youLose: 'The computer won 😅', draw: 'A draw! 🤝', winP: (w) => `${w} wins! 🎉`,
+      noteSeeds: (a, b, r) => `Seeds: ${a} – ${b}${r > 1 ? ` · ${r} rounds` : ''}`,
+      challenge: (name, n) => `🌰 ${name} beat the computer at Pallanguzhi ${n} time${n === 1 ? '' : 's'}! Can you?`,
+      shareWa: '📲 Challenge on WhatsApp', shareFb: 'Share on Facebook', shareOther: '🔗 Share / copy link', copied: '✅ Copied', copyPrompt: 'Copy this text:',
+      shareWin: (url) => `🌰 I beat the computer at Pallanguzhi! Now you beat it: ${url}`,
+      sharePlain: (url) => `🌰 Pallanguzhi — grandma's seed-sowing board game, now on the phone! Play the computer or a friend: ${url}`,
+      howTitle: 'How to play (the rules of this game)',
+      how: [
+        '<b>The board:</b> 14 pits in 2 rows. The 7 pits at the bottom are yours, the 7 at the top belong to the other player. At the start every pit has <b>5 seeds</b> (6 in the settings). The bottom player starts the first game; after that the starter changes every game, because the first move is a real advantage.',
+        '<b>Sowing:</b> on your turn pick one of your pits that has seeds. Lift all of them and drop them <b>one by one</b> into the next pits, anticlockwise: along the bottom from left to right, then along the top from right to left. Seeds go into the other player\'s pits too.',
+        '<b>Keep going:</b> when the last seed falls, look at the next pit. If it has seeds, lift them and keep sowing the same way.',
+        '<b>Capturing:</b> if the next pit is <b>empty</b>, you win all the seeds in the pit after it, and your turn ends. If two empty pits come together, you get nothing and your turn ends.',
+        '<b>Pasu (the rule of four):</b> when this setting is on, any pit that reaches exactly 4 seeds during sowing gives those 4 seeds at once to the owner of that pit — whoever is sowing.',
+        '<b>End of the round:</b> when the player to move has no seeds in any of their pits, the round ends. The other player takes the seeds left on their own side. If no seed is won for 40 moves in a row (near the end the last seeds can just chase each other round the board), the round also ends and each player takes the seeds on their own side. In "1 round", whoever has more seeds wins.',
+        '<b>Full game:</b> in the next round each player refills their own pits with 5 (or 6) seeds each from what they won. A pit that cannot be filled is <b>closed</b> (✕) and no seed falls into it that round. A player who cannot fill even one pit loses. After 10 rounds, whoever has more seeds wins.',
+      ],
+      rulesNote: 'Please note: Pallanguzhi is played a little differently in every region — even in every family. Some use 6 or 12 seeds, some treat the middle pit differently, some also capture the pit opposite. The rules above are this game\'s rules; when you play at home, agree on the rules first.',
+      tipsTitle: 'Tips to win',
+      tips: [
+        'Count before you move: the last seed lands as many pits ahead as there are seeds in your pit. Then check whether the pit after that is empty.',
+        'The best move is one where the last seed is followed by an empty pit and then a big pile — the whole pile is yours.',
+        'Don\'t leave such a chance for the other player: if a big pile on your side sits right after an empty pit, play it first.',
+        'With pasu on, watch the pits with 3 seeds — one more seed makes 4 and they go to that pit\'s owner.',
+        'Seeds left on your side at the end of a round are yours, so keeping seeds in your own pits near the end pays off.',
+      ],
+      aboutTitle: 'Pallanguzhi — grandma\'s wooden board',
+      aboutText: 'Pallanguzhi is a very old seed-sowing game from South India. In Tamil Nadu it is called Pallanguzhi, in Karnataka Ali Guli Mane, and in Andhra Pradesh and Telangana Vamana Guntalu. Close relatives are played in Kerala and Sri Lanka too. A long wooden board has 14 pits in two rows, and the pieces were tamarind seeds, cowrie shells or shiny red manjadi seeds.',
+      aboutText2: 'In many homes it was an afternoon game in the courtyard or on the veranda — grandmothers, mothers and children sitting together around the board. The board came out during festivals and summer holidays. Nobody needed a board, either: 14 little pits scooped in the ground, or 14 small bowls, did the job.',
+      aboutText3: 'It belongs to the worldwide "mancala" family — seed-sowing games played for centuries across Africa, the Arab world and Asia. There is no luck in it, only counting and planning: before every move you count where the last seed will land. No bets or stakes in this game.',
+      factsTitle: 'About Pallanguzhi',
+      facts: [
+        'The name is often explained as "the game of many pits" — "kuzhi" means a pit in Tamil.',
+        'Old boards were often made of rosewood or another hard wood; some were shaped like a fish or a boat, and many had brass work.',
+        'Many boards fold in the middle — put the seeds inside and the board becomes a box.',
+        'Tamarind seeds, cowrie shells or glossy red manjadi seeds were the most common pieces.',
+        'It is said to sharpen children\'s counting and planning — maths without paper and pen.',
+        'Oware from Africa, mancala from the Arab world and sungka from the Philippines are counted as games of the same family.',
+      ],
+      faqTitle: 'Frequently asked questions',
+      faq: [
+        ['How do you play Pallanguzhi?', 'The board has 14 pits, 7 for each player, with 5 seeds in each at the start. Lift all seeds from one of your pits and drop them one by one into the next pits. When the last seed falls, if the next pit has seeds, lift them and keep sowing; if it is empty, you win the seeds in the pit after it. When the player to move has no seeds left, the round ends and whoever has more seeds wins.'],
+        ['How many seeds go in each pit?', 'In this game 5 (or 6 in the settings). Customs differ from home to home — some use 6, some 12, and in some places the middle pit gets fewer seeds.'],
+        ['What is pasu?', 'In many families, whenever a pit reaches exactly 4 seeds during sowing, the owner of that pit takes those 4 seeds. This is called pasu. Here you can switch it on or off.'],
+        ['Are Ali Guli Mane and Pallanguzhi the same game?', 'Broadly yes. Pallanguzhi in Tamil, Ali Guli Mane in Kannada and Vamana Guntalu in Telugu — the same board and idea, with small rules changing from place to place.'],
+        ['How can I play at home without a board?', 'Scoop 14 small pits in the ground in 2 rows, or set out 14 small bowls. Tamarind seeds, pebbles or dried beans make good pieces.'],
+      ],
+      moreGames: 'Play more games →',
+      privacyTitle: 'Your data', privacyText: 'Your name, settings and win count stay only on your phone. The share link carries only your name and wins. No login, no server.',
+    },
+    bn: {
+      title: 'পাল্লাঙ্গুঝি (গুট্টে কা খেল) 🌰',
+      sub: 'দিদিমা-ঠাকুমার কাঠের বোর্ড: ১৪টা গর্ত, প্রতিটায় তেঁতুলের বিচি। বিচি একটা একটা করে বোনো, আর ফাঁকা ঘরের পরের ঘরটা জিতে নাও। কম্পিউটার বা এক ফোনে বন্ধুর সঙ্গে খেলো।',
+      startTitle: 'চলো পাল্লাঙ্গুঝি খেলি 🌰',
+      controls: 'নিচের সারিটা তোমার। তোমার কোনো ভরা ঘরে ট্যাপ করো — বিচি নিজে থেকেই সামনে বোনা হবে।',
+      namePh: 'তোমার নাম (ঐচ্ছিক)', setSeeds: 'বিচি / ঘর', setPasu: 'পসু (৪)', setRounds: 'খেলা',
+      on: 'চালু', off: 'বন্ধ', oneRound: '১ রাউন্ড', fullGame: 'পুরো বাজি',
+      vsComputer: 'কম্পিউটারের সঙ্গে:', easy: 'সহজ', medium: 'মাঝারি', hard: 'কঠিন', twoPlayers: '👥 ২ জন (এক ফোনে)',
+      wins: (n) => `${n} জয়`, menuBtn: '☰ মেনু', undo: '↶ ফেরাও', skip: '⏩ তাড়াতাড়ি', again: '🔁 আবার খেলো',
+      you: 'তুমি', computer: '🤖 কম্পিউটার', player: (n) => `খেলোয়াড় ${n}`, roundLbl: (r) => `রাউন্ড ${r}`,
+      turnOf: (w) => (w === 'তুমি' ? 'তোমার পালা' : `${w}-এর পালা`), thinking: 'কম্পিউটার ভাবছে…',
+      msgPick: 'তোমার কোনো ভরা ঘর বাছো (নিচের সারি)', msgPickTop: 'খেলোয়াড় ২: ওপরের সারিতে নিজের ঘর বাছো',
+      msgCap: (w, n) => `${w}: +${n}টা বিচি! 🎉`, msgPasu: (w, n) => `পসু! ${w}: +${n}টা বিচি`, msgNothing: 'দুটো ফাঁকা ঘর — এবার কিছু পাওয়া গেল না',
+      msgNewRound: (r, a, b) => `${r} শুরু · বন্ধ ঘর: নিচে ${a}, ওপরে ${b}`,
+      youWin: (name) => `জিতে গেছ${name ? `, ${name}` : ''}! 🎉`, youLose: 'কম্পিউটার জিতে গেল 😅', draw: 'ড্র! 🤝', winP: (w) => `${w} জিতেছে! 🎉`,
+      noteSeeds: (a, b, r) => `বিচি: ${a} – ${b}${r > 1 ? ` · ${r} রাউন্ড` : ''}`,
+      challenge: (name, n) => `🌰 ${name} পাল্লাঙ্গুঝিতে কম্পিউটারকে ${n} বার হারিয়েছে! তুমি পারবে?`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো', shareOther: '🔗 লিংক শেয়ার / কপি', copied: '✅ কপি হয়েছে', copyPrompt: 'এই লেখাটা কপি করো:',
+      shareWin: (url) => `🌰 পাল্লাঙ্গুঝিতে আমি কম্পিউটারকে হারিয়ে দিয়েছি! এবার তুমি হারাও: ${url}`,
+      sharePlain: (url) => `🌰 পাল্লাঙ্গুঝি — দিদিমার বিচি বোনার খেলা, এখন ফোনে! কম্পিউটার বা বন্ধুর সঙ্গে খেলো: ${url}`,
+      howTitle: 'কীভাবে খেলবে (এই গেমের নিয়ম)',
+      how: [
+        '<b>বোর্ড:</b> ২ সারিতে ১৪টা ঘর (গর্ত)। নিচের ৭টা ঘর তোমার, ওপরের ৭টা অন্য খেলোয়াড়ের। শুরুতে প্রতিটা ঘরে <b>৫টা বিচি</b> (সেটিংয়ে ৬)। প্রথম বাজি নিচের জন শুরু করে, তারপর প্রতি নতুন বাজিতে শুরু করার পালা বদলায় — কারণ প্রথম চালের সুবিধা অনেক।',
+        '<b>বোনা:</b> নিজের পালায় তোমার কোনো ভরা ঘর বাছো। সব বিচি তুলে পরের ঘরগুলোতে <b>একটা একটা</b> করে ফেলো — ঘড়ির কাঁটার উল্টো দিকে: নিচে বাঁ থেকে ডানে, তারপর ওপরে ডান থেকে বাঁয়ে। অন্যের ঘরেও বিচি পড়ে।',
+        '<b>এগিয়ে চলো:</b> শেষ বিচি পড়ার পর পরের ঘরটা দেখো। তাতে বিচি থাকলে সেগুলো তুলে একইভাবে বুনতে থাকো।',
+        '<b>জেতা:</b> পরের ঘর <b>ফাঁকা</b> হলে তার পরের ঘরের সব বিচি তোমার — তোমার পালা শেষ। পরপর দুটো ফাঁকা ঘর হলে কিছু পাবে না, পালা শেষ।',
+        '<b>পসু (৪-এর নিয়ম):</b> সেটিং চালু থাকলে, বোনার সময় যে ঘরে ঠিক ৪টা বিচি হয়, সেই ৪টা বিচি তখনই ঘরের মালিক পায় — চাল যারই হোক।',
+        '<b>রাউন্ড শেষ:</b> যার পালা, তার সব ঘর ফাঁকা হলে রাউন্ড শেষ। অন্যজন নিজের দিকের বাকি বিচি নিয়ে নেয়। টানা ৪০ চালে কেউ কোনো বিচি না জিতলে (শেষে বিচিগুলো শুধু ঘুরতে থাকলে) রাউন্ড শেষ, আর প্রত্যেকে নিজের দিকের বিচি নেয়। "১ রাউন্ড"-এ যার বিচি বেশি, সে জেতে।',
+        '<b>পুরো বাজি:</b> পরের রাউন্ডে প্রত্যেকে নিজের জেতা বিচি দিয়ে নিজের ঘর ৫টা (বা ৬টা) করে ভরে। যে ঘর ভরা যায় না, সেটা <b>বন্ধ</b> (✕) — সেই রাউন্ডে তাতে বিচি পড়ে না। যে একটা ঘরও ভরতে পারে না, সে হারে। ১০ রাউন্ডের পর যার বিচি বেশি, সে জেতে।',
+      ],
+      rulesNote: 'মনে রেখো: পাল্লাঙ্গুঝি প্রতিটা অঞ্চলে — এমনকি প্রতিটা বাড়িতে — একটু আলাদা খেলা হয়। কোথাও ৬ বা ১২টা বিচি, কোথাও মাঝের ঘর আলাদা, কোথাও জিতলে উল্টো দিকের ঘরও পাওয়া যায়। ওপরের নিয়মগুলো এই গেমের; বাড়িতে খেলার আগে নিজেরা নিয়ম ঠিক করে নিও।',
+      tipsTitle: 'জেতার টিপস',
+      tips: [
+        'চালের আগে গোনো: ঘরে যতগুলো বিচি, শেষ বিচি তত ঘর সামনে পড়বে। তারপর দেখো তার পরের ঘর ফাঁকা কি না।',
+        'সবচেয়ে ভালো চাল সেটা, যেখানে শেষ বিচির পরে একটা ফাঁকা ঘর আর তারপর বড় স্তূপ — পুরো স্তূপটাই তোমার।',
+        'অন্যজনকে এমন সুযোগ দিও না: তোমার দিকে ফাঁকা ঘরের ঠিক পরে বড় স্তূপ থাকলে সেটা আগেই খেলে ফেলো।',
+        'পসু চালু থাকলে ৩টা বিচির ঘরগুলোয় নজর রাখো — আর একটা পড়লেই ৪, আর সেগুলো ঘরের মালিকের।',
+        'রাউন্ডের শেষে নিজের দিকে বাকি বিচি তোমারই হয়, তাই শেষের দিকে নিজের ঘরে বিচি জমিয়ে রাখা লাভের।',
+      ],
+      aboutTitle: 'পাল্লাঙ্গুঝি — দিদিমার কাঠের বোর্ড',
+      aboutText: 'পাল্লাঙ্গুঝি দক্ষিণ ভারতের খুব পুরোনো "বিচি বোনা"-র খেলা। তামিলনাড়ুতে একে পাল্লাঙ্গুঝি বলে, কর্ণাটকে আলি গুলি মানে, আর অন্ধ্রপ্রদেশ-তেলেঙ্গানায় বামন গুন্টলু। কেরালা আর শ্রীলঙ্কাতেও এর কাছাকাছি খেলা আছে। লম্বা কাঠের বোর্ডে দুই সারিতে ১৪টা গর্ত থাকে, আর গুটি হিসেবে তেঁতুলের বিচি, কড়ি বা লাল মঞ্জাড়ি বিচি ব্যবহার হত।',
+      aboutText2: 'অনেক বাড়িতে এটা ছিল উঠোন বা বারান্দায় দুপুরের খেলা — ঠাকুমা-দিদিমা, মা আর ছোটরা একসঙ্গে বসে খেলত। উৎসব আর গরমের ছুটিতে বোর্ড বেরোত। বোর্ড না থাকলেও চলত: মাটিতে ১৪টা ছোট গর্ত খুঁড়ে, বা ১৪টা বাটি সাজিয়ে।',
+      aboutText3: 'এটা পৃথিবীর "মানকালা" পরিবারের খেলা — বিচি বোনার এমন খেলা আফ্রিকা, আরব দেশ আর এশিয়ায় বহু শতাব্দী ধরে খেলা হয়। এতে ভাগ্য নেই, শুধু গোনা আর ভাবনা: প্রতিটা চালের আগে গুনতে হয় শেষ বিচি কোথায় পড়বে। এই গেমে কোনো বাজি বা শর্ত নেই।',
+      factsTitle: 'পাল্লাঙ্গুঝি সম্পর্কে',
+      facts: [
+        'নামের মানে প্রায়ই বলা হয় "অনেক গর্তের খেলা" — তামিলে "কুঝি" মানে গর্ত।',
+        'পুরোনো বোর্ড প্রায়ই শিশু বা কোনো শক্ত কাঠের হত; কিছু মাছ বা নৌকার আকারের, আর অনেকগুলোতে পিতলের কাজ থাকত।',
+        'অনেক বোর্ড মাঝখান থেকে ভাঁজ হয়ে বন্ধ হয় — ভেতরে বিচি রাখো, বোর্ডটা একটা বাক্স হয়ে যায়।',
+        'গুটি হিসেবে তেঁতুলের বিচি, কড়ি বা চকচকে লাল মঞ্জাড়ি বিচিই সবচেয়ে বেশি চলত।',
+        'বলা হয়, এই খেলায় ছোটদের গোনা আর আগে থেকে ভাবার অভ্যাস পাকা হয় — খাতা-কলম ছাড়াই অঙ্ক।',
+        'আফ্রিকার ওয়ারে, আরব দেশের মানকালা আর ফিলিপিন্সের সুংকা এই একই পরিবারের খেলা বলে ধরা হয়।',
+      ],
+      faqTitle: 'সাধারণ প্রশ্ন',
+      faq: [
+        ['পাল্লাঙ্গুঝি কীভাবে খেলে?', 'বোর্ডে ১৪টা ঘর, প্রত্যেকের ৭টা, আর শুরুতে প্রতিটায় ৫টা বিচি। নিজের একটা ঘর তুলে বিচি একটা একটা করে পরের ঘরগুলোয় ফেলো। শেষ বিচির পরের ঘর ভরা থাকলে সেটা তুলে বুনতে থাকো; ফাঁকা হলে তার পরের ঘরের বিচি তোমার। যার পালা তার কাছে বিচি না থাকলে রাউন্ড শেষ, বেশি বিচি যার সে জেতে।'],
+        ['একটা ঘরে কটা বিচি রাখে?', 'এই গেমে ৫টা (বা সেটিংয়ে ৬টা)। বাড়ি বাড়ি নিয়ম আলাদা — কোথাও ৬, কোথাও ১২, আর কোথাও মাঝের ঘরে কম বিচি রাখা হয়।'],
+        ['পসু কী?', 'অনেক পরিবারে নিয়ম আছে, বোনার সময় কোনো ঘরে ঠিক ৪টা বিচি হলে সেই ৪টা ঘরের মালিকের। একে পসু বলে। এখানে এটা চালু বা বন্ধ করা যায়।'],
+        ['আলি গুলি মানে আর পাল্লাঙ্গুঝি কি একই খেলা?', 'মোটামুটি হ্যাঁ। তামিলে পাল্লাঙ্গুঝি, কন্নড়ে আলি গুলি মানে আর তেলুগুতে বামন গুন্টলু — বোর্ড আর খেলার ধরন একই, ছোটখাটো নিয়ম জায়গা ভেদে বদলায়।'],
+        ['বোর্ড না থাকলে বাড়িতে কীভাবে খেলব?', 'মাটিতে ২ সারিতে ১৪টা ছোট গর্ত করো, বা ১৪টা বাটি সাজাও। তেঁতুলের বিচি, নুড়ি বা শুকনো রাজমা গুটি হিসেবে চলবে।'],
+      ],
+      moreGames: 'আরও গেম খেলো →',
+      privacyTitle: 'তোমার ডেটা', privacyText: 'নাম, সেটিং আর জয়ের সংখ্যা শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর জয়। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+  const urlLang = params.get('lang'), savedLang = store.get('pz-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(999, parseInt(params.get('score'), 10) || 0));
+  const debug = params.has('debug');
+  const auto = debug && params.has('auto');
+  const loadWins = () => { try { const o = JSON.parse(store.get('pz-wins') || '{}'); return { easy: +o.easy || 0, medium: +o.medium || 0, hard: +o.hard || 0 }; } catch (e) { return { easy: 0, medium: 0, hard: 0 }; } };
+  let wins = loadWins();
+  const totalWins = () => wins.easy + wins.medium + wins.hard;
+
+  // ---------- rules (pure functions, so the computer can search and the self-test can check them)
+  // Pits 0..6 = bottom row (player 0), left to right; 7..13 = top row (player 1), right to left on screen.
+  // Sowing goes i -> i+1, which is anticlockwise on the screen.
+  // State: b (seeds per pit), closed (pits shut in a later round), store (seeds won this round), bank (carried over,
+  // not on the board), side (0/1 to move), round, per (seeds per pit), pasu, multi, over, final.
+  const owner = (i) => (i < SIDE ? 0 : 1);
+  const fresh = (per = 5, pasu = true, multi = false, first = 0) => ({ b: Array(PITS).fill(per), closed: Array(PITS).fill(false), store: [0, 0], bank: [0, 0], side: first, first, round: 1, per, pasu, multi, quiet: 0, over: false, final: null });
+  const clone = (s) => ({ ...s, b: s.b.slice(), store: s.store.slice(), bank: s.bank.slice() });
+  const total = (s) => s.b.reduce((a, x) => a + x, 0) + s.store[0] + s.store[1] + s.bank[0] + s.bank[1];
+  const nextOpen = (s, i) => { let j = i; for (let k = 0; k < PITS; k += 1) { j = (j + 1) % PITS; if (!s.closed[j]) return j; } return j; };
+  const legal = (s) => { const out = []; if (s.over) return out; const o = s.side * SIDE; for (let i = o; i < o + SIDE; i += 1) if (!s.closed[i] && s.b[i] > 0) out.push(i); return out; };
+  const totals = (s) => [s.store[0] + s.bank[0], s.store[1] + s.bank[1]];
+
+  // set up the next round: each player fills their own pits left to right (from their seat) with `per` seeds
+  const setupRound = (n, log) => {
+    const tot = totals(n);
+    n.closed = Array(PITS).fill(false); n.store = [0, 0];
+    const shut = [0, 0];
+    for (let p = 0; p < 2; p += 1) {
+      let have = tot[p];
+      for (let k = 0; k < SIDE; k += 1) {
+        const i = p * SIDE + k;
+        if (have >= n.per) { n.b[i] = n.per; have -= n.per; } else { n.b[i] = 0; n.closed[i] = true; shut[p] += 1; }
+      }
+      n.bank[p] = have;
+    }
+    n.side = (n.first + n.round - 1) % 2; n.quiet = 0;
+    if (log) log.push({ t: 'round', round: n.round, shut });
+  };
+  const endRound = (n, log) => {
+    for (let i = 0; i < PITS; i += 1) if (n.b[i] > 0) { const o = owner(i); if (log) log.push({ t: 'sweep', i, n: n.b[i], by: o }); n.store[o] += n.b[i]; n.b[i] = 0; }
+    const tot = totals(n);
+    if (!n.multi) { n.over = true; n.final = tot; return; }
+    if (tot[0] < n.per || tot[1] < n.per || n.round >= MAX_ROUNDS) { n.over = true; n.final = tot; return; }
+    n.round += 1;
+    setupRound(n, log);
+  };
+  // play one pit; returns the new state, and fills `log` with the steps for the animation
+  const play = (s, pit, log) => {
+    const n = clone(s), b = n.b, me = s.side;
+    let hand = b[pit], pos = pit, relays = 0, won = false;
+    b[pit] = 0;
+    if (log) log.push({ t: 'pick', i: pit, n: hand });
+    for (;;) {
+      while (hand > 0) {
+        pos = nextOpen(n, pos); b[pos] += 1; hand -= 1;
+        if (log) log.push({ t: 'drop', i: pos, h: hand });
+        if (n.pasu && b[pos] === 4) { const o = owner(pos); won = true; n.store[o] += 4; b[pos] = 0; if (log) log.push({ t: 'pasu', i: pos, n: 4, by: o }); }
+      }
+      const nx = nextOpen(n, pos);
+      if (b[nx] > 0) {
+        if (relays >= 300) break;              // safety net against an endless loop (never seen in tests)
+        relays += 1; hand = b[nx]; b[nx] = 0; pos = nx;
+        if (log) log.push({ t: 'pick', i: nx, n: hand });
+        continue;
+      }
+      const cap = nextOpen(n, nx);
+      if (b[cap] > 0) { if (log) log.push({ t: 'cap', i: cap, n: b[cap], by: me, empty: nx }); n.store[me] += b[cap]; b[cap] = 0; won = true; }
+      else if (log) log.push({ t: 'none', i: nx });
+      break;
+    }
+    n.side = 1 - me;
+    n.quiet = won ? 0 : (s.quiet || 0) + 1;
+    // the round ends when the player to move has no seeds, or when no seed was won for QUIET moves in a row
+    // (near the end two lone seeds can otherwise chase each other round the board for ever)
+    if (!legal(n).length || n.quiet >= QUIET) endRound(n, log);
+    return n;
+  };
+  const winner = (s) => (!s.over ? -1 : s.final[0] > s.final[1] ? 0 : s.final[1] > s.final[0] ? 1 : 2);
+
+  // ---------- computer: alpha-beta search (from player 0's view), with a time limit on hard
+  const evaluate = (s) => {
+    if (s.over) { const d = s.final[0] - s.final[1]; return d > 0 ? 10000 + d : d < 0 ? -10000 + d : 0; }
+    let a = 0, c = 0;
+    for (let i = 0; i < SIDE; i += 1) a += s.b[i];
+    for (let i = SIDE; i < PITS; i += 1) c += s.b[i];
+    const tot = totals(s);
+    return tot[0] - tot[1] + 0.25 * (a - c);
+  };
+  const TIMEOUT = {};
+  let deadline = Infinity, nodes = 0;
+  const search = (s, depth, al, be) => {
+    if (s.over || depth === 0) return evaluate(s);
+    nodes += 1;
+    if ((nodes & 255) === 0 && performance.now() > deadline) throw TIMEOUT;
+    const ms = legal(s);
+    if (s.side === 0) {
+      let best = -Infinity;
+      for (const m of ms) { best = Math.max(best, search(play(s, m), depth - 1, al, be)); al = Math.max(al, best); if (al >= be) break; }
+      return best;
+    }
+    let best = Infinity;
+    for (const m of ms) { best = Math.min(best, search(play(s, m), depth - 1, al, be)); be = Math.min(be, best); if (al >= be) break; }
+    return best;
+  };
+  const rootSearch = (s, ms, depth) => {
+    const sign = s.side === 0 ? 1 : -1;
+    const scored = ms.map((m) => ({ m, v: sign * search(play(s, m), depth - 1, -Infinity, Infinity) }));
+    return scored;
+  };
+  const LEVELS = { easy: { depth: 1, rnd: 0.5, ms: 0 }, medium: { depth: 2, rnd: 0.2, ms: 0 }, hard: { depth: 30, rnd: 0, ms: 450 } };
+  let hardLimit = LEVELS.hard.ms;
+  const pickMove = (s, lvl) => {
+    const ms = legal(s);
+    if (ms.length <= 1) return ms[0];
+    const L = LEVELS[lvl] || LEVELS.medium;
+    if (Math.random() < L.rnd) return ms[Math.floor(Math.random() * ms.length)];
+    let scored = null;
+    if (lvl === 'hard') {
+      deadline = performance.now() + hardLimit; nodes = 0;
+      let order = ms.slice();
+      for (let d = 2; d <= L.depth; d += 1) {
+        try { scored = rootSearch(s, order, d); } catch (e) { if (e !== TIMEOUT) throw e; break; }
+        order = scored.slice().sort((x, y) => y.v - x.v).map((x) => x.m);
+        if (Math.abs(scored.reduce((a, x) => Math.max(a, x.v), -Infinity)) >= 9000) break;   // result already decided
+      }
+      deadline = Infinity;
+      if (!scored) { deadline = Infinity; scored = rootSearch(s, ms, 2); }
+    } else scored = rootSearch(s, ms, L.depth);
+    const bestV = scored.reduce((a, x) => Math.max(a, x.v), -Infinity);
+    const best = scored.filter((x) => x.v >= bestV - 1e-9);
+    return best[Math.floor(Math.random() * best.length)].m;
+  };
+
+  // ---------- play state
+  let S = fresh(), history = [], firstGame = 0, mode = 'cpu', level = 'medium', state = 'menu', playerName = '', note = '', lastPit = -1, endInfo = null;
+  let per = store.get('pz-seeds') === '6' ? 6 : 5;
+  let pasu = store.get('pz-pasu') !== '0';
+  let multi = store.get('pz-rounds') === '1';
+  const CPU = 1;
+  const isCpuTurn = () => mode === 'cpu' && S.side === CPU;
+  const isHumanTurn = () => state === 'play' && !isCpuTurn();
+  const nameOf = (p) => (mode === 'cpu' ? (p === 0 ? (playerName || t('you')) : t('computer')) : (p === 0 && playerName ? playerName : t('player')(p + 1)));
+  const turnName = (p) => (mode === 'cpu' && p === 0 && !playerName ? t('you') : nameOf(p));
+
+  // ---------- board DOM (built once)
+  const boardEl = $('board');
+  const cells = [], pitEls = [], cntEls = [];
+  const ORDER = [13, 12, 11, 10, 9, 8, 7, 0, 1, 2, 3, 4, 5, 6];
+  const SEEDPOS = Array.from({ length: 16 }, (_, k) => { const r = k ? 30 * Math.sqrt((k + 0.3) / 16) : 0, a = k * 2.4; return [50 + r * Math.cos(a), 50 + r * Math.sin(a), (k * 53) % 180]; });
+  ORDER.forEach((i) => {
+    const cell = document.createElement('div');
+    cell.className = `cell ${i >= SIDE ? 'top' : 'bot'}`;
+    const cnt = document.createElement('span'); cnt.className = 'cnt';
+    const pit = document.createElement('button'); pit.type = 'button'; pit.className = 'pit'; pit.dataset.i = i;
+    cell.append(cnt, pit); boardEl.append(cell);
+    cells[i] = cell; pitEls[i] = pit; cntEls[i] = cnt;
+  });
+  [[6, 6], [6, -1], [-1, 6], [-1, -1]].forEach(([x, y]) => { const d = document.createElement('span'); d.className = 'stud'; d.style[x > 0 ? 'left' : 'right'] = '7px'; d.style[y > 0 ? 'top' : 'bottom'] = '7px'; boardEl.append(d); });
+  const seedsHtml = (n, i) => {
+    let h = '';
+    for (let k = 0; k < Math.min(n, 16); k += 1) {
+      const [x, y, r] = SEEDPOS[k], v = (i * 7 + k * 3) % 11;
+      h += `<span class="seed${v === 4 ? ' red' : v === 9 ? ' cow' : ''}" style="left:${x.toFixed(1)}%;top:${y.toFixed(1)}%;--r:${r}deg"></span>`;
+    }
+    return h;
+  };
+  const drawBoard = (D, hot = -1) => {
+    const playable = state === 'play' && !animating && isHumanTurn() ? legal(S) : [];
+    for (let i = 0; i < PITS; i += 1) {
+      const n = D.b[i], p = pitEls[i];
+      cells[i].classList.toggle('closed', !!D.closed[i]);
+      cntEls[i].textContent = D.closed[i] ? '✕' : n;
+      if (p.dataset.n !== String(n)) { p.innerHTML = seedsHtml(n, i); p.dataset.n = n; }
+      p.classList.toggle('play', playable.includes(i));
+      p.classList.toggle('hot', i === hot);
+      p.classList.toggle('last', i === lastPit && hot < 0 && !animating);
+      p.setAttribute('aria-label', `${i < SIDE ? 'B' : 'T'}${(i % SIDE) + 1}: ${n}`);
+    }
+    $('storeBot').textContent = D.store[0] + D.bank[0];
+    $('storeTop').textContent = D.store[1] + D.bank[1];
+  };
+  const updateHud = () => {
+    $('nameBot').innerHTML = '';
+    $('nameTop').innerHTML = '';
+    $('nameBot').append(`${mode === 'cpu' ? '🙂' : '👤'} ${nameOf(0)}`);
+    $('nameTop').append(`${mode === 'cpu' ? '' : '👤 '}${nameOf(1)}`);
+    if (S.multi && state !== 'menu') { const sm = document.createElement('small'); sm.textContent = t('roundLbl')(S.round); $('nameTop').append(sm); }
+    const live = state === 'play';
+    $('rowBot').classList.toggle('on', live && S.side === 0);
+    $('rowTop').classList.toggle('on', live && S.side === 1);
+    let m = note;
+    if (!m && live && !animating) m = isCpuTurn() ? t('thinking') : mode === 'two' ? `${t('turnOf')(turnName(S.side))} · ${S.side === 0 ? t('msgPick') : t('msgPickTop')}` : t('msgPick');
+    $('msg').textContent = m;
+    $('undoBtn').classList.toggle('hidden', !(live && !animating && mode === 'cpu' && history.length));
+    $('skipBtn').classList.toggle('hidden', !animating);
+    $('menuBtn').classList.toggle('hidden', state === 'menu');
+  };
+  const render = () => { drawBoard(S); updateHud(); };
+
+  // ---------- sound (WebAudio, nothing plays until the first tap)
+  let muted = store.get('pz-muted') === '1';
+  let ac = null, master = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setIcons();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('pz-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.8; });
+  const initAudio = () => {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    ac = new AC(); master = ac.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(ac.destination);
+  };
+  const tone = (f, dur, type = 'sine', vol = 0.07, delay = 0, f2 = null) => {
+    if (!ac || muted) return;
+    const w = ac.currentTime + delay, o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, w);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, w + dur);
+    g.gain.setValueAtTime(0.0001, w); g.gain.exponentialRampToValueAtTime(vol, w + 0.003); g.gain.exponentialRampToValueAtTime(0.0001, w + dur);
+    o.connect(g); g.connect(master); o.start(w); o.stop(w + dur + 0.03);
+  };
+  const click = () => {   // a seed tapping on wood: a short filtered noise burst plus a hollow knock
+    if (!ac || muted) return;
+    const w = ac.currentTime, len = Math.floor(ac.sampleRate * 0.03), buf = ac.createBuffer(1, len, ac.sampleRate), d = buf.getChannelData(0);
+    for (let k = 0; k < len; k += 1) d[k] = (Math.random() * 2 - 1) * Math.pow(1 - k / len, 4);
+    const src = ac.createBufferSource(), bp = ac.createBiquadFilter(), g = ac.createGain();
+    src.buffer = buf; bp.type = 'bandpass'; bp.frequency.value = 1800 + Math.random() * 1400; bp.Q.value = 3; g.gain.value = 0.5;
+    src.connect(bp); bp.connect(g); g.connect(master); src.start(w);
+    tone(260 + Math.random() * 80, 0.06, 'triangle', 0.035);
+  };
+  const sfx = {
+    drop: click,
+    pick: () => tone(420, 0.09, 'triangle', 0.04, 0, 520),
+    cap: () => { [660, 880, 1100].forEach((f, k) => tone(f, 0.18, 'sine', 0.05, k * 0.06)); },
+    pasu: () => { tone(990, 0.12, 'square', 0.025); tone(1320, 0.2, 'sine', 0.04, 0.08); },
+    none: () => tone(220, 0.15, 'triangle', 0.04, 0, 160),
+    win: () => { [523, 659, 784, 1047].forEach((f, k) => tone(f, 0.5, 'sine', 0.06, k * 0.13)); },
+    lose: () => tone(330, 0.45, 'triangle', 0.05, 0, 200),
+  };
+
+  // ---------- animation (fast, skippable)
+  let animating = false, skipping = false, wake = null;
+  const wait = (ms) => (skipping ? Promise.resolve() : new Promise((r) => { const id = setTimeout(() => { wake = null; r(); }, ms); wake = () => { clearTimeout(id); wake = null; r(); }; }));
+  const skip = () => { if (!animating) return; skipping = true; if (wake) wake(); };
+  const handEl = $('hand');
+  const placeHand = (i, n) => {
+    if (n <= 0) { handEl.classList.add('hidden'); return; }
+    const pr = pitEls[i].getBoundingClientRect(), br = boardEl.parentElement.getBoundingClientRect();
+    handEl.style.left = `${pr.left - br.left + pr.width / 2}px`;
+    handEl.style.top = `${i >= SIDE ? pr.top - br.top - 26 : pr.bottom - br.top + 4}px`;
+    handEl.textContent = `🤏 ${n}`;
+    handEl.classList.remove('hidden');
+  };
+  const bump = (p) => { const e = $(p === 0 ? 'bowlBot' : 'bowlTop'); e.classList.remove('pop'); void e.offsetWidth; e.classList.add('pop'); };
+  const animate = async (from, log) => {
+    const D = { b: from.b.slice(), closed: from.closed, store: from.store.slice(), bank: from.bank.slice() };
+    const drops = log.filter((e) => e.t === 'drop').length;
+    const dt = debug ? 1 : Math.max(45, Math.min(170, 4200 / Math.max(1, drops)));
+    animating = true; skipping = false; note = ''; updateHud();
+    for (const e of log) {
+      if (skipping) break;
+      if (e.t === 'pick') { D.b[e.i] = 0; drawBoard(D, e.i); placeHand(e.i, e.n); sfx.pick(); await wait(dt * 1.6); }
+      else if (e.t === 'drop') { D.b[e.i] += 1; drawBoard(D, e.i); placeHand(e.i, e.h); sfx.drop(); await wait(dt); }
+      else if (e.t === 'pasu') { D.b[e.i] = 0; D.store[e.by] += e.n; drawBoard(D, e.i); flash(e.i); bump(e.by); note = t('msgPasu')(nameOf(e.by), e.n); updateHud(); sfx.pasu(); await wait(dt * 4); }
+      else if (e.t === 'cap') { drawBoard(D, e.empty); await wait(dt * 2); D.store[e.by] += D.b[e.i]; D.b[e.i] = 0; drawBoard(D, e.i); flash(e.i); bump(e.by); note = t('msgCap')(nameOf(e.by), e.n); updateHud(); sfx.cap(); await wait(dt * 5); }
+      else if (e.t === 'none') { drawBoard(D, e.i); note = t('msgNothing'); updateHud(); sfx.none(); await wait(dt * 4); }
+      else if (e.t === 'sweep') { D.store[e.by] += D.b[e.i]; D.b[e.i] = 0; drawBoard(D, e.i); bump(e.by); sfx.drop(); await wait(dt * 1.5); }
+      else if (e.t === 'round') break;
+    }
+    handEl.classList.add('hidden');
+    animating = false; skipping = false;
+  };
+  const flash = (i) => { const p = pitEls[i]; p.classList.remove('cap'); void p.offsetWidth; p.classList.add('cap'); };
+  const summary = (log, by) => {
+    const parts = [];
+    let cap = 0; const ps = [0, 0];
+    log.forEach((e) => { if (e.t === 'cap') cap += e.n; if (e.t === 'pasu') ps[e.by] += e.n; });
+    if (cap) parts.push(t('msgCap')(nameOf(by), cap));
+    [0, 1].forEach((p) => { if (ps[p]) parts.push(t('msgPasu')(nameOf(p), ps[p])); });
+    if (!parts.length && log.some((e) => e.t === 'none')) parts.push(t('msgNothing'));
+    const r = log.find((e) => e.t === 'round');
+    if (r) return t('msgNewRound')(t('roundLbl')(r.round), r.shut[0], r.shut[1]);
+    return parts.join(' · ');
+  };
+
+  // ---------- turns
+  let busy = false;
+  const doMove = async (pit) => {
+    if (busy || state !== 'play') return;
+    busy = true;
+    const before = S, log = [];
+    if (mode === 'cpu' && before.side === 0) history.push(before);
+    const next = play(before, pit, log);
+    lastPit = pit;
+    await animate(before, log);
+    if (state !== 'play' || S !== before) { busy = false; return; }   // menu pressed during the animation
+    S = next; note = summary(log, before.side);
+    busy = false;
+    if (S.over) return finish();
+    render();
+    schedule();
+  };
+  const schedule = () => {
+    if (state !== 'play') return;
+    if (isCpuTurn()) setTimeout(cpuTurn, debug ? 5 : 500);
+    else if (auto) setTimeout(() => { if (state === 'play' && !isCpuTurn() && !busy) { const m = pickMove(S, params.get('p2') || 'medium'); if (m != null) doMove(m); } }, 5);
+  };
+  const cpuTurn = () => {
+    if (state !== 'play' || !isCpuTurn() || busy) return;
+    const m = pickMove(S, level);
+    if (m != null) doMove(m);
+  };
+  boardEl.addEventListener('click', (e) => {
+    if (animating) { skip(); return; }
+    const p = e.target.closest('.pit');
+    if (!p || state !== 'play' || !isHumanTurn() || busy) return;
+    initAudio();
+    const i = +p.dataset.i;
+    if (legal(S).includes(i)) doMove(i);
+  });
+  $('skipBtn').addEventListener('click', skip);
+
+  // ---------- start / end
+  const hideOverlays = () => ['startScreen', 'endScreen'].forEach((id) => $(id).classList.add('hidden'));
+  const start = (m, lvl) => {
+    initAudio();
+    skip();
+    mode = m; if (lvl) level = lvl;
+    playerName = cleanName($('name').value); store.set('pz-name', playerName);
+    // the first player has a real advantage, so the starter alternates game by game (first game: bottom player)
+    S = fresh(per, pasu, multi, firstGame); firstGame = 1 - firstGame; history = []; lastPit = -1; note = ''; state = 'play'; endInfo = null; busy = false;
+    hideOverlays();
+    $('shareOther').textContent = t('shareOther');
+    render();
+    schedule();
+  };
+  const finish = () => {
+    state = 'over';
+    const w = winner(S);
+    const youWon = mode === 'cpu' && w === 0;
+    if (youWon) { wins[level] += 1; store.set('pz-wins', JSON.stringify(wins)); }
+    (mode === 'two' || youWon || w === 2 ? sfx.win : sfx.lose)();
+    endInfo = { w, youWon, final: S.final.slice(), round: S.round, mode, level, name: playerName, fact: Math.floor(Math.random() * 6) };
+    fillEnd(); renderWins(); render();
+    setTimeout(() => { if (state === 'over') $('endScreen').classList.remove('hidden'); }, debug ? 0 : 1100);
+  };
+  const fillEnd = () => {
+    const E = endInfo;
+    $('endTitle').textContent = E.w === 2 ? t('draw') : E.mode === 'cpu' ? (E.youWon ? t('youWin')(E.name) : t('youLose')) : t('winP')(nameOf(E.w));
+    $('endBig').textContent = `🌰 ${E.final[0]} – ${E.final[1]}`;
+    $('endNote').textContent = t('noteSeeds')(`${nameOf(0)} ${E.final[0]}`, `${nameOf(1)} ${E.final[1]}`, E.round);
+    $('endFact').textContent = `💡 ${t('facts')[E.fact]}`;
+  };
+  const toMenu = () => { skip(); state = 'menu'; busy = false; hideOverlays(); renderWins(); render(); $('startScreen').classList.remove('hidden'); };
+  $('undoBtn').addEventListener('click', () => {
+    if (state !== 'play' || mode !== 'cpu' || animating || busy || !history.length) return;
+    S = history.pop(); lastPit = -1; note = ''; render();
+  });
+  const segPick = (id, val, cb) => {
+    const box = $(id);
+    const mark = (v) => box.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.v === String(v)));
+    mark(val);
+    box.addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; cb(b.dataset.v); mark(b.dataset.v); });
+  };
+  segPick('seedSeg', per, (v) => { per = v === '6' ? 6 : 5; store.set('pz-seeds', String(per)); if (state === 'menu') { S = fresh(per, pasu, multi); render(); } });
+  segPick('pasuSeg', pasu ? 1 : 0, (v) => { pasu = v === '1'; store.set('pz-pasu', pasu ? '1' : '0'); });
+  segPick('roundSeg', multi ? 1 : 0, (v) => { multi = v === '1'; store.set('pz-rounds', multi ? '1' : '0'); });
+  $('levelSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) start('cpu', b.dataset.l); });
+  $('twoBtn').addEventListener('click', () => start('two'));
+  $('againBtn').addEventListener('click', () => start(mode, level));
+  $('toMenu').addEventListener('click', toMenu);
+  $('menuBtn').addEventListener('click', toMenu);
+  $('name').value = store.get('pz-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- page texts
+  const renderWins = () => { $('wEasy').textContent = t('wins')(wins.easy); $('wMedium').textContent = t('wins')(wins.medium); $('wHard').textContent = t('wins')(wins.hard); };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Mancala Board Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((e) => { e.textContent = t(e.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((e) => { e.placeholder = t(e.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    $('tipList').innerHTML = t('tips').map((li) => `<li>${li}</li>`).join('');
+    $('factList').innerHTML = t('facts').map((li) => `<li>${li}</li>`).join('');
+    $('faqList').innerHTML = t('faq').map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    renderWins();
+    if (!animating) render();
+    if (endInfo) fillEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('pz-lang', lang); applyLang(); });
+
+  // ---------- share
+  const shareUrl = () => {
+    const u = new URL(SITE);
+    if (playerName) u.searchParams.set('from', playerName);
+    if (totalWins()) u.searchParams.set('score', String(totalWins()));
+    u.searchParams.set('lang', lang);
+    return u.toString();
+  };
+  const shareText = () => (endInfo && endInfo.youWon ? t('shareWin')(shareUrl()) : t('sharePlain')(shareUrl()));
+  const openWa = (text) => window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+  $('shareWa').addEventListener('click', () => openWa(shareText()));
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+      .then(() => { $('shareOther').textContent = t('copied'); })
+      .catch(() => openWa(text));
+  });
+
+  applyLang();
+  window.__pz = { fresh, play, legal, total, pickMove, winner, get S() { return S; }, get state() { return state; } };
+
+  // ---------- self-test: ?debug&auto
+  const selfTest = async () => {
+    const box = $('selftest'); box.classList.remove('hidden');
+    const lines = []; let ok = true;
+    const check = (name, cond, extra = '') => { lines.push(`${cond ? 'PASS' : 'FAIL'} ${name}${extra ? ` — ${extra}` : ''}`); if (!cond) ok = false; box.textContent = lines.join('\n'); };
+    const mk = (cells0, o = {}) => { const s = fresh(o.per || 5, !!o.pasu, !!o.multi); s.b = Array(PITS).fill(0); Object.entries(cells0).forEach(([k, v]) => { s.b[+k] = v; }); s.side = o.side || 0; if (o.store) s.store = o.store.slice(); if (o.closed) o.closed.forEach((i) => { s.closed[i] = true; }); return s; };
+    const eq = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+    const tick = () => new Promise((r) => setTimeout(r, 0));
+
+    // 1. capture after an empty pit
+    let s = mk({ 0: 2, 4: 7, 10: 1 }); let n = play(s, 0);
+    check('capture: pit after the empty pit is won', n.store[0] === 7 && n.b[4] === 0 && n.b[1] === 1 && n.b[2] === 1 && n.side === 1 && total(n) === total(s));
+    // 2. relay sowing, then capture across into the other side
+    s = mk({ 0: 1, 2: 3, 7: 4, 12: 1 }); n = play(s, 0);
+    check('relay: next pit lifted and sown on, then capture', eq(n.b, [0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0]) && n.store[0] === 4 && total(n) === total(s));
+    // 3. two empty pits -> nothing
+    s = mk({ 0: 1, 9: 2 }); n = play(s, 0);
+    check('two empty pits: nothing captured, turn passes', n.store[0] === 0 && n.store[1] === 0 && n.b[1] === 1 && n.side === 1);
+    // 4. pasu on own pit and on the other player's pit
+    s = mk({ 0: 1, 1: 3, 8: 1 }, { pasu: true }); n = play(s, 0);
+    check('pasu: own pit reaching 4 goes to its owner', n.store[0] === 4 && n.b[1] === 0 && total(n) === total(s));
+    s = mk({ 6: 1, 7: 3, 12: 1 }, { pasu: true }); n = play(s, 6);
+    check('pasu: other side\'s pit reaching 4 goes to that player', n.store[1] === 4 && n.store[0] === 0 && n.b[7] === 0);
+    s = mk({ 0: 1, 1: 3, 8: 1 }, { pasu: false }); n = play(s, 0);
+    check('pasu off: the pit keeps its 4 seeds', n.b[1] === 4 && n.store[0] === 0 && n.store[1] === 0 && total(n) === total(s));
+    // 5. player 1 moves too (wrap from 13 to 0)
+    s = mk({ 13: 2, 1: 0, 2: 5, 3: 1 }, { side: 1 }); n = play(s, 13);
+    check('player 2 sows 13 -> 0 -> 1, wraps around and relays', eq(n.b, [1, 1, 0, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]) && n.store[1] === 0 && total(n) === total(s));
+    // 6. round end, single round
+    s = mk({ 5: 1 }, { store: [30, 39] }); n = play(s, 5);
+    check('round end: other side empty -> sweep and game over', n.over && n.final[0] === 31 && n.final[1] === 39 && winner(n) === 1 && total(n) === 70);
+    // 7. multi round: refill, closed pits, starter alternates
+    s = mk({ 0: 1 }, { multi: true, store: [12, 57] }); n = play(s, 0);
+    check('full game: next round refills 5 per pit, closes the rest', !n.over && n.round === 2 && eq(n.b.slice(0, 7), [5, 5, 0, 0, 0, 0, 0]) && n.closed[2] && !n.closed[1] && n.bank[0] === 3 && n.bank[1] === 22 && n.side === 1 && total(n) === 70);
+    // 8. sowing skips closed pits
+    s = mk({ 0: 1, 4: 3, 9: 1 }, { closed: [1] }); n = play(s, 0);
+    check('closed pit is skipped while sowing', n.b[1] === 0 && n.b[2] === 1 && n.store[0] === 3 && n.b[4] === 0);
+    // 9. full game ends when a player cannot fill one pit
+    s = mk({ 0: 1 }, { multi: true, store: [3, 66] }); n = play(s, 0);
+    check('full game: player with < 5 seeds loses', n.over && winner(n) === 1 && n.final[0] === 4);
+    // 9b. lone seeds chasing each other: the round ends after QUIET moves without a capture
+    { let q = mk({ 0: 1, 4: 2, 9: 1, 11: 2 }, { store: [30, 34] }); q.quiet = QUIET - 1; const r = play(q, 0);
+      q = mk({ 0: 2, 4: 3, 9: 1, 11: 2 }, { store: [30, 32] }); q.quiet = QUIET - 1; const c = play(q, 0);
+      check('40 moves without a capture end the round (each keeps own side)', r.over && r.final[0] === 33 && r.final[1] === 37 && !c.over && c.quiet === 0 && c.store[0] === 33, `quiet ends: ${(r.final || []).join('-')}`); }
+    // 10. legal moves and start position
+    s = fresh(5); check('start: 70 seeds, 7 legal moves', total(s) === 70 && legal(s).length === 7);
+    s = fresh(6); check('start (6 per pit): 84 seeds', total(s) === 84);
+
+    // 11. random games in every setting: seeds conserved after every move, games end, no closed pit holds seeds
+    let games = 0, maxMoves = 0, bad = '';
+    for (const p of [5, 6]) for (const pa of [false, true]) for (const mu of [false, true]) {
+      for (let g = 0; g < 60; g += 1) {
+        let q = fresh(p, pa, mu); const T0 = total(q); let k = 0;
+        while (!q.over && k < 3000) {
+          const ms = legal(q); if (!ms.length) { bad = 'no legal move but not over'; break; }
+          q = play(q, ms[Math.floor(Math.random() * ms.length)]); k += 1;
+          if (total(q) !== T0) { bad = `total ${total(q)} != ${T0}`; break; }
+          if (q.b.some((x, i) => x < 0 || (q.closed[i] && x))) { bad = 'negative or closed pit with seeds'; break; }
+        }
+        if (!q.over && !bad) bad = 'game did not end';
+        if (bad) break;
+        if (q.final[0] + q.final[1] !== T0) { bad = 'final seeds do not add up'; break; }
+        games += 1; maxMoves = Math.max(maxMoves, k);
+      }
+      await tick();
+    }
+    check('random games (5/6 seeds, pasu on/off, 1 round/full): seeds conserved and every game ends', !bad && games === 480, bad || `${games} games, longest ${maxMoves} moves`);
+
+    // 12. computer vs computer: strength order, and the time a hard move takes
+    const duel = (l0, l1, nPairs, limit) => {   // each start position is played twice, with the levels swapped
+      const saved = hardLimit; hardLimit = limit; const w = [0, 0, 0];
+      for (let g = 0; g < nPairs; g += 1) for (const aSide of [0, 1]) {
+        let q = fresh(5, true, false, g % 2), k = 0;
+        while (!q.over && k < 1000) { q = play(q, pickMove(q, q.side === aSide ? l0 : l1)); k += 1; }
+        const r = winner(q); w[r === 2 ? 2 : r === aSide ? 0 : 1] += 1;
+      }
+      hardLimit = saved; return w;
+    };
+    let w = duel('hard', 'easy', 8, 40); await tick();
+    check('hard beats easy most of the time', w[0] > w[1] * 2, `hard ${w[0]} · easy ${w[1]} · draw ${w[2]}`);
+    w = duel('medium', 'easy', 40, 40); await tick();
+    check('medium beats easy more often than not', w[0] > w[1], `medium ${w[0]} · easy ${w[1]} · draw ${w[2]}`);
+    let worst = 0; { let q = fresh(); for (let k = 0; k < 6 && !q.over; k += 1) { const t0 = performance.now(); const m = pickMove(q, 'hard'); worst = Math.max(worst, performance.now() - t0); q = play(q, m); } }
+    check('hard move stays fast (phone friendly)', worst < 1200, `worst ${Math.round(worst)} ms (limit ${LEVELS.hard.ms} ms)`);
+    // multi-round computer game
+    { let q = fresh(5, true, true), k = 0; while (!q.over && k < 5000) { q = play(q, pickMove(q, 'medium')); k += 1; } check('full multi-round game (computer vs computer) ends', q.over && total(q) === 70, `${q.round} rounds, ${k} moves, ${q.final[0]}–${q.final[1]}`); }
+
+    // 13. the real page: computer (hard) vs auto player (medium) with the animation
+    hardLimit = 150;
+    start('cpu', 'hard');
+    const t0 = performance.now();
+    while (state !== 'over' && performance.now() - t0 < 60000) { await new Promise((r) => setTimeout(r, 50)); }
+    hardLimit = LEVELS.hard.ms;
+    await new Promise((r) => setTimeout(r, 150));
+    check('page game plays to the end screen', state === 'over' && !$('endScreen').classList.contains('hidden') && $('endTitle').textContent.length > 0, state === 'over' ? $('endTitle').textContent + ' ' + $('endBig').textContent : `state=${state} busy=${busy} anim=${animating} side=${S.side} undo=${history.length} seeds=${S.b.join(',')}`);
+    check('page board matches the final state', Number($('storeBot').textContent) + Number($('storeTop').textContent) === 70);
+
+    // 14. every language fills every text
+    for (const L of LANGS) {
+      lang = L; applyLang();
+      const empty = [...document.querySelectorAll('[data-i18n]')].filter((e) => !e.textContent.trim()).map((e) => e.dataset.i18n);
+      const words = ['howList', 'tipList', 'factList', 'faqList'].map((id) => $(id).textContent).join(' ') + ' ' + [...document.querySelectorAll('section p')].map((e) => e.textContent).join(' ');
+      check(`language ${L}: all texts present`, !empty.length && $('howList').children.length === 7 && $('faqList').children.length === 5, `${words.split(/\s+/).filter(Boolean).length} words below the board${empty.length ? ' · empty: ' + empty.join(',') : ''}`);
+    }
+    lang = LANGS.includes(urlLang) ? urlLang : 'hinglish'; applyLang();
+    document.body.dataset.selftest = ok ? 'pass' : 'fail';
+  };
+
+  if (auto) setTimeout(() => selfTest().catch((e) => { $('selftest').classList.remove('hidden'); $('selftest').textContent += `\nFAIL exception ${e && e.stack}`; document.body.dataset.selftest = 'fail'; }), 50);
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+<script src="/assets/game-share.js?v=3" defer></script>
+</body>
+</html>

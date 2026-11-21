@@ -1,0 +1,16 @@
+{
+  "name": "Nau Gutti — Nine Men's Morris",
+  "short_name": "Nau Gutti",
+  "description": "Nau Gutti (Navkankari, Nine Men's Morris): 9 pieces each, make three in a line and take a piece. Play the computer (easy, medium, hard) or a friend on one phone. 4 languages.",
+  "start_url": "/games/nau-gutti/",
+  "scope": "/games/nau-gutti/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#141b24",
+  "theme_color": "#2b3a4a",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

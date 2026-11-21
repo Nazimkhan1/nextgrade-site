@@ -820,6 +820,10 @@ const games = {
   'carrom': { name: 'Carrom', desc: 'Ghar wala carrom board, ab phone par: striker khiskao, peeche kheencho aur chhodo — apni gotiyan pocket karo aur laal Queen cover karo. Computer (aasaan, medium, mushkil) ya ek phone par dost ke saath.' },
   'bagh-bakri': { name: 'Bagh-Bakri', desc: 'Purana desi khel: 4 baagh aur 20 bakriyan. Bakri banke baaghon ko gher lo, ya baagh banke 5 bakriyan khao. Computer (aasaan, medium, mushkil) ya ek phone par dost ke saath.' },
   'kattam-katti': { name: 'Kattam-Katti (Zero-Kaata)', desc: 'Slate par chalk wala Zero-Kaata: computer ke saath (aasaan, medium, kabhi na haarne wala mushkil) ya ek phone par dost ke saath. Teen ek line mein milao, 5 game ka match.' },
+  'pallanguzhi': { name: 'Pallanguzhi (Gutte ka khel)', desc: 'Nani-dadi wala lakdi ka board: 14 gadde, imli ke beej. Beej bono aur khaali ghar ke baad wala ghar jeeto. Computer (aasaan, medium, mushkil) ya ek phone par dost ke saath.' },
+  'sholo-guti': { name: 'Sholo Guti (16 Goti)', desc: 'Gaon wala 16 goti ka khel: lakeer ke saath chalo, kood kar saamne wale ki goti maaro, lagaataar kood bhi! Computer (aasaan, medium, mushkil) ya ek phone par dost ke saath.' },
+  'chaupar': { name: 'Chaupar / Pachisi', desc: 'Kapde wali cross bisaat aur chhe kaudiyan: 10 aur 25 pe daan, kile wale khaane, goti maaro aur sabse pehle chaaron goti char-koni mein pahunchao. Computer se ya ek hi phone pe 2–4 log, 2 vs 2 jodi bhi. Sirf mazze ke liye.' },
+  'nau-gutti': { name: 'Nau Gutti', desc: 'Mandir ke farsh par khuda purana khel: 9-9 gotiyan, teen chaukor. Teen ek line mein milao aur saamne wale ki goti uthao. Computer (aasaan, medium, mushkil) ya ek phone par dost ke saath.' },
   'raja-mantri-chor-sipahi': { name: 'Raja Mantri Chor Sipahi', desc: 'Chitthi wala purana khel, ab ek phone par: 4 dost phone ghuma kar apni chitthi dekhein, ya computer ke saath khelo. Mantri ji, chor kaun hai?' },
   'langar-seva': { name: 'Langar Seva', desc: 'Gurpurab par langar ki seva: pangat mein baithi sangat ko prashada, dal, kheer aur jal parosiye. 60 second, bina music, Guru Nanak Dev Ji ki seekhon ke saath.' },
 };
