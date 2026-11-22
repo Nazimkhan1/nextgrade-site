@@ -1,1 +1,1542 @@
-<!doctype html><html data-prerendered="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Games | NextGrade</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://nextgrade.in/games/"><meta http-equiv="refresh" content="0; url=/games/"></head><body><p><a href="/games/">Games →</a></p></body></html>
+<!doctype html>
+<html data-prerendered="hi" lang="hi">
+<head>
+<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chaupar / Pachisi 🐚 — Kaudi wala Desi Board Game | NextGrade</title>
+<meta name="description" content="Chaupar / Pachisi, the old Indian cross-shaped board game played with cowrie shells (kaudi), free on your phone in Hinglish, Hindi, English and Bengali. Play the computer or 2–4 people on one phone, even as 2 vs 2 partners. Only for fun — no betting.">
+<link rel="canonical" href="https://nextgrade.in/games/chaupar/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Chaupar / Pachisi 🐚 — Kaudi wala Desi Board Game">
+<meta property="og:description" content="Kapde wali bisaat, chhe kaudiyan aur purani yaadein! Computer se ya ek hi phone pe 2–4 log, jodi bana ke bhi.">
+<meta property="og:url" content="https://nextgrade.in/games/chaupar/">
+<meta property="og:image" content="https://nextgrade.in/games/chaupar/icons/icon-512.png">
+<meta name="theme-color" content="#8f1d2c">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/css/ef020bc1c48c.css">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Chaupar / Pachisi","alternateName":["Chaupar","Pachisi","Chausar","Pasha"],"url":"https://nextgrade.in/games/chaupar/","genre":"Board game","gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","numberOfPlayers":{"@type":"QuantitativeValue","minValue":1,"maxValue":4},"inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between Chaupar and Pachisi?","acceptedAnswer":{"@type":"Answer","text":"The board is the same: a cross with four arms of 3 by 8 squares around a central home. Pachisi is played by throwing six or seven cowrie shells, while Chaupar is usually played with three long dice. In many places people use both names for the same game."}},{"@type":"Question","name":"How do you count the cowries in Pachisi?","acceptedAnswer":{"@type":"Answer","text":"Throw six cowries and count how many land mouth up. Two to six open shells move that many squares, one open shell is 10 and no open shell is 25. 10 and 25 are graces: a new piece may enter the board and you throw again."}},{"@type":"Question","name":"Is Ludo related to Pachisi?","acceptedAnswer":{"@type":"Answer","text":"Yes. Ludo is a simplified form of this old Indian game, with a die instead of cowries and without the cross-shaped cloth board, the castle squares and the partner rule."}}]}</script>
+<style>
+:root { --bg: #2a0c14; --bg2: #4a1020; --gold: #f4b740; --accent: #e8890c; --ink: #fbf3e4; --muted: #e3c9b8; --card: rgba(255,255,255,0.07); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #6a1828, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-x: hidden; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+
+/* ---- stage: a cloth spread on the floor */
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5); background: linear-gradient(180deg, #5c3a1e 0%, #432812 100%); padding: 10px 10px 12px; min-height: 480px; user-select: none; -webkit-user-select: none; touch-action: manipulation; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 8px; min-height: 30px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; background: rgba(0,0,0,0.25); border: 2px solid transparent; border-radius: 20px; padding: 2px 10px 2px 4px; font-weight: 700; font-size: 14px; transition: transform 0.15s; max-width: 48%; }
+.chip .dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid #fff; flex: none; }
+.chip .nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chip .ps { opacity: 0.85; font-weight: 600; white-space: nowrap; }
+.chip.on { border-color: var(--gold); background: rgba(244,183,64,0.2); transform: scale(1.06); }
+.boardwrap { position: relative; width: min(100%, 64vh, 600px); min-width: 260px; aspect-ratio: 1 / 1; margin: 0 auto; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.45); }
+#board { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: pointer; }
+.toast { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.8); background: rgba(30, 10, 14, 0.9); color: #fff; padding: 10px 16px; border-radius: 14px; font-weight: 800; font-size: clamp(16px, 4.6vw, 22px); text-align: center; max-width: 86%; opacity: 0; transition: opacity 0.2s, transform 0.2s; pointer-events: none; line-height: 1.3; border: 3px solid var(--gold); }
+.toast.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.toast.bad { border-color: #ff6b6b; }
+.ctrl { display: flex; align-items: center; gap: 12px; max-width: 600px; margin: 10px auto 0; }
+.trayBox { flex: none; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.tray { position: relative; width: 156px; height: 84px; border-radius: 42px; border: 3px dashed #f4b740; background: radial-gradient(ellipse at 50% 40%, #9a3b22, #561a0c 75%); box-shadow: inset 0 4px 14px rgba(0,0,0,0.55), 0 4px 10px rgba(0,0,0,0.35); cursor: pointer; padding: 0; overflow: hidden; }
+.tray:disabled { opacity: 0.62; cursor: default; }
+.tray:not(:disabled) { animation: nudge 1.6s ease-in-out infinite; }
+@keyframes nudge { 0%, 85%, 100% { transform: none; } 90% { transform: rotate(-4deg); } 95% { transform: rotate(4deg); } }
+.tray.shake { animation: shake 0.11s linear infinite !important; }
+@keyframes shake { 0% { transform: translate(0, 0) rotate(0); } 33% { transform: translate(-3px, 1px) rotate(-3deg); } 66% { transform: translate(3px, -1px) rotate(3deg); } 100% { transform: translate(0, 0); } }
+.kd { position: absolute; width: 24px; height: 34px; transition: left 0.22s ease-out, top 0.22s ease-out, transform 0.22s ease-out; pointer-events: none; }
+.kd svg { width: 100%; height: 100%; display: block; filter: drop-shadow(0 2px 1px rgba(0,0,0,0.45)); }
+.val { position: absolute; right: 6px; top: 4px; background: rgba(0,0,0,0.6); color: #fff; font-weight: 800; font-size: 15px; border-radius: 10px; padding: 0 7px; line-height: 1.5; display: none; }
+.val.on { display: block; }
+.val.grace { background: #f4b740; color: #3a1200; }
+.trayCap { font-size: 13px; font-weight: 700; color: var(--muted); }
+.status { flex: 1; min-width: 0; }
+.turn { font-family: "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif; font-weight: 800; font-size: 20px; line-height: 1.2; }
+.msg { font-size: 15px; color: #fff1dc; min-height: 22px; line-height: 1.35; }
+.choices { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 8px auto 0; max-width: 600px; }
+.choices button { font: inherit; font-weight: 700; font-size: 14px; padding: 6px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.35); background: rgba(0,0,0,0.3); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.choices .dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #fff; }
+
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(30, 6, 12, 0.78); padding: 16px; overflow-y: auto; z-index: 10; cursor: default; }
+.panel { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 18px; width: min(430px, 100%); text-align: center; margin: auto; color: var(--ink); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: var(--muted); }
+.big { font-family: "Baloo 2", sans-serif; font-size: 50px; font-weight: 800; color: var(--gold); line-height: 1; margin: 6px 0; }
+.seg { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 10px 0 6px; }
+.seg button { font: inherit; font-weight: 800; font-size: 14px; padding: 8px 3px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); cursor: pointer; line-height: 1.2; }
+.seg button.on { background: linear-gradient(90deg, #b5172f, #e8890c); border-color: transparent; }
+.seat { display: flex; align-items: center; gap: 6px; margin: 5px 0; }
+.seat .dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; flex: none; }
+.seat .team { font-size: 11px; font-weight: 800; background: rgba(255,255,255,0.15); border-radius: 6px; padding: 1px 5px; flex: none; }
+.seat input { flex: 1; min-width: 0; }
+.seat .who { flex: none; font: inherit; font-weight: 700; font-size: 13px; padding: 8px 8px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.25); color: var(--ink); cursor: pointer; min-width: 104px; }
+.seat .who.c { background: rgba(244,183,64,0.25); }
+.opt { display: flex; align-items: center; justify-content: flex-start; gap: 8px; font-size: 14px; margin: 7px 0 2px; cursor: pointer; text-align: left; }
+.opt input { width: 20px; height: 20px; margin: 0; accent-color: #e8890c; flex: none; }
+.stats { display: flex; justify-content: center; gap: 16px; font-weight: 700; margin: 6px 0; }
+input[type=text] { width: 100%; font: inherit; font-size: 16px; padding: 8px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); }
+input::placeholder { color: #c9a99a; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, #b5172f, #e8890c); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+.card2 ol, .card2 ul { margin: 0; padding-left: 20px; }
+.card2 li { margin: 4px 0; }
+table.kt { width: 100%; border-collapse: collapse; }
+.kt th, .kt td { padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,0.12); text-align: left; }
+.kt td.n { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 18px; color: var(--gold); }
+.kt .shells { letter-spacing: 1px; white-space: nowrap; }
+details { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 10px 14px; margin: 8px 0; }
+details summary { font-weight: 700; cursor: pointer; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+#selftest { white-space: pre-wrap; font: 12px/1.4 ui-monospace, Menlo, monospace; background: #111; color: #9f9; padding: 8px; border-radius: 8px; margin: 10px 0; }
+@media (max-width: 480px) { .stage { padding: 8px 6px 10px; } .panel { padding: 14px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .turn { font-size: 17px; } .msg { font-size: 14px; } .tray { width: 140px; height: 78px; } .ctrl { gap: 8px; } .seg button { font-size: 12.5px; } }
+</style>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="kdBack" cx="38%" cy="30%" r="80%"><stop offset="0" stop-color="#fffaf0"/><stop offset="0.45" stop-color="#ead2a2"/><stop offset="1" stop-color="#a8773d"/></radialGradient>
+    <radialGradient id="kdMouth" cx="50%" cy="45%" r="70%"><stop offset="0" stop-color="#fffdf6"/><stop offset="0.7" stop-color="#efe1c2"/><stop offset="1" stop-color="#c9a76c"/></radialGradient>
+  </defs>
+</svg>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🐚 NextGrade<small>Bachpan ka Game</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title">चौपड़ / पचीसी 🐚</h1>
+  <p class="sub" data-i18n="sub">कपड़े वाली बिसात, छह कौड़ियाँ और पुरानी यादें! कौड़ी फेंको, अपनी गोटी घुमाओ और सबसे पहले सारी गोटियाँ चार-कोनी (घर) में पहुँचाओ। कंप्यूटर से खेलो या एक ही फ़ोन पर 2–4 लोग, जोड़ी बनाकर भी।</p>
+
+  <div class="stage" id="stage">
+    <div class="chips" id="chips"></div>
+    <div class="boardwrap" id="boardwrap">
+      <canvas id="board" aria-label="Chaupar board"></canvas>
+      <div class="toast" id="toast" aria-live="polite"></div>
+    </div>
+    <div class="ctrl">
+      <div class="trayBox">
+        <button class="tray" id="tray" type="button" aria-label="Throw the cowries"><span class="val" id="val"></span></button>
+        <span class="trayCap" data-i18n="throwBtn">🐚 कौड़ी फेंको</span>
+      </div>
+      <div class="status">
+        <div class="turn" id="turn"></div>
+        <div class="msg" id="msg" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="choices" id="choices"></div>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle">चौपड़ बिछाएँ? 🐚</h2>
+        <p data-i18n="modeQ">कौन-कौन खेलेगा?</p>
+        <div class="seg" id="modes">
+          <button type="button" data-mode="comp">🤖<br><span data-i18n="mComp">कंप्यूटर से</span></button>
+          <button type="button" data-mode="two">👥<br><span data-i18n="mTwo">2 खिलाड़ी</span></button>
+          <button type="button" data-mode="four">👨‍👩‍👧‍👦<br><span data-i18n="mFour">4 खिलाड़ी</span></button>
+          <button type="button" data-mode="team">🤝<br><span data-i18n="mTeam">2 बनाम 2 जोड़ी</span></button>
+        </div>
+        <div id="seats"><div class="seat"><span class="dot" style="background: rgb(214, 40, 40);"></span><input type="text" maxlength="16" autocomplete="off" data-seat="0" placeholder="लाल का नाम"><button type="button" class="who">👤 इंसान</button></div><div class="seat"><span class="dot" style="background: rgb(43, 147, 72);"></span><input type="text" maxlength="16" autocomplete="off" data-seat="2" placeholder="हरा का नाम" disabled=""><button type="button" class="who c">🤖 कंप्यूटर</button></div></div>
+        <label class="opt"><input type="checkbox" id="optCap"> <span data-i18n="optCap">गोटी मारने पर एक और फेंक</span></label>
+        <label class="opt"><input type="checkbox" id="optAuto"> <span data-i18n="optAuto">एक ही चाल हो तो गोटी अपने आप चले</span></label>
+        <label class="opt"><input type="checkbox" id="optShort"> <span data-i18n="optShort">छोटा खेल: हर खिलाड़ी की 2 गोटियाँ</span></label>
+        <button class="btn btn-main" id="play" type="button" data-i18n="play"></button>
+        <p id="winsLine"></p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big">🏆</div>
+        <p id="endNote"></p>
+        <div class="stats" id="endStats"></div>
+        <button class="btn btn-main" id="shareMain" type="button" data-i18n="shareMain"></button>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
+        <button class="btn btn-main" id="again" type="button" data-i18n="again"></button>
+        <button class="btn btn-ghost" id="setup" type="button" data-i18n="setup"></button>
+      </div>
+    </div>
+  </div>
+  <div id="selftest" class="hidden"></div>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle">कैसे खेलें</h2>
+    <div class="card2"><ol id="howList"><li>चुनो: <b>कंप्यूटर से</b>, <b>2 खिलाड़ी</b>, <b>4 खिलाड़ी</b> या <b>2 बनाम 2 जोड़ी</b> (आमने-सामने बैठे लोग साथी होते हैं)। हर जगह को इंसान या कंप्यूटर बना सकते हो — एक ही फ़ोन बारी-बारी पकड़ाओ।</li><li>हर खिलाड़ी की 4 गोटियाँ अपने कोने के गोल घर में इंतज़ार करती हैं। <b>🐚 कौड़ियाँ दबाओ</b> या फ़ोन हिलाओ — 6 कौड़ियाँ गिरती हैं। जितनी कौड़ियों का <b>मुँह ऊपर</b> (खुला) है, उसी से चाल बनती है (नीचे तालिका)।</li><li><b>10 या 25</b> आए तो यह <b>दान</b> है: एक नई गोटी बिसात पर आ सकती है (या कोई गोटी उतना चल सकती है), और एक और फेंक मिलती है।</li><li>गोटी पहले अपनी बाँह की बीच वाली लाइन में नीचे जाती है, फिर <b>घड़ी की उल्टी दिशा</b> में पूरी बिसात का चक्कर लगाती है, और आख़िर में अपनी बीच वाली लाइन से ऊपर <b>चार-कोनी</b> (बीच का घर) में पहुँचती है।</li><li>घर में घुसने के लिए <b>ठीक उतनी</b> ही चाल चाहिए। ज़्यादा आए तो वह गोटी उस बार नहीं चलेगी। 1 की चाल होती ही नहीं, इसलिए घर से ठीक पहले वाले ख़ाने पर गोटी नहीं रुक सकती।</li><li>विरोधी की गोटी पर ठीक जाकर रुको तो वह <b>मर जाती है</b> और वापस अपने कोने में चली जाती है। मारने पर एक और फेंक मिलती है (सेटिंग से बंद कर सकते हो)।</li><li><b>✚ वाले हरे ख़ाने "किले" हैं</b> — वहाँ कोई गोटी नहीं मारी जा सकती। जोड़ी में अपने साथी की गोटी नहीं मारी जाती।</li><li>जो सबसे पहले अपनी सारी गोटियाँ घर ले आए (जोड़ी में: दोनों साथी) वह जीता। जोड़ी में जिसकी गोटियाँ पहले घर आ गईं, वह अपनी फेंक से साथी की गोटी चलाता है।</li></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="scoreTitle">कौड़ी की गिनती</h2>
+    <div class="card2"><table class="kt" id="scoreTable"><tbody><tr><th>खुली कौड़ियाँ (मुँह ऊपर)</th><th>चाल</th></tr><tr><td><span class="shells">—</span> 0</td><td class="n">25 <small>🌟 दान + एक और फेंक</small></td></tr><tr><td><span class="shells">🐚</span> 1</td><td class="n">10 <small>🌟 दान + एक और फेंक</small></td></tr><tr><td><span class="shells">🐚🐚</span> 2</td><td class="n">2</td></tr><tr><td><span class="shells">🐚🐚🐚</span> 3</td><td class="n">3</td></tr><tr><td><span class="shells">🐚🐚🐚🐚</span> 4</td><td class="n">4</td></tr><tr><td><span class="shells">🐚🐚🐚🐚🐚</span> 5</td><td class="n">5</td></tr><tr><td><span class="shells">🐚🐚🐚🐚🐚🐚</span> 6</td><td class="n">6</td></tr></tbody></table><p data-i18n="scoreNote">हर कौड़ी के खुलने का मौक़ा आधा-आधा है, इसलिए 3 सबसे ज़्यादा आता है, फिर 2 और 4। 25 सबसे कम — 64 में से लगभग 1 बार।</p></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="tipsTitle">जीतने के नुस्ख़े</h2>
+    <div class="card2"><ul id="tipList"><li>दान (10 या 25) आए तो सोचिए: नई गोटी निकालें या आगे वाली गोटी को दूर तक भगाएँ?</li><li>विरोधी गोटी से 2, 3 या 4 ख़ाने आगे रुकना सबसे ख़तरनाक है — यही नंबर सबसे ज़्यादा आते हैं।</li><li>किले (✚) पर गोटी हो तो कोई नहीं मार सकता — वहाँ साँस लो, फिर आगे बढ़ो।</li><li>घर के पास ठीक नंबर चाहिए, इसलिए आख़िरी ख़ानों में एक-दो गोटियों को छोटी चालों के लिए बचाकर रखो।</li><li>जोड़ी में खेल रहे हो तो साथी के पीछे वाले दुश्मन को मारना भी उतना ही फ़ायदे का है।</li></ul></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle">चौपड़ और पचीसी की कहानी</h2>
+    <div id="aboutBox"><p>चौपड़ और पचीसी भारत के सबसे पुराने बोर्ड खेलों में गिने जाते हैं। "पचीसी" शब्द "पच्चीस" से बना है — कौड़ियों का सबसे बड़ा दान। बिसात अक्सर कपड़े की होती थी, जिस पर कढ़ाई से ख़ाने बने होते थे, ताकि उसे मोड़कर रखा जा सके और आँगन, चौपाल या छत पर बिछाकर खेला जा सके। पचीसी कौड़ियों से खेली जाती है, जबकि चौपड़ में अक्सर तीन लंबे पासे चलते हैं — बिसात दोनों की लगभग एक जैसी है, इसलिए लोग दोनों नाम मिलाकर भी बोलते हैं।</p><p>कहा जाता है कि मुग़ल बादशाह अकबर फ़तेहपुर सीकरी के आँगन में बनी एक बड़ी बिसात पर खेलते थे, और रंग-बिरंगे कपड़े पहने लोग गोटियाँ बनते थे। वहाँ आज भी फ़र्श में बना एक बड़ा ख़ाना दिखाया जाता है, लेकिन इतिहासकार इस कहानी को पूरी तरह पक्का नहीं मानते। महाभारत में युधिष्ठिर और शकुनि के पासों वाले खेल की कथा भी बहुत लोग चौपड़ से जोड़ते हैं — ग्रंथ में पासों का खेल लिखा है, पर वह ठीक यही बिसात वाला खेल था, यह कहना मुश्किल है।</p><p>बाद में इसी खेल के आसान रूप दूसरे देशों तक पहुँचे, और आज का लूडो भी इसी परिवार से निकला है। गाँव-कस्बों में लोग घंटों बैठकर चौपड़ खेलते थे, और हर इलाक़े के नियम थोड़े अलग थे — कहीं 6 भी दान माना जाता है, कहीं दो गोटियाँ मिलकर रास्ता रोक देती हैं, कहीं सारी फेंक जोड़कर एक साथ चलते हैं। यहाँ हमने आसान और आम नियम चुने हैं। हम यह खेल सिर्फ़ मज़े के लिए खेलते हैं — इसमें कोई दाँव, पैसा या जुआ नहीं।</p></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="faqTitle">अक्सर पूछे जाने वाले सवाल</h2>
+    <div id="faqList"><details><summary>चौपड़ और पचीसी में क्या फ़र्क़ है?</summary><p>बिसात एक जैसी है — प्लस के निशान जैसी, चार बाँहें, हर बाँह में 3×8 ख़ाने और बीच में चार-कोनी। पचीसी में 6 या 7 कौड़ियाँ फेंकी जाती हैं, चौपड़ में अक्सर 3 लंबे पासे। बहुत जगह लोग दोनों नाम एक ही खेल के लिए बोलते हैं।</p></details><details><summary>कौड़ी से चाल कैसे गिनते हैं?</summary><p>6 कौड़ियाँ फेंको और गिनो कितनों का मुँह ऊपर है: 2 से 6 खुली तो उतनी ही चाल, 1 खुली तो 10, एक भी नहीं खुली तो 25। 10 और 25 दान हैं — नई गोटी अंदर आ सकती है और एक और फेंक मिलती है।</p></details><details><summary>क्या यह लूडो जैसा है?</summary><p>हाँ, लूडो इसी पुराने खेल का आसान रूप है। यहाँ पासे की जगह कौड़ियाँ, कपड़े वाली क्रॉस बिसात, किले वाले ख़ाने और जोड़ी में खेलने का नियम है।</p></details><details><summary>मेरे गाँव में नियम अलग थे — क्या वे ग़लत थे?</summary><p>बिल्कुल नहीं! चौपड़ के नियम हर इलाक़े में अलग हैं। कहीं 6 भी दान है, कहीं गोटी मारने पर एक और फेंक नहीं मिलती। "गोटी मारने पर एक और फेंक" को आप सेटिंग से बंद-चालू कर सकते हो।</p></details><details><summary>क्या इसमें पैसे लगते हैं?</summary><p>नहीं। यह मुफ़्त गेम है और सिर्फ़ मज़े के लिए — न कोई दाँव, न पैसा, न इनाम। बस पुरानी यादें और परिवार के साथ हँसी-मज़ाक।</p></details></div>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames">और गेम खेलो →</a></p>
+    <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle">आपका डेटा</h2>
+    <p data-i18n="privacyText">नाम और सेटिंग सिर्फ़ आपके फ़ोन में रहते हैं। कोई लॉगिन नहीं, कोई सर्वर नहीं।</p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/chaupar/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+
+  // ======================================================================
+  // Board model. The board is a 19×19 grid: a cross with four arms of 3×8 squares around a 3×8 centre (char-koni).
+  // Seats: 0 = bottom, 1 = right, 2 = top, 3 = left (anticlockwise, which is also the playing order).
+  // Each piece walks: down the middle lane of its own arm (7 squares), the whole outer loop anticlockwise
+  // (68 squares, starting at the far end of its own arm), then back up its own middle lane (7) into the centre.
+  // Path index 0..81 are squares, 82 = home (centre). -1 = waiting off the board.
+  // ======================================================================
+  const HOME = 82, LOOP_A = 7, LOOP_B = 74;
+  const VAL = [25, 10, 2, 3, 4, 5, 6]; // index = number of cowries that land mouth up
+  const GRACE = (v) => v === 10 || v === 25;
+  const PROB = { 25: 1 / 64, 10: 6 / 64, 2: 15 / 64, 3: 20 / 64, 4: 15 / 64, 5: 6 / 64, 6: 1 / 64 };
+  const rotC = ([r, c]) => [18 - c, r]; // a quarter turn anticlockwise on screen
+  const rotK = (p, k) => { let q = p; for (let i = 0; i < k; i += 1) q = rotC(q); return q; };
+  const key = ([r, c]) => r * 19 + c;
+  const ARM = []; // bottom arm in loop order: left column down, end square, right column up
+  for (let r = 11; r <= 18; r += 1) ARM.push([r, 8]);
+  ARM.push([18, 9]);
+  for (let r = 18; r >= 11; r -= 1) ARM.push([r, 10]);
+  const LOOP = [0, 1, 2, 3].flatMap((k) => ARM.map((p) => rotK(p, k)));
+  const GIDX = new Map(LOOP.map((p, i) => [key(p), i]));
+  const PATHS = [0, 1, 2, 3].map((k) => {
+    const p = [];
+    for (let r = 11; r <= 17; r += 1) p.push(rotK([r, 9], k));
+    for (let j = 0; j < 68; j += 1) p.push(LOOP[(17 * k + 8 + j) % 68]);
+    for (let r = 17; r >= 11; r -= 1) p.push(rotK([r, 9], k));
+    return p;
+  });
+  const SAFE = new Set([0, 1, 2, 3].flatMap((k) => [[18, 9], [15, 8], [15, 10]].map((p) => key(rotK(p, k)))));
+  const inLoop = (pos) => pos >= LOOP_A && pos <= LOOP_B;
+  const cellKey = (seat, pos) => key(PATHS[seat][pos]);
+
+  // ---------- game engine (pure; used by the UI and by the self-test)
+  const teamOf = (g, pi) => (g.teams ? g.players[pi].seat % 2 : pi);
+  const allHome = (pl) => pl.pieces.every((p) => p.pos === HOME);
+  const moverOf = (g, pi) => {
+    if (g.teams && allHome(g.players[pi])) {
+      const mate = g.players.findIndex((q, i) => i !== pi && teamOf(g, i) === teamOf(g, pi));
+      if (mate >= 0) return mate;
+    }
+    return pi;
+  };
+  const legalMoves = (g, pi, v) => {
+    const owner = moverOf(g, pi);
+    const pl = g.players[owner];
+    const moves = [], seen = new Set();
+    pl.pieces.forEach((pc, j) => {
+      if (pc.pos === HOME) return;
+      let to;
+      if (pc.pos === -1) { if (!GRACE(v)) return; to = 0; } else { to = pc.pos + v; if (to > HOME || to === HOME - 1) return; } // no throw is worth 1, so a piece may not stop on the last square
+      if (seen.has(pc.pos)) return; // stacked pieces give the same move
+      seen.add(pc.pos);
+      moves.push({ owner, j, from: pc.pos, to });
+    });
+    return moves;
+  };
+  const capturesAt = (g, owner, to) => {
+    if (!inLoop(to)) return [];
+    const k = cellKey(g.players[owner].seat, to);
+    if (SAFE.has(k)) return [];
+    const out = [];
+    g.players.forEach((q, qi) => {
+      if (teamOf(g, qi) === teamOf(g, owner)) return;
+      q.pieces.forEach((pc, j) => { if (inLoop(pc.pos) && cellKey(q.seat, pc.pos) === k) out.push([qi, j]); });
+    });
+    return out;
+  };
+  const applyMove = (g, m) => {
+    const cap = capturesAt(g, m.owner, m.to).map(([qi, j]) => ({ qi, j, pos: g.players[qi].pieces[j].pos }));
+    cap.forEach((c) => { g.players[c.qi].pieces[c.j].pos = -1; });
+    g.players[m.owner].pieces[m.j].pos = m.to;
+    return { cap, home: m.to === HOME };
+  };
+  const winnersOf = (g) => {
+    if (g.teams) {
+      for (const tm of [0, 1]) {
+        const mem = g.players.map((p, i) => i).filter((i) => teamOf(g, i) === tm);
+        if (mem.length && mem.every((i) => allHome(g.players[i]))) return mem;
+      }
+      return null;
+    }
+    const w = g.players.findIndex(allHome);
+    return w >= 0 ? [w] : null;
+  };
+  // How likely an enemy piece can land on loop square G with its next throw
+  const threat = (g, owner, G) => {
+    let s = 0;
+    g.players.forEach((q, qi) => {
+      if (teamOf(g, qi) === teamOf(g, owner)) return;
+      const i = ((G - 17 * q.seat - 1 - 7) % 68 + 68) % 68 + 7;
+      q.pieces.forEach((pc) => {
+        if (pc.pos < 0 || pc.pos > LOOP_B) return;
+        const d = i - pc.pos;
+        if (d > 0 && PROB[d]) s += PROB[d];
+      });
+    });
+    return s;
+  };
+  const aiChoose = (g, pi, moves, rng = Math.random) => {
+    let best = null, bestS = -Infinity;
+    moves.forEach((m) => {
+      const seat = g.players[m.owner].seat;
+      let s = m.from >= 0 ? m.to - m.from : 0;
+      if (m.from === -1) s += 32;
+      if (m.to === HOME) s += 45;
+      capturesAt(g, m.owner, m.to).forEach(([qi, j]) => { s += 45 + g.players[qi].pieces[j].pos * 0.6; });
+      if (inLoop(m.to)) {
+        const k = cellKey(seat, m.to);
+        if (SAFE.has(k)) s += 7; else s -= threat(g, m.owner, GIDX.get(k)) * (28 + m.to * 0.6);
+      } else if (m.to > LOOP_B && m.to < HOME) s += 8;
+      if (inLoop(m.from)) {
+        const k = cellKey(seat, m.from);
+        if (!SAFE.has(k)) s += threat(g, m.owner, GIDX.get(k)) * (22 + m.from * 0.6); else s -= 5;
+      }
+      s += rng() * 2;
+      if (s > bestS) { bestS = s; best = m; }
+    });
+    return best;
+  };
+  const throwKaudi = (rng = Math.random) => {
+    const faces = [];
+    let k = 0;
+    for (let i = 0; i < 6; i += 1) { const up = rng() < 0.5; faces.push(up); if (up) k += 1; }
+    return { faces, k, v: VAL[k] };
+  };
+  const newGame = (seatsCfg, opts) => ({
+    teams: !!opts.teams,
+    capBonus: opts.capBonus !== false,
+    nPieces: opts.nPieces || 4,
+    players: seatsCfg.map((s) => ({ ...s, pieces: Array.from({ length: opts.nPieces || 4 }, () => ({ pos: -1 })), throws: 0, caps: 0 })),
+    turn: 0,
+    over: false,
+  });
+
+  // ======================================================================
+  // Texts
+  // ======================================================================
+  const T = {
+    hinglish: {
+      title: 'Chaupar / Pachisi 🐚',
+      sub: 'Kapde wali bisaat, chhe kaudiyan aur purani yaadein! Kaudi phenko, apni goti ghumao aur sabse pehle saari goti char-koni (ghar) mein pahunchao. Computer se khelo ya ek hi phone pe 2–4 log, jodi bana ke bhi.',
+      startTitle: 'Chaupar bichhaayein? 🐚',
+      modeQ: 'Kaun-kaun khelega?',
+      mComp: 'Computer se', mTwo: '2 khiladi', mFour: '4 khiladi', mTeam: '2 vs 2 jodi',
+      human: '👤 Insaan', compL: '🤖 Computer',
+      you: 'Aap', comp: 'Computer',
+      colors: ['Laal', 'Peela', 'Hara', 'Kaala'],
+      seatPh: (c) => `${c} ka naam`,
+      teamLbl: (i) => `Jodi ${i}`,
+      optCap: 'Goti maarne par ek aur phenk',
+      optAuto: 'Ek hi chaal ho to goti apne aap chale',
+      optShort: 'Chhota khel: har khiladi ki 2 goti',
+      play: '▶ Khel shuru',
+      throwBtn: '🐚 Kaudi phenko',
+      turnOf: (n) => `${n} ki baari`,
+      tapThrow: 'Kaudiyon ko dabao (ya phone hilao)',
+      compThink: '🤖 soch raha hai…',
+      thrown: (n, k, v) => `${n}: ${k} kaudi khuli → ${v}`,
+      grace: (v) => `${v}! Daan — ek aur phenk 🌟`,
+      noMove: 'Koi chaal nahi ban rahi',
+      needGrace: 'Goti andar laane ke liye 10 ya 25 chahiye',
+      choose: 'Kaunsi goti chalaani hai? Chamakti goti dabao',
+      enterLbl: 'Nayi goti andar',
+      pieceLbl: (j, left) => `Goti ${j} · ${left} baaki`,
+      pieceHome: (j) => `Goti ${j} → 🏠`,
+      captured: (n, k) => `💥 ${n} ne ${k} goti maar di!`,
+      homeMsg: '🏠 Goti char-koni mein pahunch gayi!',
+      extra: 'Ek aur phenk!',
+      partnerMove: (n) => `Apni goti ghar aa gayi — ab ${n} ki goti chalao`,
+      win: (n) => `🏆 ${n} jeet gaye!`,
+      endWin: (n) => `${n} jeet gaye! 🎉`,
+      endComp: 'Computer jeet gaya! 🤖',
+      teamName: (a, b) => `${a}–${b} jodi`,
+      endNoteComp: 'Koi baat nahi — agli baar kaudiyan aapka saath dengi! 😄',
+      endNoteWin: 'Waah! Pakke khiladi ho 👏',
+      endStats: (th, cap) => `🐚 ${th} phenk · 💥 ${cap} goti maari`,
+      wins: (n) => `Computer se jeete: ${n} baar`,
+      shareText: (won, url) => (won ? `🐚 Chaupar mein maine jeet li! Tum bhi khelo: ${url}` : `🐚 Chaupar / Pachisi — kaudi wala purana khel, ab phone pe! Tum bhi khelo: ${url}`),
+      shareMain: '📤 Doston ko challenge bhejo', shareWa: '📲 WhatsApp pe bhejo', shareFb: 'Facebook par share karo',
+      copied: '✅ Copy ho gaya', copyPrompt: 'Yeh text copy karo:',
+      again: '🔁 Phir khelo', setup: '⚙️ Khiladi badlo',
+      howTitle: 'Kaise khelein',
+      how: [
+        'Chuno: <b>Computer se</b>, <b>2 khiladi</b>, <b>4 khiladi</b> ya <b>2 vs 2 jodi</b> (aamne-saamne baithe log saathi hote hain). Har jagah ko insaan ya computer bana sakte ho — ek hi phone baari-baari pakdao.',
+        'Har khiladi ki 4 goti apne kone ke gol ghar mein intezaar karti hain. <b>🐚 Kaudiyan dabao</b> ya phone hilao — 6 kaudiyan girti hain. Jitni kaudiyon ka <b>munh upar</b> (khula) hai, usi se chaal banti hai (neeche table).',
+        '<b>10 ya 25</b> aaye to yeh <b>daan</b> hai: ek nayi goti bisaat par aa sakti hai (ya koi goti utni chal sakti hai), aur ek aur phenk milti hai.',
+        'Goti pehle apni baah ki beech wali line mein neeche jaati hai, phir <b>ulti ghadi ki disha</b> mein poori bisaat ka chakkar lagaati hai, aur aakhir mein apni beech wali line se upar <b>char-koni</b> (beech ka ghar) mein pahunchti hai.',
+        'Ghar mein ghusne ke liye <b>theek utni</b> hi chaal chahiye. Zyada aaye to woh goti us baar nahi chalegi. 1 ki chaal hoti hi nahi, isliye ghar se theek pehle wale khaane par goti nahi ruk sakti.',
+        'Virodhi ki goti par theek jaa ke ruko to woh <b>mar jaati hai</b> aur wapas apne kone mein chali jaati hai. Maarne par ek aur phenk milti hai (setting se band kar sakte ho).',
+        '<b>✚ wale hare khaane "kile" hain</b> — wahan koi goti nahi maari jaa sakti. Jodi mein apne saathi ki goti nahi maari jaati.',
+        'Jo sabse pehle apni saari goti ghar le aaye (jodi mein: dono saathi) woh jeeta. Jodi mein jiski goti pehle ghar aa gayi, woh apni phenk se saathi ki goti chalata hai.',
+      ],
+      scoreTitle: 'Kaudi ki ginti',
+      scoreHead: ['Khuli kaudiyan (munh upar)', 'Chaal'],
+      graceMark: '🌟 daan + ek aur phenk',
+      scoreNote: 'Har kaudi ke khulne ka mauka aadha-aadha hai, isliye 3 sabse zyada aata hai, phir 2 aur 4. 25 sabse kam — 64 mein se lagbhag 1 baar.',
+      tipsTitle: 'Jeetne ke nuskhe',
+      tips: [
+        'Daan (10 ya 25) aaye to sochiye: nayi goti nikaalein ya aage wali goti ko door tak bhagaayein?',
+        'Virodhi goti se 2, 3 ya 4 khaane aage rukna sabse khatarnaak hai — yahi number sabse zyada aate hain.',
+        'Kile (✚) par goti ho to koi nahi maar sakta — wahan saans lo, phir aage badho.',
+        'Ghar ke paas theek number chahiye, isliye aakhri khaanon mein ek-do goti ko chhoti chaalon ke liye bachaa ke rakho.',
+        'Jodi mein khel rahe ho to saathi ke peechhe wale dushman ko maarna bhi utna hi faayde ka hai.',
+      ],
+      aboutTitle: 'Chaupar aur Pachisi ki kahani',
+      about: [
+        'Chaupar aur Pachisi Bharat ke sabse purane board khelon mein gine jaate hain. "Pachisi" shabd "pachchees" yaani 25 se bana hai — kaudiyon ka sabse bada daan. Bisaat aksar kapde ki hoti thi, jis par kadhaai se khaane bane hote the, taaki use mod ke rakha jaa sake aur aangan, chaupal ya chhat par bichha ke khela jaa sake. Pachisi kaudiyon se khela jaata hai, jabki Chaupar mein aksar teen lambe paase chalte hain — bisaat dono ki lagbhag ek jaisi hai, isliye log dono naam mila ke bhi bolte hain.',
+        'Kaha jaata hai ki Mughal baadshah Akbar Fatehpur Sikri ke aangan mein bani ek badi bisaat par khelte the, aur rang-birange kapde pehne log goti bante the. Wahan aaj bhi farsh mein bana ek bada khaana dikhaaya jaata hai, lekin itihaaskaar is kahani ko poori tarah pakka nahi maante. Mahabharat mein Yudhishthir aur Shakuni ke paason wale khel ki katha bhi bahut log Chaupar se jodte hain — granth mein paason ka khel likha hai, par woh theek yahi bisaat wala khel tha, yeh kehna mushkil hai.',
+        'Baad mein isi khel ke aasaan roop doosre deshon tak pahunche, aur aaj ka Ludo bhi isi parivaar se nikla hai. Gaon-kasbon mein log ghanton baith ke chaupar khelte the, aur har ilaake ke niyam thode alag the — kahin 6 bhi daan maana jaata hai, kahin do goti mil ke rasta rok deti hain, kahin sab phenk jod ke ek saath chalte hain. Yahan humne aasaan aur aam niyam chune hain. Hum yeh khel sirf mazze ke liye khelte hain — isme koi daav, paisa ya juaa nahi.',
+      ],
+      faqTitle: 'Aksar poochhe jaane wale sawaal',
+      faq: [
+        ['Chaupar aur Pachisi mein kya farq hai?', 'Bisaat ek jaisi hai — plus ke nishaan jaisi, chaar baahein, har baah mein 3×8 khaane aur beech mein char-koni. Pachisi mein 6 ya 7 kaudiyan phenki jaati hain, Chaupar mein aksar 3 lambe paase. Bahut jagah log dono naam ek hi khel ke liye bolte hain.'],
+        ['Kaudi se chaal kaise ginte hain?', '6 kaudiyan phenko aur gino kitno ka munh upar hai: 2 se 6 khuli to utni hi chaal, 1 khuli to 10, ek bhi nahi khuli to 25. 10 aur 25 daan hain — nayi goti andar aa sakti hai aur ek aur phenk milti hai.'],
+        ['Kya yeh Ludo jaisa hai?', 'Haan, Ludo isi purane khel ka aasaan roop hai. Yahan paase ki jagah kaudiyan, kapde wali cross bisaat, kile wale khaane aur jodi mein khelne ka niyam hai.'],
+        ['Mere gaon mein niyam alag the — kya woh galat the?', 'Bilkul nahi! Chaupar ke niyam har ilaake mein alag hain. Kahin 6 bhi daan hai, kahin goti maarne par ek aur phenk nahi milti. "Goti maarne par ek aur phenk" ko aap setting se band-chaalu kar sakte ho.'],
+        ['Kya isme paise lagte hain?', 'Nahi. Yeh muft game hai aur sirf mazze ke liye — na koi daav, na paisa, na inaam. Bas purani yaadein aur parivaar ke saath hansi-mazaak.'],
+      ],
+      moreGames: 'Aur games khelo →',
+      privacyTitle: 'Aapka data',
+      privacyText: 'Naam aur settings sirf aapke phone mein rehte hain. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'चौपड़ / पचीसी 🐚',
+      sub: 'कपड़े वाली बिसात, छह कौड़ियाँ और पुरानी यादें! कौड़ी फेंको, अपनी गोटी घुमाओ और सबसे पहले सारी गोटियाँ चार-कोनी (घर) में पहुँचाओ। कंप्यूटर से खेलो या एक ही फ़ोन पर 2–4 लोग, जोड़ी बनाकर भी।',
+      startTitle: 'चौपड़ बिछाएँ? 🐚',
+      modeQ: 'कौन-कौन खेलेगा?',
+      mComp: 'कंप्यूटर से', mTwo: '2 खिलाड़ी', mFour: '4 खिलाड़ी', mTeam: '2 बनाम 2 जोड़ी',
+      human: '👤 इंसान', compL: '🤖 कंप्यूटर',
+      you: 'आप', comp: 'कंप्यूटर',
+      colors: ['लाल', 'पीला', 'हरा', 'काला'],
+      seatPh: (c) => `${c} का नाम`,
+      teamLbl: (i) => `जोड़ी ${i}`,
+      optCap: 'गोटी मारने पर एक और फेंक',
+      optAuto: 'एक ही चाल हो तो गोटी अपने आप चले',
+      optShort: 'छोटा खेल: हर खिलाड़ी की 2 गोटियाँ',
+      play: '▶ खेल शुरू',
+      throwBtn: '🐚 कौड़ी फेंको',
+      turnOf: (n) => `${n} की बारी`,
+      tapThrow: 'कौड़ियों को दबाओ (या फ़ोन हिलाओ)',
+      compThink: '🤖 सोच रहा है…',
+      thrown: (n, k, v) => `${n}: ${k} कौड़ी खुली → ${v}`,
+      grace: (v) => `${v}! दान — एक और फेंक 🌟`,
+      noMove: 'कोई चाल नहीं बन रही',
+      needGrace: 'गोटी अंदर लाने के लिए 10 या 25 चाहिए',
+      choose: 'कौन-सी गोटी चलानी है? चमकती गोटी दबाओ',
+      enterLbl: 'नई गोटी अंदर',
+      pieceLbl: (j, left) => `गोटी ${j} · ${left} बाकी`,
+      pieceHome: (j) => `गोटी ${j} → 🏠`,
+      captured: (n, k) => `💥 ${n} ने ${k} गोटी मार दी!`,
+      homeMsg: '🏠 गोटी चार-कोनी में पहुँच गई!',
+      extra: 'एक और फेंक!',
+      partnerMove: (n) => `अपनी गोटियाँ घर आ गईं — अब ${n} की गोटी चलाओ`,
+      win: (n) => `🏆 ${n} जीत गए!`,
+      endWin: (n) => `${n} जीत गए! 🎉`,
+      endComp: 'कंप्यूटर जीत गया! 🤖',
+      teamName: (a, b) => `${a}–${b} जोड़ी`,
+      endNoteComp: 'कोई बात नहीं — अगली बार कौड़ियाँ आपका साथ देंगी! 😄',
+      endNoteWin: 'वाह! पक्के खिलाड़ी हो 👏',
+      endStats: (th, cap) => `🐚 ${th} फेंक · 💥 ${cap} गोटी मारी`,
+      wins: (n) => `कंप्यूटर से जीते: ${n} बार`,
+      shareText: (won, url) => (won ? `🐚 चौपड़ में मैंने जीत ली! तुम भी खेलो: ${url}` : `🐚 चौपड़ / पचीसी — कौड़ी वाला पुराना खेल, अब फ़ोन पर! तुम भी खेलो: ${url}`),
+      shareMain: '📤 दोस्तों को चैलेंज भेजो', shareWa: '📲 WhatsApp पर भेजो', shareFb: 'Facebook पर शेयर करो',
+      copied: '✅ कॉपी हो गया', copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      again: '🔁 फिर खेलो', setup: '⚙️ खिलाड़ी बदलो',
+      howTitle: 'कैसे खेलें',
+      how: [
+        'चुनो: <b>कंप्यूटर से</b>, <b>2 खिलाड़ी</b>, <b>4 खिलाड़ी</b> या <b>2 बनाम 2 जोड़ी</b> (आमने-सामने बैठे लोग साथी होते हैं)। हर जगह को इंसान या कंप्यूटर बना सकते हो — एक ही फ़ोन बारी-बारी पकड़ाओ।',
+        'हर खिलाड़ी की 4 गोटियाँ अपने कोने के गोल घर में इंतज़ार करती हैं। <b>🐚 कौड़ियाँ दबाओ</b> या फ़ोन हिलाओ — 6 कौड़ियाँ गिरती हैं। जितनी कौड़ियों का <b>मुँह ऊपर</b> (खुला) है, उसी से चाल बनती है (नीचे तालिका)।',
+        '<b>10 या 25</b> आए तो यह <b>दान</b> है: एक नई गोटी बिसात पर आ सकती है (या कोई गोटी उतना चल सकती है), और एक और फेंक मिलती है।',
+        'गोटी पहले अपनी बाँह की बीच वाली लाइन में नीचे जाती है, फिर <b>घड़ी की उल्टी दिशा</b> में पूरी बिसात का चक्कर लगाती है, और आख़िर में अपनी बीच वाली लाइन से ऊपर <b>चार-कोनी</b> (बीच का घर) में पहुँचती है।',
+        'घर में घुसने के लिए <b>ठीक उतनी</b> ही चाल चाहिए। ज़्यादा आए तो वह गोटी उस बार नहीं चलेगी। 1 की चाल होती ही नहीं, इसलिए घर से ठीक पहले वाले ख़ाने पर गोटी नहीं रुक सकती।',
+        'विरोधी की गोटी पर ठीक जाकर रुको तो वह <b>मर जाती है</b> और वापस अपने कोने में चली जाती है। मारने पर एक और फेंक मिलती है (सेटिंग से बंद कर सकते हो)।',
+        '<b>✚ वाले हरे ख़ाने "किले" हैं</b> — वहाँ कोई गोटी नहीं मारी जा सकती। जोड़ी में अपने साथी की गोटी नहीं मारी जाती।',
+        'जो सबसे पहले अपनी सारी गोटियाँ घर ले आए (जोड़ी में: दोनों साथी) वह जीता। जोड़ी में जिसकी गोटियाँ पहले घर आ गईं, वह अपनी फेंक से साथी की गोटी चलाता है।',
+      ],
+      scoreTitle: 'कौड़ी की गिनती',
+      scoreHead: ['खुली कौड़ियाँ (मुँह ऊपर)', 'चाल'],
+      graceMark: '🌟 दान + एक और फेंक',
+      scoreNote: 'हर कौड़ी के खुलने का मौक़ा आधा-आधा है, इसलिए 3 सबसे ज़्यादा आता है, फिर 2 और 4। 25 सबसे कम — 64 में से लगभग 1 बार।',
+      tipsTitle: 'जीतने के नुस्ख़े',
+      tips: [
+        'दान (10 या 25) आए तो सोचिए: नई गोटी निकालें या आगे वाली गोटी को दूर तक भगाएँ?',
+        'विरोधी गोटी से 2, 3 या 4 ख़ाने आगे रुकना सबसे ख़तरनाक है — यही नंबर सबसे ज़्यादा आते हैं।',
+        'किले (✚) पर गोटी हो तो कोई नहीं मार सकता — वहाँ साँस लो, फिर आगे बढ़ो।',
+        'घर के पास ठीक नंबर चाहिए, इसलिए आख़िरी ख़ानों में एक-दो गोटियों को छोटी चालों के लिए बचाकर रखो।',
+        'जोड़ी में खेल रहे हो तो साथी के पीछे वाले दुश्मन को मारना भी उतना ही फ़ायदे का है।',
+      ],
+      aboutTitle: 'चौपड़ और पचीसी की कहानी',
+      about: [
+        'चौपड़ और पचीसी भारत के सबसे पुराने बोर्ड खेलों में गिने जाते हैं। "पचीसी" शब्द "पच्चीस" से बना है — कौड़ियों का सबसे बड़ा दान। बिसात अक्सर कपड़े की होती थी, जिस पर कढ़ाई से ख़ाने बने होते थे, ताकि उसे मोड़कर रखा जा सके और आँगन, चौपाल या छत पर बिछाकर खेला जा सके। पचीसी कौड़ियों से खेली जाती है, जबकि चौपड़ में अक्सर तीन लंबे पासे चलते हैं — बिसात दोनों की लगभग एक जैसी है, इसलिए लोग दोनों नाम मिलाकर भी बोलते हैं।',
+        'कहा जाता है कि मुग़ल बादशाह अकबर फ़तेहपुर सीकरी के आँगन में बनी एक बड़ी बिसात पर खेलते थे, और रंग-बिरंगे कपड़े पहने लोग गोटियाँ बनते थे। वहाँ आज भी फ़र्श में बना एक बड़ा ख़ाना दिखाया जाता है, लेकिन इतिहासकार इस कहानी को पूरी तरह पक्का नहीं मानते। महाभारत में युधिष्ठिर और शकुनि के पासों वाले खेल की कथा भी बहुत लोग चौपड़ से जोड़ते हैं — ग्रंथ में पासों का खेल लिखा है, पर वह ठीक यही बिसात वाला खेल था, यह कहना मुश्किल है।',
+        'बाद में इसी खेल के आसान रूप दूसरे देशों तक पहुँचे, और आज का लूडो भी इसी परिवार से निकला है। गाँव-कस्बों में लोग घंटों बैठकर चौपड़ खेलते थे, और हर इलाक़े के नियम थोड़े अलग थे — कहीं 6 भी दान माना जाता है, कहीं दो गोटियाँ मिलकर रास्ता रोक देती हैं, कहीं सारी फेंक जोड़कर एक साथ चलते हैं। यहाँ हमने आसान और आम नियम चुने हैं। हम यह खेल सिर्फ़ मज़े के लिए खेलते हैं — इसमें कोई दाँव, पैसा या जुआ नहीं।',
+      ],
+      faqTitle: 'अक्सर पूछे जाने वाले सवाल',
+      faq: [
+        ['चौपड़ और पचीसी में क्या फ़र्क़ है?', 'बिसात एक जैसी है — प्लस के निशान जैसी, चार बाँहें, हर बाँह में 3×8 ख़ाने और बीच में चार-कोनी। पचीसी में 6 या 7 कौड़ियाँ फेंकी जाती हैं, चौपड़ में अक्सर 3 लंबे पासे। बहुत जगह लोग दोनों नाम एक ही खेल के लिए बोलते हैं।'],
+        ['कौड़ी से चाल कैसे गिनते हैं?', '6 कौड़ियाँ फेंको और गिनो कितनों का मुँह ऊपर है: 2 से 6 खुली तो उतनी ही चाल, 1 खुली तो 10, एक भी नहीं खुली तो 25। 10 और 25 दान हैं — नई गोटी अंदर आ सकती है और एक और फेंक मिलती है।'],
+        ['क्या यह लूडो जैसा है?', 'हाँ, लूडो इसी पुराने खेल का आसान रूप है। यहाँ पासे की जगह कौड़ियाँ, कपड़े वाली क्रॉस बिसात, किले वाले ख़ाने और जोड़ी में खेलने का नियम है।'],
+        ['मेरे गाँव में नियम अलग थे — क्या वे ग़लत थे?', 'बिल्कुल नहीं! चौपड़ के नियम हर इलाक़े में अलग हैं। कहीं 6 भी दान है, कहीं गोटी मारने पर एक और फेंक नहीं मिलती। "गोटी मारने पर एक और फेंक" को आप सेटिंग से बंद-चालू कर सकते हो।'],
+        ['क्या इसमें पैसे लगते हैं?', 'नहीं। यह मुफ़्त गेम है और सिर्फ़ मज़े के लिए — न कोई दाँव, न पैसा, न इनाम। बस पुरानी यादें और परिवार के साथ हँसी-मज़ाक।'],
+      ],
+      moreGames: 'और गेम खेलो →',
+      privacyTitle: 'आपका डेटा',
+      privacyText: 'नाम और सेटिंग सिर्फ़ आपके फ़ोन में रहते हैं। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Chaupar / Pachisi 🐚',
+      sub: 'A cloth board, six cowrie shells and old memories! Throw the cowries, move your pieces round the cross and be the first to bring them all home to the centre. Play the computer or 2–4 people on one phone, even as partners.',
+      startTitle: 'Spread the Chaupar board? 🐚',
+      modeQ: 'Who is playing?',
+      mComp: 'Computer', mTwo: '2 players', mFour: '4 players', mTeam: '2 vs 2 teams',
+      human: '👤 Person', compL: '🤖 Computer',
+      you: 'You', comp: 'Computer',
+      colors: ['Red', 'Yellow', 'Green', 'Black'],
+      seatPh: (c) => `${c} player's name`,
+      teamLbl: (i) => `Team ${i}`,
+      optCap: 'Extra throw after a capture',
+      optAuto: 'Move by itself when there is only one move',
+      optShort: 'Short game: 2 pieces each',
+      play: '▶ Start',
+      throwBtn: '🐚 Throw',
+      turnOf: (n) => (n === 'You' ? 'Your turn' : `${n}'s turn`),
+      tapThrow: 'Tap the cowries (or shake the phone)',
+      compThink: '🤖 thinking…',
+      thrown: (n, k, v) => `${n}: ${k} open → ${v}`,
+      grace: (v) => `${v}! A grace — throw again 🌟`,
+      noMove: 'No move possible',
+      needGrace: 'You need 10 or 25 to bring a piece in',
+      choose: 'Which piece? Tap a glowing piece',
+      enterLbl: 'New piece in',
+      pieceLbl: (j, left) => `Piece ${j} · ${left} to go`,
+      pieceHome: (j) => `Piece ${j} → 🏠`,
+      captured: (n, k) => `💥 ${n} captured ${k} piece${k > 1 ? 's' : ''}!`,
+      homeMsg: '🏠 A piece reached the centre!',
+      extra: 'Throw again!',
+      partnerMove: (n) => `Your pieces are home — now move ${n}'s pieces`,
+      win: (n) => `🏆 ${n} won!`,
+      endWin: (n) => `${n} won! 🎉`,
+      endComp: 'The computer won! 🤖',
+      teamName: (a, b) => `${a}–${b} team`,
+      endNoteComp: 'Never mind — the cowries will be kinder next time! 😄',
+      endNoteWin: 'Well played! 👏',
+      endStats: (th, cap) => `🐚 ${th} throws · 💥 ${cap} captures`,
+      wins: (n) => `Wins against the computer: ${n}`,
+      shareText: (won, url) => (won ? `🐚 I won at Chaupar! Come and play too: ${url}` : `🐚 Chaupar / Pachisi — the old cowrie board game, now on your phone! Come and play: ${url}`),
+      shareMain: '📤 Challenge your friends', shareWa: '📲 Send on WhatsApp', shareFb: 'Share on Facebook',
+      copied: '✅ Copied', copyPrompt: 'Copy this text:',
+      again: '🔁 Play again', setup: '⚙️ Change players',
+      howTitle: 'How to play',
+      how: [
+        'Choose: <b>Computer</b>, <b>2 players</b>, <b>4 players</b> or <b>2 vs 2 teams</b> (people sitting opposite each other are partners). Each seat can be a person or the computer — pass the phone around.',
+        'Each player has 4 pieces waiting in the round home in their corner. <b>Tap the 🐚 cowries</b> or shake the phone — six shells fall. The number that land <b>mouth up</b> (open) decides your move (see the table below).',
+        '<b>10 or 25</b> is a <b>grace</b>: a new piece may enter the board (or any piece may move that far), and you throw again.',
+        'A piece first goes down the middle lane of its own arm, then travels <b>anticlockwise</b> all round the outside of the cross, and finally comes back up its own middle lane into the <b>char-koni</b>, the home in the centre.',
+        'To get home you need the <b>exact</b> number. If the throw is too big, that piece cannot move this time. There is no throw of 1, so a piece may not stop on the square just before home.',
+        'Land exactly on an opponent\'s piece and it is <b>captured</b> — it goes back to its corner. A capture gives you another throw (you can switch this off).',
+        '<b>The green squares marked ✚ are "castles"</b> — no piece can be captured there. In team games you never capture your partner.',
+        'The first to bring all their pieces home wins (in teams: both partners). In a team game, a player whose pieces are all home uses their throws to move the partner\'s pieces.',
+      ],
+      scoreTitle: 'Counting the cowries',
+      scoreHead: ['Shells mouth up', 'Move'],
+      graceMark: '🌟 grace + throw again',
+      scoreNote: 'Each shell lands open about half the time, so 3 is the most common result, then 2 and 4. A 25 is the rarest — about once in 64 throws.',
+      tipsTitle: 'Tips to win',
+      tips: [
+        'On a grace (10 or 25) think: bring out a new piece, or race a leading piece far ahead?',
+        'Stopping 2, 3 or 4 squares in front of an enemy piece is the most dangerous — those are the most common throws.',
+        'A piece on a castle (✚) is safe — rest there, then move on.',
+        'You need the exact number to get home, so keep a piece or two for the small throws near the end.',
+        'In team games, capturing the enemy right behind your partner helps just as much.',
+      ],
+      aboutTitle: 'The story of Chaupar and Pachisi',
+      about: [
+        'Chaupar and Pachisi are counted among the oldest board games of India. The word "Pachisi" comes from "pachchis", meaning 25 — the biggest throw of the cowries. The board was usually made of cloth, with the squares embroidered on it, so it could be folded away and spread out in a courtyard, a village square or on a rooftop. Pachisi is played with cowrie shells, while Chaupar is usually played with three long dice; the board is almost the same, so people often use the two names together.',
+        'It is said that the Mughal emperor Akbar played on a huge board laid out in a courtyard at Fatehpur Sikri, with people in coloured clothes standing in as pieces. A large board pattern in the paving there is still shown to visitors, but historians do not treat the story as fully certain. Many people also link Chaupar to the famous dice game between Yudhishthira and Shakuni in the Mahabharata — the epic describes a game of dice, but whether it was exactly this board game is hard to say.',
+        'Later, simpler versions of this game travelled to other countries, and today\'s Ludo belongs to the same family. In villages and small towns people would sit for hours over a game of chaupar, and the rules changed a little from place to place — some count 6 as a grace too, some let two pieces together block the path, some add up all the throws of a turn before moving. Here we have chosen simple, common rules. We play this game only for fun — no bets, no money, no gambling.',
+      ],
+      faqTitle: 'Frequently asked questions',
+      faq: [
+        ['What is the difference between Chaupar and Pachisi?', 'The board is the same — a cross with four arms of 3×8 squares and the char-koni in the middle. Pachisi is played with 6 or 7 cowries, Chaupar usually with 3 long dice. In many places people use both names for the same game.'],
+        ['How do you count the cowries?', 'Throw 6 cowries and count how many are mouth up: 2 to 6 open means that many squares, 1 open means 10 and none open means 25. 10 and 25 are graces — a new piece may come in and you throw again.'],
+        ['Is this like Ludo?', 'Yes, Ludo is a simplified form of this old game. Here you get cowries instead of a die, the cross-shaped cloth board, castle squares and the partner rule.'],
+        ['The rules in my village were different — were they wrong?', 'Not at all! Chaupar rules differ from region to region. In some places 6 is also a grace, in others a capture gives no extra throw. You can switch "extra throw after a capture" on or off in the settings.'],
+        ['Does it cost money?', 'No. It is a free game and only for fun — no bets, no money, no prizes. Just old memories and laughter with family.'],
+      ],
+      moreGames: 'Play more games →',
+      privacyTitle: 'Your data',
+      privacyText: 'Names and settings stay only on your phone. No login, no server.',
+    },
+    bn: {
+      title: 'চৌপড় / পঁচিশি (পাশা) 🐚',
+      sub: 'কাপড়ের ছক, ছয়টা কড়ি আর পুরোনো স্মৃতি! কড়ি চালো, ঘুঁটি ঘোরাও, আর সবার আগে সব ঘুঁটি মাঝের চারকোনা ঘরে তোলো। কম্পিউটারের সঙ্গে খেলো, বা এক ফোনেই ২–৪ জন, জুটি বেঁধেও।',
+      startTitle: 'চৌপড় পাতবে? 🐚',
+      modeQ: 'কে কে খেলবে?',
+      mComp: 'কম্পিউটার', mTwo: '২ জন', mFour: '৪ জন', mTeam: '২ বনাম ২ জুটি',
+      human: '👤 মানুষ', compL: '🤖 কম্পিউটার',
+      you: 'তুমি', comp: 'কম্পিউটার',
+      colors: ['লাল', 'হলুদ', 'সবুজ', 'কালো'],
+      seatPh: (c) => `${c}-এর নাম`,
+      teamLbl: (i) => `জুটি ${i}`,
+      optCap: 'ঘুঁটি কাটলে আরেক দান',
+      optAuto: 'একটাই চাল থাকলে ঘুঁটি নিজে চলবে',
+      optShort: 'ছোট খেলা: প্রত্যেকের ২টো ঘুঁটি',
+      play: '▶ খেলা শুরু',
+      throwBtn: '🐚 কড়ি চালো',
+      turnOf: (n) => (n === 'তুমি' ? 'তোমার পালা' : `${n}-এর পালা`),
+      tapThrow: 'কড়িতে টিপো (বা ফোন ঝাঁকাও)',
+      compThink: '🤖 ভাবছে…',
+      thrown: (n, k, v) => `${n}: ${k}টা কড়ি চিত → ${v}`,
+      grace: (v) => `${v}! আরেক দান 🌟`,
+      noMove: 'কোনো চাল নেই',
+      needGrace: 'ঘুঁটি ঢোকাতে ১০ বা ২৫ চাই',
+      choose: 'কোন ঘুঁটি চালবে? ঝলমলে ঘুঁটিতে টিপো',
+      enterLbl: 'নতুন ঘুঁটি ঢোকাও',
+      pieceLbl: (j, left) => `ঘুঁটি ${j} · ${left} ঘর বাকি`,
+      pieceHome: (j) => `ঘুঁটি ${j} → 🏠`,
+      captured: (n, k) => `💥 ${n} ${k}টা ঘুঁটি কেটে দিল!`,
+      homeMsg: '🏠 ঘুঁটি মাঝের ঘরে পৌঁছে গেল!',
+      extra: 'আরেক দান!',
+      partnerMove: (n) => `তোমার সব ঘুঁটি ঘরে — এবার ${n}-এর ঘুঁটি চালো`,
+      win: (n) => `🏆 ${n} জিতেছে!`,
+      endWin: (n) => `${n} জিতেছে! 🎉`,
+      endComp: 'কম্পিউটার জিতেছে! 🤖',
+      teamName: (a, b) => `${a}–${b} জুটি`,
+      endNoteComp: 'কোনো ব্যাপার না — পরের বার কড়ি তোমার কথা শুনবে! 😄',
+      endNoteWin: 'বাহ! পাকা খেলোয়াড় 👏',
+      endStats: (th, cap) => `🐚 ${th} দান · 💥 ${cap}টা ঘুঁটি কাটা`,
+      wins: (n) => `কম্পিউটারের বিরুদ্ধে জয়: ${n} বার`,
+      shareText: (won, url) => (won ? `🐚 চৌপড়ে আমি জিতে গেছি! তুমিও খেলো: ${url}` : `🐚 চৌপড় / পঁচিশি — কড়ির পুরোনো খেলা, এখন ফোনে! তুমিও খেলো: ${url}`),
+      shareMain: '📤 বন্ধুদের চ্যালেঞ্জ পাঠাও', shareWa: '📲 WhatsApp-এ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো',
+      copied: '✅ কপি হয়েছে', copyPrompt: 'এই লেখাটা কপি করো:',
+      again: '🔁 আবার খেলো', setup: '⚙️ খেলোয়াড় বদলাও',
+      howTitle: 'কীভাবে খেলবে',
+      how: [
+        'বেছে নাও: <b>কম্পিউটার</b>, <b>২ জন</b>, <b>৪ জন</b> বা <b>২ বনাম ২ জুটি</b> (মুখোমুখি বসা দুজন সঙ্গী)। প্রতিটা জায়গা মানুষ বা কম্পিউটার করা যায় — একটাই ফোন পালা করে হাতে দাও।',
+        'প্রত্যেকের ৪টে ঘুঁটি নিজের কোণের গোল ঘরে অপেক্ষা করে। <b>🐚 কড়িতে টিপো</b> বা ফোন ঝাঁকাও — ছয়টা কড়ি পড়ে। যতগুলো <b>চিত</b> (মুখ ওপরে) পড়ে, তাই দিয়ে চাল ঠিক হয় (নিচের তালিকা দেখো)।',
+        '<b>১০ বা ২৫</b> পড়লে সেটা <b>দান</b>: একটা নতুন ঘুঁটি ছকে ঢুকতে পারে (বা কোনো ঘুঁটি ততটা চলতে পারে), আর আরেকবার কড়ি চালার সুযোগ।',
+        'ঘুঁটি প্রথমে নিজের বাহুর মাঝের সারি দিয়ে নিচে নামে, তারপর <b>ঘড়ির উল্টো দিকে</b> পুরো ছক ঘোরে, শেষে নিজের মাঝের সারি দিয়ে উঠে <b>চারকোনা</b> ঘরে (মাঝখানে) পৌঁছায়।',
+        'ঘরে ঢুকতে <b>ঠিক ততটাই</b> চাল চাই। বেশি পড়লে সেই ঘুঁটি এবার চলবে না। ১-এর চাল হয় না, তাই ঘরের ঠিক আগের ঘরে ঘুঁটি থামতে পারে না।',
+        'প্রতিপক্ষের ঘুঁটির ঘরে ঠিক গিয়ে থামলে সেটা <b>কাটা পড়ে</b> আর নিজের কোণে ফিরে যায়। কাটলে আরেক দান মেলে (সেটিং থেকে বন্ধ করা যায়)।',
+        '<b>✚ চিহ্নের সবুজ ঘরগুলো "কেল্লা"</b> — সেখানে কোনো ঘুঁটি কাটা যায় না। জুটির খেলায় সঙ্গীর ঘুঁটি কাটা যায় না।',
+        'যে সবার আগে সব ঘুঁটি ঘরে তোলে (জুটিতে: দুজনেই), সে জেতে। জুটিতে যার ঘুঁটি আগে ঘরে উঠেছে, সে নিজের দানে সঙ্গীর ঘুঁটি চালায়।',
+      ],
+      scoreTitle: 'কড়ির হিসেব',
+      scoreHead: ['চিত কড়ি (মুখ ওপরে)', 'চাল'],
+      graceMark: '🌟 দান + আরেকবার',
+      scoreNote: 'প্রতিটা কড়ি চিত পড়ার সম্ভাবনা অর্ধেক, তাই ৩ সবচেয়ে বেশি পড়ে, তারপর ২ আর ৪। ২৫ সবচেয়ে কম — ৬৪ বারে প্রায় ১ বার।',
+      tipsTitle: 'জেতার কৌশল',
+      tips: [
+        'দান (১০ বা ২৫) পড়লে ভাবো: নতুন ঘুঁটি বার করবে, না সামনের ঘুঁটিকে অনেক দূর এগিয়ে দেবে?',
+        'প্রতিপক্ষের ঘুঁটির ২, ৩ বা ৪ ঘর সামনে থামা সবচেয়ে বিপজ্জনক — এই সংখ্যাগুলোই সবচেয়ে বেশি পড়ে।',
+        'কেল্লায় (✚) থাকলে কেউ কাটতে পারবে না — সেখানে একটু জিরিয়ে নাও, তারপর এগোও।',
+        'ঘরে ঢুকতে ঠিক সংখ্যা চাই, তাই শেষের দিকে ছোট চালের জন্য এক-দুটো ঘুঁটি রেখে দাও।',
+        'জুটিতে খেললে সঙ্গীর পেছনের শত্রুকে কাটাও সমান লাভের।',
+      ],
+      aboutTitle: 'চৌপড় আর পঁচিশির গল্প',
+      about: [
+        'চৌপড় আর পঁচিশি ভারতের সবচেয়ে পুরোনো বোর্ড খেলাগুলোর মধ্যে পড়ে। বাংলায় একে অনেকে পাশা খেলাও বলে। "পঁচিশি" নামটা এসেছে পঁচিশ থেকে — কড়ির সবচেয়ে বড় দান। ছক সাধারণত কাপড়ের হত, সুতোর কাজে ঘর আঁকা, যাতে ভাঁজ করে রাখা যায় আর উঠোনে, চণ্ডীমণ্ডপে বা ছাদে পেতে খেলা যায়। পঁচিশি খেলা হয় কড়ি দিয়ে, আর চৌপড়ে সাধারণত তিনটে লম্বা পাশা — ছক প্রায় একই, তাই লোকে দুটো নাম মিশিয়েও বলে।',
+        'বলা হয়, মুঘল সম্রাট আকবর ফতেপুর সিক্রির উঠোনে তৈরি এক বিশাল ছকে খেলতেন, আর রঙিন পোশাক পরা লোকেরা ঘুঁটি হয়ে দাঁড়াত। সেখানে আজও মেঝেতে একটা বড় ছক দেখানো হয়, তবে ইতিহাসবিদেরা গল্পটাকে পুরোপুরি নিশ্চিত বলে মানেন না। মহাভারতে যুধিষ্ঠির আর শকুনির পাশা খেলার কাহিনিও অনেকে চৌপড়ের সঙ্গে জোড়েন — মহাকাব্যে পাশা খেলার কথা আছে, কিন্তু সেটা ঠিক এই ছকের খেলা ছিল কি না, বলা কঠিন।',
+        'পরে এই খেলার সহজ রূপ অন্য দেশেও পৌঁছায়, আর আজকের লুডোও এই পরিবারেরই খেলা। গ্রামে-মফস্বলে লোকে ঘণ্টার পর ঘণ্টা বসে চৌপড় খেলত, আর জায়গাভেদে নিয়ম একটু আলাদা ছিল — কোথাও ৬-ও দান, কোথাও দুটো ঘুঁটি একসঙ্গে পথ আটকায়, কোথাও এক পালার সব দান যোগ করে তারপর চালে। এখানে আমরা সহজ, চেনা নিয়ম বেছে নিয়েছি। আমরা এই খেলা শুধু মজার জন্য খেলি — কোনো বাজি, টাকা বা জুয়া নয়।',
+      ],
+      faqTitle: 'সাধারণ প্রশ্ন',
+      faq: [
+        ['চৌপড় আর পঁচিশির তফাত কী?', 'ছক একই — যোগচিহ্নের মতো, চারটে বাহু, প্রতিটায় ৩×৮ ঘর আর মাঝে চারকোনা। পঁচিশিতে ৬ বা ৭টা কড়ি চালা হয়, চৌপড়ে সাধারণত ৩টে লম্বা পাশা। অনেক জায়গায় দুটো নাম একই খেলার জন্য বলা হয়।'],
+        ['কড়ি দিয়ে চাল কীভাবে গোনে?', '৬টা কড়ি চালো আর গোনো কটা চিত: ২ থেকে ৬টা চিত হলে ততটা চাল, ১টা চিত হলে ১০, একটাও চিত না হলে ২৫। ১০ আর ২৫ দান — নতুন ঘুঁটি ঢুকতে পারে আর আরেকবার চালা যায়।'],
+        ['এটা কি লুডোর মতো?', 'হ্যাঁ, লুডো এই পুরোনো খেলারই সহজ রূপ। এখানে ছক্কার বদলে কড়ি, কাপড়ের যোগচিহ্ন-ছক, কেল্লার ঘর আর জুটিতে খেলার নিয়ম আছে।'],
+        ['আমাদের গ্রামে নিয়ম অন্যরকম ছিল — সেটা কি ভুল?', 'একদম না! চৌপড়ের নিয়ম জায়গাভেদে আলাদা। কোথাও ৬-ও দান, কোথাও ঘুঁটি কাটলে আরেক দান মেলে না। "ঘুঁটি কাটলে আরেক দান" সেটিং থেকে চালু-বন্ধ করা যায়।'],
+        ['এতে কি টাকা লাগে?', 'না। এটা বিনামূল্যের খেলা, শুধু মজার জন্য — কোনো বাজি, টাকা বা পুরস্কার নেই। শুধু পুরোনো স্মৃতি আর পরিবারের সঙ্গে হাসিঠাট্টা।'],
+      ],
+      moreGames: 'আরও গেম খেলো →',
+      privacyTitle: 'তোমার ডেটা',
+      privacyText: 'নাম আর সেটিং শুধু তোমার ফোনেই থাকে। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const urlLang = params.get('lang');
+  const savedLang = store.get('cp-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 16);
+  const debug = params.has('debug');
+  const AUTO = debug && params.has('auto');
+  const FAST = AUTO;
+  const sleep = (ms) => new Promise((r) => setTimeout(r, FAST ? 0 : ms));
+  const SEAT_COL = ['#d62828', '#f2b705', '#2b9348', '#262626'];
+  const SEAT_EDGE = ['#fff3d6', '#5a3b00', '#eaffea', '#f3e2c0'];
+  const wins = () => parseInt(store.get('cp-wins'), 10) || 0;
+
+  // ---------- setup options
+  const MODES = { comp: [0, 2], two: [0, 2], four: [0, 1, 2, 3], team: [0, 1, 2, 3] };
+  const DEF_COMP = { comp: [false, false, true, false], two: [false, false, false, false], four: [false, true, true, true], team: [false, true, true, true] };
+  let mode = store.get('cp-mode');
+  if (!MODES[mode]) mode = 'comp';
+  let compCfg = {};
+  try { compCfg = JSON.parse(store.get('cp-comp') || '{}') || {}; } catch (e) { compCfg = {}; }
+  Object.keys(DEF_COMP).forEach((m) => { if (!Array.isArray(compCfg[m]) || compCfg[m].length !== 4) compCfg[m] = DEF_COMP[m].slice(); });
+  let savedNames = [];
+  try { savedNames = JSON.parse(store.get('cp-names') || '[]').map(cleanName); } catch (e) { savedNames = []; }
+  $('optCap').checked = store.get('cp-capx') !== '0';
+  $('optAuto').checked = store.get('cp-auto') !== '0';
+  $('optShort').checked = store.get('cp-short') === '1';
+
+  const renderSeats = () => {
+    document.querySelectorAll('#modes button').forEach((b) => b.classList.toggle('on', b.dataset.mode === mode));
+    const box = $('seats');
+    const old = {};
+    box.querySelectorAll('input').forEach((i) => { old[i.dataset.seat] = i.value; });
+    box.innerHTML = '';
+    MODES[mode].forEach((seat) => {
+      const row = document.createElement('div'); row.className = 'seat';
+      const dot = document.createElement('span'); dot.className = 'dot'; dot.style.background = SEAT_COL[seat];
+      row.appendChild(dot);
+      if (mode === 'team') { const tm = document.createElement('span'); tm.className = 'team'; tm.textContent = t('teamLbl')(seat % 2 + 1); row.appendChild(tm); }
+      const inp = document.createElement('input');
+      inp.type = 'text'; inp.maxLength = 16; inp.autocomplete = 'off'; inp.dataset.seat = String(seat);
+      inp.placeholder = t('seatPh')(t('colors')[seat]);
+      inp.value = old[seat] !== undefined ? old[seat] : (savedNames[seat] || '');
+      inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
+      const who = document.createElement('button');
+      who.type = 'button';
+      const isC = compCfg[mode][seat];
+      who.className = `who${isC ? ' c' : ''}`;
+      who.textContent = isC ? t('compL') : t('human');
+      who.addEventListener('click', () => { compCfg[mode][seat] = !compCfg[mode][seat]; store.set('cp-comp', JSON.stringify(compCfg)); renderSeats(); });
+      inp.disabled = isC;
+      row.append(inp, who);
+      box.appendChild(row);
+    });
+  };
+  $('modes').addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    mode = b.dataset.mode; store.set('cp-mode', mode); renderSeats();
+  });
+
+  // ---------- sound
+  let muted = store.get('cp-muted') === '1';
+  let ac = null, master = null, noiseBuf = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setIcons();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('cp-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.9; });
+  const initAudio = () => {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    try { ac = new AC(); } catch (e) { ac = null; return; }
+    master = ac.createGain(); master.gain.value = muted ? 0 : 0.9; master.connect(ac.destination);
+    noiseBuf = ac.createBuffer(1, ac.sampleRate, ac.sampleRate);
+    const d = noiseBuf.getChannelData(0);
+    for (let i = 0; i < d.length; i += 1) d[i] = Math.random() * 2 - 1;
+  };
+  const tone = (f, dur, type = 'sine', vol = 0.1, f2 = null, delay = 0) => {
+    if (!ac || FAST) return;
+    const when = ac.currentTime + delay;
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, when);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, when + dur);
+    g.gain.setValueAtTime(0.0001, when); g.gain.exponentialRampToValueAtTime(vol, when + 0.008); g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+    o.connect(g); g.connect(master); o.start(when); o.stop(when + dur + 0.02);
+  };
+  const noise = (dur, vol, ftype, ff, delay = 0, ff2 = null, q = 1) => {
+    if (!ac || FAST) return;
+    const when = ac.currentTime + delay;
+    const s = ac.createBufferSource(), f = ac.createBiquadFilter(), g = ac.createGain();
+    s.buffer = noiseBuf; f.type = ftype; f.frequency.setValueAtTime(ff, when); f.Q.value = q;
+    if (ff2) f.frequency.exponentialRampToValueAtTime(ff2, when + dur);
+    g.gain.setValueAtTime(vol, when); g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+    s.connect(f); f.connect(g); g.connect(master); s.start(when, Math.random() * 0.5); s.stop(when + dur + 0.02);
+  };
+  const sfx = {
+    // shells clicking against each other in a cupped hand
+    rattle: () => { for (let i = 0; i < 14; i += 1) { const d = i * 0.045 + Math.random() * 0.03; noise(0.03, 0.16, 'bandpass', 2600 + Math.random() * 2600, d, null, 6); if (i % 3 === 0) tone(1800 + Math.random() * 900, 0.03, 'triangle', 0.03, null, d); } },
+    // shells landing on cloth: a few soft taps
+    land: () => { for (let i = 0; i < 6; i += 1) { const d = i * 0.035 + Math.random() * 0.03; noise(0.04, 0.12, 'bandpass', 1800 + Math.random() * 1200, d, null, 4); } tone(240, 0.08, 'sine', 0.08, 140, 0.05); },
+    tok: () => { tone(620 + Math.random() * 80, 0.05, 'triangle', 0.08, 420); noise(0.03, 0.05, 'lowpass', 1200); },
+    enter: () => { tone(392, 0.1, 'triangle', 0.09); tone(587, 0.14, 'triangle', 0.09, null, 0.08); },
+    capture: () => { tone(220, 0.35, 'sawtooth', 0.07, 55); noise(0.25, 0.18, 'lowpass', 900, 0, 200); tone(130, 0.2, 'sine', 0.2, 60, 0.02); },
+    home: () => { [1046, 1318, 1568].forEach((f, i) => tone(f, 0.7, 'sine', 0.08, null, i * 0.09)); },
+    grace: () => { [659, 880, 1175].forEach((f, i) => tone(f, 0.16, 'triangle', 0.08, null, i * 0.07)); },
+    none: () => tone(200, 0.2, 'square', 0.04, 150),
+    win: () => { [523, 659, 784, 1047, 784, 1047, 1319].forEach((f, i) => tone(f, i === 6 ? 0.5 : 0.16, 'triangle', 0.11, null, i * 0.13)); },
+  };
+
+  // ---------- drawing
+  const cv = $('board');
+  const ctx = cv.getContext('2d');
+  let S = 0, C = 0, dpr = 1, bg = null;
+  // same quarter turn as rotC, for points: cell (r,c) -> (18-c, r) means point (x,y) -> (y, 19-x)
+  const rotPt = (x, y, k) => { let p = [x, y]; for (let i = 0; i < k; i += 1) p = [p[1], 19 - p[0]]; return p; };
+  const cellXY = ([r, c]) => ({ x: c + 0.5, y: r + 0.5 });
+  const cornerC = (seat) => { const [x, y] = rotPt(15, 15, seat); return { x, y }; };
+  const waitSlot = (seat, j, n) => {
+    const o = n === 2 ? [[-0.9, 0], [0.9, 0]][j] : [[-0.85, -0.85], [0.85, -0.85], [-0.85, 0.85], [0.85, 0.85]][j];
+    const c = cornerC(seat);
+    return { x: c.x + o[0], y: c.y + o[1] };
+  };
+  const homeSlot = (seat, j, n) => {
+    const x = 9.5 + (j - (n - 1) / 2) * 0.56, y = 10.58;
+    const [px, py] = rotPt(x, y, seat);
+    return { x: px, y: py };
+  };
+  const posXY = (seat, pos, j, n) => (pos === -1 ? waitSlot(seat, j, n) : pos === HOME ? homeSlot(seat, j, n) : cellXY(PATHS[seat][pos]));
+
+  const resize = () => {
+    const r = $('boardwrap').getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+    S = Math.max(200, Math.round(r.width));
+    C = S / 19;
+    cv.width = Math.round(S * dpr); cv.height = Math.round(S * dpr);
+    drawBg();
+  };
+  const stitch = (g, col, w, dash) => { g.strokeStyle = col; g.lineWidth = w; g.setLineDash(dash || [C * 0.14, C * 0.09]); g.stroke(); g.setLineDash([]); };
+  const inCross = (r, c) => (c >= 8 && c <= 10) || (r >= 8 && r <= 10);
+  const drawBg = () => {
+    bg = document.createElement('canvas');
+    bg.width = cv.width; bg.height = cv.height;
+    const g = bg.getContext('2d');
+    g.scale(dpr, dpr);
+    // velvet-like maroon cloth with a fine weave
+    const grd = g.createRadialGradient(S / 2, S / 2, S * 0.1, S / 2, S / 2, S * 0.75);
+    grd.addColorStop(0, '#7a1a2c'); grd.addColorStop(1, '#4a0c18');
+    g.fillStyle = grd; g.fillRect(0, 0, S, S);
+    g.globalAlpha = 0.07;
+    for (let i = 0; i < S; i += 3) { g.fillStyle = (i / 3) % 2 ? '#000' : '#fff'; g.fillRect(0, i, S, 1); g.fillRect(i, 0, 1, S); }
+    g.globalAlpha = 1;
+    // embroidered border with little mirror dots
+    g.beginPath(); g.rect(C * 0.22, C * 0.22, S - C * 0.44, S - C * 0.44); stitch(g, '#f4b740', Math.max(1.2, C * 0.07));
+    g.beginPath(); g.rect(C * 0.42, C * 0.42, S - C * 0.84, S - C * 0.84); stitch(g, '#2fa36b', Math.max(1, C * 0.05), [C * 0.08, C * 0.08]);
+    const mirror = (x, y, r) => { g.fillStyle = '#d9dde3'; g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill(); g.fillStyle = 'rgba(255,255,255,0.9)'; g.beginPath(); g.arc(x - r * 0.3, y - r * 0.3, r * 0.35, 0, Math.PI * 2); g.fill(); g.strokeStyle = '#f4b740'; g.lineWidth = Math.max(1, C * 0.05); g.beginPath(); g.arc(x, y, r * 1.25, 0, Math.PI * 2); g.stroke(); };
+    // corner motifs: a ring of petals around each player's round home
+    for (let k = 0; k < 4; k += 1) {
+      const c = cornerC(k), cx = c.x * C, cy = c.y * C;
+      for (let i = 0; i < 12; i += 1) {
+        const a = (i / 12) * Math.PI * 2;
+        g.save(); g.translate(cx + Math.cos(a) * C * 2.55, cy + Math.sin(a) * C * 2.55); g.rotate(a);
+        g.fillStyle = i % 2 ? '#e0607e' : '#f4b740';
+        g.beginPath(); g.ellipse(0, 0, C * 0.55, C * 0.24, 0, 0, Math.PI * 2); g.fill();
+        g.beginPath(); g.ellipse(0, 0, C * 0.55, C * 0.24, 0, 0, Math.PI * 2); stitch(g, 'rgba(60,0,10,0.6)', Math.max(0.8, C * 0.03), [C * 0.06, C * 0.05]);
+        g.restore();
+      }
+      for (let i = 0; i < 4; i += 1) {
+        const a = Math.PI / 4 + (i / 4) * Math.PI * 2;
+        g.save(); g.translate(cx + Math.cos(a) * C * 3.35, cy + Math.sin(a) * C * 3.35); g.rotate(a);
+        g.fillStyle = '#3d9a52';
+        g.beginPath(); g.ellipse(0, -C * 0.22, C * 0.42, C * 0.17, -0.5, 0, Math.PI * 2); g.fill();
+        g.beginPath(); g.ellipse(0, C * 0.22, C * 0.42, C * 0.17, 0.5, 0, Math.PI * 2); g.fill();
+        g.restore();
+        mirror(cx + Math.cos(a) * C * 3.35, cy + Math.sin(a) * C * 3.35, C * 0.16);
+      }
+      g.fillStyle = '#3a0712'; g.beginPath(); g.arc(cx, cy, C * 1.95, 0, Math.PI * 2); g.fill();
+      g.beginPath(); g.arc(cx, cy, C * 1.95, 0, Math.PI * 2); stitch(g, SEAT_COL[k] === '#262626' ? '#cfc6b8' : SEAT_COL[k], Math.max(1.5, C * 0.12));
+      g.beginPath(); g.arc(cx, cy, C * 1.7, 0, Math.PI * 2); stitch(g, '#f4b740', Math.max(1, C * 0.04), [C * 0.05, C * 0.06]);
+    }
+    // the cross: marigold cloth squares with stitched edges
+    for (let r = 0; r < 19; r += 1) {
+      for (let c = 0; c < 19; c += 1) {
+        if (!inCross(r, c) || (r >= 8 && r <= 10 && c >= 8 && c <= 10)) continue;
+        const x = c * C, y = r * C;
+        const mid = (r === 9 || c === 9);
+        g.fillStyle = mid ? '#dd8f22' : ((r + c) % 2 ? '#f2b84f' : '#eaa83c');
+        g.fillRect(x, y, C, C);
+        if (SAFE.has(key([r, c]))) {
+          g.fillStyle = '#1f6e3a'; g.fillRect(x + C * 0.06, y + C * 0.06, C * 0.88, C * 0.88);
+          g.beginPath(); g.moveTo(x + C * 0.2, y + C * 0.2); g.lineTo(x + C * 0.8, y + C * 0.8); g.moveTo(x + C * 0.8, y + C * 0.2); g.lineTo(x + C * 0.2, y + C * 0.8);
+          stitch(g, '#fff1c9', Math.max(1.4, C * 0.11), [C * 0.1, C * 0.05]);
+          g.beginPath(); g.moveTo(x + C * 0.5, y + C * 0.15); g.lineTo(x + C * 0.5, y + C * 0.85); g.moveTo(x + C * 0.15, y + C * 0.5); g.lineTo(x + C * 0.85, y + C * 0.5);
+          stitch(g, '#f4b740', Math.max(1, C * 0.05), [C * 0.06, C * 0.06]);
+        }
+        g.beginPath(); g.rect(x + C * 0.07, y + C * 0.07, C * 0.86, C * 0.86);
+        stitch(g, 'rgba(110,10,25,0.75)', Math.max(0.8, C * 0.045), [C * 0.1, C * 0.07]);
+      }
+    }
+    // outer outline of the cross
+    g.strokeStyle = '#6b0f1f'; g.lineWidth = Math.max(1.5, C * 0.08);
+    g.beginPath();
+    [[8, 0], [11, 0], [11, 8], [19, 8], [19, 11], [11, 11], [11, 19], [8, 19], [8, 11], [0, 11], [0, 8], [8, 8]].forEach(([x, y], i) => { if (i) g.lineTo(x * C, y * C); else g.moveTo(x * C, y * C); });
+    g.closePath(); g.stroke();
+    // start arrows on each player's first square
+    for (let k = 0; k < 4; k += 1) {
+      const p = cellXY(PATHS[k][0]);
+      const dir = [[0, 1], [1, 0], [0, -1], [-1, 0]][k];
+      g.save(); g.translate(p.x * C, p.y * C); g.rotate(Math.atan2(dir[1], dir[0]));
+      g.fillStyle = SEAT_COL[k]; g.strokeStyle = '#fff3d6'; g.lineWidth = Math.max(1, C * 0.04);
+      g.beginPath(); g.moveTo(C * 0.3, 0); g.lineTo(-C * 0.2, -C * 0.24); g.lineTo(-C * 0.2, C * 0.24); g.closePath(); g.fill(); g.stroke();
+      g.restore();
+    }
+    // char-koni: four triangles in the players' colours with a flower in the middle
+    const tri = [[[8, 11], [11, 11]], [[11, 11], [11, 8]], [[11, 8], [8, 8]], [[8, 8], [8, 11]]];
+    tri.forEach(([a, b], k) => {
+      g.beginPath(); g.moveTo(a[0] * C, a[1] * C); g.lineTo(b[0] * C, b[1] * C); g.lineTo(9.5 * C, 9.5 * C); g.closePath();
+      g.fillStyle = '#f7e3b5'; g.fill();
+      g.globalAlpha = 0.5; g.fillStyle = SEAT_COL[k]; g.fill(); g.globalAlpha = 1;
+      g.beginPath(); g.moveTo(a[0] * C, a[1] * C); g.lineTo(b[0] * C, b[1] * C); g.lineTo(9.5 * C, 9.5 * C); g.closePath();
+      stitch(g, '#6b0f1f', Math.max(1, C * 0.05));
+    });
+    for (let i = 0; i < 8; i += 1) {
+      const a = (i / 8) * Math.PI * 2;
+      g.save(); g.translate(9.5 * C, 9.5 * C); g.rotate(a);
+      g.fillStyle = i % 2 ? '#e0607e' : '#f4b740';
+      g.beginPath(); g.ellipse(C * 0.42, 0, C * 0.3, C * 0.14, 0, 0, Math.PI * 2); g.fill();
+      g.restore();
+    }
+    mirror(9.5 * C, 9.5 * C, C * 0.2);
+  };
+
+  // pieces: wooden domes, like the turned pieces of a cloth board
+  const drawPiece = (x, y, r, seat, label, ring) => {
+    const col = SEAT_COL[seat];
+    ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.beginPath(); ctx.ellipse(x + r * 0.12, y + r * 0.62, r * 0.95, r * 0.35, 0, 0, Math.PI * 2); ctx.fill();
+    if (ring) {
+      const pulse = Math.sin(performance.now() / 160) * 0.12;
+      ctx.strokeStyle = '#fff36b'; ctx.lineWidth = Math.max(2, C * 0.12);
+      ctx.beginPath(); ctx.arc(x, y - r * 0.1, r * (1.45 + pulse), 0, Math.PI * 2); ctx.stroke();
+    }
+    const gr = ctx.createLinearGradient(x - r, y - r, x + r, y + r);
+    gr.addColorStop(0, '#ffffff'); gr.addColorStop(0.18, col); gr.addColorStop(1, seat === 3 ? '#000' : col);
+    ctx.fillStyle = gr;
+    ctx.beginPath();
+    ctx.moveTo(x - r, y + r * 0.5);
+    ctx.quadraticCurveTo(x - r * 1.05, y - r * 0.75, x, y - r * 1.05);
+    ctx.quadraticCurveTo(x + r * 1.05, y - r * 0.75, x + r, y + r * 0.5);
+    ctx.ellipse(x, y + r * 0.5, r, r * 0.32, 0, 0, Math.PI);
+    ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = SEAT_EDGE[seat]; ctx.lineWidth = Math.max(1, r * 0.13); ctx.stroke();
+    ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, y - r * 1.05, r * 0.3, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+    if (label) {
+      ctx.fillStyle = SEAT_EDGE[seat]; ctx.font = `800 ${Math.max(7, r * 0.95)}px Inter, sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(label, x, y + r * 0.05);
+    }
+  };
+
+  // ---------- game state (UI)
+  let G = null; // engine game
+  let busy = false, gameId = 0, last = null;
+  let anims = {}; // "pi-j" -> {x,y}
+  let choice = null; // { moves, resolve }
+  let confetti = [];
+  const cur = () => G && G.players[G.turn];
+  const nameOf = (pl) => {
+    if (pl.custom) return pl.custom;
+    const comps = G.players.filter((p) => p.comp).length, humans = G.players.length - comps;
+    if (pl.comp) return comps > 1 ? `🤖 ${t('colors')[pl.seat]}` : t('comp');
+    return humans === 1 ? t('you') : t('colors')[pl.seat];
+  };
+
+  const render = () => {
+    if (!bg) return;
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    ctx.drawImage(bg, 0, 0);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (!G) return;
+    const r0 = C * 0.4;
+    // corner labels
+    G.players.forEach((pl) => {
+      const c = cornerC(pl.seat);
+      const ly = c.y + (c.y > 9.5 ? 3.35 : -3.35);
+      ctx.font = `800 ${Math.max(9, C * 0.62)}px "Baloo 2", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      const nm = nameOf(pl);
+      const w = Math.min(ctx.measureText(nm).width + C * 0.8, C * 7.4);
+      ctx.fillStyle = 'rgba(30,4,10,0.78)';
+      ctx.beginPath(); ctx.roundRect ? ctx.roundRect(c.x * C - w / 2, ly * C - C * 0.45, w, C * 0.9, C * 0.4) : ctx.rect(c.x * C - w / 2, ly * C - C * 0.45, w, C * 0.9); ctx.fill();
+      ctx.fillStyle = G.players[G.turn] === pl && !G.over ? '#fff36b' : '#fbf3e4';
+      ctx.fillText(nm, c.x * C, ly * C + 1, C * 7);
+    });
+    // group pieces by board square to fan out stacks
+    const items = [];
+    const stacks = new Map();
+    G.players.forEach((pl, pi) => {
+      pl.pieces.forEach((pc, j) => {
+        const a = anims[`${pi}-${j}`];
+        const it = { pi, j, seat: pl.seat, pos: pc.pos, p: a || posXY(pl.seat, pc.pos, j, G.nPieces), moving: !!a };
+        items.push(it);
+        if (!a && pc.pos >= 0 && pc.pos < HOME) {
+          const k = cellKey(pl.seat, pc.pos);
+          if (!stacks.has(k)) stacks.set(k, []);
+          stacks.get(k).push(it);
+        }
+      });
+    });
+    stacks.forEach((list) => {
+      if (list.length < 2) return;
+      list.forEach((it, i) => { const a = (i / list.length) * Math.PI * 2 - Math.PI / 2; it.p = { x: it.p.x + Math.cos(a) * 0.2, y: it.p.y + Math.sin(a) * 0.2 }; it.small = true; });
+    });
+    const hl = new Set();
+    const dests = [];
+    if (choice) choice.moves.forEach((m) => {
+      const pl = G.players[m.owner];
+      pl.pieces.forEach((pc, j) => { if (pc.pos === m.from) hl.add(`${m.owner}-${j}`); });
+      dests.push(posXY(pl.seat, m.to, m.j, G.nPieces));
+    });
+    dests.forEach((d) => {
+      ctx.beginPath(); ctx.arc(d.x * C, d.y * C, C * 0.38, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,243,107,0.35)'; ctx.fill();
+      ctx.setLineDash([C * 0.1, C * 0.08]); ctx.strokeStyle = '#fff36b'; ctx.lineWidth = Math.max(1.5, C * 0.07); ctx.stroke(); ctx.setLineDash([]);
+    });
+    items.sort((a, b) => (a.moving ? 1 : 0) - (b.moving ? 1 : 0) || a.p.y - b.p.y);
+    items.forEach((it) => {
+      const r = it.small ? r0 * 0.78 : (it.pos === HOME && !it.moving ? r0 * 0.7 : r0);
+      drawPiece(it.p.x * C, it.p.y * C, r, it.seat, String(it.j + 1), hl.has(`${it.pi}-${it.j}`));
+    });
+    if (confetti.length) {
+      const now = performance.now();
+      confetti = confetti.filter((c) => now - c.t0 < 3200);
+      confetti.forEach((c) => {
+        const tt = Math.max(0, (now - c.t0) / 1000);
+        const x = (c.x + c.vx * tt) * C, y = (c.y + c.vy * tt + 8 * tt * tt) * C;
+        ctx.save(); ctx.translate(x, y); ctx.rotate(c.r + tt * c.vr); ctx.fillStyle = c.col; ctx.beginPath(); ctx.ellipse(0, 0, C * 0.3, C * 0.14, 0, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+      });
+    }
+  };
+  const loop = () => { render(); requestAnimationFrame(loop); };
+
+  const animate = (k, path, ms) => new Promise((res) => {
+    if (FAST) { res(); return; }
+    const t0 = performance.now();
+    const step = () => {
+      const q = Math.min(1, (performance.now() - t0) / ms);
+      anims[k] = path(q);
+      if (q < 1) requestAnimationFrame(step); else res();
+    };
+    anims[k] = path(0);
+    requestAnimationFrame(step);
+  });
+  const hop = (a, b, h = 0.45) => (q) => ({ x: a.x + (b.x - a.x) * q, y: a.y + (b.y - a.y) * q - Math.sin(Math.PI * q) * h });
+
+  // ---------- cowries
+  const KD_BACK = '<svg viewBox="0 0 40 56"><ellipse cx="20" cy="28" rx="17" ry="25" fill="url(#kdBack)" stroke="#7a5426" stroke-width="1.2"/><ellipse cx="14" cy="18" rx="5" ry="9" fill="#fff" opacity=".45"/><circle cx="24" cy="34" r="2" fill="#b88a4e" opacity=".6"/><circle cx="18" cy="40" r="1.5" fill="#b88a4e" opacity=".6"/><circle cx="27" cy="22" r="1.4" fill="#b88a4e" opacity=".5"/></svg>';
+  const KD_MOUTH = '<svg viewBox="0 0 40 56"><ellipse cx="20" cy="28" rx="17" ry="25" fill="url(#kdMouth)" stroke="#8a6a3a" stroke-width="1.2"/><path d="M20 7 C16 18 16 38 20 49 C24 38 24 18 20 7Z" fill="#3b2412"/><g stroke="#f3e6c8" stroke-width="1.6" stroke-linecap="round"><path d="M16.5 14h3M16 19h3.5M15.8 24h3.6M15.8 29h3.6M16 34h3.5M16.5 39h3"/><path d="M20.5 16h3M20.5 21h3.5M20.6 26h3.6M20.6 31h3.6M20.5 36h3.5M20.5 41h3"/></g></svg>';
+  const kdEls = [];
+  for (let i = 0; i < 6; i += 1) { const s = document.createElement('span'); s.className = 'kd'; $('tray').appendChild(s); kdEls.push(s); }
+  const placeKd = (faces, scatter) => {
+    const tw = $('tray').clientWidth || 156, th = $('tray').clientHeight || 84;
+    kdEls.forEach((el, i) => {
+      el.innerHTML = faces[i] ? KD_MOUTH : KD_BACK;
+      const col = i % 3, row = Math.floor(i / 3);
+      const bx = tw * (0.17 + col * 0.25) + (scatter ? (Math.random() - 0.5) * 14 : 0);
+      const by = th * (0.08 + row * 0.44) + (scatter ? (Math.random() - 0.5) * 8 : 0);
+      el.style.left = `${bx}px`; el.style.top = `${by}px`;
+      el.style.transform = `rotate(${scatter ? Math.round(Math.random() * 360) : (i * 37) % 60 - 30}deg)`;
+    });
+  };
+  placeKd([true, false, true, false, false, true], false);
+  const showVal = (v) => {
+    const el = $('val');
+    if (v == null) { el.className = 'val'; el.textContent = ''; return; }
+    el.textContent = GRACE(v) ? `${v}🌟` : String(v);
+    el.className = `val on${GRACE(v) ? ' grace' : ''}`;
+  };
+  const throwAnim = async () => {
+    const tray = $('tray');
+    showVal(null);
+    sfx.rattle();
+    if (!FAST) {
+      tray.classList.add('shake');
+      for (let i = 0; i < 7; i += 1) { placeKd(kdEls.map(() => Math.random() < 0.5), true); await sleep(85); }
+      tray.classList.remove('shake');
+    }
+    const r = throwKaudi();
+    placeKd(r.faces, true);
+    sfx.land();
+    showVal(r.v);
+    return r;
+  };
+
+  // ---------- UI bits
+  const renderChips = () => {
+    $('chips').innerHTML = '';
+    if (!G) return;
+    G.players.forEach((pl, i) => {
+      const el = document.createElement('span');
+      el.className = `chip${!G.over && i === G.turn ? ' on' : ''}`;
+      const dot = document.createElement('span'); dot.className = 'dot'; dot.style.background = SEAT_COL[pl.seat];
+      const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = nameOf(pl);
+      const ps = document.createElement('span'); ps.className = 'ps';
+      ps.textContent = `· 🏠${pl.pieces.filter((p) => p.pos === HOME).length}/${G.nPieces}`;
+      el.append(dot, nm, ps);
+      if (G.teams) el.title = t('teamLbl')(pl.seat % 2 + 1);
+      $('chips').appendChild(el);
+    });
+  };
+  const humanTurn = () => G && !G.over && !busy && !choice && !cur().comp && !AUTO;
+  const renderTurn = () => {
+    const pl = cur();
+    if (!pl || G.over) { $('turn').textContent = ''; $('tray').disabled = true; return; }
+    $('turn').textContent = t('turnOf')(nameOf(pl));
+    $('turn').style.color = pl.seat === 3 ? '#e8e0d4' : SEAT_COL[pl.seat];
+    $('tray').style.borderColor = pl.seat === 3 ? '#e8e0d4' : SEAT_COL[pl.seat];
+    $('tray').disabled = !humanTurn();
+  };
+  const setMsg = (s) => { $('msg').textContent = s; };
+  let toastTimer = 0;
+  const toast = (s, kind) => {
+    const el = $('toast');
+    el.textContent = s; el.className = `toast show ${kind || ''}`;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { el.className = 'toast'; }, FAST ? 100 : 1500);
+  };
+  const renderChoices = () => {
+    const box = $('choices');
+    box.innerHTML = '';
+    if (!choice) return;
+    choice.moves.forEach((m, i) => {
+      const pl = G.players[m.owner];
+      const b = document.createElement('button'); b.type = 'button';
+      const dot = document.createElement('span'); dot.className = 'dot'; dot.style.background = SEAT_COL[pl.seat];
+      const tx = document.createElement('span');
+      tx.textContent = m.from === -1 ? t('enterLbl') : m.to === HOME ? t('pieceHome')(m.j + 1) : t('pieceLbl')(m.j + 1, HOME - m.from);
+      b.append(dot, tx);
+      b.addEventListener('click', () => pick(i));
+      box.appendChild(b);
+    });
+  };
+  const pick = (i) => {
+    if (!choice) return;
+    const c = choice; choice = null;
+    renderChoices();
+    c.resolve(c.moves[i]);
+  };
+  const askHuman = (moves) => new Promise((resolve) => { choice = { moves, resolve }; renderChoices(); setMsg(t('choose')); });
+
+  // ---------- move animation
+  const doMove = async (m, id) => {
+    const pl = G.players[m.owner];
+    const k = `${m.owner}-${m.j}`;
+    const n = G.nPieces;
+    if (m.from === -1) {
+      sfx.enter();
+      await animate(k, hop(waitSlot(pl.seat, m.j, n), posXY(pl.seat, 0, m.j, n), 1.2), 420);
+    } else {
+      const steps = m.to - m.from;
+      const per = Math.max(55, Math.min(170, 1500 / steps));
+      for (let s = m.from + 1; s <= m.to; s += 1) {
+        await animate(k, hop(posXY(pl.seat, s - 1, m.j, n), posXY(pl.seat, s, m.j, n), 0.35), per);
+        if (id !== gameId) return null;
+        sfx.tok();
+      }
+    }
+    const res = applyMove(G, m);
+    delete anims[k];
+    if (res.cap.length) {
+      sfx.capture();
+      if (navigator.vibrate && !cur().comp) try { navigator.vibrate(120); } catch (e) { /* ignore */ }
+      await Promise.all(res.cap.map((c) => {
+        const q = G.players[c.qi];
+        return animate(`${c.qi}-${c.j}`, hop(posXY(q.seat, c.pos, c.j, n), waitSlot(q.seat, c.j, n), 2.5), 650);
+      }));
+      res.cap.forEach((c) => { delete anims[`${c.qi}-${c.j}`]; });
+    }
+    if (res.home) sfx.home();
+    return res;
+  };
+
+  // ---------- game flow
+  const doTurn = async () => {
+    if (!G || G.over || busy) return;
+    const id = gameId;
+    busy = true; renderTurn();
+    const pl = cur();
+    const r = await throwAnim();
+    if (id !== gameId) return;
+    pl.throws += 1;
+    const v = r.v;
+    setMsg(t('thrown')(nameOf(pl), r.k, v));
+    let extra = GRACE(v);
+    if (extra) { sfx.grace(); toast(t('grace')(v)); }
+    await sleep(extra ? 650 : 380);
+    if (id !== gameId) return;
+    const moves = legalMoves(G, G.turn, v);
+    if (moverOf(G, G.turn) !== G.turn && moves.length) setMsg(t('partnerMove')(nameOf(G.players[moverOf(G, G.turn)])));
+    if (!moves.length) {
+      sfx.none();
+      const waiting = G.players[moverOf(G, G.turn)].pieces.some((p) => p.pos === -1);
+      const onBoard = G.players[moverOf(G, G.turn)].pieces.some((p) => p.pos >= 0 && p.pos < HOME);
+      setMsg(waiting && !onBoard ? t('needGrace') : t('noMove'));
+      await sleep(850);
+    } else {
+      let m;
+      if (pl.comp || AUTO) { m = aiChoose(G, G.turn, moves); await sleep(250); }
+      else if (moves.length === 1 && G.autoMove) m = moves[0];
+      else m = await askHuman(moves);
+      if (id !== gameId) return;
+      const res = await doMove(m, id);
+      if (!res || id !== gameId) return;
+      if (res.cap.length) {
+        pl.caps += res.cap.length;
+        toast(t('captured')(nameOf(pl), res.cap.length), 'bad');
+        setMsg(t('captured')(nameOf(pl), res.cap.length));
+        if (G.capBonus) extra = true;
+      } else if (res.home) { toast(t('homeMsg')); setMsg(t('homeMsg')); }
+      renderChips();
+      const w = winnersOf(G);
+      if (w) { win(w); return; }
+      await sleep(res.cap.length ? 700 : 260);
+    }
+    if (id !== gameId) return;
+    if (extra) setMsg(`${t('extra')} 🐚`);
+    else G.turn = (G.turn + 1) % G.players.length;
+    busy = false;
+    renderChips(); renderTurn();
+    nextTurn(!extra);
+  };
+  const nextTurn = (changed) => {
+    if (!G || G.over) return;
+    const pl = cur();
+    if (pl.comp || AUTO) { if (!pl.comp) setMsg(''); else if (changed) setMsg(t('compThink')); setTimeout(doTurn, FAST ? 0 : 750); return; }
+    if (changed) {
+      setMsg(t('tapThrow'));
+      const humans = G.players.filter((p) => !p.comp).length;
+      if (humans > 1) toast(t('turnOf')(nameOf(pl)));
+    }
+  };
+
+  const win = (w) => {
+    G.over = true; busy = false;
+    sfx.win();
+    const names = w.map((i) => nameOf(G.players[i]));
+    const title = G.teams ? t('teamName')(names[0], names[1]) : names[0];
+    toast(t('win')(title));
+    const now = performance.now();
+    const cols = ['#d62828', '#f2b705', '#2b9348', '#f4b740', '#e0607e', '#fff3d6'];
+    if (!FAST) for (let i = 0; i < 90; i += 1) confetti.push({ t0: now + Math.random() * 400, x: 9.5 + (Math.random() - 0.5) * 2, y: 9, vx: (Math.random() - 0.5) * 14, vy: -6 - Math.random() * 8, r: Math.random() * 6, vr: (Math.random() - 0.5) * 12, col: cols[i % cols.length] });
+    const humanWin = w.some((i) => !G.players[i].comp);
+    const anyComp = G.players.some((p) => p.comp);
+    const allComp = w.every((i) => G.players[i].comp);
+    if (humanWin && anyComp && !AUTO) store.set('cp-wins', String(wins() + 1));
+    const throws = w.reduce((s, i) => s + G.players[i].throws, 0), caps = w.reduce((s, i) => s + G.players[i].caps, 0);
+    last = { w, humanWin, allComp, throws, caps };
+    autoLog.push({ winner: title, throws: G.players.reduce((s, p) => s + p.throws, 0) });
+    renderChips(); renderTurn();
+    setTimeout(() => { fillEnd(); $('endScreen').classList.remove('hidden'); if (AUTO) autoNext(); }, FAST ? 10 : 1800);
+  };
+  const fillEnd = () => {
+    if (!last || !G) return;
+    const names = last.w.map((i) => nameOf(G.players[i]));
+    const title = G.teams ? t('teamName')(names[0], names[1]) : names[0];
+    $('endTitle').textContent = last.allComp && G.players.some((p) => !p.comp) ? t('endComp') : t('endWin')(title);
+    $('endNote').textContent = last.allComp && G.players.some((p) => !p.comp) ? t('endNoteComp') : t('endNoteWin');
+    $('endStats').textContent = t('endStats')(last.throws, last.caps);
+    $('winsLine').textContent = wins() ? t('wins')(wins()) : '';
+  };
+
+  const start = (cfgOverride) => {
+    initAudio();
+    gameId += 1;
+    const m = (cfgOverride && cfgOverride.mode) || mode;
+    const seats = MODES[m];
+    const names = {};
+    $('seats').querySelectorAll('input').forEach((i) => { names[i.dataset.seat] = cleanName(i.value); });
+    if (!cfgOverride) {
+      const arr = [0, 1, 2, 3].map((s) => (names[s] !== undefined ? names[s] : savedNames[s] || ''));
+      savedNames = arr; store.set('cp-names', JSON.stringify(arr));
+      store.set('cp-capx', $('optCap').checked ? '1' : '0');
+      store.set('cp-auto', $('optAuto').checked ? '1' : '0');
+      store.set('cp-short', $('optShort').checked ? '1' : '0');
+    }
+    const cfg = seats.map((s) => {
+      const comp = cfgOverride ? true : compCfg[m][s];
+      return { seat: s, comp, custom: comp || cfgOverride ? '' : (names[s] || '') };
+    });
+    G = newGame(cfg, { teams: m === 'team', capBonus: $('optCap').checked, nPieces: (cfgOverride && cfgOverride.nPieces) || ($('optShort').checked ? 2 : 4) });
+    G.autoMove = $('optAuto').checked;
+    busy = false; last = null; confetti = []; anims = {}; choice = null;
+    renderChoices(); showVal(null);
+    ['startScreen', 'endScreen'].forEach((id) => $(id).classList.add('hidden'));
+    $('shareMain').textContent = t('shareMain');
+    renderChips(); renderTurn();
+    setMsg('');
+    nextTurn(true);
+  };
+
+  // ---------- input
+  const tryThrow = () => { if (humanTurn()) { initAudio(); doTurn(); } };
+  $('tray').addEventListener('click', tryThrow);
+  cv.addEventListener('pointerdown', (e) => {
+    if (choice) {
+      e.preventDefault();
+      const r = cv.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width) * 19, y = ((e.clientY - r.top) / r.height) * 19;
+      let bestI = -1, bestD = 2.2;
+      choice.moves.forEach((m, i) => {
+        const pl = G.players[m.owner];
+        const pts = [posXY(pl.seat, m.to, m.j, G.nPieces)];
+        pl.pieces.forEach((pc, j) => { if (pc.pos === m.from) pts.push(posXY(pl.seat, pc.pos, j, G.nPieces)); });
+        if (m.from === -1) pts.push(cornerC(pl.seat));
+        pts.forEach((p) => { const d = Math.hypot(p.x - x, p.y - y); if (d < bestD) { bestD = d; bestI = i; } });
+      });
+      if (bestI >= 0) { initAudio(); pick(bestI); }
+      return;
+    }
+    if (humanTurn()) { e.preventDefault(); tryThrow(); }
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON')) return;
+    if (choice && /^[1-9]$/.test(e.key)) { const i = parseInt(e.key, 10) - 1; if (i < choice.moves.length) pick(i); return; }
+    if ((e.code === 'Space' || e.code === 'Enter') && humanTurn()) { e.preventDefault(); tryThrow(); }
+  });
+  // shake the phone to throw (Android; iPhone would need a permission prompt, so we skip it there)
+  if ('DeviceMotionEvent' in window && typeof DeviceMotionEvent.requestPermission !== 'function') {
+    let lastShake = 0;
+    window.addEventListener('devicemotion', (e) => {
+      const a = e.accelerationIncludingGravity || e.acceleration;
+      if (!a) return;
+      const mag = Math.hypot(a.x || 0, a.y || 0, a.z || 0);
+      const now = Date.now();
+      if (mag > 24 && now - lastShake > 1500 && humanTurn()) { lastShake = now; tryThrow(); }
+    });
+  }
+
+  // ---------- share
+  const shareText = () => {
+    const u = new URL(SITE);
+    if (lang !== 'hinglish') u.searchParams.set('lang', lang);
+    return t('shareText')(!!(last && last.humanWin), u.toString());
+  };
+  const openWa = () => window.open(`https://wa.me/?text=${encodeURIComponent(shareText())}`, '_blank', 'noopener');
+  $('play').addEventListener('click', () => start());
+  $('again').addEventListener('click', () => start());
+  $('setup').addEventListener('click', () => { gameId += 1; if (G) G.over = true; choice = null; renderChoices(); $('endScreen').classList.add('hidden'); $('startScreen').classList.remove('hidden'); renderTurn(); });
+  $('shareWa').addEventListener('click', openWa);
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
+  $('shareMain').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    openWa();
+  });
+
+  // ---------- page texts
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — ${lang === 'en' ? 'Cowrie Board Game' : lang === 'bn' ? 'কড়ির খেলা' : lang === 'hi' ? 'कौड़ी वाला खेल' : 'Kaudi wala Khel'} | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    $('tipList').innerHTML = t('tips').map((li) => `<li>${li}</li>`).join('');
+    $('aboutBox').innerHTML = t('about').map((p) => `<p>${p}</p>`).join('');
+    $('faqList').innerHTML = t('faq').map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+    const h = t('scoreHead');
+    $('scoreTable').innerHTML = `<tr><th>${h[0]}</th><th>${h[1]}</th></tr>` + VAL.map((v, k) => `<tr><td><span class="shells">${'🐚'.repeat(k) || '—'}</span> ${k}</td><td class="n">${v}${GRACE(v) ? ` <small>${t('graceMark')}</small>` : ''}</td></tr>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    $('winsLine').textContent = wins() ? t('wins')(wins()) : '';
+    renderSeats(); renderChips(); renderTurn(); renderChoices();
+    if (last) fillEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('cp-lang', lang); applyLang(); });
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- self-test (?debug) and auto-play (?debug&auto)
+  const autoLog = [];
+  const lines = [];
+  let failed = false;
+  const check = (name, ok, info = '') => { lines.push(`${ok ? 'PASS' : 'FAIL'} ${name}${info ? ` — ${info}` : ''}`); if (!ok) failed = true; };
+  const mulberry = (a) => () => { a |= 0; a = (a + 0x6D2B79F5) | 0; let x = Math.imul(a ^ (a >>> 15), 1 | a); x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x; return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+  const simulate = (cfgSeats, opts, rng) => {
+    const g = newGame(cfgSeats.map((s) => ({ seat: s, comp: true })), opts);
+    let throws = 0, caps = 0, extras = 0;
+    while (throws < 20000) {
+      const r = throwKaudi(rng); throws += 1;
+      const pi = g.turn;
+      const ms = legalMoves(g, pi, r.v);
+      let extra = GRACE(r.v);
+      if (ms.length) {
+        const m = aiChoose(g, pi, ms, rng);
+        const res = applyMove(g, m);
+        if (res.cap.length) { caps += res.cap.length; if (g.capBonus) { extra = true; extras += 1; } }
+        // invariant: no two teams share a non-castle loop square
+        const occ = new Map();
+        for (let qi = 0; qi < g.players.length; qi += 1) {
+          for (const pc of g.players[qi].pieces) {
+            if (pc.pos < -1 || pc.pos > HOME) return { err: 'pos out of range' };
+            if (!inLoop(pc.pos)) continue;
+            const k = cellKey(g.players[qi].seat, pc.pos);
+            if (SAFE.has(k)) continue;
+            const tm = teamOf(g, qi);
+            if (occ.has(k) && occ.get(k) !== tm) return { err: `two teams on square ${k}` };
+            occ.set(k, tm);
+          }
+        }
+        const w = winnersOf(g);
+        if (w) return { throws, caps, extras, w };
+      }
+      if (!extra) g.turn = (g.turn + 1) % g.players.length;
+    }
+    return { err: 'no winner after 20000 throws' };
+  };
+  const runUnitTests = () => {
+    // track geometry
+    check('each path has 82 squares + home', PATHS.every((p) => p.length === 82) && HOME === 82);
+    check('outer loop has 68 different squares', LOOP.length === 68 && new Set(LOOP.map(key)).size === 68);
+    const adj = PATHS.every((p) => p.every((c, i) => i === 0 || (Math.max(Math.abs(c[0] - p[i - 1][0]), Math.abs(c[1] - p[i - 1][1])) === 1)));
+    check('every step goes to a neighbouring square', adj);
+    check('all four players share the same loop', PATHS.every((p) => { const s = new Set(p.slice(LOOP_A, LOOP_B + 1).map(key)); return s.size === 68 && LOOP.every((c) => s.has(key(c))); }));
+    check('all squares are on the cross, not the centre', PATHS.every((p) => p.every(([r, c]) => inCross(r, c) && !(r >= 8 && r <= 10 && c >= 8 && c <= 10))));
+    check('middle lanes are private', [0, 1, 2, 3].every((a) => [0, 1, 2, 3].every((b) => a === b || !PATHS[a].slice(0, 7).concat(PATHS[a].slice(75)).some((c) => PATHS[b].slice(LOOP_A, LOOP_B + 1).some((d) => key(c) === key(d))))));
+    check('loop ends next to the home lane', PATHS.every((p) => Math.abs(p[LOOP_B][0] - p[75][0]) <= 1 && Math.abs(p[LOOP_B][1] - p[75][1]) <= 1));
+    // castles
+    check('12 castle squares', SAFE.size === 12);
+    check('every castle is on the loop', [...SAFE].every((k) => GIDX.has(k)));
+    check('each player passes all 12 castles', PATHS.every((p) => p.slice(LOOP_A, LOOP_B + 1).filter((c) => SAFE.has(key(c))).length === 12));
+    // throw distribution vs binomial(6, 0.5)
+    const rng = mulberry(12345);
+    const N = 64000, cnt = [0, 0, 0, 0, 0, 0, 0];
+    for (let i = 0; i < N; i += 1) cnt[throwKaudi(rng).k] += 1;
+    const binom = [1, 6, 15, 20, 15, 6, 1].map((x) => x / 64);
+    let chi = 0;
+    cnt.forEach((c, k) => { const e = N * binom[k]; chi += ((c - e) ** 2) / e; });
+    check('throw frequencies match binomial(6, ½)', chi < 22.46, `χ²=${chi.toFixed(2)} (df 6, limit 22.46); counts ${cnt.join('/')} vs expected ${binom.map((b) => Math.round(b * N)).join('/')}`);
+    const mR = Math.random, real = [0, 0, 0, 0, 0, 0, 0];
+    for (let i = 0; i < 20000; i += 1) real[throwKaudi(mR).k] += 1;
+    let chi2 = 0; real.forEach((c, k) => { const e = 20000 * binom[k]; chi2 += ((c - e) ** 2) / e; });
+    check('Math.random throws match too', chi2 < 22.46, `χ²=${chi2.toFixed(2)}`);
+    check('cowrie scores', VAL.join(',') === '25,10,2,3,4,5,6' && GRACE(10) && GRACE(25) && !GRACE(6));
+    // entry rule
+    const g1 = newGame([{ seat: 0 }, { seat: 2 }], {});
+    check('no entry without a grace', legalMoves(g1, 0, 4).length === 0 && legalMoves(g1, 0, 6).length === 0);
+    check('a grace lets a piece enter', legalMoves(g1, 0, 10).length === 1 && legalMoves(g1, 0, 10)[0].to === 0 && legalMoves(g1, 0, 25).length === 1);
+    // exact finish
+    g1.players[0].pieces[0].pos = 80;
+    check('exact throw needed to reach home', !legalMoves(g1, 0, 3).some((m) => m.j === 0) && legalMoves(g1, 0, 2).some((m) => m.j === 0 && m.to === HOME));
+    g1.players[0].pieces[0].pos = 79;
+    check('no stopping on the square before home (no throw of 1)', !legalMoves(g1, 0, 2).some((m) => m.j === 0) && legalMoves(g1, 0, 3).some((m) => m.j === 0 && m.to === HOME));
+    // capture: seat 0 lands on seat 2's piece on a plain loop square
+    const g2 = newGame([{ seat: 0 }, { seat: 2 }], {});
+    const target = 22; // a plain loop square for seat 0
+    const k0 = cellKey(0, target);
+    const p2 = PATHS[2].findIndex((c, i) => inLoop(i) && key(c) === k0);
+    g2.players[1].pieces[0].pos = p2;
+    g2.players[0].pieces[0].pos = target - 3;
+    const mv = legalMoves(g2, 0, 3).find((m) => m.j === 0);
+    const res = applyMove(g2, mv);
+    check('landing on an opponent captures it', !SAFE.has(k0) && res.cap.length === 1 && g2.players[1].pieces[0].pos === -1 && g2.players[0].pieces[0].pos === target);
+    // no capture on a castle
+    const g3 = newGame([{ seat: 0 }, { seat: 2 }], {});
+    const safeIdx = PATHS[0].findIndex((c, i) => i > 9 && inLoop(i) && SAFE.has(key(c)));
+    const ks = cellKey(0, safeIdx);
+    g3.players[1].pieces[0].pos = PATHS[2].findIndex((c, i) => inLoop(i) && key(c) === ks);
+    g3.players[0].pieces[0].pos = safeIdx - 4;
+    const r3 = applyMove(g3, legalMoves(g3, 0, 4).find((m) => m.j === 0));
+    check('no capture on a castle square', r3.cap.length === 0 && g3.players[1].pieces[0].pos >= 0);
+    // partners are never captured
+    const g4 = newGame([{ seat: 0 }, { seat: 1 }, { seat: 2 }, { seat: 3 }], { teams: true });
+    g4.players[2].pieces[0].pos = p2;
+    g4.players[0].pieces[0].pos = target - 3;
+    const r4 = applyMove(g4, legalMoves(g4, 0, 3).find((m) => m.j === 0));
+    check('partner is not captured in team play', r4.cap.length === 0 && g4.players[2].pieces[0].pos === p2);
+    // all home -> move partner's pieces
+    g4.players[0].pieces.forEach((pc) => { pc.pos = HOME; });
+    check('finished player moves partner\'s pieces', moverOf(g4, 0) === 2 && legalMoves(g4, 0, 3).every((m) => m.owner === 2));
+    // full games (engine only, computer for every seat)
+    const srng = mulberry(777);
+    [['2 players', [0, 2], {}], ['4 players', [0, 1, 2, 3], {}], ['2 vs 2 teams', [0, 1, 2, 3], { teams: true }], ['short (2 pieces)', [0, 2], { nPieces: 2 }], ['no capture bonus', [0, 1, 2, 3], { capBonus: false }]].forEach(([nm, seats, o]) => {
+      let ok = true, tot = 0, caps = 0, extras = 0, err = '';
+      for (let i = 0; i < 40; i += 1) { const r = simulate(seats, o, srng); if (r.err) { ok = false; err = r.err; break; } tot += r.throws; caps += r.caps; extras += r.extras; }
+      if (o.capBonus === false && extras) { ok = false; err = 'extra throw given with the setting off'; }
+      check(`40 full games: ${nm}`, ok, ok ? `avg ${Math.round(tot / 40)} throws, ${caps} captures, ${extras} capture bonus throws` : err);
+    });
+  };
+  const reportTests = () => {
+    const box = $('selftest');
+    box.classList.remove('hidden');
+    box.textContent = lines.join('\n');
+    document.body.dataset.selftest = failed ? 'fail' : 'pass';
+  };
+  let autoStep = 0;
+  const autoNext = () => {
+    const w = autoLog[autoLog.length - 1];
+    check(`UI game ${autoStep}: ${autoStep === 1 ? '4 computer players' : '2 vs 2 computer teams'}`, !!w, w ? `winner ${w.winner}, ${w.throws} throws` : '');
+    if (autoStep === 1) { autoStep = 2; mode = 'team'; renderSeats(); start({ mode: 'team' }); return; }
+    reportTests();
+  };
+
+  // ---------- boot
+  if ('ResizeObserver' in window) new ResizeObserver(resize).observe($('boardwrap'));
+  window.addEventListener('resize', resize);
+  resize();
+  applyLang();
+  requestAnimationFrame(loop);
+  window.__cp = { get G() { return G; }, PATHS, SAFE, legalMoves, applyMove, start: (m) => { mode = m || mode; renderSeats(); start(); }, pick, get choice() { return choice; } };
+  if (debug) {
+    try { runUnitTests(); } catch (e) { check('unit tests ran', false, String(e && e.stack || e)); }
+    if (AUTO && !failed) { autoStep = 1; mode = 'four'; renderSeats(); start({ mode: 'four' }); } else reportTests();
+  }
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+<script src="/assets/game-share.js?v=3" defer></script>
+</body>
+</html>

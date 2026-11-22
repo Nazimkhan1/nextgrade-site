@@ -149,6 +149,7 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [Aam Todo (Slingshot Mangoes)](https://nextgrade.in/games/aam-todo/?lang=en)
 - [Bagh-Bakri (Tigers and Goats)](https://nextgrade.in/games/bagh-bakri/?lang=en)
 - [Kattam-Katti (Tic Tac Toe)](https://nextgrade.in/games/kattam-katti/?lang=en)
+- [Chaupar / Pachisi (Cowrie Board Game)](https://nextgrade.in/games/chaupar/?lang=en)
 - [Raja Mantri Chor Sipahi](https://nextgrade.in/games/raja-mantri-chor-sipahi/?lang=en)
 
 ## Rules of Indian desi games (how to play in real life)
@@ -158,6 +159,7 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [How to play Kanche (Marbles) — full rules](https://nextgrade.in/en/khel/kanche/)
 - [How to play Gilli-Danda — full rules](https://nextgrade.in/en/khel/gilli-danda/)
 - [How to play Pitthu (Lagori / Seven Stones) — full rules](https://nextgrade.in/en/khel/pitthu/)
+- [How to play Chaupar / Pachisi — full rules](https://nextgrade.in/en/khel/chaupar/)
 
 ## Tools
 
