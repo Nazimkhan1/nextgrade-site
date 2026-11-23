@@ -35,6 +35,7 @@ const FIXED = {
 
   // single pages / sections (fixed dates)
   'page:naam-wali-image': '2026-12-12', // before Christmas and New Year
+  'page:shaadi-card': '2026-11-24', // user 24 Nov: live now (wedding season); free wedding (Shubh Vivah) card maker — high-traffic, routes paid-search traffic to us
   'page:paheliyan': '2026-11-20', // riddles with answers — live now (user 21 Nov)
   // school speeches and essays (about 3–4 weeks before the day)
   'speech:republic-day': '2026-12-28', // 26 Jan

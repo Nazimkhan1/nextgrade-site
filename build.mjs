@@ -14,6 +14,7 @@ import { festivals as allFestivals } from './src/festivals.mjs';
 import { apps } from './src/apps.mjs';
 import { hisabVideo, APP_URL, VIDEO } from './src/hisab-video.mjs';
 import { wishes } from './src/wishes.mjs';
+import { SHAADI_TEMPLATES, SHAADI_COLORS, SHAADI_UI } from './src/shaadi-card.mjs';
 import { games as allGames } from './src/games.mjs';
 import { stories as allStories } from './src/stories.mjs';
 import { tools as allTools } from './src/tools.mjs';
@@ -41,6 +42,7 @@ const heldFestivals = allFestivals.filter((f) => !isLive(`festival:${f.slug}`)).
 // Free tools (/tools/<slug>/): the section, its menu link and its Privacy Policy paragraph appear only once a tool is live
 const tools = allTools.filter((tl) => isLive(`tool:${tl.slug}`));
 const NAAM_LIVE = isLive('page:naam-wali-image');
+const SHAADI_LIVE = isLive('page:shaadi-card');
 const PAHELI_LIVE = isLive('page:paheliyan');
 const SPEECHES = allSpeeches.filter((sp) => isLive(`speech:${sp.slug}`));
 const ESSAYS = allEssays.filter((e) => isLive(`nibandh:${e.slug}`));
@@ -136,17 +138,17 @@ const P = (L, path) => `${L.prefix}${path}`;
 // Main menu, grouped (user, 21 Nov 2026: "header ko menu hierarchy wala banao", the flat list was too long).
 // Each group is a <details> dropdown (works without JavaScript); a link only shows when its section is live.
 const MENU_T = {
-  hi: { stories: 'कहानियाँ', study: 'पढ़ाई', fest: 'त्योहार', games: 'Games', tools: 'Tools', allStories: 'सभी कहानियाँ', panchatantra: 'पंचतंत्र', 'akbar-birbal': 'अकबर-बीरबल', 'tenali-raman': 'तेनाली राम', jataka: 'जातक कथाएँ', aesop: 'ईसप की कहानियाँ', 'lok-katha': 'लोक कथाएँ', nibandh: 'निबंध', speech: 'भाषण', paheli: 'पहेलियाँ', ff: 'Full Forms', naam: 'बच्चों के नाम', festivals: 'सभी त्योहार', dates: (y) => `त्योहार ${y} कब है`, wishes: 'Wishes', card: 'Wish Card', naamImg: 'नाम वाली इमेज', islamic: 'इस्लामी कैलेंडर', allGames: 'सभी गेम्स', khel: 'देसी खेलों के नियम', kids: 'सीखो-खेलो', kidsAll: 'सभी विषय', allTools: 'सभी टूल्स', calc: 'Calculators', apps: 'Apps', menu: 'मेनू' },
-  en: { stories: 'Stories', study: 'Study', fest: 'Festivals', games: 'Games', tools: 'Tools', allStories: 'All stories', panchatantra: 'Panchatantra', 'akbar-birbal': 'Akbar-Birbal', 'tenali-raman': 'Tenali Raman', jataka: 'Jataka Tales', aesop: "Aesop's Fables", 'lok-katha': 'Folk Tales', nibandh: 'Essays', speech: 'Speeches', paheli: 'Riddles', ff: 'Full Forms', naam: 'Baby Names', festivals: 'All festivals', dates: (y) => `Festival dates ${y}`, wishes: 'Wishes', card: 'Wish Card', naamImg: 'Name on image', islamic: 'Islamic calendar', allGames: 'All games', khel: 'Rules of desi games', kids: 'Learn & Play', kidsAll: 'All topics', allTools: 'All tools', calc: 'Calculators', apps: 'Apps', menu: 'Menu' },
-  hinglish: { stories: 'Kahaniyan', study: 'Padhai', fest: 'Tyohaar', games: 'Games', tools: 'Tools', allStories: 'Sabhi kahaniyan', panchatantra: 'Panchatantra', 'akbar-birbal': 'Akbar-Birbal', 'tenali-raman': 'Tenali Raman', jataka: 'Jataka Kathayein', aesop: 'Aesop ki Kahaniyan', 'lok-katha': 'Lok Kathayein', nibandh: 'Nibandh', speech: 'Bhashan', paheli: 'Paheliyan', ff: 'Full Forms', naam: 'Baby Names', festivals: 'Sabhi tyohaar', dates: (y) => `Tyohaar ${y} kab hai`, wishes: 'Wishes', card: 'Wish Card', naamImg: 'Naam wali image', islamic: 'Islamic calendar', allGames: 'Sabhi games', khel: 'Desi khelon ke niyam', kids: 'Seekho-Khelo', kidsAll: 'Sabhi topics', allTools: 'Sabhi tools', calc: 'Calculators', apps: 'Apps', menu: 'Menu' },
-  bn: { stories: 'গল্প', study: 'পড়াশোনা', fest: 'উৎসব', games: 'গেম', tools: 'টুলস', allStories: 'সব গল্প', panchatantra: 'পঞ্চতন্ত্র', 'akbar-birbal': 'আকবর-বীরবল', 'tenali-raman': 'তেনালি রামন', jataka: 'জাতকের গল্প', aesop: 'ঈশপের গল্প', 'lok-katha': 'লোককথা', nibandh: 'রচনা', speech: 'বক্তৃতা', paheli: 'ধাঁধা', ff: 'ফুল ফর্ম', naam: 'শিশুর নাম', festivals: 'সব উৎসব', dates: (y) => `উৎসবের তারিখ ${y}`, wishes: 'শুভেচ্ছা', card: 'উইশ কার্ড', naamImg: 'নামের ছবি', islamic: 'ইসলামি ক্যালেন্ডার', allGames: 'সব গেম', khel: 'দেশি খেলার নিয়ম', kids: 'শেখো-খেলো', kidsAll: 'সব বিষয়', allTools: 'সব টুলস', calc: 'ক্যালকুলেটর', apps: 'অ্যাপ', menu: 'মেনু' },
+  hi: { stories: 'कहानियाँ', study: 'पढ़ाई', fest: 'त्योहार', games: 'Games', tools: 'Tools', allStories: 'सभी कहानियाँ', panchatantra: 'पंचतंत्र', 'akbar-birbal': 'अकबर-बीरबल', 'tenali-raman': 'तेनाली राम', jataka: 'जातक कथाएँ', aesop: 'ईसप की कहानियाँ', 'lok-katha': 'लोक कथाएँ', nibandh: 'निबंध', speech: 'भाषण', paheli: 'पहेलियाँ', ff: 'Full Forms', naam: 'बच्चों के नाम', festivals: 'सभी त्योहार', dates: (y) => `त्योहार ${y} कब है`, wishes: 'Wishes', card: 'Wish Card', shaadiCard: 'शादी कार्ड', naamImg: 'नाम वाली इमेज', islamic: 'इस्लामी कैलेंडर', allGames: 'सभी गेम्स', khel: 'देसी खेलों के नियम', kids: 'सीखो-खेलो', kidsAll: 'सभी विषय', allTools: 'सभी टूल्स', calc: 'Calculators', apps: 'Apps', menu: 'मेनू' },
+  en: { stories: 'Stories', study: 'Study', fest: 'Festivals', games: 'Games', tools: 'Tools', allStories: 'All stories', panchatantra: 'Panchatantra', 'akbar-birbal': 'Akbar-Birbal', 'tenali-raman': 'Tenali Raman', jataka: 'Jataka Tales', aesop: "Aesop's Fables", 'lok-katha': 'Folk Tales', nibandh: 'Essays', speech: 'Speeches', paheli: 'Riddles', ff: 'Full Forms', naam: 'Baby Names', festivals: 'All festivals', dates: (y) => `Festival dates ${y}`, wishes: 'Wishes', card: 'Wish Card', shaadiCard: 'Shaadi Card', naamImg: 'Name on image', islamic: 'Islamic calendar', allGames: 'All games', khel: 'Rules of desi games', kids: 'Learn & Play', kidsAll: 'All topics', allTools: 'All tools', calc: 'Calculators', apps: 'Apps', menu: 'Menu' },
+  hinglish: { stories: 'Kahaniyan', study: 'Padhai', fest: 'Tyohaar', games: 'Games', tools: 'Tools', allStories: 'Sabhi kahaniyan', panchatantra: 'Panchatantra', 'akbar-birbal': 'Akbar-Birbal', 'tenali-raman': 'Tenali Raman', jataka: 'Jataka Kathayein', aesop: 'Aesop ki Kahaniyan', 'lok-katha': 'Lok Kathayein', nibandh: 'Nibandh', speech: 'Bhashan', paheli: 'Paheliyan', ff: 'Full Forms', naam: 'Baby Names', festivals: 'Sabhi tyohaar', dates: (y) => `Tyohaar ${y} kab hai`, wishes: 'Wishes', card: 'Wish Card', shaadiCard: 'Shaadi Card', naamImg: 'Naam wali image', islamic: 'Islamic calendar', allGames: 'Sabhi games', khel: 'Desi khelon ke niyam', kids: 'Seekho-Khelo', kidsAll: 'Sabhi topics', allTools: 'Sabhi tools', calc: 'Calculators', apps: 'Apps', menu: 'Menu' },
+  bn: { stories: 'গল্প', study: 'পড়াশোনা', fest: 'উৎসব', games: 'গেম', tools: 'টুলস', allStories: 'সব গল্প', panchatantra: 'পঞ্চতন্ত্র', 'akbar-birbal': 'আকবর-বীরবল', 'tenali-raman': 'তেনালি রামন', jataka: 'জাতকের গল্প', aesop: 'ঈশপের গল্প', 'lok-katha': 'লোককথা', nibandh: 'রচনা', speech: 'বক্তৃতা', paheli: 'ধাঁধা', ff: 'ফুল ফর্ম', naam: 'শিশুর নাম', festivals: 'সব উৎসব', dates: (y) => `উৎসবের তারিখ ${y}`, wishes: 'শুভেচ্ছা', card: 'উইশ কার্ড', shaadiCard: 'বিয়ের কার্ড', naamImg: 'নামের ছবি', islamic: 'ইসলামি ক্যালেন্ডার', allGames: 'সব গেম', khel: 'দেশি খেলার নিয়ম', kids: 'শেখো-খেলো', kidsAll: 'সব বিষয়', allTools: 'সব টুলস', calc: 'ক্যালকুলেটর', apps: 'অ্যাপ', menu: 'মেনু' },
 };
 const menuFor = (L) => {
   const M = MENU_T[L.code];
   const groups = [
     [M.stories, [['/kahani/', M.allStories], ...['panchatantra', 'akbar-birbal', 'tenali-raman', 'jataka', 'aesop', 'lok-katha'].map((s) => [`/kahani/${s}/`, M[s]])]],
     [M.study, [...(ESSAYS.length ? [['/nibandh/', M.nibandh]] : []), ...(SPEECHES.length ? [['/speech/', M.speech]] : []), ...(PAHELI_LIVE ? [['/paheliyan/', M.paheli]] : []), ...(FF_LIVE ? [['/full-form/', M.ff]] : []), ...(BABY_LIVE ? [['/naam/', M.naam]] : [])]],
-    [M.fest, [['/festivals/', M.festivals], [`/festivals/${LIST_YEAR}/`, M.dates(LIST_YEAR)], ['/wishes/', M.wishes], ['/wish-card/', M.card], ...(NAAM_LIVE ? [['/naam-wali-image/', M.naamImg]] : []), ['/islamic-calendar/', M.islamic]]],
+    [M.fest, [['/festivals/', M.festivals], [`/festivals/${LIST_YEAR}/`, M.dates(LIST_YEAR)], ['/wishes/', M.wishes], ['/wish-card/', M.card], ...(SHAADI_LIVE ? [['/shaadi-card/', M.shaadiCard]] : []), ...(NAAM_LIVE ? [['/naam-wali-image/', M.naamImg]] : []), ['/islamic-calendar/', M.islamic]]],
     [M.games, [['/games/', M.allGames], ...(KHEL.length ? [['/khel/', M.khel]] : [])]],
     [M.kids, [['/kids/', M.kidsAll], ...KIDS_SETS.map((s) => [`/kids/${s.slug}/`, s.name[L.code] || s.name.en])]],
     [M.tools, [...(tools.length ? [['/tools/', M.allTools]] : []), ...(CALCS.length ? [['/calculator/', M.calc]] : []), ['/apps/', M.apps]]],
@@ -863,6 +865,74 @@ ${NAAM_LIVE ? `<p><a class="btn btn-ghost" href="${P(L, '/naam-wali-image/')}">$
 </div>`,
       }));
     });
+  }
+
+  // Shaadi Card Maker (wedding invitation card) — scheduled as 'page:shaadi-card'
+  if (SHAADI_LIVE) {
+    const SC = SHAADI_UI[L.code];
+    writeFileSync(
+      join(OUT, 'assets', `shaadi.${L.code}.js`),
+      `window.SHAADI = ${JSON.stringify({
+        tpl: SHAADI_TEMPLATES.map((t) => ({ id: t.id, name: t.name[L.code] || t.name.en, style: t.style, motif: t.motif, palette: t.palette })),
+        colors: SHAADI_COLORS.map((c) => ({ id: c.id, name: c.name[L.code] || c.name.en, palette: c.palette })),
+        ui: { h1: SC.h1, weds: SC.weds, and: SC.and, ph: SC.ph, downloaded: SC.downloaded, cantShare: SC.cantShare, shareText: SC.shareText },
+        url: `${SITE}${P(L, '/shaadi-card/')}`,
+      })};\n`,
+    );
+    write(
+      L,
+      '/shaadi-card/',
+      page(L, {
+        path: '/shaadi-card/',
+        title: SC.title,
+        description: SC.desc,
+        jsonLd: [
+          breadcrumbLd(L, [[T.nav.home, '/'], [SC.h1.replace(/^\S+\s/, ''), '/shaadi-card/']]),
+          { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Shaadi Card Maker', url: `${SITE}${P(L, '/shaadi-card/')}`, applicationCategory: 'LifestyleApplication', operatingSystem: 'Any', inLanguage: L.html, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+          { '@context': 'https://schema.org', '@type': 'HowTo', name: SC.howH, step: SC.how.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, text: s })) },
+          { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: SC.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+        ],
+        scripts: [`/assets/shaadi.${L.code}.js`, '/assets/shaadi-card.js'],
+        body: `<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(SC.h1.replace(/^\S+\s/, ''))}</p>
+<h1>${esc(SC.h1)}</h1>
+<p class="lead">${esc(SC.lead)}</p>
+<style>
+.tpl-gallery{display:flex;gap:12px;overflow-x:auto;padding:8px 2px 14px;margin:0 0 6px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.tpl-thumb{flex:0 0 auto;background:none;border:3px solid transparent;border-radius:12px;padding:0;cursor:pointer;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;gap:5px;transition:border-color .15s}
+.tpl-thumb canvas{width:108px;height:150px;border-radius:9px;box-shadow:0 2px 10px rgba(0,0,0,.18);display:block;background:#fff}
+.tpl-thumb span{font-size:.72rem;max-width:112px;line-height:1.12;opacity:.82;text-align:center}
+.tpl-thumb.on{border-color:var(--brand,#c9a227)}
+.tpl-thumb.on span{font-weight:700;opacity:1}
+.pick-h{font-weight:700;margin:10px 0 2px}
+</style>
+<p class="pick-h">${esc(SC.tplH)} 👇</p>
+<div id="gallery" class="tpl-gallery" role="list" aria-label="${esc(SC.tplH)}"></div>
+<div class="maker">
+<form id="maker" onsubmit="return false">
+<div class="field"><label for="heading">${esc(SC.f.heading)}</label><input id="heading" maxlength="30" placeholder="${esc(SC.ph.heading)}"></div>
+<div class="row2"><div class="field"><label for="groom">${esc(SC.f.groom)}</label><input id="groom" maxlength="30" placeholder="${esc(SC.ph.groom)}"></div><div class="field"><label for="bride">${esc(SC.f.bride)}</label><input id="bride" maxlength="30" placeholder="${esc(SC.ph.bride)}"></div></div>
+<div class="row2"><div class="field"><label for="day">${esc(SC.f.day)}</label><input id="day" maxlength="20" placeholder="${esc(SC.ph.day)}"></div><div class="field"><label for="date">${esc(SC.f.date)}</label><input id="date" maxlength="30" placeholder="${esc(SC.ph.date)}"></div></div>
+<div class="row2"><div class="field"><label for="time">${esc(SC.f.time)}</label><input id="time" maxlength="24" placeholder="${esc(SC.ph.time)}"></div><div class="field"><label for="family">${esc(SC.f.family)}</label><input id="family" maxlength="40" placeholder="${esc(SC.ph.family)}"></div></div>
+<div class="field"><label for="venue">${esc(SC.f.venue)}</label><input id="venue" maxlength="80" placeholder="${esc(SC.ph.venue)}"></div>
+<div class="field"><label for="note">${esc(SC.f.note)}</label><input id="note" maxlength="90" placeholder="${esc(SC.ph.note)}"></div>
+<div class="field"><label for="color">${esc(SC.colorH)}</label><select id="color"><option value="template">${esc(SC.tplH)}</option>${SHAADI_COLORS.map((c) => `<option value="${c.id}">${esc(c.name[L.code] || c.name.en)}</option>`).join('')}<option value="custom">${esc(SC.customColor)}</option></select></div>
+<div class="field" id="custom-colors" style="display:none;flex-direction:row;gap:16px;align-items:center"><label for="c1">🎨</label><input type="color" id="c1" value="#7a1420"><input type="color" id="c2" value="#b8860b"></div>
+<div class="btns"><button class="btn btn-primary" type="button" id="download">${esc(SC.download)}</button><button class="btn btn-ghost" type="button" id="share">${esc(SC.share)}</button><button class="btn btn-ghost" type="button" id="print">${esc(SC.print)}</button></div>
+<p class="note" id="status" role="status"></p>
+</form>
+<div class="preview"><canvas id="card" width="1080" height="1500" aria-label="${esc(SC.preview)}"></canvas></div>
+</div>
+<div class="ad" aria-hidden="true"></div>
+<h2>${esc(SC.howH)}</h2>
+<ol>${SC.how.map((li) => `<li>${esc(li)}</li>`).join('')}</ol>
+<h2>${esc(SC.introH)}</h2>
+${SC.intro.map((p) => `<p>${esc(p)}</p>`).join('')}
+<h2>FAQ</h2>
+${SC.faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('')}
+</div>`,
+      }),
+    );
   }
 
   // "Naam wali image": a hub plus one page per occasion (scheduled as 'page:naam-wali-image')
