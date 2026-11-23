@@ -55,9 +55,9 @@
   // --- grid ---
   items.forEach(function (it) {
     var b = document.createElement('button');
-    b.type = 'button'; b.className = 'kids-card'; b.setAttribute('aria-label', it.big);
+    b.type = 'button'; b.className = 'kids-card' + (it.emoji ? '' : ' kids-text'); b.setAttribute('aria-label', it.big);
     b.innerHTML = (it.corner ? '<span class="kids-letter" aria-hidden="true">' + it.corner + '</span>' : '') +
-      '<span class="kids-emoji" aria-hidden="true">' + it.emoji + '</span>' +
+      (it.emoji ? '<span class="kids-emoji" aria-hidden="true">' + it.emoji + '</span>' : '') +
       '<span class="kids-en">' + it.big + '</span>' +
       (it.sub ? '<span class="kids-native">' + it.sub + '</span>' : '') +
       '<span class="kids-spk" aria-hidden="true">🔊</span>';
@@ -69,7 +69,7 @@
   var show = $('kids-show'), card = $('kids-card'), idx = 0, timer = null, playing = false;
   function render(i) {
     var it = items[i];
-    card.innerHTML = '<span class="kids-emoji-big" aria-hidden="true">' + it.emoji + '</span>' +
+    card.innerHTML = (it.emoji ? '<span class="kids-emoji-big" aria-hidden="true">' + it.emoji + '</span>' : '') +
       '<span class="kids-en-big">' + it.big + '</span>' +
       (it.sub ? '<span class="kids-native-big">' + it.sub + '</span>' : '');
   }

@@ -4,7 +4,9 @@
  * Web Speech API (free, on-device — no audio files). Grid + slideshow modes (src/assets/kids.js).
  * Live-by-default. New sets: add to KIDS_SETS; a page per set is generated automatically.
  */
-const KIDS_SETS = [
+import { KIDS_MORE, KIDS_ORDER } from './kids-more.mjs';
+
+const BASE_SETS = [
   {
     slug: 'fruits', emoji: '🍎',
     name: { hi: 'फलों के नाम', en: 'Fruits Names', hinglish: 'Fruits Names', bn: 'ফলের নাম' },
@@ -73,7 +75,7 @@ const KIDS_SETS = [
     slug: 'hindi-varnamala', emoji: '🅰️', fixedLang: 'hi',
     name: { hi: 'क-ख-ग — हिंदी वर्णमाला', en: 'Hindi Alphabet (Varnamala)', hinglish: 'Ka Kha Ga — Hindi Varnamala', bn: 'হিন্দি বর্ণমালা (ক-খ-গ)' },
     items: [
-      { letter: 'अ', emoji: '🍍', word: 'अनानास', speak: 'अ से अनानास' },
+      { letter: 'अ', emoji: '<img class="kids-img" src="/assets/kids-img/anar.svg" alt="" width="128" height="128">', word: 'अनार', speak: 'अअ से अनार' }, // Lekha reads a lone अ as "dollar"; अअ sounds right,
       { letter: 'आ', emoji: '🥭', word: 'आम', speak: 'आ से आम' },
       { letter: 'इ', emoji: '🚂', word: 'इंजन', speak: 'इ से इंजन' },
       { letter: 'ई', emoji: '🧱', word: 'ईंट', speak: 'ई से ईंट' },
@@ -181,10 +183,14 @@ const KIDS_SETS = [
   },
 ];
 
+// All sets, in hub/menu order (src/kids-more.mjs has the newer ones and the order list)
+const KIDS_SETS = [...BASE_SETS, ...KIDS_MORE].sort((a, b) => KIDS_ORDER.indexOf(a.slug) - KIDS_ORDER.indexOf(b.slug));
+if (KIDS_SETS.some((x) => !KIDS_ORDER.includes(x.slug))) throw new Error('kids: every set slug must be in KIDS_ORDER');
+
 const KIDS_UI = {
   hi: {
     hubTitle: 'बच्चों के लिए पढ़ाई — आवाज़ के साथ नाम सीखें (Kids) | NextGrade',
-    hubDesc: 'छोटे बच्चों के लिए फ्री लर्निंग: फलों-जानवरों के नाम, ABC, हिंदी वर्णमाला (क-ख-ग) और बांग्ला वर्णमाला — तस्वीर और आवाज़ के साथ। कार्ड पर टैप करें और नाम सुनें। हिंदी और English।',
+    hubDesc: 'छोटे बच्चों के लिए फ्री लर्निंग: गिनती 1-100, पहाड़े, ABC, वर्णमाला, बारहखड़ी, मात्रा, फल, जानवर, सब्ज़ी, रंग, दिन-महीने — सब तस्वीर और आवाज़ के साथ। कार्ड पर टैप करें और नाम सुनें। हिंदी और English।',
     hubH1: '🧒 बच्चों की पढ़ाई',
     hubLead: 'तस्वीर, नाम और आवाज़ के साथ बच्चे खेल-खेल में सीखें। नीचे से कोई विषय चुनें — कार्ड पर टैप करें और नाम सुनें।',
     pageLead: 'कार्ड पर टैप करें 🔊 और नाम सुनें। “स्लाइड शो” दबाकर सभी नाम एक-एक करके देखें और सुनें।',
@@ -196,7 +202,7 @@ const KIDS_UI = {
   },
   en: {
     hubTitle: 'Kids Learning — Learn Names with Sound and Pictures | NextGrade',
-    hubDesc: 'Free learning for little kids: fruit and animal names, ABC, Hindi alphabet (क-ख-ग) and Bengali alphabet — with pictures and sound. Tap a card to hear the name. English and Hindi.',
+    hubDesc: 'Free learning for little kids: numbers 1-100, tables, ABC, Hindi and Bengali alphabets, barakhadi, fruits, animals, vegetables, colours, days and months — with pictures and sound. Tap a card to hear the name. English and Hindi.',
     hubH1: '🧒 Kids Learning',
     hubLead: 'Children learn through pictures, names and sound. Pick a topic below — tap a card to hear its name.',
     pageLead: 'Tap a card 🔊 to hear the name. Press “Slideshow” to see and hear every name one by one.',
@@ -208,7 +214,7 @@ const KIDS_UI = {
   },
   hinglish: {
     hubTitle: 'Kids Learning — Naam Sunke Seekhein (Picture + Sound) | NextGrade',
-    hubDesc: 'Chhote bachchon ke liye free learning: fruits-animals ke naam, ABC, Hindi varnamala (ka-kha-ga) aur Bangla bornomala — picture aur sound ke saath. Card tap karo aur naam suno. English aur Hindi.',
+    hubDesc: 'Chhote bachchon ke liye free learning: ginti 1-100, pahade, ABC, varnamala, barakhadi, matra, fruits, animals, sabzi, rang, din-mahine — sab picture aur sound ke saath. Card tap karo aur naam suno. English aur Hindi.',
     hubH1: '🧒 Bachchon ki Padhai',
     hubLead: 'Picture, naam aur sound ke saath bachche khel-khel mein seekhein. Niche se topic chuno — card tap karo aur naam suno.',
     pageLead: 'Card tap karo 🔊 aur naam suno. “Slideshow” dabake saare naam ek-ek karke dekho aur suno.',
@@ -220,7 +226,7 @@ const KIDS_UI = {
   },
   bn: {
     hubTitle: 'বাচ্চাদের শেখা — ছবি ও শব্দ দিয়ে নাম শিখুন (Kids) | NextGrade',
-    hubDesc: 'ছোট বাচ্চাদের জন্য ফ্রি শেখা: ফল-পশুর নাম, ABC, বাংলা বর্ণমালা (অ-আ-ক-খ) ও হিন্দি বর্ণমালা — ছবি ও শব্দ সহ। কার্ডে ট্যাপ করুন, নাম শুনুন। ইংরেজি ও বাংলা।',
+    hubDesc: 'ছোট বাচ্চাদের জন্য ফ্রি শেখা: সংখ্যা ১-১০০, নামতা, ABC, বাংলা ও হিন্দি বর্ণমালা, ফল, পশু, সবজি, রং, দিন-মাস — সব ছবি ও শব্দ সহ। কার্ডে ট্যাপ করুন, নাম শুনুন। ইংরেজি ও বাংলা।',
     hubH1: '🧒 বাচ্চাদের শেখা',
     hubLead: 'ছবি, নাম ও শব্দ দিয়ে বাচ্চারা খেলার ছলে শেখে। নিচে থেকে একটি বিষয় বাছুন — কার্ডে ট্যাপ করে নাম শুনুন।',
     pageLead: 'কার্ডে ট্যাপ করুন 🔊 আর নাম শুনুন। “স্লাইড শো” চেপে সব নাম একে একে দেখুন ও শুনুন।',

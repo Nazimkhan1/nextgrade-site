@@ -150,7 +150,7 @@ const menuFor = (L) => {
     [M.study, [...(ESSAYS.length ? [['/nibandh/', M.nibandh]] : []), ...(SPEECHES.length ? [['/speech/', M.speech]] : []), ...(PAHELI_LIVE ? [['/paheliyan/', M.paheli]] : []), ...(FF_LIVE ? [['/full-form/', M.ff]] : []), ...(BABY_LIVE ? [['/naam/', M.naam]] : [])]],
     [M.fest, [['/festivals/', M.festivals], [`/festivals/${LIST_YEAR}/`, M.dates(LIST_YEAR)], ['/wishes/', M.wishes], ['/wish-card/', M.card], ...(SHAADI_LIVE ? [['/shaadi-card/', M.shaadiCard]] : []), ...(NAAM_LIVE ? [['/naam-wali-image/', M.naamImg]] : []), ['/islamic-calendar/', M.islamic]]],
     [M.games, [['/games/', M.allGames], ...(KHEL.length ? [['/khel/', M.khel]] : [])]],
-    [M.kids, [['/kids/', M.kidsAll], ...KIDS_SETS.map((s) => [`/kids/${s.slug}/`, s.name[L.code] || s.name.en])]],
+    [M.kids, [['/kids/', M.kidsAll], ...KIDS_SETS.slice(0, 8).map((s) => [`/kids/${s.slug}/`, s.name[L.code] || s.name.en])]],
     [M.tools, [...(tools.length ? [['/tools/', M.allTools]] : []), ...(CALCS.length ? [['/calculator/', M.calc]] : []), ['/apps/', M.apps]]],
   ];
   return groups.filter(([, items]) => items.length);
@@ -808,23 +808,31 @@ ${NAAM_LIVE ? `<p><a class="btn btn-ghost" href="${P(L, '/naam-wali-image/')}">$
 <div class="grid">${KIDS_SETS.map((s) => `<a class="card" href="${P(L, `/kids/${s.slug}/`)}"><span class="emoji" aria-hidden="true">${s.emoji}</span><h3>${esc(s.name[L.code] || s.name.en)}</h3></a>`).join('')}</div>
 </div>`,
     }));
-    KIDS_SETS.forEach((s) => {
+    // One flashcard page. key = file/audio key (set slug, or "<set>-<child>" for sub-pages); parent = [name, path] for sub-pages.
+    const kidsPage = (s, key, path, nm, h1Emoji, parent, siblings) => {
       // each page plays a recorded female voice in its own language: hi→Hindi (Lekha), bn→Bengali (Piya), en→English (Samantha); hinglish→Hindi
       const SPK = ({ hi: { say: 'hi', sub: 'en', lang: 'hi-IN', al: 'hi' }, hinglish: { say: 'hi', sub: 'en', lang: 'hi-IN', al: 'hi' }, bn: { say: 'bn', sub: 'en', lang: 'bn-IN', al: 'bn' }, en: { say: 'en', sub: 'hi', lang: 'en-US', al: 'en' } })[L.code];
       const kslug = (x) => x.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-      const FLANG = { en: 'en-US', hi: 'hi-IN', bn: 'bn-IN' };
+      const FLANG = { en: 'en-US', hi: 'hi-IN', bn: 'bn-IN', ur: 'hi-IN' }; // Urdu letter names are spoken with the Hindi voice
+      const isBn = L.code === 'bn';
       const items = s.fixedLang
-        ? s.items.map((it, i) => ({ emoji: it.emoji, big: it.letter, sub: it.word || '', say: it.speak || it.letter, en: it.word || it.letter, lang: FLANG[s.fixedLang], audio: `/assets/kids-audio/${s.fixedLang}/${s.slug}-${i}.mp3` }))
-        : s.items.map((it) => ({ emoji: it.emoji, big: it[SPK.say], sub: it[SPK.sub] || '', say: it[SPK.say], en: it.en, lang: SPK.lang, corner: (it[SPK.say] || '').charAt(0).toUpperCase(), audio: `/assets/kids-audio/${SPK.al}/${s.slug}-${kslug(it.en)}.mp3` }));
+        ? s.items.map((it, i) => ({ emoji: it.emoji, big: it.letter, sub: it.word || '', say: it.speak || it.letter, en: it.word || it.letter, lang: FLANG[s.fixedLang], audio: `/assets/kids-audio/${s.fixedLang}/${key}-${i}.mp3` }))
+        : s.items.map((it) => ({
+          emoji: (isBn && it.emojiBn) || it.emoji,
+          big: it.big ? (isBn && it.bigBn) || it.big : it[SPK.say], // fixed big text (e.g. "2 × 3 = 6"): the spoken words go under it
+          sub: it.big ? it[SPK.say] : it[SPK.sub] || '',
+          say: it[SPK.say], en: it.en, lang: SPK.lang,
+          corner: s.noCorner ? '' : (it[SPK.say] || '').charAt(0).toUpperCase(),
+          audio: `/assets/kids-audio/${SPK.al}/${key}-${kslug(it.en)}.mp3`,
+        }));
       const data = { items, ui: { tap: KU.tap, play: KU.play, stop: KU.stop, next: KU.next, prev: KU.prev, grid: KU.grid, note: KU.note } };
-      writeFileSync(join(OUT, 'assets', `kids.${s.slug}.${L.code}.js`), `window.KIDS = ${JSON.stringify(data)};\n`);
-      const nm = s.name[L.code] || s.name.en;
-      write(L, `/kids/${s.slug}/`, page(L, {
-        path: `/kids/${s.slug}/`,
+      writeFileSync(join(OUT, 'assets', `kids.${key}.${L.code}.js`), `window.KIDS = ${JSON.stringify(data)};\n`);
+      write(L, path, page(L, {
+        path,
         title: `${nm} — ${L.code === 'hi' ? 'तस्वीर और आवाज़ के साथ' : L.code === 'bn' ? 'ছবি ও শব্দ সহ' : 'with Pictures and Sound'} | NextGrade`,
-        description: KU.hubDesc,
-        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [kidsName, '/kids/'], [nm, `/kids/${s.slug}/`]])],
-        scripts: [`/assets/kids.${s.slug}.${L.code}.js`, '/assets/kids.js'],
+        description: `${nm} — ${KU.pageLead}`,
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [kidsName, '/kids/'], ...(parent ? [parent] : []), [nm, path]])],
+        scripts: [`/assets/kids.${key}.${L.code}.js`, '/assets/kids.js'],
         body: `<style>
 .kids-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;margin:16px 0}
 .kids-card{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:24px 10px 16px;border:2px solid #e6e3da;border-radius:20px;background:#fff;cursor:pointer;transition:transform .12s,box-shadow .12s;color:#1b1b1b}
@@ -835,6 +843,9 @@ ${NAAM_LIVE ? `<p><a class="btn btn-ghost" href="${P(L, '/naam-wali-image/')}">$
 .kids-en{font-weight:800;font-size:1.5rem;color:#141414}
 .kids-native{font-size:1.05rem;color:#6a6a6a;font-weight:600}
 .kids-spk{font-size:1rem;color:#c99a3a}
+.kids-text{padding:20px 8px 14px}.kids-text .kids-en{font-size:1.4rem;overflow-wrap:anywhere;text-align:center}.kids-text .kids-native{text-align:center}
+.kids-sibs{line-height:2}
+.kids-img{width:1em;height:1em;display:inline-block;vertical-align:middle}
 @media(max-width:420px){.kids-grid{grid-template-columns:repeat(2,1fr)}.kids-emoji{font-size:5.6rem}}
 .kids-controls{margin:10px 0}
 .kids-show{position:fixed;inset:0;z-index:60;background:rgba(12,12,22,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px}
@@ -848,8 +859,8 @@ ${NAAM_LIVE ? `<p><a class="btn btn-ghost" href="${P(L, '/naam-wali-image/')}">$
 .kids-ctl:active{background:rgba(255,255,255,.3)}
 </style>
 <div class="wrap article">
-<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/kids/')}">${esc(kidsName)}</a> › ${esc(nm)}</p>
-<h1>${s.emoji} ${esc(nm)}</h1>
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/kids/')}">${esc(kidsName)}</a> › ${parent ? `<a href="${P(L, parent[1])}">${esc(parent[0])}</a> › ` : ''}${esc(nm)}</p>
+<h1>${h1Emoji} ${esc(nm)}</h1>
 <p class="lead">${esc(KU.pageLead)}</p>
 <div class="kids-controls"><button class="btn btn-primary" type="button" id="kids-play">${esc(KU.play)}</button></div>
 <div id="kids-grid" class="kids-grid" role="list" aria-label="${esc(nm)}"></div>
@@ -862,8 +873,28 @@ ${NAAM_LIVE ? `<p><a class="btn btn-ghost" href="${P(L, '/naam-wali-image/')}">$
 <div class="ad" aria-hidden="true"></div>
 <h2>${esc(KU.howH)}</h2>
 <ol>${KU.how.map((li) => `<li>${esc(li)}</li>`).join('')}</ol>
+${siblings ? `<h2>${esc(parent[0])}</h2>
+<p class="kids-sibs">${siblings.map(([n, href]) => (href === path ? `<strong>${esc(n)}</strong>` : `<a href="${P(L, href)}">${esc(n)}</a>`)).join(' · ')}</p>` : ''}
 </div>`,
       }));
+    };
+    KIDS_SETS.forEach((s) => {
+      const nm = s.name[L.code] || s.name.en;
+      if (!s.children) { kidsPage(s, s.slug, `/kids/${s.slug}/`, nm, s.emoji); return; }
+      // a set made of sub-pages (one per table / letter / matra): an index page, then each sub-page
+      const kids = s.children.map((c) => [c.name[L.code] || c.name.en, `/kids/${s.slug}/${c.slug}/`, c]);
+      write(L, `/kids/${s.slug}/`, page(L, {
+        path: `/kids/${s.slug}/`, title: `${nm} — ${KU.hubTitle.split(' | ')[0].split(' — ')[0]} | NextGrade`, description: `${nm} — ${KU.pageLead}`,
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [kidsName, '/kids/'], [nm, `/kids/${s.slug}/`]])],
+        body: `<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/kids/')}">${esc(kidsName)}</a> › ${esc(nm)}</p>
+<h1>${s.emoji} ${esc(nm)}</h1>
+<p class="lead">${esc(KU.pageLead)}</p>
+<div class="grid">${kids.map(([n, href, c]) => `<a class="card" href="${P(L, href)}"><span class="emoji" aria-hidden="true">${(L.code === 'bn' && c.emojiBn) || c.emoji}</span><h3>${esc(n)}</h3></a>`).join('')}</div>
+</div>`,
+      }));
+      const sibs = kids.map(([n, href]) => [n, href]);
+      kids.forEach(([n, href, c]) => kidsPage({ ...s, ...c, children: undefined }, `${s.slug}-${c.slug}`, href, n, s.emoji, [nm, `/kids/${s.slug}/`], sibs));
     });
   }
 
