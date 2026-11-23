@@ -4,7 +4,7 @@ Content site for Google AdSense approval, and the home of all the small apps on 
 Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (the user's notes).
 
 - Live: **https://nextgrade.in** (GitHub Pages, HTTPS on; `www` and `http` redirect here)
-- Repo: `Nazimkhan1/nextgrade-site` (public), local `~/www/nextgrade-site`
+- Repo: `Nazimkhan1/nextgrade-site` (public), local `~/www/nazim/nextgrade-site`
 - Build: `node build.mjs` → `docs/` → commit + push (no npm). Daily 06:00 IST GitHub Action republishes so scheduled pages go live (see RULE below)
 - AdSense publisher: `ca-pub-4135041725422483` (`ads.txt` live at https://nextgrade.in/ads.txt)
 - DNS: Cloudflare (the user makes DNS changes). `@` and `www` CNAME → `nazimkhan1.github.io`, **DNS only**
@@ -59,7 +59,7 @@ Plans this follows: `MY-PLANS/IDEAS.md` and `MY-PLANS/festival-wishes/TASK.md` (
 
 ## HOW TO — step by step (read this first)
 
-**0. Before any work:** `cd ~/www/nextgrade-site && git pull` (the daily Action commits to `main` every morning).
+**0. Before any work:** `cd ~/www/nazim/nextgrade-site && git pull` (the daily Action commits to `main` every morning).
 
 **1. Add a new story** — add an entry to the newest `src/stories-more*.mjs` (or a new `stories-moreN.mjs`, imported and pushed in `src/stories.mjs`). Shape: `{ slug, emoji, minutes, source: SRC.x, hi|en|hinglish|bn: { title, paras: [5], seekh } }`. All 4 languages, own words, old public tales only.
 
