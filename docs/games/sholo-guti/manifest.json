@@ -1,0 +1,16 @@
+{
+  "name": "Sholo Guti — 16 Goti Board Game",
+  "short_name": "Sholo Guti",
+  "description": "Sholo Guti (16 Goti, Solah Goti): the village board game with 16 pieces each — jump to capture, chain jumps. Play the computer (easy, medium, hard) or a friend on one phone. 4 languages.",
+  "start_url": "/games/sholo-guti/",
+  "scope": "/games/sholo-guti/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1e130c",
+  "theme_color": "#7a3e22",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
