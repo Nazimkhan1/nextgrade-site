@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2 # IndexNow compares today's sitemap with the previous commit's
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -31,6 +33,11 @@ jobs:
           if git diff --cached --quiet; then echo "nothing to publish"; exit 0; fi
           git commit -m "Daily release $(TZ=Asia/Kolkata date +%F)"
           git push
+          echo "pushed=1" >> "$GITHUB_OUTPUT"
+        id: publish
+      - name: Tell Bing / IndexNow about new pages (so ChatGPT search and Copilot find them quickly)
+        if: steps.publish.outputs.pushed == '1'
+        run: node scripts/indexnow.mjs --since HEAD~1
       - name: Ask GitHub Pages to rebuild
         run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
         env:

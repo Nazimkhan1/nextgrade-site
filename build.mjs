@@ -22,6 +22,7 @@ import { storyExtras, SOURCE_INFO, COLLECTIONS, collectionOf, srcKey } from './s
 import { NAAM_OCCASIONS, NAAM_UI } from './src/naam-image.mjs';
 import { PAHELI, PAHELI_UI } from './src/paheliyan.mjs';
 import { KIDS_SETS, KIDS_UI, KIDS_NATIVE } from './src/kids.mjs';
+import { KIDS_SEO, KIDS_SEO_CHILD, KIDS_LIST_H } from './src/kids-seo.mjs';
 import { speeches as allSpeeches, SPEECH_UI } from './src/speeches.mjs';
 import { essays as allEssays, NIBANDH_UI } from './src/nibandh.mjs';
 import { calculators as allCalculators, CALC_UI } from './src/calculators.mjs';
@@ -809,7 +810,7 @@ ${NAAM_LIVE ? `<p><a class="btn btn-ghost" href="${P(L, '/naam-wali-image/')}">$
 </div>`,
     }));
     // One flashcard page. key = file/audio key (set slug, or "<set>-<child>" for sub-pages); parent = [name, path] for sub-pages.
-    const kidsPage = (s, key, path, nm, h1Emoji, parent, siblings) => {
+    const kidsPage = (s, key, path, nm, h1Emoji, parent, siblings, seo) => {
       // each page plays a recorded female voice in its own language: hi→Hindi (Lekha), bn→Bengali (Piya), en→English (Samantha); hinglish→Hindi
       const SPK = ({ hi: { say: 'hi', sub: 'en', lang: 'hi-IN', al: 'hi' }, hinglish: { say: 'hi', sub: 'en', lang: 'hi-IN', al: 'hi' }, bn: { say: 'bn', sub: 'en', lang: 'bn-IN', al: 'bn' }, en: { say: 'en', sub: 'hi', lang: 'en-US', al: 'en' } })[L.code];
       const kslug = (x) => x.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -827,11 +828,17 @@ ${NAAM_LIVE ? `<p><a class="btn btn-ghost" href="${P(L, '/naam-wali-image/')}">$
         }));
       const data = { items, ui: { tap: KU.tap, play: KU.play, stop: KU.stop, next: KU.next, prev: KU.prev, grid: KU.grid, note: KU.note } };
       writeFileSync(join(OUT, 'assets', `kids.${key}.${L.code}.js`), `window.KIDS = ${JSON.stringify(data)};\n`);
+      const [seoTitle, seoDesc] = seo || [`${nm} — ${L.code === 'hi' ? 'तस्वीर और आवाज़ के साथ' : L.code === 'bn' ? 'ছবি ও শব্দ সহ' : 'with Pictures and Sound'}`, `${nm} — ${KU.pageLead}`];
+      // the same cards as plain text, so search engines and AI assistants can read them (the grid itself is drawn by JavaScript)
+      const listRows = items.map((it) => `<tr><td class="kl-e" aria-hidden="true">${it.emoji}</td><td class="kl-b">${esc(it.big)}</td><td>${esc(it.sub || '')}</td></tr>`).join('');
       write(L, path, page(L, {
         path,
-        title: `${nm} — ${L.code === 'hi' ? 'तस्वीर और आवाज़ के साथ' : L.code === 'bn' ? 'ছবি ও শব্দ সহ' : 'with Pictures and Sound'} | NextGrade`,
-        description: `${nm} — ${KU.pageLead}`,
-        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [kidsName, '/kids/'], ...(parent ? [parent] : []), [nm, path]])],
+        title: `${seoTitle} | NextGrade`,
+        description: seoDesc,
+        jsonLd: [
+          breadcrumbLd(L, [[T.nav.home, '/'], [kidsName, '/kids/'], ...(parent ? [parent] : []), [nm, path]]),
+          { '@context': 'https://schema.org', '@type': 'LearningResource', name: seoTitle, description: seoDesc, url: `${SITE}${P(L, path)}`, inLanguage: L.html, learningResourceType: 'Flashcards with audio', educationalLevel: 'Pre-school and primary school', isAccessibleForFree: true, audience: { '@type': 'EducationalAudience', educationalRole: 'student' }, publisher: { '@type': 'Organization', name: 'NextGrade', url: SITE } },
+        ],
         scripts: [`/assets/kids.${key}.${L.code}.js`, '/assets/kids.js'],
         body: `<style>
 .kids-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;margin:16px 0}
@@ -846,6 +853,7 @@ ${NAAM_LIVE ? `<p><a class="btn btn-ghost" href="${P(L, '/naam-wali-image/')}">$
 .kids-text{padding:20px 8px 14px}.kids-text .kids-en{font-size:1.4rem;overflow-wrap:anywhere;text-align:center}.kids-text .kids-native{text-align:center}
 .kids-sibs{line-height:2}
 .kids-img{width:1em;height:1em;display:inline-block;vertical-align:middle}
+.kids-list{border-collapse:collapse;width:100%;margin:8px 0 18px}.kids-list td{border-bottom:1px solid #e6e3da;padding:6px 8px}.kids-list .kl-e{font-size:1.5rem;width:2.2em;text-align:center}.kids-list .kl-b{font-weight:700}
 @media(max-width:420px){.kids-grid{grid-template-columns:repeat(2,1fr)}.kids-emoji{font-size:5.6rem}}
 .kids-controls{margin:10px 0}
 .kids-show{position:fixed;inset:0;z-index:60;background:rgba(12,12,22,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px}
@@ -861,7 +869,8 @@ ${NAAM_LIVE ? `<p><a class="btn btn-ghost" href="${P(L, '/naam-wali-image/')}">$
 <div class="wrap article">
 <p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/kids/')}">${esc(kidsName)}</a> › ${parent ? `<a href="${P(L, parent[1])}">${esc(parent[0])}</a> › ` : ''}${esc(nm)}</p>
 <h1>${h1Emoji} ${esc(nm)}</h1>
-<p class="lead">${esc(KU.pageLead)}</p>
+<p class="lead">${esc(seoDesc)}</p>
+<p>${esc(KU.pageLead)}</p>
 <div class="kids-controls"><button class="btn btn-primary" type="button" id="kids-play">${esc(KU.play)}</button></div>
 <div id="kids-grid" class="kids-grid" role="list" aria-label="${esc(nm)}"></div>
 <div id="kids-show" class="kids-show" hidden>
@@ -871,6 +880,8 @@ ${NAAM_LIVE ? `<p><a class="btn btn-ghost" href="${P(L, '/naam-wali-image/')}">$
 </div>
 <p class="calc-note" id="kids-note">${esc(KU.note)}</p>
 <div class="ad" aria-hidden="true"></div>
+<h2>${esc(KIDS_LIST_H[L.code])}: ${esc(nm)}</h2>
+<table class="kids-list"><tbody>${listRows}</tbody></table>
 <h2>${esc(KU.howH)}</h2>
 <ol>${KU.how.map((li) => `<li>${esc(li)}</li>`).join('')}</ol>
 ${siblings ? `<h2>${esc(parent[0])}</h2>
@@ -880,21 +891,22 @@ ${siblings ? `<h2>${esc(parent[0])}</h2>
     };
     KIDS_SETS.forEach((s) => {
       const nm = s.name[L.code] || s.name.en;
-      if (!s.children) { kidsPage(s, s.slug, `/kids/${s.slug}/`, nm, s.emoji); return; }
+      const seo = KIDS_SEO[s.slug] && KIDS_SEO[s.slug][L.code];
+      if (!s.children) { kidsPage(s, s.slug, `/kids/${s.slug}/`, nm, s.emoji, null, null, seo); return; }
       // a set made of sub-pages (one per table / letter / matra): an index page, then each sub-page
       const kids = s.children.map((c) => [c.name[L.code] || c.name.en, `/kids/${s.slug}/${c.slug}/`, c]);
       write(L, `/kids/${s.slug}/`, page(L, {
-        path: `/kids/${s.slug}/`, title: `${nm} — ${KU.hubTitle.split(' | ')[0].split(' — ')[0]} | NextGrade`, description: `${nm} — ${KU.pageLead}`,
+        path: `/kids/${s.slug}/`, title: `${seo ? seo[0] : nm} | NextGrade`, description: seo ? seo[1] : `${nm} — ${KU.pageLead}`,
         jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [kidsName, '/kids/'], [nm, `/kids/${s.slug}/`]])],
         body: `<div class="wrap article">
 <p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/kids/')}">${esc(kidsName)}</a> › ${esc(nm)}</p>
 <h1>${s.emoji} ${esc(nm)}</h1>
-<p class="lead">${esc(KU.pageLead)}</p>
+<p class="lead">${esc(seo ? seo[1] : KU.pageLead)}</p>
 <div class="grid">${kids.map(([n, href, c]) => `<a class="card" href="${P(L, href)}"><span class="emoji" aria-hidden="true">${(L.code === 'bn' && c.emojiBn) || c.emoji}</span><h3>${esc(n)}</h3></a>`).join('')}</div>
 </div>`,
       }));
       const sibs = kids.map(([n, href]) => [n, href]);
-      kids.forEach(([n, href, c]) => kidsPage({ ...s, ...c, children: undefined }, `${s.slug}-${c.slug}`, href, n, s.emoji, [nm, `/kids/${s.slug}/`], sibs));
+      kids.forEach(([n, href, c]) => kidsPage({ ...s, ...c, children: undefined }, `${s.slug}-${c.slug}`, href, n, s.emoji, [nm, `/kids/${s.slug}/`], sibs, KIDS_SEO_CHILD[s.slug] && KIDS_SEO_CHILD[s.slug](c, L.code)));
     });
   }
 
@@ -1598,7 +1610,8 @@ writeFileSync(
   join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${allUrls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${lastmodFor(u)}</lastmod></url>`).join('\n')}\n</urlset>\n`,
 );
-writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+// robots.txt: everyone allowed; the AI search / assistant crawlers are named so it is clear they are welcome (user, 24 Nov 2026: "ai se v search karne par aana chahiye")
+writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\n${['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'Bingbot', 'meta-externalagent'].map((b) => `User-agent: ${b}\nAllow: /\n`).join('\n')}\nSitemap: ${SITE}/sitemap.xml\n`);
 // llms.txt: a plain map of the site for AI assistants (only live pages; rebuilt daily with the releases)
 {
   const en = (p) => `${SITE}/en${p}`;
@@ -1606,10 +1619,10 @@ writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SI
   const sec = (h, rows) => (rows.length ? `\n## ${h}\n\n${rows.join('\n')}\n` : '');
   const txt = `# NextGrade
 
-> Free Indian festival wishes, festival dates, children's stories, desi games and small tools, in Hindi, English, Hinglish and Bengali. No sign-up, works on any phone. Every page exists in 4 languages: Hindi at ${SITE}/, English at ${SITE}/en/, Hinglish at ${SITE}/hinglish/, Bengali at ${SITE}/bn/.
+> Free Indian festival wishes, festival dates, children's stories, kids learning (counting 1-100, tables, Hindi/Bengali/Urdu alphabets) with audio, desi games and small tools, in Hindi, English, Hinglish and Bengali. No sign-up, works on any phone. Every page exists in 4 languages: Hindi at ${SITE}/, English at ${SITE}/en/, Hinglish at ${SITE}/hinglish/, Bengali at ${SITE}/bn/.
 
 All text is written by NextGrade or is public domain (old folk tales retold in our own words).
-${sec('Festival dates and guides', [line(`Indian festival dates ${LIST_YEAR}`, en(`/festivals/${LIST_YEAR}/`), `every major festival with date and weekday`), ...festivals.map((f) => line(`${f.nameEn}: date, meaning, how it is celebrated, wishes`, en(`/festivals/${f.slug}/`)))])}${sec('Wishes and greeting cards', [line('Festival wish card maker', en('/wish-card/'), 'make a card with your name and share on WhatsApp'), line('Wishes for every day', en('/wishes/')), ...(NAAM_LIVE ? [line('Name on image (naam wali image)', en('/naam-wali-image/'), 'write your name on a festival image')] : []), line('Islamic (Hijri) calendar', en('/islamic-calendar/'), "today's Islamic date and Ramadan / Eid dates")])}${sec("Children's stories (kahani)", [line('All stories', en('/kahani/')), ...stories.map((st) => line(st.en.title, en(`/kahani/${st.slug}/`)))])}${sec('School speeches', SPEECHES.length ? [line('All speeches', en('/speech/')), ...SPEECHES.map((sp) => line(sp.en.h1.replace(/^\S+\s/, ''), en(`/speech/${sp.slug}/`)))] : [])}${sec('Essays for students (10 lines, short and long)', ESSAYS.length ? [line('All essays', en('/nibandh/')), ...ESSAYS.map((e) => line(e.en.h1.replace(/^\S+\s/, ''), en(`/nibandh/${e.slug}/`)))] : [])}${sec('Riddles', PAHELI_LIVE ? [line('Riddles with answers (paheliyan)', en('/paheliyan/'), 'Hindi, English and Bengali riddles')] : [])}${sec('Free online calculators (run in the browser)', CALCS.length ? [line('All calculators', en('/calculator/')), ...CALCS.map((c) => line(c.en.h1.replace(/^\S+\s/, ''), en(`/calculator/${c.slug}/`), c.en.lead))] : [])}${sec('Free online games (desi and puzzle, play in the browser)', [line('All games', en('/games/')), ...games.map((g) => line(g.nameEn, `${SITE}/games/${g.slug}/?lang=en`))])}${sec('Rules of Indian desi games (how to play in real life)', KHEL.length ? [line('All rules', en('/khel/')), ...KHEL.map((r) => line(r.en.h1.replace(/^\S+\s/, ''), en(`/khel/${r.slug}/`)))] : [])}${sec('Tools', tools.map((tl) => line(tl.en[0], `${SITE}/tools/${tl.slug}/`, tl.en[1])))}
+${sec('Festival dates and guides', [line(`Indian festival dates ${LIST_YEAR}`, en(`/festivals/${LIST_YEAR}/`), `every major festival with date and weekday`), ...festivals.map((f) => line(`${f.nameEn}: date, meaning, how it is celebrated, wishes`, en(`/festivals/${f.slug}/`)))])}${sec('Wishes and greeting cards', [line('Festival wish card maker', en('/wish-card/'), 'make a card with your name and share on WhatsApp'), line('Wishes for every day', en('/wishes/')), ...(NAAM_LIVE ? [line('Name on image (naam wali image)', en('/naam-wali-image/'), 'write your name on a festival image')] : []), line('Islamic (Hijri) calendar', en('/islamic-calendar/'), "today's Islamic date and Ramadan / Eid dates")])}${sec("Children's stories (kahani)", [line('All stories', en('/kahani/')), ...stories.map((st) => line(st.en.title, en(`/kahani/${st.slug}/`)))])}${sec('School speeches', SPEECHES.length ? [line('All speeches', en('/speech/')), ...SPEECHES.map((sp) => line(sp.en.h1.replace(/^\S+\s/, ''), en(`/speech/${sp.slug}/`)))] : [])}${sec('Essays for students (10 lines, short and long)', ESSAYS.length ? [line('All essays', en('/nibandh/')), ...ESSAYS.map((e) => line(e.en.h1.replace(/^\S+\s/, ''), en(`/nibandh/${e.slug}/`)))] : [])}${sec('Kids learning with pictures and audio (Hindi, English, Bengali, Urdu)', [line('All kids topics', en('/kids/'), 'flashcards with a recorded voice; every page in Hindi, English, Hinglish and Bengali'), ...KIDS_SETS.map((ks) => line(KIDS_SEO[ks.slug] ? KIDS_SEO[ks.slug].en[0] : ks.name.en, en(`/kids/${ks.slug}/`), KIDS_SEO[ks.slug] ? KIDS_SEO[ks.slug].en[1] : '')), ...(KIDS_SETS.find((ks) => ks.slug === 'pahade') ? KIDS_SETS.find((ks) => ks.slug === 'pahade').children.map((c) => line(`Table of ${c.slug} (${c.slug} ka pahada)`, en(`/kids/pahade/${c.slug}/`))) : [])])}${sec('Wedding', SHAADI_LIVE ? [line('Shaadi card maker (wedding invitation card)', en('/shaadi-card/'), 'free Shubh Vivah invitation card, made on the phone, download or share on WhatsApp')] : [])}${sec('Riddles', PAHELI_LIVE ? [line('Riddles with answers (paheliyan)', en('/paheliyan/'), 'Hindi, English and Bengali riddles')] : [])}${sec('Free online calculators (run in the browser)', CALCS.length ? [line('All calculators', en('/calculator/')), ...CALCS.map((c) => line(c.en.h1.replace(/^\S+\s/, ''), en(`/calculator/${c.slug}/`), c.en.lead))] : [])}${sec('Free online games (desi and puzzle, play in the browser)', [line('All games', en('/games/')), ...games.map((g) => line(g.nameEn, `${SITE}/games/${g.slug}/?lang=en`))])}${sec('Rules of Indian desi games (how to play in real life)', KHEL.length ? [line('All rules', en('/khel/')), ...KHEL.map((r) => line(r.en.h1.replace(/^\S+\s/, ''), en(`/khel/${r.slug}/`)))] : [])}${sec('Tools', tools.map((tl) => line(tl.en[0], `${SITE}/tools/${tl.slug}/`, tl.en[1])))}
 ## About
 
 - [About NextGrade](${en('/about/')})
@@ -1618,6 +1631,8 @@ ${sec('Festival dates and guides', [line(`Indian festival dates ${LIST_YEAR}`, e
 `;
   writeFileSync(join(OUT, 'llms.txt'), txt);
 }
+// IndexNow key file (proves we own the site; scripts/indexnow.mjs pings Bing with new pages)
+{ const { INDEXNOW_KEY } = await import('./scripts/indexnow.mjs'); writeFileSync(join(OUT, `${INDEXNOW_KEY}.txt`), INDEXNOW_KEY); }
 writeFileSync(join(OUT, 'ads.txt'), `google.com, ${ADSENSE.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n`);
 writeFileSync(join(OUT, 'CNAME'), 'nextgrade.in\n');
 writeFileSync(join(OUT, '.nojekyll'), '');

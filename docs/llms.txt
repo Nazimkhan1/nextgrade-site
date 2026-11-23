@@ -1,6 +1,6 @@
 # NextGrade
 
-> Free Indian festival wishes, festival dates, children's stories, desi games and small tools, in Hindi, English, Hinglish and Bengali. No sign-up, works on any phone. Every page exists in 4 languages: Hindi at https://nextgrade.in/, English at https://nextgrade.in/en/, Hinglish at https://nextgrade.in/hinglish/, Bengali at https://nextgrade.in/bn/.
+> Free Indian festival wishes, festival dates, children's stories, kids learning (counting 1-100, tables, Hindi/Bengali/Urdu alphabets) with audio, desi games and small tools, in Hindi, English, Hinglish and Bengali. No sign-up, works on any phone. Every page exists in 4 languages: Hindi at https://nextgrade.in/, English at https://nextgrade.in/en/, Hinglish at https://nextgrade.in/hinglish/, Bengali at https://nextgrade.in/bn/.
 
 All text is written by NextGrade or is public domain (old folk tales retold in our own words).
 
@@ -93,6 +93,53 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [Essay on My Best Friend](https://nextgrade.in/en/nibandh/mera-priya-mitra/)
 - [Essay on Yoga](https://nextgrade.in/en/nibandh/yoga/)
 - [Essay on Pollution](https://nextgrade.in/en/nibandh/pradushan/)
+
+## Kids learning with pictures and audio (Hindi, English, Bengali, Urdu)
+
+- [All kids topics](https://nextgrade.in/en/kids/): flashcards with a recorded voice; every page in Hindi, English, Hinglish and Bengali
+- [Numbers 1 to 100 in Words — Hindi and English Counting with Audio](https://nextgrade.in/en/kids/ginti/): Learn numbers 1 to 100 in words with sound: One to One Hundred, with the Hindi name (एक, दो, तीन…) under each number. Free for kids, tap to hear.
+- [Multiplication Tables 2 to 20 with Audio — Learn Tables for Kids](https://nextgrade.in/en/kids/pahade/): Times tables from 2 to 20, each on its own page with sound ("2 times 3 is 6"). Tap a row to hear it, or play the slideshow to learn the whole table.
+- [ABC Alphabet for Kids — A for Apple to Z for Zebra with Sound](https://nextgrade.in/en/kids/abc/): Learn the English alphabet with pictures and sound: A for Apple, B for Ball … Z for Zebra. Tap a letter to hear it. Free for preschool kids.
+- [Hindi Alphabet (Varnamala) — Swar and Vyanjan with Pictures and Sound](https://nextgrade.in/en/kids/hindi-varnamala/): The full Hindi alphabet: vowels (अ to अं) and consonants (क to ज्ञ), each with a word and picture — अ से अनार, क से कबूतर — spoken aloud.
+- [Hindi Barakhadi (Ka Kaa Ki Kee) — All Consonants with Audio](https://nextgrade.in/en/kids/barakhadi/): Hindi barakhadi for every consonant from क to ज्ञ: ka, kaa, ki, kee, ku, koo, ke, kai, ko, kau, kam, kah — each on its own page with sound.
+- [Hindi Matra Words with Pictures — Aa, I, Ee, U, Oo, E, Ai, O, Au](https://nextgrade.in/en/kids/matra/): Hindi words for every matra with pictures and sound: aa (नाक), i (किताब), ee (मछली), u (गुलाब), oo (फूल) and more. One page per matra.
+- [Bengali Alphabet (Bangla Bornomala) with Pictures and Sound](https://nextgrade.in/en/kids/bangla-bornomala/): The full Bengali alphabet: 11 vowels (স্বরবর্ণ) and 39 consonants (ব্যঞ্জনবর্ণ) — অ-তে অজগর, ক-তে কলা — with pictures and Bengali audio.
+- [Urdu Alphabet (Alif Be Pe) for Kids with Pictures and Sound](https://nextgrade.in/en/kids/urdu-haroof/): All Urdu letters from Alif to Bari Ye, each with a word, picture and its name spoken aloud — Alif se Ullu, Be se Billi.
+- [Fruits Names in English and Hindi with Pictures and Sound](https://nextgrade.in/en/kids/fruits/): Learn fruit names with pictures and audio — Apple (सेब), Banana (केला), Mango (आम) and more. Tap to hear each name.
+- [Animals Names in English and Hindi with Pictures and Sound](https://nextgrade.in/en/kids/animals/): Learn animal names with pictures and audio — Dog (कुत्ता), Cat (बिल्ली), Lion (शेर), Elephant (हाथी) and more.
+- [Vegetables Names in English and Hindi with Pictures and Sound](https://nextgrade.in/en/kids/vegetables/): Learn vegetable names with pictures and audio — Potato (आलू), Tomato (टमाटर), Onion (प्याज़), Carrot (गाजर) and more.
+- [Birds Names in English and Hindi with Pictures and Sound](https://nextgrade.in/en/kids/birds/): Learn bird names with pictures and audio — Parrot (तोता), Peacock (मोर), Pigeon (कबूतर), Crow (कौआ) and more.
+- [Flowers Names in English and Hindi with Pictures and Sound](https://nextgrade.in/en/kids/flowers/): Learn flower names with pictures and audio — Rose (गुलाब), Lotus (कमल), Sunflower (सूरजमुखी), Marigold (गेंदा).
+- [Colours Names in English and Hindi with Sound — Colors for Kids](https://nextgrade.in/en/kids/colours/): Learn colour names with sound — Red (लाल), Blue (नीला), Green (हरा), Yellow (पीला) and 14 colours in all.
+- [Shapes Names in English and Hindi with Sound — Shapes for Kids](https://nextgrade.in/en/kids/shapes/): Learn shape names with sound — Circle (वृत्त), Square (वर्ग), Triangle (त्रिभुज), Rectangle (आयत) and more.
+- [Body Parts Names in English and Hindi with Pictures and Sound](https://nextgrade.in/en/kids/body-parts/): Learn body part names with pictures and audio — Eye (आँख), Ear (कान), Nose (नाक), Hand (हाथ) and more.
+- [Vehicles Names in English and Hindi with Pictures and Sound](https://nextgrade.in/en/kids/vehicles/): Learn vehicle names with pictures and audio — Car, Bus, Train, Aeroplane, Auto Rickshaw and more, with Hindi names.
+- [Days of the Week in English and Hindi with Sound](https://nextgrade.in/en/kids/week-days/): The 7 days of the week with sound — Monday (सोमवार), Tuesday (मंगलवार) to Sunday (रविवार).
+- [Months of the Year in English and Hindi with Sound](https://nextgrade.in/en/kids/months/): The 12 months of the year with sound — January (जनवरी) to December (दिसंबर), with Hindi names.
+- [Hindi Months Names — Chaitra to Phalgun (Hindu Calendar Months)](https://nextgrade.in/en/kids/hindi-mahine/): The 12 months of the Hindu calendar — Chaitra, Vaishakh, Jyeshtha to Phalgun — with the English months they fall in, spoken aloud.
+- [Table of 2 (2 ka pahada)](https://nextgrade.in/en/kids/pahade/2/)
+- [Table of 3 (3 ka pahada)](https://nextgrade.in/en/kids/pahade/3/)
+- [Table of 4 (4 ka pahada)](https://nextgrade.in/en/kids/pahade/4/)
+- [Table of 5 (5 ka pahada)](https://nextgrade.in/en/kids/pahade/5/)
+- [Table of 6 (6 ka pahada)](https://nextgrade.in/en/kids/pahade/6/)
+- [Table of 7 (7 ka pahada)](https://nextgrade.in/en/kids/pahade/7/)
+- [Table of 8 (8 ka pahada)](https://nextgrade.in/en/kids/pahade/8/)
+- [Table of 9 (9 ka pahada)](https://nextgrade.in/en/kids/pahade/9/)
+- [Table of 10 (10 ka pahada)](https://nextgrade.in/en/kids/pahade/10/)
+- [Table of 11 (11 ka pahada)](https://nextgrade.in/en/kids/pahade/11/)
+- [Table of 12 (12 ka pahada)](https://nextgrade.in/en/kids/pahade/12/)
+- [Table of 13 (13 ka pahada)](https://nextgrade.in/en/kids/pahade/13/)
+- [Table of 14 (14 ka pahada)](https://nextgrade.in/en/kids/pahade/14/)
+- [Table of 15 (15 ka pahada)](https://nextgrade.in/en/kids/pahade/15/)
+- [Table of 16 (16 ka pahada)](https://nextgrade.in/en/kids/pahade/16/)
+- [Table of 17 (17 ka pahada)](https://nextgrade.in/en/kids/pahade/17/)
+- [Table of 18 (18 ka pahada)](https://nextgrade.in/en/kids/pahade/18/)
+- [Table of 19 (19 ka pahada)](https://nextgrade.in/en/kids/pahade/19/)
+- [Table of 20 (20 ka pahada)](https://nextgrade.in/en/kids/pahade/20/)
+
+## Wedding
+
+- [Shaadi card maker (wedding invitation card)](https://nextgrade.in/en/shaadi-card/): free Shubh Vivah invitation card, made on the phone, download or share on WhatsApp
 
 ## Riddles
 
