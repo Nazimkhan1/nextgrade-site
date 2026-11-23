@@ -787,6 +787,58 @@ const wishes = {
       { q: 'Jumme ke din Surah Al-Kahf kyun padhte hain?', a: 'Hadeeson mein Jumme ke din Surah Al-Kahf padhne ki fazeelat batayi gayi hai, isliye bahut se log is din iski tilaawat karte hain.' },
     ],
   },
+  'makar-sankranti': {
+    name: 'Makar Sankranti',
+    greet: 'Makar Sankranti ki dher saari shubhkamnayein',
+    intro: 'Makar Sankranti sooraj ke uttarayan hone aur nayi fasal ka tyohaar hai — patang, til-gud aur nayi shuruaat ka din. Yahan Makar Sankranti ki chhoti, pyari shubhkamnayein hain family, doston aur office group ke liye.',
+    about: [
+      'Makar Sankranti har saal 14 January ke aas-paas aati hai, jab sooraj Makar rashi mein aata hai aur din bade hone lagte hain. Poore Bharat mein alag-alag naamon se manai jaati hai — North mein Sankranti aur Khichdi, Gujarat mein Uttarayan, Tamil Nadu mein Pongal aur Assam mein Magh Bihu.',
+      'Is din til aur gud ke laddu baante jaate hain aur kaha jaata hai — "til-gud ghya, god god bola" yaani meetha khao aur meetha bolo. Aasman rang-birangi patangon se bhar jaata hai aur log chhaton par patang udate hain.',
+      'Achha Sankranti message chhota ho, usmein nayi fasal aur nayi shuruaat ki dua ho. Niche se ek copy karo, ya "Apna wish banayein" button se apne naam ke saath link bhejo.',
+    ],
+    wishes: [
+      'Makar Sankranti ki hardik shubhkamnayein! Til-gud ki mithaas aapke jeevan mein pyaar aur khushiyan bhar de.',
+      'Sooraj ki nayi kiranon ke saath aapke jeevan mein nayi umang aur nayi umeedein aayein. Shubh Makar Sankranti!',
+      'Aapki zindagi ki patang hamesha khushiyon ke aasman mein unchi udti rahe. Makar Sankranti Mubarak!',
+      'Til-gud ghya, god god bola — meetha khaiye aur meetha boliye. Makar Sankranti ki shubhkamnayein!',
+      'Nayi fasal, nayi shuruaat aur dher saari khushiyan — yahi hai Makar Sankranti ki dua. Happy Sankranti!',
+      'Aapke ghar mein sukh-samriddhi aur sehat hamesha bani rahe. Makar Sankranti ki dheron shubhkamnayein!',
+      'Jaise patang hawa ke saath unchi udti hai, waise hi aap bhi jeevan mein unchaiyan chhuein. Shubh Sankranti!',
+      'Gud jaisi mithaas, til jaisi ekta aur dhoop jaisi garmahat aapke rishton mein bani rahe. Happy Makar Sankranti!',
+      'Yeh Sankranti aapke liye khushiyon ki khichdi laaye — har daane mein pyaar aur barkat. Shubhkamnayein!',
+      'Purani baatein bhool jaiye, nayi fasal ki tarah nayi shuruaat kijiye. Makar Sankranti ki hardik badhai!',
+    ],
+    faq: [
+      { q: 'Makar Sankranti 2027 mein kab hai?', a: 'Makar Sankranti 14 January ko hai (kabhi-kabhi 15 January, sooraj ki sthiti ke anusaar). Yeh un kuch tyohaaron mein hai jo English calendar ki lagbhag fixed date par aate hain.' },
+      { q: 'Makar Sankranti aur Pongal mein kya farak hai?', a: 'Dono ek hi samay par fasal aur sooraj ka tyohaar hain. North aur West India mein ise Makar Sankranti aur Tamil Nadu mein Pongal kehte hain — naam aur reeti alag, bhavna ek.' },
+    ],
+  },
+  lohri: {
+    name: 'Lohri',
+    greet: 'Lohri ki dher saari shubhkamnayein',
+    intro: 'Lohri sardiyon ki vidai aur nayi fasal ke swagat ka tyohaar hai — alaav, dhol, til-rewri-gajak aur "Sunder mundriye" ke geet. Yahan Lohri ki pyari shubhkamnayein hain family, doston aur office ke liye.',
+    about: [
+      'Lohri har saal 13 January ko, Makar Sankranti se ek din pehle manai jaati hai. Yeh mukhya roop se Punjab aur North India ka tyohaar hai, jo sabse lambi sardiyon ki raat beet jaane aur nayi fasal ki khushi mein manaya jaata hai.',
+      'Shaam ko log alaav jalaate hain, uske charon or ghoomkar til, rewri, gajak, moongfali aur popcorn agni ko arpit karte hain aur "Sunder mundriye ho" jaise geet gaate hain. Dhol ki thaap par bhangra aur gidda hota hai. Nayi shaadi aur naye bachche wale pariwaron ke liye pehli Lohri khaas hoti hai.',
+      'Achha Lohri message chhota aur garmjoshi bhara ho — alaav ki garmahat aur nayi fasal ki khushiyan usmein jhalkein. Niche "Apna wish banayein" button se apne naam ke saath link bhejo.',
+    ],
+    wishes: [
+      'Lohri ki hardik shubhkamnayein! Alaav ki garmahat ki tarah aapka jeevan pyaar aur khushiyon se bhara rahe.',
+      'Til, rewri aur gud ki mithaas aapke rishton mein hamesha bani rahe. Happy Lohri!',
+      'Nayi fasal, nayi umang aur dher saari khushiyan laayi hai Lohri. Aapko aur aapke pariwar ko Lohri Mubarak!',
+      'Alaav ki har lau aapke jeevan se dukh aur andhera door kare aur ujala bhar de. Shubh Lohri!',
+      'Dhol ki thaap, bhangra ki masti aur apnon ka saath — yahi hai Lohri ki asli khushi. Happy Lohri!',
+      'Aapke ghar mein sukh, samriddhi aur sehat ki fasal lehlahati rahe. Lohri ki dheron shubhkamnayein!',
+      'Sunder mundriye ho! Lohri ki aag ke saath aapki saari pareshaniyan jal jaayein aur khushiyan barsein.',
+      'Yeh Lohri aapke jeevan mein nayi energy, nayi umeed aur dher saara pyaar laaye. Shubhkamnayein!',
+      'Gajak jaisi mithaas aur alaav jaisi garmahat aapke pariwar mein hamesha bani rahe. Happy Lohri!',
+      'Aapki pehli Lohri dher saari khushiyon aur aashirwad se bhari ho — naye rishte aur nanhe mehmaan ko badhai!',
+    ],
+    faq: [
+      { q: 'Lohri 2027 mein kab hai?', a: 'Lohri 13 January ko hai, Makar Sankranti se ek din pehle. Yeh lagbhag har saal isi date par aati hai.' },
+      { q: 'Pehli Lohri kyun khaas hoti hai?', a: 'Jis pariwar mein nayi shaadi hui ho ya naya bachcha aaya ho, unke liye pehli Lohri bahut khaas maani jaati hai — rishtedaar ikatthe hote hain aur naye sadasya ko aashirwad aur tohfe dete hain.' },
+    ],
+  },
 };
 
 const games = {

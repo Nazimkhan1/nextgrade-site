@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-prerendered="hi" lang="hi">
+<html lang="hi">
 <head>
 <!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
 <meta charset="utf-8">
@@ -13,7 +13,9 @@
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="stylesheet" href="/fonts/css/6a45250a9a38.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 /* Handwriting styles, bundled in ./fonts (SIL Open Font License 1.1, licence files next to them) */
 @font-face { font-family: "Great Vibes"; src: url(fonts/GreatVibes-Latin.woff2) format("woff2"); font-display: swap; }
@@ -94,14 +96,14 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
 <body>
 <div class="wrap">
   <header>
-    <a class="brand" href="https://nextgrade.in/tools/">✍️ NextGrade Tools<small data-t="brandSub">फ़्री · साइन फ़ोन से बाहर नहीं जाता</small></a>
+    <a class="brand" href="https://nextgrade.in/tools/">✍️ NextGrade Tools<small data-t="brandSub"></small></a>
     <select class="langsel" id="langSel" aria-label="Language">
       <option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option>
     </select>
   </header>
-  <h1 data-t="title">ऑनलाइन सिग्नेचर बनाएँ — फ़्री सिग्नेचर मेकर</h1>
-  <p class="sub" data-t="sub">स्क्रीन पर उँगली, माउस या पेन से साइन करें, काग़ज़ पर किए साइन की फ़ोटो साफ़ करें, या नाम लिखकर सुंदर लिखावट में साइन पाएँ। ट्रांसपेरेंट PNG और सफ़ेद JPG, फ़ॉर्म के px और KB के साथ।</p>
-  <div class="privacy">🔒 <span data-t="privacy">आपका साइन कहीं अपलोड नहीं होता। सारा काम आपके फ़ोन/ब्राउज़र में होता है।</span></div>
+  <h1 data-t="title"></h1>
+  <p class="sub" data-t="sub"></p>
+  <div class="privacy">🔒 <span data-t="privacy"></span></div>
 
   <div class="card">
     <div class="tabs" role="tablist">
@@ -109,15 +111,15 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
       <button class="tab" type="button" data-mode="photo" data-t="modePhoto"></button>
       <button class="tab" type="button" data-mode="type" data-t="modeType"></button>
     </div>
-    <div class="chips" id="colours"><span class="lbl" style="margin:0" data-t="colour">रंग:</span>
-      <button class="chip" type="button" data-col="black"><i class="dot" style="background:#111"></i><span data-t="black">काला</span></button>
-      <button class="chip" type="button" data-col="blue"><i class="dot" style="background:#123d9e"></i><span data-t="blue">नीला</span></button>
+    <div class="chips" id="colours"><span class="lbl" style="margin:0" data-t="colour"></span>
+      <button class="chip" type="button" data-col="black"><i class="dot" style="background:#111"></i><span data-t="black"></span></button>
+      <button class="chip" type="button" data-col="blue"><i class="dot" style="background:#123d9e"></i><span data-t="blue"></span></button>
     </div>
 
     <div id="panelDraw" style="margin-top:12px">
-      <div class="padwrap" id="padwrap"><span data-t="padHint">यहाँ साइन करें</span><canvas id="pad"></canvas></div>
+      <div class="padwrap" id="padwrap"><span data-t="padHint"></span><canvas id="pad"></canvas></div>
       <div class="tools">
-        <label style="flex:1;min-width:160px"><span class="sl" style="margin:0"><span data-t="thick">पेन की मोटाई</span><b id="thVal">3</b></span><input type="range" id="thick" min="1" max="8" step="0.5" value="3"></label>
+        <label style="flex:1;min-width:160px"><span class="sl" style="margin:0"><span data-t="thick"></span><b id="thVal">3</b></span><input type="range" id="thick" min="1" max="8" step="0.5" value="3"></label>
         <div class="row"><button class="btn btn-sm" type="button" id="undoBtn" data-t="undo"></button><button class="btn btn-sm" type="button" id="clearBtn" data-t="clear"></button></div>
       </div>
     </div>
@@ -147,15 +149,15 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
   </div>
 
   <div class="card">
-    <p class="lbl" data-t="resH">आपका सिग्नेचर</p>
+    <p class="lbl" data-t="resH"></p>
     <div class="preview" id="preview"><em data-t="empty"></em></div>
-    <label class="chk"><input type="checkbox" id="exact"> <span data-t="exact">सही साइज़ चाहिए (फ़ॉर्म के लिए)</span></label>
+    <label class="chk"><input type="checkbox" id="exact"> <span data-t="exact"></span></label>
     <div class="grid3">
-      <label><span class="hint" data-t="wL">चौड़ाई (px)</span><input class="inp" id="wIn" type="number" inputmode="numeric" min="20" max="3000" value="140"></label>
-      <label><span class="hint" data-t="hL">ऊँचाई (px)</span><input class="inp" id="hIn" type="number" inputmode="numeric" min="20" max="3000" value="60"></label>
-      <label><span class="hint" data-t="maxKbL">JPG अधिकतम KB</span><input class="inp" id="kbIn" type="number" inputmode="numeric" min="2" max="2000" placeholder="—"></label>
+      <label><span class="hint" data-t="wL"></span><input class="inp" id="wIn" type="number" inputmode="numeric" min="20" max="3000" value="140"></label>
+      <label><span class="hint" data-t="hL"></span><input class="inp" id="hIn" type="number" inputmode="numeric" min="20" max="3000" value="60"></label>
+      <label><span class="hint" data-t="maxKbL"></span><input class="inp" id="kbIn" type="number" inputmode="numeric" min="2" max="2000" placeholder="—"></label>
     </div>
-    <a class="formlink" id="formLink" href="../form-helper/"><span data-t="formLink">📝 परीक्षा फ़ॉर्म के लिए: फ़ॉर्म हेल्पर →</span><small data-t="formHint">SSC, UPSC, बैंक, NEET के तय नाप और KB वहाँ पहले से भरे हैं।</small></a>
+    <a class="formlink" id="formLink" href="../form-helper/"><span data-t="formLink"></span><small data-t="formHint"></small></a>
     <div class="row" style="margin-top:12px">
       <button class="btn btn-ok" type="button" id="dlPng" data-t="dlPng"></button>
       <button class="btn btn-ok" type="button" id="dlJpg" data-t="dlJpg"></button>
@@ -166,17 +168,13 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
 
   <pre id="selftest" class="hidden"></pre>
   <section class="info hidden" id="pageInfo"></section>
-  <section class="info" id="guideSec"><h2>सिग्नेचर मेकर क्या है?</h2><p>यह एक छोटा-सा फ़्री टूल है जो आपके हस्ताक्षर की <b>फ़ोटो-फ़ाइल</b> बनाता है — PNG या JPG। तीन तरीक़े हैं: स्क्रीन पर सीधे साइन करें, काग़ज़ पर किए साइन की फ़ोटो साफ़ करें, या अपना नाम लिखकर हाथ की लिखावट जैसा स्टाइल चुनें। टूल काग़ज़ को सफ़ेद (या पूरी तरह पारदर्शी) करता है, स्याही को गहरा करता है और साइन के आस-पास की ख़ाली जगह अपने आप काट देता है।</p>
-<h3>कब काम आता है?</h3><p>सरकारी नौकरी, परीक्षा, एडमिशन और स्कॉलरशिप के ऑनलाइन फ़ॉर्म में साइन की स्कैन की हुई फ़ोटो माँगी जाती है। दफ़्तर के पत्र, कोटेशन, बिल, सर्टिफ़िकेट या बायोडाटा पर साइन लगाना हो तो ट्रांसपेरेंट PNG सीधे डॉक्यूमेंट पर रख सकते हैं — पीछे का सफ़ेद डिब्बा नहीं दिखता। ईमेल के अंत में या अपनी वेबसाइट पर भी यह काम आता है।</p>
-<h3>तीनों तरीक़े, आसान भाषा में</h3><ul><li><b>बनाकर:</b> फ़ोन आराम से पकड़ें और एक बार में साइन करें। तेज़ चलाएँगे तो लाइन पतली, धीरे चलाएँगे तो मोटी — बिल्कुल पेन जैसी। ग़लती हो तो "वापस" दबाएँ।</li><li><b>काग़ज़ से:</b> सबसे असली साइन इसी से आता है। सादे सफ़ेद काग़ज़ पर साइन करके दिन की रोशनी में ऊपर से फ़ोटो लें। "स्याही कितनी गहरी" स्लाइडर से हल्की स्याही गहरी करें।</li><li><b>नाम से:</b> जल्दी चाहिए या सिर्फ़ डिज़ाइन के लिए। ध्यान रहे, यह आपके असली साइन जैसा नहीं है — सरकारी फ़ॉर्म के लिए अपना असली साइन ही इस्तेमाल करें।</li></ul>
-<h3>आम दिक़्क़तें और हल</h3><ul><li><b>फ़ोटो में काग़ज़ धूसर दिख रहा है:</b> रोशनी कम है। खिड़की के पास फ़ोटो लें, फ़्लैश बंद रखें; स्लाइडर थोड़ा बढ़ाएँ।</li><li><b>साइन के पास दाग़-धब्बे:</b> छोटे धब्बे टूल हटा देता है। बड़े निशान हों तो काग़ज़ बदलकर दोबारा फ़ोटो लें।</li><li><b>140×60 जैसे छोटे नाप में साइन धुँधला:</b> पेन की मोटाई बढ़ाएँ या काग़ज़ पर थोड़े मोटे पेन से साइन करें।</li><li><b>फ़ॉर्म फ़ाइल नहीं ले रहा:</b> फ़ॉर्म अक्सर सिर्फ़ JPG लेता है और KB की सीमा रखता है। JPG डाउनलोड करें और "JPG अधिकतम KB" भरें, या फ़ॉर्म हेल्पर इस्तेमाल करें।</li></ul>
-<h3>क्या साइन की फ़ोटो क़ानूनी रूप से मान्य है?</h3><p>ऑनलाइन आवेदन फ़ॉर्म साइन की ऐसी फ़ोटो ही माँगते हैं और उसे स्वीकार करते हैं। लेकिन यह <b>"डिजिटल सिग्नेचर" नहीं है</b>। क़ानून जिस इलेक्ट्रॉनिक हस्ताक्षर को मानता है (जैसे सर्टिफ़िकेट वाला डिजिटल सिग्नेचर या ई-साइन), उसमें आपकी पहचान की जाँच होती है; एक चिपकाई हुई फ़ोटो में नहीं। अनुबंध, शपथ-पत्र, बैंक या अदालत के काग़ज़ पर फ़ोटो वाला साइन चलेगा या नहीं, यह उस जगह के नियम पर निर्भर है — ज़रूरी काम में पहले संबंधित दफ़्तर से पूछ लें। अपने साइन की फ़ाइल किसी अनजान को न भेजें।</p></section>
-  <section class="info"><h2 data-t="howH">कैसे करें</h2><ol id="howList"><li>ऊपर <b>बनाकर</b>, <b>काग़ज़ से</b> या <b>नाम से</b> चुनें और रंग (काला/नीला) चुनें।</li><li>साइन करें, फ़ोटो डालें या नाम लिखकर स्टाइल चुनें। नीचे तुरंत नतीजा दिखता है।</li><li>फ़ॉर्म के लिए <b>सही साइज़</b> चालू करें, px (जैसे 140 × 60) और JPG का अधिकतम KB (जैसे 20) भरें।</li><li><b>PNG (ट्रांसपेरेंट)</b> या <b>JPG (सफ़ेद)</b> डाउनलोड करें, या <b>शेयर</b> करें।</li></ol></section>
-  <section class="info"><h2 data-t="tipsH">काम की बातें</h2><ul id="tipList"><li>फ़ॉर्म में जैसा साइन करते हैं वैसा ही यहाँ भी करें — परीक्षा केंद्र में वही साइन मिलाया जाता है।</li><li>सरकारी फ़ॉर्म अक्सर <b>JPG</b> माँगते हैं; डॉक्यूमेंट पर लगाने के लिए <b>PNG</b> बेहतर है।</li><li>छोटे नाप (140×60) में साइन पूरी जगह लेना चाहिए — टूल ख़ाली किनारे ख़ुद काट देता है।</li><li>नीला रंग सिर्फ़ तब चुनें जब फ़ॉर्म नीला माँगे; वरना काला सबसे साफ़ दिखता है।</li><li>जब तक फ़ॉर्म न कहे, साइन बड़े अक्षरों (capital) में न लिखें।</li></ul></section>
-  <section class="info"><h2 data-t="faqH">अक्सर पूछे जाने वाले सवाल</h2><div id="faqList"><details class="faq"><summary>क्या मेरा सिग्नेचर किसी सर्वर पर जाता है?</summary><p>नहीं। साइन आपके फ़ोन/ब्राउज़र में ही बनता और साफ़ होता है। पेज एक बार खुल जाए तो इंटरनेट बंद करके भी चलता है।</p></details><details class="faq"><summary>ट्रांसपेरेंट PNG और सफ़ेद JPG में क्या फ़र्क है?</summary><p>PNG में साइन के पीछे कुछ नहीं होता, इसलिए किसी भी डॉक्यूमेंट या रंग पर रखने से सिर्फ़ स्याही दिखती है। JPG में पीछे सफ़ेद रंग होता है; ऑनलाइन फ़ॉर्म ज़्यादातर JPG माँगते हैं।</p></details><details class="faq"><summary>साइन को 140×60 px और 20 KB से कम कैसे करें?</summary><p>"सही साइज़" चालू करके चौड़ाई 140, ऊँचाई 60 और "JPG अधिकतम KB" में 20 लिखें, फिर JPG डाउनलोड करें। फ़ाइल का साइज़ बटन के नीचे दिख जाता है।</p></details><details class="faq"><summary>नाम लिखकर बना साइन फ़ॉर्म में चलेगा?</summary><p>बेहतर है नहीं। फ़ॉर्म में वही साइन दें जो आप हाथ से करते हैं, क्योंकि बाद में उसे मिलाया जा सकता है। टाइप वाला स्टाइल डिज़ाइन या ईमेल के लिए ठीक है।</p></details><details class="faq"><summary>क्या यह डिजिटल सिग्नेचर (DSC) है?</summary><p>नहीं। यह सिर्फ़ साइन की फ़ोटो है। सर्टिफ़िकेट वाला डिजिटल सिग्नेचर या ई-साइन अलग चीज़ है जो पहचान की जाँच के बाद मिलती है।</p></details></div></section>
-  <section class="info"><h2 data-t="privH">आपका साइन, आपके पास</h2><p data-t="privText">यह टूल बिना किसी सर्वर के आपके फ़ोन/ब्राउज़र में चलता है। आपका साइन या फ़ोटो कहीं अपलोड नहीं होती, कहीं सेव नहीं होती, और हम उसे देख भी नहीं सकते। पेज बंद करते ही सब मिट जाता है।</p></section>
-  <section class="info"><h2 data-t="moreH">और टूल</h2><div class="links" id="links"><a href="./?lang=hi" class="here">✍️ सिग्नेचर मेकर<small>बनाएँ, काग़ज़ से, नाम से</small></a><a href="./transparent/?lang=hi">🫥 ट्रांसपेरेंट सिग्नेचर PNG<small>बिना बैकग्राउंड का साइन</small></a><a href="./../form-helper/?lang=hi">📝 फ़ॉर्म फ़ोटो रीसाइज़र<small>SSC · UPSC · बैंक · NEET</small></a><a href="./../image-crop/?lang=hi">✂️ फ़ोटो क्रॉप और रोटेट<small>काटें, घुमाएँ, सीधा करें</small></a><a href="./../image-compress/?lang=hi">🗜️ फ़ोटो का KB कम करें<small>20 KB, 50 KB, 100 KB…</small></a></div></section>
-  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer">फ़्री टूल · कुछ भी अपलोड नहीं होता</span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+  <section class="info" id="guideSec"></section>
+  <section class="info"><h2 data-t="howH"></h2><ol id="howList"></ol></section>
+  <section class="info"><h2 data-t="tipsH"></h2><ul id="tipList"></ul></section>
+  <section class="info"><h2 data-t="faqH"></h2><div id="faqList"></div></section>
+  <section class="info"><h2 data-t="privH"></h2><p data-t="privText"></p></section>
+  <section class="info"><h2 data-t="moreH"></h2><div class="links" id="links"></div></section>
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer"></span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
 </div>
 
 <script>

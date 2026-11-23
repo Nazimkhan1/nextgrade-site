@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-prerendered="hi" lang="hi">
+<html lang="hi">
 <head>
 <!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
 <meta charset="utf-8">
@@ -14,7 +14,9 @@
 <link rel="icon" href="icons/icon-192.png" type="image/png">
 <script type="application/ld+json" id="faqLd">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "hi-Latn", "mainEntity": [{"@type": "Question", "name": "Kya yeh free hai, aur kya photos upload hoti hain?", "acceptedAnswer": {"@type": "Answer", "text": "Haan, poora free hai, koi sign-up nahi. Photos kahin upload nahi hoti — PDF aapke phone/browser ke andar hi banti hai."}}, {"@type": "Question", "name": "Kai photos ko ek PDF mein kaise jodein?", "acceptedAnswer": {"@type": "Answer", "text": "Gallery se saari photos ek saath chuno (ya baad mein \"Aur photo\" dabao). Har photo ek page banti hai, aur upar wali photo pehla page."}}, {"@type": "Question", "name": "PDF ko 200 KB se kam kaise karein?", "acceptedAnswer": {"@type": "Answer", "text": "Upar 200 KB chuno. Tool pehle JPG quality kam karta hai, phir bhi badi ho to photos ka px thoda kam karta hai — jab tak PDF 200 KB ke andar na aa jaaye."}}, {"@type": "Question", "name": "A4 aur \"Photo jitna\" mein kya fark hai?", "acceptedAnswer": {"@type": "Answer", "text": "A4 mein har page print wale kaagaz ke size ka hota hai aur photo uske andar aati hai — forms aur print ke liye yahi theek hai. \"Photo jitna\" mein page photo ke aakaar ka hota hai, koi safed jagah nahi."}}, {"@type": "Question", "name": "Kya yeh bina internet ke chalega?", "acceptedAnswer": {"@type": "Answer", "text": "Haan. Page ek baar khul jaaye to internet band karke bhi photos daal kar PDF bana sakte ho, kyunki saara kaam phone mein hi hota hai."}}]}</script>
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="stylesheet" href="/fonts/css/6a45250a9a38.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root { --bg: #f3f0ff; --card: #fff; --ink: #1e1b3a; --muted: #5c5776; --brand: #5f3dc4; --brand2: #7950f2; --line: #ddd3fb; --soft: #f9f7ff; --ok: #2b8a3e; --warn: #c92a2a; }
 * { box-sizing: border-box; }
@@ -106,19 +108,19 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
 <body>
 <div class="wrap">
   <header>
-    <a class="brand" href="https://nextgrade.in/tools/">📄 NextGrade Tools<small data-t="brandSub">फ़्री · फ़ोटो फ़ोन से बाहर नहीं जाती</small></a>
+    <a class="brand" href="https://nextgrade.in/tools/">📄 NextGrade Tools<small data-t="brandSub"></small></a>
     <select class="langsel" id="langSel" aria-label="Language">
       <option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option>
     </select>
   </header>
-  <h1 data-t="title">फ़ोटो से PDF बनाएँ — JPG to PDF, फ़्री</h1>
-  <p class="sub" data-t="sub">मार्कशीट, आधार, सर्टिफ़िकेट जैसी कई फ़ोटो को एक PDF में जोड़ें। क्रम बदलें, फ़ोटो घुमाएँ, पेज साइज़ चुनें, और ज़रूरत हो तो PDF को 200 KB जैसे साइज़ के अंदर लाएँ।</p>
-  <div class="privacy">🔒 <span data-t="privacy">आपकी फ़ोटो कहीं अपलोड नहीं होती। PDF आपके फ़ोन/ब्राउज़र में ही बनती है।</span></div>
+  <h1 data-t="title"></h1>
+  <p class="sub" data-t="sub"></p>
+  <div class="privacy">🔒 <span data-t="privacy"></span></div>
 
   <div class="card">
     <div class="drop" id="drop" role="button" tabindex="0">
-      <b data-t="pickTitle">फ़ोटो चुनें — एक या कई</b>
-      <span class="hint" data-t="pickHint">JPG, PNG, WebP (iPhone की HEIC भी, अगर ब्राउज़र खोल सके)। हर फ़ोटो PDF का एक पेज बनेगी।</span>
+      <b data-t="pickTitle"></b>
+      <span class="hint" data-t="pickHint"></span>
       <div class="row" style="justify-content:center;margin-top:12px">
         <button class="btn btn-main" id="pickBtn" type="button" data-t="pickBtn"></button>
         <button class="btn" id="camBtn" type="button" data-t="camBtn"></button>
@@ -139,28 +141,28 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
       <div id="list"></div>
     </div>
 
-    <p class="lbl" data-t="limitL">PDF ज़्यादा से ज़्यादा कितने KB की हो?</p>
+    <p class="lbl" data-t="limitL"></p>
     <div class="chips" id="limitChips">
       <button class="chip" type="button" data-kb="0" data-t="limitNone"></button>
       <button class="chip" type="button" data-kb="100">100 KB</button>
       <button class="chip" type="button" data-kb="200">200 KB</button>
       <button class="chip" type="button" data-kb="500">500 KB</button>
       <button class="chip" type="button" data-kb="1024">1 MB</button>
-      <label class="kbin" id="kbinBox"><span data-t="custom">अपना:</span><input id="kbIn" type="number" inputmode="numeric" min="20" max="20000" placeholder="KB" aria-label="KB"><span>KB</span></label>
+      <label class="kbin" id="kbinBox"><span data-t="custom"></span><input id="kbIn" type="number" inputmode="numeric" min="20" max="20000" placeholder="KB" aria-label="KB"><span>KB</span></label>
     </div>
-    <p class="hint" data-t="limitHint">फ़ॉर्म "PDF 200 KB तक" माँगे तो 200 चुनें। टूल वही सबसे अच्छी क्वालिटी रखता है जो उस साइज़ में फ़िट हो।</p>
+    <p class="hint" data-t="limitHint"></p>
 
     <details class="adv" id="adv">
-      <summary data-t="optH">⚙️ पेज सेटिंग (A4, मार्जिन, ब्लैक एंड व्हाइट)</summary>
-      <p class="lbl" data-t="pageL">पेज साइज़</p>
+      <summary data-t="optH"></summary>
+      <p class="lbl" data-t="pageL"></p>
       <div class="chips" data-opt="size"><button class="chip" type="button" data-v="a4" data-t="pA4"></button><button class="chip" type="button" data-v="letter" data-t="pLetter"></button><button class="chip" type="button" data-v="photo" data-t="pPhoto"></button></div>
-      <p class="lbl" data-t="orientL">पेज की दिशा</p>
+      <p class="lbl" data-t="orientL"></p>
       <div class="chips" data-opt="orient"><button class="chip" type="button" data-v="auto" data-t="oAuto"></button><button class="chip" type="button" data-v="portrait" data-t="oPortrait"></button><button class="chip" type="button" data-v="landscape" data-t="oLandscape"></button></div>
-      <p class="lbl" data-t="marginL">किनारे की ख़ाली जगह (मार्जिन)</p>
+      <p class="lbl" data-t="marginL"></p>
       <div class="chips" data-opt="margin"><button class="chip" type="button" data-v="0" data-t="mNone"></button><button class="chip" type="button" data-v="18" data-t="mSmall"></button><button class="chip" type="button" data-v="36" data-t="mNormal"></button></div>
-      <p class="lbl" data-t="fitL">फ़ोटो पेज पर कैसे आए</p>
+      <p class="lbl" data-t="fitL"></p>
       <div class="chips" data-opt="fit"><button class="chip" type="button" data-v="fit" data-t="fitFit"></button><button class="chip" type="button" data-v="fill" data-t="fitFill"></button></div>
-      <label class="chk"><input type="checkbox" id="gray"> <span data-t="gray">ब्लैक एंड व्हाइट (फ़ोटोकॉपी जैसा, फ़ाइल भी छोटी)</span></label>
+      <label class="chk"><input type="checkbox" id="gray"> <span data-t="gray"></span></label>
     </details>
 
     <button class="btn btn-main btn-big" id="makeBtn" type="button" data-t="makeBtn"></button>
@@ -183,16 +185,16 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
     </div>
   </div>
 
-  <section class="info"><h2 data-t="aboutH">यह JPG to PDF टूल क्या करता है</h2><div id="aboutBox"><p>बहुत से ऑनलाइन फ़ॉर्म डॉक्यूमेंट PDF में माँगते हैं, लेकिन आपके काग़ज़ फ़ोन में फ़ोटो की तरह पड़े होते हैं — मार्कशीट, आधार कार्ड, जाति या आय प्रमाण पत्र, फ़ीस की रसीद। यह टूल उन फ़ोटो को जोड़कर एक PDF फ़ाइल बनाता है: हर फ़ोटो एक पेज, और पेज उसी क्रम में जो आप चुनें। JPG, PNG और WebP फ़ोटो चलती हैं, और iPhone की HEIC फ़ोटो भी, अगर आपका ब्राउज़र उसे खोल सके।</p><p>सारा काम आपके ब्राउज़र के अंदर होता है। फ़ोटो आपके फ़ोन से पढ़ी जाती हैं, वहीं पेज बनते हैं और वहीं PDF तैयार होती है — किसी सर्वर पर कुछ नहीं जाता। इसलिए काम जल्दी भी होता है: अपलोड का इंतज़ार नहीं, और पेज एक बार खुल जाए तो बिना इंटरनेट के भी चलता है।</p></div></section>
-  <section class="info"><h2 data-t="howH">फ़ोटो को PDF कैसे बनाएँ — क़दम दर क़दम</h2><ol id="howList"><li><b>गैलरी से चुनें</b> दबाएँ और सारी फ़ोटो एक साथ चुनें, या <b>कैमरा से लें</b> से सीधे काग़ज़ की फ़ोटो खींचें।</li><li>सूची में सबसे ऊपर वाली फ़ोटो पेज 1 बनती है। क्रम <b>↑ ↓</b> से बदलें (कंप्यूटर पर फ़ोटो को खींचकर भी)।</li><li>कोई फ़ोटो टेढ़ी या उल्टी हो तो <b>⟳</b> दबाएँ; हर बार 90° घूमती है। ग़लत फ़ोटो <b>✕</b> से हटाएँ।</li><li>फ़ॉर्म KB की सीमा दे तो <b>100 KB</b>, <b>200 KB</b> या अपना KB चुनें। सीमा न हो तो "कोई सीमा नहीं" रहने दें।</li><li>ज़रूरत हो तो "पेज सेटिंग" में A4/Letter, पेज की दिशा, मार्जिन या ब्लैक एंड व्हाइट चुनें।</li><li><b>PDF बनाएँ</b> दबाएँ, पेज 1 की झलक देखें, नाम बदलें और <b>डाउनलोड</b> या <b>शेयर</b> करें।</li></ol></section>
-  <section class="info"><h2 data-t="whenH">फ़ोटो की PDF कब चाहिए होती है?</h2><div id="whenBox"><p>नीचे वे जगहें हैं जहाँ अक्सर फ़ोटो को PDF बनाना पड़ता है। हर पोर्टल की सीमा अलग होती है, इसलिए फ़ॉर्म पर लिखी बात ही सबसे पहले मानें।</p><ul><li><b>कॉलेज एडमिशन और स्कॉलरशिप पोर्टल</b> अक्सर मार्कशीट और सर्टिफ़िकेट PDF में माँगते हैं, ज़्यादातर 100 KB से 500 KB के बीच की सीमा के साथ।</li><li><b>सरकारी नौकरी के फ़ॉर्म</b> में जाति, निवास या अनुभव प्रमाण पत्र अक्सर PDF में, कई बार 200–300 KB तक माँगे जाते हैं।</li><li><b>बैंक, KYC और दफ़्तर का काम</b>: पहचान पत्र के दोनों तरफ़ अक्सर एक ही फ़ाइल में चाहिए होते हैं।</li><li><b>ईमेल और चैट</b>: दस अलग फ़ोटो से एक PDF भेजना और खोलना कहीं आसान है।</li></ul></div></section>
-  <section class="info"><h2 data-t="tipsH">काम की बातें</h2><ul id="tipList"><li>फ़ोटो दिन की रोशनी में, काग़ज़ के ठीक ऊपर से लें। छाया और टेढ़ा कोण लिखावट को पढ़ना मुश्किल बनाते हैं।</li><li>आधार के दोनों तरफ़ एक PDF में चाहिए तो आगे और पीछे की दो फ़ोटो डालें — दो पेज बन जाएँगे।</li><li>साइज़ सीमा कम हो और फ़ोटो ज़्यादा हों तो <b>ब्लैक एंड व्हाइट</b> चुनें। लिखावट साफ़ रहती है और फ़ाइल काफ़ी छोटी हो जाती है।</li><li>पहले गैलरी में फ़ोटो क्रॉप कर लें, सिर्फ़ काग़ज़ वाला हिस्सा रखें। फ़ालतू बैकग्राउंड हटने से उसी KB में लिखावट ज़्यादा साफ़ आती है।</li><li>पोर्टल में हर डॉक्यूमेंट का अलग बॉक्स हो तो हर डॉक्यूमेंट की अलग PDF बनाएँ, सब एक में न जोड़ें।</li></ul></section>
-  <section class="info"><h2 data-t="probH">आम दिक़्क़तें और उनका हल</h2><div id="probList"><div class="prob"><b>PDF फ़ॉर्म की सीमा से बड़ी है</b><p>ऊपर वही KB चुनें जो फ़ॉर्म लिखता है। फिर भी फ़िट न हो तो ब्लैक एंड व्हाइट चुनें, फ़ालतू पेज हटाएँ या फ़ोटो क्रॉप करके दोबारा डालें।</p></div><div class="prob"><b>पेज ग़लत क्रम में आ गए</b><p>सूची का ऊपर से नीचे का क्रम ही PDF का क्रम है। ↑ ↓ से ठीक करें और "PDF बनाएँ" फिर दबाएँ — पुरानी PDF अपने आप नहीं बदलती।</p></div><div class="prob"><b>कोई पेज टेढ़ा है</b><p>उस फ़ोटो पर ⟳ दबाएँ जब तक वह सीधी न दिखे। फ़ोन का अपना रोटेशन (EXIF) टूल पहले ही ठीक कर देता है।</p></div><div class="prob"><b>PDF में लिखावट धुँधली है</b><p>अक्सर फ़ोटो ही धुँधली होती है। अच्छी रोशनी में, हाथ स्थिर रखकर दोबारा फ़ोटो लें, या KB सीमा थोड़ी बढ़ाएँ।</p></div><div class="prob"><b>फ़ोटो खुल ही नहीं रही</b><p>यह अक्सर iPhone की HEIC फ़ोटो होती है। कैमरा की सेटिंग "Most Compatible" करें या फ़ोटो का स्क्रीनशॉट डालें।</p></div></div></section>
-  <section class="info"><h2 data-t="faqH">अक्सर पूछे जाने वाले सवाल</h2><div id="faqList"><details class="faq" open=""><summary>क्या यह फ़्री है, और क्या फ़ोटो अपलोड होती हैं?</summary><p>हाँ, पूरी तरह फ़्री है, कोई साइन-अप नहीं। फ़ोटो कहीं अपलोड नहीं होती — PDF आपके फ़ोन/ब्राउज़र के अंदर ही बनती है।</p></details><details class="faq" open=""><summary>कई फ़ोटो को एक PDF में कैसे जोड़ें?</summary><p>गैलरी से सारी फ़ोटो एक साथ चुनें (या बाद में "और फ़ोटो" दबाएँ)। हर फ़ोटो एक पेज बनती है, और ऊपर वाली फ़ोटो पहला पेज।</p></details><details class="faq" open=""><summary>PDF को 200 KB से कम कैसे करें?</summary><p>ऊपर 200 KB चुनें। टूल पहले JPG क्वालिटी कम करता है, फिर भी बड़ी हो तो फ़ोटो का px थोड़ा कम करता है — जब तक PDF 200 KB के अंदर न आ जाए।</p></details><details class="faq" open=""><summary>A4 और "फ़ोटो जितना" में क्या फ़र्क है?</summary><p>A4 में हर पेज प्रिंट वाले काग़ज़ के साइज़ का होता है और फ़ोटो उसके अंदर आती है — फ़ॉर्म और प्रिंट के लिए यही ठीक है। "फ़ोटो जितना" में पेज फ़ोटो के आकार का होता है, कोई सफ़ेद जगह नहीं।</p></details><details class="faq" open=""><summary>क्या यह बिना इंटरनेट के चलेगा?</summary><p>हाँ। पेज एक बार खुल जाए तो इंटरनेट बंद करके भी फ़ोटो डालकर PDF बना सकते हैं, क्योंकि सारा काम फ़ोन में ही होता है।</p></details></div></section>
-  <section class="info"><h2 data-t="privH">आपके डॉक्यूमेंट, आपके पास</h2><p data-t="privText">मार्कशीट, आधार जैसे डॉक्यूमेंट निजी होते हैं। इसलिए यह टूल बिना किसी सर्वर के आपके फ़ोन/ब्राउज़र में चलता है। फ़ोटो या PDF कहीं अपलोड नहीं होती, कहीं सेव नहीं होती, और हम उन्हें देख भी नहीं सकते। पेज बंद करते ही सब मिट जाता है।</p></section>
-  <section class="info"><h2 data-t="linksH">और तरीक़े</h2><div class="sizes" id="pageLinks"><a href="./?lang=hi" class="here">📄 JPG to PDF<small>कोई भी साइज़, सब सेटिंग</small></a><a href="./photo-to-pdf/?lang=hi">📄 फ़ोटो से PDF<small>मार्कशीट, आधार, सर्टिफ़िकेट</small></a><a href="./pdf-under-100kb/?lang=hi">📄 PDF 100 KB से कम<small>छोटी सीमा वाले फ़ॉर्म</small></a><a href="./pdf-under-200kb/?lang=hi">📄 PDF 200 KB से कम<small>एडमिशन, नौकरी के फ़ॉर्म</small></a><a href="./../image-compress/?lang=hi">🗜️ फ़ोटो का KB कम करें<small>JPG 20 / 50 / 100 KB</small></a><a href="./../doc-scanner/?lang=hi">📑 डॉक्यूमेंट स्कैनर<small>काग़ज़ सीधा करके PDF</small></a></div></section>
+  <section class="info"><h2 data-t="aboutH"></h2><div id="aboutBox"></div></section>
+  <section class="info"><h2 data-t="howH"></h2><ol id="howList"></ol></section>
+  <section class="info"><h2 data-t="whenH"></h2><div id="whenBox"></div></section>
+  <section class="info"><h2 data-t="tipsH"></h2><ul id="tipList"></ul></section>
+  <section class="info"><h2 data-t="probH"></h2><div id="probList"></div></section>
+  <section class="info"><h2 data-t="faqH"></h2><div id="faqList"></div></section>
+  <section class="info"><h2 data-t="privH"></h2><p data-t="privText"></p></section>
+  <section class="info"><h2 data-t="linksH"></h2><div class="sizes" id="pageLinks"></div></section>
   <pre id="selftest" class="hidden"></pre>
-  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer">फ़्री टूल · कुछ भी अपलोड नहीं होता</span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer"></span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
 </div>
 
 <script>

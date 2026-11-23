@@ -605,6 +605,34 @@ const wishes = {
       { q: 'Why is Surah Al-Kahf read on Friday?', a: 'Hadith mention the virtue of reading Surah Al-Kahf on Friday, so many people recite it on this day.' },
     ],
   },
+  'makar-sankranti': {
+    name: 'Makar Sankranti',
+    greet: 'a very Happy Makar Sankranti',
+    intro: 'Makar Sankranti marks the sun\'s journey north and the new harvest — a day of kites, til-gud and fresh beginnings. Here are short, warm Makar Sankranti wishes for family, friends and office groups.',
+    about: [
+      'Makar Sankranti falls around 14 January every year, when the sun enters Capricorn (Makar) and the days begin to grow longer. It is celebrated across India under different names — Sankranti and Khichdi in the north, Uttarayan in Gujarat, Pongal in Tamil Nadu and Magh Bihu in Assam.',
+      'People share laddus of til (sesame) and gud (jaggery) with the saying "til-gud ghya, god god bola" — eat something sweet and speak sweetly. The sky fills with colourful kites as families gather on rooftops to fly them.',
+      'A good Sankranti message is short, wishes a sweet new harvest and fresh start, and brings a smile. Copy one below, or use the "Make your own wish" button to send a link with your name.',
+    ],
+    faq: [
+      { q: 'When is Makar Sankranti in 2027?', a: 'Makar Sankranti is on 14 January (occasionally 15 January, depending on the sun\'s position). It is one of the few festivals that falls on an almost fixed date in the English calendar.' },
+      { q: 'What is the difference between Makar Sankranti and Pongal?', a: 'Both are harvest and sun festivals at the same time of year. It is called Makar Sankranti in north and west India and Pongal in Tamil Nadu — different names and customs, the same spirit.' },
+    ],
+  },
+  lohri: {
+    name: 'Lohri',
+    greet: 'a very Happy Lohri',
+    intro: 'Lohri welcomes the end of the coldest winter nights and the new harvest with a bonfire, dhol and til-rewri-gajak. Here are warm Lohri wishes for family, friends and office groups.',
+    about: [
+      'Lohri is celebrated on 13 January every year, a day before Makar Sankranti. It is mainly a Punjabi and north Indian festival, marking the passing of the longest winter nights and the joy of the new harvest.',
+      'In the evening people light a bonfire, walk around it offering til, rewri, gajak, peanuts and popcorn to the fire, and sing traditional songs like "Sunder mundriye ho". There is bhangra and gidda to the beat of the dhol. The first Lohri is special for families with a new marriage or a new baby.',
+      'A good Lohri message is short and warm — it carries the heat of the bonfire and the joy of a new harvest. Copy one below, or use the "Make your own wish" button to send a link with your name.',
+    ],
+    faq: [
+      { q: 'When is Lohri in 2027?', a: 'Lohri is on 13 January, a day before Makar Sankranti. It falls on this same date almost every year.' },
+      { q: 'Why is the first Lohri special?', a: 'For a family with a new marriage or a newborn, the first Lohri is considered very special — relatives gather to bless the new member and give gifts.' },
+    ],
+  },
 };
 
 const games = {

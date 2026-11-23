@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-prerendered="hi" lang="hi">
+<html lang="hi">
 <head>
 <!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
 <meta charset="utf-8">
@@ -13,7 +13,9 @@
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="stylesheet" href="/fonts/css/6a45250a9a38.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root { --bg: #eef4fb; --card: #fff; --ink: #14243a; --muted: #5b6b80; --brand: #1864ab; --brand2: #339af0; --line: #d6e4f3; --ok: #2b8a3e; }
 * { box-sizing: border-box; }
@@ -67,18 +69,18 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
 <body>
 <div class="wrap">
   <header>
-    <a class="brand" href="https://nextgrade.in/tools/">🪪 NextGrade Tools<small data-t="brandSub">मुफ़्त · फ़ोटो फ़ोन से बाहर नहीं जाती</small></a>
+    <a class="brand" href="https://nextgrade.in/tools/">🪪 NextGrade Tools<small data-t="brandSub"></small></a>
     <select class="langsel" id="lang" aria-label="Language"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
   </header>
 
-  <h1 data-t="title">पासपोर्ट साइज़ फ़ोटो बनाओ — मुफ़्त</h1>
-  <p class="sub" data-t="sub">सफ़ेद या नीला बैकग्राउंड, चेहरा अपने आप बीच में, 3.5×4.5 cm / 2×2 इंच / स्टाम्प साइज़, 4×6 प्रिंट शीट या A4 PDF, और फ़ॉर्म के लिए KB लिमिट वाली डिजिटल फ़ोटो।</p>
-  <div class="privacy">🔒 <span data-t="privacy">आपकी फ़ोटो कहीं अपलोड नहीं होती। सारा काम फ़ोन/ब्राउज़र में होता है, डाउनलोड भी फ़ोन में ही।</span></div>
+  <h1 data-t="title"></h1>
+  <p class="sub" data-t="sub"></p>
+  <div class="privacy">🔒 <span data-t="privacy"></span></div>
 
   <div class="card" id="pickCard">
     <div class="drop" id="drop" role="button" tabindex="0">
-      <b data-t="pickTitle">अपनी फ़ोटो चुनो</b>
-      <span class="hint" data-t="pickHint">सीधा चेहरा, कंधे तक, अच्छी रोशनी। सादी दीवार के सामने हो तो और अच्छा।</span>
+      <b data-t="pickTitle"></b>
+      <span class="hint" data-t="pickHint"></span>
       <div class="row" style="justify-content:center;margin-top:12px">
         <button class="btn btn-main" id="pickBtn" type="button" data-t="pickBtn"></button>
         <button class="btn" id="camBtn" type="button" data-t="camBtn"></button>
@@ -131,10 +133,10 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
     </div>
   </div>
 
-  <section class="info"><h2 data-t="howH">कैसे बनाएँ</h2><ol id="howList"><li><b>फ़ोटो चुनो</b> या <b>फ़ोटो लो</b> — सीधा चेहरा, कंधे तक।</li><li>बैकग्राउंड अपने आप हटकर <b>सफ़ेद</b> हो जाता है और चेहरा बीच में सेट हो जाता है।</li><li><b>साइज़</b> चुनो (3.5×4.5 cm, 2×2 इंच, स्टाम्प या अपना) और बैकग्राउंड का रंग।</li><li>ज़रूरत हो तो फ़ोटो खिसकाओ या छोटा-बड़ा करो।</li><li>फ़ॉर्म के लिए <b>डिजिटल फ़ोटो</b> (KB लिमिट के साथ) या प्रिंट के लिए <b>4×6 शीट / A4 PDF</b> डाउनलोड करो — किसी भी फ़ोटो दुकान पर प्रिंट करवा लो।</li></ol></section>
-  <section class="info"><h2 data-t="tipsH">अच्छी पासपोर्ट फ़ोटो के लिए</h2><ul id="tipList"><li>सीधे कैमरे की तरफ़ देखो, मुँह बंद, चेहरा साफ़ दिखे।</li><li>चश्मा, टोपी या चेहरे पर बाल न हों (जब तक फ़ॉर्म अनुमति न दे)।</li><li>दिन की रोशनी, चेहरे पर परछाईं नहीं।</li><li>4×6 शीट को फ़ोटो पेपर पर "actual size / 100%" पर प्रिंट करवाओ, "fit to page" नहीं।</li></ul></section>
-  <section class="info"><h2 data-t="privH">आपकी फ़ोटो, आपके पास</h2><p data-t="privText">यह टूल AI मॉडल एक बार डाउनलोड करके आपके फ़ोन/ब्राउज़र में ही चलाता है। आपकी फ़ोटो किसी सर्वर पर नहीं जाती, कहीं सेव नहीं होती, और हम उसे देख भी नहीं सकते। पेज बंद करते ही सब मिट जाता है।</p></section>
-  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer">मुफ़्त टूल · फ़ोटो अपलोड नहीं होती</span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+  <section class="info"><h2 data-t="howH"></h2><ol id="howList"></ol></section>
+  <section class="info"><h2 data-t="tipsH"></h2><ul id="tipList"></ul></section>
+  <section class="info"><h2 data-t="privH"></h2><p data-t="privText"></p></section>
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer"></span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
 </div>
 
 <script src="lib/jspdf.umd.min.js"></script>
