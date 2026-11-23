@@ -20,6 +20,7 @@ import { tools as allTools } from './src/tools.mjs';
 import { storyExtras, SOURCE_INFO, COLLECTIONS, collectionOf, srcKey } from './src/story-info.mjs';
 import { NAAM_OCCASIONS, NAAM_UI } from './src/naam-image.mjs';
 import { PAHELI, PAHELI_UI } from './src/paheliyan.mjs';
+import { KIDS_SETS, KIDS_UI, KIDS_NATIVE } from './src/kids.mjs';
 import { speeches as allSpeeches, SPEECH_UI } from './src/speeches.mjs';
 import { essays as allEssays, NIBANDH_UI } from './src/nibandh.mjs';
 import { calculators as allCalculators, CALC_UI } from './src/calculators.mjs';
@@ -135,10 +136,10 @@ const P = (L, path) => `${L.prefix}${path}`;
 // Main menu, grouped (user, 21 Nov 2026: "header ko menu hierarchy wala banao", the flat list was too long).
 // Each group is a <details> dropdown (works without JavaScript); a link only shows when its section is live.
 const MENU_T = {
-  hi: { stories: 'कहानियाँ', study: 'पढ़ाई', fest: 'त्योहार', games: 'Games', tools: 'Tools', allStories: 'सभी कहानियाँ', panchatantra: 'पंचतंत्र', 'akbar-birbal': 'अकबर-बीरबल', 'tenali-raman': 'तेनाली राम', jataka: 'जातक कथाएँ', aesop: 'ईसप की कहानियाँ', 'lok-katha': 'लोक कथाएँ', nibandh: 'निबंध', speech: 'भाषण', paheli: 'पहेलियाँ', ff: 'Full Forms', naam: 'बच्चों के नाम', festivals: 'सभी त्योहार', dates: (y) => `त्योहार ${y} कब है`, wishes: 'Wishes', card: 'Wish Card', naamImg: 'नाम वाली इमेज', islamic: 'इस्लामी कैलेंडर', allGames: 'सभी गेम्स', khel: 'देसी खेलों के नियम', allTools: 'सभी टूल्स', calc: 'Calculators', apps: 'Apps', menu: 'मेनू' },
-  en: { stories: 'Stories', study: 'Study', fest: 'Festivals', games: 'Games', tools: 'Tools', allStories: 'All stories', panchatantra: 'Panchatantra', 'akbar-birbal': 'Akbar-Birbal', 'tenali-raman': 'Tenali Raman', jataka: 'Jataka Tales', aesop: "Aesop's Fables", 'lok-katha': 'Folk Tales', nibandh: 'Essays', speech: 'Speeches', paheli: 'Riddles', ff: 'Full Forms', naam: 'Baby Names', festivals: 'All festivals', dates: (y) => `Festival dates ${y}`, wishes: 'Wishes', card: 'Wish Card', naamImg: 'Name on image', islamic: 'Islamic calendar', allGames: 'All games', khel: 'Rules of desi games', allTools: 'All tools', calc: 'Calculators', apps: 'Apps', menu: 'Menu' },
-  hinglish: { stories: 'Kahaniyan', study: 'Padhai', fest: 'Tyohaar', games: 'Games', tools: 'Tools', allStories: 'Sabhi kahaniyan', panchatantra: 'Panchatantra', 'akbar-birbal': 'Akbar-Birbal', 'tenali-raman': 'Tenali Raman', jataka: 'Jataka Kathayein', aesop: 'Aesop ki Kahaniyan', 'lok-katha': 'Lok Kathayein', nibandh: 'Nibandh', speech: 'Bhashan', paheli: 'Paheliyan', ff: 'Full Forms', naam: 'Baby Names', festivals: 'Sabhi tyohaar', dates: (y) => `Tyohaar ${y} kab hai`, wishes: 'Wishes', card: 'Wish Card', naamImg: 'Naam wali image', islamic: 'Islamic calendar', allGames: 'Sabhi games', khel: 'Desi khelon ke niyam', allTools: 'Sabhi tools', calc: 'Calculators', apps: 'Apps', menu: 'Menu' },
-  bn: { stories: 'গল্প', study: 'পড়াশোনা', fest: 'উৎসব', games: 'গেম', tools: 'টুলস', allStories: 'সব গল্প', panchatantra: 'পঞ্চতন্ত্র', 'akbar-birbal': 'আকবর-বীরবল', 'tenali-raman': 'তেনালি রামন', jataka: 'জাতকের গল্প', aesop: 'ঈশপের গল্প', 'lok-katha': 'লোককথা', nibandh: 'রচনা', speech: 'বক্তৃতা', paheli: 'ধাঁধা', ff: 'ফুল ফর্ম', naam: 'শিশুর নাম', festivals: 'সব উৎসব', dates: (y) => `উৎসবের তারিখ ${y}`, wishes: 'শুভেচ্ছা', card: 'উইশ কার্ড', naamImg: 'নামের ছবি', islamic: 'ইসলামি ক্যালেন্ডার', allGames: 'সব গেম', khel: 'দেশি খেলার নিয়ম', allTools: 'সব টুলস', calc: 'ক্যালকুলেটর', apps: 'অ্যাপ', menu: 'মেনু' },
+  hi: { stories: 'कहानियाँ', study: 'पढ़ाई', fest: 'त्योहार', games: 'Games', tools: 'Tools', allStories: 'सभी कहानियाँ', panchatantra: 'पंचतंत्र', 'akbar-birbal': 'अकबर-बीरबल', 'tenali-raman': 'तेनाली राम', jataka: 'जातक कथाएँ', aesop: 'ईसप की कहानियाँ', 'lok-katha': 'लोक कथाएँ', nibandh: 'निबंध', speech: 'भाषण', paheli: 'पहेलियाँ', ff: 'Full Forms', naam: 'बच्चों के नाम', festivals: 'सभी त्योहार', dates: (y) => `त्योहार ${y} कब है`, wishes: 'Wishes', card: 'Wish Card', naamImg: 'नाम वाली इमेज', islamic: 'इस्लामी कैलेंडर', allGames: 'सभी गेम्स', khel: 'देसी खेलों के नियम', kids: 'सीखो-खेलो', kidsAll: 'सभी विषय', allTools: 'सभी टूल्स', calc: 'Calculators', apps: 'Apps', menu: 'मेनू' },
+  en: { stories: 'Stories', study: 'Study', fest: 'Festivals', games: 'Games', tools: 'Tools', allStories: 'All stories', panchatantra: 'Panchatantra', 'akbar-birbal': 'Akbar-Birbal', 'tenali-raman': 'Tenali Raman', jataka: 'Jataka Tales', aesop: "Aesop's Fables", 'lok-katha': 'Folk Tales', nibandh: 'Essays', speech: 'Speeches', paheli: 'Riddles', ff: 'Full Forms', naam: 'Baby Names', festivals: 'All festivals', dates: (y) => `Festival dates ${y}`, wishes: 'Wishes', card: 'Wish Card', naamImg: 'Name on image', islamic: 'Islamic calendar', allGames: 'All games', khel: 'Rules of desi games', kids: 'Learn & Play', kidsAll: 'All topics', allTools: 'All tools', calc: 'Calculators', apps: 'Apps', menu: 'Menu' },
+  hinglish: { stories: 'Kahaniyan', study: 'Padhai', fest: 'Tyohaar', games: 'Games', tools: 'Tools', allStories: 'Sabhi kahaniyan', panchatantra: 'Panchatantra', 'akbar-birbal': 'Akbar-Birbal', 'tenali-raman': 'Tenali Raman', jataka: 'Jataka Kathayein', aesop: 'Aesop ki Kahaniyan', 'lok-katha': 'Lok Kathayein', nibandh: 'Nibandh', speech: 'Bhashan', paheli: 'Paheliyan', ff: 'Full Forms', naam: 'Baby Names', festivals: 'Sabhi tyohaar', dates: (y) => `Tyohaar ${y} kab hai`, wishes: 'Wishes', card: 'Wish Card', naamImg: 'Naam wali image', islamic: 'Islamic calendar', allGames: 'Sabhi games', khel: 'Desi khelon ke niyam', kids: 'Seekho-Khelo', kidsAll: 'Sabhi topics', allTools: 'Sabhi tools', calc: 'Calculators', apps: 'Apps', menu: 'Menu' },
+  bn: { stories: 'গল্প', study: 'পড়াশোনা', fest: 'উৎসব', games: 'গেম', tools: 'টুলস', allStories: 'সব গল্প', panchatantra: 'পঞ্চতন্ত্র', 'akbar-birbal': 'আকবর-বীরবল', 'tenali-raman': 'তেনালি রামন', jataka: 'জাতকের গল্প', aesop: 'ঈশপের গল্প', 'lok-katha': 'লোককথা', nibandh: 'রচনা', speech: 'বক্তৃতা', paheli: 'ধাঁধা', ff: 'ফুল ফর্ম', naam: 'শিশুর নাম', festivals: 'সব উৎসব', dates: (y) => `উৎসবের তারিখ ${y}`, wishes: 'শুভেচ্ছা', card: 'উইশ কার্ড', naamImg: 'নামের ছবি', islamic: 'ইসলামি ক্যালেন্ডার', allGames: 'সব গেম', khel: 'দেশি খেলার নিয়ম', kids: 'শেখো-খেলো', kidsAll: 'সব বিষয়', allTools: 'সব টুলস', calc: 'ক্যালকুলেটর', apps: 'অ্যাপ', menu: 'মেনু' },
 };
 const menuFor = (L) => {
   const M = MENU_T[L.code];
@@ -147,6 +148,7 @@ const menuFor = (L) => {
     [M.study, [...(ESSAYS.length ? [['/nibandh/', M.nibandh]] : []), ...(SPEECHES.length ? [['/speech/', M.speech]] : []), ...(PAHELI_LIVE ? [['/paheliyan/', M.paheli]] : []), ...(FF_LIVE ? [['/full-form/', M.ff]] : []), ...(BABY_LIVE ? [['/naam/', M.naam]] : [])]],
     [M.fest, [['/festivals/', M.festivals], [`/festivals/${LIST_YEAR}/`, M.dates(LIST_YEAR)], ['/wishes/', M.wishes], ['/wish-card/', M.card], ...(NAAM_LIVE ? [['/naam-wali-image/', M.naamImg]] : []), ['/islamic-calendar/', M.islamic]]],
     [M.games, [['/games/', M.allGames], ...(KHEL.length ? [['/khel/', M.khel]] : [])]],
+    [M.kids, [['/kids/', M.kidsAll], ...KIDS_SETS.map((s) => [`/kids/${s.slug}/`, s.name[L.code] || s.name.en])]],
     [M.tools, [...(tools.length ? [['/tools/', M.allTools]] : []), ...(CALCS.length ? [['/calculator/', M.calc]] : []), ['/apps/', M.apps]]],
   ];
   return groups.filter(([, items]) => items.length);
@@ -789,6 +791,79 @@ ${NAAM_LIVE ? `<p><a class="btn btn-ghost" href="${P(L, '/naam-wali-image/')}">$
 </div>`,
     }),
   );
+
+  // Kids learning: a hub plus one flashcard page per set (picture + name + sound). Live-by-default.
+  {
+    const KU = KIDS_UI[L.code];
+    const kidsName = KU.hubH1.replace(/^\S+\s/, '');
+    write(L, '/kids/', page(L, {
+      path: '/kids/', title: KU.hubTitle, description: KU.hubDesc,
+      jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [kidsName, '/kids/']])],
+      body: `<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(kidsName)}</p>
+<h1>${esc(KU.hubH1)}</h1>
+<p class="lead">${esc(KU.hubLead)}</p>
+<div class="grid">${KIDS_SETS.map((s) => `<a class="card" href="${P(L, `/kids/${s.slug}/`)}"><span class="emoji" aria-hidden="true">${s.emoji}</span><h3>${esc(s.name[L.code] || s.name.en)}</h3></a>`).join('')}</div>
+</div>`,
+    }));
+    KIDS_SETS.forEach((s) => {
+      // each page plays a recorded female voice in its own language: hi→Hindi (Lekha), bn→Bengali (Piya), en→English (Samantha); hinglish→Hindi
+      const SPK = ({ hi: { say: 'hi', sub: 'en', lang: 'hi-IN', al: 'hi' }, hinglish: { say: 'hi', sub: 'en', lang: 'hi-IN', al: 'hi' }, bn: { say: 'bn', sub: 'en', lang: 'bn-IN', al: 'bn' }, en: { say: 'en', sub: 'hi', lang: 'en-US', al: 'en' } })[L.code];
+      const kslug = (x) => x.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      const FLANG = { en: 'en-US', hi: 'hi-IN', bn: 'bn-IN' };
+      const items = s.fixedLang
+        ? s.items.map((it, i) => ({ emoji: it.emoji, big: it.letter, sub: it.word || '', say: it.speak || it.letter, en: it.word || it.letter, lang: FLANG[s.fixedLang], audio: `/assets/kids-audio/${s.fixedLang}/${s.slug}-${i}.mp3` }))
+        : s.items.map((it) => ({ emoji: it.emoji, big: it[SPK.say], sub: it[SPK.sub] || '', say: it[SPK.say], en: it.en, lang: SPK.lang, corner: (it[SPK.say] || '').charAt(0).toUpperCase(), audio: `/assets/kids-audio/${SPK.al}/${s.slug}-${kslug(it.en)}.mp3` }));
+      const data = { items, ui: { tap: KU.tap, play: KU.play, stop: KU.stop, next: KU.next, prev: KU.prev, grid: KU.grid, note: KU.note } };
+      writeFileSync(join(OUT, 'assets', `kids.${s.slug}.${L.code}.js`), `window.KIDS = ${JSON.stringify(data)};\n`);
+      const nm = s.name[L.code] || s.name.en;
+      write(L, `/kids/${s.slug}/`, page(L, {
+        path: `/kids/${s.slug}/`,
+        title: `${nm} — ${L.code === 'hi' ? 'तस्वीर और आवाज़ के साथ' : L.code === 'bn' ? 'ছবি ও শব্দ সহ' : 'with Pictures and Sound'} | NextGrade`,
+        description: KU.hubDesc,
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [kidsName, '/kids/'], [nm, `/kids/${s.slug}/`]])],
+        scripts: [`/assets/kids.${s.slug}.${L.code}.js`, '/assets/kids.js'],
+        body: `<style>
+.kids-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;margin:16px 0}
+.kids-card{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:24px 10px 16px;border:2px solid #e6e3da;border-radius:20px;background:#fff;cursor:pointer;transition:transform .12s,box-shadow .12s;color:#1b1b1b}
+.kids-letter{position:absolute;top:8px;left:9px;font-weight:800;font-size:1.15rem;line-height:1;color:#c97d2a;background:#fff4e2;border:1.5px solid #ecc98f;border-radius:9px;min-width:28px;height:28px;display:flex;align-items:center;justify-content:center;padding:0 5px}
+.kids-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.14);transform:translateY(-2px)}
+.kids-card.pop{transform:scale(1.1)}
+.kids-emoji{font-size:5.2rem;line-height:1}
+.kids-en{font-weight:800;font-size:1.5rem;color:#141414}
+.kids-native{font-size:1.05rem;color:#6a6a6a;font-weight:600}
+.kids-spk{font-size:1rem;color:#c99a3a}
+@media(max-width:420px){.kids-grid{grid-template-columns:repeat(2,1fr)}.kids-emoji{font-size:5.6rem}}
+.kids-controls{margin:10px 0}
+.kids-show{position:fixed;inset:0;z-index:60;background:rgba(12,12,22,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px}
+.kids-close{position:absolute;top:14px;right:18px;font-size:1.7rem;background:none;border:none;color:#fff;cursor:pointer;line-height:1}
+.kids-bigcard{display:flex;flex-direction:column;align-items:center;gap:10px;color:#fff;text-align:center}
+.kids-emoji-big{font-size:46vmin;line-height:1}
+.kids-en-big{font-size:3.4rem;font-weight:800}
+.kids-native-big{font-size:1.7rem;opacity:.85}
+.kids-navbtns{display:flex;gap:18px}
+.kids-ctl{font-size:1.8rem;width:66px;height:66px;border-radius:50%;border:2px solid rgba(255,255,255,.4);background:rgba(255,255,255,.14);color:#fff;cursor:pointer}
+.kids-ctl:active{background:rgba(255,255,255,.3)}
+</style>
+<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/kids/')}">${esc(kidsName)}</a> › ${esc(nm)}</p>
+<h1>${s.emoji} ${esc(nm)}</h1>
+<p class="lead">${esc(KU.pageLead)}</p>
+<div class="kids-controls"><button class="btn btn-primary" type="button" id="kids-play">${esc(KU.play)}</button></div>
+<div id="kids-grid" class="kids-grid" role="list" aria-label="${esc(nm)}"></div>
+<div id="kids-show" class="kids-show" hidden>
+<button id="kids-close" class="kids-close" aria-label="close">✕</button>
+<div id="kids-card" class="kids-bigcard"></div>
+<div class="kids-navbtns"><button id="kids-prev" class="kids-ctl" aria-label="${esc(KU.prev)}">‹</button><button id="kids-replay" class="kids-ctl" aria-label="${esc(KU.tap)}">🔊</button><button id="kids-next" class="kids-ctl" aria-label="${esc(KU.next)}">›</button></div>
+</div>
+<p class="calc-note" id="kids-note">${esc(KU.note)}</p>
+<div class="ad" aria-hidden="true"></div>
+<h2>${esc(KU.howH)}</h2>
+<ol>${KU.how.map((li) => `<li>${esc(li)}</li>`).join('')}</ol>
+</div>`,
+      }));
+    });
+  }
 
   // "Naam wali image": a hub plus one page per occasion (scheduled as 'page:naam-wali-image')
   if (NAAM_LIVE) {
