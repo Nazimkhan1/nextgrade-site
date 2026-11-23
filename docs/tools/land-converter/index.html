@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="hi">
+<html data-prerendered="hi" lang="hi">
 <head>
 <!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
 <meta charset="utf-8">
@@ -13,9 +13,7 @@
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fonts/css/6a45250a9a38.css">
 <style>
 :root { --bg: #f1f8ec; --card: #fff; --ink: #1d2a17; --muted: #55664c; --brand: #2b6a2f; --brand2: #4a8f2c; --line: #d3e6c6; --soft: #f6fbf2; --ok: #2b8a3e; --warn: #b34700; }
 * { box-sizing: border-box; }
@@ -72,53 +70,58 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
 <body>
 <div class="wrap">
   <header>
-    <a class="brand" href="https://nextgrade.in/tools/">📐 NextGrade Tools<small data-t="brandSub"></small></a>
+    <a class="brand" href="https://nextgrade.in/tools/">📐 NextGrade Tools<small data-t="brandSub">फ़्री · कुछ भी अपलोड नहीं होता</small></a>
     <select class="langsel" id="langSel" aria-label="Language">
       <option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option>
     </select>
   </header>
-  <h1 data-t="title"></h1>
-  <p class="sub" data-t="sub"></p>
-  <div class="privacy">🔒 <span data-t="privacy"></span></div>
+  <h1 data-t="title">ज़मीन की इकाई बदलें — बीघा, कट्ठा, गज, एकड़, वर्ग फ़ुट</h1>
+  <p class="sub" data-t="sub">अपना राज्य चुनें, वैल्यू लिखें, और एक साथ सारी इकाइयों में जवाब देखें: बीघा, कट्ठा, बिस्वा, कनाल, मरला, एकड़, हेक्टेयर, गज, वर्ग फ़ुट, डिसमिल, गुंठा और भी।</p>
+  <div class="privacy">🔒 <span data-t="privacy">सारा हिसाब आपके फ़ोन/ब्राउज़र में होता है। कुछ भी कहीं भेजा नहीं जाता।</span></div>
 
   <div class="card">
-    <p class="lbl" data-t="stateH"></p>
+    <p class="lbl" data-t="stateH">1. अपना राज्य चुनें</p>
     <select class="inp" id="state" aria-label="State"></select>
     <div class="grid2 hidden" id="customBox">
       <label><span class="hint" data-t="customBigha"></span><input class="inp" id="cBigha" type="number" inputmode="decimal" min="0" step="any" placeholder="sq ft"></label>
       <label><span class="hint" data-t="customKatha"></span><input class="inp" id="cKatha" type="number" inputmode="decimal" min="0" step="any" placeholder="sq ft"></label>
     </div>
-    <div class="stinfo" id="stInfo"></div>
+    <div class="stinfo" id="stInfo">बीघा, कट्ठा, कनाल जैसी इकाइयों के लिए पहले राज्य चुनें। तब तक एकड़, हेक्टेयर, गज, वर्ग फ़ुट, डिसमिल, गुंठा जैसी तय इकाइयाँ काम करती हैं।</div>
 
-    <p class="lbl" style="margin-top:14px" data-t="valH"></p>
+    <p class="lbl" style="margin-top:14px" data-t="valH">2. वैल्यू लिखें और इकाई चुनें</p>
     <div class="grid3">
-      <label><span class="hint" data-t="valL"></span><input class="inp" id="val" type="number" inputmode="decimal" min="0" step="any" value="1"></label>
-      <label><span class="hint" data-t="fromL"></span><select class="inp" id="from"></select></label>
-      <label><span class="hint" data-t="toL"></span><select class="inp" id="to"></select></label>
+      <label><span class="hint" data-t="valL">कितना</span><input class="inp" id="val" type="number" inputmode="decimal" min="0" step="any" value="1"></label>
+      <label><span class="hint" data-t="fromL">इस इकाई से</span><select class="inp" id="from"></select></label>
+      <label><span class="hint" data-t="toL">इस इकाई में</span><select class="inp" id="to"></select></label>
     </div>
     <div class="row" style="margin-top:8px"><button class="btn btn-sm" id="swapBtn" type="button" data-t="swap"></button></div>
-    <div class="headline" id="headline" aria-live="polite"></div>
+    <div class="headline" id="headline" aria-live="polite">1 एकड़ = 43,560 वर्ग फ़ुट (sq ft)</div>
     <div class="row" style="margin-bottom:10px">
       <button class="btn btn-main btn-sm" id="shareBtn" type="button" data-t="share"></button>
       <button class="btn btn-sm" id="copyBtn" type="button" data-t="copy"></button>
     </div>
-    <p class="lbl" data-t="allH"></p>
-    <div class="tblwrap"><table class="tbl" id="allTable"></table></div>
+    <p class="lbl" data-t="allH">एक साथ सारी इकाइयों में</p>
+    <div class="tblwrap"><table class="tbl" id="allTable"><tbody><tr><th>इकाई</th><th>जवाब</th></tr><tr class="hl"><td>वर्ग फ़ुट (sq ft) <small>· हर जगह एक</small></td><td class="num">43,560</td></tr><tr><td>गज (वर्ग गज) <small>· हर जगह एक</small></td><td class="num">4,840</td></tr><tr><td>वर्ग मीटर <small>· हर जगह एक</small></td><td class="num">4,046.86</td></tr><tr><td>एकड़ <small>· हर जगह एक</small></td><td class="num">1</td></tr><tr><td>हेक्टेयर <small>· हर जगह एक</small></td><td class="num">0.4047</td></tr><tr><td>डिसमिल <small>· हर जगह एक</small></td><td class="num">100</td></tr><tr><td>सेंट <small>· हर जगह एक</small></td><td class="num">100</td></tr><tr><td>गुंठा <small>· हर जगह एक</small></td><td class="num">40</td></tr><tr><td>ग्राउंड <small>· हर जगह एक</small></td><td class="num">18.15</td></tr></tbody></table></div>
   </div>
 
   <div class="card" id="quickCard">
-    <p class="lbl" id="quickH"></p>
-    <div class="tblwrap"><table class="tbl" id="quickTable"></table></div>
+    <p class="lbl" id="quickH">—: 1 इकाई = कितना?</p>
+    <div class="tblwrap"><table class="tbl" id="quickTable"><tbody><tr><td>राज्य चुनने पर यहाँ उस राज्य की हर स्थानीय इकाई का हिसाब दिखेगा।</td></tr></tbody></table></div>
   </div>
 
-  <section class="info"><h2 data-t="pagesH"></h2><div class="sizes" id="pageLinks"></div></section>
-  <section class="info"><h2 data-t="stH"></h2><p class="hint" data-t="stNote"></p><div class="tblwrap"><table class="tbl" id="stTable"></table></div></section>
-  <section class="info" id="article"></section>
-  <section class="info"><h2 data-t="faqH"></h2><div id="faqList"></div></section>
-  <section class="info"><h2 data-t="srcH"></h2><p data-t="srcText"></p></section>
-  <section class="info"><h2 data-t="privH"></h2><p data-t="privText"></p></section>
+  <section class="info"><h2 data-t="pagesH">सीधे इन सवालों के लिए</h2><div class="sizes" id="pageLinks"><a href="./bigha-to-sq-ft/?lang=hi">बीघा से वर्ग फ़ुट<small>1 बीघा कितने वर्ग फ़ुट / गज</small></a><a href="./katha-to-sq-ft/?lang=hi">कट्ठा से वर्ग फ़ुट<small>1 कट्ठा कितने वर्ग फ़ुट</small></a><a href="./acre-to-bigha/?lang=hi">एकड़ से बीघा<small>1 एकड़ में कितने बीघा</small></a></div></section>
+  <section class="info"><h2 data-t="stH">राज्य के हिसाब से 1 इकाई कितने वर्ग फ़ुट</h2><p class="hint" data-t="stNote">ये वे वैल्यू हैं जो यह टूल इस्तेमाल करता है। "—" का मतलब: उस राज्य में यह इकाई नहीं चलती, या माप जगह-जगह इतना बदलता है कि हम एक वैल्यू नहीं देते।</p><div class="tblwrap"><table class="tbl" id="stTable"><tbody><tr><th>राज्य</th><th>1 बीघा</th><th>1 कनाल</th><th>1 कट्ठा</th><th>1 बिस्वा</th><th>1 मरला</th><th>1 धुर</th><th>1 छटाक</th><th>1 लेसा</th></tr><tr><td>बिहार (पटना और आसपास)</td><td class="num">27,225</td><td class="num">—</td><td class="num">1,361.25</td><td class="num">—</td><td class="num">—</td><td class="num">68.0625</td><td class="num">—</td><td class="num">—</td></tr><tr><td>उत्तर प्रदेश (पक्का बीघा)</td><td class="num">27,225</td><td class="num">—</td><td class="num">—</td><td class="num">1,361.25</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr><tr><td>राजस्थान (पक्का बीघा)</td><td class="num">27,225</td><td class="num">—</td><td class="num">—</td><td class="num">1,361.25</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr><tr><td>राजस्थान (कच्चा बीघा)</td><td class="num">17,424</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr><tr><td>पश्चिम बंगाल</td><td class="num">14,400</td><td class="num">—</td><td class="num">720</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">45</td><td class="num">—</td></tr><tr><td>असम</td><td class="num">14,400</td><td class="num">—</td><td class="num">2,880</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">144</td></tr><tr><td>गुजरात (उत्तर और मध्य)</td><td class="num">17,424</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr><tr><td>हिमाचल प्रदेश</td><td class="num">8,712</td><td class="num">—</td><td class="num">—</td><td class="num">435.6</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr><tr><td>पंजाब</td><td class="num">—</td><td class="num">5,445</td><td class="num">—</td><td class="num">—</td><td class="num">272.25</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr><tr><td>हरियाणा</td><td class="num">—</td><td class="num">5,445</td><td class="num">—</td><td class="num">—</td><td class="num">272.25</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr></tbody></table></div></section>
+  <section class="info" id="article"><h2>लैंड यूनिट कनवर्टर क्या है?</h2><p>ज़मीन नापने की इकाइयाँ पूरे भारत में एक जैसी नहीं हैं। एकड़, हेक्टेयर, वर्ग फ़ुट और गज हर जगह एक हैं, लेकिन बीघा, कट्ठा, बिस्वा, कनाल और मरला का माप राज्य के हिसाब से, और कई बार एक ही राज्य के अलग ज़िलों में भी, बदल जाता है। इसलिए "1 बीघा कितना गज होता है" का एक ही जवाब नहीं है। यह टूल पहले आपका राज्य पूछता है, फिर उसी राज्य में आम तौर पर मानी जाने वाली वैल्यू से हिसाब लगाता है, और साफ़ लिख देता है कि कौन सी वैल्यू इस्तेमाल हुई — ताकि आप ख़ुद जाँच सकें।</p>
+<h2>कैसे इस्तेमाल करें — एक-एक क़दम</h2><ol><li>ऊपर <b>राज्य</b> चुनें। आपका राज्य सूची में नहीं है तो "अपनी वैल्यू डालें" चुनें और पटवारी या काग़ज़ में लिखी वैल्यू भरें।</li><li>संख्या लिखें, जैसे 2 या 0.5।</li><li>किस इकाई से बदलना है (जैसे बीघा) और किस इकाई में चाहिए (जैसे वर्ग फ़ुट) चुनें। बड़ा जवाब ऊपर दिखेगा।</li><li>नीचे की तालिका में वही ज़मीन एक साथ हर इकाई में दिखेगी। "1 इकाई = कितना" तालिका में उस राज्य की हर स्थानीय इकाई का हिसाब भी मिलेगा।</li><li>जवाब को <b>शेयर</b> या <b>कॉपी</b> करके परिवार या दलाल को भेज सकते हैं। लिंक खोलने पर वही राज्य और वैल्यू खुलती है।</li></ol>
+<h2>उदाहरण</h2><ul><li><b>बिहार (पटना क्षेत्र):</b> 1 कट्ठा = 1,361.25 वर्ग फ़ुट। तो 3 कट्ठा = 3 × 1,361.25 = 4,083.75 वर्ग फ़ुट, यानी 453.75 गज।</li><li><b>पश्चिम बंगाल:</b> 1 कट्ठा = 720 वर्ग फ़ुट। 2.5 कट्ठे का प्लॉट = 1,800 वर्ग फ़ुट = 200 गज।</li><li><b>असम:</b> 1 बीघा = 5 कट्ठा = 14,400 वर्ग फ़ुट। इसलिए 1 एकड़ (43,560 वर्ग फ़ुट) = 3.025 बीघा।</li><li><b>पंजाब / हरियाणा:</b> 1 कनाल = 20 मरला = 5,445 वर्ग फ़ुट, और 8 कनाल = 1 एकड़। 10 मरले का प्लॉट = 2,722.5 वर्ग फ़ुट।</li><li><b>उत्तर प्रदेश / राजस्थान (पक्का बीघा):</b> 1 बीघा = 27,225 वर्ग फ़ुट = 3,025 गज, इसलिए 1 एकड़ = 1.6 बीघा।</li></ul>
+<h2>राज्य के हिसाब से फ़र्क क्यों?</h2><p>बीघा और कट्ठा पुरानी इकाइयाँ हैं। अलग-अलग रियासतों और ज़मींदारियों ने अपने हिसाब से माप तय किया था, और वही आज भी गाँव में बोला जाता है। इसी वजह से बंगाल और असम का बीघा (14,400 वर्ग फ़ुट) उत्तर प्रदेश या राजस्थान के पक्के बीघे (27,225 वर्ग फ़ुट) का लगभग आधा है, और हिमाचल का बीघा (8,712 वर्ग फ़ुट) उससे भी छोटा। बिहार में ही पटना के आसपास कट्ठा लगभग 1,361 वर्ग फ़ुट माना जाता है, लेकिन कुछ ज़िलों में यह काफ़ी अलग है। सरकारी रिकॉर्ड अब ज़्यादातर एकड़, डिसमिल या हेक्टेयर में लिखे जाते हैं — ये इकाइयाँ पूरे देश में एक हैं।</p>
+<h2>तय इकाइयाँ — इनमें कोई फ़र्क नहीं</h2><p>1 एकड़ = 43,560 वर्ग फ़ुट = 4,840 गज। 1 हेक्टेयर = 10,000 वर्ग मीटर, यानी लगभग 2.471 एकड़। 1 गज (वर्ग गज) = 9 वर्ग फ़ुट। 1 डिसमिल और 1 सेंट दोनों एकड़ का सौवाँ हिस्सा हैं = 435.6 वर्ग फ़ुट। 1 गुंठा = एकड़ का चालीसवाँ हिस्सा = 1,089 वर्ग फ़ुट। तमिलनाडु का 1 ग्राउंड = 2,400 वर्ग फ़ुट।</p>
+<h2>ध्यान रखें</h2><p>यह टूल समझने और अंदाज़ा लगाने के लिए है। ज़मीन ख़रीदने, रजिस्ट्री, बँटवारे या अदालत के काम में हमेशा खतौनी या जमाबंदी में लिखा रकबा और पटवारी या भूमि रिकॉर्ड कार्यालय की बताई वैल्यू ही मानें। गाँव में कौन सा बीघा बोला जाता है — पक्का या कच्चा — यह भी ज़रूर पूछ लें।</p></section>
+  <section class="info"><h2 data-t="faqH">अक्सर पूछे जाने वाले सवाल</h2><div id="faqList"><details class="faq"><summary>1 बीघा कितना गज होता है?</summary><p>राज्य पर निर्भर है। पक्का बीघा (उत्तर प्रदेश, राजस्थान, बिहार का पटना क्षेत्र) = 3,025 गज; पश्चिम बंगाल और असम = 1,600 गज; गुजरात (उत्तर/मध्य) और राजस्थान का कच्चा बीघा = 1,936 गज; हिमाचल = 968 गज। ऊपर अपना राज्य चुनकर देखें।</p></details><details class="faq"><summary>1 कट्ठा कितने वर्ग फ़ुट का होता है?</summary><p>बिहार (पटना क्षेत्र) में 1,361.25 वर्ग फ़ुट, पश्चिम बंगाल में 720 वर्ग फ़ुट और असम में 2,880 वर्ग फ़ुट। बिहार के कई ज़िलों में कट्ठा अलग होता है, इसलिए पटवारी से पक्का करें।</p></details><details class="faq"><summary>1 एकड़ में कितने बीघा होते हैं?</summary><p>पक्के बीघे (27,225 वर्ग फ़ुट) से 1.6 बीघा; गुजरात और राजस्थान के कच्चे बीघे से 2.5; बंगाल और असम में 3.025; हिमाचल में 5 बीघा।</p></details><details class="faq"><summary>मेरा राज्य सूची में नहीं है, क्या करूँ?</summary><p>"दूसरा राज्य / अपनी वैल्यू डालें" चुनें और 1 बीघा (और हो सके तो 1 कट्ठा) कितने वर्ग फ़ुट का है, यह भरें। मध्य प्रदेश, झारखंड, उत्तराखंड जैसे राज्यों में जगह-जगह फ़र्क है, इसलिए हम वहाँ कोई एक वैल्यू नहीं देते।</p></details><details class="faq"><summary>क्या यह वैल्यू रजिस्ट्री के लिए पक्की है?</summary><p>नहीं। यह आम तौर पर मानी जाने वाली वैल्यू है। क़ानूनी काम के लिए खतौनी/जमाबंदी और पटवारी की वैल्यू ही मानें। यह टूल कुछ भी अपलोड नहीं करता।</p></details></div></section>
+  <section class="info"><h2 data-t="srcH">वैल्यू कहाँ से ली गईं</h2><p data-t="srcText">असम और हरियाणा की वैल्यू भारत सरकार के भूमि संसाधन विभाग की "Glossary of Revenue Terms" से हैं। बिहार की वैल्यू बिहार सरकार के बिहार भूमि पोर्टल की राजस्व शब्दावली से है, जो ख़ुद कहती है कि कट्ठा ज़िले-ज़िले बदलता है। बाक़ी राज्यों के लिए वही वैल्यू ली गई है जिस पर कई भरोसेमंद स्रोत एकमत हैं। जहाँ स्रोतों में एकमत नहीं था, वहाँ हमने वैल्यू नहीं दी। एकड़, हेक्टेयर, गज, डिसमिल, गुंठा जैसी इकाइयों की परिभाषा तय है, इनमें कोई फ़र्क नहीं।</p></section>
+  <section class="info"><h2 data-t="privH">आपका डेटा, आपके पास</h2><p data-t="privText">यह टूल बिना किसी सर्वर के आपके फ़ोन/ब्राउज़र में चलता है। आप जो संख्या या राज्य चुनते हैं, वह कहीं नहीं भेजा जाता। सिर्फ़ आपकी पिछली पसंद (राज्य, इकाई) इसी फ़ोन में याद रखी जाती है ताकि अगली बार दोबारा न चुननी पड़े।</p></section>
   <pre id="selftest" class="hidden"></pre>
-  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer"></span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer">फ़्री टूल · कुछ भी अपलोड नहीं होता</span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
 </div>
 
 <script>

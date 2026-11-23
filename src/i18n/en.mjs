@@ -633,6 +633,34 @@ const wishes = {
       { q: 'Why is the first Lohri special?', a: 'For a family with a new marriage or a newborn, the first Lohri is considered very special — relatives gather to bless the new member and give gifts.' },
     ],
   },
+  'good-night': {
+    name: 'Good Night',
+    greet: 'a very Good Night',
+    intro: 'A short good-night message at the end of the day keeps relationships close. Here are simple, heartfelt good-night wishes for family, friends and your special someone.',
+    about: [
+      'Just as sending a "good morning" has become a habit, saying "good night" keeps people close. After a tiring day it is a sweet message that tells the other person someone is thinking of them.',
+      'A good night message works best when it is short and wishes restful sleep and sweet dreams. Before someone\'s exam, journey or big day, a one-line "everything will be fine tomorrow" means a lot.',
+      'A small tip: instead of the same message every day, use the person\'s name now and then. With the "Make your own wish" button below you can send a link with your name.',
+    ],
+    faq: [
+      { q: 'When should I send a good night message?', a: 'Usually between 9 and 11 pm, when people are getting ready to sleep. Avoid very late messages (after midnight) so nobody\'s sleep is disturbed.' },
+      { q: 'How do you say good night in Hindi?', a: '"Shubh ratri" (शुभ रात्रि) is the most common. "Meethe sapne" (sweet dreams) is also said with affection.' },
+    ],
+  },
+  'thank-you': {
+    name: 'Thank You',
+    greet: 'a heartfelt Thank You',
+    intro: 'A sincere "thank you" is the simplest, most beautiful way to acknowledge what someone has done. Here are short, polite thank-you messages for family, friends, teachers and colleagues.',
+    about: [
+      'When someone helps us, gives a gift, or stands by us in a hard time, two words — "thank you" — make the bond stronger. A timely thank-you makes the other person feel good.',
+      'A good thank-you message is short and genuine, and says what you are grateful for. A line like "I will never forget what you did" touches the heart.',
+      'Always say thank you after birthday wishes, help, a gift or any kind act. With the "Make your own wish" button below you can send a link with your name.',
+    ],
+    faq: [
+      { q: 'When should I say thank you?', a: 'When someone helps you, gives a gift, sends wishes or supports you in difficulty — say thank you at that moment or as soon as possible.' },
+      { q: 'How do you say thank you in Hindi?', a: '"Dhanyavaad" (धन्यवाद) is a little formal; "shukriya" (शुक्रिया) is more common in everyday speech. Both mean the same.' },
+    ],
+  },
 };
 
 const games = {

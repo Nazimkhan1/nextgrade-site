@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="hi">
+<html data-prerendered="hi" lang="hi">
 <head>
 <!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
 <meta charset="utf-8">
@@ -13,9 +13,7 @@
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fonts/css/6a45250a9a38.css">
 <script type="application/ld+json" id="faqld">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it free? Do I need to log in?","acceptedAnswer":{"@type":"Answer","text":"Yes, it is completely free. No login, no watermark and no limit on how many stickers you make."}},{"@type":"Question","name":"Is my photo uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. Removing the background, adding the border and making the WebP file all happen inside your phone or browser. The photo is never sent to a server."}},{"@type":"Question","name":"Why exactly 512 × 512 and under 100 KB?","acceptedAnswer":{"@type":"Answer","text":"Sticker packs for WhatsApp expect every sticker to be 512 × 512 pixels, in WebP, smaller than 100 KB, with a little empty space around the edge. The tool checks all of this for you."}},{"@type":"Question","name":"How many stickers does a pack need?","acceptedAnswer":{"@type":"Answer","text":"At least 3 and at most 30. Make as many as you like in the tray and download them together as one ZIP."}},{"@type":"Question","name":"Can I write in Hindi or Bengali?","acceptedAnswer":{"@type":"Answer","text":"Yes. Fonts with Devanagari and Bengali letters are built into the tool, so the letters look right on every phone."}}]}</script>
 <style>
 :root { --bg: #fff0f6; --card: #fff; --ink: #2b0f1c; --muted: #6e4a5a; --brand: #c2255c; --brand2: #f06595; --line: #f6d3e1; --soft: #fff7fa; --ok: #2b8a3e; --warn: #c92a2a; }
@@ -101,14 +99,14 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
 <body>
 <div class="wrap">
   <header>
-    <a class="brand" href="https://nextgrade.in/tools/">🏷️ NextGrade Tools<small data-t="brandSub"></small></a>
+    <a class="brand" href="https://nextgrade.in/tools/">🏷️ NextGrade Tools<small data-t="brandSub">फ़्री · फ़ोटो फ़ोन से बाहर नहीं जाती</small></a>
     <select class="langsel" id="langSel" aria-label="Language">
       <option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option>
     </select>
   </header>
-  <h1 data-t="title"></h1>
-  <p class="sub" data-t="sub"></p>
-  <div class="privacy">🔒 <span data-t="privacy"></span></div>
+  <h1 data-t="title">स्टिकर मेकर — फ़ोटो या टेक्स्ट से स्टिकर बनाएँ</h1>
+  <p class="sub" data-t="sub">फ़ोटो का बैकग्राउंड हटाएँ, सफ़ेद किनारा लगाएँ, या हिंदी/हिंग्लिश/बांग्ला में टेक्स्ट लिखें। 512×512 WebP, 100 KB से कम — WhatsApp स्टिकर पैक के लिए तैयार।</p>
+  <div class="privacy">🔒 <span data-t="privacy">आपकी फ़ोटो कहीं अपलोड नहीं होती। बैकग्राउंड हटाना और स्टिकर बनाना, सब आपके फ़ोन/ब्राउज़र में होता है।</span></div>
 
   <div class="tabs" id="modeTabs">
     <button type="button" data-mode="photo" data-t="tabPhoto"></button>
@@ -117,8 +115,8 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
 
   <div class="card" id="pickCard">
     <div class="drop" id="drop" role="button" tabindex="0">
-      <b data-t="pickTitle"></b>
-      <span class="hint" data-t="pickHint"></span>
+      <b data-t="pickTitle">फ़ोटो चुनें या यहाँ छोड़ें</b>
+      <span class="hint" data-t="pickHint">JPG, PNG, WebP। चेहरा या चीज़ बड़ी और साफ़ हो तो स्टिकर अच्छा बनता है।</span>
       <div class="row" style="justify-content:center;margin-top:12px">
         <button class="btn btn-main" id="pickBtn" type="button" data-t="pickBtn"></button>
         <button class="btn" id="camBtn" type="button" data-t="camBtn"></button>
@@ -211,11 +209,20 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
     <div class="tray" id="tray"></div>
   </div>
 
-  <section class="info"><h2 data-t="linksH"></h2><div class="links" id="links"></div></section>
-  <article id="art"></article>
-  <section class="info"><h2 data-t="faqH"></h2><div id="faqList"></div></section>
-  <section class="info"><h2 data-t="privH"></h2><p data-t="privText"></p></section>
-  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer"></span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+  <section class="info"><h2 data-t="linksH">सीधे यहाँ जाएँ</h2><div class="links" id="links"><a href="./?lang=hi" class="here">📷 फ़ोटो से स्टिकर<small>बैकग्राउंड हटाएँ + सफ़ेद किनारा</small></a><a href="./text-sticker/?lang=hi">🔤 टेक्स्ट स्टिकर<small>सुप्रभात, धन्यवाद, हा हा…</small></a><a href="./../bg-remover/?lang=hi">✂️ Background Remover<small>PNG / JPG</small></a></div></section>
+  <article id="art"><h2>यह स्टिकर मेकर क्या है?</h2>
+<p>यह एक फ़्री टूल है जो आपकी अपनी फ़ोटो या कुछ शब्दों को चैट स्टिकर बना देता है। स्टिकर एक छोटी तस्वीर होती है जिसका बैकग्राउंड पारदर्शी (transparent) होता है, इसलिए वह चैट में किसी डिब्बे के अंदर नहीं, सीधे स्क्रीन पर तैरती हुई दिखती है। टूल आपकी फ़ोटो से इंसान, पालतू जानवर या किसी चीज़ को काटकर अलग करता है, उसके चारों ओर असली काग़ज़ के स्टिकर जैसा सफ़ेद किनारा लगाता है, और उसे 512 × 512 पिक्सेल, WebP फ़ॉर्मेट और 100 KB से कम में सेव करता है — वही साइज़ और फ़ॉर्मेट जो WhatsApp के स्टिकर पैक माँगते हैं। "सुप्रभात" या "धन्यवाद" जैसी लाइन लिखकर हिंदी, हिंग्लिश, बांग्ला या अंग्रेज़ी में टेक्स्ट स्टिकर भी बना सकते हैं।</p>
+<h2>फ़ोटो से स्टिकर कैसे बनाएँ — एक-एक क़दम</h2>
+<ol><li>ऊपर <b>फ़ोटो से स्टिकर</b> चुनें और गैलरी से फ़ोटो लें, या कैमरे से खींचें।</li><li>टूल ख़ुद फ़ोटो के बीच वाली मुख्य चीज़ पकड़ने की कोशिश करता है। ग़लत हिस्सा आया हो तो जिस इंसान या चीज़ को रखना है, उस पर टैप करें। <b>जोड़ें</b> से दूसरा हिस्सा मिलाएँ (जैसे चेहरा और कमीज़), और <b>हटाएँ</b> से फ़ालतू हिस्सा निकालें।</li><li>सफ़ेद किनारा सेट करें: असली स्टिकर जैसा रूप चाहिए तो चालू रखें, स्लाइडर से पतला या मोटा करें।</li><li>चाहें तो ऊपर या नीचे एक लाइन लिखें, और फ़ॉन्ट, रंग और साइज़ चुनें।</li><li><b>ट्रे में डालें</b> दबाएँ। इसी तरह और स्टिकर बनाएँ।</li><li>एक-एक करके डाउनलोड करें, सब एक ZIP में लें, या ट्रे से सीधे शेयर करें।</li></ol>
+<h2>WhatsApp में स्टिकर कैसे लगाएँ</h2>
+<p>कोई भी वेबसाइट WhatsApp में सीधे स्टिकर नहीं डाल सकती। Android पर Play Store से कोई स्टिकर-पैक ऐप लेना पड़ता है: उसमें नया पैक बनाएँ, यहाँ सेव की गई WebP फ़ाइलें इम्पोर्ट करें और पैक को WhatsApp में जोड़ें। एक पैक में कम से कम 3 स्टिकर चाहिए, इसलिए शुरू करने से पहले तीन या ज़्यादा बना लें। iPhone या Android पर सेव की गई तस्वीर को चैट में सीधे भेज भी सकते हैं; वह पारदर्शी बैकग्राउंड वाली तस्वीर की तरह दिखती है। WhatsApp के कुछ नए वर्ज़न में तस्वीर से स्टिकर बनाने का अपना विकल्प भी होता है — दिखे तो यहाँ से सेव की गई फ़ाइल चुनें। यह टूल अलग से बना है, WhatsApp से इसका कोई संबंध नहीं है।</p>
+<h2>अच्छा स्टिकर बनाने के सुझाव</h2>
+<ul><li>ऐसी फ़ोटो लें जिसमें चीज़ बड़ी, साफ़ और अच्छी रोशनी में हो, और बैकग्राउंड अलग रंग का हो।</li><li>चेहरे का क्लोज़-अप, साफ़ भाव के साथ, सबसे अच्छा लगता है: हँसता हुआ, हैरान, अँगूठा ऊपर।</li><li>लाइन छोटी रखें — दो-तीन शब्द फ़ोन पर छोटे साइज़ में भी पढ़ लिए जाते हैं।</li><li>पीले या सफ़ेद अक्षर, गहरे किनारे के साथ, हल्की और गहरी दोनों चैट थीम पर पढ़े जाते हैं।</li><li>एक विचार पर पूरा सेट बनाएँ (शुभकामनाएँ, प्रतिक्रियाएँ, त्योहार की बधाई), ताकि पैक पूरा लगे।</li></ul>
+<h2>आम दिक़्क़तें और उनका हल</h2>
+<ul><li><b>इंसान का कोई हिस्सा कट गया:</b> <b>जोड़ें</b> चुनें और उस हिस्से पर टैप करें।</li><li><b>थोड़ा बैकग्राउंड बच गया:</b> <b>हटाएँ</b> चुनें और उस हिस्से पर टैप करें।</li><li><b>AI लोड नहीं हुआ:</b> पहली बार लगभग 15 MB डाउनलोड होता है, एक बार इंटरनेट जाँच लें। उसके बाद ऑफ़लाइन भी चलता है। तब तक <b>पूरी फ़ोटो</b> या टेक्स्ट स्टिकर इस्तेमाल कर सकते हैं।</li><li><b>WebP की जगह PNG सेव हुआ:</b> कुछ ब्राउज़र (ज़्यादातर iPhone पर) WebP फ़ाइल नहीं बना पाते। स्टिकर ठीक है; स्टिकर-पैक ऐप उसे बदल लेता है।</li></ul></article>
+  <section class="info"><h2 data-t="faqH">अक्सर पूछे जाने वाले सवाल</h2><div id="faqList"><details class="faq"><summary>क्या यह फ़्री है? लॉगिन चाहिए?</summary><p>हाँ, पूरी तरह फ़्री है। न लॉगिन, न वॉटरमार्क, और कितने भी स्टिकर बनाएँ, कोई सीमा नहीं।</p></details><details class="faq"><summary>क्या मेरी फ़ोटो कहीं अपलोड होती है?</summary><p>नहीं। बैकग्राउंड हटाना, किनारा लगाना और WebP फ़ाइल बनाना — सब आपके फ़ोन/ब्राउज़र में ही होता है। फ़ोटो किसी सर्वर पर नहीं जाती।</p></details><details class="faq"><summary>512 × 512 और 100 KB ही क्यों?</summary><p>WhatsApp के स्टिकर पैक में हर स्टिकर 512 × 512 पिक्सेल का, WebP में और 100 KB से छोटा होना चाहिए, किनारों पर थोड़ी ख़ाली जगह के साथ। टूल यह सब ख़ुद जाँचता है।</p></details><details class="faq"><summary>एक पैक में कितने स्टिकर चाहिए?</summary><p>कम से कम 3 और ज़्यादा से ज़्यादा 30। ट्रे में जितने चाहें बनाएँ और सब एक ZIP में डाउनलोड कर लें।</p></details><details class="faq"><summary>क्या हिंदी या बांग्ला में लिख सकते हैं?</summary><p>हाँ। देवनागरी और बांग्ला अक्षरों वाले फ़ॉन्ट टूल के अंदर ही हैं, इसलिए हर फ़ोन पर अक्षर सही दिखते हैं।</p></details></div></section>
+  <section class="info"><h2 data-t="privH">आपकी फ़ोटो, आपके पास</h2><p data-t="privText">यह टूल बिना किसी सर्वर के आपके फ़ोन/ब्राउज़र में चलता है। AI मॉडल पहली बार एक ही बार डाउनलोड होता है, फिर फ़ोन में ही चलता है। आपकी फ़ोटो और स्टिकर कहीं अपलोड नहीं होते, कहीं सेव नहीं होते, और हम उन्हें देख भी नहीं सकते। पेज बंद करते ही ट्रे ख़ाली हो जाती है।</p></section>
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer">फ़्री टूल · कुछ भी अपलोड नहीं होता</span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
 </div>
 
 <script>

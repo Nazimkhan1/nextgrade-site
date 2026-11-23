@@ -839,6 +839,58 @@ const wishes = {
       { q: 'Pehli Lohri kyun khaas hoti hai?', a: 'Jis pariwar mein nayi shaadi hui ho ya naya bachcha aaya ho, unke liye pehli Lohri bahut khaas maani jaati hai — rishtedaar ikatthe hote hain aur naye sadasya ko aashirwad aur tohfe dete hain.' },
     ],
   },
+  'good-night': {
+    name: 'Good Night',
+    greet: 'ek pyari si Good Night',
+    intro: 'Din ke ant mein ek pyara good night message rishton mein apnapan banaye rakhta hai. Yahan shubh ratri ke chhote, saade sandesh hain family, doston aur apne khaas insaan ke liye.',
+    about: [
+      'Jaise subah "good morning" bhejna aadat ban gayi hai, waise hi raat ko "good night" kehna rishton ko kareeb rakhta hai. Yeh dinbhar ki thakan ke baad ek meetha sandesh hai jo batata hai ki koi aapke baare mein soch raha hai.',
+      'Achha good night message chhota hota hai, usmein chain ki neend aur achhe sapnon ki dua hoti hai. Kisi ki exam, safar ya bade din se pehle "kal sab achha hoga" jaisa ek line bahut asar karta hai.',
+      'Chhota sujhaav: roz ek hi message bhejne ke bajay kabhi saamne wale ka naam lekar likho. Niche "Apna wish banayein" button se apne naam ke saath link bhejo.',
+    ],
+    wishes: [
+      'Shubh ratri! Dinbhar ki saari thakan aur chinta bhoolkar chain ki neend soiye.',
+      'Taaron bhare is aasman ke niche aapko milein sabse pyare sapne. Good night!',
+      'Aaj ka din jaisa bhi raha, use yahin chhod dijiye — kal ek nayi shuruaat hai. Shubh ratri!',
+      'Aankhein band kijiye, gehri saans lijiye aur sukoon ki neend mein kho jaiye. Good night!',
+      'Bhagwan aapki raatein shaant aur aapke sapne khoobsurat banaye rakhe. Shubh ratri!',
+      'Thoda aaram kijiye, kal ki taaqat aaj ki neend se aati hai. Good night!',
+      'Jitni gehri neend, utni tarotaaza subah — achhe se soiye. Shubh ratri!',
+      'Din ki har achhi baat ko yaad kijiye aur muskurate hue so jaiye. Good night!',
+      'Kal sab achha hoga — yeh sochkar nishchint hokar so jaiye. Shubh ratri!',
+      'Chaand ko salaam kahiye aur neend ko gale lagaiye. Meethe sapne! Good night!',
+    ],
+    faq: [
+      { q: 'Good night kis samay bhejna chahiye?', a: 'Aam taur par raat 9 se 11 baje ke beech, jab log sone ki taiyari kar rahe hon. Bahut der raat (12 baje ke baad) message bhejne se kisi ki neend tut sakti hai.' },
+      { q: 'Good night ko Hindi mein kya kehte hain?', a: '"Shubh ratri" sabse prachalit hai. "Meethe sapne" ya "chain ki neend" bhi pyaar se kaha jaata hai.' },
+    ],
+  },
+  'thank-you': {
+    name: 'Thank You',
+    greet: 'dil se Thank You',
+    intro: 'Ek sachcha "thank you" kisi ke kiye hue ko pehchaanne ka sabse saral aur sundar tarika hai. Yahan dhanyavaad aur shukriya kehne ke chhote, vinamra sandesh hain family, doston, teachers aur colleagues ke liye.',
+    about: [
+      'Koi hamari madad kare, koi tohfa de, koi mushkil samay mein saath khada rahe — aise mein do shabd "thank you" rishton ko aur mazboot bana dete hain. Sahi samay par kaha gaya shukriya saamne wale ko achha mehsoos karata hai.',
+      'Achha thank you message chhota aur sachcha hota hai, aur usmein bataya hota hai ki aap kis baat ke liye aabhari hain. "Aapne jo kiya, use main kabhi nahi bhoolunga" jaisi line dil ko chhoo jaati hai.',
+      'Birthday wishes, madad, tohfe ya kisi bhi achhe kaam ke baad thank you zaroor kahein. Niche "Apna wish banayein" button se apne naam ke saath link bhejo.',
+    ],
+    wishes: [
+      'Dil se dhanyavaad! Aapki madad aur saath ke liye main hamesha aabhari rahunga.',
+      'Aapne jo kiya, wah shabdon mein nahi kaha ja sakta — bas itna kahunga, shukriya!',
+      'Mushkil samay mein aapka saath mere liye sabse bada sahara tha. Tahe dil se dhanyavaad.',
+      'Aapki chhoti si madad ne mera bada kaam aasan kar diya. Bahut-bahut shukriya!',
+      'Aap jaise log hi zindagi ko khoobsurat banate hain. Aapka tahe dil se dhanyavaad.',
+      'Aapke pyaar, bharose aur saath ke liye shukriya — aap sach mein khaas hain.',
+      'Itne pyare tohfe aur shubhkamnaon ke liye dil se dhanyavaad!',
+      'Aapne mujh par jo bharosa jataya, use main kabhi nahi bhoolunga. Shukriya!',
+      'Dhanyavaad kehna kam hai, par dil se keh raha hun — aapka bahut-bahut aabhaar.',
+      'Har us baat ke liye shukriya jo aapne bina kahe mere liye ki. Dhanyavaad!',
+    ],
+    faq: [
+      { q: 'Dhanyavaad kab kehna chahiye?', a: 'Jab koi aapki madad kare, tohfa de, shubhkamnayein bheje ya mushkil mein saath de — usi samay ya jald se jald dhanyavaad kehna achha rehta hai.' },
+      { q: 'Dhanyavaad aur shukriya mein kya farak hai?', a: 'Dono ka matlab ek hi hai. "Dhanyavaad" thoda formal lagta hai, "shukriya" rozmarra ki bolchaal mein zyada istemal hota hai.' },
+    ],
+  },
 };
 
 const games = {

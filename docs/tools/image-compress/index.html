@@ -13,9 +13,7 @@
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fonts/css/6a45250a9a38.css">
 <style>
 :root { --bg: #e9fbf8; --card: #fff; --ink: #0f2a2e; --muted: #4f6b70; --brand: #0b7285; --brand2: #1098ad; --line: #c5ece6; --soft: #f1fcfa; --ok: #2b8a3e; --warn: #c92a2a; }
 * { box-sizing: border-box; }
@@ -103,42 +101,42 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
 <body>
 <div class="wrap">
   <header>
-    <a class="brand" href="https://nextgrade.in/tools/">🗜️ NextGrade Tools<small data-t="brandSub">फ़्री · फ़ोटो फ़ोन से बाहर नहीं जाती</small></a>
+    <a class="brand" href="https://nextgrade.in/tools/">🗜️ NextGrade Tools<small data-t="brandSub"></small></a>
     <select class="langsel" id="langSel" aria-label="Language">
       <option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option>
     </select>
   </header>
-  <h1 data-t="title">फ़ोटो का KB कम करें — 20 KB, 50 KB, 100 KB, 200 KB</h1>
-  <p class="sub" data-t="sub">फ़ोटो को जितने KB में चाहिए उतने में छोटा करें, JPG या WebP में। एक साथ कई फ़ोटो, पहले/बाद देखें, सब एक ZIP में डाउनलोड।</p>
-  <div class="privacy">🔒 <span data-t="privacy">आपकी फ़ोटो कहीं अपलोड नहीं होती। सारा काम आपके फ़ोन/ब्राउज़र में होता है।</span></div>
+  <h1 data-t="title"></h1>
+  <p class="sub" data-t="sub"></p>
+  <div class="privacy">🔒 <span data-t="privacy"></span></div>
 
   <div class="card">
-    <p class="lbl" data-t="targetH">कितने KB तक छोटी करनी है?</p>
+    <p class="lbl" data-t="targetH"></p>
     <div class="chips" id="chips">
       <button class="chip" type="button" data-kb="20">20 KB</button>
       <button class="chip" type="button" data-kb="50">50 KB</button>
       <button class="chip" type="button" data-kb="100">100 KB</button>
       <button class="chip" type="button" data-kb="200">200 KB</button>
       <button class="chip" type="button" data-kb="500">500 KB</button>
-      <label class="kbin" id="kbinBox"><span data-t="custom">अपना:</span><input id="kbIn" type="number" inputmode="numeric" min="5" max="5000" placeholder="KB" aria-label="KB"><span>KB</span></label>
+      <label class="kbin" id="kbinBox"><span data-t="custom"></span><input id="kbIn" type="number" inputmode="numeric" min="5" max="5000" placeholder="KB" aria-label="KB"><span>KB</span></label>
     </div>
     <div class="fmt" role="radiogroup">
-      <label><input type="radio" name="fmt" value="jpeg" checked> <span data-t="fmtJpg">JPG (हर जगह चलता है)</span></label>
-      <label id="webpOpt"><input type="radio" name="fmt" value="webp"> <span data-t="fmtWebp">WebP (और छोटी फ़ाइल)</span></label>
+      <label><input type="radio" name="fmt" value="jpeg" checked> <span data-t="fmtJpg"></span></label>
+      <label id="webpOpt"><input type="radio" name="fmt" value="webp"> <span data-t="fmtWebp"></span></label>
     </div>
     <details class="adv" id="adv">
-      <summary data-t="advH">⚙️ और विकल्प</summary>
-      <label class="chk"><input type="checkbox" id="keepPx"> <span data-t="keepPx">फ़ोटो की लंबाई-चौड़ाई (px) न बदलें, सिर्फ़ क्वालिटी कम करें</span></label>
+      <summary data-t="advH"></summary>
+      <label class="chk"><input type="checkbox" id="keepPx"> <span data-t="keepPx"></span></label>
       <div class="grid2">
-        <label><span class="hint" data-t="maxSideL">लंबी साइड ज़्यादा से ज़्यादा (px)</span><input class="inp" id="maxSide" type="number" inputmode="numeric" min="50" max="8000" placeholder="—"></label>
-        <label><span class="hint" data-t="minKbL">कम से कम KB (फ़ॉर्म माँगे तो)</span><input class="inp" id="minKb" type="number" inputmode="numeric" min="0" max="5000" placeholder="0"></label>
+        <label><span class="hint" data-t="maxSideL"></span><input class="inp" id="maxSide" type="number" inputmode="numeric" min="50" max="8000" placeholder="—"></label>
+        <label><span class="hint" data-t="minKbL"></span><input class="inp" id="minKb" type="number" inputmode="numeric" min="0" max="5000" placeholder="0"></label>
       </div>
-      <p class="hint" data-t="advNote">ख़ाली छोड़ें तो टूल ख़ुद तय करता है। फ़ॉर्म px भी माँगता हो तो "फ़ॉर्म फ़ोटो रीसाइज़र" इस्तेमाल करें।</p>
+      <p class="hint" data-t="advNote"></p>
     </details>
 
     <div class="drop" id="drop" role="button" tabindex="0">
-      <b data-t="pickTitle">फ़ोटो चुनें — एक या कई</b>
-      <span class="hint" data-t="pickHint">JPG, PNG, WebP। गैलरी से एक साथ कई फ़ोटो चुन सकते हैं।</span>
+      <b data-t="pickTitle"></b>
+      <span class="hint" data-t="pickHint"></span>
       <div class="row" style="justify-content:center;margin-top:12px">
         <button class="btn btn-main" id="pickBtn" type="button" data-t="pickBtn"></button>
         <button class="btn" id="camBtn" type="button" data-t="camBtn"></button>
@@ -161,13 +159,13 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
   </div>
 
   <section class="info hidden" id="pageInfo"></section>
-  <section class="info"><h2 data-t="sizesH">सीधे इस साइज़ के लिए</h2><p class="hint" data-t="sizesNote">हर साइज़ का अपना पेज है, वही साइज़ पहले से चुना हुआ।</p><div class="sizes" id="sizeLinks"><a href="./20kb/?lang=hi">फ़ोटो 20 KB में<small>SSC, बैंक फ़ॉर्म सिग्नेचर/फ़ोटो</small></a><a href="./50kb/?lang=hi">फ़ोटो 50 KB में<small>सरकारी फ़ॉर्म की फ़ोटो</small></a><a href="./100kb/?lang=hi">फ़ोटो 100 KB में<small>एडमिशन, स्कॉलरशिप</small></a><a href="./200kb/?lang=hi">फ़ोटो 200 KB में<small>NEET/JEE, डॉक्यूमेंट</small></a><a href="./../form-helper/?lang=hi">📝 फ़ॉर्म फ़ोटो रीसाइज़र<small>SSC · UPSC · Bank · NEET</small></a></div></section>
-  <section class="info"><h2 data-t="howH">कैसे करें</h2><ol id="howList"><li>ऊपर <b>KB</b> चुनें — 20, 50, 100, 200, 500 या अपना लिखें।</li><li><b>गैलरी से चुनें</b> (कई फ़ोटो एक साथ भी) या <b>कैमरा से लें</b>।</li><li>टूल हर फ़ोटो को उस KB से नीचे ले आता है — सबसे अच्छी क्वालिटी के साथ जो फ़िट हो।</li><li><b>👁️ पहले/बाद</b> से क्वालिटी देख लें।</li><li><b>डाउनलोड</b> दबाएँ, या सब एक साथ <b>ZIP</b> में लें।</li></ol></section>
-  <section class="info"><h2 data-t="tableH">कौन सा KB कब?</h2><p class="hint" data-t="tableNote">यह आम अंदाज़ा है। फ़ॉर्म या वेबसाइट जो लिखे, वही मानें।</p><div class="tblwrap"><table class="tbl" id="useTable"><tbody><tr><th>कहाँ चाहिए</th><th>आम KB</th><th>अच्छा px (लंबी साइड)</th></tr><tr><td>सरकारी फ़ॉर्म का सिग्नेचर</td><td>10–20 KB</td><td>300–600</td></tr><tr><td>सरकारी / बैंक फ़ॉर्म की फ़ोटो</td><td>20–50 KB</td><td>300–600</td></tr><tr><td>एडमिशन, स्कॉलरशिप पोर्टल</td><td>50–100 KB</td><td>600–1000</td></tr><tr><td>NEET, JEE, CUET फ़ॉर्म की फ़ोटो</td><td>10–200 KB</td><td>400–1000</td></tr><tr><td>मार्कशीट, सर्टिफ़िकेट की फ़ोटो</td><td>100–300 KB</td><td>1200–1800</td></tr><tr><td>ईमेल, WhatsApp, वेबसाइट</td><td>200–500 KB</td><td>1600–2000</td></tr></tbody></table></div></section>
-  <section class="info"><h2 data-t="tipsH">काम की बातें</h2><ul id="tipList"><li>फ़ॉर्म "20–50 KB" माँगे तो <b>50 KB</b> चुनें और "और विकल्प" में कम से कम <b>20 KB</b> डालें।</li><li>पहले गैलरी में फ़ोटो क्रॉप कर लें (सिर्फ़ चेहरा या सिर्फ़ डॉक्यूमेंट)। बेकार हिस्सा हटने से उसी KB में फ़ोटो ज़्यादा साफ़ आती है।</li><li>सरकारी फ़ॉर्म अक्सर सिर्फ़ <b>JPG/JPEG</b> लेते हैं — वहाँ WebP न चुनें।</li><li>बहुत छोटे KB (10–20) में थोड़ा धुँधलापन सामान्य है। ज़रूरत हो तो px कम रखें, क्वालिटी अच्छी रहेगी।</li><li>स्क्रीनशॉट की जगह असली फ़ोटो डालें; स्क्रीनशॉट में फ़ालतू चीज़ें आ जाती हैं।</li></ul></section>
-  <section class="info"><h2 data-t="faqH">अक्सर पूछे जाने वाले सवाल</h2><div id="faqList"><details class="faq"><summary>क्या मेरी फ़ोटो किसी सर्वर पर जाती है?</summary><p>नहीं। फ़ोटो आपके फ़ोन/ब्राउज़र में ही छोटी होती है। पेज एक बार खुल जाए तो इंटरनेट बंद करके भी चलता है।</p></details><details class="faq"><summary>फ़ोटो 20 KB कैसे करें?</summary><p>ऊपर 20 KB चुनें और फ़ोटो डालें। टूल पहले JPG क्वालिटी कम करता है; फिर भी बड़ी हो तो फ़ोटो की लंबाई-चौड़ाई (px) थोड़ी कम करता है, जब तक फ़ाइल 20 KB से नीचे न आ जाए।</p></details><details class="faq"><summary>KB और px में क्या फ़र्क है?</summary><p>KB बताता है फ़ाइल कितनी जगह लेती है। px (पिक्सेल) बताता है फ़ोटो कितनी चौड़ी और लंबी है। फ़ॉर्म सिर्फ़ KB माँगे तो यह टूल काफ़ी है; px भी तय हो (जैसे 200×230) तो फ़ॉर्म फ़ोटो रीसाइज़र इस्तेमाल करें।</p></details><details class="faq"><summary>क्वालिटी ख़राब तो नहीं होगी?</summary><p>टूल वही सबसे अच्छी क्वालिटी चुनता है जो आपके KB में फ़िट हो। पहले/बाद बटन से ख़ुद देख लें। बहुत छोटे KB में थोड़ा फ़र्क दिखना सामान्य है।</p></details><details class="faq"><summary>WebP क्या है?</summary><p>एक नया फ़ोटो फ़ॉर्मेट जिसमें उसी क्वालिटी में फ़ाइल और छोटी बनती है। वेबसाइट और WhatsApp के लिए अच्छा है, लेकिन सरकारी फ़ॉर्म अक्सर सिर्फ़ JPG लेते हैं।</p></details><details class="faq"><summary>PNG फ़ोटो का पारदर्शी (transparent) हिस्सा क्या होगा?</summary><p>JPG में पारदर्शी हिस्सा सफ़ेद हो जाता है। WebP में पारदर्शी ही रहता है।</p></details></div></section>
-  <section class="info"><h2 data-t="privH">आपकी फ़ोटो, आपके पास</h2><p data-t="privText">यह टूल बिना किसी सर्वर के आपके फ़ोन/ब्राउज़र में चलता है। आपकी फ़ोटो कहीं अपलोड नहीं होती, कहीं सेव नहीं होती, और हम उसे देख भी नहीं सकते। पेज बंद करते ही सब मिट जाता है।</p></section>
-  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer">फ़्री टूल · कुछ भी अपलोड नहीं होता</span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+  <section class="info"><h2 data-t="sizesH"></h2><p class="hint" data-t="sizesNote"></p><div class="sizes" id="sizeLinks"></div></section>
+  <section class="info"><h2 data-t="howH"></h2><ol id="howList"></ol></section>
+  <section class="info"><h2 data-t="tableH"></h2><p class="hint" data-t="tableNote"></p><div class="tblwrap"><table class="tbl" id="useTable"></table></div></section>
+  <section class="info"><h2 data-t="tipsH"></h2><ul id="tipList"></ul></section>
+  <section class="info"><h2 data-t="faqH"></h2><div id="faqList"></div></section>
+  <section class="info"><h2 data-t="privH"></h2><p data-t="privText"></p></section>
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer"></span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
 </div>
 
 <div class="modal hidden" id="modal" role="dialog" aria-modal="true">

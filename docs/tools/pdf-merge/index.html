@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="hi">
+<html data-prerendered="hi" lang="hi">
 <head>
 <!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
 <meta charset="utf-8">
@@ -13,9 +13,7 @@
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fonts/css/6a45250a9a38.css">
 <style>
 :root { --bg: #f3f0ff; --card: #fff; --ink: #1f1640; --muted: #5f5880; --brand: #6741d9; --brand2: #845ef7; --line: #ddd4fb; --soft: #f8f6ff; --ok: #2b8a3e; --warn: #c92a2a; }
 * { box-sizing: border-box; }
@@ -114,14 +112,14 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
 <body>
 <div class="wrap">
   <header>
-    <a class="brand" href="https://nextgrade.in/tools/">📑 NextGrade Tools<small data-t="brandSub"></small></a>
+    <a class="brand" href="https://nextgrade.in/tools/">📑 NextGrade Tools<small data-t="brandSub">फ़्री · PDF फ़ोन से बाहर नहीं जाती</small></a>
     <select class="langsel" id="langSel" aria-label="Language">
       <option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option>
     </select>
   </header>
-  <h1 data-t="title"></h1>
-  <p class="sub" data-t="sub"></p>
-  <div class="privacy">🔒 <span data-t="privacy"></span></div>
+  <h1 data-t="title">PDF जोड़ें या पेज अलग करें — फ़्री</h1>
+  <p class="sub" data-t="sub">कई PDF और फ़ोटो को एक PDF में जोड़ें, या एक PDF से कुछ पेज निकालें, हटाएँ या घुमाएँ। टेक्स्ट और क्वालिटी बिल्कुल वैसी ही रहती है।</p>
+  <div class="privacy">🔒 <span data-t="privacy">आपकी PDF कहीं अपलोड नहीं होती। सारा काम आपके फ़ोन/ब्राउज़र में होता है।</span></div>
 
   <div class="card">
     <div class="tabs" role="tablist">
@@ -132,8 +130,8 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
     <!-- merge -->
     <div id="mergePanel">
       <div class="drop" id="mDrop" role="button" tabindex="0">
-        <b data-t="mPickTitle"></b>
-        <span class="hint" data-t="mPickHint"></span>
+        <b data-t="mPickTitle">PDF या फ़ोटो चुनें — जितनी चाहिए</b>
+        <span class="hint" data-t="mPickHint">PDF, JPG, PNG। हर फ़ोटो एक पेज बन जाती है। क्रम बाद में बदल सकते हैं।</span>
         <div class="row" style="justify-content:center;margin-top:12px"><button class="btn btn-main" id="mPickBtn" type="button" data-t="pickBtn"></button></div>
       </div>
       <input type="file" id="mFile" accept="application/pdf,.pdf,image/*" multiple hidden>
@@ -197,19 +195,19 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
 
   <pre id="selftest" class="hidden"></pre>
   <section class="info hidden" id="pageInfo"></section>
-  <section class="info"><h2 data-t="moreH"></h2><div class="links" id="links"></div></section>
+  <section class="info"><h2 data-t="moreH">सीधे इस काम के लिए</h2><div class="links" id="links"><a href="./?lang=hi" class="here">🔗 PDF जोड़ें<small>कई PDF + फ़ोटो → एक PDF</small></a><a href="./split/?lang=hi">✂️ PDF से पेज निकालें<small>चुने पेज या हर पेज अलग</small></a><a href="./delete-pages/?lang=hi">🗑️ PDF से पेज हटाएँ<small>फ़ालतू पेज डिलीट, उल्टा पेज सीधा</small></a><a href="./../pdf-compress/?lang=hi">🗜️ PDF छोटी करें<small>फ़ॉर्म की KB सीमा के लिए</small></a><a href="./../doc-scanner/?lang=hi">📷 डॉक्यूमेंट स्कैनर<small>काग़ज़ की फ़ोटो → PDF</small></a><a href="./../image-compress/?lang=hi">🖼️ फ़ोटो का KB कम करें<small>20 / 50 / 100 KB</small></a></div></section>
   <!--main-only-->
-  <section class="info"><h2 data-t="aboutH"></h2><div id="aboutText"></div></section>
-  <section class="info"><h2 data-t="whenH"></h2><ul id="whenList"></ul></section>
-  <section class="info"><h2 data-t="howH"></h2><ol id="howList"></ol></section>
-  <section class="info"><h2 data-t="tipsH"></h2><ul id="tipList"></ul></section>
-  <section class="info"><h2 data-t="probH"></h2><ul id="probList"></ul></section>
+  <section class="info"><h2 data-t="aboutH">यह टूल क्या करता है?</h2><div id="aboutText"><p>ऑनलाइन फ़ॉर्म, कॉलेज एडमिशन, नौकरी की अर्ज़ी या बैंक का काम — अक्सर कहा जाता है कि सारे डॉक्यूमेंट <b>एक ही PDF</b> में भेजें। कभी उल्टा होता है: 40 पेज की PDF में से सिर्फ़ एक पेज चाहिए होता है। यह टूल दोनों काम करता है। कई PDF और फ़ोटो को एक फ़ाइल में <b>जोड़ता</b> है, और एक PDF के पेजों को <b>अलग करता</b>, <b>हटाता</b> या <b>घुमाता</b> है।</p><p>पेजों को फ़ोटो बनाकर दोबारा नहीं छापा जाता। हर पेज जैसा है वैसा ही नई फ़ाइल में कॉपी होता है। इसलिए टेक्स्ट सेलेक्ट होता रहता है, क्वालिटी वैसी ही रहती है और फ़ाइल बेवजह बड़ी नहीं होती। सारा काम आपके फ़ोन के ब्राउज़र में होता है — न अकाउंट, न ऐप इंस्टॉल, न वॉटरमार्क।</p></div></section>
+  <section class="info"><h2 data-t="whenH">कब काम आता है?</h2><ul id="whenList"><li>एडमिशन या स्कॉलरशिप फ़ॉर्म जो मार्कशीट, सर्टिफ़िकेट और ID की एक ही PDF माँगता है। ऐसे पोर्टल अक्सर 1–2 MB तक की फ़ाइल लेते हैं।</li><li>फ़ोन से खींची अलग-अलग फ़ोटो (ID कार्ड का आगे-पीछे, मार्कशीट के दो पन्ने) को एक PDF बनाना।</li><li>बड़ी PDF में से सिर्फ़ ज़रूरी पेज भेजना — जैसे रिज़ल्ट का एक पेज या बिल का पहला पेज — WhatsApp या ईमेल पर।</li><li>स्कैनर से आए ख़ाली या उल्टे पेज हटाना या सीधे करना, फ़ॉर्म जमा करने से पहले।</li><li>लंबी PDF के हर पेज को अलग फ़ाइल बनाना, जब पोर्टल हर डॉक्यूमेंट अलग-अलग अपलोड करवाता है।</li></ul></section>
+  <section class="info"><h2 data-t="howH">कैसे करें</h2><ol id="howList"><li><b>🔗 PDF जोड़ें</b> में PDF और फ़ोटो चुनें — एक साथ या एक-एक करके।</li><li>क्रम ठीक करें: ⋮⋮ से खिसकाएँ या ↑ ↓ दबाएँ। ग़लत फ़ाइल ✕ से हटाएँ।</li><li><b>एक PDF बनाएँ</b> दबाएँ। नाम बदलना हो तो बदलें, फिर <b>डाउनलोड</b> या <b>शेयर</b>।</li><li>कुछ पेज निकालने, हटाने या घुमाने के लिए <b>✂️ पेज अलग करें</b> खोलें, PDF चुनें, पेजों पर टैप करें या "1-3, 5" लिखें।</li><li><b>चुने पेजों की PDF</b> दबाएँ — या हर पेज अलग चाहिए तो <b>हर पेज अलग PDF (ZIP)</b>।</li></ol></section>
+  <section class="info"><h2 data-t="tipsH">काम की बातें</h2><ul id="tipList"><li>फ़ॉर्म "सारे डॉक्यूमेंट एक PDF में" माँगे तो मार्कशीट, सर्टिफ़िकेट, ID सब यहाँ जोड़ें। फ़ोटो भी सीधे डाल सकते हैं, वह अपने आप पेज बन जाती है।</li><li>जुड़ी हुई PDF फ़ॉर्म की KB सीमा से बड़ी हो तो उसे PDF कंप्रेसर से छोटा करें।</li><li>कोई पेज उल्टा या तिरछा है? <b>पेज अलग करें</b> में उस पेज का ↻ दबाएँ और नई PDF बना लें।</li><li>यह टूल पेजों को फ़ोटो में नहीं बदलता। इसलिए टेक्स्ट सेलेक्ट और सर्च होता रहता है, और क्वालिटी बिल्कुल वही रहती है।</li><li>बहुत बड़ी PDF (सौ से ज़्यादा पेज) पुराने फ़ोन पर थोड़ा समय ले सकती है। तब तक पेज बंद न करें।</li></ul></section>
+  <section class="info"><h2 data-t="probH">आम दिक़्क़तें और उनका हल</h2><ul id="probList"><li><b>"ताला है / पासवर्ड" वाला संदेश:</b> PDF सुरक्षित है। उसे PDF व्यूअर में खोलकर "Print → Save as PDF" करें और नई कॉपी यहाँ डालें।</li><li><b>जुड़ी हुई PDF फ़ॉर्म की सीमा से बड़ी है:</b> फ़ोटो का KB पहले कम करें (फ़ोटो कंप्रेसर से) या बाद में PDF कंप्रेसर चलाएँ।</li><li><b>फ़ोटो PDF में टेढ़ी आई:</b> "पेज अलग करें" में उस पेज का ↻ दबाएँ और नई PDF बनाएँ।</li><li><b>iPhone की फ़ोटो नहीं जुड़ी:</b> HEIC फ़ोटो हर ब्राउज़र में नहीं खुलती। Settings → Camera → Formats → "Most Compatible" करें, या स्क्रीनशॉट डालें।</li><li><b>डाउनलोड के बाद फ़ाइल नहीं मिली:</b> फ़ोन के Downloads फ़ोल्डर या Files ऐप में देखें। शेयर बटन से सीधे WhatsApp या Drive में भी भेज सकते हैं।</li></ul></section>
   <!--/main-only-->
-  <section class="info"><h2 data-t="faqH"></h2><div id="faqList"></div></section>
+  <section class="info"><h2 data-t="faqH">अक्सर पूछे जाने वाले सवाल</h2><div id="faqList"><details class="faq"><summary>क्या मेरी PDF किसी सर्वर पर जाती है?</summary><p>नहीं। जोड़ना, काटना, घुमाना सब आपके फ़ोन/ब्राउज़र के अंदर होता है। पेज एक बार खुल जाए तो इंटरनेट बंद करके भी चलता है।</p></details><details class="faq"><summary>PDF से एक पेज अलग कैसे करें?</summary><p>"पेज अलग करें" खोलें, PDF चुनें, उस पेज पर टैप करें (या नंबर लिखें) और "चुने पेजों की PDF" दबाएँ। हर पेज अलग फ़ाइल चाहिए तो "हर पेज अलग PDF (ZIP)" दबाएँ।</p></details><details class="faq"><summary>दो PDF एक कैसे करें?</summary><p>"PDF जोड़ें" में दोनों PDF चुनें, क्रम देख लें और "एक PDF बनाएँ" दबाएँ। तीन, चार या ज़्यादा भी हो सकती हैं।</p></details><details class="faq"><summary>क्वालिटी कम तो नहीं होगी?</summary><p>नहीं। पेज जैसे हैं वैसे ही कॉपी होते हैं — टेक्स्ट, फ़ोटो, सब। JPG/PNG फ़ोटो भी बिना दोबारा कंप्रेस किए लगती है।</p></details><details class="faq"><summary>पासवर्ड वाली PDF क्यों नहीं खुलती?</summary><p>ताले वाली PDF को यह टूल बदल नहीं सकता। उसे अपने PDF व्यूअर में खोलकर "Print → Save as PDF" करें; नई कॉपी बिना ताले के बनती है। वह यहाँ डालें।</p></details></div></section>
   <!--main-only-->
-  <section class="info"><h2 data-t="privH"></h2><p data-t="privText"></p></section>
+  <section class="info"><h2 data-t="privH">आपकी PDF, आपके पास</h2><p data-t="privText">यह टूल बिना किसी सर्वर के आपके फ़ोन/ब्राउज़र में चलता है। आपकी PDF और फ़ोटो कहीं अपलोड नहीं होती, कहीं सेव नहीं होती, और हम उन्हें देख भी नहीं सकते। पेज बंद करते ही सब मिट जाता है।</p></section>
   <!--/main-only-->
-  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer"></span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer">फ़्री टूल · कुछ भी अपलोड नहीं होता</span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
 </div>
 
 <script>

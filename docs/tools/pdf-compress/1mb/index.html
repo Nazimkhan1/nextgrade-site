@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="hi">
+<html data-prerendered="hi" lang="hi">
 <head>
 <!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
 <meta charset="utf-8">
@@ -13,9 +13,7 @@
 <link rel="manifest" href="../manifest.json">
 <link rel="icon" href="../icons/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fonts/css/6a45250a9a38.css">
 <style>
 :root { --bg: #fff4f1; --card: #fff; --ink: #2e1412; --muted: #745450; --brand: #c92a2a; --brand2: #e8590c; --line: #f5d2ca; --soft: #fff8f6; --ok: #2b8a3e; --warn: #c92a2a; }
 * { box-sizing: border-box; }
@@ -106,32 +104,32 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
 <body>
 <div class="wrap">
   <header>
-    <a class="brand" href="https://nextgrade.in/tools/">📄 NextGrade Tools<small data-t="brandSub"></small></a>
+    <a class="brand" href="https://nextgrade.in/tools/">📄 NextGrade Tools<small data-t="brandSub">फ़्री · PDF फ़ोन से बाहर नहीं जाती</small></a>
     <select class="langsel" id="langSel" aria-label="Language">
       <option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option>
     </select>
   </header>
-  <h1 data-t="title"></h1>
-  <p class="sub" data-t="sub"></p>
-  <div class="privacy">🔒 <span data-t="privacy"></span></div>
+  <h1 data-t="title">PDF 1 MB में कैसे करें — फ़्री</h1>
+  <p class="sub" data-t="sub">लंबी PDF — रिपोर्ट, रिज़्यूमे, स्कैन की हुई फ़ाइल — को 1 MB से छोटा करें, पोर्टल या ईमेल के लिए। सब फ़ोन पर, कुछ अपलोड नहीं होता।</p>
+  <div class="privacy">🔒 <span data-t="privacy">आपकी PDF कहीं अपलोड नहीं होती। सारा काम आपके फ़ोन/ब्राउज़र में होता है।</span></div>
 
   <div class="card">
-    <p class="lbl" data-t="targetH"></p>
+    <p class="lbl" data-t="targetH">PDF कितने KB से छोटी चाहिए?</p>
     <div class="chips" id="chips">
       <button class="chip" type="button" data-kb="100">100 KB</button>
       <button class="chip" type="button" data-kb="200">200 KB</button>
       <button class="chip" type="button" data-kb="300">300 KB</button>
       <button class="chip" type="button" data-kb="500">500 KB</button>
       <button class="chip" type="button" data-kb="1000">1 MB</button>
-      <label class="kbin" id="kbinBox"><span data-t="custom"></span><input id="kbIn" type="number" inputmode="numeric" min="10" max="20000" placeholder="KB" aria-label="KB"><span>KB</span></label>
+      <label class="kbin" id="kbinBox"><span data-t="custom">अपना:</span><input id="kbIn" type="number" inputmode="numeric" min="10" max="20000" placeholder="KB" aria-label="KB"><span>KB</span></label>
       <button class="chip" type="button" data-kb="0" data-t="smaller"></button>
     </div>
-    <label class="chk"><input type="checkbox" id="gray"> <span data-t="grayL"></span></label>
-    <p class="note">ℹ️ <span data-t="imgNote"></span></p>
+    <label class="chk"><input type="checkbox" id="gray"> <span data-t="grayL">ब्लैक एंड व्हाइट करें — स्कैन किए या फ़ोटो खींचे काग़ज़ के लिए (फ़ाइल और छोटी बनती है)</span></label>
+    <p class="note">ℹ️ <span data-t="imgNote">ध्यान दें: छोटी PDF के पेज फ़ोटो जैसे बन जाते हैं, इसलिए उसका टेक्स्ट सेलेक्ट या कॉपी नहीं होगा। फ़ॉर्म में अपलोड करने के लिए इससे कोई फ़र्क नहीं पड़ता।</span></p>
 
     <div class="drop" id="drop" role="button" tabindex="0">
-      <b data-t="pickTitle"></b>
-      <span class="hint" data-t="pickHint"></span>
+      <b data-t="pickTitle">PDF चुनें</b>
+      <span class="hint" data-t="pickHint">एक PDF फ़ाइल चुनें, या उसे यहाँ खींचकर छोड़ें।</span>
       <div class="row" style="justify-content:center;margin-top:12px">
         <button class="btn btn-main" id="pickBtn" type="button" data-t="pickBtn"></button>
       </div>
@@ -163,9 +161,9 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
     </div>
   </div>
 
-  <section class="info" id="pageInfo"></section>
-  <section class="info" id="pageFaq"><h2 data-t="faqH"></h2><div id="pageFaqList"></div></section>
-  <section class="info"><h2 data-t="sizesH"></h2><p class="hint" data-t="sizesNote"></p><div class="sizes" id="sizeLinks"></div></section>
+  <section class="info" id="pageInfo"><h2>1 MB की ज़रूरत कब पड़ती है?</h2><p>कई पोर्टल पूरे डॉक्यूमेंट सेट के लिए <b>1 MB</b> की सीमा रखते हैं — जैसे प्रोजेक्ट रिपोर्ट, इंटर्नशिप सर्टिफ़िकेट के साथ पूरी फ़ाइल, या स्कैन की हुई 20–30 पेज की फ़ाइल। कुछ लोग ईमेल में भेजने से पहले भी PDF को 1 MB के आसपास लाते हैं, ताकि वह जल्दी खुले और फ़ोन का डेटा कम लगे।</p><p>1 MB में काफ़ी जगह है, इसलिए यहाँ क्वालिटी अक्सर अच्छी रहती है। असली मुश्किल तब आती है जब फ़ोन से खींचे गए 20–30 पेज की PDF 15–40 MB तक पहुँच जाती है। यह टूल उसे 1 MB के अंदर ले आता है।</p><h2>सीधे क़दम</h2><ol><li>1 MB पहले से चुना हुआ है। फ़ॉर्म "2 MB" लिखे तो "अपना" में 2000 लिखें।</li><li>पेज की फ़ोटो या स्कैन हों तो <b>ब्लैक एंड व्हाइट</b> सोचें; रंगीन चार्ट या फ़ोटो वाली रिपोर्ट हो तो बंद रखें।</li><li><b>PDF चुनें</b>। बड़ी PDF खुलने में कुछ सेकंड ले सकती है।</li><li>प्रोग्रेस बार में "कोशिश" और पेज नंबर दिखते हैं। 30 पेज में फ़ोन के हिसाब से थोड़ा समय लगता है — स्क्रीन चालू रखें।</li><li>नतीजा आते ही साइज़ देखें, पहला पेज जाँचें और <b>डाउनलोड</b> या <b>शेयर</b> करें।</li></ol><h2>1 MB का मतलब यहाँ क्या है</h2><p>वेबसाइट "1 MB" अलग-अलग तरह गिनती हैं: कुछ 10,00,000 बाइट, कुछ 10,48,576 बाइट। यह टूल हमेशा छोटे वाले, यानी 10,00,000 बाइट से नीचे रहता है, ताकि दोनों तरह के फ़ॉर्म फ़ाइल ले लें।</p><p>हमारे टेस्ट में रंगीन तस्वीर वाले 30 A4 पेज 1 MB के अंदर आ गए। सिर्फ़ लिखाई के स्कैन ब्लैक एंड व्हाइट के साथ और भी अच्छे आते हैं। 50 से ज़्यादा पेज हों तो 1 MB में लिखाई हल्की धुँधली हो सकती है।</p><h2>लंबी PDF के लिए सुझाव</h2><ul><li>शुरू करने से पहले फ़ोन के दूसरे भारी ऐप बंद कर दें; लंबी PDF में मेमोरी काम आती है।</li><li>कवर पेज या बेकार पेज हटाकर PDF छोटी करेंगे तो बाक़ी पेज की क्वालिटी बढ़ेगी।</li><li>रिपोर्ट में ग्राफ़ या रंगीन फ़ोटो हो तो ब्लैक एंड व्हाइट बंद रखें; सिर्फ़ टाइप किए पेज हों तो चालू करें।</li><li>बड़ी फ़ाइल होने पर शेयर की जगह डाउनलोड करके फिर ऐप से भेजना अक्सर आसान रहता है।</li></ul><h2>दिक़्क़त आए तो</h2><dl class="probs"><dt>PDF खुलने में बहुत देर लग रही है</dt><dd>बहुत बड़ी PDF (50 MB+) फ़ोन की मेमोरी पर भारी पड़ती है। उसे दो हिस्सों में बाँटकर अलग-अलग छोटा करें।</dd><dt>कुछ पेज ख़ाली आए</dt><dd>कभी-कभी PDF का कोई पेज ख़राब होता है। असली PDF में वह पेज खुल रहा है या नहीं, देख लें; न खुले तो उस पेज को दोबारा स्कैन करें।</dd><dt>टेक्स्ट वाली PDF छोटी नहीं हुई</dt><dd>कंप्यूटर पर बनी टेक्स्ट PDF पहले से हल्की होती है; तस्वीर बनाने से वह बड़ी हो जाती। इसलिए टूल असली फ़ाइल रखता है — वह पहले से अपलोड के लायक है।</dd></dl><p>🔒 लंबी रिपोर्ट और स्कैन की हुई फ़ाइलों में बहुत निजी जानकारी हो सकती है। यह टूल एक भी पेज कहीं नहीं भेजता; सारा काम आपके फ़ोन पर होता है।</p></section>
+  <section class="info" id="pageFaq"><h2 data-t="faqH">अक्सर पूछे जाने वाले सवाल</h2><div id="pageFaqList"><details class="faq"><summary>यहाँ 1 MB का मतलब 1000 KB है या 1024 KB?</summary><p>टूल फ़ाइल को 10,00,000 बाइट से नीचे रखता है। यह दोनों हिसाब से 1 MB से कम है, इसलिए फ़ॉर्म इसे लेगा।</p></details><details class="faq"><summary>मेरी PDF 800 KB की है, क्या होगा?</summary><p>वह पहले से 1 MB से छोटी है, इसलिए टूल उसे वैसा ही रखता है। और छोटी चाहिए तो ऊपर "बस छोटी कर दें" चुनें।</p></details><details class="faq"><summary>30 पेज की PDF में कितना समय लगेगा?</summary><p>नए फ़ोन पर अक्सर कुछ सेकंड; पुराने फ़ोन पर एक-दो मिनट। प्रोग्रेस बार से पता चलता रहता है।</p></details><details class="faq"><summary>क्या पेज की गिनती की कोई सीमा है?</summary><p>कोई तय सीमा नहीं है। बस जितने ज़्यादा पेज, उतना ज़्यादा समय और हर पेज के लिए उतनी कम जगह।</p></details><details class="faq"><summary>ईमेल के लिए रिज़्यूमे छोटा करूँ?</summary><p>रिज़्यूमे का टेक्स्ट सेलेक्ट हो सके, यह अच्छा है। असली फ़ाइल ईमेल में चली जाए तो वही भेजें; इसे तब इस्तेमाल करें जब कोई फ़ॉर्म छोटी फ़ाइल माँगे।</p></details></div></section>
+  <section class="info"><h2 data-t="sizesH">सीधे इस साइज़ के लिए</h2><p class="hint" data-t="sizesNote">हर साइज़ का अपना पेज है, वही साइज़ पहले से चुना हुआ।</p><div class="sizes" id="sizeLinks"><a href="../100kb/?lang=hi">PDF 100 KB में<small>सर्टिफ़िकेट, मार्कशीट</small></a><a href="../200kb/?lang=hi">PDF 200 KB में<small>स्कॉलरशिप, एडमिशन</small></a><a href="../500kb/?lang=hi">PDF 500 KB में<small>नौकरी का फ़ॉर्म</small></a><a href="../1mb/?lang=hi" class="here">PDF 1 MB में<small>रिज़्यूमे, लंबी PDF</small></a><a href="../?lang=hi">📄 अपना KB<small>बस छोटी कर दें</small></a><a href="../../image-compress/?lang=hi">🗜️ फ़ोटो का KB कम करें<small>JPG · WebP</small></a><a href="../../doc-scanner/?lang=hi">📷 काग़ज़ की फ़ोटो से PDF<small>PDF</small></a></div></section>
   <section class="info gen hidden"><h2 data-t="aboutH"></h2><div id="aboutBox"></div></section>
   <section class="info gen hidden"><h2 data-t="howH"></h2><ol id="howList"></ol></section>
   <section class="info gen hidden"><h2 data-t="tableH"></h2><p class="hint" data-t="tableNote"></p><div class="tblwrap"><table class="tbl" id="useTable"></table></div></section>
@@ -173,7 +171,7 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
   <section class="info gen hidden"><h2 data-t="probH"></h2><div id="probList"></div></section>
   <section class="info gen hidden"><h2 data-t="faqH"></h2><div id="faqList"></div></section>
   <section class="info gen hidden"><h2 data-t="privH"></h2><p data-t="privText"></p></section>
-  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer"></span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer">फ़्री टूल · कुछ भी अपलोड नहीं होता</span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
 </div>
 
 <div class="modal hidden" id="modal" role="dialog" aria-modal="true">
