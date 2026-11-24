@@ -240,6 +240,10 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [Krutidev to Unicode Converter (and back)](https://nextgrade.in/tools/krutidev/): Paste old Kruti Dev 010 text and get proper Unicode Hindi for Word, email, WhatsApp and websites — or convert Unicode to Krutidev. Nothing is uploaded.
 - [Marriage Biodata Maker](https://nextgrade.in/tools/marriage-biodata/): Fill name, birth details, education, job and family, add a photo, pick a design — a beautiful biodata as JPG or PDF. Hindi, English, Bangla. Nothing is uploaded.
 
+## Weather
+
+- [Weather today for 600+ Indian cities (Hindi, English, Hinglish, Bengali)](https://nextgrade.in/en/mausam/): current temperature, rain and umbrella tip, tomorrow, 10-day forecast, plus month-by-month climate averages for each city
+
 ## About
 
 - [About NextGrade](https://nextgrade.in/en/about/)
