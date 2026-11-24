@@ -107,6 +107,34 @@ const HOME_NEW = [
   ['/tools/krutidev/', '🔤', { hi: 'Krutidev ↔ Unicode', en: 'Krutidev ↔ Unicode', hinglish: 'Krutidev ↔ Unicode', bn: 'Krutidev ↔ Unicode' }, false],
 ];
 const HOME_NEW_H = { hi: '🆕 नया और ट्रेंडिंग', en: '🆕 New and trending', hinglish: '🆕 Naya aur trending', bn: '🆕 নতুন আর ট্রেন্ডিং' };
+// Utility platform (user 24 Nov: "multi-purpose Indian utility platform — SEO accordingly"): tool categories,
+// used by the /tools/ directory, the home page and the "more tools" block on every tool page.
+const TOOL_CATS = [
+  { id: 'pdf', emoji: '📄', name: { hi: 'PDF और डॉक्यूमेंट', en: 'PDF and documents', hinglish: 'PDF aur documents', bn: 'PDF আর ডকুমেন্ট' }, slugs: ['pdf-compress', 'pdf-merge', 'jpg-to-pdf', 'doc-scanner', 'form-helper'] },
+  { id: 'photo', emoji: '🖼️', name: { hi: 'फ़ोटो टूल्स', en: 'Photo tools', hinglish: 'Photo tools', bn: 'ছবির টুলস' }, slugs: ['passport-photo', 'image-compress', 'image-resize', 'image-crop', 'bg-remover', 'signature-maker', 'sticker-maker', 'hair-tryon'] },
+  { id: 'hindi', emoji: '⌨️', name: { hi: 'हिंदी और टाइपिंग', en: 'Hindi and typing', hinglish: 'Hindi aur typing', bn: 'হিন্দি আর টাইপিং' }, slugs: ['krutidev', 'typing-test'] },
+  { id: 'more', emoji: '🧩', name: { hi: 'और काम के टूल्स', en: 'More handy tools', hinglish: 'Aur kaam ke tools', bn: 'আরও কাজের টুলস' }, slugs: ['marriage-biodata', 'qr-maker', 'land-converter'] },
+];
+const toolsIn = (cat) => { const known = TOOL_CATS.flatMap((c) => c.slugs); return tools.filter((t) => cat.slugs.includes(t.slug) || (cat.id === 'more' && !known.includes(t.slug))); };
+const MAKERS = [
+  ['/shaadi-card/', '💌', { hi: 'शादी का कार्ड', en: 'Wedding card maker', hinglish: 'Shaadi card maker', bn: 'বিয়ের কার্ড' }],
+  ['/naam-wali-image/', '🖼️', { hi: 'नाम वाली इमेज', en: 'Name on image', hinglish: 'Naam wali image', bn: 'নামের ছবি' }],
+  ['/wish-card/', '💐', { hi: 'शुभकामना कार्ड', en: 'Wish card maker', hinglish: 'Wish card maker', bn: 'শুভেচ্ছা কার্ড' }],
+  ['/calendar/2027/', '📅', { hi: 'कैलेंडर 2027', en: 'Calendar 2027', hinglish: 'Calendar 2027', bn: 'ক্যালেন্ডার ২০২৭' }],
+];
+const STUDY = [
+  ['/nibandh/', '📝', { hi: 'निबंध', en: 'Essays', hinglish: 'Nibandh', bn: 'রচনা' }],
+  ['/speech/', '🎤', { hi: 'भाषण', en: 'Speeches', hinglish: 'Bhashan', bn: 'বক্তৃতা' }],
+  ['/kids/', '🧒', { hi: 'बच्चों की पढ़ाई (आवाज़ के साथ)', en: 'Kids learning with audio', hinglish: 'Bachchon ki padhai', bn: 'ছোটদের পড়া' }],
+  ['/kahani/', '📚', { hi: 'कहानियाँ', en: 'Stories', hinglish: 'Kahaniyan', bn: 'গল্প' }],
+];
+const UT = {
+  hi: { calcH: '🧮 कैलकुलेटर', makerH: '💌 कार्ड, इमेज और कैलेंडर', studyH: '🎓 पढ़ाई', homeH: '🧰 मुफ़्त टूल्स — सब फ़ोन में, बिना login', all: 'सारे टूल्स देखें →', relH: '🧰 और फ़्री टूल्स', allTools: 'सारे टूल्स' },
+  en: { calcH: '🧮 Calculators', makerH: '💌 Cards, images and calendar', studyH: '🎓 Study', homeH: '🧰 Free tools — all on your phone, no login', all: 'See all tools →', relH: '🧰 More free tools', allTools: 'All tools' },
+  hinglish: { calcH: '🧮 Calculators', makerH: '💌 Card, image aur calendar', studyH: '🎓 Padhai', homeH: '🧰 Free tools — sab phone mein, bina login', all: 'Saare tools dekho →', relH: '🧰 Aur free tools', allTools: 'Saare tools' },
+  bn: { calcH: '🧮 ক্যালকুলেটর', makerH: '💌 কার্ড, ছবি আর ক্যালেন্ডার', studyH: '🎓 পড়াশোনা', homeH: '🧰 ফ্রি টুলস — সব ফোনে, লগইন ছাড়া', all: 'সব টুলস দেখো →', relH: '🧰 আরও ফ্রি টুলস', allTools: 'সব টুলস' },
+};
+
 // ---- Localised views of the content
 const lf = (f, L) => {
   if (L.code === 'hi') return { name: f.nameHi, alt: f.nameEn, intro: f.introHi, when: f.whenHi, where: f.whereHi, sections: f.sections, wishes: f.wishesHi, wishes2: f.wishesEn, faq: f.faq, summary: f.enSummary };
@@ -462,13 +490,14 @@ LANGS.forEach((L) => {
       path: '/',
       title: T.home.title,
       description: T.home.desc,
-      jsonLd: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: NAME, url: `${SITE}${P(L, '/')}`, inLanguage: L.html }, { '@context': 'https://schema.org', '@type': 'Organization', name: NAME, url: `${SITE}/`, logo: `${SITE}/icons/icon-512.png`, email: CONTACT, areaServed: 'IN', description: T.home.desc, knowsLanguage: ['hi', 'en', 'bn'] }],
+      jsonLd: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: NAME, alternateName: 'NextGrade — Free Indian Utility Platform', url: `${SITE}${P(L, '/')}`, inLanguage: L.html, description: T.home.desc }, { '@context': 'https://schema.org', '@type': 'Organization', name: NAME, url: `${SITE}/`, logo: `${SITE}/icons/icon-512.png`, email: CONTACT, areaServed: 'IN', description: T.home.desc, knowsLanguage: ['hi', 'en', 'bn'] }],
       body: `<div class="wrap">
 <section class="hero">
 <h1>${esc(T.home.h1)}</h1>
 <p>${esc(T.home.lead)}</p>
 <div class="btns"><a class="btn btn-primary" href="${P(L, '/wish-card/')}">${esc(T.home.btnCard)}</a><a class="btn btn-ghost" href="${P(L, '/festivals/')}">${esc(T.home.btnFestivals)}</a></div>
 </section>
+<section><h2>${esc(UT[L.code].homeH)}</h2><div class="btns">${TOOL_CATS.filter((c) => toolsIn(c).length).map((c) => `<a class="btn btn-ghost" href="${P(L, `/tools/#${c.id}`)}">${c.emoji} ${esc(c.name[L.code])}</a>`).join('')}${CALCS.length ? `<a class="btn btn-ghost" href="${P(L, '/calculator/')}">${esc(UT[L.code].calcH)}</a>` : ''}</div><p><a href="${P(L, '/tools/')}">${esc(UT[L.code].all)}</a></p></section>
 <section><h2>${esc(HOME_NEW_H[L.code])}</h2><div class="btns">${HOME_NEW.filter(([h]) => h !== '/shaadi-card/' || SHAADI_LIVE).map(([h, e, n, perLang]) => `<a class="btn btn-ghost" href="${perLang ? P(L, h) : `${h}?lang=${L.game}`}">${e} ${esc(n[L.code])}</a>`).join('')}</div></section>
 <section><h2>${esc(T.stories.h1)}</h2><div class="grid">${stories.slice(0, 3).map(storyCard(L)).join('')}</div><p><a href="${P(L, '/kahani/')}">${esc(T.stories.all)} →</a></p></section>
 <section><h2>${esc(T.home.secWishes)}</h2><div class="grid">${celebrateCards(L)}${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div></section>
@@ -1279,7 +1308,7 @@ ${others.length ? `<h2>${esc(U.more)}</h2>\n<div class="grid">${others.map(card)
       const others = CALCS.filter((o) => o.slug !== c.slug);
       write(L, path, page(L, {
         path, title: x.title, description: x.desc,
-        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.hub, '/calculator/'], [name(c), path]]), articleLd(L, name(c), path), faqLd(faq)],
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.hub, '/calculator/'], [name(c), path]]), { '@context': 'https://schema.org', '@type': 'WebApplication', name: name(c), url: `${SITE}${P(L, path)}`, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', inLanguage: L.html, isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' }, publisher: { '@type': 'Organization', name: NAME, url: `${SITE}/` } }, faqLd(faq)],
         scripts: ['/assets/calc.js'],
         body: `<article class="wrap narrow article">
 ${calcStyle}
@@ -1497,12 +1526,15 @@ ${T.games.more || ''}
         path: '/tools/',
         title: T.tools.title,
         description: T.tools.desc,
-        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.tools, '/tools/']])],
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.tools, '/tools/']]), { '@context': 'https://schema.org', '@type': 'ItemList', name: T.tools.h1.replace(/^\S+\s/, ''), itemListElement: [...tools.map((t) => [(t[L.code] || t.en)[0], `${SITE}/tools/${t.slug}/`]), ...CALCS.map((c) => [c[L.code].h1.replace(/^\S+\s/, ''), `${SITE}${P(L, `/calculator/${c.slug}/`)}`])].map(([name, url], k) => ({ '@type': 'ListItem', position: k + 1, name, url })) }],
         body: `<div class="wrap article">
 <p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(T.nav.tools)}</p>
 <h1>${esc(T.tools.h1)}</h1>
 <p class="lead">${esc(T.tools.lead)}</p>
-<div class="grid">${tools.map(toolCard(L)).join('')}</div>
+${TOOL_CATS.filter((c) => toolsIn(c).length).map((c) => `<h2 id="${c.id}">${c.emoji} ${esc(c.name[L.code])}</h2><div class="grid">${toolsIn(c).map(toolCard(L)).join('')}</div>`).join('\n')}
+${CALCS.length ? `<h2 id="calculators">${esc(UT[L.code].calcH)}</h2><div class="btns">${CALCS.map((c) => `<a class="btn btn-ghost" href="${P(L, `/calculator/${c.slug}/`)}">${c.emoji} ${esc(c[L.code].h1.replace(/^\S+\s/, ''))}</a>`).join('')}</div>` : ''}
+<h2 id="makers">${esc(UT[L.code].makerH)}</h2><div class="btns">${MAKERS.filter(([h]) => (h !== '/shaadi-card/' || SHAADI_LIVE) && (h !== '/naam-wali-image/' || NAAM_LIVE)).map(([h, e, n]) => `<a class="btn btn-ghost" href="${P(L, h)}">${e} ${esc(n[L.code])}</a>`).join('')}</div>
+<h2 id="study">${esc(UT[L.code].studyH)}</h2><div class="btns">${STUDY.map(([h, e, n]) => `<a class="btn btn-ghost" href="${P(L, h)}">${e} ${esc(n[L.code])}</a>`).join('')}</div>
 ${T.tools.more}
 </div>`,
       }),
@@ -1732,6 +1764,24 @@ heldGames.forEach((slug) => rmSync(join(OUT, 'games', slug), { recursive: true, 
 heldCelebrate.forEach((slug) => rmSync(join(OUT, 'celebrate', slug), { recursive: true, force: true }));
 heldTools.forEach((slug) => rmSync(join(OUT, 'tools', slug), { recursive: true, force: true }));
 if (!tools.length) rmSync(join(OUT, 'tools'), { recursive: true, force: true });
+// Static tool pages: add WebApplication + Breadcrumb schema and a "more free tools" block (same category first)
+tools.forEach((t) => {
+  const cat = TOOL_CATS.find((c) => toolsIn(c).some((x) => x.slug === t.slug)) || TOOL_CATS[TOOL_CATS.length - 1];
+  const rel = [...toolsIn(cat).filter((x) => x.slug !== t.slug), ...tools.filter((x) => !toolsIn(cat).includes(x))].slice(0, 8);
+  const block = `<nav class="ng-more-tools" aria-label="More free tools" style="max-width:1000px;margin:28px auto 18px;padding:14px 16px;border-top:1px solid rgba(128,128,128,.25);font:15px/1.5 system-ui,sans-serif"><h2 style="font-size:1.05rem;margin:0 0 10px">${UT.hi.relH} · More free tools</h2><div style="display:flex;flex-wrap:wrap;gap:8px">${rel.map((x) => `<a href="/tools/${x.slug}/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">${x.emoji} ${esc(x.en[0].split(' — ')[0])}</a>`).join('')}<a href="/tools/" style="padding:7px 12px;border-radius:999px;background:#e8590c;color:#fff;text-decoration:none">${UT.hi.allTools} →</a></div></nav>`;
+  const ld = `<script type="application/ld+json">${JSON.stringify([{ '@context': 'https://schema.org', '@type': 'WebApplication', name: t.en[0], url: `${SITE}/tools/${t.slug}/`, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' }, publisher: { '@type': 'Organization', name: NAME, url: `${SITE}/` } }, { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [['NextGrade', `${SITE}/`], ['Tools', `${SITE}/tools/`], [t.en[0], `${SITE}/tools/${t.slug}/`]].map(([name, item], i) => ({ '@type': 'ListItem', position: i + 1, name, item })) }])}</script>`;
+  const walk = (dir) => readdirSync(dir, { withFileTypes: true }).forEach((d) => {
+    const f = join(dir, d.name);
+    if (d.isDirectory()) { if (d.name !== 'icons') walk(f); return; }
+    if (d.name !== 'index.html') return;
+    let html = readFileSync(f, 'utf8');
+    if (html.includes('ng-more-tools')) return;
+    if (!html.includes('"WebApplication"') && dir === join(OUT, 'tools', t.slug)) html = html.replace('</head>', `${ld}\n</head>`);
+    html = html.replace(/<\/body>(?![\s\S]*<\/body>)/, `${block}\n</body>`);
+    writeFileSync(f, html);
+  });
+  if (existsSync(join(OUT, 'tools', t.slug))) walk(join(OUT, 'tools', t.slug));
+});
 
 // Cloudflare Web Analytics beacon on every page (only when a token is set)
 if (CF_BEACON) {
