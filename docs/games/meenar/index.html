@@ -87,10 +87,10 @@ footer a { color: var(--muted); margin-right: 12px; }
     </div>
   </header>
 
-  <h1 data-i18n="title">ब्रह्मा की मीनार</h1>
-  <p class="sub" data-i18n="sub">सोने की थालियों की मीनार खंभा A से खंभा C पर ले जाओ। पुरानी पहेली — "टावर ऑफ़ हनोई"।</p>
-  <div class="levels" id="levels"><button type="button" data-l="0" aria-pressed="true">3 थाली</button><button type="button" data-l="1" aria-pressed="false" disabled="">🔒 4 थाली</button><button type="button" data-l="2" aria-pressed="false" disabled="">🔒 5 थाली</button><button type="button" data-l="3" aria-pressed="false" disabled="">🔒 6 थाली</button><button type="button" data-l="4" aria-pressed="false" disabled="">🔒 7 थाली</button></div>
-  <div class="rules" id="rules"><b>एक बार में एक</b> थाली उठा सकते हो — सबसे ऊपर वाली। <b>बड़ी थाली कभी छोटी के ऊपर नहीं</b> रख सकते। सारी थालियाँ <b>खंभा C</b> पर इसी क्रम में पहुँचाओ।</div>
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <div class="levels" id="levels"></div>
+  <div class="rules" id="rules"></div>
 
   <div class="scene" id="scene">
     <button type="button" class="peg" data-p="0"><span class="label">A</span></button>
@@ -103,8 +103,8 @@ footer a { color: var(--muted); margin-right: 12px; }
     <button class="btn btn-ghost" id="hint" type="button"></button>
     <button class="btn btn-ghost" id="reset" type="button"></button>
   </div>
-  <div class="status"><span id="moves">चाल: 0</span><span id="target">सबसे कम: 7</span></div>
-  <p class="msg" id="msg" role="status" aria-live="polite">किसी खंभे पर टैप करो — ऊपर वाली थाली उठेगी। फिर दूसरे खंभे पर टैप करो।</p>
+  <div class="status"><span id="moves"></span><span id="target"></span></div>
+  <p class="msg" id="msg" role="status" aria-live="polite"></p>
 
   <div class="win" id="win" hidden>
     <h2 id="winTitle"></h2>
@@ -121,19 +121,19 @@ footer a { color: var(--muted); margin-right: 12px; }
   <div class="ad" aria-hidden="true"></div>
 
   <section>
-    <h2 data-i18n="howTitle">कैसे खेलें</h2>
-    <ol id="howList"><li>जिस खंभे से थाली उठानी है, उस पर टैप करो — सबसे ऊपर वाली थाली ऊपर उठ जाएगी।</li><li>अब जिस खंभे पर रखनी है, उस पर टैप करो। वही खंभा दोबारा दबाओ तो थाली वापस बैठ जाएगी।</li><li>बड़ी थाली छोटी के ऊपर नहीं आ सकती।</li><li>सारी थालियाँ खंभा C पर पहुँचाओ। n थालियों के लिए सबसे कम चाल 2ⁿ − 1 होती है (3 थाली = 7, 4 = 15, 5 = 31)।</li><li>अटक गए? "💡 हिंट" अगली सही चाल दिखाता है, और "↶ वापस" पिछली चाल हटा देता है।</li></ol>
+    <h2 data-i18n="howTitle"></h2>
+    <ol id="howList"></ol>
   </section>
   <section>
-    <h2 data-i18n="aboutTitle">ब्रह्मा की मीनार की कहानी</h2>
-    <p data-i18n="aboutText">यह पहेली 1883 में फ़्रांसीसी गणितज्ञ एदुआर्द लुकास ने "टावर ऑफ़ हनोई" नाम से बनाई। उसके साथ एक कहानी भी छपी: काशी के एक मंदिर में पुजारी 64 सोने की थालियों को तीन हीरे के खंभों पर इसी नियम से शिफ़्ट कर रहे हैं, और जिस दिन काम पूरा होगा, उस दिन प्रलय आएगी। कहानी गढ़ी हुई है, पर पहेली असली और बहुत मज़ेदार है।</p>
-    <p data-i18n="aboutText2">64 थालियों के लिए 2⁶⁴ − 1 चाल चाहिए — अगर हर सेकंड एक चाल हो, तो भी लगभग 58,500 करोड़ साल लगेंगे! यह पहेली कंप्यूटर साइंस में "रिकर्शन" समझाने का सबसे मशहूर उदाहरण है: n थालियाँ शिफ़्ट करने के लिए पहले ऊपर की n−1 हटाओ, सबसे बड़ी रखो, फिर n−1 वापस उसके ऊपर।</p>
-    <p><span data-i18n="readMore">और भी:</span> <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames">और गेम</a> · <a id="nadiLink" href="https://nextgrade.in/games/nadi-paar/" data-i18n="nadiLink">नदी पार पहेली</a> · <a id="quizLink" href="https://nextgrade.in/games/quiz/" data-i18n="quizLink">भारत क्विज़</a></p>
-    <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+    <p><span data-i18n="readMore"></span> <a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames"></a> · <a id="nadiLink" href="https://nextgrade.in/games/nadi-paar/" data-i18n="nadiLink"></a> · <a id="quizLink" href="https://nextgrade.in/games/quiz/" data-i18n="quizLink"></a></p>
+    <div id="topShare"></div>
   </section>
   <section>
-    <h2 data-i18n="privacyTitle">प्राइवेसी</h2>
-    <p data-i18n="privacyText">कोई लॉगिन नहीं। आपके लेवल और बेस्ट चाल सिर्फ़ इसी फ़ोन में सेव होते हैं।</p>
+    <h2 data-i18n="privacyTitle"></h2>
+    <p data-i18n="privacyText"></p>
   </section>
 
   <footer>

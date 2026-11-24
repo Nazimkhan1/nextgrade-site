@@ -94,6 +94,19 @@ mkdirSync(join(OUT, 'assets'), { recursive: true });
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const firstSentence = (s) => (String(s).match(/^.*?[।.!?](\s|$)/) || [s])[0].trim();
 
+
+// Home: "New and trending" links (user 24 Nov: new pages should be linked from the home page for Google)
+const HOME_NEW = [
+  ['/calendar/2027/', '📅', { hi: 'कैलेंडर 2027', en: 'Calendar 2027', hinglish: 'Calendar 2027', bn: 'ক্যালেন্ডার ২০২৭' }, true],
+  ['/tools/marriage-biodata/', '💍', { hi: 'शादी का बायोडाटा', en: 'Marriage Biodata Maker', hinglish: 'Marriage Biodata', bn: 'বিয়ের বায়োডাটা' }, false],
+  ['/shaadi-card/', '💌', { hi: 'शादी का कार्ड', en: 'Wedding Card Maker', hinglish: 'Shaadi Card', bn: 'বিয়ের কার্ড' }, true],
+  ['/calculator/8th-pay-commission/', '🏛️', { hi: '8वाँ वेतन आयोग कैलकुलेटर', en: '8th Pay Commission Calculator', hinglish: '8th Pay Commission Calculator', bn: 'অষ্টম বেতন কমিশন' }, true],
+  ['/speech/republic-day/', '🇮🇳', { hi: '26 जनवरी भाषण', en: 'Republic Day Speech', hinglish: '26 January Speech', bn: 'প্রজাতন্ত্র দিবসের বক্তৃতা' }, true],
+  ['/speech/christmas/', '🎄', { hi: 'क्रिसमस पर भाषण', en: 'Christmas Speech', hinglish: 'Christmas par Bhashan', bn: 'বড়দিনের বক্তৃতা' }, true],
+  ['/nibandh/christmas/', '📝', { hi: 'क्रिसमस पर निबंध', en: 'Essay on Christmas', hinglish: 'Christmas par Nibandh', bn: 'বড়দিন রচনা' }, true],
+  ['/tools/krutidev/', '🔤', { hi: 'Krutidev ↔ Unicode', en: 'Krutidev ↔ Unicode', hinglish: 'Krutidev ↔ Unicode', bn: 'Krutidev ↔ Unicode' }, false],
+];
+const HOME_NEW_H = { hi: '🆕 नया और ट्रेंडिंग', en: '🆕 New and trending', hinglish: '🆕 Naya aur trending', bn: '🆕 নতুন আর ট্রেন্ডিং' };
 // ---- Localised views of the content
 const lf = (f, L) => {
   if (L.code === 'hi') return { name: f.nameHi, alt: f.nameEn, intro: f.introHi, when: f.whenHi, where: f.whereHi, sections: f.sections, wishes: f.wishesHi, wishes2: f.wishesEn, faq: f.faq, summary: f.enSummary };
@@ -449,13 +462,14 @@ LANGS.forEach((L) => {
       path: '/',
       title: T.home.title,
       description: T.home.desc,
-      jsonLd: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: NAME, url: `${SITE}${P(L, '/')}`, inLanguage: L.html }, { '@context': 'https://schema.org', '@type': 'Organization', name: NAME, url: `${SITE}/`, logo: `${SITE}/icons/icon-512.png`, email: CONTACT, areaServed: 'IN' }],
+      jsonLd: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: NAME, url: `${SITE}${P(L, '/')}`, inLanguage: L.html }, { '@context': 'https://schema.org', '@type': 'Organization', name: NAME, url: `${SITE}/`, logo: `${SITE}/icons/icon-512.png`, email: CONTACT, areaServed: 'IN', description: T.home.desc, knowsLanguage: ['hi', 'en', 'bn'] }],
       body: `<div class="wrap">
 <section class="hero">
 <h1>${esc(T.home.h1)}</h1>
 <p>${esc(T.home.lead)}</p>
 <div class="btns"><a class="btn btn-primary" href="${P(L, '/wish-card/')}">${esc(T.home.btnCard)}</a><a class="btn btn-ghost" href="${P(L, '/festivals/')}">${esc(T.home.btnFestivals)}</a></div>
 </section>
+<section><h2>${esc(HOME_NEW_H[L.code])}</h2><div class="btns">${HOME_NEW.filter(([h]) => h !== '/shaadi-card/' || SHAADI_LIVE).map(([h, e, n, perLang]) => `<a class="btn btn-ghost" href="${perLang ? P(L, h) : `${h}?lang=${L.game}`}">${e} ${esc(n[L.code])}</a>`).join('')}</div></section>
 <section><h2>${esc(T.stories.h1)}</h2><div class="grid">${stories.slice(0, 3).map(storyCard(L)).join('')}</div><p><a href="${P(L, '/kahani/')}">${esc(T.stories.all)} →</a></p></section>
 <section><h2>${esc(T.home.secWishes)}</h2><div class="grid">${celebrateCards(L)}${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div></section>
 <section><h2>${esc(T.home.secUpcoming)}</h2><div class="grid">${upcoming().slice(0, 6).map(festivalCard(L)).join('')}</div></section>
