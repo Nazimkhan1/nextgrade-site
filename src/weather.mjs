@@ -6,6 +6,9 @@
  * City list: GeoNames (CC BY 4.0) + Wikidata names (CC0). Data files: src/weather-cities.mjs (made by a one-off script).
  */
 import { CITIES, CLIMATE } from './weather-cities.mjs';
+import { PLACES } from './travel-places.mjs';
+const TRAVEL = Object.fromEntries(PLACES.map(([s, , text]) => [s, text]));
+const TRAVEL_T = { hi: ['घूमने के लिए', 'किस महीने कहाँ घूमें →'], en: ['For travellers', 'Where to go in which month →'], hinglish: ['Ghoomne ke liye', 'Kis mahine kahan ghoomein →'], bn: ['বেড়াতে গেলে', 'কোন মাসে কোথায় যাবেন →'] };
 
 export { CITIES };
 
@@ -209,6 +212,7 @@ ${states.map((s) => `<div class="wx-state"><h3>${esc(stateName(code, s))}</h3><u
 <p class="lead">${esc(st === n ? W.lead(n, '').replace(/ ?\(\)/, '') : W.lead(n, st))}</p>
 <div id="wx" data-mode="city" data-lang="${code}" data-lat="${c.lat}" data-lon="${c.lon}" data-slug="${c.slug}" data-name="${esc(n)}"></div>
 <div class="ad" aria-hidden="true"></div>
+${TRAVEL[c.slug] ? `<h2>🧳 ${esc(TRAVEL_T[code][0])}</h2><p>${esc(TRAVEL[c.slug][code])} <a href="${P(L, '/ghoomne-ki-jagah/')}">${esc(TRAVEL_T[code][1])}</a></p>` : ''}
 ${aboutP}
 ${climate}
 <h2>${esc(W.nearH)}</h2>
