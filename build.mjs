@@ -99,6 +99,7 @@ const firstSentence = (s) => (String(s).match(/^.*?[।.!?](\s|$)/) || [s])[0].t
 
 // Home: "New and trending" links (user 24 Nov: new pages should be linked from the home page for Google)
 const HOME_NEW = [
+  ['/tools/photo-frame/', '🖼️', { hi: 'नए साल का फ़ोटो फ़्रेम', en: 'New Year photo frame', hinglish: 'New Year photo frame', bn: 'নববর্ষের ফটো ফ্রেম' }, false],
   ['/mausam/', '🌦️', { hi: 'आज का मौसम', en: 'Weather today', hinglish: 'Aaj ka mausam', bn: 'আজকের আবহাওয়া' }, true],
   ['/calendar/2027/', '📅', { hi: 'कैलेंडर 2027', en: 'Calendar 2027', hinglish: 'Calendar 2027', bn: 'ক্যালেন্ডার ২০২৭' }, true],
   ['/tools/marriage-biodata/', '💍', { hi: 'शादी का बायोडाटा', en: 'Marriage Biodata Maker', hinglish: 'Marriage Biodata', bn: 'বিয়ের বায়োডাটা' }, false],
@@ -142,7 +143,7 @@ const HOME_NEW_H = { hi: '🆕 नया और ट्रेंडिंग', en
 // used by the /tools/ directory, the home page and the "more tools" block on every tool page.
 const TOOL_CATS = [
   { id: 'pdf', emoji: '📄', name: { hi: 'PDF और डॉक्यूमेंट', en: 'PDF and documents', hinglish: 'PDF aur documents', bn: 'PDF আর ডকুমেন্ট' }, slugs: ['pdf-compress', 'pdf-merge', 'jpg-to-pdf', 'doc-scanner', 'form-helper'] },
-  { id: 'photo', emoji: '🖼️', name: { hi: 'फ़ोटो टूल्स', en: 'Photo tools', hinglish: 'Photo tools', bn: 'ছবির টুলস' }, slugs: ['passport-photo', 'image-compress', 'image-resize', 'image-crop', 'bg-remover', 'signature-maker', 'sticker-maker', 'hair-tryon'] },
+  { id: 'photo', emoji: '🖼️', name: { hi: 'फ़ोटो टूल्स', en: 'Photo tools', hinglish: 'Photo tools', bn: 'ছবির টুলস' }, slugs: ['passport-photo', 'photo-frame', 'image-compress', 'image-resize', 'image-crop', 'bg-remover', 'signature-maker', 'sticker-maker', 'hair-tryon'] },
   { id: 'hindi', emoji: '⌨️', name: { hi: 'हिंदी और टाइपिंग', en: 'Hindi and typing', hinglish: 'Hindi aur typing', bn: 'হিন্দি আর টাইপিং' }, slugs: ['krutidev', 'typing-test'] },
   { id: 'more', emoji: '🧩', name: { hi: 'और काम के टूल्स', en: 'More handy tools', hinglish: 'Aur kaam ke tools', bn: 'আরও কাজের টুলস' }, slugs: ['marriage-biodata', 'qr-maker', 'land-converter'] },
 ];
