@@ -34,11 +34,11 @@ const FIXED = {
   'celebrate:holi': '2027-02-19', // ~22 Mar
 
   // single pages / sections (fixed dates)
-  'page:naam-wali-image': '2026-12-12', // before Christmas and New Year
+  'page:naam-wali-image': '2026-11-24', // user 24 Nov: live now, before Christmas and New Year
   'page:shaadi-card': '2026-11-24', // user 24 Nov: live now (wedding season); free wedding (Shubh Vivah) card maker — high-traffic, routes paid-search traffic to us
   'page:paheliyan': '2026-11-20', // riddles with answers — live now (user 21 Nov)
   // school speeches and essays (about 3–4 weeks before the day)
-  'speech:republic-day': '2026-12-28', // 26 Jan
+  'speech:republic-day': '2026-11-24', // 26 Jan — user 24 Nov: live now (teachers and students prepare early)
   'speech:netaji-jayanti': '2027-01-02', // 23 Jan (Parakram Diwas)
   'speech:saraswati-puja': '2027-01-15', // Vasant Panchami, 11 Feb 2027
 };

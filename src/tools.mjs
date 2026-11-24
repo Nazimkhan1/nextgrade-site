@@ -89,6 +89,11 @@ const tools = [
     en: ['Krutidev to Unicode Converter (and back)', 'Paste old Kruti Dev 010 text and get proper Unicode Hindi for Word, email, WhatsApp and websites — or convert Unicode to Krutidev. Nothing is uploaded.'],
     hinglish: ['Krutidev to Unicode Converter (aur ulta bhi)', 'Purana Kruti Dev 010 text paste karo, sahi Unicode Hindi pao — Word, email, WhatsApp, website ke liye. Ulta bhi: Unicode se Krutidev. Kuch upload nahi hota.'],
     bn: ['Krutidev থেকে Unicode কনভার্টার (আর উল্টোটাও)', 'পুরনো Kruti Dev 010 লেখা পেস্ট করো, ঠিকঠাক Unicode হিন্দি পাও — Word, ইমেল, WhatsApp-এর জন্য। উল্টোটাও: Unicode থেকে Krutidev। কিছুই আপলোড হয় না।'] },
+  { slug: 'marriage-biodata', emoji: '💍',
+    hi: ['Marriage Biodata Maker — शादी का बायोडाटा बनाएं', 'नाम, जन्म तिथि, पढ़ाई, नौकरी और परिवार भरो, फ़ोटो लगाओ, डिज़ाइन चुनो — सुंदर बायोडाटा JPG या PDF में। हिंदी, English, বাংলা। कुछ अपलोड नहीं होता।'],
+    en: ['Marriage Biodata Maker', 'Fill name, birth details, education, job and family, add a photo, pick a design — a beautiful biodata as JPG or PDF. Hindi, English, Bangla. Nothing is uploaded.'],
+    hinglish: ['Marriage Biodata Maker — Shaadi ka Biodata', 'Naam, janm tithi, padhai, naukri aur parivaar bharo, photo lagao, design chuno — sundar biodata JPG ya PDF mein. Hindi, English, Bangla. Kuch upload nahi hota.'],
+    bn: ['বিয়ের বায়োডাটা মেকার', 'নাম, জন্মের তথ্য, পড়াশোনা, চাকরি আর পরিবারের কথা লেখো, ছবি দাও, ডিজাইন বাছো — সুন্দর বায়োডাটা JPG বা PDF-এ। হিন্দি, English, বাংলা। কিছুই আপলোড হয় না।'] },
 ];
 
 export { tools };

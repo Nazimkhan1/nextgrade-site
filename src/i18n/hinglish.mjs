@@ -38,6 +38,12 @@ const festivals = {
       { h: 'Bharat ke doosre nav varsh', p: ['Bharat mein kai kshetriya nav varsh bhi manaye jaate hain — jaise Chaitra Shukla Pratipada (Hindu Nav Samvatsar), Gudi Padwa, Ugadi, Baisakhi, Pohela Boishakh, Puthandu aur Vishu. Ye zyadatar March-April mein aate hain.'] },
     ],
     wishes: [
+      'Saal naya hai, sapne naye hain — har sapna is saal sach ho. Happy New Year 2027!',
+      '2027 aapke liye sehat, sukoon aur apnon ka saath lekar aaye. Naya saal mubarak!',
+      'Calendar badla hai, ummeedein nahi — aapki har koshish is saal rang laaye. Happy New Year!',
+      'Jo beet gaya uska shukriya, jo aane wala hai uska swagat. 2027 ki dheron shubhkamnayein!',
+      'Chhoti-chhoti khushiyan, bade-bade sapne aur dher saara pyaar — yahi hai meri dua 2027 ke liye.',
+      'Naye saal mein aapki muskaan kabhi kam na ho. Happy New Year!',
       'Naya saal aapke liye nayi umeedein, nayi kaamyaabi aur dher saari khushiyan le kar aaye. Happy New Year!',
       'Beete saal ki yaadein meethi rahein aur aane wala saal usse bhi behtar ho. Naya saal mubarak!',
       'Har din ek naya mauka hai, aur ye saal aise 365 mauke le kar aaya hai. Happy New Year!',

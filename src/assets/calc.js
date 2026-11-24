@@ -122,6 +122,22 @@
         show(row(S('total', 'Total (with GST)'), '₹ ' + fmt(amt)) + row('GST (' + fmt(r) + '%)', '₹ ' + fmt(gg)) + row(S('base', 'Base amount'), '₹ ' + fmt(base), true));
       }
     },
+    paycomm: function () {
+      // 8th Pay Commission estimate: new basic = current basic × fitment factor (factor not final yet)
+      var b = num('basic'), da = num('dap'), ff = parseFloat(val('ff'));
+      if (isNaN(b) || b <= 0 || isNaN(ff)) return err(S('fill', 'Please enter your basic pay.'));
+      if (isNaN(da) || da < 0) da = 0;
+      var now = b + b * da / 100, nb = Math.round(b * ff / 100) * 100, up = nb - now;
+      show(row(S('newBasic', 'New basic pay (estimate)'), '₹ ' + fmt(nb, 0), true) + row(S('nowGross', 'Basic + DA today'), '₹ ' + fmt(now, 0)) +
+        row(S('rise', 'Rise over basic + DA'), (up >= 0 ? '+ ' : '− ') + '₹ ' + fmt(Math.abs(up), 0) + ' (' + fmt(up / now * 100, 1) + '%)') + row(S('factor', 'Fitment factor used'), '× ' + ff));
+    },
+    da: function () {
+      var b = num('basic'), d1 = num('dold'), d2 = num('dnew');
+      if (isNaN(b) || b <= 0 || isNaN(d1)) return err(S('fill', 'Please enter basic pay and DA %.'));
+      var a1 = b * d1 / 100, h = row(S('daAmt', 'DA amount'), '₹ ' + fmt(a1, 0), true) + row(S('total', 'Basic + DA'), '₹ ' + fmt(b + a1, 0));
+      if (!isNaN(d2)) { var a2 = b * d2 / 100; h += row(S('daNew', 'DA at the new rate'), '₹ ' + fmt(a2, 0)) + row(S('more', 'More per month'), '₹ ' + fmt(a2 - a1, 0)) + row(S('year', 'More per year'), '₹ ' + fmt((a2 - a1) * 12, 0)); }
+      show(h);
+    },
     discount: function () {
       var mrp = num('mrp'), d = num('d');
       if (isNaN(mrp) || isNaN(d) || mrp < 0) return err(S('fill', 'Please fill the price and discount.'));

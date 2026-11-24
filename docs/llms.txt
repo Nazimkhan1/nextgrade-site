@@ -28,6 +28,7 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 
 - [Festival wish card maker](https://nextgrade.in/en/wish-card/): make a card with your name and share on WhatsApp
 - [Wishes for every day](https://nextgrade.in/en/wishes/)
+- [Name on image (naam wali image)](https://nextgrade.in/en/naam-wali-image/): write your name on a festival image
 - [Islamic (Hijri) calendar](https://nextgrade.in/en/islamic-calendar/): today's Islamic date and Ramadan / Eid dates
 
 ## Children's stories (kahani)
@@ -83,6 +84,7 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 ## School speeches
 
 - [All speeches](https://nextgrade.in/en/speech/)
+- [Republic Day (26 January) speech and essay](https://nextgrade.in/en/speech/republic-day/)
 - [Christmas speech for students](https://nextgrade.in/en/speech/christmas/)
 
 ## Essays for students (10 lines, short and long)
@@ -169,6 +171,8 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [Marks Percentage Calculator](https://nextgrade.in/en/calculator/marks-percentage/): Enter your marks obtained and the total marks to instantly find your percentage and grade.
 - [RD (Recurring Deposit) Calculator](https://nextgrade.in/en/calculator/rd/): Enter how much you deposit each month, for how many months and the interest rate, to find the total at maturity.
 - [Loan Eligibility Calculator](https://nextgrade.in/en/calculator/loan-eligibility/): Enter the EMI you can comfortably pay each month, the interest rate and tenure, to find how much loan that EMI can get you.
+- [8th Pay Commission Salary Calculator](https://nextgrade.in/en/calculator/8th-pay-commission/): Enter your 7th Pay Commission basic pay, pick a fitment factor and see roughly what your new basic pay could be under the 8th Pay Commission.
+- [DA (Dearness Allowance) Calculator](https://nextgrade.in/en/calculator/da/): Enter your basic pay and the DA percentage. If DA has gone up, add the new rate too — see how much more you get each month and each year.
 
 ## Free online games (desi and puzzle, play in the browser)
 
@@ -234,6 +238,7 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [Sticker Maker](https://nextgrade.in/tools/sticker-maker/): Turn a photo into a sticker: background removed, white outline, top/bottom text — 512×512 WebP. Text stickers too.
 - [Exam Form Photo & Signature Resizer](https://nextgrade.in/tools/form-helper/): Photo, signature, thumb and declaration at the exact px and KB that SSC, UPSC, IBPS / SBI, NEET and JEE forms ask for. Cleans up a signature on paper.
 - [Krutidev to Unicode Converter (and back)](https://nextgrade.in/tools/krutidev/): Paste old Kruti Dev 010 text and get proper Unicode Hindi for Word, email, WhatsApp and websites — or convert Unicode to Krutidev. Nothing is uploaded.
+- [Marriage Biodata Maker](https://nextgrade.in/tools/marriage-biodata/): Fill name, birth details, education, job and family, add a photo, pick a design — a beautiful biodata as JPG or PDF. Hindi, English, Bangla. Nothing is uploaded.
 
 ## About
 
