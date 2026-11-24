@@ -111,7 +111,7 @@ export default [
     ex: [['My mother bargains with every vegetable seller.', 'मेरी माँ हर सब्ज़ीवाले से मोलभाव करती हैं।'], ['This shirt was a real bargain at two hundred rupees.', 'दो सौ रुपये में यह शर्ट सच में सस्ता सौदा थी।']],
     note: 'As a noun, "a bargain" is something bought cheaply, or an agreement.', noteHi: 'संज्ञा के रूप में "a bargain" का अर्थ सस्ता सौदा या समझौता है।' },
   { w: 'barrier', pos: 'noun', hi: ['रुकावट', 'बाधा', 'अवरोध'], hr: ['rukaavat', 'baadha', 'avrodh'], bn: ['বাধা', 'প্রতিবন্ধক'], say: 'बैरियर', forms: 'barriers', syn: ['obstacle', 'wall', 'block'], ant: ['opening', 'help'],
-    ex: [['Language should not be a barrier to learning science.', 'भाषा विज्ञान सीखने में रुकावट नहीं बननी चाहिए।'], ['The police put up barriers on the road during the rally.', 'रैली के दौरान पुलिस ने सड़क पर बैरिकेड लगा दिए।']],
+    ex: [['Language should not be a barrier to learning science.', 'भाषा विज्ञान सीखने में रुकावट नहीं बननी चाहिए।'], ['The police put up barriers on the road during the rally.', 'रैली के दौरान पुलिस ने सड़क पर अवरोधक लगा दिए।']],
     note: 'Can be a real object that blocks a way, or a problem that stops progress.', noteHi: 'रास्ता रोकने वाली कोई चीज़ भी हो सकती है और प्रगति रोकने वाली कोई समस्या भी।' },
   { w: 'basic', pos: 'adjective', hi: ['बुनियादी', 'मूल', 'सरल'], hr: ['buniyaadi', 'mool', 'saral'], bn: ['মৌলিক', 'প্রাথমিক'], say: 'बेसिक', forms: 'basically, basics', syn: ['simple', 'fundamental', 'essential'], ant: ['advanced', 'complex'],
     ex: [['Food, clothes and a home are basic needs of every person.', 'रोटी, कपड़ा और मकान हर इंसान की बुनियादी ज़रूरतें हैं।'], ['I only know basic computer skills.', 'मुझे बस कंप्यूटर का मूल ज्ञान है।']],

@@ -92,7 +92,7 @@ export default [
   { w: 'sweet', pos: 'adjective', hi: ['मीठा', 'प्यारा', 'मधुर'], hr: ['meetha', 'pyaara', 'madhur'], bn: ['মিষ্টি', 'মধুর'], say: 'स्वीट', forms: 'sweeter, sweetest, sweetly, sweetness', syn: ['sugary', 'lovely', 'kind'], ant: ['bitter', 'sour', 'rude'],
     ex: [['These mangoes are very sweet.', 'ये आम बहुत मीठे हैं।'], ['It was sweet of you to bring tea for me.', 'मेरे लिए चाय लाना तुम्हारी बहुत प्यारी बात थी।']],
     note: 'As a noun, sweets means mithai, like laddoo and barfi.', noteHi: 'संज्ञा में sweets का अर्थ मिठाई होता है, जैसे लड्डू और बर्फ़ी।' },
-  { w: 'sweat', pos: 'noun', hi: ['पसीना'], hr: ['paseena'], bn: ['ঘাম'], say: 'स्वेट', forms: 'sweats, sweated, sweating, sweaty', syn: ['perspiration'], ant: [],
+  { w: 'sweat', pos: 'noun', hi: ['पसीना'], hr: ['paseena'], bn: ['ঘাম'], say: 'स्वेट', forms: 'sweats, sweated, sweating, sweaty', syn: ['perspiration', 'moisture'], ant: [],
     ex: [['After the long run, my shirt was wet with sweat.', 'लंबी दौड़ के बाद मेरी कमीज़ पसीने से भीग गई।'], ['Farmers earn their living by the sweat of their brow.', 'किसान अपने माथे के पसीने से रोज़ी कमाते हैं।']],
     note: 'Also a verb: "I sweat a lot in June." Do not confuse with sweet.', noteHi: 'क्रिया में sweat का अर्थ पसीना आना है; इसे sweet (मीठा) से न मिलाएँ।' },
   { w: 'scatter', pos: 'verb', hi: ['बिखेरना', 'बिखरना', 'तितर-बितर होना'], hr: ['bikherna', 'bikharna', 'titar-bitar hona'], bn: ['ছড়িয়ে দেওয়া', 'ছত্রভঙ্গ হওয়া'], say: 'स्कैटर', forms: 'scatters, scattered, scattering', syn: ['spread', 'sprinkle', 'disperse'], ant: ['gather', 'collect'],
