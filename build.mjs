@@ -30,7 +30,8 @@ import { babyNames, BABY_UI } from './src/naam.mjs';
 import { FULLFORMS, FF_UI, ffSlug } from './src/fullforms.mjs';
 import { whyFaq } from './src/festival-why.mjs';
 import { rules as allRules, KHEL_UI } from './src/khel.mjs';
-import { LIST_YEAR, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
+import { LIST_YEAR, DATES, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
+import { CAL_YEAR, MONTH_SLUGS as SLUG_M, NATIONAL, HOLIDAY_SLUGS, WDS, CT, hijriStarts } from './src/calendar.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
 const games = allGames.filter((g) => isLive(`game:${g.slug}`));
@@ -149,7 +150,7 @@ const menuFor = (L) => {
   const groups = [
     [M.stories, [['/kahani/', M.allStories], ...['panchatantra', 'akbar-birbal', 'tenali-raman', 'jataka', 'aesop', 'lok-katha'].map((s) => [`/kahani/${s}/`, M[s]])]],
     [M.study, [...(ESSAYS.length ? [['/nibandh/', M.nibandh]] : []), ...(SPEECHES.length ? [['/speech/', M.speech]] : []), ...(PAHELI_LIVE ? [['/paheliyan/', M.paheli]] : []), ...(FF_LIVE ? [['/full-form/', M.ff]] : []), ...(BABY_LIVE ? [['/naam/', M.naam]] : [])]],
-    [M.fest, [['/festivals/', M.festivals], [`/festivals/${LIST_YEAR}/`, M.dates(LIST_YEAR)], ['/wishes/', M.wishes], ['/wish-card/', M.card], ...(SHAADI_LIVE ? [['/shaadi-card/', M.shaadiCard]] : []), ...(NAAM_LIVE ? [['/naam-wali-image/', M.naamImg]] : []), ['/islamic-calendar/', M.islamic]]],
+    [M.fest, [['/festivals/', M.festivals], [`/festivals/${LIST_YEAR}/`, M.dates(LIST_YEAR)], [`/calendar/${CAL_YEAR}/`, CT[L.code].nav], ['/wishes/', M.wishes], ['/wish-card/', M.card], ...(SHAADI_LIVE ? [['/shaadi-card/', M.shaadiCard]] : []), ...(NAAM_LIVE ? [['/naam-wali-image/', M.naamImg]] : []), ['/islamic-calendar/', M.islamic]]],
     [M.games, [['/games/', M.allGames], ...(KHEL.length ? [['/khel/', M.khel]] : [])]],
     [M.kids, [['/kids/', M.kidsAll], ...KIDS_SETS.slice(0, 8).map((s) => [`/kids/${s.slug}/`, s.name[L.code] || s.name.en])]],
     [M.tools, [...(tools.length ? [['/tools/', M.allTools]] : []), ...(CALCS.length ? [['/calculator/', M.calc]] : []), ['/apps/', M.apps]]],
@@ -513,6 +514,79 @@ ${notes.length ? `<ul class="note">${notes.map((n) => `<li>${esc(n)}</li>`).join
 </div>`,
       }),
     );
+  }
+
+  // Calendar pages (/calendar/2027/ and /calendar/2027/<month>/)
+  {
+    const C = CT[L.code], Y = CAL_YEAR, MN = (i) => fmt(L.code, `${Y}-${String(i + 1).padStart(2, '0')}-01`).replace(/^1 /, '').replace(` ${Y}`, '');
+    const hijri = hijriStarts(Y), hname = (n) => (islamic.months.find((x) => x.n === n) || {})[L.code] || '';
+    // every marked day of the year: { d, emoji, name, href, holiday, approx, hijri }
+    const marks = [];
+    Object.entries(DATES).forEach(([slug, list]) => list.filter((x) => x.d.startsWith(`${Y}-`)).forEach((x) => {
+      const f = allFestivals.find((z) => z.slug === slug); if (!f) return;
+      const live = festivals.some((z) => z.slug === slug);
+      marks.push({ d: x.d, emoji: f.emoji, name: lf(f, L).name, href: live ? P(L, `/festivals/${slug}/`) : '', holiday: HOLIDAY_SLUGS.includes(slug), approx: !!x.approx });
+    }));
+    NATIONAL.forEach((n) => marks.push({ d: `${Y}${n.d}`, emoji: n.emoji, name: n[L.code], href: '', holiday: true }));
+    hijri.forEach((h) => marks.push({ d: h.ymd, emoji: '🌙', name: C.hijriStart(hname(h.n)), href: P(L, '/islamic-calendar/'), hijri: true }));
+    marks.sort((a, b) => a.d.localeCompare(b.d));
+    const days = (m) => new Date(Date.UTC(+Y, m + 1, 0)).getUTCDate();
+    const first = (m) => new Date(Date.UTC(+Y, m, 1)).getUTCDay();
+    const ymd = (m, d) => `${Y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+    const grid = (m, big) => {
+      let h = `<table class="cal${big ? ' big' : ''}"><tr>${WDS[L.code].map((w, k) => `<th${k === 0 ? ' class="sun"' : ''}>${esc(w)}</th>`).join('')}</tr><tr>`;
+      for (let k = 0; k < first(m); k++) h += '<td></td>';
+      for (let d = 1; d <= days(m); d++) {
+        const col = (first(m) + d - 1) % 7, ms = marks.filter((x) => x.d === ymd(m, d)), hol = ms.some((x) => x.holiday);
+        if (col === 0 && d > 1) h += '</tr><tr>';
+        h += `<td class="${[col === 0 ? 'sun' : '', hol ? 'hol' : '', ms.length ? 'mk' : ''].filter(Boolean).join(' ')}"><b>${d}</b>${big ? ms.map((x) => `<span>${x.emoji} ${esc(x.name.replace(/ \((approx\.|लगभग|lagbhag|আনুমানিক)\)$/, ''))}</span>`).join('') : ''}</td>`;
+      }
+      return h + '</tr></table>';
+    };
+    const css = `<style>.cal{width:100%;border-collapse:collapse;table-layout:fixed;margin:8px 0}.cal th{font-size:.75rem;padding:4px 0;opacity:.75}.cal td{text-align:center;padding:4px 0;font-size:.85rem;border-radius:8px}.cal .sun{color:#d6336c}.cal td.hol{background:rgba(214,51,108,.12);color:#d6336c;font-weight:700}.cal td.mk:not(.hol){background:rgba(245,159,0,.16)}.cal.big td{vertical-align:top;height:64px;border:1px solid rgba(128,128,128,.2);text-align:start;padding:4px}.cal.big b{display:block;font-size:1rem}.cal.big span{display:block;font-size:.62rem;line-height:1.2;margin-top:2px;font-weight:600;overflow-wrap:anywhere}.calgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}.calgrid a.mon{display:block;padding:10px;border:1px solid rgba(128,128,128,.25);border-radius:14px;text-decoration:none;color:inherit}.calgrid h3{margin:0 0 4px;font-size:1.05rem}.calnav{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:12px 0}@media print{header,footer,nav,.ad,.calnav,.btns,.share,.no-print{display:none!important}.cal.big td{height:80px}}</style>`;
+    const fest = (m) => marks.filter((x) => x.d.slice(5, 7) === String(m + 1).padStart(2, '0'));
+    const li = (x) => `<li>${x.emoji} <b>${esc(fmt(L.code, x.d))}</b> (${esc(weekday(L.code, x.d))}) — ${x.href ? `<a href="${x.href}">${esc(x.name)}</a>` : esc(x.name)}${x.approx ? ` (${esc(C.approx)})` : ''}${x.holiday ? ` · <span class="hol">${esc(C.holiday)}</span>` : ''}</li>`;
+    const ypath = `/calendar/${Y}/`;
+    write(L, ypath, page(L, {
+      path: ypath, title: C.yearTitle(Y), description: C.yearDesc(Y),
+      jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.festivals, '/festivals/'], [C.nav, ypath]])],
+      body: `${css}<div class="wrap article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/festivals/')}">${esc(T.nav.festivals)}</a> › ${esc(C.nav)}</p>
+<h1>${esc(C.yearH1(Y))}</h1>
+<p class="lead">${esc(C.yearLead(Y))}</p>
+<div class="btns"><button class="btn btn-ghost" onclick="print()">${esc(C.print)}</button> <a class="btn btn-ghost" href="${P(L, `/festivals/${Y}/`)}">${esc(C.list(Y))}</a></div>
+<div class="calgrid">${SLUG_M.map((s, m) => `<a class="mon" href="${P(L, `${ypath}${s}/`)}"><h3>${esc(MN(m))}</h3>${grid(m, false)}</a>`).join('')}</div>
+<div class="ad" aria-hidden="true"></div>
+<h2>${esc(C.festH.replace(/इस महीने के |this month|Is mahine ke |এই মাসের /, ''))} ${Y}</h2>
+<ul>${marks.filter((x) => !x.hijri).map(li).join('')}</ul>
+<p class="note">${esc(C.panchang)} ${esc(C.hijriNote)}</p>
+</div>`,
+    }));
+    SLUG_M.forEach((s, m) => {
+      const path = `${ypath}${s}/`, name = MN(m), fs = fest(m), sun = [...Array(days(m))].filter((_, d) => (first(m) + d) % 7 === 0).length, sat = [...Array(days(m))].filter((_, d) => (first(m) + d) % 7 === 6).length;
+      const hol = fs.filter((x) => x.holiday).map((x) => `${x.name} (${fmt(L.code, x.d)})`).join(', ');
+      const faq = C.faq(name, Y, days(m), sun, hol);
+      const prev = m > 0 ? `${ypath}${SLUG_M[m - 1]}/` : '', next = m < 11 ? `${ypath}${SLUG_M[m + 1]}/` : '';
+      write(L, path, page(L, {
+        path, title: C.monthTitle(name, Y), description: C.monthDesc(name, Y, fs.filter((x) => !x.hijri).map((x) => x.name).slice(0, 4).join(', ')),
+        jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [C.nav, ypath], [name, path]]), { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }],
+        body: `${css}<div class="wrap narrow article">
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, ypath)}">${esc(C.nav)}</a> › ${esc(name)}</p>
+<h1>${esc(C.monthH1(name, Y))}</h1>
+<p class="lead">${esc(C.facts(name, Y, days(m), sun, sat))} ${esc(C.startsOn(name, weekday(L.code, ymd(m, 1))))}</p>
+<div class="btns"><button class="btn btn-ghost" onclick="print()">${esc(C.print)}</button></div>
+${grid(m, true)}
+<div class="calnav">${prev ? `<a href="${P(L, prev)}">${esc(C.prev)}</a>` : '<span></span>'}<a href="${P(L, ypath)}">${esc(C.all(Y))}</a>${next ? `<a href="${P(L, next)}">${esc(C.next)}</a>` : '<span></span>'}</div>
+<h2>${esc(C.festH)}</h2>
+${fs.filter((x) => !x.hijri).length ? `<ul>${fs.filter((x) => !x.hijri).map(li).join('')}</ul>` : `<p>${esc(C.none)}</p>`}
+${fs.some((x) => x.hijri) ? `<h2>${esc(C.hijriH)}</h2><ul>${fs.filter((x) => x.hijri).map(li).join('')}</ul><p class="note">${esc(C.hijriNote)}</p>` : ''}
+<p class="note">${esc(C.panchang)}</p>
+<div class="ad" aria-hidden="true"></div>
+<h2>${esc(C.faqH)}</h2>
+${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('\n')}
+</div>`,
+      }));
+    });
   }
 
   // Festival pages
