@@ -1,0 +1,584 @@
+<!doctype html>
+<html data-prerendered="hi" lang="hi">
+<head>
+<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Festival Photo Frame 🖼️ — Diwali, Eid, Holi, Birthday Frames | NextGrade</title>
+<meta name="description" content="Free festival photo frame maker in Hinglish, Hindi, English and Bengali: put your photo in a Diwali, Eid, Holi, Republic Day, Independence Day, Birthday, Christmas or New Year frame, add your name and download or share on WhatsApp. Your photo never leaves your phone.">
+<link rel="canonical" href="https://nextgrade.in/tools/photo-frame/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Festival Photo Frame 🖼️ — apni photo, tyohaar ka frame">
+<meta property="og:description" content="Diwali, Eid, Holi, Republic Day, Birthday… apni photo frame mein lagao, naam likho, WhatsApp pe bhejo. Photo kahin upload nahi hoti.">
+<meta property="og:url" content="https://nextgrade.in/tools/photo-frame/">
+<meta property="og:image" content="https://nextgrade.in/og-image.jpg">
+<meta name="theme-color" content="#7c2d12">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700;800&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Festival Photo Frame","url":"https://nextgrade.in/tools/photo-frame/","applicationCategory":"PhotographyApplication","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #1c0f0a; --gold: #ffd43b; --ink: #f8f9fa; --muted: #e2d3c8; --card: rgba(255,255,255,0.08); --line: rgba(255,255,255,0.16); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #6b2410, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.iconbtn { background: var(--card); border: 1px solid var(--line); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 16px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 6.5vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 14px; }
+.privacy-pill { display: inline-block; background: rgba(64,192,87,0.15); border: 1px solid rgba(64,192,87,0.45); color: #b2f2bb; border-radius: 999px; padding: 4px 12px; font-size: 14px; font-weight: 600; margin: 0 0 14px; }
+
+.editor { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 18px; align-items: start; }
+@media (max-width: 820px) { .editor { grid-template-columns: minmax(0, 1fr); } }
+.preview { position: relative; background: #0b0605; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.45); touch-action: none; user-select: none; -webkit-user-select: none; }
+#cv { display: block; width: 100%; height: auto; cursor: grab; }
+#cv.dragging { cursor: grabbing; }
+.hint { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); background: rgba(0,0,0,0.6); color: #fff; font-size: 13px; padding: 4px 10px; border-radius: 999px; pointer-events: none; white-space: nowrap; }
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: grid; gap: 14px; }
+.panel h3 { margin: 0; font-size: 15px; color: var(--muted); font-weight: 600; }
+.frames { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.frames button { font: inherit; font-size: 12px; font-weight: 700; line-height: 1.2; padding: 6px 2px; border-radius: 12px; border: 2px solid transparent; background: rgba(255,255,255,0.06); color: var(--ink); cursor: pointer; }
+.frames button b { display: block; font-size: 24px; line-height: 1.2; font-family: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif; }
+.frames button.on { border-color: var(--gold); background: rgba(255,212,59,0.14); }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.seg button { font: inherit; font-size: 14px; font-weight: 700; padding: 8px; border-radius: 10px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
+.seg button.on { background: rgba(255,212,59,0.14); border-color: var(--gold); }
+label.f { display: grid; gap: 4px; font-size: 14px; color: var(--muted); }
+input[type=text] { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: rgba(0,0,0,0.25); color: var(--ink); }
+input[type=range] { width: 100%; accent-color: var(--gold); }
+.row { display: flex; gap: 8px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 14px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 16px; cursor: pointer; text-decoration: none; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-main { background: linear-gradient(90deg, #f76707, #e8590c); color: #fff; }
+.btn-photo { background: var(--gold); color: #3b2a00; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.small { padding: 8px 10px; font-size: 14px; }
+.msg { font-size: 14px; color: #b2f2bb; min-height: 1.2em; margin: 0; }
+section { margin: 32px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+.faq h3 { font-size: 16px; margin: 14px 0 2px; }
+.faq p { margin: 0 0 6px; color: var(--muted); }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid var(--line); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+.hidden { display: none !important; }
+</style>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">🖼️ NextGrade<small>Photo Frame</small></a>
+    <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+  </header>
+
+  <h1 data-i18n="title">त्योहार फ़ोटो फ़्रेम 🖼️</h1>
+  <p class="sub" data-i18n="sub">अपनी फ़ोटो त्योहार के फ़्रेम में लगाओ — दिवाली, ईद, होली, गणतंत्र दिवस, जन्मदिन और भी। नाम लिखो, डाउनलोड करो या सीधे WhatsApp पर भेजो।</p>
+  <p class="privacy-pill" data-i18n="pill">🔒 फ़ोटो कहीं अपलोड नहीं होती — सब आपके फ़ोन में बनता है</p>
+
+  <div class="editor">
+    <div class="preview" id="preview">
+      <canvas id="cv" width="1080" height="1080" aria-label="Frame preview"></canvas>
+      <span class="hint hidden" id="dragHint" data-i18n="dragHint"></span>
+    </div>
+
+    <div class="panel">
+      <input type="file" id="file" accept="image/*" class="hidden">
+      <button class="btn btn-photo" id="pick" type="button" data-i18n="pick"></button>
+
+      <h3 data-i18n="chooseFrame">फ़्रेम चुनो</h3>
+      <div class="frames" id="frames"><button type="button" data-f="diwali" class="on"><b>🪔</b>दिवाली</button><button type="button" data-f="eid" class=""><b>🌙</b>ईद</button><button type="button" data-f="holi" class=""><b>🎨</b>होली</button><button type="button" data-f="republic" class=""><b>🇮🇳</b>गणतंत्र दिवस</button><button type="button" data-f="independence" class=""><b>🪁</b>15 अगस्त</button><button type="button" data-f="birthday" class=""><b>🎂</b>जन्मदिन</button><button type="button" data-f="christmas" class=""><b>🎄</b>क्रिसमस</button><button type="button" data-f="newyear" class=""><b>🎆</b>नया साल</button></div>
+
+      <h3 data-i18n="size">साइज़</h3>
+      <div class="seg" id="sizeSeg"><button type="button" data-s="square" data-i18n="square"></button><button type="button" data-s="story" data-i18n="story"></button></div>
+
+      <label class="f"><span data-i18n="greetLabel">बधाई का टेक्स्ट</span><input type="text" id="greet" maxlength="40"></label>
+      <label class="f"><span data-i18n="nameLabel">आपका नाम (ज़रूरी नहीं)</span><input type="text" id="name" maxlength="30" data-i18n-ph="namePh"></label>
+
+      <div class="photoctl hidden" id="photoCtl">
+        <label class="f"><span data-i18n="zoom"></span><input type="range" id="zoom" min="100" max="400" value="100"></label>
+        <div class="row">
+          <button class="btn btn-ghost small" id="rotate" type="button" data-i18n="rotate"></button>
+          <button class="btn btn-ghost small" id="reset" type="button" data-i18n="reset"></button>
+        </div>
+      </div>
+
+      <button class="btn btn-main" id="download" type="button" disabled data-i18n="download"></button>
+      <button class="btn btn-wa" id="share" type="button" disabled data-i18n="share"></button>
+      <p class="msg" id="msg" role="status"></p>
+    </div>
+  </div>
+
+  <section>
+    <h2 data-i18n="howTitle">कैसे बनाएँ</h2>
+    <div class="card2"><ol id="howList"><li><b>📷 फ़ोटो चुनो</b> — गैलरी से या कैमरे से। चेहरा बीच में हो तो अच्छा लगता है।</li><li>ऊपर से <b>फ़्रेम चुनो</b>: दिवाली, ईद, होली, गणतंत्र दिवस, 15 अगस्त, जन्मदिन, क्रिसमस या नया साल।</li><li>फ़ोटो को <b>उँगली से खिसकाओ</b> और <b>ज़ूम</b> करो ताकि चेहरा गोले में ठीक बैठे। फ़ोटो उल्टी हो तो <b>↻ घुमाओ</b>।</li><li>बधाई का टेक्स्ट बदल सकते हो और <b>अपना नाम</b> लिख सकते हो।</li><li><b>पोस्ट</b> (चौकोर) WhatsApp/Instagram पोस्ट के लिए, <b>स्टेटस / स्टोरी</b> लंबी फ़ोटो के लिए। फिर <b>डाउनलोड</b> या <b>शेयर</b> करो।</li></ol></div>
+  </section>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="privTitle">आपकी फ़ोटो, आपके फ़ोन में</h2>
+    <p data-i18n="privText">यह टूल आपके ब्राउज़र के अंदर ही फ़ोटो को फ़्रेम में जोड़ता है। फ़ोटो किसी सर्वर पर अपलोड नहीं होती, हम उसे देख या सेव नहीं कर सकते। इंटरनेट सिर्फ़ पेज और फ़ॉन्ट खुलने के लिए चाहिए।</p>
+    <p data-i18n="privText2">सारे फ़्रेम NextGrade ने ख़ुद बनाए हैं। किसी और की फ़ोटो बिना पूछे फ़्रेम में लगाकर मत भेजिए।</p>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="faqTitle">सवाल-जवाब</h2>
+    <div class="card2" id="faqList"><h3>क्या यह मुफ़्त है?</h3><p>हाँ, पूरी तरह मुफ़्त। कोई वॉटरमार्क हटाने का पैसा नहीं, कोई लॉगिन नहीं।</p><h3>फ़ोटो कहाँ सेव होती है?</h3><p>डाउनलोड दबाने पर आपके फ़ोन की गैलरी या Downloads फ़ोल्डर में। शेयर दबाने पर सीधे WhatsApp या किसी भी ऐप में भेज सकते हो।</p><h3>फ़ोटो धुँधली क्यों लग रही है?</h3><p>बहुत छोटी फ़ोटो को ज़्यादा ज़ूम करने से धुँधली लगती है। अच्छी रोशनी वाली, पूरी साइज़ की फ़ोटो चुनिए और ज़ूम कम रखिए।</p><h3>iPhone पर डाउनलोड कैसे करें?</h3><p>“शेयर” दबाइए और “Save Image” चुनिए — फ़ोटो गैलरी में आ जाएगी।</p></div>
+    <p><a id="festLink" href="https://nextgrade.in/festivals/" data-i18n="festLink">त्योहारों की जानकारी →</a> · <a id="wishLink" href="https://nextgrade.in/wishes/" data-i18n="wishLink">नाम के साथ बधाई संदेश →</a></p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/tools/photo-frame/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const FRAMES = ['diwali', 'eid', 'holi', 'republic', 'independence', 'birthday', 'christmas', 'newyear'];
+  const EMOJI = { diwali: '🪔', eid: '🌙', holi: '🎨', republic: '🇮🇳', independence: '🪁', birthday: '🎂', christmas: '🎄', newyear: '🎆' };
+  const yearNext = (() => { const d = new Date(); return d.getMonth() >= 10 ? d.getFullYear() + 1 : d.getFullYear(); })();
+
+  const T = {
+    hinglish: {
+      title: 'Festival Photo Frame 🖼️',
+      sub: 'Apni photo tyohaar ke frame mein lagao — Diwali, Eid, Holi, Republic Day, Birthday aur bhi. Naam likho, download karo ya seedha WhatsApp pe bhejo.',
+      pill: '🔒 Photo kahin upload nahi hoti — sab aapke phone mein banta hai',
+      pick: '📷 Photo chuno', change: '📷 Photo badlo',
+      chooseFrame: 'Frame chuno', size: 'Size', square: '◻ Post (square)', story: '▯ Status / Story',
+      greetLabel: 'Badhaai ka text', nameLabel: 'Aapka naam (optional)', namePh: 'Jaise: Rahul & family',
+      zoom: 'Zoom', rotate: '↻ Ghumao', reset: '⟲ Theek karo',
+      download: '⬇ Photo download karo', share: '📲 WhatsApp / Share',
+      dragHint: 'Photo ko ungli se khiskao, 2 ungli se zoom',
+      placeholder: 'Yahan aapki photo',
+      saved: '✅ Photo save ho gayi — gallery / Downloads mein dekho',
+      shareText: (url) => `Maine apni photo tyohaar ke frame mein lagayi! Aap bhi banao, free: ${url}`,
+      names: { diwali: 'Diwali', eid: 'Eid', holi: 'Holi', republic: 'Republic Day', independence: '15 August', birthday: 'Birthday', christmas: 'Christmas', newyear: 'New Year' },
+      greet: { diwali: 'Shubh Deepawali', eid: 'Eid Mubarak', holi: 'Happy Holi', republic: 'Gantantra Diwas Mubarak', independence: 'Swatantrata Diwas Mubarak', birthday: 'Happy Birthday', christmas: 'Merry Christmas', newyear: `Happy New Year ${yearNext}` },
+      howTitle: 'Kaise banayein',
+      how: ['<b>📷 Photo chuno</b> — gallery se ya camera se. Chehra beech mein ho to achha lagta hai.', 'Upar se <b>frame chuno</b>: Diwali, Eid, Holi, Republic Day, 15 August, Birthday, Christmas ya New Year.', 'Photo ko <b>ungli se khiskao</b> aur <b>zoom</b> karo taaki chehra gole mein theek baithe. Photo ulti ho to <b>↻ Ghumao</b>.', 'Badhaai ka text badal sakte ho aur <b>apna naam</b> likh sakte ho.', '<b>Post</b> (square) WhatsApp/Instagram post ke liye, <b>Status / Story</b> lambi photo ke liye. Phir <b>download</b> ya <b>share</b> karo.'],
+      privTitle: 'Aapki photo, aapke phone mein',
+      privText: 'Yeh tool aapke browser ke andar hi photo ko frame mein jodta hai. Photo kisi server par upload nahi hoti, hum use dekh ya save nahi kar sakte. Internet sirf page aur fonts khulne ke liye chahiye.',
+      privText2: 'Saare frames NextGrade ne khud banaye hain. Kisi aur ki photo bina poochhe frame mein lagakar mat bhejiye.',
+      faqTitle: 'Sawal-jawab',
+      faq: [['Kya yeh free hai?', 'Haan, poori tarah free. Koi watermark-hatane ka paisa nahi, koi login nahi.'], ['Photo kahan save hoti hai?', 'Download dabane par aapke phone ki gallery ya Downloads folder mein. Share dabane par seedha WhatsApp ya kisi bhi app mein bhej sakte ho.'], ['Photo dhundhli kyun lag rahi hai?', 'Bahut chhoti photo ko zyada zoom karne se dhundhli lagti hai. Achhi roshni wali, poori size ki photo chuniye aur zoom kam rakhiye.'], ['iPhone par download kaise karein?', '“Share” dabaiye aur “Save Image” chuniye — photo gallery mein aa jayegi.']],
+      festLink: 'Tyohaaron ki jaankari →', wishLink: 'Naam ke saath badhaai sandesh →',
+    },
+    hi: {
+      title: 'त्योहार फ़ोटो फ़्रेम 🖼️',
+      sub: 'अपनी फ़ोटो त्योहार के फ़्रेम में लगाओ — दिवाली, ईद, होली, गणतंत्र दिवस, जन्मदिन और भी। नाम लिखो, डाउनलोड करो या सीधे WhatsApp पर भेजो।',
+      pill: '🔒 फ़ोटो कहीं अपलोड नहीं होती — सब आपके फ़ोन में बनता है',
+      pick: '📷 फ़ोटो चुनो', change: '📷 फ़ोटो बदलो',
+      chooseFrame: 'फ़्रेम चुनो', size: 'साइज़', square: '◻ पोस्ट (चौकोर)', story: '▯ स्टेटस / स्टोरी',
+      greetLabel: 'बधाई का टेक्स्ट', nameLabel: 'आपका नाम (ज़रूरी नहीं)', namePh: 'जैसे: राहुल और परिवार',
+      zoom: 'ज़ूम', rotate: '↻ घुमाओ', reset: '⟲ ठीक करो',
+      download: '⬇ फ़ोटो डाउनलोड करो', share: '📲 WhatsApp / शेयर',
+      dragHint: 'फ़ोटो को उँगली से खिसकाओ, 2 उँगली से ज़ूम',
+      placeholder: 'यहाँ आपकी फ़ोटो',
+      saved: '✅ फ़ोटो सेव हो गई — गैलरी / Downloads में देखो',
+      shareText: (url) => `मैंने अपनी फ़ोटो त्योहार के फ़्रेम में लगाई! आप भी बनाओ, मुफ़्त: ${url}`,
+      names: { diwali: 'दिवाली', eid: 'ईद', holi: 'होली', republic: 'गणतंत्र दिवस', independence: '15 अगस्त', birthday: 'जन्मदिन', christmas: 'क्रिसमस', newyear: 'नया साल' },
+      greet: { diwali: 'शुभ दीपावली', eid: 'ईद मुबारक', holi: 'होली की शुभकामनाएँ', republic: 'गणतंत्र दिवस की शुभकामनाएँ', independence: 'स्वतंत्रता दिवस की शुभकामनाएँ', birthday: 'जन्मदिन मुबारक', christmas: 'क्रिसमस की शुभकामनाएँ', newyear: `नया साल ${yearNext} मुबारक` },
+      howTitle: 'कैसे बनाएँ',
+      how: ['<b>📷 फ़ोटो चुनो</b> — गैलरी से या कैमरे से। चेहरा बीच में हो तो अच्छा लगता है।', 'ऊपर से <b>फ़्रेम चुनो</b>: दिवाली, ईद, होली, गणतंत्र दिवस, 15 अगस्त, जन्मदिन, क्रिसमस या नया साल।', 'फ़ोटो को <b>उँगली से खिसकाओ</b> और <b>ज़ूम</b> करो ताकि चेहरा गोले में ठीक बैठे। फ़ोटो उल्टी हो तो <b>↻ घुमाओ</b>।', 'बधाई का टेक्स्ट बदल सकते हो और <b>अपना नाम</b> लिख सकते हो।', '<b>पोस्ट</b> (चौकोर) WhatsApp/Instagram पोस्ट के लिए, <b>स्टेटस / स्टोरी</b> लंबी फ़ोटो के लिए। फिर <b>डाउनलोड</b> या <b>शेयर</b> करो।'],
+      privTitle: 'आपकी फ़ोटो, आपके फ़ोन में',
+      privText: 'यह टूल आपके ब्राउज़र के अंदर ही फ़ोटो को फ़्रेम में जोड़ता है। फ़ोटो किसी सर्वर पर अपलोड नहीं होती, हम उसे देख या सेव नहीं कर सकते। इंटरनेट सिर्फ़ पेज और फ़ॉन्ट खुलने के लिए चाहिए।',
+      privText2: 'सारे फ़्रेम NextGrade ने ख़ुद बनाए हैं। किसी और की फ़ोटो बिना पूछे फ़्रेम में लगाकर मत भेजिए।',
+      faqTitle: 'सवाल-जवाब',
+      faq: [['क्या यह मुफ़्त है?', 'हाँ, पूरी तरह मुफ़्त। कोई वॉटरमार्क हटाने का पैसा नहीं, कोई लॉगिन नहीं।'], ['फ़ोटो कहाँ सेव होती है?', 'डाउनलोड दबाने पर आपके फ़ोन की गैलरी या Downloads फ़ोल्डर में। शेयर दबाने पर सीधे WhatsApp या किसी भी ऐप में भेज सकते हो।'], ['फ़ोटो धुँधली क्यों लग रही है?', 'बहुत छोटी फ़ोटो को ज़्यादा ज़ूम करने से धुँधली लगती है। अच्छी रोशनी वाली, पूरी साइज़ की फ़ोटो चुनिए और ज़ूम कम रखिए।'], ['iPhone पर डाउनलोड कैसे करें?', '“शेयर” दबाइए और “Save Image” चुनिए — फ़ोटो गैलरी में आ जाएगी।']],
+      festLink: 'त्योहारों की जानकारी →', wishLink: 'नाम के साथ बधाई संदेश →',
+    },
+    en: {
+      title: 'Festival Photo Frame 🖼️',
+      sub: 'Put your photo in a festival frame — Diwali, Eid, Holi, Republic Day, Birthday and more. Add your name, download it or send it straight to WhatsApp.',
+      pill: '🔒 Your photo is never uploaded — everything happens on your phone',
+      pick: '📷 Choose a photo', change: '📷 Change photo',
+      chooseFrame: 'Choose a frame', size: 'Size', square: '◻ Post (square)', story: '▯ Status / Story',
+      greetLabel: 'Greeting text', nameLabel: 'Your name (optional)', namePh: 'e.g. Rahul & family',
+      zoom: 'Zoom', rotate: '↻ Rotate', reset: '⟲ Reset',
+      download: '⬇ Download photo', share: '📲 WhatsApp / Share',
+      dragHint: 'Drag the photo with a finger, pinch to zoom',
+      placeholder: 'Your photo here',
+      saved: '✅ Photo saved — check your gallery / Downloads',
+      shareText: (url) => `I put my photo in a festival frame! Make yours free: ${url}`,
+      names: { diwali: 'Diwali', eid: 'Eid', holi: 'Holi', republic: 'Republic Day', independence: '15 August', birthday: 'Birthday', christmas: 'Christmas', newyear: 'New Year' },
+      greet: { diwali: 'Happy Diwali', eid: 'Eid Mubarak', holi: 'Happy Holi', republic: 'Happy Republic Day', independence: 'Happy Independence Day', birthday: 'Happy Birthday', christmas: 'Merry Christmas', newyear: `Happy New Year ${yearNext}` },
+      howTitle: 'How to make one',
+      how: ['<b>📷 Choose a photo</b> — from the gallery or the camera. A face in the middle looks best.', 'Pick a <b>frame</b>: Diwali, Eid, Holi, Republic Day, 15 August, Birthday, Christmas or New Year.', '<b>Drag</b> the photo and <b>zoom</b> so the face sits nicely in the circle. If it is sideways, tap <b>↻ Rotate</b>.', 'Change the greeting if you like and add <b>your name</b>.', 'Use <b>Post</b> (square) for WhatsApp/Instagram posts and <b>Status / Story</b> for tall photos. Then <b>download</b> or <b>share</b>.'],
+      privTitle: 'Your photo stays on your phone',
+      privText: 'This tool joins your photo and the frame inside your browser. The photo is never uploaded to any server, so we can neither see nor keep it. The internet is only needed to open the page and its fonts.',
+      privText2: 'All frames are drawn by NextGrade. Please don\'t put someone else\'s photo in a frame and share it without asking them.',
+      faqTitle: 'Questions and answers',
+      faq: [['Is it free?', 'Yes, completely free. No paid watermark removal, no login.'], ['Where is the photo saved?', 'Download saves it to your phone\'s gallery or Downloads folder. Share sends it straight to WhatsApp or any other app.'], ['Why does my photo look blurry?', 'A very small photo zoomed in a lot looks blurry. Choose a well-lit, full-size photo and keep the zoom low.'], ['How do I save it on an iPhone?', 'Tap “Share” and choose “Save Image” — the photo goes to your gallery.']],
+      festLink: 'About the festivals →', wishLink: 'Greetings with your name →',
+    },
+    bn: {
+      title: 'উৎসবের ফটো ফ্রেম 🖼️',
+      sub: 'নিজের ছবি উৎসবের ফ্রেমে বসাও — দীপাবলি, ঈদ, দোল, প্রজাতন্ত্র দিবস, জন্মদিন আর আরও। নাম লেখো, ডাউনলোড করো বা সোজা WhatsApp-এ পাঠাও।',
+      pill: '🔒 ছবি কোথাও আপলোড হয় না — সব তোমার ফোনেই তৈরি হয়',
+      pick: '📷 ছবি বাছো', change: '📷 ছবি বদলাও',
+      chooseFrame: 'ফ্রেম বাছো', size: 'সাইজ', square: '◻ পোস্ট (চৌকো)', story: '▯ স্ট্যাটাস / স্টোরি',
+      greetLabel: 'শুভেচ্ছার লেখা', nameLabel: 'তোমার নাম (ঐচ্ছিক)', namePh: 'যেমন: রাহুল ও পরিবার',
+      zoom: 'জুম', rotate: '↻ ঘোরাও', reset: '⟲ ঠিক করো',
+      download: '⬇ ছবি ডাউনলোড করো', share: '📲 WhatsApp / শেয়ার',
+      dragHint: 'আঙুল দিয়ে ছবি সরাও, ২ আঙুলে জুম',
+      placeholder: 'এখানে তোমার ছবি',
+      saved: '✅ ছবি সেভ হয়েছে — গ্যালারি / Downloads-এ দেখো',
+      shareText: (url) => `আমি আমার ছবি উৎসবের ফ্রেমে বসিয়েছি! তুমিও বানাও, বিনামূল্যে: ${url}`,
+      names: { diwali: 'দীপাবলি', eid: 'ঈদ', holi: 'দোল', republic: 'প্রজাতন্ত্র দিবস', independence: '১৫ আগস্ট', birthday: 'জন্মদিন', christmas: 'বড়দিন', newyear: 'নতুন বছর' },
+      greet: { diwali: 'শুভ দীপাবলি', eid: 'ঈদ মোবারক', holi: 'শুভ দোলযাত্রা', republic: 'প্রজাতন্ত্র দিবসের শুভেচ্ছা', independence: 'স্বাধীনতা দিবসের শুভেচ্ছা', birthday: 'শুভ জন্মদিন', christmas: 'শুভ বড়দিন', newyear: `নতুন বছর ${yearNext}-এর শুভেচ্ছা` },
+      howTitle: 'কীভাবে বানাবে',
+      how: ['<b>📷 ছবি বাছো</b> — গ্যালারি বা ক্যামেরা থেকে। মুখ মাঝখানে থাকলে ভালো দেখায়।', 'ওপর থেকে <b>ফ্রেম বাছো</b>: দীপাবলি, ঈদ, দোল, প্রজাতন্ত্র দিবস, ১৫ আগস্ট, জন্মদিন, বড়দিন বা নতুন বছর।', 'ছবিটা <b>আঙুলে সরাও</b> আর <b>জুম</b> করো যাতে মুখ গোলের মধ্যে ঠিক বসে। ছবি কাত হলে <b>↻ ঘোরাও</b>।', 'শুভেচ্ছার লেখা বদলাতে পারো আর <b>নিজের নাম</b> লিখতে পারো।', '<b>পোস্ট</b> (চৌকো) WhatsApp/Instagram পোস্টের জন্য, <b>স্ট্যাটাস / স্টোরি</b> লম্বা ছবির জন্য। তারপর <b>ডাউনলোড</b> বা <b>শেয়ার</b> করো।'],
+      privTitle: 'তোমার ছবি তোমার ফোনেই',
+      privText: 'এই টুল তোমার ব্রাউজারের ভেতরেই ছবি আর ফ্রেম জোড়ে। ছবি কোনো সার্ভারে আপলোড হয় না, আমরা দেখতে বা রাখতে পারি না। ইন্টারনেট শুধু পেজ আর ফন্ট খোলার জন্য লাগে।',
+      privText2: 'সব ফ্রেম NextGrade নিজে এঁকেছে। অন্যের ছবি না জিজ্ঞেস করে ফ্রেমে বসিয়ে পাঠিও না।',
+      faqTitle: 'প্রশ্ন-উত্তর',
+      faq: [['এটা কি বিনামূল্যে?', 'হ্যাঁ, পুরোপুরি বিনামূল্যে। ওয়াটারমার্ক সরাতে টাকা লাগে না, লগইনও নেই।'], ['ছবি কোথায় সেভ হয়?', 'ডাউনলোড টিপলে ফোনের গ্যালারি বা Downloads ফোল্ডারে। শেয়ার টিপলে সোজা WhatsApp বা অন্য অ্যাপে পাঠানো যায়।'], ['ছবি ঝাপসা লাগছে কেন?', 'খুব ছোট ছবি বেশি জুম করলে ঝাপসা লাগে। ভালো আলোয় তোলা, পুরো সাইজের ছবি বাছো আর জুম কম রাখো।'], ['iPhone-এ কীভাবে সেভ করব?', '“Share” টিপে “Save Image” বাছো — ছবি গ্যালারিতে চলে যাবে।']],
+      festLink: 'উৎসবের তথ্য →', wishLink: 'নাম দিয়ে শুভেচ্ছা বার্তা →',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+  };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => {
+    const l = (navigator.language || '').toLowerCase();
+    if (l.startsWith('bn')) return 'bn';
+    if (l.startsWith('hi')) return 'hi';
+    return l.endsWith('-in') ? 'hinglish' : 'en';
+  };
+  const urlLang = params.get('lang');
+  const savedLang = store.get('pf-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const clean = (s, n) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').slice(0, n);
+
+  // ---------- state
+  const st = {
+    frame: FRAMES.includes(params.get('frame')) ? params.get('frame') : 'diwali',
+    size: 'square',
+    img: null, rot: 0, zoom: 1, ox: 0, oy: 0, // photo transform: offset in output px from the window centre
+    greetEdited: false,
+  };
+  const cv = $('cv');
+  const ctx = cv.getContext('2d');
+  let W = 1080, H = 1080;
+
+  // ---------- page texts
+  const renderFrames = () => {
+    $('frames').innerHTML = FRAMES.map((f) => `<button type="button" data-f="${f}" class="${f === st.frame ? 'on' : ''}"><b>${EMOJI[f]}</b>${t('names')[f]}</button>`).join('');
+  };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { const v = t(el.dataset.i18n); if (typeof v === 'string') el.textContent = v; });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    $('pick').textContent = st.img ? t('change') : t('pick');
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    $('faqList').innerHTML = t('faq').map(([q, a]) => `<h3>${q}</h3><p>${a}</p>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('festLink').href = `https://nextgrade.in${p}/festivals/`;
+    $('wishLink').href = `https://nextgrade.in${p}/wishes/`;
+    if (!st.greetEdited) $('greet').value = t('greet')[st.frame];
+    renderFrames();
+    document.querySelectorAll('#sizeSeg button').forEach((b) => b.classList.toggle('on', b.dataset.s === st.size));
+    draw();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('pf-lang', lang); applyLang(); });
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- drawing helpers (all art is drawn here, no image files)
+  const rnd = (seed) => { let s = seed; return () => { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }; };
+  const fontFor = (weight, px) => `${weight} ${px}px "Baloo 2", ${lang === 'bn' ? '"Baloo Da 2", "Noto Sans Bengali"' : '"Noto Sans Devanagari"'}, Inter, sans-serif`;
+  const fitText = (text, weight, max, maxW) => { let px = max; ctx.font = fontFor(weight, px); while (ctx.measureText(text).width > maxW && px > 18) { px -= 2; ctx.font = fontFor(weight, px); } return px; };
+  const star = (x, y, r, col) => { ctx.fillStyle = col; ctx.beginPath(); for (let i = 0; i < 10; i += 1) { const a = -Math.PI / 2 + (i * Math.PI) / 5, rr = i % 2 ? r * 0.42 : r; ctx.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); } ctx.closePath(); ctx.fill(); };
+  const sparkle = (x, y, r, col) => { ctx.strokeStyle = col; ctx.lineWidth = Math.max(2, r * 0.18); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x - r, y); ctx.lineTo(x + r, y); ctx.moveTo(x, y - r); ctx.lineTo(x, y + r); ctx.stroke(); };
+  const diya = (x, y, s) => {
+    const g = ctx.createRadialGradient(x, y - s * 0.9, 0, x, y - s * 0.9, s * 1.6); g.addColorStop(0, 'rgba(255,200,80,0.55)'); g.addColorStop(1, 'rgba(255,200,80,0)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y - s * 0.9, s * 1.6, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#c2410c'; ctx.beginPath(); ctx.moveTo(x - s, y - s * 0.25); ctx.quadraticCurveTo(x, y + s * 0.75, x + s, y - s * 0.25); ctx.quadraticCurveTo(x + s * 0.5, y - s * 0.05, x + s * 1.15, y - s * 0.45); ctx.lineTo(x - s * 1.15, y - s * 0.45); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#fb923c'; ctx.fillRect(x - s * 0.9, y - s * 0.5, s * 1.8, s * 0.12);
+    ctx.fillStyle = '#fde047'; ctx.beginPath(); ctx.moveTo(x, y - s * 1.45); ctx.quadraticCurveTo(x + s * 0.32, y - s * 0.85, x, y - s * 0.55); ctx.quadraticCurveTo(x - s * 0.32, y - s * 0.85, x, y - s * 1.45); ctx.fill();
+    ctx.fillStyle = '#fff7ed'; ctx.beginPath(); ctx.ellipse(x, y - s * 0.78, s * 0.08, s * 0.16, 0, 0, Math.PI * 2); ctx.fill();
+  };
+  const petalRing = (x, y, r, n, c1, c2) => {
+    for (let i = 0; i < n; i += 1) { const a = (i / n) * Math.PI * 2; ctx.save(); ctx.translate(x + Math.cos(a) * r, y + Math.sin(a) * r); ctx.rotate(a); ctx.fillStyle = i % 2 ? c1 : c2; ctx.beginPath(); ctx.ellipse(0, 0, r * 0.32, r * 0.14, 0, 0, Math.PI * 2); ctx.fill(); ctx.restore(); }
+    ctx.fillStyle = c1; ctx.beginPath(); ctx.arc(x, y, r * 0.35, 0, Math.PI * 2); ctx.fill();
+  };
+  const lantern = (x, top, len, s, col) => {
+    ctx.strokeStyle = 'rgba(255,215,120,0.8)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, top); ctx.lineTo(x, top + len); ctx.stroke();
+    const y = top + len;
+    ctx.fillStyle = '#facc15'; ctx.beginPath(); ctx.moveTo(x - s * 0.35, y); ctx.lineTo(x + s * 0.35, y); ctx.lineTo(x + s * 0.2, y + s * 0.18); ctx.lineTo(x - s * 0.2, y + s * 0.18); ctx.closePath(); ctx.fill();
+    const g = ctx.createLinearGradient(x, y, x, y + s * 1.3); g.addColorStop(0, col); g.addColorStop(1, '#7c2d12');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(x - s * 0.3, y + s * 0.18); ctx.quadraticCurveTo(x - s * 0.62, y + s * 0.7, x - s * 0.25, y + s * 1.2); ctx.lineTo(x + s * 0.25, y + s * 1.2); ctx.quadraticCurveTo(x + s * 0.62, y + s * 0.7, x + s * 0.3, y + s * 0.18); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = 'rgba(255,240,180,0.85)'; ctx.beginPath(); ctx.ellipse(x, y + s * 0.68, s * 0.12, s * 0.26, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#facc15'; ctx.fillRect(x - s * 0.22, y + s * 1.2, s * 0.44, s * 0.1); ctx.beginPath(); ctx.moveTo(x - s * 0.1, y + s * 1.3); ctx.lineTo(x, y + s * 1.55); ctx.lineTo(x + s * 0.1, y + s * 1.3); ctx.fill();
+  };
+  const balloon = (x, y, s, col) => {
+    ctx.strokeStyle = 'rgba(80,80,80,0.6)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y + s * 1.2); ctx.quadraticCurveTo(x + s * 0.4, y + s * 2.2, x - s * 0.2, y + s * 3.2); ctx.stroke();
+    ctx.fillStyle = col; ctx.beginPath(); ctx.ellipse(x, y, s * 0.85, s * 1.1, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(x - s * 0.15, y + s * 1.25); ctx.lineTo(x + s * 0.15, y + s * 1.25); ctx.lineTo(x, y + s * 1.05); ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.45)'; ctx.beginPath(); ctx.ellipse(x - s * 0.3, y - s * 0.4, s * 0.18, s * 0.3, -0.5, 0, Math.PI * 2); ctx.fill();
+  };
+  const kite = (x, y, s, rot, col, col2) => {
+    ctx.save(); ctx.translate(x, y); ctx.rotate(rot);
+    ctx.fillStyle = col; ctx.beginPath(); ctx.moveTo(0, -s); ctx.lineTo(s * 0.75, 0); ctx.lineTo(0, s); ctx.lineTo(-s * 0.75, 0); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = col2; ctx.beginPath(); ctx.moveTo(0, -s); ctx.lineTo(s * 0.75, 0); ctx.lineTo(0, 0); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = 'rgba(0,0,0,0.25)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(0, -s); ctx.lineTo(0, s); ctx.moveTo(-s * 0.75, 0); ctx.lineTo(s * 0.75, 0); ctx.stroke();
+    ctx.fillStyle = col2; ctx.beginPath(); ctx.moveTo(0, s); ctx.lineTo(-s * 0.18, s * 1.3); ctx.lineTo(s * 0.18, s * 1.3); ctx.fill();
+    ctx.restore();
+  };
+  const chakra = (x, y, r) => {
+    ctx.strokeStyle = '#000080'; ctx.lineWidth = Math.max(2, r * 0.1); ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.stroke();
+    ctx.lineWidth = Math.max(1, r * 0.05);
+    for (let i = 0; i < 24; i += 1) { const a = (i / 24) * Math.PI * 2; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + Math.cos(a) * r, y + Math.sin(a) * r); ctx.stroke(); }
+    ctx.fillStyle = '#000080'; ctx.beginPath(); ctx.arc(x, y, r * 0.18, 0, Math.PI * 2); ctx.fill();
+  };
+  const firework = (x, y, r, col, seed) => {
+    const R = rnd(seed); ctx.strokeStyle = col; ctx.lineCap = 'round';
+    for (let i = 0; i < 18; i += 1) { const a = (i / 18) * Math.PI * 2 + R() * 0.2, r1 = r * (0.25 + R() * 0.2), r2 = r * (0.75 + R() * 0.25); ctx.lineWidth = Math.max(2, r * 0.035); ctx.beginPath(); ctx.moveTo(x + Math.cos(a) * r1, y + Math.sin(a) * r1); ctx.lineTo(x + Math.cos(a) * r2, y + Math.sin(a) * r2); ctx.stroke(); ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x + Math.cos(a) * (r2 + r * 0.08), y + Math.sin(a) * (r2 + r * 0.08), r * 0.035, 0, Math.PI * 2); ctx.fill(); }
+  };
+  const snowflake = (x, y, r, col) => {
+    ctx.strokeStyle = col; ctx.lineWidth = Math.max(2, r * 0.12); ctx.lineCap = 'round';
+    for (let i = 0; i < 6; i += 1) { const a = (i / 6) * Math.PI * 2; const ex = x + Math.cos(a) * r, ey = y + Math.sin(a) * r; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(ex, ey); ctx.stroke(); const mx = x + Math.cos(a) * r * 0.6, my = y + Math.sin(a) * r * 0.6; [-0.6, 0.6].forEach((d) => { ctx.beginPath(); ctx.moveTo(mx, my); ctx.lineTo(mx + Math.cos(a + d) * r * 0.3, my + Math.sin(a + d) * r * 0.3); ctx.stroke(); }); }
+  };
+  const tree = (x, y, s) => {
+    ctx.fillStyle = '#166534'; for (let i = 0; i < 3; i += 1) { const w = s * (1 - i * 0.22), yy = y - i * s * 0.55; ctx.beginPath(); ctx.moveTo(x - w * 0.6, yy); ctx.lineTo(x + w * 0.6, yy); ctx.lineTo(x, yy - s * 0.8); ctx.closePath(); ctx.fill(); }
+    ctx.fillStyle = '#78350f'; ctx.fillRect(x - s * 0.08, y, s * 0.16, s * 0.22);
+    star(x, y - s * 1.95, s * 0.16, '#fde047');
+    ['#ef4444', '#fde047', '#60a5fa'].forEach((c, i) => { ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x + (i - 1) * s * 0.22, y - s * (0.25 + i * 0.45), s * 0.06, 0, Math.PI * 2); ctx.fill(); });
+  };
+
+  // ---------- frame themes: background + decorations, photo window, colours
+  const THEME = {
+    diwali: { bg: ['#3b0a0a', '#1a0505'], ring: '#fbbf24', text: '#fde68a', name: '#fff7ed' },
+    eid: { bg: ['#0b3b3a', '#061a2b'], ring: '#facc15', text: '#fde68a', name: '#ecfeff' },
+    holi: { bg: ['#fff7ed', '#fdf2f8'], ring: null, text: '#9d174d', name: '#4c1d95' },
+    republic: { bg: ['#ffffff', '#f8fafc'], ring: '#000080', text: '#000080', name: '#1f2937' },
+    independence: { bg: ['#e0f2fe', '#ffffff'], ring: '#ea580c', text: '#14532d', name: '#1f2937' },
+    birthday: { bg: ['#fdf4ff', '#eff6ff'], ring: '#ec4899', text: '#be185d', name: '#1e3a8a' },
+    christmas: { bg: ['#14532d', '#052e16'], ring: '#dc2626', text: '#fef2f2', name: '#fde68a' },
+    newyear: { bg: ['#0f172a', '#1e1b4b'], ring: '#a78bfa', text: '#fde68a', name: '#e0e7ff' },
+  };
+  const layout = () => {
+    const story = st.size === 'story';
+    const r = W * (story ? 0.36 : 0.3);
+    return { cx: W / 2, cy: story ? H * 0.43 : H * 0.47, r, gy: story ? H * 0.14 : H * 0.12, ny: story ? H * 0.43 + r + W * 0.12 : H * 0.47 + r + W * 0.085 };
+  };
+  const drawBackground = (L) => {
+    const th = THEME[st.frame];
+    const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, th.bg[0]); g.addColorStop(1, th.bg[1]);
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    const R = rnd(7 + FRAMES.indexOf(st.frame) * 13);
+    const f = st.frame;
+    if (f === 'diwali') {
+      for (let i = 0; i < 40; i += 1) sparkle(R() * W, R() * H * 0.9, 4 + R() * 9, `rgba(253,224,71,${0.25 + R() * 0.5})`);
+      const pr = W * 0.11; [[pr * 0.6, pr * 0.6], [W - pr * 0.6, pr * 0.6]].forEach(([x, y]) => { petalRing(x, y, pr, 12, '#f59e0b', '#be185d'); petalRing(x, y, pr * 0.55, 8, '#fde047', '#ea580c'); });
+      const n = 7; for (let i = 0; i < n; i += 1) diya(W * (i + 0.5) / n, H - W * 0.045, W * 0.045);
+      ctx.strokeStyle = 'rgba(251,191,36,0.6)'; ctx.lineWidth = W * 0.008; ctx.strokeRect(W * 0.025, W * 0.025, W * 0.95, H - W * 0.05);
+    } else if (f === 'eid') {
+      for (let i = 0; i < 70; i += 1) { ctx.fillStyle = `rgba(255,255,255,${0.2 + R() * 0.6})`; ctx.beginPath(); ctx.arc(R() * W, R() * H, 1 + R() * 2.5, 0, Math.PI * 2); ctx.fill(); }
+      const mx = W * 0.83, my = W * 0.16, mr = W * 0.085;
+      ctx.fillStyle = '#fde68a'; ctx.beginPath(); ctx.arc(mx, my, mr, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = th.bg[0]; ctx.beginPath(); ctx.arc(mx + mr * 0.42, my - mr * 0.18, mr * 0.85, 0, Math.PI * 2); ctx.fill();
+      star(mx - mr * 0.05, my + mr * 0.05, mr * 0.22, '#fde68a');
+      lantern(W * 0.1, 0, W * 0.08, W * 0.09, '#f59e0b'); lantern(W * 0.22, 0, W * 0.16, W * 0.07, '#10b981');
+      ctx.fillStyle = 'rgba(0,0,0,0.25)'; const by = H - W * 0.11; ctx.fillRect(0, by, W, H - by);
+      for (let i = 0; i < 6; i += 1) { const x = W * (0.08 + i * 0.17), w = W * 0.12; ctx.fillStyle = 'rgba(250,204,21,0.25)'; ctx.beginPath(); ctx.moveTo(x, H); ctx.lineTo(x, by + w * 0.2); ctx.quadraticCurveTo(x + w / 2, by - w * 0.6, x + w, by + w * 0.2); ctx.lineTo(x + w, H); ctx.fill(); }
+    } else if (f === 'holi') {
+      const cols = ['#ec4899', '#22c55e', '#facc15', '#3b82f6', '#a855f7', '#f97316'];
+      for (let i = 0; i < 14; i += 1) { const x = R() * W, y = R() * H, r = W * (0.05 + R() * 0.11), c = cols[i % cols.length]; ctx.globalAlpha = 0.55; ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill(); for (let k = 0; k < 9; k += 1) { const a = R() * Math.PI * 2, d = r * (1.05 + R() * 0.6); ctx.beginPath(); ctx.arc(x + Math.cos(a) * d, y + Math.sin(a) * d, r * (0.06 + R() * 0.12), 0, Math.PI * 2); ctx.fill(); } }
+      ctx.globalAlpha = 1;
+    } else if (f === 'republic' || f === 'independence') {
+      const band = H * 0.07;
+      if (f === 'republic') {
+        ctx.fillStyle = '#ff9933'; ctx.fillRect(0, 0, W, band); ctx.fillStyle = '#138808'; ctx.fillRect(0, H - band, W, band);
+        for (let i = 0; i < 26; i += 1) { ctx.fillStyle = ['#ff9933', '#138808', '#fb923c'][i % 3]; ctx.globalAlpha = 0.5; ctx.beginPath(); ctx.ellipse(R() * W, band + R() * (H - 2 * band), 10, 5, R() * 3, 0, Math.PI * 2); ctx.fill(); }
+        ctx.globalAlpha = 1;
+        chakra(W * 0.1, band + W * 0.1, W * 0.045); chakra(W * 0.9, band + W * 0.1, W * 0.045);
+      } else {
+        ctx.save(); ctx.translate(0, H * 0.82);
+        [['#ff9933', 0], ['#ffffff', 1], ['#138808', 2]].forEach(([c, i]) => { ctx.fillStyle = c; ctx.beginPath(); ctx.moveTo(0, i * band * 0.7); for (let x = 0; x <= W; x += 20) ctx.lineTo(x, i * band * 0.7 + Math.sin(x / 90) * band * 0.25); ctx.lineTo(W, i * band * 0.7 + band * 0.7); for (let x = W; x >= 0; x -= 20) ctx.lineTo(x, i * band * 0.7 + band * 0.7 + Math.sin(x / 90) * band * 0.25); ctx.fill(); });
+        ctx.restore();
+        kite(W * 0.12, W * 0.16, W * 0.06, 0.2, '#ff9933', '#fb923c'); kite(W * 0.88, W * 0.2, W * 0.05, -0.25, '#138808', '#22c55e'); kite(W * 0.8, W * 0.06 + H * 0.05, W * 0.035, 0.1, '#1d4ed8', '#60a5fa');
+      }
+    } else if (f === 'birthday') {
+      const cols = ['#f472b6', '#60a5fa', '#facc15', '#34d399', '#a78bfa', '#fb923c'];
+      for (let i = 0; i < 60; i += 1) { ctx.fillStyle = cols[i % cols.length]; ctx.save(); ctx.translate(R() * W, R() * H); ctx.rotate(R() * 3); ctx.fillRect(-5, -2, 10, 4); ctx.restore(); }
+      balloon(W * 0.1, W * 0.2, W * 0.05, '#f472b6'); balloon(W * 0.19, W * 0.13, W * 0.045, '#60a5fa'); balloon(W * 0.82, W * 0.14, W * 0.05, '#facc15'); balloon(W * 0.9, W * 0.24, W * 0.045, '#a78bfa');
+    } else if (f === 'christmas') {
+      for (let i = 0; i < 30; i += 1) snowflake(R() * W, R() * H, 6 + R() * 16, `rgba(255,255,255,${0.25 + R() * 0.5})`);
+      tree(W * 0.1, H - W * 0.07, W * 0.09); tree(W * 0.9, H - W * 0.07, W * 0.09);
+      ctx.strokeStyle = '#dc2626'; ctx.lineWidth = W * 0.012; ctx.strokeRect(W * 0.03, W * 0.03, W * 0.94, H - W * 0.06);
+      ctx.strokeStyle = '#fde68a'; ctx.lineWidth = W * 0.004; ctx.strokeRect(W * 0.045, W * 0.045, W * 0.91, H - W * 0.09);
+    } else if (f === 'newyear') {
+      for (let i = 0; i < 80; i += 1) { ctx.fillStyle = `rgba(255,255,255,${0.2 + R() * 0.6})`; ctx.beginPath(); ctx.arc(R() * W, R() * H, 1 + R() * 2, 0, Math.PI * 2); ctx.fill(); }
+      firework(W * 0.15, W * 0.2, W * 0.12, '#f472b6', 3); firework(W * 0.86, W * 0.17, W * 0.1, '#facc15', 5); firework(W * 0.12, H - W * 0.18, W * 0.08, '#34d399', 9); firework(W * 0.88, H - W * 0.2, W * 0.09, '#60a5fa', 11);
+    }
+  };
+  const drawPhoto = (L) => {
+    ctx.save(); ctx.beginPath(); ctx.arc(L.cx, L.cy, L.r, 0, Math.PI * 2); ctx.clip();
+    if (st.img) {
+      const iw = st.img.naturalWidth || st.img.width, ih = st.img.naturalHeight || st.img.height;
+      const rotated = st.rot % 180 !== 0;
+      const bw = rotated ? ih : iw, bh = rotated ? iw : ih;
+      const base = (2 * L.r) / Math.min(bw, bh); // cover the circle at zoom 1
+      const s = base * st.zoom;
+      ctx.translate(L.cx + st.ox, L.cy + st.oy); ctx.rotate((st.rot * Math.PI) / 180); ctx.scale(s, s);
+      ctx.drawImage(st.img, -iw / 2, -ih / 2);
+    } else {
+      ctx.fillStyle = 'rgba(255,255,255,0.18)'; ctx.fillRect(L.cx - L.r, L.cy - L.r, 2 * L.r, 2 * L.r);
+      ctx.fillStyle = 'rgba(255,255,255,0.55)'; ctx.beginPath(); ctx.arc(L.cx, L.cy - L.r * 0.2, L.r * 0.32, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(L.cx, L.cy + L.r * 0.75, L.r * 0.62, L.r * 0.5, 0, Math.PI, 0); ctx.fill();
+      ctx.fillStyle = 'rgba(0,0,0,0.55)'; const px = fitText(t('placeholder'), 700, W * 0.04, L.r * 1.6); ctx.font = fontFor(700, px); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(t('placeholder'), L.cx, L.cy + L.r * 0.42);
+    }
+    ctx.restore();
+    // ring around the photo
+    const th = THEME[st.frame];
+    if (th.ring) { ctx.strokeStyle = th.ring; ctx.lineWidth = W * 0.018; ctx.beginPath(); ctx.arc(L.cx, L.cy, L.r + W * 0.009, 0, Math.PI * 2); ctx.stroke(); }
+    else { const cols = ['#ec4899', '#22c55e', '#facc15', '#3b82f6', '#a855f7', '#f97316']; cols.forEach((c, i) => { ctx.strokeStyle = c; ctx.lineWidth = W * 0.02; ctx.beginPath(); ctx.arc(L.cx, L.cy, L.r + W * 0.01, (i / cols.length) * Math.PI * 2, ((i + 1) / cols.length) * Math.PI * 2); ctx.stroke(); }); }
+    if (st.frame === 'diwali' || st.frame === 'eid') { ctx.strokeStyle = 'rgba(253,230,138,0.5)'; ctx.lineWidth = W * 0.004; ctx.beginPath(); ctx.arc(L.cx, L.cy, L.r + W * 0.03, 0, Math.PI * 2); ctx.stroke(); }
+  };
+  const drawText = (L) => {
+    const th = THEME[st.frame];
+    const greet = clean($('greet').value, 40).trim(), name = clean($('name').value, 30).trim();
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    if (greet) {
+      const px = fitText(greet, 800, W * 0.08, W * 0.7); // narrower than the frame so the corner art stays clear
+      ctx.font = fontFor(800, px);
+      ctx.lineWidth = px * 0.14; ctx.strokeStyle = /^#f|^#e|^#d/.test(th.bg[0]) ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.45)'; ctx.lineJoin = 'round';
+      ctx.strokeText(greet, W / 2, L.gy); ctx.fillStyle = th.text; ctx.fillText(greet, W / 2, L.gy);
+    }
+    if (name) {
+      const px = fitText(name, 700, W * 0.06, W * 0.8);
+      ctx.font = fontFor(700, px);
+      const tw = ctx.measureText(name).width + px * 1.2, th2 = px * 1.5;
+      ctx.fillStyle = /^#f|^#e|^#d/.test(th.bg[0]) ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.35)';
+      ctx.beginPath(); ctx.roundRect ? ctx.roundRect(W / 2 - tw / 2, L.ny - th2 / 2, tw, th2, th2 / 2) : ctx.rect(W / 2 - tw / 2, L.ny - th2 / 2, tw, th2); ctx.fill();
+      ctx.fillStyle = th.name; ctx.fillText(name, W / 2, L.ny + px * 0.04);
+    }
+    // small credit so people can find the tool (kept tiny, bottom right)
+    ctx.font = `600 ${Math.round(W * 0.018)}px Inter, sans-serif`; ctx.textAlign = 'right'; ctx.textBaseline = 'alphabetic';
+    ctx.fillStyle = /^#f|^#e|^#d/.test(th.bg[1]) ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.45)';
+    ctx.fillText('nextgrade.in', W - W * 0.04, H - W * (st.frame === 'diwali' ? 0.1 : 0.03));
+  };
+  let pending = false;
+  const draw = () => {
+    if (pending) return; pending = true;
+    requestAnimationFrame(() => {
+      pending = false;
+      W = 1080; H = st.size === 'story' ? 1920 : 1080;
+      if (cv.width !== W || cv.height !== H) { cv.width = W; cv.height = H; }
+      const L = layout();
+      drawBackground(L); drawPhoto(L); drawText(L);
+    });
+  };
+
+  // ---------- photo: read on the phone only
+  const loadImage = (src) => new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = src; });
+  let objUrl = null;
+  const setPhoto = async (file) => {
+    if (!file || !/^image\//.test(file.type)) return;
+    if (objUrl) URL.revokeObjectURL(objUrl);
+    objUrl = URL.createObjectURL(file); // stays in this tab; nothing is uploaded
+    try {
+      st.img = await loadImage(objUrl);
+      st.rot = 0; st.zoom = 1; st.ox = 0; st.oy = 0; $('zoom').value = 100;
+      $('photoCtl').classList.remove('hidden'); $('dragHint').classList.remove('hidden');
+      $('download').disabled = false; $('share').disabled = false;
+      $('pick').textContent = t('change'); $('msg').textContent = '';
+      setTimeout(() => $('dragHint').classList.add('hidden'), 3500);
+      draw();
+    } catch (e) { /* not an image the browser can read */ }
+  };
+  $('pick').addEventListener('click', () => $('file').click());
+  $('file').addEventListener('change', (e) => setPhoto(e.target.files && e.target.files[0]));
+
+  // ---------- drag and pinch on the preview
+  const pts = new Map();
+  let startDist = 0, startZoom = 1;
+  const scale = () => cv.width / cv.getBoundingClientRect().width;
+  cv.addEventListener('pointerdown', (e) => { if (!st.img) { $('file').click(); return; } cv.setPointerCapture(e.pointerId); pts.set(e.pointerId, { x: e.clientX, y: e.clientY }); cv.classList.add('dragging'); if (pts.size === 2) { const [a, b] = [...pts.values()]; startDist = Math.hypot(a.x - b.x, a.y - b.y); startZoom = st.zoom; } });
+  cv.addEventListener('pointermove', (e) => {
+    if (!pts.has(e.pointerId)) return;
+    const prev = pts.get(e.pointerId); const cur = { x: e.clientX, y: e.clientY }; pts.set(e.pointerId, cur);
+    if (pts.size === 1) { const k = scale(); st.ox += (cur.x - prev.x) * k; st.oy += (cur.y - prev.y) * k; }
+    else if (pts.size === 2 && startDist) { const [a, b] = [...pts.values()]; st.zoom = Math.min(4, Math.max(1, startZoom * (Math.hypot(a.x - b.x, a.y - b.y) / startDist))); $('zoom').value = Math.round(st.zoom * 100); }
+    draw();
+  });
+  const up = (e) => { pts.delete(e.pointerId); if (!pts.size) cv.classList.remove('dragging'); if (pts.size < 2) startDist = 0; };
+  cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up);
+  cv.addEventListener('wheel', (e) => { if (!st.img) return; e.preventDefault(); st.zoom = Math.min(4, Math.max(1, st.zoom * (e.deltaY < 0 ? 1.06 : 0.94))); $('zoom').value = Math.round(st.zoom * 100); draw(); }, { passive: false });
+  $('zoom').addEventListener('input', (e) => { st.zoom = Number(e.target.value) / 100; draw(); });
+  $('rotate').addEventListener('click', () => { st.rot = (st.rot + 90) % 360; draw(); });
+  $('reset').addEventListener('click', () => { st.rot = 0; st.zoom = 1; st.ox = 0; st.oy = 0; $('zoom').value = 100; draw(); });
+
+  // ---------- frame, size and text
+  $('frames').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; st.frame = b.dataset.f; if (!st.greetEdited) $('greet').value = t('greet')[st.frame]; renderFrames(); draw(); });
+  $('sizeSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; st.size = b.dataset.s; st.ox = 0; st.oy = 0; document.querySelectorAll('#sizeSeg button').forEach((x) => x.classList.toggle('on', x === b)); draw(); });
+  $('greet').addEventListener('input', () => { st.greetEdited = $('greet').value.trim() !== ''; draw(); });
+  $('name').addEventListener('input', () => { store.set('pf-name', clean($('name').value, 30)); draw(); });
+  $('name').value = store.get('pf-name') || '';
+
+  // ---------- download and share (the image is made on the phone)
+  const fileName = () => `nextgrade-${st.frame}-frame.jpg`;
+  const toBlob = () => new Promise((res) => cv.toBlob((b) => res(b), 'image/jpeg', 0.92));
+  $('download').addEventListener('click', async () => {
+    const blob = await toBlob(); if (!blob) return;
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = fileName();
+    document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    $('msg').textContent = t('saved');
+  });
+  $('share').addEventListener('click', async () => {
+    const url = `${SITE}?frame=${st.frame}&lang=${lang}`;
+    const blob = await toBlob(); if (!blob) return;
+    const file = new File([blob], fileName(), { type: 'image/jpeg' });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) { navigator.share({ files: [file], text: t('shareText')(url) }).catch(() => {}); return; }
+    // no file sharing (most desktops): save the photo, then open WhatsApp with the link
+    $('download').click();
+    window.open(`https://wa.me/?text=${encodeURIComponent(t('shareText')(url))}`, '_blank', 'noopener');
+  });
+
+  // ---------- test helper (?debug): a drawn stand-in photo so the frames can be checked without a real face
+  if (params.has('debug')) {
+    const c = document.createElement('canvas'); c.width = 800; c.height = 1000; const x = c.getContext('2d');
+    const g = x.createLinearGradient(0, 0, 0, 1000); g.addColorStop(0, '#93c5fd'); g.addColorStop(1, '#1e3a8a'); x.fillStyle = g; x.fillRect(0, 0, 800, 1000);
+    x.fillStyle = '#e0a370'; x.beginPath(); x.arc(400, 420, 190, 0, Math.PI * 2); x.fill(); x.fillStyle = '#1f2937'; x.beginPath(); x.ellipse(400, 300, 200, 110, 0, Math.PI, 0); x.fill();
+    x.fillStyle = '#111'; x.beginPath(); x.arc(330, 420, 18, 0, Math.PI * 2); x.arc(470, 420, 18, 0, Math.PI * 2); x.fill(); x.strokeStyle = '#7a3e1d'; x.lineWidth = 10; x.beginPath(); x.arc(400, 470, 80, 0.2 * Math.PI, 0.8 * Math.PI); x.stroke();
+    x.fillStyle = '#f8fafc'; x.beginPath(); x.ellipse(400, 980, 330, 330, 0, Math.PI, 0); x.fill();
+    c.toBlob((b) => setPhoto(new File([b], 'test.png', { type: 'image/png' })));
+    if (params.get('size') === 'story') st.size = 'story';
+    if (params.get('name')) $('name').value = clean(params.get('name'), 30);
+  }
+
+  window.__pf = { get frame() { return st.frame; }, get hasPhoto() { return !!st.img; }, get size() { return [cv.width, cv.height]; } };
+  applyLang();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+})();
+</script>
+<nav class="ng-more-tools" aria-label="More free tools" style="max-width:1000px;margin:28px auto 18px;padding:14px 16px;border-top:1px solid rgba(128,128,128,.25);font:15px/1.5 system-ui,sans-serif"><h2 style="font-size:1.05rem;margin:0 0 10px">🧰 और फ़्री टूल्स · More free tools</h2><div style="display:flex;flex-wrap:wrap;gap:8px"><a href="/tools/passport-photo/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">🪪 Passport Size Photo Maker</a><a href="/tools/image-compress/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">🗜️ Image Compressor</a><a href="/tools/image-resize/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">📐 Image Resizer</a><a href="/tools/image-crop/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">✂️ Image Crop &amp; Rotate</a><a href="/tools/signature-maker/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">✍️ Signature Maker</a><a href="/tools/sticker-maker/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">😄 Sticker Maker</a><a href="/tools/doc-scanner/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">📄 Document Scanner → PDF</a><a href="/tools/pdf-compress/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">📉 PDF Compressor</a><a href="/tools/" style="padding:7px 12px;border-radius:999px;background:#e8590c;color:#fff;text-decoration:none">सारे टूल्स →</a></div></nav>
+</body>
+</html>
