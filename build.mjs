@@ -33,6 +33,7 @@ import { rules as allRules, KHEL_UI } from './src/khel.mjs';
 import { LIST_YEAR, DATES, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
 import { CAL_YEAR, MONTH_SLUGS as SLUG_M, NATIONAL, HOLIDAY_SLUGS, WDS, CT, hijriStarts } from './src/calendar.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
+import { YIS_YEAR, YIS_CATS, YIS_UI, OFFICIAL_URL as YIS_URL, CHECKED as YIS_CHECKED } from './src/year-in-search.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
 const games = allGames.filter((g) => isLive(`game:${g.slug}`));
 const stories = allStories.filter((st) => isLive(`story:${st.slug}`));
@@ -52,6 +53,7 @@ const KHEL = allRules.filter((r) => isLive(`game:${r.slug}`)); // rules page goe
 const CALCS = allCalculators.filter((c) => isLive(`calc:${c.slug}`));
 const BABY_LIVE = isLive('page:naam');
 const FF_LIVE = isLive('page:full-form');
+const YIS_LIVE = isLive(`page:year-in-search-${YIS_YEAR}`); // K2: held until Google's list is filled in
 const heldTools = allTools.filter((tl) => !isLive(`tool:${tl.slug}`)).map((tl) => tl.slug);
 import * as islamic from './src/islamic.mjs';
 import { ui } from './src/i18n/ui.mjs';
@@ -1473,6 +1475,34 @@ ${related.length ? `<h2 class="no-print">${esc(U.relH)}</h2>\n<ul class="ff-list
 </article>`,
       }));
     });
+  }
+
+  // K2: "What India searched in <year>" (/year-in-search/<year>/), held as 'page:year-in-search-<year>' until filled
+  if (YIS_LIVE) {
+    const Y = YIS_UI[L.code], path = `/year-in-search/${YIS_YEAR}/`;
+    const faq = Y.faq(YIS_YEAR).map(([q, a]) => ({ q, a }));
+    const cats = YIS_CATS.filter((c) => c.items.length);
+    const yStyle = `<style>.yis-cat{margin:1.4rem 0}.yis-list{counter-reset:y;list-style:none;padding:0;margin:.6rem 0}.yis-list li{counter-increment:y;display:grid;grid-template-columns:2rem 1fr;gap:.2rem .6rem;padding:.6rem .2rem;border-bottom:1px dashed var(--line)}.yis-list li::before{content:counter(y);grid-row:span 2;font-weight:800;color:var(--brand);font-size:1.15rem}.yis-list b{font-size:1.05rem}.yis-list span{color:var(--muted)}.yis-src{margin:1rem 0;padding:1rem 1.1rem;border:1px solid var(--line);border-radius:.6rem;background:var(--surface)}</style>`;
+    write(L, path, page(L, {
+      path, title: Y.title(YIS_YEAR), description: Y.lead(YIS_YEAR),
+      jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [Y.nav, path]]), articleLd(L, Y.h1(YIS_YEAR).replace(/^\S+\s/, ''), path), faqLd(faq)],
+      body: `<article class="wrap narrow article">${yStyle}
+<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(Y.nav)}</p>
+<h1>${esc(Y.h1(YIS_YEAR))}</h1>
+<p class="lead">${esc(Y.lead(YIS_YEAR))}</p>
+${cats.map((c, i) => `<section class="yis-cat"><h2>${c.emoji} ${esc(Y.cats[c.key])}</h2>
+<ol class="yis-list">${c.items.map((it) => `<li><b>${esc(it.q)}</b><span>${esc(it.note[L.code] || it.note.en)}</span></li>`).join('')}</ol></section>${i === 1 ? '\n<div class="ad no-print" aria-hidden="true"></div>' : ''}`).join('\n')}
+<h2>${esc(Y.aboutH)}</h2>
+${Y.about.map((t) => `<p>${esc(t)}</p>`).join('\n')}
+<h2>${esc(Y.readH)}</h2>
+${Y.read.map((t) => `<p>${esc(t)}</p>`).join('\n')}
+<h2>${esc(Y.oursH)}</h2>
+<p>${esc(Y.ours)} <a href="${P(L, '/tools/')}">${esc(MENU_T[L.code].allTools)} →</a></p>
+<div class="yis-src"><b>${esc(Y.sourceH)}:</b> ${esc(Y.source(YIS_YEAR))} <a href="${YIS_URL}" rel="noopener" target="_blank">${esc(Y.official)} ↗</a>${YIS_CHECKED ? `<br><small>${esc(Y.checked(YIS_CHECKED))}</small>` : ''}</div>
+<h2>${esc(Y.faqH)}</h2>
+${faqBlock(faq)}
+</article>`,
+    }));
   }
 
   // Paheliyan (riddles with answers), scheduled as 'page:paheliyan'; "riddle of the day" changes with the daily build

@@ -37,6 +37,8 @@ const FIXED = {
   'page:naam-wali-image': '2026-11-24', // user 24 Nov: live now, before Christmas and New Year
   'page:shaadi-card': '2026-11-24', // user 24 Nov: live now (wedding season); free wedding (Shubh Vivah) card maker — high-traffic, routes paid-search traffic to us
   'page:paheliyan': '2026-11-20', // riddles with answers — live now (user 21 Nov)
+  // K2: held until Google publishes Year in Search 2026 (early Dec) and the lists in src/year-in-search.mjs are filled — then set the real date
+  'page:year-in-search-2026': '9999-12-31',
   // school speeches and essays (about 3–4 weeks before the day)
   'speech:republic-day': '2026-11-24', // 26 Jan — user 24 Nov: live now (teachers and students prepare early)
   'speech:netaji-jayanti': '2027-01-02', // 23 Jan (Parakram Diwas)
