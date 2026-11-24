@@ -38,6 +38,12 @@ jobs:
       - name: Tell Bing / IndexNow about new pages (so ChatGPT search and Copilot find them quickly)
         if: steps.publish.outputs.pushed == '1'
         run: node scripts/indexnow.mjs --since HEAD~1
+      - name: Daily Facebook Page post (and WhatsApp text in the job summary)
+        run: node scripts/daily-post.mjs
+        continue-on-error: true
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
       - name: Ask GitHub Pages to rebuild
         run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
         env:
