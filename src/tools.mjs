@@ -84,6 +84,11 @@ const tools = [
     en: ['Exam Form Photo & Signature Resizer', 'Photo, signature, thumb and declaration at the exact px and KB that SSC, UPSC, IBPS / SBI, NEET and JEE forms ask for. Cleans up a signature on paper.'],
     hinglish: ['Form Photo & Signature Resizer', 'SSC, UPSC, IBPS / SBI, NEET, JEE form ke liye photo, signature, angootha aur declaration — sahi px aur KB mein. Kaagaz wala signature saaf bhi.'],
     bn: ['ফর্মের ছবি ও সই রিসাইজার', 'SSC, UPSC, IBPS / SBI, NEET, JEE ফর্মের জন্য ছবি, সই, আঙুলের ছাপ আর ডিক্লারেশন — ঠিক px আর KB-তে। কাগজের সই পরিষ্কারও।'] },
+  { slug: 'krutidev', emoji: '🔤',
+    hi: ['Krutidev to Unicode Converter (और Unicode to Krutidev)', 'पुराना Kruti Dev 010 टेक्स्ट पेस्ट करो, सही Unicode हिंदी पाओ — Word, ईमेल, WhatsApp, वेबसाइट के लिए। उल्टा भी: Unicode से Krutidev। कुछ भी अपलोड नहीं होता।'],
+    en: ['Krutidev to Unicode Converter (and back)', 'Paste old Kruti Dev 010 text and get proper Unicode Hindi for Word, email, WhatsApp and websites — or convert Unicode to Krutidev. Nothing is uploaded.'],
+    hinglish: ['Krutidev to Unicode Converter (aur ulta bhi)', 'Purana Kruti Dev 010 text paste karo, sahi Unicode Hindi pao — Word, email, WhatsApp, website ke liye. Ulta bhi: Unicode se Krutidev. Kuch upload nahi hota.'],
+    bn: ['Krutidev থেকে Unicode কনভার্টার (আর উল্টোটাও)', 'পুরনো Kruti Dev 010 লেখা পেস্ট করো, ঠিকঠাক Unicode হিন্দি পাও — Word, ইমেল, WhatsApp-এর জন্য। উল্টোটাও: Unicode থেকে Krutidev। কিছুই আপলোড হয় না।'] },
 ];
 
 export { tools };

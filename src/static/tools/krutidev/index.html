@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Krutidev to Unicode Converter (और Unicode to Krutidev) — Free | NextGrade</title>
+<meta name="description" content="Free Krutidev 010 to Unicode and Unicode to Krutidev converter for Hindi typing: paste old Kruti Dev text and get proper Unicode Hindi for Word, email, WhatsApp and websites — or the other way round. Works in your browser; nothing is uploaded.">
+<link rel="canonical" href="https://nextgrade.in/tools/krutidev/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Krutidev ↔ Unicode Converter — Hindi typing ke liye">
+<meta property="og:description" content="Kruti Dev ka text paste karo, Unicode Hindi pao (aur ulta bhi). Free, kahin upload nahi hota.">
+<meta property="og:url" content="https://nextgrade.in/tools/krutidev/">
+<meta property="og:image" content="https://nextgrade.in/og-image.jpg">
+<meta name="theme-color" content="#0b7285">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Krutidev ↔ Unicode Converter","url":"https://nextgrade.in/tools/krutidev/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #062328; --gold: #ffd43b; --ink: #f8f9fa; --muted: #c3e7ec; --card: rgba(255,255,255,0.07); --line: rgba(255,255,255,0.16); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #0b5d6b, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.iconbtn { background: var(--card); border: 1px solid var(--line); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 16px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(26px, 6vw, 38px); line-height: 1.15; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 14px; }
+.seg { display: inline-grid; grid-template-columns: 1fr 1fr; gap: 6px; background: var(--card); padding: 4px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 12px; }
+.seg button { font: inherit; font-weight: 700; font-size: 14px; padding: 8px 12px; border-radius: 9px; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
+.seg button.on { background: #1098ad; }
+.panes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 760px) { .panes { grid-template-columns: 1fr; } }
+label.pane { display: grid; gap: 6px; font-size: 14px; color: var(--muted); font-weight: 600; }
+textarea { width: 100%; min-height: 220px; font-size: 18px; line-height: 1.6; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: rgba(0,0,0,0.3); color: var(--ink); resize: vertical; font-family: "Noto Sans Devanagari", Inter, system-ui, sans-serif; }
+textarea.kd { font-family: "Kruti Dev 010", "KrutiDev010", ui-monospace, Menlo, Consolas, monospace; }
+textarea[readonly] { background: rgba(0,0,0,0.42); }
+.btns { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; }
+.btn { font: inherit; font-weight: 800; font-size: 15px; padding: 10px 14px; border-radius: 10px; border: 0; cursor: pointer; }
+.btn-main { background: #1098ad; color: #fff; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.warn { background: rgba(250,176,5,0.14); border: 1px solid rgba(250,176,5,0.5); color: #ffe8a3; border-radius: 10px; padding: 8px 12px; margin: 10px 0 0; font-size: 14px; }
+.info { color: var(--muted); font-size: 14px; margin: 8px 0 0; }
+section { margin: 32px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+.faq h3 { font-size: 16px; margin: 14px 0 2px; }
+.faq p { margin: 0 0 6px; color: var(--muted); }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid var(--line); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">अ NextGrade<small>Krutidev ↔ Unicode</small></a>
+    <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+
+  <div class="seg" id="dirSeg" role="group"><button type="button" data-d="k2u" data-i18n="k2u"></button><button type="button" data-d="u2k" data-i18n="u2k"></button></div>
+
+  <div class="panes">
+    <label class="pane"><span id="inLabel"></span><textarea id="inp" spellcheck="false"></textarea></label>
+    <label class="pane"><span id="outLabel"></span><textarea id="out" readonly spellcheck="false"></textarea></label>
+  </div>
+  <div class="btns">
+    <button class="btn btn-main" id="copy" type="button" data-i18n="copy"></button>
+    <button class="btn btn-ghost" id="swap" type="button" data-i18n="swap"></button>
+    <button class="btn btn-ghost" id="sample" type="button" data-i18n="sample"></button>
+    <button class="btn btn-ghost" id="clear" type="button" data-i18n="clear"></button>
+  </div>
+  <p class="warn hidden" id="warn" role="status"></p>
+  <p class="info" id="fontNote"></p>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card2"><ol id="howList"></ol></div>
+  </section>
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+  </section>
+  <section class="faq">
+    <h2 data-i18n="faqTitle"></h2>
+    <div class="card2" id="faqList"></div>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a>
+  </footer>
+</div>
+
+<script src="kd.js?v=1"></script>
+<script>
+(() => {
+  'use strict';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const SAMPLE = { k2u: "Hkkjr ,d fo'kky ns'k gSA fo|kFkhZ ijh{kk dh rS;kjh dj jgs gSaA", u2k: 'भारत एक विशाल देश है। विद्यार्थी परीक्षा की तैयारी कर रहे हैं।' };
+  const T = {
+    hinglish: {
+      title: 'Krutidev ↔ Unicode Converter', sub: 'Kruti Dev 010 mein likha purana Hindi text paste karo aur sahi Unicode Hindi pao — Word, email, WhatsApp aur website ke liye. Ya Unicode Hindi ko Kruti Dev mein badlo. Free, aur text kahin upload nahi hota.',
+      k2u: 'Krutidev → Unicode', u2k: 'Unicode → Krutidev', inK: 'Kruti Dev text yahan paste karo', inU: 'Unicode Hindi yahan likho ya paste karo', outU: 'Unicode Hindi (copy karke kahin bhi use karo)', outK: 'Kruti Dev text (Kruti Dev font mein Hindi dikhega)',
+      copy: '📋 Copy', copied: '✅ Copy ho gaya', swap: '⇅ Ulta karo', sample: 'Udaharan', clear: 'Saaf karo',
+      warn: (list) => `Yeh purane glyph pehchaane nahi gaye aur waise hi chhod diye gaye: ${list} — in jagahon ko ek baar dekh lo.`,
+      fontK2U: 'Output Unicode hai — har phone aur computer pe sahi dikhega.', fontU2K: 'Kruti Dev output angrezi aksharon jaisa dikhega. Word mein paste karke font "Kruti Dev 010" chunoge to Hindi dikhegi.',
+      howTitle: 'Kaise use karein', how: ['Upar se direction chuno: <b>Krutidev → Unicode</b> (purana text badalna) ya <b>Unicode → Krutidev</b>.', 'Baayein box mein text paste karo — dayein box mein turant badla hua text aa jayega.', '<b>📋 Copy</b> dabao aur jahan chahiye wahan paste karo.', 'Agar koi purana glyph pehchaana na jaye, to peeli line mein dikhega — un shabdon ko ek baar jaanch lo.'],
+      aboutTitle: 'Krutidev aur Unicode mein kya farq hai?', aboutText: 'Kruti Dev ek purana "font" tareeka hai: isme angrezi keys (jaise d, k, f) ko Hindi aksharon ki shakal mein dikhaya jaata hai. Isliye Kruti Dev ka text bina us font ke ajeeb angrezi akshar jaisa dikhta hai, aur Google, mobile ya WhatsApp use Hindi nahi samajhte. Unicode asli Hindi hai jo har jagah sahi dikhti aur search hoti hai.', aboutText2: 'Kai sarkari daftar, court aur typing exam ab bhi Kruti Dev use karte hain, isliye dono taraf badalne ki zaroorat padti hai. Yeh converter aapke browser mein hi kaam karta hai; aapka text kisi server pe nahi jaata.',
+      faqTitle: 'Sawal-jawab', faq: [['Kya converted text 100% sahi hoga?', 'Aam Hindi — matra, aadhe akshar, reph (र्), ि ki matra, sanyukt akshar — sahi badalta hai. Bahut purane ya kam istemaal wale glyph agar pehchaane na jayein to tool unhe chhupaata nahi, peeli line mein dikha deta hai.'], ['Unicode → Krutidev ka text ajeeb kyun dikh raha hai?', 'Kyunki woh Kruti Dev font ke liye hai. Word ya typing software mein paste karke font "Kruti Dev 010" chuniye.'], ['Kya mera text save hota hai?', 'Nahi. Sab kuch aapke phone ya computer ke browser mein hota hai.']],
+    },
+    hi: {
+      title: 'कृतिदेव ↔ यूनिकोड कन्वर्टर', sub: 'कृतिदेव 010 में लिखा पुराना हिंदी टेक्स्ट पेस्ट करो और सही यूनिकोड हिंदी पाओ — Word, ईमेल, WhatsApp और वेबसाइट के लिए। या यूनिकोड हिंदी को कृतिदेव में बदलो। मुफ़्त, और टेक्स्ट कहीं अपलोड नहीं होता।',
+      k2u: 'कृतिदेव → यूनिकोड', u2k: 'यूनिकोड → कृतिदेव', inK: 'कृतिदेव टेक्स्ट यहाँ पेस्ट करो', inU: 'यूनिकोड हिंदी यहाँ लिखो या पेस्ट करो', outU: 'यूनिकोड हिंदी (कॉपी करके कहीं भी इस्तेमाल करो)', outK: 'कृतिदेव टेक्स्ट (कृतिदेव फ़ॉन्ट में हिंदी दिखेगा)',
+      copy: '📋 कॉपी', copied: '✅ कॉपी हो गया', swap: '⇅ उल्टा करो', sample: 'उदाहरण', clear: 'साफ़ करो',
+      warn: (list) => `ये पुराने ग्लिफ़ पहचाने नहीं गए और वैसे ही छोड़ दिए गए: ${list} — इन जगहों को एक बार देख लो।`,
+      fontK2U: 'आउटपुट यूनिकोड है — हर फ़ोन और कंप्यूटर पर सही दिखेगा।', fontU2K: 'कृतिदेव आउटपुट अंग्रेज़ी अक्षरों जैसा दिखेगा। Word में पेस्ट करके फ़ॉन्ट "Kruti Dev 010" चुनोगे तो हिंदी दिखेगी।',
+      howTitle: 'कैसे इस्तेमाल करें', how: ['ऊपर से दिशा चुनो: <b>कृतिदेव → यूनिकोड</b> (पुराना टेक्स्ट बदलना) या <b>यूनिकोड → कृतिदेव</b>।', 'बाएँ बॉक्स में टेक्स्ट पेस्ट करो — दाएँ बॉक्स में तुरंत बदला हुआ टेक्स्ट आ जाएगा।', '<b>📋 कॉपी</b> दबाओ और जहाँ चाहिए वहाँ पेस्ट करो।', 'अगर कोई पुराना ग्लिफ़ पहचाना न जाए, तो पीली लाइन में दिखेगा — उन शब्दों को एक बार जाँच लो।'],
+      aboutTitle: 'कृतिदेव और यूनिकोड में क्या फ़र्क़ है?', aboutText: 'कृतिदेव एक पुराना "फ़ॉन्ट" तरीक़ा है: इसमें अंग्रेज़ी कीज़ (जैसे d, k, f) को हिंदी अक्षरों की शक्ल में दिखाया जाता है। इसलिए कृतिदेव का टेक्स्ट बिना उस फ़ॉन्ट के अजीब अंग्रेज़ी अक्षरों जैसा दिखता है, और Google, मोबाइल या WhatsApp उसे हिंदी नहीं समझते। यूनिकोड असली हिंदी है जो हर जगह सही दिखती और सर्च होती है।', aboutText2: 'कई सरकारी दफ़्तर, कोर्ट और टाइपिंग परीक्षाएँ अब भी कृतिदेव इस्तेमाल करते हैं, इसलिए दोनों तरफ़ बदलने की ज़रूरत पड़ती है। यह कन्वर्टर आपके ब्राउज़र में ही काम करता है; आपका टेक्स्ट किसी सर्वर पर नहीं जाता।',
+      faqTitle: 'सवाल-जवाब', faq: [['क्या बदला हुआ टेक्स्ट 100% सही होगा?', 'आम हिंदी — मात्रा, आधे अक्षर, रेफ़ (र्), ि की मात्रा, संयुक्त अक्षर — सही बदलता है। बहुत पुराने या कम इस्तेमाल वाले ग्लिफ़ अगर पहचाने न जाएँ तो टूल उन्हें छिपाता नहीं, पीली लाइन में दिखा देता है।'], ['यूनिकोड → कृतिदेव का टेक्स्ट अजीब क्यों दिख रहा है?', 'क्योंकि वह कृतिदेव फ़ॉन्ट के लिए है। Word या टाइपिंग सॉफ़्टवेयर में पेस्ट करके फ़ॉन्ट "Kruti Dev 010" चुनिए।'], ['क्या मेरा टेक्स्ट सेव होता है?', 'नहीं। सब कुछ आपके फ़ोन या कंप्यूटर के ब्राउज़र में होता है।']],
+    },
+    en: {
+      title: 'Krutidev ↔ Unicode Converter', sub: 'Paste old Hindi text typed in Kruti Dev 010 and get proper Unicode Hindi for Word, email, WhatsApp and websites — or turn Unicode Hindi into Kruti Dev. Free, and your text is never uploaded.',
+      k2u: 'Krutidev → Unicode', u2k: 'Unicode → Krutidev', inK: 'Paste Kruti Dev text here', inU: 'Type or paste Unicode Hindi here', outU: 'Unicode Hindi (copy and use anywhere)', outK: 'Kruti Dev text (shows as Hindi in the Kruti Dev font)',
+      copy: '📋 Copy', copied: '✅ Copied', swap: '⇅ Swap', sample: 'Example', clear: 'Clear',
+      warn: (list) => `These old glyphs were not recognised and were left as they are: ${list} — please check those places.`,
+      fontK2U: 'The output is Unicode — it shows correctly on every phone and computer.', fontU2K: 'Kruti Dev output looks like English letters. Paste it into Word and choose the "Kruti Dev 010" font to see Hindi.',
+      howTitle: 'How to use it', how: ['Choose the direction at the top: <b>Krutidev → Unicode</b> (convert old text) or <b>Unicode → Krutidev</b>.', 'Paste text into the left box — the converted text appears in the right box straight away.', 'Tap <b>📋 Copy</b> and paste it wherever you need.', 'If an old glyph is not recognised, it is listed in the yellow line — check those words once.'],
+      aboutTitle: 'What is the difference between Krutidev and Unicode?', aboutText: 'Kruti Dev is an old "font trick": English keys (like d, k, f) are drawn as Hindi letters. So Kruti Dev text looks like strange English letters without that font, and Google, phones or WhatsApp do not understand it as Hindi. Unicode is real Hindi that displays and searches correctly everywhere.', aboutText2: 'Many government offices, courts and typing exams still use Kruti Dev, so text often needs converting both ways. This converter works inside your browser; your text never goes to a server.',
+      faqTitle: 'Questions and answers', faq: [['Will the converted text be 100% correct?', 'Everyday Hindi — matras, half letters, reph (र्), the short-i matra and conjuncts — converts correctly. If a very old or rare glyph is not recognised, the tool does not hide it: it is shown in the yellow line.'], ['Why does the Unicode → Krutidev output look strange?', 'Because it is meant for the Kruti Dev font. Paste it into Word or your typing software and choose the "Kruti Dev 010" font.'], ['Is my text saved?', 'No. Everything happens in your phone or computer\'s browser.']],
+    },
+    bn: {
+      title: 'কৃতিদেব ↔ ইউনিকোড কনভার্টার', sub: 'কৃতিদেব ০১০-এ লেখা পুরোনো হিন্দি লেখা পেস্ট করো আর সঠিক ইউনিকোড হিন্দি পাও — Word, ইমেল, WhatsApp আর ওয়েবসাইটের জন্য। অথবা ইউনিকোড হিন্দিকে কৃতিদেবে বদলাও। বিনামূল্যে, আর লেখা কোথাও আপলোড হয় না।',
+      k2u: 'কৃতিদেব → ইউনিকোড', u2k: 'ইউনিকোড → কৃতিদেব', inK: 'কৃতিদেবের লেখা এখানে পেস্ট করো', inU: 'ইউনিকোড হিন্দি এখানে লেখো বা পেস্ট করো', outU: 'ইউনিকোড হিন্দি (কপি করে যেকোনো জায়গায় ব্যবহার করো)', outK: 'কৃতিদেব লেখা (কৃতিদেব ফন্টে হিন্দি দেখাবে)',
+      copy: '📋 কপি', copied: '✅ কপি হয়েছে', swap: '⇅ উল্টো করো', sample: 'উদাহরণ', clear: 'মুছে দাও',
+      warn: (list) => `এই পুরোনো গ্লিফগুলো চেনা যায়নি, যেমন ছিল তেমনই রাখা হয়েছে: ${list} — জায়গাগুলো একবার দেখে নাও।`,
+      fontK2U: 'আউটপুট ইউনিকোড — সব ফোন আর কম্পিউটারে ঠিক দেখাবে।', fontU2K: 'কৃতিদেব আউটপুট ইংরেজি অক্ষরের মতো দেখাবে। Word-এ পেস্ট করে "Kruti Dev 010" ফন্ট বাছলে হিন্দি দেখা যাবে।',
+      howTitle: 'কীভাবে ব্যবহার করবে', how: ['ওপর থেকে দিক বাছো: <b>কৃতিদেব → ইউনিকোড</b> (পুরোনো লেখা বদলানো) বা <b>ইউনিকোড → কৃতিদেব</b>।', 'বাঁদিকের বাক্সে লেখা পেস্ট করো — ডানদিকে সঙ্গে সঙ্গে বদলানো লেখা আসবে।', '<b>📋 কপি</b> টিপে যেখানে দরকার পেস্ট করো।', 'কোনো পুরোনো গ্লিফ চেনা না গেলে হলুদ লাইনে দেখাবে — সেই শব্দগুলো একবার মিলিয়ে নাও।'],
+      aboutTitle: 'কৃতিদেব আর ইউনিকোডের তফাত কী?', aboutText: 'কৃতিদেব একটা পুরোনো "ফন্ট" কৌশল: ইংরেজি কি (যেমন d, k, f) হিন্দি অক্ষরের মতো আঁকা হয়। তাই ফন্ট ছাড়া কৃতিদেবের লেখা অদ্ভুত ইংরেজি অক্ষরের মতো দেখায়, আর Google, মোবাইল বা WhatsApp তা হিন্দি বলে বোঝে না। ইউনিকোড আসল হিন্দি, যা সব জায়গায় ঠিক দেখায় আর খোঁজা যায়।', aboutText2: 'অনেক সরকারি অফিস, আদালত আর টাইপিং পরীক্ষায় এখনও কৃতিদেব চলে, তাই দুদিকেই বদলানোর দরকার পড়ে। এই কনভার্টার তোমার ব্রাউজারেই কাজ করে; লেখা কোনো সার্ভারে যায় না।',
+      faqTitle: 'প্রশ্ন-উত্তর', faq: [['বদলানো লেখা কি ১০০% ঠিক হবে?', 'সাধারণ হিন্দি — মাত্রা, অর্ধেক অক্ষর, রেফ (র্), ি-কার, যুক্তাক্ষর — ঠিকঠাক বদলায়। খুব পুরোনো বা কম-ব্যবহৃত গ্লিফ চেনা না গেলে টুল সেগুলো লুকোয় না, হলুদ লাইনে দেখায়।'], ['ইউনিকোড → কৃতিদেবের লেখা অদ্ভুত লাগছে কেন?', 'কারণ সেটা কৃতিদেব ফন্টের জন্য। Word বা টাইপিং সফটওয়্যারে পেস্ট করে "Kruti Dev 010" ফন্ট বাছো।'], ['আমার লেখা কি সেভ হয়?', 'না। সবকিছু তোমার ফোন বা কম্পিউটারের ব্রাউজারেই হয়।']],
+    },
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private */ } } };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+  let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('kd-lang')) ? store.get('kd-lang') : deviceLang();
+  let dir = params.get('dir') === 'u2k' ? 'u2k' : (store.get('kd-dir') === 'u2k' ? 'u2k' : 'k2u');
+  const t = (k) => T[lang][k];
+
+  const convert = () => {
+    const v = $('inp').value;
+    const out = dir === 'k2u' ? window.KD.toUnicode(v) : window.KD.toKrutidev(v);
+    $('out').value = out;
+    const unknown = dir === 'k2u' ? window.KD.unknownGlyphs(out) : [];
+    $('warn').classList.toggle('hidden', !unknown.length);
+    if (unknown.length) $('warn').textContent = t('warn')(unknown.join(' '));
+  };
+  const applyDir = () => {
+    document.querySelectorAll('#dirSeg button').forEach((b) => b.classList.toggle('on', b.dataset.d === dir));
+    $('inLabel').textContent = dir === 'k2u' ? t('inK') : t('inU');
+    $('outLabel').textContent = dir === 'k2u' ? t('outU') : t('outK');
+    $('inp').classList.toggle('kd', dir === 'k2u'); $('out').classList.toggle('kd', dir === 'u2k');
+    $('fontNote').textContent = dir === 'k2u' ? t('fontK2U') : t('fontU2K');
+    convert();
+  };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { const v = t(el.dataset.i18n); if (typeof v === 'string') el.textContent = v; });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    $('faqList').innerHTML = t('faq').map(([q, a]) => `<h3>${q}</h3><p>${a}</p>`).join('');
+    $('home').href = `https://nextgrade.in${PREFIX[lang]}/`;
+    applyDir();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('kd-lang', lang); applyLang(); });
+  $('dirSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; dir = b.dataset.d; store.set('kd-dir', dir); applyDir(); });
+  $('inp').addEventListener('input', convert);
+  $('swap').addEventListener('click', () => { const o = $('out').value; dir = dir === 'k2u' ? 'u2k' : 'k2u'; store.set('kd-dir', dir); $('inp').value = o; applyDir(); });
+  $('sample').addEventListener('click', () => { $('inp').value = SAMPLE[dir]; convert(); });
+  $('clear').addEventListener('click', () => { $('inp').value = ''; convert(); $('inp').focus(); });
+  $('copy').addEventListener('click', () => {
+    const text = $('out').value; if (!text) return;
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(() => { $('copy').textContent = t('copied'); setTimeout(() => { $('copy').textContent = t('copy'); }, 1500); }).catch(() => { $('out').select(); });
+  });
+  $('year').textContent = new Date().getFullYear();
+  window.__kd = { get out() { return $('out').value; }, get warn() { return $('warn').classList.contains('hidden') ? '' : $('warn').textContent; } };
+  applyLang();
+  if (params.get('t')) { $('inp').value = params.get('t'); convert(); }
+})();
+</script>
+</body>
+</html>

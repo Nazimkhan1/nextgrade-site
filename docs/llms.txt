@@ -227,6 +227,7 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [QR Code Maker — UPI, Link, WhatsApp](https://nextgrade.in/tools/qr-maker/): UPI payment QR (with amount), link, text, phone, WhatsApp and Wi-Fi QR codes — download PNG or SVG.
 - [Sticker Maker](https://nextgrade.in/tools/sticker-maker/): Turn a photo into a sticker: background removed, white outline, top/bottom text — 512×512 WebP. Text stickers too.
 - [Exam Form Photo & Signature Resizer](https://nextgrade.in/tools/form-helper/): Photo, signature, thumb and declaration at the exact px and KB that SSC, UPSC, IBPS / SBI, NEET and JEE forms ask for. Cleans up a signature on paper.
+- [Krutidev to Unicode Converter (and back)](https://nextgrade.in/tools/krutidev/): Paste old Kruti Dev 010 text and get proper Unicode Hindi for Word, email, WhatsApp and websites — or convert Unicode to Krutidev. Nothing is uploaded.
 
 ## About
 

@@ -703,6 +703,7 @@ const games = {
 };
 
 const apps = {
+  'desi-games': { desc: '22 desi childhood games in one app — Ludo, Carrom, Snakes & Ladders, Antakshari, Kabaddi, Gilli-Danda, Lattu, Ashta-Chamma… play with friends on one phone or against the computer. No login, works offline.' },
   hisab: { desc: 'Note daily expenses, income and lend/borrow. Your data stays on your phone or in your own Google Drive. Installs and works offline.' },
   'wish-card': { desc: 'Pick a festival, add names, make a beautiful greeting card and send it on WhatsApp or download it.', tag: 'Free tool' },
 };

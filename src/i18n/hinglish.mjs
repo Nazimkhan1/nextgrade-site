@@ -933,6 +933,7 @@ const games = {
 };
 
 const apps = {
+  'desi-games': { desc: 'Bachpan ke 22 desi khel ek app mein — Ludo, Carrom, Saanp-Seedhi, Antakshari, Kabaddi, Gilli-Danda, Lattu, Ashta-Chamma… doston ke saath ek phone par ya computer se. Bina login, offline bhi.' },
   hisab: { desc: 'Roz ka kharcha, aamdani aur udhaar-len-den likho. Data aapke phone ya aapki apni Google Drive mein rehta hai. Install hota hai, offline chalta hai.' },
   'wish-card': { desc: 'Tyohar chuno, naam likho, sundar greeting card banao aur WhatsApp pe bhejo ya download karo.' },
 };

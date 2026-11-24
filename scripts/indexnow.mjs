@@ -10,6 +10,7 @@
  */
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { pathToFileURL } from 'node:url';
 
 export const INDEXNOW_KEY = 'cd1e4bf9a4c6afe2efb8f80621993dfe';
 const HOST = 'nextgrade.in';
@@ -40,4 +41,5 @@ async function main() {
     console.log(`  sent ${Math.min(10000, urls.length - k)} → HTTP ${res.status} ${res.status === 200 || res.status === 202 ? 'OK' : await res.text()}`);
   }
 }
-main().catch((e) => { console.error('IndexNow failed (not fatal):', e.message); });
+// run only when called as a script — build.mjs imports this file just for INDEXNOW_KEY
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((e) => { console.error('IndexNow failed (not fatal):', e.message); });

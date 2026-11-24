@@ -21,6 +21,15 @@ const apps = [
     desc: 'त्योहार चुनें, नाम लिखें, सुंदर शुभकामना कार्ड बनाएं और WhatsApp पर भेजें या डाउनलोड करें।',
     descEn: 'Pick a festival, add names, make a greeting card and share it on WhatsApp or download it.',
   },
+  {
+    slug: 'desi-games',
+    name: 'Desi Games — देसी गेम्स',
+    url: 'https://desi-games.nextgrade.in/',
+    emoji: '🎲',
+    tag: 'Free app',
+    desc: 'बचपन के 22 देसी खेल एक ऐप में — लूडो, कैरम, साँप-सीढ़ी, अंताक्षरी, कबड्डी, गिल्ली-डंडा, लट्टू, अष्टा-चम्मा… दोस्तों के साथ एक फ़ोन पर या कंप्यूटर से। बिना login, ऑफ़लाइन भी।',
+    descEn: '22 desi childhood games in one app — Ludo, Carrom, Snakes & Ladders, Antakshari, Kabaddi, Gilli-Danda, Lattu, Ashta-Chamma… play with friends on one phone or against the computer. No login, works offline.',
+  },
 ];
 
 export { apps };
