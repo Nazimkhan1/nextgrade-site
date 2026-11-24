@@ -57,3 +57,42 @@ document.addEventListener('click', (e) => {
   openMenus().forEach((d) => { if (!d.contains(e.target)) d.removeAttribute('open'); });
 });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') openMenus().forEach((d) => d.removeAttribute('open')); });
+
+// Phone menu (☰): opens the main nav as a panel; closes on outside tap or Escape.
+(() => {
+  const btn = document.querySelector('.menu-btn');
+  if (!btn) return;
+  const set = (open) => { document.body.classList.toggle('menu-open', open); btn.setAttribute('aria-expanded', String(open)); btn.textContent = open ? '✕' : '☰'; };
+  btn.addEventListener('click', (e) => { e.stopPropagation(); set(!document.body.classList.contains('menu-open')); });
+  document.addEventListener('click', (e) => { if (document.body.classList.contains('menu-open') && !e.target.closest('.nav')) set(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
+})();
+
+// Home search: loads /assets/search-<lang>.json on first focus, matches every word (accents/case ignored).
+(() => {
+  const q = document.getElementById('ss-q'), box = document.getElementById('ss-r');
+  if (!q || !box) return;
+  let rows = null, sel = -1;
+  const norm = (s) => String(s).toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '');
+  const load = () => rows || fetch(q.dataset.index).then((r) => r.json()).then((d) => { rows = d.map(([t, u]) => [t, u, norm(`${t} ${u.replace(/[-/]/g, ' ')}`)]); return rows; });
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const show = async () => {
+    const v = norm(q.value).trim();
+    if (!v) { box.hidden = true; return; }
+    const all = await load(), words = v.split(/\s+/);
+    const hits = all.filter((r) => words.every((w) => r[2].includes(w)))
+      .sort((a, b) => (norm(a[0]).startsWith(words[0]) ? 0 : 1) - (norm(b[0]).startsWith(words[0]) ? 0 : 1) || a[0].length - b[0].length).slice(0, 12);
+    sel = -1;
+    box.innerHTML = hits.length ? hits.map(([t, u]) => `<li><a href="${esc(u)}">${esc(t)}<small>nextgrade.in${esc(u)}</small></a></li>`).join('') : `<li class="none">${esc(q.dataset.none)}</li>`;
+    box.hidden = false;
+  };
+  q.addEventListener('focus', load, { once: true });
+  q.addEventListener('input', show);
+  q.addEventListener('keydown', (e) => {
+    const links = [...box.querySelectorAll('a')];
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); sel = Math.max(0, Math.min(links.length - 1, sel + (e.key === 'ArrowDown' ? 1 : -1))); links.forEach((a, i) => a.classList.toggle('on', i === sel)); }
+    if (e.key === 'Enter' && links.length) { e.preventDefault(); location.href = (links[sel] || links[0]).href; }
+    if (e.key === 'Escape') box.hidden = true;
+  });
+  document.addEventListener('click', (e) => { if (!e.target.closest('.site-search')) box.hidden = true; });
+})();

@@ -31,6 +31,8 @@ import { FULLFORMS, FF_UI, ffSlug } from './src/fullforms.mjs';
 import { whyFaq } from './src/festival-why.mjs';
 import { rules as allRules, KHEL_UI } from './src/khel.mjs';
 import { LIST_YEAR, DATES, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
+import { buildWeather, WT } from './src/weather.mjs';
+import { icon } from './src/icons.mjs';
 import { CAL_YEAR, MONTH_SLUGS as SLUG_M, NATIONAL, HOLIDAY_SLUGS, WDS, CT, hijriStarts } from './src/calendar.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
@@ -97,6 +99,7 @@ const firstSentence = (s) => (String(s).match(/^.*?[।.!?](\s|$)/) || [s])[0].t
 
 // Home: "New and trending" links (user 24 Nov: new pages should be linked from the home page for Google)
 const HOME_NEW = [
+  ['/mausam/', '🌦️', { hi: 'आज का मौसम', en: 'Weather today', hinglish: 'Aaj ka mausam', bn: 'আজকের আবহাওয়া' }, true],
   ['/calendar/2027/', '📅', { hi: 'कैलेंडर 2027', en: 'Calendar 2027', hinglish: 'Calendar 2027', bn: 'ক্যালেন্ডার ২০২৭' }, true],
   ['/tools/marriage-biodata/', '💍', { hi: 'शादी का बायोडाटा', en: 'Marriage Biodata Maker', hinglish: 'Marriage Biodata', bn: 'বিয়ের বায়োডাটা' }, false],
   ['/shaadi-card/', '💌', { hi: 'शादी का कार्ड', en: 'Wedding Card Maker', hinglish: 'Shaadi Card', bn: 'বিয়ের কার্ড' }, true],
@@ -105,6 +108,34 @@ const HOME_NEW = [
   ['/speech/christmas/', '🎄', { hi: 'क्रिसमस पर भाषण', en: 'Christmas Speech', hinglish: 'Christmas par Bhashan', bn: 'বড়দিনের বক্তৃতা' }, true],
   ['/nibandh/christmas/', '📝', { hi: 'क्रिसमस पर निबंध', en: 'Essay on Christmas', hinglish: 'Christmas par Nibandh', bn: 'বড়দিন রচনা' }, true],
   ['/tools/krutidev/', '🔤', { hi: 'Krutidev ↔ Unicode', en: 'Krutidev ↔ Unicode', hinglish: 'Krutidev ↔ Unicode', bn: 'Krutidev ↔ Unicode' }, false],
+];
+// Home quick tiles (design refresh 25 Nov 2026): the most used things, app-launcher style
+const HOME_TILES = [
+  ['/mausam/', 'cloud-sun', 'b', { hi: 'मौसम', en: 'Weather', hinglish: 'Mausam', bn: 'আবহাওয়া' }, true],
+  ['/tools/image-compress/', 'image-down', 'o', { hi: 'फ़ोटो KB कम', en: 'Photo to KB', hinglish: 'Photo KB kam', bn: 'ছবি KB কম' }, false],
+  ['/tools/pdf-compress/', 'file-down', 'r', { hi: 'PDF छोटा', en: 'PDF compress', hinglish: 'PDF chhota', bn: 'PDF ছোট' }, false],
+  ['/tools/passport-photo/', 'contact', 'p', { hi: 'पासपोर्ट फ़ोटो', en: 'Passport photo', hinglish: 'Passport photo', bn: 'পাসপোর্ট ছবি' }, false],
+  ['/tools/marriage-biodata/', 'gem', 'r', { hi: 'बायोडाटा', en: 'Biodata', hinglish: 'Biodata', bn: 'বায়োডাটা' }, false],
+  ['/calculator/', 'calculator', 'g', { hi: 'कैलकुलेटर', en: 'Calculators', hinglish: 'Calculator', bn: 'ক্যালকুলেটর' }, true],
+  ['/kahani/', 'book-open', 'o', { hi: 'कहानियाँ', en: 'Stories', hinglish: 'Kahaniyan', bn: 'গল্প' }, true],
+  ['/kids/', 'baby', 'b', { hi: 'बच्चों की पढ़ाई', en: 'Kids learning', hinglish: 'Bachchon ki padhai', bn: 'ছোটদের পড়া' }, true],
+  ['/wish-card/', 'gift', 'r', { hi: 'बधाई कार्ड', en: 'Wish card', hinglish: 'Wish card', bn: 'শুভেচ্ছা কার্ড' }, true],
+  ['/games/', 'gamepad-2', 'p', { hi: 'गेम्स', en: 'Games', hinglish: 'Games', bn: 'গেম' }, true],
+  ['/nibandh/', 'pen-line', 'g', { hi: 'निबंध', en: 'Essays', hinglish: 'Nibandh', bn: 'রচনা' }, true],
+  ['/festivals/', 'flame', 'o', { hi: 'त्योहार', en: 'Festivals', hinglish: 'Tyohaar', bn: 'উৎসব' }, true],
+];
+const HERO = {
+  hi: { h: 'रोज़ के काम की हर चीज़ — एक जगह, फ़्री', q: 'क्या ढूँढ रहे हैं? जैसे: फ़ोटो 20KB, पटना मौसम, निबंध…', none: 'कुछ नहीं मिला — दूसरा शब्द लिखकर देखें।' },
+  en: { h: 'Everyday tools for India — free, in one place', q: 'What do you need? e.g. photo 20KB, Delhi weather, essay…', none: 'Nothing found — try another word.' },
+  hinglish: { h: 'Roz ke kaam ki har cheez — ek jagah, free', q: 'Kya dhoondh rahe ho? jaise: photo 20KB, Patna mausam, nibandh…', none: 'Kuch nahi mila — doosra shabd likh kar dekho.' },
+  bn: { h: 'রোজকার কাজের সব কিছু — এক জায়গায়, ফ্রি', q: 'কী খুঁজছেন? যেমন: ছবি 20KB, কলকাতা আবহাওয়া, রচনা…', none: 'কিছু পাওয়া গেল না — অন্য শব্দ লিখে দেখুন।' },
+};
+const HOME_BADGES = { hi: ['✓ 100% फ़्री', '✓ बिना login', '✓ हिंदी · English · বাংলা', '✓ फ़ोन पर'], en: ['✓ 100% free', '✓ No login', '✓ Hindi · English · Bangla', '✓ Made for phones'], hinglish: ['✓ 100% free', '✓ Bina login', '✓ Hindi · English · Bangla', '✓ Phone par'], bn: ['✓ ১০০% ফ্রি', '✓ লগইন ছাড়া', '✓ বাংলা · हिंदी · English', '✓ ফোনে'] };
+const FOOT_COLS = [
+  [{ hi: 'टूल्स', en: 'Tools', hinglish: 'Tools', bn: 'টুলস' }, [['/tools/image-compress/', { hi: 'फ़ोटो KB कम करें', en: 'Compress photo to KB', hinglish: 'Photo KB kam karo', bn: 'ছবি KB কম' }, false], ['/tools/pdf-compress/', { hi: 'PDF छोटा करें', en: 'Compress PDF', hinglish: 'PDF chhota karo', bn: 'PDF ছোট করুন' }, false], ['/tools/passport-photo/', { hi: 'पासपोर्ट फ़ोटो', en: 'Passport photo', hinglish: 'Passport photo', bn: 'পাসপোর্ট ছবি' }, false], ['/calculator/', { hi: 'कैलकुलेटर', en: 'Calculators', hinglish: 'Calculators', bn: 'ক্যালকুলেটর' }], ['/mausam/', { hi: 'आज का मौसम', en: 'Weather today', hinglish: 'Aaj ka mausam', bn: 'আজকের আবহাওয়া' }], ['/tools/', { hi: 'सभी टूल्स →', en: 'All tools →', hinglish: 'Sabhi tools →', bn: 'সব টুলস →' }]]],
+  [{ hi: 'पढ़ाई', en: 'Learning', hinglish: 'Padhai', bn: 'পড়াশোনা' }, [['/nibandh/', { hi: 'निबंध', en: 'Essays', hinglish: 'Nibandh', bn: 'রচনা' }], ['/speech/', { hi: 'भाषण', en: 'Speeches', hinglish: 'Bhashan', bn: 'বক্তৃতা' }], ['/kahani/', { hi: 'कहानियाँ', en: 'Stories', hinglish: 'Kahaniyan', bn: 'গল্প' }], ['/kids/', { hi: 'बच्चों की पढ़ाई', en: 'Kids learning', hinglish: 'Bachchon ki padhai', bn: 'ছোটদের পড়া' }]]],
+  [{ hi: 'त्योहार', en: 'Festivals', hinglish: 'Tyohaar', bn: 'উৎসব' }, [['/festivals/', { hi: 'सभी त्योहार', en: 'All festivals', hinglish: 'Sabhi tyohaar', bn: 'সব উৎসব' }], ['/calendar/2027/', { hi: 'कैलेंडर 2027', en: 'Calendar 2027', hinglish: 'Calendar 2027', bn: 'ক্যালেন্ডার ২০২৭' }], ['/wishes/', { hi: 'शुभकामनाएँ', en: 'Wishes', hinglish: 'Wishes', bn: 'শুভেচ্ছা' }], ['/wish-card/', { hi: 'बधाई कार्ड', en: 'Wish card', hinglish: 'Wish card', bn: 'শুভেচ্ছা কার্ড' }]]],
+  [{ hi: 'खेल और ऐप', en: 'Games and apps', hinglish: 'Games aur apps', bn: 'গেম আর অ্যাপ' }, [['/games/', { hi: 'ऑनलाइन गेम्स', en: 'Online games', hinglish: 'Online games', bn: 'অনলাইন গেম' }], ['https://desi-games.nextgrade.in/', { hi: 'देसी गेम्स ऐप', en: 'Desi Games app', hinglish: 'Desi Games app', bn: 'দেশি গেমস অ্যাপ' }, false], ['/apps/', { hi: 'ऐप्स', en: 'Apps', hinglish: 'Apps', bn: 'অ্যাপ' }]]],
 ];
 const HOME_NEW_H = { hi: '🆕 नया और ट्रेंडिंग', en: '🆕 New and trending', hinglish: '🆕 Naya aur trending', bn: '🆕 নতুন আর ট্রেন্ডিং' };
 // Utility platform (user 24 Nov: "multi-purpose Indian utility platform — SEO accordingly"): tool categories,
@@ -121,6 +152,7 @@ const MAKERS = [
   ['/naam-wali-image/', '🖼️', { hi: 'नाम वाली इमेज', en: 'Name on image', hinglish: 'Naam wali image', bn: 'নামের ছবি' }],
   ['/wish-card/', '💐', { hi: 'शुभकामना कार्ड', en: 'Wish card maker', hinglish: 'Wish card maker', bn: 'শুভেচ্ছা কার্ড' }],
   ['/calendar/2027/', '📅', { hi: 'कैलेंडर 2027', en: 'Calendar 2027', hinglish: 'Calendar 2027', bn: 'ক্যালেন্ডার ২০২৭' }],
+  ['/mausam/', '🌦️', { hi: 'आज का मौसम (600+ शहर)', en: 'Weather today (600+ cities)', hinglish: 'Aaj ka mausam (600+ sheher)', bn: 'আজকের আবহাওয়া (৬০০+ শহর)' }],
 ];
 const STUDY = [
   ['/nibandh/', '📝', { hi: 'निबंध', en: 'Essays', hinglish: 'Nibandh', bn: 'রচনা' }],
@@ -194,7 +226,7 @@ const menuFor = (L) => {
     [M.fest, [['/festivals/', M.festivals], [`/festivals/${LIST_YEAR}/`, M.dates(LIST_YEAR)], [`/calendar/${CAL_YEAR}/`, CT[L.code].nav], ['/wishes/', M.wishes], ['/wish-card/', M.card], ...(SHAADI_LIVE ? [['/shaadi-card/', M.shaadiCard]] : []), ...(NAAM_LIVE ? [['/naam-wali-image/', M.naamImg]] : []), ['/islamic-calendar/', M.islamic]]],
     [M.games, [['/games/', M.allGames], ...(KHEL.length ? [['/khel/', M.khel]] : [])]],
     [M.kids, [['/kids/', M.kidsAll], ...KIDS_SETS.slice(0, 8).map((s) => [`/kids/${s.slug}/`, s.name[L.code] || s.name.en])]],
-    [M.tools, [...(tools.length ? [['/tools/', M.allTools]] : []), ...(CALCS.length ? [['/calculator/', M.calc]] : []), ['/apps/', M.apps]]],
+    [M.tools, [...(tools.length ? [['/tools/', M.allTools]] : []), ...(CALCS.length ? [['/calculator/', M.calc]] : []), ['/mausam/', WT[L.code].nav], ['/apps/', M.apps]]],
   ];
   return groups.filter(([, items]) => items.length);
 };
@@ -251,16 +283,17 @@ ${ld}
 <body>
 <header class="site-head"><div class="wrap">
 <a class="logo" href="${P(L, '/')}" aria-label="${NAME}"><img class="logo-mark" src="/favicon.svg" alt="" width="34" height="34"><span>Next<b>Grade</b></span></a>
-<div class="head-right"><nav class="nav" aria-label="Main">${nav}</nav>${switcher}</div>
+<div class="head-right"><nav class="nav" id="main-nav" aria-label="Main">${nav}</nav>${switcher}<button class="menu-btn" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="${esc(MENU_T[L.code].menu)}">☰</button></div>
 </div></header>
 <main>
 ${body}
 </main>
 <footer class="site-foot"><div class="wrap">
-<div>© ${new Date().getFullYear()} ${NAME} · nextgrade.in<br>${esc(T.footer)}</div>
-<nav aria-label="Footer">
-<a href="${P(L, '/about/')}">${esc(T.about.title)}</a><a href="${P(L, '/contact/')}">${esc(T.contact.title)}</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="/sitemap.xml">Sitemap</a>
-</nav>
+<div class="foot-cols">
+<div class="foot-brand"><a class="logo" href="${P(L, '/')}"><img class="logo-mark" src="/favicon.svg" alt="" width="30" height="30"><span>Next<b>Grade</b></span></a><p>${esc(T.footer)}</p></div>
+${FOOT_COLS.map(([h, items]) => `<nav aria-label="${esc(h[L.code])}"><h4>${esc(h[L.code])}</h4>${items.map(([href, n, perLang]) => `<a href="${perLang === false ? href : P(L, href)}">${esc(n[L.code])}</a>`).join('')}</nav>`).join('')}
+</div>
+<div class="foot-bottom"><span>© ${new Date().getFullYear()} ${NAME} · nextgrade.in</span><nav aria-label="Footer"><a href="${P(L, '/about/')}">${esc(T.about.title)}</a><a href="${P(L, '/contact/')}">${esc(T.contact.title)}</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="/sitemap.xml">Sitemap</a></nav></div>
 </div></footer>
 <script src="/assets/site.js?v=${V}" defer></script>
 ${scripts.map((s) => `<script src="${s}?v=${V}" defer></script>`).join('\n')}
@@ -276,7 +309,9 @@ const write = (L, path, html) => {
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, html);
   if (full.endsWith('/')) urls.push(full);
+  if (L && full.endsWith('/')) { const t = (html.match(/<title>([^<]*)<\/title>/) || [])[1]; if (t) (SEARCH[L.code] ||= []).push([t.replace(/\s*\|\s*NextGrade\s*$/, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"'), full]); }
 };
+const SEARCH = {};
 
 const breadcrumbLd = (L, items) => ({
   '@context': 'https://schema.org',
@@ -492,14 +527,16 @@ LANGS.forEach((L) => {
       description: T.home.desc,
       jsonLd: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: NAME, alternateName: 'NextGrade — Free Indian Utility Platform', url: `${SITE}${P(L, '/')}`, inLanguage: L.html, description: T.home.desc }, { '@context': 'https://schema.org', '@type': 'Organization', name: NAME, url: `${SITE}/`, logo: `${SITE}/icons/icon-512.png`, email: CONTACT, areaServed: 'IN', description: T.home.desc, knowsLanguage: ['hi', 'en', 'bn'] }],
       body: `<div class="wrap">
-<section class="hero">
-<h1>${esc(T.home.h1)}</h1>
-<p>${esc(T.home.lead)}</p>
-<div class="btns"><a class="btn btn-primary" href="${P(L, '/wish-card/')}">${esc(T.home.btnCard)}</a><a class="btn btn-ghost" href="${P(L, '/festivals/')}">${esc(T.home.btnFestivals)}</a></div>
-</section>
-<section><h2>${esc(UT[L.code].homeH)}</h2><div class="btns">${TOOL_CATS.filter((c) => toolsIn(c).length).map((c) => `<a class="btn btn-ghost" href="${P(L, `/tools/#${c.id}`)}">${c.emoji} ${esc(c.name[L.code])}</a>`).join('')}${CALCS.length ? `<a class="btn btn-ghost" href="${P(L, '/calculator/')}">${esc(UT[L.code].calcH)}</a>` : ''}</div><p><a href="${P(L, '/tools/')}">${esc(UT[L.code].all)}</a></p></section>
-<section><h2>${esc(HOME_NEW_H[L.code])}</h2><div class="btns">${HOME_NEW.filter(([h]) => h !== '/shaadi-card/' || SHAADI_LIVE).map(([h, e, n, perLang]) => `<a class="btn btn-ghost" href="${perLang ? P(L, h) : `${h}?lang=${L.game}`}">${e} ${esc(n[L.code])}</a>`).join('')}</div></section>
-<section><h2>${esc(T.stories.h1)}</h2><div class="grid">${stories.slice(0, 3).map(storyCard(L)).join('')}</div><p><a href="${P(L, '/kahani/')}">${esc(T.stories.all)} →</a></p></section>
+<div class="hero-box"><section class="hero">
+<ul class="hero-badges">${HOME_BADGES[L.code].map((b) => `<li>${esc(b)}</li>`).join('')}</ul>
+<h1>${esc(HERO[L.code].h)}</h1>
+<p>${esc(T.home.h1)}</p>
+<form class="site-search" role="search" action="${P(L, '/')}" onsubmit="return false"><span class="ss-ico">${icon('search', 20)}</span><input type="search" id="ss-q" placeholder="${esc(HERO[L.code].q)}" aria-label="${esc(HERO[L.code].q)}" autocomplete="off" data-index="/assets/search-${L.code}.json?v=${V}" data-none="${esc(HERO[L.code].none)}"><ul id="ss-r" class="ss-r" hidden></ul></form>
+<nav class="tiles" aria-label="Quick links">${HOME_TILES.map(([h, ic, c, n, perLang]) => `<a class="tile" href="${perLang ? P(L, h) : `${h}?lang=${L.game}`}"><i class="c-${c}">${icon(ic, 26)}</i>${esc(n[L.code])}</a>`).join('')}</nav>
+</section></div>
+<section><h2>${esc(UT[L.code].homeH)}</h2><div class="pills">${TOOL_CATS.filter((c) => toolsIn(c).length).map((c) => `<a href="${P(L, `/tools/#${c.id}`)}">${c.emoji} ${esc(c.name[L.code])}</a>`).join('')}${CALCS.length ? `<a href="${P(L, '/calculator/')}">${esc(UT[L.code].calcH)}</a>` : ''}</div><p><a class="see-all" href="${P(L, '/tools/')}">${esc(UT[L.code].all)}</a></p></section>
+<section><h2>${esc(HOME_NEW_H[L.code])}</h2><div class="pills">${HOME_NEW.filter(([h]) => h !== '/shaadi-card/' || SHAADI_LIVE).map(([h, e, n, perLang]) => `<a href="${perLang ? P(L, h) : `${h}?lang=${L.game}`}">${e} ${esc(n[L.code])}</a>`).join('')}</div></section>
+<section><h2>${esc(T.stories.h1)}</h2><div class="grid">${stories.slice(0, 3).map(storyCard(L)).join('')}</div><p><a class="see-all" href="${P(L, '/kahani/')}">${esc(T.stories.all)} →</a></p></section>
 <section><h2>${esc(T.home.secWishes)}</h2><div class="grid">${celebrateCards(L)}${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div></section>
 <section><h2>${esc(T.home.secUpcoming)}</h2><div class="grid">${upcoming().slice(0, 6).map(festivalCard(L)).join('')}</div></section>
 <section><h2>${esc(T.home.secGames)}</h2><div class="grid">${games.map(gameCard(L)).join('')}</div></section>
@@ -631,6 +668,9 @@ ${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('\n')}
       }));
     });
   }
+
+  // Weather pages (/mausam/ + one page per city)
+  buildWeather(L, { page, write, P, esc, T, breadcrumbLd });
 
   // Festival pages
   festivals.forEach((f, i) => {
@@ -1725,6 +1765,12 @@ const lastmodFor = (url) => {
   return CONTENT_DATE;
 };
 const gameUrls = games.map((g) => `/games/${g.slug}/`);
+// Site search index per language (home search box): every page title + extras that are not built by write()
+LANGS.forEach((L) => {
+  const extra = [...tools.map((t) => [(t[L.code] || t.en)[0], `/tools/${t.slug}/`]), ...games.map((g) => [g.name || g.nameEn, `/games/${g.slug}/`])];
+  const seen = new Set(), rows = [...extra, ...(SEARCH[L.code] || [])].filter(([, u]) => !seen.has(u) && seen.add(u));
+  writeFileSync(join(OUT, 'assets', `search-${L.code}.json`), JSON.stringify(rows));
+});
 const allUrls = [...urls, ...gameUrls, ...CELEBRATE.map((c) => `/celebrate/${c.slug}/`), ...tools.flatMap((tl) => [`/tools/${tl.slug}/`, ...(tl.pages || []).map((pg) => `/tools/${tl.slug}/${pg}/`)])];
 writeFileSync(
   join(OUT, 'sitemap.xml'),
@@ -1742,7 +1788,7 @@ writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\n${['GPTBot', 
 > Free Indian festival wishes, festival dates, children's stories, kids learning (counting 1-100, tables, Hindi/Bengali/Urdu alphabets) with audio, desi games and small tools, in Hindi, English, Hinglish and Bengali. No sign-up, works on any phone. Every page exists in 4 languages: Hindi at ${SITE}/, English at ${SITE}/en/, Hinglish at ${SITE}/hinglish/, Bengali at ${SITE}/bn/.
 
 All text is written by NextGrade or is public domain (old folk tales retold in our own words).
-${sec('Festival dates and guides', [line(`Indian festival dates ${LIST_YEAR}`, en(`/festivals/${LIST_YEAR}/`), `every major festival with date and weekday`), ...festivals.map((f) => line(`${f.nameEn}: date, meaning, how it is celebrated, wishes`, en(`/festivals/${f.slug}/`)))])}${sec('Wishes and greeting cards', [line('Festival wish card maker', en('/wish-card/'), 'make a card with your name and share on WhatsApp'), line('Wishes for every day', en('/wishes/')), ...(NAAM_LIVE ? [line('Name on image (naam wali image)', en('/naam-wali-image/'), 'write your name on a festival image')] : []), line('Islamic (Hijri) calendar', en('/islamic-calendar/'), "today's Islamic date and Ramadan / Eid dates")])}${sec("Children's stories (kahani)", [line('All stories', en('/kahani/')), ...stories.map((st) => line(st.en.title, en(`/kahani/${st.slug}/`)))])}${sec('School speeches', SPEECHES.length ? [line('All speeches', en('/speech/')), ...SPEECHES.map((sp) => line(sp.en.h1.replace(/^\S+\s/, ''), en(`/speech/${sp.slug}/`)))] : [])}${sec('Essays for students (10 lines, short and long)', ESSAYS.length ? [line('All essays', en('/nibandh/')), ...ESSAYS.map((e) => line(e.en.h1.replace(/^\S+\s/, ''), en(`/nibandh/${e.slug}/`)))] : [])}${sec('Kids learning with pictures and audio (Hindi, English, Bengali, Urdu)', [line('All kids topics', en('/kids/'), 'flashcards with a recorded voice; every page in Hindi, English, Hinglish and Bengali'), ...KIDS_SETS.map((ks) => line(KIDS_SEO[ks.slug] ? KIDS_SEO[ks.slug].en[0] : ks.name.en, en(`/kids/${ks.slug}/`), KIDS_SEO[ks.slug] ? KIDS_SEO[ks.slug].en[1] : '')), ...(KIDS_SETS.find((ks) => ks.slug === 'pahade') ? KIDS_SETS.find((ks) => ks.slug === 'pahade').children.map((c) => line(`Table of ${c.slug} (${c.slug} ka pahada)`, en(`/kids/pahade/${c.slug}/`))) : [])])}${sec('Wedding', SHAADI_LIVE ? [line('Shaadi card maker (wedding invitation card)', en('/shaadi-card/'), 'free Shubh Vivah invitation card, made on the phone, download or share on WhatsApp')] : [])}${sec('Riddles', PAHELI_LIVE ? [line('Riddles with answers (paheliyan)', en('/paheliyan/'), 'Hindi, English and Bengali riddles')] : [])}${sec('Free online calculators (run in the browser)', CALCS.length ? [line('All calculators', en('/calculator/')), ...CALCS.map((c) => line(c.en.h1.replace(/^\S+\s/, ''), en(`/calculator/${c.slug}/`), c.en.lead))] : [])}${sec('Free online games (desi and puzzle, play in the browser)', [line('All games', en('/games/')), ...games.map((g) => line(g.nameEn, `${SITE}/games/${g.slug}/?lang=en`))])}${sec('Rules of Indian desi games (how to play in real life)', KHEL.length ? [line('All rules', en('/khel/')), ...KHEL.map((r) => line(r.en.h1.replace(/^\S+\s/, ''), en(`/khel/${r.slug}/`)))] : [])}${sec('Tools', tools.map((tl) => line(tl.en[0], `${SITE}/tools/${tl.slug}/`, tl.en[1])))}
+${sec('Festival dates and guides', [line(`Indian festival dates ${LIST_YEAR}`, en(`/festivals/${LIST_YEAR}/`), `every major festival with date and weekday`), ...festivals.map((f) => line(`${f.nameEn}: date, meaning, how it is celebrated, wishes`, en(`/festivals/${f.slug}/`)))])}${sec('Wishes and greeting cards', [line('Festival wish card maker', en('/wish-card/'), 'make a card with your name and share on WhatsApp'), line('Wishes for every day', en('/wishes/')), ...(NAAM_LIVE ? [line('Name on image (naam wali image)', en('/naam-wali-image/'), 'write your name on a festival image')] : []), line('Islamic (Hijri) calendar', en('/islamic-calendar/'), "today's Islamic date and Ramadan / Eid dates")])}${sec("Children's stories (kahani)", [line('All stories', en('/kahani/')), ...stories.map((st) => line(st.en.title, en(`/kahani/${st.slug}/`)))])}${sec('School speeches', SPEECHES.length ? [line('All speeches', en('/speech/')), ...SPEECHES.map((sp) => line(sp.en.h1.replace(/^\S+\s/, ''), en(`/speech/${sp.slug}/`)))] : [])}${sec('Essays for students (10 lines, short and long)', ESSAYS.length ? [line('All essays', en('/nibandh/')), ...ESSAYS.map((e) => line(e.en.h1.replace(/^\S+\s/, ''), en(`/nibandh/${e.slug}/`)))] : [])}${sec('Kids learning with pictures and audio (Hindi, English, Bengali, Urdu)', [line('All kids topics', en('/kids/'), 'flashcards with a recorded voice; every page in Hindi, English, Hinglish and Bengali'), ...KIDS_SETS.map((ks) => line(KIDS_SEO[ks.slug] ? KIDS_SEO[ks.slug].en[0] : ks.name.en, en(`/kids/${ks.slug}/`), KIDS_SEO[ks.slug] ? KIDS_SEO[ks.slug].en[1] : '')), ...(KIDS_SETS.find((ks) => ks.slug === 'pahade') ? KIDS_SETS.find((ks) => ks.slug === 'pahade').children.map((c) => line(`Table of ${c.slug} (${c.slug} ka pahada)`, en(`/kids/pahade/${c.slug}/`))) : [])])}${sec('Wedding', SHAADI_LIVE ? [line('Shaadi card maker (wedding invitation card)', en('/shaadi-card/'), 'free Shubh Vivah invitation card, made on the phone, download or share on WhatsApp')] : [])}${sec('Riddles', PAHELI_LIVE ? [line('Riddles with answers (paheliyan)', en('/paheliyan/'), 'Hindi, English and Bengali riddles')] : [])}${sec('Free online calculators (run in the browser)', CALCS.length ? [line('All calculators', en('/calculator/')), ...CALCS.map((c) => line(c.en.h1.replace(/^\S+\s/, ''), en(`/calculator/${c.slug}/`), c.en.lead))] : [])}${sec('Free online games (desi and puzzle, play in the browser)', [line('All games', en('/games/')), ...games.map((g) => line(g.nameEn, `${SITE}/games/${g.slug}/?lang=en`))])}${sec('Rules of Indian desi games (how to play in real life)', KHEL.length ? [line('All rules', en('/khel/')), ...KHEL.map((r) => line(r.en.h1.replace(/^\S+\s/, ''), en(`/khel/${r.slug}/`)))] : [])}${sec('Tools', tools.map((tl) => line(tl.en[0], `${SITE}/tools/${tl.slug}/`, tl.en[1])))}${sec('Weather', [line('Weather today for 600+ Indian cities (Hindi, English, Hinglish, Bengali)', en('/mausam/'), 'current temperature, rain and umbrella tip, tomorrow, 10-day forecast, plus month-by-month climate averages for each city')])}
 ## About
 
 - [About NextGrade](${en('/about/')})
@@ -1842,7 +1888,7 @@ console.log(`Held back until release: ${[...heldGames.map((s) => `game:${s}`), .
 console.log(`Built ${allUrls.length} pages in ${LANGS.map((l) => l.code).join(', ')} into ${OUT}/`);
 
 // Write the text that JavaScript fills on game / animated-wish pages into their HTML (see scripts/prerender.mjs)
-await (await import('./scripts/prerender.mjs')).default();
+if (!process.env.NO_PRERENDER) await (await import('./scripts/prerender.mjs')).default(); // NO_PRERENDER=1 for a quick local preview
 
 // Self-hosted fonts: swap every Google Fonts link for our own copy in /fonts/ (made by scripts/vendor-fonts.py),
 // so pages load nothing from Google Fonts. An unknown font query keeps its Google link and is reported below.
