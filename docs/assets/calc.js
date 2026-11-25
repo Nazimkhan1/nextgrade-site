@@ -138,6 +138,19 @@
       if (!isNaN(d2)) { var a2 = b * d2 / 100; h += row(S('daNew', 'DA at the new rate'), '₹ ' + fmt(a2, 0)) + row(S('more', 'More per month'), '₹ ' + fmt(a2 - a1, 0)) + row(S('year', 'More per year'), '₹ ' + fmt((a2 - a1) * 12, 0)); }
       show(h);
     },
+    creator: function () {
+      // RPM ranges (₹ per 1000 views, creator's share) for a general topic and Indian viewers, then topic/audience factors
+      var v = num('views'), plat = val('plat') || 'yt', niche = val('niche') || 'general', aud = val('aud') || 'in';
+      if (isNaN(v) || v <= 0) return err(S('fill', 'Please enter monthly views.'));
+      var base = { yt: [25, 90], shorts: [1.5, 6], fb: [10, 45], blog: [40, 160] }[plat];
+      var nf = { general: 1, edu: 1.3, tech: 1.6, finance: 2.5, ent: 0.7, kids: 0.6 }[niche], af = { 'in': 1, mix: 2, world: 4 }[aud];
+      var lo = base[0] * nf * af, hi = base[1] * nf * af, m1 = v / 1000 * lo, m2 = v / 1000 * hi;
+      show(row(S('month', 'Estimated monthly earning'), '₹ ' + fmt(m1, 0) + ' – ₹ ' + fmt(m2, 0), true) +
+        row(S('year', 'Estimated yearly earning'), '₹ ' + fmt(m1 * 12, 0) + ' – ₹ ' + fmt(m2 * 12, 0)) +
+        row(S('day', 'Daily average'), '₹ ' + fmt(m1 / 30, 0) + ' – ₹ ' + fmt(m2 / 30, 0)) +
+        row(S('rpm', 'RPM (per 1000 views)'), '₹ ' + fmt(lo, 1) + ' – ₹ ' + fmt(hi, 1)) +
+        '<p class="calc-note">' + S('note', '') + '</p>');
+    },
     discount: function () {
       var mrp = num('mrp'), d = num('d');
       if (isNaN(mrp) || isNaN(d) || mrp < 0) return err(S('fill', 'Please fill the price and discount.'));

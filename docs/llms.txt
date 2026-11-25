@@ -174,6 +174,7 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [Loan Eligibility Calculator](https://nextgrade.in/en/calculator/loan-eligibility/): Enter the EMI you can comfortably pay each month, the interest rate and tenure, to find how much loan that EMI can get you.
 - [8th Pay Commission Salary Calculator](https://nextgrade.in/en/calculator/8th-pay-commission/): Enter your 7th Pay Commission basic pay, pick a fitment factor and see roughly what your new basic pay could be under the 8th Pay Commission.
 - [DA (Dearness Allowance) Calculator](https://nextgrade.in/en/calculator/da/): Enter your basic pay and the DA percentage. If DA has gone up, add the new rate too — see how much more you get each month and each year.
+- [YouTube Money Calculator — how much per 1000 views?](https://nextgrade.in/en/calculator/youtube-earning/): Pick your monthly views, channel topic and where your viewers are. We show an estimated earning range — a guide, not a promise.
 
 ## Free online games (desi and puzzle, play in the browser)
 
