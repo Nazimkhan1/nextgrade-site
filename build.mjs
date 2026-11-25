@@ -1846,6 +1846,40 @@ tools.forEach((t) => {
   if (existsSync(join(OUT, 'tools', t.slug))) walk(join(OUT, 'tools', t.slug));
 });
 
+// Same site header + footer on the app-style pages (tools, games, celebrate) — user 25 Nov: "har page homogenous ho".
+// Scoped class names + inline <style> so each app keeps its own design; labels follow the page language (?lang= / <html lang>).
+{
+  const NAVL = [
+    ['/', { hi: 'होम', en: 'Home', hinglish: 'Home', bn: 'হোম' }],
+    ['/tools/', { hi: 'टूल्स', en: 'Tools', hinglish: 'Tools', bn: 'টুলস' }],
+    ['/calculator/', { hi: 'कैलकुलेटर', en: 'Calculators', hinglish: 'Calculator', bn: 'ক্যালকুলেটর' }],
+    ['/games/', { hi: 'गेम्स', en: 'Games', hinglish: 'Games', bn: 'গেম' }],
+    ['/mausam/', { hi: 'मौसम', en: 'Weather', hinglish: 'Mausam', bn: 'আবহাওয়া' }],
+    ['/festivals/', { hi: 'त्योहार', en: 'Festivals', hinglish: 'Tyohaar', bn: 'উৎসব' }],
+    ['/wishes/', { hi: 'शुभकामनाएँ', en: 'Wishes', hinglish: 'Wishes', bn: 'শুভেচ্ছা' }],
+    ['/kahani/', { hi: 'कहानियाँ', en: 'Stories', hinglish: 'Kahaniyan', bn: 'গল্প' }],
+    ['/surya-namaskar/', { hi: 'सूर्य नमस्कार', en: 'Surya Namaskar', hinglish: 'Surya Namaskar', bn: 'সূর্য নমস্কার' }],
+  ];
+  const FOOTL = [['/about/', { hi: 'हमारे बारे में', en: 'About', hinglish: 'About', bn: 'আমাদের কথা' }], ['/contact/', { hi: 'संपर्क', en: 'Contact', hinglish: 'Contact', bn: 'যোগাযোগ' }], ['/privacy-policy/', { hi: 'Privacy Policy', en: 'Privacy Policy', hinglish: 'Privacy Policy', bn: 'Privacy Policy' }, true], ['/terms/', { hi: 'Terms', en: 'Terms', hinglish: 'Terms', bn: 'Terms' }, true], ['/disclaimer/', { hi: 'Disclaimer', en: 'Disclaimer', hinglish: 'Disclaimer', bn: 'Disclaimer' }, true]];
+  const css = `<style id="ngc-css">.ngc-bar,.ngc-foot{box-sizing:border-box;font:600 15px/1.4 Inter,"Noto Sans Devanagari","Noto Sans Bengali",system-ui,sans-serif;color:#2b2118;-webkit-text-size-adjust:100%}.ngc-bar *,.ngc-foot *{box-sizing:border-box}.ngc-bar{position:relative;z-index:50;background:#fffaf3;border-bottom:1px solid #eadfce;display:flex;align-items:center;gap:6px;padding:8px 14px;min-height:52px}.ngc-logo{display:flex;align-items:center;gap:8px;text-decoration:none!important;color:#2b2118!important;font-weight:800;font-size:19px;flex:0 0 auto;margin-right:6px}.ngc-logo img{width:30px;height:30px}.ngc-logo b{color:#e8590c}.ngc-links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1 1 auto;-webkit-overflow-scrolling:touch}.ngc-links::-webkit-scrollbar{display:none}.ngc-links a{flex:0 0 auto;padding:6px 10px;border-radius:8px;text-decoration:none!important;color:#2b2118!important;font-size:14.5px;white-space:nowrap}.ngc-links a:hover,.ngc-links a.on{background:#fff0e3;color:#d9480f!important}.ngc-foot{background:#fff;border-top:1px solid #eadfce;padding:22px 16px 26px;margin-top:24px;color:#6f6257;font-weight:500;font-size:14px}.ngc-foot .ngc-in{max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;gap:10px 16px;justify-content:space-between;align-items:center}.ngc-foot nav{display:flex;flex-wrap:wrap;gap:6px 14px}.ngc-foot a{color:#6f6257!important;text-decoration:none!important}.ngc-foot a:hover{color:#d9480f!important}.ngc-foot .ngc-main a{color:#2b2118!important;font-weight:700}@media (prefers-color-scheme:dark){.ngc-bar{background:#17120e;border-color:#3a2f25}.ngc-logo,.ngc-links a{color:#f4ebe1!important}.ngc-links a:hover,.ngc-links a.on{background:#2b2017;color:#ff8a4c!important}.ngc-foot{background:#211a14;border-color:#3a2f25;color:#b9a998}.ngc-foot a{color:#b9a998!important}.ngc-foot .ngc-main a{color:#f4ebe1!important}}@media print{.ngc-bar,.ngc-foot{display:none}}</style>`;
+  const lab = (o) => esc(o.hi);
+  const data = (o) => ` data-l='${esc(JSON.stringify(o))}'`;
+  const bar = `<div class="ngc-bar" role="navigation" aria-label="NextGrade"><a class="ngc-logo" href="/" data-p="/"><img src="/favicon.svg" alt="" width="30" height="30"><span>Next<b>Grade</b></span></a><div class="ngc-links">${NAVL.slice(1).map(([h, o]) => `<a href="${h}" data-p="${h}"${data(o)}>${lab(o)}</a>`).join('')}</div></div>`;
+  const foot = `<footer class="ngc-foot"><div class="ngc-in"><nav class="ngc-main">${NAVL.map(([h, o]) => `<a href="${h}" data-p="${h}"${data(o)}>${lab(o)}</a>`).join('')}</nav><nav>${FOOTL.map(([h, o, fixed]) => `<a href="${h}"${fixed ? '' : ` data-p="${h}"`}${data(o)}>${lab(o)}</a>`).join('')}<a href="/sitemap.xml">Sitemap</a></nav><span>© ${new Date().getFullYear()} NextGrade · nextgrade.in</span></div></footer>`;
+  // language: ?lang=en|bn|hinglish (game/tool pages) or <html lang>; site paths get the language prefix
+  const js = `<script>(function(){function apply(){var q=new URLSearchParams(location.search).get('lang'),h=(document.documentElement.lang||'hi').toLowerCase(),L=(h.indexOf('bn')===0?'bn':h.indexOf('en')===0?'en':h==='hi-latn'?'hinglish':h.indexOf('hi')===0?(q==='hinglish'?'hinglish':'hi'):q)||'hi';if(L==='hi-latn')L='hinglish';var pre={hi:'',en:'/en',hinglish:'/hinglish',bn:'/bn'}[L];if(pre===undefined){L='hi';pre='';}document.querySelectorAll('.ngc-bar [data-l],.ngc-foot [data-l]').forEach(function(a){try{var o=JSON.parse(a.getAttribute('data-l'));if(o[L])a.textContent=o[L];}catch(e){}});document.querySelectorAll('.ngc-bar [data-p],.ngc-foot [data-p]').forEach(function(a){a.href=pre+a.getAttribute('data-p');});var p=location.pathname;document.querySelectorAll('.ngc-links a').forEach(function(a){if(p.indexOf(a.getAttribute('data-p'))===0)a.classList.add('on');});}apply();new MutationObserver(apply).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});})();</script>`;
+  const walk = (dir) => readdirSync(dir, { withFileTypes: true }).forEach((d) => {
+    const f = join(dir, d.name);
+    if (d.isDirectory()) { if (d.name !== 'icons' && d.name !== 'media') walk(f); return; }
+    if (d.name !== 'index.html') return;
+    let html = readFileSync(f, 'utf8');
+    if (html.includes('ngc-bar') || !/<body[^>]*>/.test(html)) return;
+    html = html.replace('</head>', `${css}\n</head>`).replace(/<body([^>]*)>/, `<body$1>\n${bar}`).replace(/<\/body>(?![\s\S]*<\/body>)/, `${foot}\n${js}\n</body>`);
+    writeFileSync(f, html);
+  });
+  ['tools', 'games', 'celebrate'].forEach((d) => { if (existsSync(join(OUT, d))) walk(join(OUT, d)); });
+}
+
 // Cloudflare Web Analytics beacon on every page (only when a token is set)
 if (CF_BEACON) {
   const tag = `<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "${CF_BEACON}"}'></script><!-- End Cloudflare Web Analytics -->`;
