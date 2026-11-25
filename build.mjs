@@ -35,6 +35,7 @@ import { buildWeather, WT } from './src/weather.mjs';
 import { icon } from './src/icons.mjs';
 import { buildTravel, TT } from './src/travel.mjs';
 import { buildNuskhe, NUSKHE_UI } from './src/nuskhe-build.mjs';
+import { buildRegionalWishes, RLANGS } from './src/regional-wishes-build.mjs';
 import { CAL_YEAR, MONTH_SLUGS as SLUG_M, NATIONAL, HOLIDAY_SLUGS, WDS, CT, hijriStarts } from './src/calendar.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
@@ -678,6 +679,7 @@ ${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('\n')}
   buildWeather(L, { page, write, P, esc, T, breadcrumbLd });
   buildTravel(L, { page, write, P, esc, T, breadcrumbLd });
   buildNuskhe(L, { page, write, P, esc, T, breadcrumbLd, articleLd });
+  if (L.code === 'en') buildRegionalWishes(L, { page, write, esc, T, breadcrumbLd });
 
   // Festival pages
   festivals.forEach((f, i) => {
@@ -742,6 +744,8 @@ ${faqBlock(faq)}
 <h1>${esc(T.wishIndex.h1)}</h1>
 <p class="lead">${esc(T.wishIndex.lead)}</p>
 <div class="grid">${celebrateCards(L)}${wishes.map(wishCard(L)).join('')}${islamicCard(L)}</div>
+<h2>🌐 ${esc({ hi: 'दूसरी भारतीय भाषाओं में शुभकामनाएँ', en: 'Wishes in other Indian languages', hinglish: 'Doosri Indian bhashaon mein wishes', bn: 'অন্য ভারতীয় ভাষায় শুভেচ্ছা' }[L.code])}</h2>
+<p class="chips">${RLANGS.map((o) => `<a class="tag" href="/wishes/${o.slug}/" lang="${o.html}">${esc(o.name)} · ${o.en}</a>`).join(' ')}</p>
 <h2>${esc(T.wishIndex.festH)}</h2>
 <p>${T.wishIndex.festP(P(L, '/festivals/'))}</p>
 </div>`,
