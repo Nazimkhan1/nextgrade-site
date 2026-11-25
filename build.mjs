@@ -1892,7 +1892,7 @@ document.addEventListener('click',function(e){document.querySelectorAll('.ngc de
     if (d.isDirectory()) { if (d.name !== 'icons' && d.name !== 'media') walk(f); return; }
     if (d.name !== 'index.html') return;
     let html = readFileSync(f, 'utf8');
-    if (html.includes('ngc-top') || !/<body[^>]*>/.test(html)) return;
+    if (html.includes('ngc-top') || html.includes('<header class="site-head">') || !/<body[^>]*>/.test(html)) return; // site pages (e.g. /tools/, /games/) already have it
     html = html.replace('</head>', `${css}\n</head>`).replace(/<body([^>]*)>/, `<body$1>\n${top}`).replace(/<\/body>(?![\s\S]*<\/body>)/, `${bottom}\n${js}\n</body>`);
     writeFileSync(f, html);
   });
