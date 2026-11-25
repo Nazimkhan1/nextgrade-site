@@ -1,1 +1,980 @@
-<!doctype html><html data-prerendered="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Games | NextGrade</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://nextgrade.in/games/"><meta http-equiv="refresh" content="0; url=/games/"></head><body><p><a href="/games/">Games →</a></p></body></html>
+<!doctype html>
+<html data-prerendered="hi" lang="hi">
+<head>
+<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nau Gutti ⚪🔴 — Nine Men's Morris (Navkankari) Board Game | NextGrade</title>
+<meta name="description" content="Nau Gutti (Navkankari, Nine Men's Morris): the old Indian board game of three squares, free in Hinglish, Hindi, English and Bengali. 9 pieces each — make three in a line (a mill) and take away an opponent piece. Play the computer (easy, medium, hard) or a friend on one phone.">
+<link rel="canonical" href="https://nextgrade.in/games/nau-gutti/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Nau Gutti ⚪🔴 — mandir ke farsh wala khel">
+<meta property="og:description" content="Bachpan wala Nau Gutti: 9 gotiyan, teen chaukor, teen ek line mein milao aur goti uthao! Computer ya dost ke saath.">
+<meta property="og:url" content="https://nextgrade.in/games/nau-gutti/">
+<meta property="og:image" content="https://nextgrade.in/games/nau-gutti/icons/icon-512.png">
+<meta name="theme-color" content="#2b3a4a">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/css/ef020bc1c48c.css">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Nau Gutti (Nine Men's Morris)","alternateName":["Navkankari","Navakankari","Nine Men's Morris","Nau Goti","Noy Guti"],"url":"https://nextgrade.in/games/nau-gutti/","genre":["Board game","Traditional"],"gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","inLanguage":["hi","en","bn"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you play Nau Gutti (Nine Men's Morris)?","acceptedAnswer":{"@type":"Answer","text":"Each player has 9 pieces. First you take turns placing them on the 24 points of the board. Then you take turns sliding one piece along a line to the next empty point. Whenever three of your pieces stand in one straight line (a mill), you take one of your opponent's pieces off the board. A player left with only 2 pieces, or with no legal move, loses."}},{"@type":"Question","name":"Is flying with three pieces part of the rules?","acceptedAnswer":{"@type":"Answer","text":"Not everywhere. In many places a player with only three pieces may move a piece to any empty point (flying); in others the normal sliding rule stays until the end. The game lets you switch flying on or off."}},{"@type":"Question","name":"Why can't I remove a piece that is in a mill?","acceptedAnswer":{"@type":"Answer","text":"Pieces in a completed mill are protected. You may take one of them only when every piece your opponent has on the board is part of a mill."}}]}</script>
+<style>
+:root { --bg: #141b24; --gold: #ffd43b; --ink: #f4f6f8; --muted: #c3ccd6; --card: rgba(255,255,255,0.08); --acc: #12b886; --acc2: #0ca678; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #3b4a5e, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.tools { display: flex; gap: 8px; }
+.iconbtn { background: var(--card); border: 1px solid rgba(255,255,255,0.15); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; padding: 6px 8px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(28px, 7vw, 40px); line-height: 1.1; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) .panel h2, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+.challenge { background: linear-gradient(90deg, #0ca678, #1971c2); border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-weight: 700; display: none; }
+
+.stage { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5); width: 100%; min-height: 570px; margin: 0 auto; background: linear-gradient(180deg, #303841, #22282f); padding: 8px 8px 10px; display: flex; flex-direction: column; gap: 6px; user-select: none; -webkit-user-select: none; }
+.pbar { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.06); border: 2px solid transparent; border-radius: 12px; padding: 3px 10px; font-weight: 800; font-size: 14px; min-height: 34px; transition: border-color .2s, background .2s; }
+.pbar.on { border-color: var(--acc); background: rgba(18,184,134,0.16); }
+.pbar .who { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 42%; }
+.pbar .dots { display: flex; gap: 3px; flex: 1; flex-wrap: wrap; }
+.pbar .dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; box-shadow: inset -1px -2px 2px rgba(0,0,0,0.35); }
+.dot.p1 { background: #f3ead7; } .dot.p2 { background: #c92a2a; }
+.pbar .cnt { font-size: 12px; color: var(--muted); white-space: nowrap; font-weight: 700; }
+.phase { text-align: center; font-weight: 800; font-size: 15px; margin: 0; min-height: 24px; }
+.phase span { background: var(--gold); color: #2b2a12; border-radius: 12px; padding: 2px 12px; display: inline-block; line-height: 1.35; }
+.phase span.rm { background: #fa5252; color: #fff; }
+#board { display: block; width: 100%; max-width: 520px; aspect-ratio: 1; margin: 0 auto; touch-action: manipulation; }
+#board .pt { cursor: pointer; }
+.msg { margin: 0; min-height: 2.7em; line-height: 1.35; text-align: center; font-weight: 700; font-size: 14px; color: #e9edf1; }
+.ctrl { display: flex; justify-content: space-between; gap: 8px; min-height: 30px; }
+.ctrl button { font: inherit; font-weight: 800; font-size: 13px; padding: 5px 11px; border-radius: 10px; border: 0; background: rgba(255,255,255,0.14); color: #fff; cursor: pointer; }
+@keyframes pop { from { transform: scale(0.3); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+@keyframes glow { 0% { stroke-opacity: 0; } 30% { stroke-opacity: 0.95; } 100% { stroke-opacity: 0.6; } }
+.popin { transform-box: fill-box; transform-origin: center; animation: pop .22s ease-out; }
+.pulse { animation: pulse 1s ease-in-out infinite; }
+.millglow { animation: glow .8s ease-out forwards; }
+
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(12, 18, 26, 0.82); padding: 16px; overflow-y: auto; z-index: 10; }
+.panel { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 18px; padding: 18px; width: min(420px, 100%); text-align: center; margin: auto; color: var(--ink); }
+.panel h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; margin: 0 0 6px; font-size: 24px; line-height: 1.2; }
+.panel p { margin: 6px 0; color: #e8edf2; }
+.panel .fact { background: rgba(255,212,59,0.12); border: 1px solid rgba(255,212,59,0.35); border-radius: 12px; padding: 8px 10px; color: #ffe8a3; font-size: 15px; }
+.panel .note { font-size: 12px; color: var(--muted); margin: 2px 0 0; }
+.big { font-family: "Baloo 2", sans-serif; font-size: 40px; font-weight: 800; color: var(--gold); line-height: 1.1; margin: 6px 0; }
+.label { font-size: 13px; color: var(--muted); margin: 10px 0 0; font-weight: 700; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 6px 0; }
+.seg3 { grid-template-columns: repeat(3, 1fr); }
+.seg button { font: inherit; font-weight: 800; font-size: 15px; padding: 9px 4px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.1); color: var(--ink); cursor: pointer; line-height: 1.25; }
+.seg button.on { background: var(--acc2); border-color: var(--acc2); }
+.seg button small { display: block; font-size: 12px; font-weight: 600; color: var(--gold); }
+input { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.25); color: var(--ink); margin: 8px 0; }
+input::placeholder { color: #b9c3cd; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 0; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 8px; text-decoration: none; }
+.btn-main { background: linear-gradient(90deg, var(--acc), var(--acc2)); color: #fff; }
+.btn-wa { background: #25d366; color: #073b1d; }
+.btn-fb { background: #1877f2; color: #fff; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,0.3); }
+.hidden { display: none !important; }
+section { margin: 28px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px 16px; }
+details { background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 10px 14px; margin: 8px 0; }
+summary { font-weight: 700; cursor: pointer; }
+details p { margin: 8px 0 0; color: var(--muted); }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid rgba(255,255,255,0.12); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+.selftest { white-space: pre-wrap; font: 12px/1.4 ui-monospace, monospace; background: #000; color: #8f8; padding: 10px; border-radius: 10px; margin: 12px 0; overflow-x: auto; }
+@media (max-width: 480px) { .panel { padding: 14px; } .panel h2 { font-size: 21px; } .panel p { font-size: 14px; line-height: 1.45; } .pbar { font-size: 13px; } .pbar .dot { width: 9px; height: 9px; } }
+</style>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">⚪ NextGrade<small>Bachpan</small></a>
+    <div class="tools">
+      <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option></select>
+      <button class="iconbtn" id="mute" type="button" aria-label="Sound on/off">🔊</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="title">नौ गुट्टी ⚪🔴 (नवकंकरी)</h1>
+  <p class="sub" data-i18n="sub">मंदिर के फ़र्श या गाँव के चबूतरे पर खुदे तीन चौकोर याद हैं? हर खिलाड़ी की 9 गोटियाँ — तीन एक लाइन में मिलाओ (मिल) और सामने वाले की एक गोटी उठा लो। कंप्यूटर के साथ या एक फ़ोन पर दोस्त के साथ।</p>
+  <p class="challenge" id="challenge" role="status"></p>
+
+  <div class="stage" id="stage">
+    <div class="pbar" id="bar2" aria-live="off"><span class="who" id="who2">🔴 कंप्यूटर</span><span class="dots" id="dots2"></span><span class="cnt" id="cnt2">हाथ 9 · बोर्ड 0</span></div>
+    <p class="phase" id="phase" role="status"></p>
+    <svg id="board" viewBox="-9 -9 118 118" role="img" aria-label="Nau Gutti board">
+      <defs>
+        <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="4"/><feColorMatrix values="0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0.55 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+        <filter id="chalk" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="2" seed="9" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="0.9"/></filter>
+        <radialGradient id="stoneG" cx="45%" cy="40%" r="75%"><stop offset="0" stop-color="#9a958c"/><stop offset="0.7" stop-color="#7d786f"/><stop offset="1" stop-color="#5f5b54"/></radialGradient>
+        <radialGradient id="g1" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#fffdf6"/><stop offset="0.6" stop-color="#efe4cc"/><stop offset="1" stop-color="#c9b88f"/></radialGradient>
+        <radialGradient id="g2" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#ff8f80"/><stop offset="0.55" stop-color="#d33131"/><stop offset="1" stop-color="#8f1717"/></radialGradient>
+      </defs>
+      <g id="bgLayer"></g>
+      <g id="dyn"></g>
+    </svg>
+    <div class="pbar" id="bar1"><span class="who" id="who1">⚪ आप</span><span class="dots" id="dots1"></span><span class="cnt" id="cnt1">हाथ 9 · बोर्ड 0</span></div>
+    <p class="msg" id="msg"></p>
+    <div class="ctrl"><button class="hidden" id="undoBtn" type="button" data-i18n="undo"></button><span></span><button class="hidden" id="menuBtn" type="button" data-i18n="menuBtn"></button></div>
+
+    <div class="overlay" id="startScreen">
+      <div class="panel">
+        <h2 data-i18n="startTitle">चलो नौ गुट्टी खेलें ⚪🔴</h2>
+        <p data-i18n="controls">ख़ाली निशान पर टैप करके गोटी रखो। सारी 9 रखने के बाद अपनी गोटी पर टैप करो, फिर हरे निशान पर। तीन एक लाइन में बनीं तो सामने वाले की लाल घेरे वाली गोटी पर टैप करके उसे हटाओ।</p>
+        <input id="name" maxlength="30" data-i18n-ph="namePh" autocomplete="nickname" aria-label="Name">
+        <p class="label" data-i18n="pickSide">आपकी गोटियाँ:</p>
+        <div class="seg" id="sideSeg"><button type="button" data-s="1" data-i18n="sideFirst"></button><button type="button" data-s="2" data-i18n="sideSecond"></button></div>
+        <p class="label" data-i18n="flyLabel">3 गोटी बचने पर उड़ना:</p>
+        <div class="seg" id="flySeg"><button type="button" data-f="1" data-i18n="flyOn"></button><button type="button" data-f="0" data-i18n="flyOff"></button></div>
+        <p class="note" data-i18n="flyNote">हर गाँव के नियम अलग होते हैं — जो आपके यहाँ चलता था, वही चुनो।</p>
+        <p class="label" data-i18n="vsComputer">कंप्यूटर के साथ:</p>
+        <div class="seg seg3" id="levelSeg">
+          <button type="button" data-l="easy"><span data-i18n="easy">आसान</span><small id="wEasy">0 जीत</small></button>
+          <button type="button" data-l="medium"><span data-i18n="medium">मीडियम</span><small id="wMedium">0 जीत</small></button>
+          <button type="button" data-l="hard"><span data-i18n="hard">मुश्किल</span><small id="wHard">0 जीत</small></button>
+        </div>
+        <button type="button" class="btn btn-ghost" id="twoBtn" data-i18n="twoPlayers"></button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="endScreen">
+      <div class="panel">
+        <h2 id="endTitle"></h2>
+        <div class="big" id="endBig"></div>
+        <p id="endNote"></p>
+        <p id="endScore"></p>
+        <p class="fact" id="endFact"></p>
+        <button class="btn btn-main" id="againBtn" type="button" data-i18n="again"></button>
+        <button class="btn btn-wa" id="shareWa" type="button" data-i18n="shareWa"></button>
+        <button class="btn btn-ghost" id="shareOther" type="button" data-i18n="shareOther"></button>
+        <button class="btn btn-fb" id="shareFb" type="button" data-i18n="shareFb"></button>
+        <button class="btn btn-ghost" id="toMenu" type="button" data-i18n="menuBtn"></button>
+      </div>
+    </div>
+  </div>
+
+  <pre class="selftest hidden" id="selftest"></pre>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle">कैसे खेलें</h2>
+    <div class="card2"><ol id="howList"><li>बोर्ड पर तीन चौकोर हैं — बाहर, बीच और अंदर — जो भुजाओं के बीच में सीधी लकीरों से जुड़े हैं। कुल <b>24 निशान</b>। हर खिलाड़ी के पास <b>9 गोटियाँ</b>, और सफ़ेद पहले चलता है।</li><li><b>पहला हिस्सा — रखना:</b> बारी-बारी एक-एक गोटी किसी भी ख़ाली निशान पर रखो, जब तक दोनों की सारी गोटियाँ बोर्ड पर न आ जाएँ।</li><li><b>मिल (तीन की लाइन):</b> जब भी आपकी तीन गोटियाँ एक सीधी लकीर पर आ जाएँ, सामने वाले की एक गोटी बोर्ड से उठा लो। जो गोटी पहले से किसी मिल में बैठी हो, उसे नहीं उठा सकते — हाँ, अगर उसकी सारी गोटियाँ मिल में हों तो कोई भी।</li><li><b>दूसरा हिस्सा — चलना:</b> सारी गोटियाँ रखने के बाद अपनी गोटी को लकीर के साथ <b>बगल वाले ख़ाली निशान</b> पर सरकाओ। कूदना मना है। मिल खोलकर दोबारा बंद करो तो फिर से एक गोटी उठेगी।</li><li><b>तीसरा हिस्सा — उड़ना (अगर चालू हो):</b> जिसके पास सिर्फ़ 3 गोटियाँ बचें, वह अपनी गोटी किसी भी ख़ाली निशान पर ले जा सकता है। कई जगह यह नियम नहीं चलता, इसलिए मेन्यू में इसे बंद भी कर सकते हो।</li><li><b>जीत:</b> सामने वाले के पास सिर्फ़ <b>2 गोटियाँ</b> बचें, या उसकी कोई भी गोटी चल न सके, तो आप जीते। 50 चालों तक कोई गोटी न कटे, या एक ही स्थिति तीन बार आए, तो बराबर।</li></ol></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="tipsTitle">जीतने के टिप्स</h2>
+    <div class="card2"><ul id="tipList"><li>शुरू में कोनों से ज़्यादा काम के होते हैं बीच वाले चौकोर के 4 जोड़ — वहाँ से चार तरफ़ रास्ता जाता है।</li><li>रखते समय सिर्फ़ अपनी मिल के पीछे मत भागो। सामने वाले की दो गोटियाँ एक लाइन में हों तो तीसरा निशान पहले रोक दो।</li><li>गोटियाँ ऐसी जगह रखो कि बाद में चल सकें। घिरी हुई गोटियाँ दूसरे हिस्से में बोझ बन जाती हैं।</li><li>"चक्की" बनाओ: दो मिल ऐसी जोड़ो कि एक गोटी आगे-पीछे करते ही हर बारी मिल बने — हर बार एक गोटी उठेगी।</li><li>गोटी हटाते वक़्त वह गोटी चुनो जो सामने वाले की अगली मिल पक्की कर रही हो, या जो आपका रास्ता रोक रही हो।</li></ul></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="aboutTitle">नौ गुट्टी — पत्थर पर खुदा पुराना खेल</h2>
+    <p data-i18n="aboutText">नौ गुट्टी को कहीं नवकंकरी, कहीं चार भर, कहीं बस "गुट्टी" कहते हैं। दोपहर में चबूतरे पर, मंदिर की सीढ़ियों पर या आँगन में चॉक या कोयले से बोर्ड बनता, और गोटियाँ कुछ भी हो सकती थीं — कंकड़, इमली के बीज, कौड़ी या खपरैल के टुकड़े। कई पुरानी इमारतों के पत्थर पर यह तीन चौकोर वाला निशान खुदा हुआ मिलता है; माना जाता है कि लोग इंतज़ार करते हुए वहीं बैठकर खेल लेते थे।</p>
+    <p data-i18n="aboutText2">यही खेल दुनिया के कई देशों में अलग नामों से खेला गया — अंग्रेज़ी में इसे "नाइन मेन्स मॉरिस" कहते हैं। यह कितना पुराना है और सबसे पहले कहाँ शुरू हुआ, इस पर जानकार एक राय नहीं हैं, इसलिए कोई पक्की तारीख़ बताना ठीक नहीं। इतना ज़रूर पक्का है कि नियम आसान हैं पर चालें गहरी: बच्चे मिनटों में सीख जाते हैं और बड़े सालों तक खेलते रहते हैं। इस गेम में कोई दाँव या शर्त नहीं — सिर्फ़ दिमाग़ का खेल।</p>
+  </section>
+
+  <section>
+    <h2 data-i18n="factsTitle">नौ गुट्टी के तथ्य</h2>
+    <div class="card2"><ul id="factList"><li>बोर्ड पर 24 निशान और 16 ऐसी सीधी लकीरें हैं जहाँ तीन गोटियों की मिल बन सकती है।</li><li>दोनों की 18 गोटियाँ 24 निशानों पर आती हैं — अगर कोई गोटी न कटे, तो रखने के बाद सिर्फ़ 6 निशान ख़ाली बचते हैं।</li><li>"गुट्टी" या "गोटी" का मतलब छोटा कंकड़ या मोहरा है — इसी से नाम बना "नौ गुट्टी", यानी नौ गोटियों का खेल।</li><li>इस जैसे बोर्ड पुराने मंदिरों, क़िलों और दूसरे देशों की इमारतों के पत्थर पर खुदे मिले हैं। सबसे पुराना कौन-सा है, इस पर बहस चलती है।</li><li>कंप्यूटर से इस खेल को पूरा जाँचा जा चुका है: अगर दोनों खिलाड़ी बिल्कुल बिना ग़लती खेलें, तो नतीजा बराबर रहता है।</li><li>कुछ जगह बोर्ड के कोनों पर तिरछी लकीरें भी बनती हैं और हर खिलाड़ी 12 गोटी से खेलता है — वह इस खेल का एक अलग रूप है।</li></ul></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="faqTitle">अक्सर पूछे जाने वाले सवाल</h2>
+    <div id="faqList"><details><summary>नौ गुट्टी कैसे खेलते हैं?</summary><p>हर खिलाड़ी की 9 गोटियाँ। पहले बारी-बारी से उन्हें 24 निशानों पर रखो, फिर एक-एक गोटी लकीर के साथ बगल के ख़ाली निशान पर चलाओ। तीन गोटियाँ एक लाइन में आएँ तो सामने वाले की एक गोटी हटाओ। जिसके पास 2 गोटी बचें या जो चल न सके, वह हारा।</p></details><details><summary>क्या 3 गोटी बचने पर उड़ना ज़रूरी है?</summary><p>नहीं। यह नियम हर जगह नहीं चलता। कई जगह आख़िर तक सिर्फ़ बगल में चलते हैं। गेम के मेन्यू में "उड़ना" हाँ या नहीं — जो आपके यहाँ चलता हो — चुन लो।</p></details><details><summary>मिल वाली गोटी क्यों नहीं हटा सकते?</summary><p>पूरी मिल में बैठी गोटियाँ सुरक्षित मानी जाती हैं। उन्हें तभी उठा सकते हो जब सामने वाले की बोर्ड पर सारी गोटियाँ मिल में हों।</p></details><details><summary>क्या यह सोलह गुट्टी जैसा है?</summary><p>नहीं। सोलह गुट्टी में 16-16 गोटियाँ होती हैं और गोटी के ऊपर से कूदकर मारते हैं। नौ गुट्टी में कूदना नहीं होता — तीन की लाइन बनाकर गोटी उठाते हैं।</p></details></div>
+    <p><a id="moreGames" href="https://nextgrade.in/games/" data-i18n="moreGames">और बचपन वाले गेम खेलो →</a></p>
+    <div id="topShare"><span class="ts-lead">दोस्तों को भेजो:</span><button type="button" class="ts-wa">WhatsApp</button><button type="button" class="ts-fb">Facebook</button></div>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacyTitle">आपका डेटा</h2>
+    <p data-i18n="privacyText">नाम, जीत की गिनती और सेटिंग सिर्फ़ आपके फ़ोन में रहती हैं। शेयर लिंक में सिर्फ़ नाम और जीत जाती है। कोई लॉगिन नहीं, कोई सर्वर नहीं।</p>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a><a href="https://nextgrade.in/games/">More games</a>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SITE = 'https://nextgrade.in/games/nau-gutti/';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const PIECES = 9, QUIET = 50;
+
+  const T = {
+    hinglish: {
+      title: 'Nau Gutti ⚪🔴 (Navkankari)',
+      sub: 'Mandir ke farsh ya gaon ke chabutre par khude teen chaukor yaad hain? Har khiladi ki 9 gotiyan — teen ek line mein milao (mill) aur saamne wale ki ek goti utha lo. Computer ke saath ya ek phone par dost ke saath.',
+      startTitle: 'Chalo Nau Gutti khelein ⚪🔴',
+      controls: 'Khaali nishaan par tap karke goti rakho. Saari 9 rakhne ke baad apni goti par tap karo, phir hare nishaan par. Teen ek line mein bani to saamne wale ki laal ghere wali goti par tap karke use hatao.',
+      namePh: 'Aapka naam (optional)', pickSide: 'Aapki gotiyan:', sideFirst: '⚪ Safed (pehli chaal)', sideSecond: '🔴 Laal (doosri chaal)',
+      flyLabel: '3 goti bachne par udna:', flyOn: '🕊️ Haan', flyOff: '🚶 Nahi', flyNote: 'Har gaon ke niyam alag hote hain — jo aapke yahan chalta tha, wahi chuno.',
+      vsComputer: 'Computer ke saath:', easy: 'Aasaan', medium: 'Medium', hard: 'Mushkil', twoPlayers: '👥 2 khiladi (ek phone)',
+      wins: (n) => `${n} jeet`, menuBtn: '☰ Menu', undo: '↶ Wapas', again: '🔁 Phir khelo',
+      you: 'Aap', cpu: 'Computer', white: 'Safed', red: 'Laal',
+      count: (h, b) => `haath ${h} · board ${b}`,
+      phPlace: (w) => `${w}: goti rakho`, phMove: (w) => `${w}: goti chalao`, phFly: (w) => `${w}: goti udao`, phRemove: (w) => `${w}: goti hatao!`, thinking: 'Computer soch raha hai…',
+      msgPlace: (n) => `Kisi khaali nishaan par tap karo (${n} goti haath mein)`, msgPick: 'Apni goti chuno, phir hare nishaan par le jao', msgFly: 'Sirf 3 goti bachi — kisi bhi khaali nishaan par uda sakte ho!',
+      msgRemove: 'Mill ban gayi! 🎉 Laal ghere wali goti par tap karke hatao', msgNoMove: 'Is goti ka koi raasta nahi — doosri chuno', msgCpuMill: 'Computer ki mill bani — aapki ek goti gayi!', msgMill: (w) => `${w} ki mill bani — ek goti hati!`,
+      winOf: (w) => `${w} jeet gaye! 🎉`, youWin: (name) => `Jeet gaye${name ? `, ${name}` : ''}! 🎉`, youLose: 'Computer jeet gaya 😅', draw: 'Barabar! 🤝',
+      endTwo: (w) => `${w} ke paas sirf 2 gotiyan bachi`, endBlock: (w) => `${w} ki koi goti chal nahi sakti — poori band!`, endQuiet: `${QUIET} chaalon tak koi goti nahi kati`, endRepeat: 'Ek hi sthiti teen baar aa gayi',
+      score: (a, x, b, y, d) => `Score: ${a} ${x} · ${b} ${y} · barabar ${d}`,
+      challenge: (name, n) => `⚪🔴 ${name} ne Nau Gutti mein computer ko ${n} baar haraaya! Aap haraa paoge?`,
+      shareWa: '📲 WhatsApp pe challenge bhejo', shareFb: 'Facebook par share karo', shareOther: '🔗 Share karo', copied: '✅ Copy ho gaya', copyPrompt: 'Yeh text copy karo:',
+      shareWin: (name, url) => `⚪🔴 ${name ? `${name} ne` : 'Maine'} computer ko Nau Gutti mein hara diya! Tum harao: ${url}`,
+      sharePlain: (url) => `⚪🔴 Bachpan wala Nau Gutti — mandir ke farsh wala khel, ab phone par! Computer ya dost ke saath khelo: ${url}`,
+      howTitle: 'Kaise khelein',
+      how: ['Board par teen chaukor hain — bahar, beech aur andar — jo bhujaaon ke beech mein seedhi lakeeron se jude hain. Kul <b>24 nishaan</b>. Har khiladi ke paas <b>9 gotiyan</b>, aur safed pehle chalta hai.', '<b>Pehla hissa — rakhna:</b> baari-baari ek-ek goti kisi bhi khaali nishaan par rakho, jab tak dono ki saari gotiyan board par na aa jaayein.', '<b>Mill (teen ki line):</b> jab bhi aapki teen gotiyan ek seedhi lakeer par aa jaayein, saamne wale ki ek goti board se utha lo. Jo goti pehle se kisi mill mein baithi ho, use nahi utha sakte — haan, agar uski saari gotiyan mill mein hon to koi bhi.', '<b>Doosra hissa — chalna:</b> saari gotiyan rakhne ke baad apni goti ko lakeer ke saath <b>bagal wale khaali nishaan</b> par sarkao. Koodna mana hai. Mill khol kar dobara band karo to phir se ek goti uthegi.', '<b>Teesra hissa — udna (agar chalu ho):</b> jiske paas sirf 3 gotiyan bachein, woh apni goti kisi bhi khaali nishaan par le ja sakta hai. Kai jagah yeh niyam nahi chalta, isliye menu mein ise band bhi kar sakte ho.', `<b>Jeet:</b> saamne wale ke paas sirf <b>2 gotiyan</b> bachein, ya uski koi bhi goti chal na sake, to aap jeete. ${QUIET} chaalon tak koi goti na kate, ya ek hi sthiti teen baar aaye, to barabar.`],
+      tipsTitle: 'Jeetne ke tips',
+      tips: ['Shuru mein kono se zyada kaam ke hote hain beech wale chaukor ke 4 jod — wahan se chaar taraf raasta jaata hai.', 'Rakhte samay sirf apni mill ke peeche mat bhaago. Saamne wale ki do gotiyan ek line mein hon to teesra nishaan pehle rok do.', 'Gotiyan aisi jagah rakho ki baad mein chal sakein. Ghiri hui gotiyan doosre hisse mein bojh ban jaati hain.', '"Chakki" banao: do mill aisi jodo ki ek goti aage-peeche karte hi har baari mill bane — har baar ek goti uthegi.', 'Goti hataate waqt woh goti chuno jo saamne wale ki agli mill pakki kar rahi ho, ya jo aapka raasta rok rahi ho.'],
+      aboutTitle: 'Nau Gutti — patthar par khuda purana khel',
+      aboutText: 'Nau Gutti ko kahin Navkankari, kahin Char Bhar, kahin bas "gutti" kehte hain. Dopahar mein chabutre par, mandir ki seedhiyon par ya aangan mein chalk ya koyle se board banta, aur gotiyan kuch bhi ho sakti thi — kankad, imli ke beej, kaudi ya khaprail ke tukde. Kai purani imaraton ke patthar par yeh teen chaukor wala nishaan khuda hua milta hai; maana jaata hai ki log intezaar karte hue wahin baith kar khel lete the.',
+      aboutText2: 'Yahi khel duniya ke kai deshon mein alag naamon se khela gaya — angrezi mein ise Nine Men\'s Morris kehte hain. Yeh kitna purana hai aur sabse pehle kahan shuru hua, is par jaankaar ek raay nahi hain, isliye koi pakki taareekh batana theek nahi. Itna zaroor pakka hai ki niyam aasaan hain par chaalein gehri: bachche minton mein seekh jaate hain aur bade saalon tak khelte rehte hain. Is game mein koi daav ya shart nahi — sirf dimaag ka khel.',
+      factsTitle: 'Nau Gutti ke tathya',
+      facts: ['Board par 24 nishaan aur 16 aisi seedhi lakeerein hain jahan teen gotiyon ki mill ban sakti hai.', 'Dono ki 18 gotiyan 24 nishaanon par aati hain — agar koi goti na kate, to rakhne ke baad sirf 6 nishaan khaali bachte hain.', '"Gutti" ya "goti" ka matlab chhota kankad ya mohra hai — isi se naam bana "nau gutti", yaani nau gotiyon ka khel.', 'Is jaise board purane mandiron, kilon aur doosre deshon ki imaraton ke patthar par khude mile hain. Sabse purana kaunsa hai, is par bahas chalti hai.', 'Computer se is khel ko poora jaancha ja chuka hai: agar dono khiladi bilkul bina galti khelein, to nateeja barabar rehta hai.', 'Kuch jagah board ke kono par tirchhi lakeerein bhi banti hain aur har khiladi 12 goti se khelta hai — woh is khel ka ek alag roop hai.'],
+      faqTitle: 'Aksar pooche jaane wale sawaal',
+      faq: [['Nau Gutti kaise khelte hain?', 'Har khiladi ki 9 gotiyan. Pehle baari-baari se unhe 24 nishaanon par rakho, phir ek-ek goti lakeer ke saath bagal ke khaali nishaan par chalao. Teen gotiyan ek line mein aayein to saamne wale ki ek goti hatao. Jiske paas 2 goti bachein ya jo chal na sake, woh haara.'], ['Kya 3 goti bachne par udna zaroori hai?', 'Nahi. Yeh niyam har jagah nahi chalta. Kai jagah aakhir tak sirf bagal mein chalte hain. Game ke menu mein "udna" haan ya nahi — jo aapke yahan chalta ho — chun lo.'], ['Mill wali goti kyun nahi hata sakte?', 'Poori mill mein baithi gotiyan surakshit maani jaati hain. Unhe tabhi utha sakte ho jab saamne wale ki board par saari gotiyan mill mein hon.'], ['Kya yeh Sholo Guti jaisa hai?', 'Nahi. Sholo Guti mein 16-16 gotiyan hoti hain aur goti ke upar se kood kar maarte hain. Nau Gutti mein koodna nahi hota — teen ki line banakar goti uthate hain.']],
+      moreGames: 'Aur bachpan wale games khelo →',
+      privacyTitle: 'Aapka data', privacyText: 'Naam, jeet ki ginti aur settings sirf aapke phone mein rehte hain. Share link mein sirf naam aur jeet jaati hai. Koi login nahi, koi server nahi.',
+    },
+    hi: {
+      title: 'नौ गुट्टी ⚪🔴 (नवकंकरी)',
+      sub: 'मंदिर के फ़र्श या गाँव के चबूतरे पर खुदे तीन चौकोर याद हैं? हर खिलाड़ी की 9 गोटियाँ — तीन एक लाइन में मिलाओ (मिल) और सामने वाले की एक गोटी उठा लो। कंप्यूटर के साथ या एक फ़ोन पर दोस्त के साथ।',
+      startTitle: 'चलो नौ गुट्टी खेलें ⚪🔴',
+      controls: 'ख़ाली निशान पर टैप करके गोटी रखो। सारी 9 रखने के बाद अपनी गोटी पर टैप करो, फिर हरे निशान पर। तीन एक लाइन में बनीं तो सामने वाले की लाल घेरे वाली गोटी पर टैप करके उसे हटाओ।',
+      namePh: 'आपका नाम (ज़रूरी नहीं)', pickSide: 'आपकी गोटियाँ:', sideFirst: '⚪ सफ़ेद (पहली चाल)', sideSecond: '🔴 लाल (दूसरी चाल)',
+      flyLabel: '3 गोटी बचने पर उड़ना:', flyOn: '🕊️ हाँ', flyOff: '🚶 नहीं', flyNote: 'हर गाँव के नियम अलग होते हैं — जो आपके यहाँ चलता था, वही चुनो।',
+      vsComputer: 'कंप्यूटर के साथ:', easy: 'आसान', medium: 'मीडियम', hard: 'मुश्किल', twoPlayers: '👥 2 खिलाड़ी (एक फ़ोन)',
+      wins: (n) => `${n} जीत`, menuBtn: '☰ मेन्यू', undo: '↶ वापस', again: '🔁 फिर खेलो',
+      you: 'आप', cpu: 'कंप्यूटर', white: 'सफ़ेद', red: 'लाल',
+      count: (h, b) => `हाथ ${h} · बोर्ड ${b}`,
+      phPlace: (w) => `${w}: गोटी रखो`, phMove: (w) => `${w}: गोटी चलाओ`, phFly: (w) => `${w}: गोटी उड़ाओ`, phRemove: (w) => `${w}: गोटी हटाओ!`, thinking: 'कंप्यूटर सोच रहा है…',
+      msgPlace: (n) => `किसी ख़ाली निशान पर टैप करो (${n} गोटी हाथ में)`, msgPick: 'अपनी गोटी चुनो, फिर हरे निशान पर ले जाओ', msgFly: 'सिर्फ़ 3 गोटी बचीं — किसी भी ख़ाली निशान पर उड़ा सकते हो!',
+      msgRemove: 'मिल बन गई! 🎉 लाल घेरे वाली गोटी पर टैप करके हटाओ', msgNoMove: 'इस गोटी का कोई रास्ता नहीं — दूसरी चुनो', msgCpuMill: 'कंप्यूटर की मिल बनी — आपकी एक गोटी गई!', msgMill: (w) => `${w} की मिल बनी — एक गोटी हटी!`,
+      winOf: (w) => `${w} जीत गए! 🎉`, youWin: (name) => `जीत गए${name ? `, ${name}` : ''}! 🎉`, youLose: 'कंप्यूटर जीत गया 😅', draw: 'बराबर! 🤝',
+      endTwo: (w) => `${w} के पास सिर्फ़ 2 गोटियाँ बचीं`, endBlock: (w) => `${w} की कोई गोटी चल नहीं सकती — पूरी बंद!`, endQuiet: `${QUIET} चालों तक कोई गोटी नहीं कटी`, endRepeat: 'एक ही स्थिति तीन बार आ गई',
+      score: (a, x, b, y, d) => `स्कोर: ${a} ${x} · ${b} ${y} · बराबर ${d}`,
+      challenge: (name, n) => `⚪🔴 ${name} ने नौ गुट्टी में कंप्यूटर को ${n} बार हराया! आप हरा पाओगे?`,
+      shareWa: '📲 WhatsApp पर चैलेंज भेजो', shareFb: 'Facebook पर शेयर करो', shareOther: '🔗 शेयर करो', copied: '✅ कॉपी हो गया', copyPrompt: 'यह टेक्स्ट कॉपी करो:',
+      shareWin: (name, url) => `⚪🔴 ${name ? `${name} ने` : 'मैंने'} कंप्यूटर को नौ गुट्टी में हरा दिया! तुम हराओ: ${url}`,
+      sharePlain: (url) => `⚪🔴 बचपन वाला नौ गुट्टी — मंदिर के फ़र्श वाला खेल, अब फ़ोन पर! कंप्यूटर या दोस्त के साथ खेलो: ${url}`,
+      howTitle: 'कैसे खेलें',
+      how: ['बोर्ड पर तीन चौकोर हैं — बाहर, बीच और अंदर — जो भुजाओं के बीच में सीधी लकीरों से जुड़े हैं। कुल <b>24 निशान</b>। हर खिलाड़ी के पास <b>9 गोटियाँ</b>, और सफ़ेद पहले चलता है।', '<b>पहला हिस्सा — रखना:</b> बारी-बारी एक-एक गोटी किसी भी ख़ाली निशान पर रखो, जब तक दोनों की सारी गोटियाँ बोर्ड पर न आ जाएँ।', '<b>मिल (तीन की लाइन):</b> जब भी आपकी तीन गोटियाँ एक सीधी लकीर पर आ जाएँ, सामने वाले की एक गोटी बोर्ड से उठा लो। जो गोटी पहले से किसी मिल में बैठी हो, उसे नहीं उठा सकते — हाँ, अगर उसकी सारी गोटियाँ मिल में हों तो कोई भी।', '<b>दूसरा हिस्सा — चलना:</b> सारी गोटियाँ रखने के बाद अपनी गोटी को लकीर के साथ <b>बगल वाले ख़ाली निशान</b> पर सरकाओ। कूदना मना है। मिल खोलकर दोबारा बंद करो तो फिर से एक गोटी उठेगी।', '<b>तीसरा हिस्सा — उड़ना (अगर चालू हो):</b> जिसके पास सिर्फ़ 3 गोटियाँ बचें, वह अपनी गोटी किसी भी ख़ाली निशान पर ले जा सकता है। कई जगह यह नियम नहीं चलता, इसलिए मेन्यू में इसे बंद भी कर सकते हो।', `<b>जीत:</b> सामने वाले के पास सिर्फ़ <b>2 गोटियाँ</b> बचें, या उसकी कोई भी गोटी चल न सके, तो आप जीते। ${QUIET} चालों तक कोई गोटी न कटे, या एक ही स्थिति तीन बार आए, तो बराबर।`],
+      tipsTitle: 'जीतने के टिप्स',
+      tips: ['शुरू में कोनों से ज़्यादा काम के होते हैं बीच वाले चौकोर के 4 जोड़ — वहाँ से चार तरफ़ रास्ता जाता है।', 'रखते समय सिर्फ़ अपनी मिल के पीछे मत भागो। सामने वाले की दो गोटियाँ एक लाइन में हों तो तीसरा निशान पहले रोक दो।', 'गोटियाँ ऐसी जगह रखो कि बाद में चल सकें। घिरी हुई गोटियाँ दूसरे हिस्से में बोझ बन जाती हैं।', '"चक्की" बनाओ: दो मिल ऐसी जोड़ो कि एक गोटी आगे-पीछे करते ही हर बारी मिल बने — हर बार एक गोटी उठेगी।', 'गोटी हटाते वक़्त वह गोटी चुनो जो सामने वाले की अगली मिल पक्की कर रही हो, या जो आपका रास्ता रोक रही हो।'],
+      aboutTitle: 'नौ गुट्टी — पत्थर पर खुदा पुराना खेल',
+      aboutText: 'नौ गुट्टी को कहीं नवकंकरी, कहीं चार भर, कहीं बस "गुट्टी" कहते हैं। दोपहर में चबूतरे पर, मंदिर की सीढ़ियों पर या आँगन में चॉक या कोयले से बोर्ड बनता, और गोटियाँ कुछ भी हो सकती थीं — कंकड़, इमली के बीज, कौड़ी या खपरैल के टुकड़े। कई पुरानी इमारतों के पत्थर पर यह तीन चौकोर वाला निशान खुदा हुआ मिलता है; माना जाता है कि लोग इंतज़ार करते हुए वहीं बैठकर खेल लेते थे।',
+      aboutText2: 'यही खेल दुनिया के कई देशों में अलग नामों से खेला गया — अंग्रेज़ी में इसे "नाइन मेन्स मॉरिस" कहते हैं। यह कितना पुराना है और सबसे पहले कहाँ शुरू हुआ, इस पर जानकार एक राय नहीं हैं, इसलिए कोई पक्की तारीख़ बताना ठीक नहीं। इतना ज़रूर पक्का है कि नियम आसान हैं पर चालें गहरी: बच्चे मिनटों में सीख जाते हैं और बड़े सालों तक खेलते रहते हैं। इस गेम में कोई दाँव या शर्त नहीं — सिर्फ़ दिमाग़ का खेल।',
+      factsTitle: 'नौ गुट्टी के तथ्य',
+      facts: ['बोर्ड पर 24 निशान और 16 ऐसी सीधी लकीरें हैं जहाँ तीन गोटियों की मिल बन सकती है।', 'दोनों की 18 गोटियाँ 24 निशानों पर आती हैं — अगर कोई गोटी न कटे, तो रखने के बाद सिर्फ़ 6 निशान ख़ाली बचते हैं।', '"गुट्टी" या "गोटी" का मतलब छोटा कंकड़ या मोहरा है — इसी से नाम बना "नौ गुट्टी", यानी नौ गोटियों का खेल।', 'इस जैसे बोर्ड पुराने मंदिरों, क़िलों और दूसरे देशों की इमारतों के पत्थर पर खुदे मिले हैं। सबसे पुराना कौन-सा है, इस पर बहस चलती है।', 'कंप्यूटर से इस खेल को पूरा जाँचा जा चुका है: अगर दोनों खिलाड़ी बिल्कुल बिना ग़लती खेलें, तो नतीजा बराबर रहता है।', 'कुछ जगह बोर्ड के कोनों पर तिरछी लकीरें भी बनती हैं और हर खिलाड़ी 12 गोटी से खेलता है — वह इस खेल का एक अलग रूप है।'],
+      faqTitle: 'अक्सर पूछे जाने वाले सवाल',
+      faq: [['नौ गुट्टी कैसे खेलते हैं?', 'हर खिलाड़ी की 9 गोटियाँ। पहले बारी-बारी से उन्हें 24 निशानों पर रखो, फिर एक-एक गोटी लकीर के साथ बगल के ख़ाली निशान पर चलाओ। तीन गोटियाँ एक लाइन में आएँ तो सामने वाले की एक गोटी हटाओ। जिसके पास 2 गोटी बचें या जो चल न सके, वह हारा।'], ['क्या 3 गोटी बचने पर उड़ना ज़रूरी है?', 'नहीं। यह नियम हर जगह नहीं चलता। कई जगह आख़िर तक सिर्फ़ बगल में चलते हैं। गेम के मेन्यू में "उड़ना" हाँ या नहीं — जो आपके यहाँ चलता हो — चुन लो।'], ['मिल वाली गोटी क्यों नहीं हटा सकते?', 'पूरी मिल में बैठी गोटियाँ सुरक्षित मानी जाती हैं। उन्हें तभी उठा सकते हो जब सामने वाले की बोर्ड पर सारी गोटियाँ मिल में हों।'], ['क्या यह सोलह गुट्टी जैसा है?', 'नहीं। सोलह गुट्टी में 16-16 गोटियाँ होती हैं और गोटी के ऊपर से कूदकर मारते हैं। नौ गुट्टी में कूदना नहीं होता — तीन की लाइन बनाकर गोटी उठाते हैं।']],
+      moreGames: 'और बचपन वाले गेम खेलो →',
+      privacyTitle: 'आपका डेटा', privacyText: 'नाम, जीत की गिनती और सेटिंग सिर्फ़ आपके फ़ोन में रहती हैं। शेयर लिंक में सिर्फ़ नाम और जीत जाती है। कोई लॉगिन नहीं, कोई सर्वर नहीं।',
+    },
+    en: {
+      title: 'Nau Gutti ⚪🔴 (Nine Men\'s Morris)',
+      sub: 'Remember the three squares carved on a temple floor or a village platform? Each player has 9 pieces — get three in a line (a mill) and take one of your opponent\'s pieces. Play the computer or a friend on one phone.',
+      startTitle: 'Let\'s play Nau Gutti ⚪🔴',
+      controls: 'Tap an empty point to place a piece. Once all 9 are placed, tap your piece and then a green point. When you make three in a line, tap one of your opponent\'s pieces with a red ring to take it away.',
+      namePh: 'Your name (optional)', pickSide: 'Your pieces:', sideFirst: '⚪ White (moves first)', sideSecond: '🔴 Red (moves second)',
+      flyLabel: 'Flying with 3 pieces left:', flyOn: '🕊️ On', flyOff: '🚶 Off', flyNote: 'Every village has its own rules — pick the one you grew up with.',
+      vsComputer: 'Against the computer:', easy: 'Easy', medium: 'Medium', hard: 'Hard', twoPlayers: '👥 2 players (one phone)',
+      wins: (n) => `${n} win${n === 1 ? '' : 's'}`, menuBtn: '☰ Menu', undo: '↶ Undo', again: '🔁 Play again',
+      you: 'You', cpu: 'Computer', white: 'White', red: 'Red',
+      count: (h, b) => `hand ${h} · board ${b}`,
+      phPlace: (w) => `${w}: place a piece`, phMove: (w) => `${w}: move a piece`, phFly: (w) => `${w}: fly a piece`, phRemove: (w) => `${w}: take a piece!`, thinking: 'Computer is thinking…',
+      msgPlace: (n) => `Tap any empty point (${n} in hand)`, msgPick: 'Pick your piece, then move it to a green point', msgFly: 'Only 3 pieces left — you can fly to any empty point!',
+      msgRemove: 'Mill! 🎉 Tap a piece with a red ring to take it', msgNoMove: 'This piece is stuck — pick another', msgCpuMill: 'The computer made a mill — you lost a piece!', msgMill: (w) => `${w} made a mill — a piece is taken!`,
+      winOf: (w) => `${w} wins! 🎉`, youWin: (name) => `You won${name ? `, ${name}` : ''}! 🎉`, youLose: 'The computer won 😅', draw: 'A draw! 🤝',
+      endTwo: (w) => `${w}: only 2 pieces left`, endBlock: (w) => `${w}: no piece can move — fully blocked!`, endQuiet: `No piece taken in ${QUIET} moves`, endRepeat: 'The same position came up three times',
+      score: (a, x, b, y, d) => `Score: ${a} ${x} · ${b} ${y} · draws ${d}`,
+      challenge: (name, n) => `⚪🔴 ${name} beat the computer at Nau Gutti ${n} time${n === 1 ? '' : 's'}! Can you?`,
+      shareWa: '📲 Challenge on WhatsApp', shareFb: 'Share on Facebook', shareOther: '🔗 Share', copied: '✅ Copied', copyPrompt: 'Copy this text:',
+      shareWin: (name, url) => `⚪🔴 ${name || 'I'} beat the computer at Nau Gutti! Your turn: ${url}`,
+      sharePlain: (url) => `⚪🔴 Nau Gutti, the old game carved on temple floors — now on your phone! Play the computer or a friend: ${url}`,
+      howTitle: 'How to play',
+      how: ['The board has three squares — outer, middle and inner — joined by straight lines through the middle of each side. That makes <b>24 points</b>. Each player has <b>9 pieces</b>, and White moves first.', '<b>Part one — placing:</b> take turns putting one piece on any empty point until both players have placed all their pieces.', '<b>Mill (three in a line):</b> whenever three of your pieces stand on one straight line, take one of your opponent\'s pieces off the board. You cannot take a piece that is already part of a mill — unless every one of their pieces is in a mill.', '<b>Part two — moving:</b> once everything is placed, slide one of your pieces along a line to the <b>next empty point</b>. No jumping. Open a mill and close it again to take another piece.', '<b>Part three — flying (if switched on):</b> a player who is down to 3 pieces may move a piece to any empty point. Many places do not play this rule, so you can switch it off in the menu.', `<b>Winning:</b> you win when your opponent has only <b>2 pieces</b> left or cannot make any move. If no piece is taken for ${QUIET} moves, or the same position comes up three times, it is a draw.`],
+      tipsTitle: 'Tips to win',
+      tips: ['Early on, the 4 crossing points of the middle square are worth more than the corners — four roads lead out of each.', 'While placing, don\'t only chase your own mill. If your opponent has two in a line, block the third point first.', 'Place pieces where they can still move later. Boxed-in pieces become a burden in part two.', 'Build a "grinder": two mills joined so that one piece moving back and forth closes a mill on every turn — a piece each time.', 'When you take a piece, pick the one that would complete your opponent\'s next mill, or the one blocking your path.'],
+      aboutTitle: 'Nau Gutti — the old game carved in stone',
+      aboutText: 'Nau Gutti is called Navkankari in some places, Char Bhar in others, or simply "gutti". In the afternoons the board was drawn with chalk or charcoal on a village platform, on temple steps or in the courtyard, and the pieces could be anything — pebbles, tamarind seeds, cowrie shells or bits of broken roof tile. The three-square pattern is found carved into the stone of many old buildings; people are thought to have played there while they waited.',
+      aboutText2: 'The same game has been played in many countries under different names — in English it is Nine Men\'s Morris. How old it is and where it began are questions historians do not agree on, so it is wiser not to give a firm date. What is certain is that the rules are simple and the play is deep: children learn it in minutes and grown-ups keep playing it for years. No bets or stakes here — just a game for the mind.',
+      factsTitle: 'Facts about Nau Gutti',
+      facts: ['The board has 24 points and 16 straight lines of three where a mill can be made.', 'The 18 pieces of both players go onto 24 points — if nothing is taken, only 6 points are left empty after placing.', '"Gutti" or "goti" means a small pebble or playing piece — so "nau gutti" simply means the game of nine pieces.', 'Boards like this have been found carved in the stone of old temples, forts and buildings in other countries. Which one is the oldest is still debated.', 'The game has been fully worked out by computer: if both players never make a mistake, it ends in a draw.', 'In some places the board also has diagonal lines at the corners and each player uses 12 pieces — that is a separate version of the game.'],
+      faqTitle: 'Frequently asked questions',
+      faq: [['How do you play Nau Gutti?', 'Each player has 9 pieces. First take turns placing them on the 24 points, then take turns sliding one piece along a line to the next empty point. When three of your pieces form a line, take one of your opponent\'s pieces. A player left with 2 pieces, or with no move, loses.'], ['Is flying with three pieces a must?', 'No. The rule is not played everywhere — in many places pieces only slide to a neighbouring point until the end. Choose flying on or off in the game menu, whichever you are used to.'], ['Why can\'t I take a piece that is in a mill?', 'Pieces in a completed mill are protected. You may take one only when every piece your opponent has on the board is part of a mill.'], ['Is this the same as Sholo Guti?', 'No. In Sholo Guti each side has 16 pieces and you capture by jumping over a piece. In Nau Gutti there is no jumping — you take pieces by making lines of three.']],
+      moreGames: 'Play more childhood games →',
+      privacyTitle: 'Your data', privacyText: 'Your name, win count and settings stay only on your phone. The share link carries only your name and wins. No login, no server.',
+    },
+    bn: {
+      title: 'নয় গুটি ⚪🔴 (নবকঙ্করী)',
+      sub: 'মন্দিরের মেঝে বা গ্রামের চাতালে খোদাই করা তিনটে চৌকো মনে পড়ে? প্রত্যেকের ৯টা গুটি — এক লাইনে তিনটে মেলাও (মিল) আর প্রতিপক্ষের একটা গুটি তুলে নাও। কম্পিউটার বা এক ফোনে বন্ধুর সঙ্গে খেলো।',
+      startTitle: 'চলো নয় গুটি খেলি ⚪🔴',
+      controls: 'ফাঁকা বিন্দুতে ট্যাপ করে গুটি বসাও। ৯টা বসানো হয়ে গেলে নিজের গুটিতে ট্যাপ করো, তারপর সবুজ বিন্দুতে। এক লাইনে তিনটে হলে প্রতিপক্ষের লাল ঘেরা গুটিতে ট্যাপ করে সেটা তুলে নাও।',
+      namePh: 'তোমার নাম (ঐচ্ছিক)', pickSide: 'তোমার গুটি:', sideFirst: '⚪ সাদা (প্রথম চাল)', sideSecond: '🔴 লাল (দ্বিতীয় চাল)',
+      flyLabel: '৩টে গুটি বাকি থাকলে ওড়া:', flyOn: '🕊️ হ্যাঁ', flyOff: '🚶 না', flyNote: 'প্রত্যেক গ্রামের নিয়ম আলাদা — তোমাদের ওখানে যেটা চলত, সেটাই বাছো।',
+      vsComputer: 'কম্পিউটারের সঙ্গে:', easy: 'সহজ', medium: 'মাঝারি', hard: 'কঠিন', twoPlayers: '👥 ২ জন (এক ফোনে)',
+      wins: (n) => `${n} জয়`, menuBtn: '☰ মেনু', undo: '↶ ফেরাও', again: '🔁 আবার খেলো',
+      you: 'তুমি', cpu: 'কম্পিউটার', white: 'সাদা', red: 'লাল',
+      count: (h, b) => `হাতে ${h} · বোর্ডে ${b}`,
+      phPlace: (w) => `${w}: গুটি বসাও`, phMove: (w) => `${w}: গুটি চালো`, phFly: (w) => `${w}: গুটি ওড়াও`, phRemove: (w) => `${w}: গুটি তোলো!`, thinking: 'কম্পিউটার ভাবছে…',
+      msgPlace: (n) => `যেকোনো ফাঁকা বিন্দুতে ট্যাপ করো (হাতে ${n}টা)`, msgPick: 'নিজের গুটি বাছো, তারপর সবুজ বিন্দুতে নিয়ে যাও', msgFly: 'মাত্র ৩টে গুটি বাকি — যেকোনো ফাঁকা বিন্দুতে উড়ে যেতে পারো!',
+      msgRemove: 'মিল হয়েছে! 🎉 লাল ঘেরা গুটিতে ট্যাপ করে তুলে নাও', msgNoMove: 'এই গুটির কোনো রাস্তা নেই — অন্যটা বাছো', msgCpuMill: 'কম্পিউটারের মিল হল — তোমার একটা গুটি গেল!', msgMill: (w) => `${w}-এর মিল হল — একটা গুটি উঠল!`,
+      winOf: (w) => `${w} জিতল! 🎉`, youWin: (name) => `জিতে গেছ${name ? `, ${name}` : ''}! 🎉`, youLose: 'কম্পিউটার জিতে গেল 😅', draw: 'ড্র! 🤝',
+      endTwo: (w) => `${w}-এর মাত্র ২টো গুটি বাকি`, endBlock: (w) => `${w}-এর কোনো গুটি নড়তে পারে না — পুরো আটকে!`, endQuiet: `${QUIET} চালেও কোনো গুটি কাটা যায়নি`, endRepeat: 'একই অবস্থা তিনবার এসেছে',
+      score: (a, x, b, y, d) => `স্কোর: ${a} ${x} · ${b} ${y} · ড্র ${d}`,
+      challenge: (name, n) => `⚪🔴 ${name} নয় গুটিতে কম্পিউটারকে ${n} বার হারিয়েছে! তুমি পারবে?`,
+      shareWa: '📲 WhatsApp-এ চ্যালেঞ্জ পাঠাও', shareFb: 'Facebook-এ শেয়ার করো', shareOther: '🔗 শেয়ার করো', copied: '✅ কপি হয়েছে', copyPrompt: 'এই লেখাটা কপি করো:',
+      shareWin: (name, url) => `⚪🔴 ${name || 'আমি'} নয় গুটিতে কম্পিউটারকে হারিয়ে দিয়েছি! এবার তুমি হারাও: ${url}`,
+      sharePlain: (url) => `⚪🔴 ছোটবেলার নয় গুটি — মন্দিরের মেঝের খেলা, এবার ফোনে! কম্পিউটার বা বন্ধুর সঙ্গে খেলো: ${url}`,
+      howTitle: 'কীভাবে খেলবে',
+      how: ['বোর্ডে তিনটে চৌকো — বাইরে, মাঝে আর ভেতরে — প্রতিটা বাহুর মাঝখান দিয়ে সোজা দাগে জোড়া। মোট <b>২৪টা বিন্দু</b>। প্রত্যেকের <b>৯টা গুটি</b>, আর সাদা আগে চালে।', '<b>প্রথম ভাগ — বসানো:</b> পালা করে একটা একটা গুটি যেকোনো ফাঁকা বিন্দুতে বসাও, যতক্ষণ না দুজনের সব গুটি বোর্ডে আসে।', '<b>মিল (তিনের লাইন):</b> যখনই তোমার তিনটে গুটি একটা সোজা দাগে আসবে, প্রতিপক্ষের একটা গুটি বোর্ড থেকে তুলে নাও। যে গুটি আগে থেকেই কোনো মিলে আছে, সেটা তোলা যায় না — তবে তার সব গুটি মিলে থাকলে যেকোনোটা।', '<b>দ্বিতীয় ভাগ — চালা:</b> সব গুটি বসানো হলে নিজের গুটি দাগ ধরে <b>পাশের ফাঁকা বিন্দুতে</b> সরাও। লাফানো চলবে না। মিল খুলে আবার বন্ধ করলে আবার একটা গুটি উঠবে।', '<b>তৃতীয় ভাগ — ওড়া (চালু থাকলে):</b> যার মাত্র ৩টে গুটি বাকি, সে নিজের গুটি যেকোনো ফাঁকা বিন্দুতে নিয়ে যেতে পারে। অনেক জায়গায় এই নিয়ম চলে না, তাই মেনুতে এটা বন্ধও করা যায়।', `<b>জয়:</b> প্রতিপক্ষের মাত্র <b>২টো গুটি</b> বাকি থাকলে, বা তার কোনো গুটি নড়তে না পারলে তুমি জিতবে। ${QUIET} চালে কোনো গুটি না কাটলে, বা একই অবস্থা তিনবার এলে ড্র।`],
+      tipsTitle: 'জেতার টিপস',
+      tips: ['শুরুতে কোণের চেয়ে মাঝের চৌকোর ৪টে সংযোগ-বিন্দু বেশি কাজের — সেখান থেকে চার দিকে রাস্তা যায়।', 'বসানোর সময় শুধু নিজের মিলের পেছনে ছুটো না। প্রতিপক্ষের দুটো গুটি এক লাইনে থাকলে আগে তৃতীয় বিন্দুটা আটকাও।', 'গুটি এমন জায়গায় বসাও যাতে পরে চলতে পারে। ঘেরা গুটি দ্বিতীয় ভাগে বোঝা হয়ে যায়।', '"জাঁতা" বানাও: দুটো মিল এমনভাবে জোড়ো যাতে একটা গুটি আগে-পিছে করলেই প্রতি পালায় মিল হয় — প্রতিবার একটা গুটি উঠবে।', 'গুটি তোলার সময় সেটাই বাছো যেটা প্রতিপক্ষের পরের মিল পাকা করছে, বা যেটা তোমার রাস্তা আটকাচ্ছে।'],
+      aboutTitle: 'নয় গুটি — পাথরে খোদাই পুরোনো খেলা',
+      aboutText: 'নয় গুটিকে কোথাও নবকঙ্করী, কোথাও চার ভর, কোথাও শুধু "গুটি" বলে। দুপুরবেলা চাতালে, মন্দিরের সিঁড়িতে বা উঠোনে চক বা কয়লা দিয়ে ঘর আঁকা হত, আর গুটি হত যা হাতের কাছে — নুড়ি, তেঁতুলের বিচি, কড়ি বা ভাঙা টালির টুকরো। অনেক পুরোনো বাড়ি-মন্দিরের পাথরে এই তিন চৌকোর নকশা খোদাই করা পাওয়া যায়; মনে করা হয়, মানুষ অপেক্ষার ফাঁকে সেখানে বসেই খেলত।',
+      aboutText2: 'এই খেলাই পৃথিবীর অনেক দেশে আলাদা নামে খেলা হয়েছে — ইংরেজিতে একে "নাইন মেন্স মরিস" বলে। খেলাটা কত পুরোনো আর প্রথম কোথায় শুরু, তা নিয়ে বিশেষজ্ঞরা একমত নন, তাই পাকা তারিখ বলা ঠিক নয়। এটুকু নিশ্চিত যে নিয়ম সহজ কিন্তু চাল গভীর: ছোটরা মিনিটে শিখে যায়, বড়রা বছরের পর বছর খেলে। এই খেলায় কোনো বাজি বা শর্ত নেই — শুধু মাথার খেলা।',
+      factsTitle: 'নয় গুটির কিছু কথা',
+      facts: ['বোর্ডে ২৪টা বিন্দু আর ১৬টা এমন সোজা দাগ, যেখানে তিন গুটির মিল হতে পারে।', 'দুজনের ১৮টা গুটি ২৪টা বিন্দুতে বসে — কোনো গুটি না কাটলে বসানোর পর মাত্র ৬টা বিন্দু ফাঁকা থাকে।', '"গুটি" মানে ছোট নুড়ি বা খেলার ঘুঁটি — তাই "নয় গুটি" মানে নয়টা গুটির খেলা।', 'এমন বোর্ড পুরোনো মন্দির, দুর্গ আর অন্য দেশের দালানের পাথরে খোদাই অবস্থায় পাওয়া গেছে। কোনটা সবচেয়ে পুরোনো, তা নিয়ে এখনও তর্ক চলে।', 'কম্পিউটার দিয়ে এই খেলা পুরো হিসেব করা হয়েছে: দুজনেই একদম ভুল না করলে খেলা ড্র হয়।', 'কোথাও কোথাও বোর্ডের কোণে কোনাকুনি দাগও থাকে আর প্রত্যেকে ১২টা গুটি নিয়ে খেলে — সেটা এই খেলার আলাদা রূপ।'],
+      faqTitle: 'সাধারণ প্রশ্ন',
+      faq: [['নয় গুটি কীভাবে খেলে?', 'প্রত্যেকের ৯টা গুটি। প্রথমে পালা করে সেগুলো ২৪টা বিন্দুতে বসাও, তারপর পালা করে একটা গুটি দাগ ধরে পাশের ফাঁকা বিন্দুতে চালো। তিনটে গুটি এক লাইনে এলে প্রতিপক্ষের একটা গুটি তোলো। যার ২টো গুটি বাকি থাকে বা যে চাল দিতে পারে না, সে হারে।'], ['৩টে গুটি বাকি থাকলে ওড়া কি বাধ্যতামূলক?', 'না। এই নিয়ম সব জায়গায় চলে না — অনেক জায়গায় শেষ পর্যন্ত শুধু পাশের বিন্দুতে চলে। খেলার মেনুতে "ওড়া" হ্যাঁ বা না — যেটা তোমাদের চলত — বেছে নাও।'], ['মিলের গুটি কেন তোলা যায় না?', 'পুরো মিলে থাকা গুটি নিরাপদ ধরা হয়। প্রতিপক্ষের বোর্ডের সব গুটি মিলে থাকলে তবেই তার একটা তোলা যায়।'], ['এটা কি ষোলো গুটির মতো?', 'না। ষোলো গুটিতে প্রত্যেকের ১৬টা গুটি থাকে আর গুটির ওপর দিয়ে লাফিয়ে কাটতে হয়। নয় গুটিতে লাফানো নেই — তিনের লাইন বানিয়ে গুটি তোলা হয়।']],
+      moreGames: 'আরও ছোটবেলার গেম খেলো →',
+      privacyTitle: 'তোমার ডেটা', privacyText: 'নাম, জয়ের সংখ্যা আর সেটিং শুধু তোমার ফোনেই থাকে। শেয়ার লিংকে যায় শুধু নাম আর জয়। কোনো লগইন নেই, কোনো সার্ভার নেই।',
+    },
+  };
+
+  // ---------- helpers
+  const $ = (id) => document.getElementById(id);
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+  const urlLang = params.get('lang'), savedLang = store.get('ng9-lang');
+  let lang = LANGS.includes(urlLang) ? urlLang : LANGS.includes(savedLang) ? savedLang : deviceLang();
+  const t = (k) => T[lang][k];
+  const cleanName = (s) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 30);
+  const fromName = cleanName(params.get('from'));
+  const fromScore = Math.max(0, Math.min(999, parseInt(params.get('score'), 10) || 0));
+  const debug = params.has('debug'), auto = debug && params.has('auto');
+  const loadWins = () => { try { const o = JSON.parse(store.get('ng9-wins') || '{}'); return { easy: +o.easy || 0, medium: +o.medium || 0, hard: +o.hard || 0 }; } catch (e) { return { easy: 0, medium: 0, hard: 0 }; } };
+  let wins = loadWins();
+  const totalWins = () => wins.easy + wins.medium + wins.hard;
+
+  // ---------- the board: 3 squares (ring 0 outer, 1 middle, 2 inner), 8 points each, clockwise from the top-left corner.
+  // point = ring * 8 + k; k even = corner, k odd = middle of a side (those are joined across the rings).
+  const NP = 24;
+  const OFF = [0, 16.5, 33];
+  const XY = [];
+  for (let r = 0; r < 3; r += 1) { const a = OFF[r], z = 100 - a; XY.push([a, a], [50, a], [z, a], [z, 50], [z, z], [50, z], [a, z], [a, 50]); }
+  const ADJ = [];
+  for (let i = 0; i < NP; i += 1) {
+    const r = i >> 3, k = i & 7;
+    ADJ[i] = [r * 8 + ((k + 1) & 7), r * 8 + ((k + 7) & 7)];
+    if (k & 1) { if (r > 0) ADJ[i].push(i - 8); if (r < 2) ADJ[i].push(i + 8); }
+  }
+  const MILLS = [];
+  for (let r = 0; r < 3; r += 1) [0, 2, 4, 6].forEach((s) => MILLS.push([r * 8 + s, r * 8 + s + 1, r * 8 + ((s + 2) & 7)]));
+  [1, 3, 5, 7].forEach((k) => MILLS.push([k, 8 + k, 16 + k]));
+  const MILLS_AT = Array.from({ length: NP }, (_, i) => MILLS.map((m, j) => (m.includes(i) ? j : -1)).filter((j) => j >= 0));
+
+  // ---------- game rules on a plain state object (the computer searches the same functions)
+  // s = { b: [24] of 0 | 1 | 2, hand: [_, n1, n2], cnt: [_, n1, n2], side: 1 | 2, quiet: moves since the last capture, fly: bool }
+  // h1/h2: a Zobrist hash of the position, kept up to date by make/unmake (for the computer's memory table)
+  let seed = 9;
+  const rnd32 = () => { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return (seed ^ (seed << 7)) | 0; };
+  const ZP = [0, 1, 2].map(() => Array.from({ length: NP }, () => [rnd32(), rnd32()]));
+  const ZH = [0, 1, 2].map(() => Array.from({ length: PIECES + 1 }, () => [rnd32(), rnd32()]));
+  const ZS = [rnd32(), rnd32()];
+  const rehash = (s) => {
+    let h1 = 0, h2 = 0;
+    s.b.forEach((p, i) => { if (p) { h1 ^= ZP[p][i][0]; h2 ^= ZP[p][i][1]; } });
+    for (const p of [1, 2]) { h1 ^= ZH[p][s.hand[p]][0]; h2 ^= ZH[p][s.hand[p]][1]; }
+    if (s.side === 2) { h1 ^= ZS[0]; h2 ^= ZS[1]; }
+    s.h1 = h1; s.h2 = h2; return s;
+  };
+  const fresh = (fly) => rehash({ b: Array(NP).fill(0), hand: [0, PIECES, PIECES], cnt: [0, 0, 0], side: 1, quiet: 0, fly: !!fly });
+  const clone = (s) => rehash({ b: s.b.slice(), hand: s.hand.slice(), cnt: s.cnt.slice(), side: s.side, quiet: s.quiet, fly: s.fly });
+  const canFly = (s, p) => s.fly && s.hand[p] === 0 && s.cnt[p] === 3;
+  const inMill = (b, i) => { const p = b[i]; return !!p && MILLS_AT[i].some((j) => { const m = MILLS[j]; return b[m[0]] === p && b[m[1]] === p && b[m[2]] === p; }); };
+  // does moving player p's piece from f (-1 = from hand) to t close a mill?
+  const closes = (b, f, t, p) => MILLS_AT[t].some((j) => MILLS[j].every((x) => x === t || (x !== f && b[x] === p)));
+  const millsAt = (b, t, p) => MILLS_AT[t].filter((j) => MILLS[j].every((x) => b[x] === p));
+  const removables = (b, q) => {
+    const all = [], free = [];
+    for (let i = 0; i < NP; i += 1) if (b[i] === q) { all.push(i); if (!inMill(b, i)) free.push(i); }
+    return free.length ? free : all;
+  };
+  // every legal move as { f, t, r }: f = -1 when placing, r = removed enemy point or -1
+  const genMoves = (s) => {
+    const b = s.b, p = s.side, q = 3 - p, out = [];
+    let rem = null;
+    const add = (f, t) => {
+      if (closes(b, f, t, p)) {
+        if (!rem) rem = removables(b, q);
+        if (rem.length) { for (const r of rem) out.push({ f, t, r }); return; }
+      }
+      out.push({ f, t, r: -1 });
+    };
+    if (s.hand[p] > 0) { for (let i = 0; i < NP; i += 1) if (!b[i]) add(-1, i); return out; }
+    const flying = canFly(s, p);
+    for (let i = 0; i < NP; i += 1) {
+      if (b[i] !== p) continue;
+      if (flying) { for (let j = 0; j < NP; j += 1) if (!b[j]) add(i, j); } else for (const j of ADJ[i]) if (!b[j]) add(i, j);
+    }
+    return out;
+  };
+  const zx = (s, z) => { s.h1 ^= z[0]; s.h2 ^= z[1]; };
+  const make = (s, m) => {
+    const p = s.side, q = 3 - p, u = s.quiet;
+    if (m.f < 0) { zx(s, ZH[p][s.hand[p]]); s.hand[p] -= 1; zx(s, ZH[p][s.hand[p]]); s.cnt[p] += 1; } else { s.b[m.f] = 0; zx(s, ZP[p][m.f]); s.quiet += 1; }
+    s.b[m.t] = p; zx(s, ZP[p][m.t]);
+    if (m.r >= 0) { s.b[m.r] = 0; zx(s, ZP[q][m.r]); s.cnt[q] -= 1; s.quiet = 0; }
+    s.side = q; zx(s, ZS);
+    return u;
+  };
+  const unmake = (s, m, u) => {
+    const q = s.side, p = 3 - q;
+    s.side = p; zx(s, ZS);
+    if (m.r >= 0) { s.b[m.r] = q; zx(s, ZP[q][m.r]); s.cnt[q] += 1; }
+    s.b[m.t] = 0; zx(s, ZP[p][m.t]);
+    if (m.f < 0) { zx(s, ZH[p][s.hand[p]]); s.hand[p] += 1; zx(s, ZH[p][s.hand[p]]); s.cnt[p] -= 1; } else { s.b[m.f] = p; zx(s, ZP[p][m.f]); }
+    s.quiet = u;
+  };
+  const applyNew = (s, m) => { const n = clone(s); make(n, m); return n; };
+  // outcome for the side to move: { w: winner 1|2|0 (draw), why } or null
+  const outcome = (s, reps) => {
+    const p = s.side, q = 3 - p;
+    if (s.hand[p] + s.cnt[p] < 3) return { w: q, why: 'two', loser: p };
+    if (!genMoves(s).length) return { w: q, why: 'block', loser: p };
+    if (s.quiet >= QUIET) return { w: 0, why: 'quiet' };
+    if (reps && reps >= 3) return { w: 0, why: 'repeat' };
+    return null;
+  };
+  const posKey = (s) => `${s.b.join('')}${s.side}${s.hand[1]}${s.hand[2]}`;
+
+  // ---------- computer: negamax alpha-beta with iterative deepening and a time limit
+  const WIN = 1000000;
+  // Score for the side to move. A "two" (2 own + 1 empty on a line) is a threat when the empty point can be
+  // filled next turn, and close to a sure capture when the opponent cannot reach that point to block it.
+  const evaluate = (s) => {
+    const b = s.b, placing = s.hand[1] + s.hand[2] > 0;
+    const drop = [false, s.hand[1] > 0 || canFly(s, 1), s.hand[2] > 0 || canFly(s, 2)];
+    let sc = 1000 * ((s.hand[1] + s.cnt[1]) - (s.hand[2] + s.cnt[2]));
+    for (const m of MILLS) {
+      let n1 = 0, n2 = 0, e = -1;
+      for (const x of m) { if (b[x] === 1) n1 += 1; else if (b[x] === 2) n2 += 1; else e = x; }
+      if (n1 === 3) { sc += 30; continue; }
+      if (n2 === 3) { sc -= 30; continue; }
+      const p = n1 === 2 && !n2 ? 1 : n2 === 2 && !n1 ? 2 : 0;
+      if (!p) continue;
+      const q = 3 - p;
+      let mine = false, theirs = false;
+      for (const j of ADJ[e]) { if (b[j] === p && !m.includes(j)) mine = true; else if (b[j] === q) theirs = true; }
+      let v;
+      if (placing) v = 34 + (mine ? 22 : 0) + (theirs ? 0 : 10);
+      else if (drop[p]) v = drop[q] || theirs ? 60 : 160;
+      else v = mine ? (drop[q] || theirs ? 70 : 190) : 14;
+      sc += p === 1 ? v : -v;
+    }
+    for (let i = 0; i < NP; i += 1) {
+      const p = b[i];
+      if (!p || drop[p]) continue;
+      let e = 0;
+      for (const j of ADJ[i]) if (!b[j]) e += 1;
+      const v = (placing ? 3 : 8) * e - (e ? 0 : placing ? 8 : 26);
+      sc += p === 1 ? v : -v;
+    }
+    return s.side === 1 ? sc : -sc;
+  };
+  const orderScore = (s, m) => {
+    let v = m.r >= 0 ? 1000 : 0;
+    if (closes(s.b, -1, m.t, 3 - s.side)) v += 300; // blocks an enemy mill point
+    return v;
+  };
+  // memory table: position hash -> { d: depth, v: value, k: 0 exact | 1 lower bound | 2 upper bound, m: best move }
+  let TT = new Map(), nodes = 0, deadline = 0, aborted = false;
+  const ttKey = (s) => (s.h1 >>> 0) * 1048576 + (s.h2 >>> 12);
+  const sameMove = (a, b) => !!a && a.f === b.f && a.t === b.t && a.r === b.r;
+  const negamax = (s, depth, alpha, beta, ply) => {
+    if ((++nodes & 1023) === 0 && performance.now() > deadline) aborted = true;
+    if (aborted) return 0;
+    const p = s.side;
+    if (s.hand[p] + s.cnt[p] < 3) return -WIN + ply;
+    if (s.quiet >= QUIET) return 0;
+    const key = ttKey(s), e = TT.get(key);
+    if (e && e.d >= depth && Math.abs(e.v) < WIN / 2 && (e.k === 0 || (e.k === 1 && e.v >= beta) || (e.k === 2 && e.v <= alpha))) return e.v;
+    const ms = genMoves(s);
+    if (!ms.length) return -WIN + ply;
+    if (depth <= 0) return evaluate(s);
+    if (ms.length > 1) { for (const m of ms) m.o = orderScore(s, m) + (e && sameMove(e.m, m) ? 5000 : 0); ms.sort((x, y) => y.o - x.o); }
+    const a0 = alpha;
+    let best = -Infinity, bm = null;
+    for (const m of ms) {
+      const u = make(s, m);
+      const v = -negamax(s, depth - 1, -beta, -alpha, ply + 1);
+      unmake(s, m, u);
+      if (aborted) return 0;
+      if (v > best) { best = v; bm = m; }
+      if (v > alpha) alpha = v;
+      if (alpha >= beta) break;
+    }
+    if (TT.size > 400000) TT = new Map();
+    TT.set(key, { d: depth, v: best, k: best <= a0 ? 2 : best >= beta ? 1 : 0, m: bm });
+    return best;
+  };
+  const LEVELS = { easy: { depth: 1, ms: 200, rnd: 0.4 }, medium: { depth: 3, ms: 400, rnd: 0.08 }, hard: { depth: 40, ms: 1100, rnd: 0 } };
+  const pickMove = (s0, lvl, msOverride) => {
+    const L = LEVELS[lvl] || LEVELS.medium, s = clone(s0);
+    let ms = genMoves(s);
+    if (!ms.length) return null;
+    if (ms.length === 1) return ms[0];
+    if (Math.random() < L.rnd) return ms[Math.floor(Math.random() * ms.length)];
+    for (let i = ms.length - 1; i > 0; i -= 1) { const j = Math.floor(Math.random() * (i + 1)); [ms[i], ms[j]] = [ms[j], ms[i]]; }
+    ms.forEach((m) => { m.o = orderScore(s, m); });
+    ms.sort((x, y) => y.o - x.o);
+    nodes = 0; aborted = false; deadline = performance.now() + (msOverride || L.ms); TT = new Map();
+    let bestMove = ms[0];
+    for (let d = 1; d <= L.depth; d += 1) {
+      let alpha = -Infinity, best = null, bestV = -Infinity;
+      for (const m of ms) {
+        const u = make(s, m);
+        const v = -negamax(s, d - 1, -Infinity, -alpha, 1);
+        unmake(s, m, u);
+        if (aborted) break;
+        m.v = v;
+        if (v > bestV) { bestV = v; best = m; }
+        if (v > alpha) alpha = v;
+      }
+      if (aborted) break;
+      bestMove = best;
+      ms = [best, ...ms.filter((m) => m !== best)]; // best first in the next, deeper pass
+      if (Math.abs(bestV) > WIN / 2) break; // a forced win or loss is found
+    }
+    return { f: bestMove.f, t: bestMove.t, r: bestMove.r };
+  };
+
+  // ---------- play state
+  let fly = store.get('ng9-fly') !== '0';
+  let human = store.get('ng9-side') === '2' ? 2 : 1;
+  let S = fresh(fly), hist = [], keys = [], mode = 'cpu', level = 'medium', state = 'menu', sel = -1, pend = null, last = null, playerName = '', note = '', busy = false;
+  let tally = { 1: 0, 2: 0, d: 0 }, tallyFor = '';
+  const cpuSide = () => (mode === 'cpu' ? 3 - human : 0);
+  const isHumanTurn = () => mode === 'two' || S.side === human;
+  const nameOf = (p) => (mode === 'cpu' ? (p === human ? (playerName || t('you')) : t('cpu')) : p === 1 ? `⚪ ${t('white')}` : `🔴 ${t('red')}`);
+  const shortOf = (p) => (mode === 'cpu' ? (p === human ? t('you') : t('cpu')) : p === 1 ? t('white') : t('red'));
+
+  // ---------- drawing (SVG)
+  const NS = 'http://www.w3.org/2000/svg';
+  const el = (name, attrs, parent) => { const e = document.createElementNS(NS, name); Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v)); parent.append(e); return e; };
+  const dyn = $('dyn');
+  const drawBoard = () => {
+    const g = $('bgLayer');
+    g.replaceChildren();
+    el('rect', { x: -8, y: -8, width: 116, height: 116, rx: 6, fill: 'url(#stoneG)', stroke: '#3c3934', 'stroke-width': 1.2 }, g);
+    el('rect', { x: -8, y: -8, width: 116, height: 116, rx: 6, fill: '#fff', filter: 'url(#grain)', opacity: 0.9 }, g);
+    const paths = OFF.map((o) => `M${o} ${o}H${100 - o}V${100 - o}H${o}Z`).join('') + 'M50 0V33M50 67V100M0 50H33M67 50H100';
+    el('path', { d: paths, fill: 'none', stroke: '#3a3631', 'stroke-width': 2.4, 'stroke-linejoin': 'round', transform: 'translate(0.5 0.6)', opacity: 0.55 }, g); // carved groove
+    el('path', { d: paths, fill: 'none', stroke: '#f3efe6', 'stroke-width': 1.25, 'stroke-linejoin': 'round', 'stroke-linecap': 'round', filter: 'url(#chalk)', opacity: 0.92 }, g); // chalk line
+    XY.forEach(([x, y]) => { el('circle', { cx: x, cy: y, r: 2.3, fill: '#3a3631', opacity: 0.75 }, g); el('circle', { cx: x, cy: y, r: 1.3, fill: '#efe9dc', opacity: 0.85 }, g); });
+  };
+  const legalNow = () => (state === 'play' ? genMoves(S) : []);
+  const draw = () => {
+    dyn.replaceChildren();
+    const b = S.b.slice();
+    const humanTurn = state === 'play' && isHumanTurn() && !busy;
+    const legal = humanTurn ? legalNow() : [];
+    if (pend) { if (pend.f >= 0) b[pend.f] = 0; b[pend.t] = S.side; }
+    // mill highlight: the pending mill, or the mill made by the last move
+    const millLines = pend ? millsAt(b, pend.t, S.side) : last && last.mills ? last.mills : [];
+    millLines.forEach((j) => { const m = MILLS[j], [x1, y1] = XY[m[0]], [x2, y2] = XY[m[2]]; el('line', { x1, y1, x2, y2, stroke: '#ffd43b', 'stroke-width': 4.2, 'stroke-linecap': 'round', class: 'millglow' }, dyn); });
+    // last move
+    if (last && !pend) {
+      if (last.f >= 0) el('circle', { cx: XY[last.f][0], cy: XY[last.f][1], r: 4.2, fill: 'none', stroke: '#ffd43b', 'stroke-width': 0.8, 'stroke-dasharray': '1.5 1.2', opacity: 0.9 }, dyn);
+      if (last.r >= 0) { const [x, y] = XY[last.r]; el('path', { d: `M${x - 3} ${y - 3}L${x + 3} ${y + 3}M${x + 3} ${y - 3}L${x - 3} ${y + 3}`, stroke: '#ff6b6b', 'stroke-width': 1.4, 'stroke-linecap': 'round', opacity: 0.85 }, dyn); }
+    }
+    const targets = sel >= 0 ? legal.filter((m) => m.f === sel) : [];
+    const placing = humanTurn && !pend && S.hand[S.side] > 0;
+    const removable = pend ? legal.filter((m) => m.f === pend.f && m.t === pend.t && m.r >= 0).map((m) => m.r) : [];
+    const movable = humanTurn && !pend && !placing && sel < 0 ? new Set(legal.map((m) => m.f)) : new Set();
+    for (let i = 0; i < NP; i += 1) {
+      const [x, y] = XY[i], p = b[i];
+      const grp = el('g', { class: 'pt', 'data-i': i }, dyn);
+      el('circle', { cx: x, cy: y, r: 8.2, fill: 'transparent' }, grp);
+      if (!p) {
+        if (targets.some((m) => m.t === i)) el('circle', { cx: x, cy: y, r: 3.4, fill: '#40c057', stroke: '#fff', 'stroke-width': 0.6, class: 'pulse' }, grp);
+        else if (placing) el('circle', { cx: x, cy: y, r: 2.6, fill: '#69db7c', opacity: 0.85 }, grp);
+        continue;
+      }
+      const isNew = last && !pend && last.t === i && last.fresh;
+      const pg = el('g', { class: isNew || (pend && pend.t === i) ? 'popin' : '' }, grp);
+      el('ellipse', { cx: x + 0.6, cy: y + 1.4, rx: 6.1, ry: 5.6, fill: '#000', opacity: 0.35 }, pg);
+      el('circle', { cx: x, cy: y, r: 6, fill: p === 1 ? 'url(#g1)' : 'url(#g2)', stroke: p === 1 ? '#8a7a55' : '#5c0f0f', 'stroke-width': 0.6 }, pg);
+      el('circle', { cx: x, cy: y, r: 3.6, fill: 'none', stroke: p === 1 ? '#bba97f' : '#ff9c8f', 'stroke-width': 0.45, opacity: 0.8 }, pg);
+      if (i === sel) el('circle', { cx: x, cy: y, r: 7.6, fill: 'none', stroke: '#ffd43b', 'stroke-width': 1.4 }, grp);
+      else if (last && !pend && last.t === i) el('circle', { cx: x, cy: y, r: 7.4, fill: 'none', stroke: '#ffd43b', 'stroke-width': 0.8, opacity: 0.8 }, grp);
+      if (movable.has(i)) el('circle', { cx: x, cy: y, r: 7.4, fill: 'none', stroke: '#8ce99a', 'stroke-width': 0.6, opacity: 0.7 }, grp);
+      if (removable.includes(i)) el('circle', { cx: x, cy: y, r: 7.8, fill: 'none', stroke: '#ff4d4d', 'stroke-width': 1.5, 'stroke-dasharray': '2.2 1.4', class: 'pulse' }, grp);
+    }
+  };
+  const updateHud = () => {
+    // the bottom bar is the human (or White in 2-player mode); the top bar is the other side
+    const bottom = mode === 'cpu' ? human : 1, top = 3 - bottom;
+    [[bottom, 1], [top, 2]].forEach(([p, slot]) => {
+      $(`who${slot}`).textContent = `${p === 1 ? '⚪' : '🔴'} ${shortOf(p)}`;
+      $(`dots${slot}`).innerHTML = Array.from({ length: S.hand[p] }, () => `<i class="dot p${p}"></i>`).join('');
+      $(`cnt${slot}`).textContent = t('count')(S.hand[p], S.cnt[p]);
+      $(`bar${slot}`).classList.toggle('on', state === 'play' && S.side === p);
+    });
+    const p = S.side, thinking = state === 'play' && mode === 'cpu' && p === cpuSide();
+    let ph = '';
+    if (state === 'play') {
+      const w = shortOf(p);
+      ph = thinking ? t('thinking') : pend ? t('phRemove')(w) : S.hand[p] > 0 ? t('phPlace')(w) : canFly(S, p) ? t('phFly')(w) : t('phMove')(w);
+    }
+    $('phase').innerHTML = ph ? `<span class="${pend ? 'rm' : ''}"></span>` : '';
+    if (ph) $('phase').firstChild.textContent = ph;
+    let m = note;
+    if (!m && state === 'play' && !thinking) m = pend ? t('msgRemove') : S.hand[p] > 0 ? t('msgPlace')(S.hand[p]) : canFly(S, p) ? t('msgFly') : t('msgPick');
+    $('msg').textContent = m;
+    $('undoBtn').classList.toggle('hidden', !(state === 'play' && mode === 'cpu' && (hist.length || pend)));
+  };
+  const render = () => { draw(); updateHud(); };
+
+  // ---------- page texts
+  const renderWins = () => { $('wEasy').textContent = t('wins')(wins.easy); $('wMedium').textContent = t('wins')(wins.medium); $('wHard').textContent = t('wins')(wins.hard); };
+  const segOn = () => {
+    document.querySelectorAll('#sideSeg button').forEach((b) => b.classList.toggle('on', +b.dataset.s === human));
+    document.querySelectorAll('#flySeg button').forEach((b) => b.classList.toggle('on', (b.dataset.f === '1') === fly));
+  };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    document.title = `${t('title')} — Nine Men's Morris Board Game | NextGrade`;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((e) => { e.textContent = t(e.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach((e) => { e.placeholder = t(e.dataset.i18nPh); });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    $('tipList').innerHTML = t('tips').map((li) => `<li>${li}</li>`).join('');
+    $('factList').innerHTML = t('facts').map((li) => `<li>${li}</li>`).join('');
+    $('faqList').innerHTML = t('faq').map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+    const p = PREFIX[lang];
+    $('home').href = `https://nextgrade.in${p}/`;
+    $('moreGames').href = `https://nextgrade.in${p}/games/`;
+    const c = $('challenge');
+    if (fromName && fromScore) { c.textContent = t('challenge')(fromName, fromScore); c.style.display = 'block'; }
+    segOn(); renderWins(); render();
+    if (last && last.end) fillEnd();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('ng9-lang', lang); applyLang(); });
+  $('name').value = store.get('ng9-name') || '';
+  $('year').textContent = new Date().getFullYear();
+
+  // ---------- sound (WebAudio, nothing plays before the first tap)
+  let muted = store.get('ng9-muted') === '1';
+  let ac = null, master = null;
+  const setIcons = () => { $('mute').textContent = muted ? '🔇' : '🔊'; };
+  setIcons();
+  $('mute').addEventListener('click', () => { muted = !muted; store.set('ng9-muted', muted ? '1' : '0'); setIcons(); if (master) master.gain.value = muted ? 0 : 0.8; });
+  const initAudio = () => {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    ac = new AC(); master = ac.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(ac.destination);
+  };
+  const tone = (f, dur, type = 'sine', vol = 0.07, delay = 0, f2 = null) => {
+    if (!ac) return;
+    const w = ac.currentTime + delay, o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, w);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, w + dur);
+    g.gain.setValueAtTime(0.0001, w); g.gain.exponentialRampToValueAtTime(vol, w + 0.004); g.gain.exponentialRampToValueAtTime(0.0001, w + dur);
+    o.connect(g); g.connect(master); o.start(w); o.stop(w + dur + 0.03);
+  };
+  const sfx = {
+    place: () => { tone(900, 0.04, 'square', 0.025, 0, 500); tone(260, 0.09, 'triangle', 0.06); }, // stone on stone
+    move: () => { tone(420, 0.06, 'triangle', 0.04, 0, 300); tone(700, 0.05, 'triangle', 0.03, 0.06, 500); },
+    mill: () => { [587, 740, 880].forEach((f, i) => tone(f, 0.22, 'sine', 0.06, i * 0.08)); },
+    remove: () => { tone(220, 0.25, 'sawtooth', 0.04, 0, 90); tone(140, 0.2, 'triangle', 0.05, 0.08); },
+    win: () => { [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.5, 'sine', 0.06, i * 0.13)); },
+    lose: () => tone(330, 0.4, 'triangle', 0.05, 0, 220),
+  };
+
+  // ---------- turns
+  const repsOf = (k) => keys.reduce((n, x) => n + (x === k ? 1 : 0), 0);
+  const doMove = (m) => {
+    const p = S.side;
+    hist.push({ S, keys: keys.length });
+    S = applyNew(S, m);
+    const placingDone = S.hand[1] + S.hand[2] === 0;
+    if (placingDone) keys.push(posKey(S));
+    const mills = m.r >= 0 || closes(hist[hist.length - 1].S.b, m.f, m.t, p) ? millsAt(S.b, m.t, p) : [];
+    last = { f: m.f, t: m.t, r: m.r, mills, fresh: m.f < 0 };
+    sel = -1; pend = null; note = '';
+    if (m.r >= 0) {
+      if (mode === 'cpu' && p === cpuSide()) { note = t('msgCpuMill'); sfx.mill(); setTimeout(sfx.remove, 260); } else { note = mode === 'two' ? t('msgMill')(shortOf(p)) : ''; sfx.remove(); }
+    } else (m.f < 0 ? sfx.place : sfx.move)();
+    const o = outcome(S, placingDone ? repsOf(posKey(S)) : 0);
+    if (o) return finish(o);
+    render();
+    if (mode === 'cpu' && S.side === cpuSide()) { busy = true; render(); setTimeout(cpuTurn, debug ? 20 : 420); } else if (auto) setTimeout(autoHuman, 20);
+  };
+  const cpuTurn = () => {
+    busy = false;
+    if (state !== 'play' || S.side !== cpuSide()) return;
+    const m = pickMove(S, level, debug ? Math.min(LEVELS[level].ms, 150) : 0);
+    if (m) doMove(m);
+  };
+  const autoHuman = () => { if (state === 'play' && isHumanTurn()) { const m = pickMove(S, params.get('p2') || 'medium', 60); if (m) doMove(m); } };
+  const tryTo = (f, to) => {
+    const ms = legalNow().filter((m) => m.f === f && m.t === to);
+    if (!ms.length) { sel = -1; render(); return; }
+    if (ms[0].r < 0) { doMove(ms[0]); return; }
+    pend = { f, t: to }; sel = -1; note = ''; sfx.mill(); render();
+  };
+  const tap = (i) => {
+    if (state !== 'play' || !isHumanTurn() || busy) return;
+    initAudio();
+    const p = S.side;
+    if (pend) {
+      const m = legalNow().find((x) => x.f === pend.f && x.t === pend.t && x.r === i);
+      if (m) doMove(m);
+      return;
+    }
+    if (S.hand[p] > 0) { if (!S.b[i]) tryTo(-1, i); return; }
+    if (S.b[i] === p) {
+      sel = sel === i ? -1 : i;
+      note = sel >= 0 && !legalNow().some((m) => m.f === i) ? t('msgNoMove') : '';
+      render(); return;
+    }
+    if (sel >= 0 && !S.b[i]) tryTo(sel, i); else { sel = -1; note = ''; render(); }
+  };
+  $('board').addEventListener('click', (e) => { const g = e.target.closest('.pt'); if (g) tap(+g.dataset.i); });
+
+  // ---------- start / end
+  const hideOverlays = () => ['startScreen', 'endScreen'].forEach((id) => $(id).classList.add('hidden'));
+  const start = (m, lvl) => {
+    initAudio();
+    mode = m; if (lvl) level = lvl;
+    const tag = `${mode}-${level}-${human}`;
+    if (tag !== tallyFor) { tally = { 1: 0, 2: 0, d: 0 }; tallyFor = tag; }
+    playerName = cleanName($('name').value); store.set('ng9-name', playerName);
+    S = fresh(fly); hist = []; keys = []; sel = -1; pend = null; last = null; note = ''; state = 'play'; busy = false;
+    hideOverlays(); $('menuBtn').classList.remove('hidden');
+    $('shareOther').textContent = t('shareOther');
+    render();
+    if (mode === 'cpu' && S.side === cpuSide()) { busy = true; render(); setTimeout(cpuTurn, debug ? 20 : 450); } else if (auto) setTimeout(autoHuman, 20);
+  };
+  const finish = (o) => {
+    state = 'over'; busy = false;
+    const youWon = mode === 'cpu' && o.w === human;
+    if (youWon) { wins[level] += 1; store.set('ng9-wins', JSON.stringify(wins)); }
+    if (o.w) tally[o.w] += 1; else tally.d += 1;
+    (mode === 'two' || youWon || !o.w ? sfx.win : sfx.lose)();
+    last = { ...(last || {}), end: true, o, youWon, mode, level, name: playerName, fact: Math.floor(Math.random() * T.en.facts.length) };
+    fillEnd(); renderWins(); render();
+    setTimeout(() => { if (state === 'over') $('endScreen').classList.remove('hidden'); }, debug ? 0 : 1100);
+  };
+  const fillEnd = () => {
+    const L = last, o = L.o;
+    $('endTitle').textContent = !o.w ? t('draw') : L.mode === 'cpu' ? (L.youWon ? t('youWin')(L.name) : t('youLose')) : t('winOf')(nameOf(o.w));
+    $('endBig').textContent = !o.w ? '🤝' : o.w === 1 ? '⚪🏆' : '🔴🏆';
+    $('endNote').textContent = o.why === 'two' ? t('endTwo')(shortOf(o.loser)) : o.why === 'block' ? t('endBlock')(shortOf(o.loser)) : o.why === 'quiet' ? t('endQuiet') : t('endRepeat');
+    const a = L.mode === 'cpu' ? human : 1, b = 3 - a;
+    $('endScore').textContent = t('score')(shortOf(a), tally[a], shortOf(b), tally[b], tally.d);
+    $('endFact').textContent = `💡 ${t('facts')[L.fact]}`;
+  };
+  const toMenu = () => { state = 'menu'; sel = -1; pend = null; busy = false; hideOverlays(); renderWins(); render(); $('menuBtn').classList.add('hidden'); $('startScreen').classList.remove('hidden'); };
+  $('undoBtn').addEventListener('click', () => {
+    if (state !== 'play' || mode !== 'cpu' || busy) return;
+    if (pend) { pend = null; render(); return; }
+    // go back to the human's previous turn (undo the computer's reply too)
+    while (hist.length) { const h = hist.pop(); S = h.S; keys.length = h.keys; if (S.side === human) break; }
+    sel = -1; last = null; note = ''; render();
+    if (S.side === cpuSide()) { busy = true; render(); setTimeout(cpuTurn, 450); } // the computer moved first: let it move again
+  });
+
+  $('sideSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; human = +b.dataset.s; store.set('ng9-side', String(human)); segOn(); });
+  $('flySeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; fly = b.dataset.f === '1'; store.set('ng9-fly', fly ? '1' : '0'); segOn(); });
+  $('levelSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) start('cpu', b.dataset.l); });
+  $('twoBtn').addEventListener('click', () => start('two'));
+  $('againBtn').addEventListener('click', () => start(mode, level));
+  $('toMenu').addEventListener('click', toMenu);
+  $('menuBtn').addEventListener('click', toMenu);
+
+  // ---------- share
+  const shareText = () => {
+    const u = new URL(SITE);
+    if (playerName && totalWins()) { u.searchParams.set('from', playerName); u.searchParams.set('score', String(totalWins())); }
+    if (lang !== 'hinglish') u.searchParams.set('lang', lang);
+    if (last && last.end && last.youWon) return t('shareWin')(playerName, u.toString());
+    return t('sharePlain')(u.toString());
+  };
+  const openWa = (text) => window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+  $('shareWa').addEventListener('click', () => openWa(shareText()));
+  $('shareFb').addEventListener('click', () => { const c = document.querySelector('link[rel=canonical]'); const u = (c && c.href) || (location.origin + location.pathname); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener,width=620,height=560'); });
+  $('shareOther').addEventListener('click', () => {
+    const text = shareText();
+    if (navigator.share) { navigator.share({ title: t('title'), text }).catch(() => {}); return; }
+    openWa(text); // no Web Share API (most desktops): WhatsApp is what people here use
+  });
+
+  drawBoard();
+  applyLang();
+
+  // ---------- self-test: ?debug&auto — rule checks + computer-vs-computer games, results in the DOM
+  const selfTest = async () => {
+    const out = $('selftest'); out.classList.remove('hidden');
+    const lines = []; let fail = false;
+    const log = (s) => { lines.push(s); out.textContent = lines.join('\n'); };
+    const ok = (c, label) => { if (!c) fail = true; log(`${c ? 'PASS' : 'FAIL'} ${label}`); };
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    try {
+      // board
+      ok(XY.length === 24 && new Set(XY.map((p) => p.join(','))).size === 24, '24 distinct points');
+      const edges = ADJ.reduce((n, a) => n + a.length, 0) / 2;
+      ok(edges === 32, `32 lines between neighbours (got ${edges})`);
+      ok(ADJ.every((a, i) => a.every((j) => ADJ[j].includes(i))), 'adjacency is symmetric');
+      const deg = ADJ.map((a) => a.length);
+      ok(deg.filter((d) => d === 2).length === 12 && deg.filter((d) => d === 3).length === 8 && deg.filter((d) => d === 4).length === 4, 'degrees: 12 corners x2, 8 outer/inner middles x3, 4 middle-ring middles x4');
+      ok(ADJ.every((a, i) => a.every((j) => XY[i][0] === XY[j][0] || XY[i][1] === XY[j][1])), 'every neighbour is on a straight line (no diagonals)');
+      ok(MILLS.length === 16 && new Set(MILLS.map((m) => m.slice().sort((x, y) => x - y).join(','))).size === 16, '16 distinct mills');
+      ok(MILLS.every(([a, b, c]) => ADJ[a].includes(b) && ADJ[b].includes(c)), 'each mill is 3 neighbouring points on a line');
+      ok(MILLS.every(([a, b, c]) => (XY[a][0] === XY[b][0] && XY[b][0] === XY[c][0]) || (XY[a][1] === XY[b][1] && XY[b][1] === XY[c][1])), 'each mill is geometrically straight');
+      ok(MILLS_AT.every((m) => m.length === 2), 'every point is in exactly 2 mills');
+      // placing a mill gives removal moves, removal rule protects mills
+      let s = fresh(true);
+      s.b[0] = 1; s.b[1] = 1; s.cnt[1] = 2; s.hand[1] = 7;
+      s.b[16] = 2; s.b[17] = 2; s.b[18] = 2; s.b[12] = 2; s.cnt[2] = 4; s.hand[2] = 5;
+      let ms = genMoves(s).filter((m) => m.t === 2);
+      ok(ms.length === 1 && ms[0].r === 12, `mill while placing removes only the loose enemy piece (got ${ms.map((m) => m.r)})`);
+      s.b[12] = 0; s.cnt[2] = 3;
+      ms = genMoves(s).filter((m) => m.t === 2);
+      ok(ms.length === 3 && ms.every((m) => [16, 17, 18].includes(m.r)), 'when every enemy piece is in a mill, any of them may be taken');
+      ok(genMoves(s).filter((m) => m.t === 5).every((m) => m.r === -1), 'no removal without a mill');
+      // moving phase: sliding only to neighbours; flying with 3
+      s = fresh(true); s.hand = [0, 0, 0];
+      [0, 9, 20].forEach((i) => { s.b[i] = 1; }); s.cnt[1] = 3;
+      [4, 5, 13, 22].forEach((i) => { s.b[i] = 2; }); s.cnt[2] = 4;
+      ms = genMoves(s);
+      ok([0, 9, 20].every((f) => new Set(ms.filter((m) => m.f === f).map((m) => m.t)).size === 17), `flying on: a 3-piece side can go to any of the 17 empty points (${ms.length} moves)`);
+      ok(ms.every((m) => !s.b[m.t]), 'flying moves land on empty points');
+      s.fly = false;
+      ms = genMoves(s);
+      ok(ms.every((m) => ADJ[m.f].includes(m.t)), `flying off: only neighbour moves (${ms.length} moves)`);
+      s.side = 2; s.fly = true;
+      ok(genMoves(s).every((m) => ADJ[m.f].includes(m.t)), 'a 4-piece side cannot fly');
+      // moving into a mill and the make/unmake round trip
+      s = fresh(true); s.hand = [0, 0, 0];
+      [0, 1, 3, 6].forEach((i) => { s.b[i] = 1; }); s.cnt[1] = 4;
+      [8, 9, 14, 15].forEach((i) => { s.b[i] = 2; }); s.cnt[2] = 4;
+      ms = genMoves(s).filter((m) => m.f === 3 && m.t === 2);
+      ok(ms.length > 0 && ms.every((m) => m.r >= 0), 'sliding into a line of three makes a mill');
+      const before = JSON.stringify(s);
+      genMoves(s).forEach((m) => { const u = make(s, m); unmake(s, m, u); });
+      ok(JSON.stringify(s) === before, 'make/unmake restores the position');
+      // losing conditions
+      s = fresh(true); s.hand = [0, 0, 0]; s.b[0] = 1; s.b[2] = 1; s.cnt[1] = 2; [8, 9, 10].forEach((i) => { s.b[i] = 2; }); s.cnt[2] = 3;
+      let o = outcome(s, 0);
+      ok(o && o.w === 2 && o.why === 'two', 'a player with 2 pieces loses');
+      s = fresh(false); s.hand = [0, 0, 0];
+      [0, 2, 4, 6].forEach((i) => { s.b[i] = 1; }); s.cnt[1] = 4;
+      [1, 3, 5, 7, 8, 10, 12, 14].forEach((i) => { s.b[i] = 2; }); s.cnt[2] = 8;
+      o = outcome(s, 0);
+      ok(o && o.w === 2 && o.why === 'block', 'a player who cannot move loses');
+      s.quiet = QUIET; s.side = 2;
+      o = outcome(s, 0);
+      ok(o && o.w === 0, `${QUIET} moves without a capture is a draw`);
+      ok(outcome(fresh(true), 3).w === 0, 'third repetition is a draw');
+      // the computer takes an open mill and blocks one
+      s = fresh(false); s.hand = [0, 0, 0];
+      [0, 1, 3, 15].forEach((i) => { s.b[i] = 2; }); s.cnt[2] = 4;
+      [12, 20, 22].forEach((i) => { s.b[i] = 1; }); s.cnt[1] = 3; s.side = 2;
+      let pm = pickMove(s, 'hard', 200);
+      ok(pm.f === 3 && pm.t === 2 && pm.r >= 0, `hard computer closes the winning mill (${JSON.stringify(pm)})`);
+      s = fresh(true); s.b[0] = 2; s.b[1] = 2; s.cnt[2] = 2; s.hand[2] = 7; s.b[20] = 1; s.cnt[1] = 1; s.hand[1] = 8; s.side = 1;
+      pm = pickMove(s, 'medium', 200);
+      ok(pm.t === 2, 'medium computer blocks an open mill');
+      log('--- computer vs computer games');
+      const sim = (l1, l2, fl, ms1) => new Promise((resolve) => {
+        let st = fresh(fl), plies = 0, worst = 0, bad = '';
+        const ks = [];
+        const step = () => {
+          const reps = st.hand[1] + st.hand[2] === 0 ? ks.filter((k) => k === posKey(st)).length : 0;
+          const res = outcome(st, reps);
+          if (res || plies >= 600 || bad) { resolve({ res, plies, worst, bad }); return; }
+          const t0 = performance.now();
+          const m = pickMove(st, st.side === 1 ? l1 : l2, ms1);
+          worst = Math.max(worst, performance.now() - t0);
+          const legal = genMoves(st);
+          if (!legal.some((x) => x.f === m.f && x.t === m.t && x.r === m.r)) bad = `illegal move ${JSON.stringify(m)}`;
+          st = applyNew(st, m); plies += 1;
+          for (const p of [1, 2]) {
+            const c = st.b.filter((x) => x === p).length;
+            if (c !== st.cnt[p] || st.hand[p] < 0 || st.hand[p] + st.cnt[p] > PIECES) bad = `count mismatch for ${p}`;
+          }
+          if (st.hand[1] + st.hand[2] === 0) ks.push(posKey(st));
+          setTimeout(step, 0);
+        };
+        step();
+      });
+      const games = [['hard', 'easy', true], ['easy', 'hard', true], ['medium', 'medium', true], ['medium', 'medium', false], ['hard', 'medium', false], ['hard', 'hard', true]];
+      let hardVsEasy = 0;
+      for (const [a, b2, fl] of games) {
+        const g = await sim(a, b2, fl, 120);
+        const w = g.res ? (g.res.w ? (g.res.w === 1 ? `White (${a})` : `Red (${b2})`) : 'draw') : 'cap';
+        ok(!g.bad && !!g.res, `${a} vs ${b2}, flying ${fl ? 'on' : 'off'}: ${w} by ${g.res ? g.res.why : '-'} after ${g.plies} plies, slowest move ${Math.round(g.worst)} ms ${g.bad}`);
+        if ((a === 'hard' && b2 === 'easy' && g.res && g.res.w === 1) || (a === 'easy' && b2 === 'hard' && g.res && g.res.w === 2)) hardVsEasy += 1;
+      }
+      ok(hardVsEasy >= 1, `hard beats easy (${hardVsEasy}/2)`);
+      // full-time hard move on the real clock (phones are ~3-5x slower; the limit is time-based)
+      const t0 = performance.now(); pickMove(fresh(true), 'hard'); const tHard = performance.now() - t0;
+      ok(tHard < 1400, `hard move from the start takes ${Math.round(tHard)} ms (limit ${LEVELS.hard.ms})`);
+      // a full game through the real UI (human side played by the computer), then the end screen
+      log('--- UI game');
+      human = 1; $('name').value = 'Test';
+      start('cpu', 'medium');
+      for (let i = 0; i < 1200 && state !== 'over'; i += 1) await sleep(50);
+      for (let i = 0; i < 100 && $('endScreen').classList.contains('hidden'); i += 1) await sleep(50); // the end screen appears after a short delay
+      ok(state === 'over' && !$('endScreen').classList.contains('hidden') && $('endTitle').textContent.length > 0, `UI game finished: "${$('endTitle').textContent}" / ${$('endNote').textContent}`);
+      ok(/nau-gutti/.test(shareText()), `share text: ${shareText()}`);
+      // tap flow: place by taps, make a mill, remove a piece
+      mode = 'two'; S = fresh(true); hist = []; keys = []; state = 'play'; sel = -1; pend = null; last = null; busy = false; hideOverlays();
+      [0, 8, 1, 9].forEach((i) => tap(i)); tap(2);
+      ok(!!pend && S.b[2] === 0, 'tap that closes a mill waits for a removal');
+      tap(16); ok(!!pend, 'tapping an empty point while removing does nothing');
+      tap(8); ok(!pend && S.b[8] === 0 && S.b[2] === 1 && S.cnt[2] === 1, 'tapping an enemy piece removes it');
+      // languages
+      for (const L of LANGS) {
+        lang = L; applyLang();
+        const words = ['howList', 'tipList', 'factList', 'faqList'].map((id) => $(id).textContent).join(' ') + [...document.querySelectorAll('section p')].map((p) => p.textContent).join(' ');
+        const n = words.split(/\s+/).filter(Boolean).length;
+        ok(document.querySelector('h1').textContent.length > 3 && n >= 400, `${L}: ${n} words below the board`);
+      }
+      lang = 'hinglish'; applyLang(); toMenu();
+    } catch (e) { fail = true; log(`FAIL exception ${e && e.stack ? e.stack : e}`); }
+    log(fail ? 'RESULT: FAIL' : 'RESULT: PASS');
+    document.body.dataset.selftest = fail ? 'fail' : 'pass';
+  };
+  if (auto) selfTest();
+  window.__ng9 = { get state() { return state; }, get S() { return S; }, tap, start, pickMove: (lvl, ms) => pickMove(S, lvl, ms), genMoves: () => genMoves(S) };
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+<script src="/assets/game-share.js?v=3" defer></script>
+</body>
+</html>
