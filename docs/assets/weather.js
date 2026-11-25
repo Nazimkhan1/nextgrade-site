@@ -112,8 +112,22 @@
   }
 
   // highlight this month in the climate table
-  var m = new Date(Date.now() + IST).getUTCMonth(), row = document.querySelector('.wx-clim tr[data-m="' + m + '"]');
-  if (row) row.classList.add('cur');
+  var m = new Date(Date.now() + IST).getUTCMonth();
+  document.querySelectorAll('.wx-clim tr[data-m="' + m + '"]').forEach(function (row) { row.classList.add('cur'); });
+  // today's sunrise/sunset (the page has the build-day value; recompute for the reader's day)
+  var st = document.getElementById('sun-today');
+  if (st) {
+    var rad = Math.PI / 180, la = +st.dataset.lat, lo = +st.dataset.lon, now = new Date(Date.now() + IST);
+    var doy = Math.floor((Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()) - Date.UTC(now.getUTCFullYear(), 0, 0)) / 864e5), g = (2 * Math.PI / 365) * (doy - 1);
+    var eqt = 229.18 * (0.000075 + 0.001868 * Math.cos(g) - 0.032077 * Math.sin(g) - 0.014615 * Math.cos(2 * g) - 0.040849 * Math.sin(2 * g));
+    var dec = 0.006918 - 0.399912 * Math.cos(g) + 0.070257 * Math.sin(g) - 0.006758 * Math.cos(2 * g) + 0.000907 * Math.sin(2 * g) - 0.002697 * Math.cos(3 * g) + 0.00148 * Math.sin(3 * g);
+    var cosH = Math.cos(90.833 * rad) / (Math.cos(la * rad) * Math.cos(dec)) - Math.tan(la * rad) * Math.tan(dec);
+    if (cosH >= -1 && cosH <= 1) {
+      var ha = Math.acos(cosH) / rad, hm = function (x) { x = Math.round(x); var h = Math.floor(x / 60), mm = x % 60; return ((h + 11) % 12 + 1) + ':' + (mm < 10 ? '0' : '') + mm + (h >= 12 ? ' PM' : ' AM'); };
+      var parts = st.innerHTML.split(' · ');
+      st.innerHTML = parts[0].replace(/\d{1,2}:\d{2} [AP]M/, hm(720 - 4 * (lo + ha) - eqt + 330)) + ' · ' + parts[1].replace(/\d{1,2}:\d{2} [AP]M/, hm(720 - 4 * (lo - ha) - eqt + 330));
+    }
+  }
 
   if (box.dataset.mode === 'city') {
     box.innerHTML = '<p class="note">' + TX.load + '</p>';
