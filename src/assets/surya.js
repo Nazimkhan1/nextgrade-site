@@ -79,15 +79,26 @@
     timer = requestAnimationFrame(tick);
   }
   function advance() {
-    if (idx >= 11) { done++; if (round >= rounds()) { finish(); return; } round++; show(0); }
-    else show(idx + 1);
+    if (idx >= 11) {
+      done++;
+      if (round >= rounds()) { finish(); return; }
+      // one round done: stop here and wait — the next round starts only when the user taps
+      playing = false; cancelAnimationFrame(timer); $('sn-prog').style.width = '100%';
+      if (wake) { wake.release(); wake = null; }
+      $('sn-play').textContent = U.start;
+      $('sn-done').innerHTML = '<b>' + C.roundDone.replace('{n}', round) + '</b><div class="sn-ctl"><button class="btn btn-primary" type="button" id="sn-nextround">' + U.nextRound + '</button></div>';
+      $('sn-done').hidden = false; say(C.roundDone.replace('{n}', round).replace(/\s*\S+$/, ''));
+      $('sn-nextround').onclick = function () { $('sn-done').hidden = true; round++; playing = true; $('sn-play').textContent = U.pause; show(0); t0 = performance.now(); timer = requestAnimationFrame(tick); };
+      return;
+    }
+    show(idx + 1);
     t0 = performance.now(); timer = requestAnimationFrame(tick);
   }
   function play() {
     if (playing) { playing = false; left = performance.now() - t0; cancelAnimationFrame(timer); $('sn-play').textContent = U.resume; if (wake) { wake.release(); wake = null; } return; }
     playing = true; $('sn-play').textContent = U.pause; $('sn-done').hidden = true;
     if (navigator.wakeLock) navigator.wakeLock.request('screen').then(function (w) { wake = w; }).catch(function () {});
-    if (idx < 0) { round = 1; done = 0; show(0); t0 = performance.now(); } else t0 = performance.now() - (left || 0);
+    if (idx < 0) { round = 1; done = 0; show(0); t0 = performance.now(); } else if (idx >= 11 && round < rounds()) { round++; show(0); t0 = performance.now(); } else t0 = performance.now() - (left || 0);
     timer = requestAnimationFrame(tick);
   }
   // streak (localStorage)
