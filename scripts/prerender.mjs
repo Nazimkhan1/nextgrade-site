@@ -45,13 +45,17 @@ const serve = () => new Promise((resolve) => {
 // Rendered DOM from headless Chrome, in a throwaway profile so no saved language leaks in.
 const dump = (url) => {
   const profile = mkdtempSync(join(tmpdir(), 'ng-prerender-'));
-  return new Promise((resolve, reject) => execFile(CHROME, [
+  return new Promise((resolve, reject) => { const child = execFile(CHROME, [
     '--headless=new', '--disable-gpu', '--no-first-run', '--mute-audio', `--user-data-dir=${profile}`,
     '--lang=hi', '--virtual-time-budget=6000',
     // no ad or analytics requests from the prerender run
     '--host-resolver-rules=MAP pagead2.googlesyndication.com ~NOTFOUND, MAP *.googlesyndication.com ~NOTFOUND, MAP static.cloudflareinsights.com ~NOTFOUND, MAP cloudflareinsights.com ~NOTFOUND, MAP *.doubleclick.net ~NOTFOUND, MAP www.googletagmanager.com ~NOTFOUND, MAP *.google-analytics.com ~NOTFOUND, MAP *.analytics.google.com ~NOTFOUND', '--dump-dom', url,
-  ], { maxBuffer: 64 * 1024 * 1024, timeout: 60000 }, (err, stdout) => (err ? reject(err) : resolve(stdout))))
-    .finally(() => rmSync(profile, { recursive: true, force: true }));
+  ], { maxBuffer: 64 * 1024 * 1024, timeout: 60000 }, (err, stdout) => {
+    // Chrome 158+ prints the DOM but does not always exit afterwards; then we kill it ourselves (below) and still use the output
+    if (stdout && /<\/html>\s*$/i.test(stdout)) resolve(stdout); else if (err) reject(err); else resolve(stdout);
+  });
+    let buf = ''; child.stdout.on('data', (d) => { buf += d; if (/<\/html>\s*$/i.test(buf)) setTimeout(() => child.kill(), 200); });
+  }).finally(() => rmSync(profile, { recursive: true, force: true }));
 };
 
 // Walks the tags of an HTML string; for each element with an id (or data-i18n key) reports its tag, where its
