@@ -36,6 +36,7 @@ import { icon } from './src/icons.mjs';
 import { buildTravel, TT } from './src/travel.mjs';
 import { buildNuskhe, NUSKHE_UI } from './src/nuskhe-build.mjs';
 import { buildRegionalWishes, RLANGS } from './src/regional-wishes-build.mjs';
+import { buildSurya } from './src/surya.mjs';
 import { CAL_YEAR, MONTH_SLUGS as SLUG_M, NATIONAL, HOLIDAY_SLUGS, WDS, CT, hijriStarts } from './src/calendar.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
@@ -102,6 +103,7 @@ const firstSentence = (s) => (String(s).match(/^.*?[।.!?](\s|$)/) || [s])[0].t
 
 // Home: "New and trending" links (user 24 Nov: new pages should be linked from the home page for Google)
 const HOME_NEW = [
+  ['/surya-namaskar/', '☀️', { hi: 'सूर्य नमस्कार — साथ-साथ करें', en: 'Surya Namaskar — follow along', hinglish: 'Surya Namaskar — saath karo', bn: 'সূর্য নমস্কার — সঙ্গে করুন' }, true],
   ['/nuskhe/sardi/', '❄️', { hi: 'सर्दी के घरेलू नुस्खे', en: 'Winter home remedies', hinglish: 'Sardi ke gharelu nuskhe', bn: 'শীতের ঘরোয়া টোটকা' }, true],
   ['/ghoomne-ki-jagah/december/', '🧳', { hi: 'दिसंबर में घूमने की जगहें', en: 'Places to visit in December', hinglish: 'December mein ghumne ki jagah', bn: 'ডিসেম্বরে বেড়ানোর জায়গা' }, true],
   ['/tools/photo-frame/', '🖼️', { hi: 'नए साल का फ़ोटो फ़्रेम', en: 'New Year photo frame', hinglish: 'New Year photo frame', bn: 'নববর্ষের ফটো ফ্রেম' }, false],
@@ -139,7 +141,7 @@ const HERO = {
 const HOME_BADGES = { hi: ['✓ 100% फ़्री', '✓ बिना login', '✓ हिंदी · English · বাংলা', '✓ फ़ोन पर'], en: ['✓ 100% free', '✓ No login', '✓ Hindi · English · Bangla', '✓ Made for phones'], hinglish: ['✓ 100% free', '✓ Bina login', '✓ Hindi · English · Bangla', '✓ Phone par'], bn: ['✓ ১০০% ফ্রি', '✓ লগইন ছাড়া', '✓ বাংলা · हिंदी · English', '✓ ফোনে'] };
 const FOOT_COLS = [
   [{ hi: 'टूल्स', en: 'Tools', hinglish: 'Tools', bn: 'টুলস' }, [['/tools/image-compress/', { hi: 'फ़ोटो KB कम करें', en: 'Compress photo to KB', hinglish: 'Photo KB kam karo', bn: 'ছবি KB কম' }, false], ['/tools/pdf-compress/', { hi: 'PDF छोटा करें', en: 'Compress PDF', hinglish: 'PDF chhota karo', bn: 'PDF ছোট করুন' }, false], ['/tools/passport-photo/', { hi: 'पासपोर्ट फ़ोटो', en: 'Passport photo', hinglish: 'Passport photo', bn: 'পাসপোর্ট ছবি' }, false], ['/calculator/', { hi: 'कैलकुलेटर', en: 'Calculators', hinglish: 'Calculators', bn: 'ক্যালকুলেটর' }], ['/mausam/', { hi: 'आज का मौसम', en: 'Weather today', hinglish: 'Aaj ka mausam', bn: 'আজকের আবহাওয়া' }], ['/ghoomne-ki-jagah/', { hi: 'घूमने की जगहें', en: 'Places to visit', hinglish: 'Ghoomne ki jagah', bn: 'বেড়ানোর জায়গা' }], ['/tools/', { hi: 'सभी टूल्स →', en: 'All tools →', hinglish: 'Sabhi tools →', bn: 'সব টুলস →' }]]],
-  [{ hi: 'पढ़ाई', en: 'Learning', hinglish: 'Padhai', bn: 'পড়াশোনা' }, [['/nibandh/', { hi: 'निबंध', en: 'Essays', hinglish: 'Nibandh', bn: 'রচনা' }], ['/speech/', { hi: 'भाषण', en: 'Speeches', hinglish: 'Bhashan', bn: 'বক্তৃতা' }], ['/kahani/', { hi: 'कहानियाँ', en: 'Stories', hinglish: 'Kahaniyan', bn: 'গল্প' }], ['/kids/', { hi: 'बच्चों की पढ़ाई', en: 'Kids learning', hinglish: 'Bachchon ki padhai', bn: 'ছোটদের পড়া' }], ['/nuskhe/', { hi: 'घरेलू नुस्खे', en: 'Home remedies', hinglish: 'Gharelu nuskhe', bn: 'ঘরোয়া টোটকা' }]]],
+  [{ hi: 'पढ़ाई', en: 'Learning', hinglish: 'Padhai', bn: 'পড়াশোনা' }, [['/nibandh/', { hi: 'निबंध', en: 'Essays', hinglish: 'Nibandh', bn: 'রচনা' }], ['/speech/', { hi: 'भाषण', en: 'Speeches', hinglish: 'Bhashan', bn: 'বক্তৃতা' }], ['/kahani/', { hi: 'कहानियाँ', en: 'Stories', hinglish: 'Kahaniyan', bn: 'গল্প' }], ['/kids/', { hi: 'बच्चों की पढ़ाई', en: 'Kids learning', hinglish: 'Bachchon ki padhai', bn: 'ছোটদের পড়া' }], ['/nuskhe/', { hi: 'घरेलू नुस्खे', en: 'Home remedies', hinglish: 'Gharelu nuskhe', bn: 'ঘরোয়া টোটকা' }], ['/surya-namaskar/', { hi: 'सूर्य नमस्कार', en: 'Surya Namaskar', hinglish: 'Surya Namaskar', bn: 'সূর্য নমস্কার' }]]],
   [{ hi: 'त्योहार', en: 'Festivals', hinglish: 'Tyohaar', bn: 'উৎসব' }, [['/festivals/', { hi: 'सभी त्योहार', en: 'All festivals', hinglish: 'Sabhi tyohaar', bn: 'সব উৎসব' }], ['/calendar/2027/', { hi: 'कैलेंडर 2027', en: 'Calendar 2027', hinglish: 'Calendar 2027', bn: 'ক্যালেন্ডার ২০২৭' }], ['/wishes/', { hi: 'शुभकामनाएँ', en: 'Wishes', hinglish: 'Wishes', bn: 'শুভেচ্ছা' }], ['/wish-card/', { hi: 'बधाई कार्ड', en: 'Wish card', hinglish: 'Wish card', bn: 'শুভেচ্ছা কার্ড' }]]],
   [{ hi: 'खेल और ऐप', en: 'Games and apps', hinglish: 'Games aur apps', bn: 'গেম আর অ্যাপ' }, [['/games/', { hi: 'ऑनलाइन गेम्स', en: 'Online games', hinglish: 'Online games', bn: 'অনলাইন গেম' }], ['https://desi-games.nextgrade.in/', { hi: 'देसी गेम्स ऐप', en: 'Desi Games app', hinglish: 'Desi Games app', bn: 'দেশি গেমস অ্যাপ' }, false], ['/apps/', { hi: 'ऐप्स', en: 'Apps', hinglish: 'Apps', bn: 'অ্যাপ' }]]],
 ];
@@ -232,7 +234,7 @@ const menuFor = (L) => {
     [M.fest, [['/festivals/', M.festivals], [`/festivals/${LIST_YEAR}/`, M.dates(LIST_YEAR)], [`/calendar/${CAL_YEAR}/`, CT[L.code].nav], ['/wishes/', M.wishes], ['/wish-card/', M.card], ...(SHAADI_LIVE ? [['/shaadi-card/', M.shaadiCard]] : []), ...(NAAM_LIVE ? [['/naam-wali-image/', M.naamImg]] : []), ['/islamic-calendar/', M.islamic]]],
     [M.games, [['/games/', M.allGames], ...(KHEL.length ? [['/khel/', M.khel]] : [])]],
     [M.kids, [['/kids/', M.kidsAll], ...KIDS_SETS.slice(0, 8).map((s) => [`/kids/${s.slug}/`, s.name[L.code] || s.name.en])]],
-    [M.tools, [...(tools.length ? [['/tools/', M.allTools]] : []), ...(CALCS.length ? [['/calculator/', M.calc]] : []), ['/mausam/', WT[L.code].nav], ['/ghoomne-ki-jagah/', TT[L.code].nav], ['/nuskhe/', NUSKHE_UI[L.code].menu], ['/apps/', M.apps]]],
+    [M.tools, [...(tools.length ? [['/tools/', M.allTools]] : []), ...(CALCS.length ? [['/calculator/', M.calc]] : []), ['/mausam/', WT[L.code].nav], ['/ghoomne-ki-jagah/', TT[L.code].nav], ['/nuskhe/', NUSKHE_UI[L.code].menu], ['/surya-namaskar/', { hi: 'सूर्य नमस्कार', en: 'Surya Namaskar', hinglish: 'Surya Namaskar', bn: 'সূর্য নমস্কার' }[L.code]], ['/apps/', M.apps]]],
   ];
   return groups.filter(([, items]) => items.length);
 };
@@ -679,6 +681,7 @@ ${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('\n')}
   buildWeather(L, { page, write, P, esc, T, breadcrumbLd });
   buildTravel(L, { page, write, P, esc, T, breadcrumbLd });
   buildNuskhe(L, { page, write, P, esc, T, breadcrumbLd, articleLd });
+  buildSurya(L, { page, write, P, esc, T, breadcrumbLd, articleLd });
   if (L.code === 'en') buildRegionalWishes(L, { page, write, esc, T, breadcrumbLd });
 
   // Festival pages
