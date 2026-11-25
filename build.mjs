@@ -1897,7 +1897,9 @@ document.addEventListener('click',function(e){document.querySelectorAll('.ngc de
     if (d.name !== 'index.html') return;
     let html = readFileSync(f, 'utf8');
     if (html.includes('ngc-top') || html.includes('<header class="site-head">') || !/<body[^>]*>/.test(html)) return; // site pages (e.g. /tools/, /games/) already have it
-    html = html.replace('</head>', `${css}\n</head>`).replace(/<body([^>]*)>/, `<body$1>\n${top}`).replace(/<\/body>(?![\s\S]*<\/body>)/, `${bottom}\n${js}\n</body>`);
+    const url = f.slice(OUT.length).replace(/index\.html$/, '').replace(/\\/g, '/');
+    const fix = (x) => x.replace(/"\/(en|hinglish|bn)\/__app__\/"/g, (_, l) => `"${url}?lang=${GAME[l]}"`).replace(/"\/__app__\/"/g, `"${url}?lang=${GAME.hi}"`); // language links point at this page
+    html = html.replace('</head>', `${css}\n</head>`).replace(/<body([^>]*)>/, `<body$1>\n${fix(top)}`).replace(/<\/body>(?![\s\S]*<\/body>)/, `${fix(bottom)}\n${js}\n</body>`);
     writeFileSync(f, html);
   });
   ['tools', 'games', 'celebrate'].forEach((d) => { if (existsSync(join(OUT, d))) walk(join(OUT, d)); });
