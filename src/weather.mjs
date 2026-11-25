@@ -7,6 +7,8 @@
  */
 import { CITIES, CLIMATE } from './weather-cities.mjs';
 import { PLACES } from './travel-places.mjs';
+import { sunTimes, hhmm } from './sun.mjs';
+const SUN_T = { hi: ['सूर्योदय और सूर्यास्त का समय', 'महीना (15 तारीख़)', 'सूर्योदय', 'सूर्यास्त', 'दिन की लंबाई', 'समय भारतीय मानक समय (IST) में, हिसाब से निकाला गया (पहाड़ों पर ±5 मिनट तक का अंतर हो सकता है)।', 'घंटे', 'आज'], en: ['Sunrise and sunset times', 'Month (15th)', 'Sunrise', 'Sunset', 'Day length', 'Times in IST, calculated (may differ by up to ±5 min, more in the hills).', 'h', 'Today'], hinglish: ['Sunrise aur sunset ka samay', 'Mahina (15 tareekh)', 'Sunrise', 'Sunset', 'Din ki lambaai', 'Samay IST mein, hisaab se nikaala gaya (pahaadon par ±5 minute tak ka antar ho sakta hai).', 'ghante', 'Aaj'], bn: ['সূর্যোদয় আর সূর্যাস্তের সময়', 'মাস (১৫ তারিখ)', 'সূর্যোদয়', 'সূর্যাস্ত', 'দিনের দৈর্ঘ্য', 'সময় ভারতীয় সময় (IST)-এ, হিসেব করে বের করা (পাহাড়ে ±৫ মিনিট পর্যন্ত তফাত হতে পারে)।', 'ঘণ্টা', 'আজ'] };
 const TRAVEL = Object.fromEntries(PLACES.map(([s, , text]) => [s, text]));
 const TRAVEL_T = { hi: ['घूमने के लिए', 'किस महीने कहाँ घूमें →'], en: ['For travellers', 'Where to go in which month →'], hinglish: ['Ghoomne ke liye', 'Kis mahine kahan ghoomein →'], bn: ['বেড়াতে গেলে', 'কোন মাসে কোথায় যাবেন →'] };
 
@@ -43,7 +45,7 @@ export const WT = {
     search: 'शहर का नाम लिखें…', near: '📍 मेरे शहर का मौसम', nearWait: 'आपकी जगह ढूँढ रहे हैं…', nearErr: 'जगह नहीं मिल पाई — नीचे से अपना शहर चुनें।',
     popular: 'बड़े शहर', byState: 'राज्य के हिसाब से शहर', tourH: 'घूमने की जगहें',
     title: (n, en) => `${n} का मौसम आज — ${en} Weather Today, कल और 10 दिन का मौसम | NextGrade`,
-    desc: (n) => `${n} का आज का मौसम: अभी का तापमान, आज-कल बारिश होगी या नहीं, छाता ले जाएँ या नहीं, घंटे-घंटे का और 10 दिन का पूर्वानुमान। साथ में ${n} का महीनेवार औसत तापमान और बारिश।`,
+    desc: (n) => `${n} का आज का मौसम: अभी का तापमान, आज-कल बारिश होगी या नहीं, छाता ले जाएँ या नहीं, घंटे-घंटे का और 10 दिन का पूर्वानुमान। साथ में ${n} का सूर्योदय-सूर्यास्त का समय और महीनेवार औसत तापमान व बारिश।`,
     h1: (n) => `🌦️ ${n} का मौसम आज`,
     lead: (n, st) => `${n} (${st}) का अभी का मौसम, आज और कल का हाल, और अगले 10 दिन का पूर्वानुमान — हर घंटे अपडेट।`,
     climH: (n) => `${n} का महीनेवार मौसम (औसत)`,
@@ -70,7 +72,7 @@ export const WT = {
     search: 'Sheher ka naam likhein…', near: '📍 Mere sheher ka mausam', nearWait: 'Aapki location dhoondh rahe hain…', nearErr: 'Location nahi mili — neeche se apna sheher chunein.',
     popular: 'Bade sheher', byState: 'State ke hisaab se sheher', tourH: 'Ghoomne ki jagahein',
     title: (n) => `${n} ka Mausam Aaj — ${n} Weather Today, Kal aur 10 Din ka Mausam | NextGrade`,
-    desc: (n) => `${n} ka aaj ka mausam: abhi ka temperature, aaj-kal baarish hogi ya nahi, chhata le jaayein ya nahi, hourly aur 10 din ka forecast. Saath mein ${n} ka mahine-war average temperature aur baarish.`,
+    desc: (n) => `${n} ka aaj ka mausam: abhi ka temperature, aaj-kal baarish hogi ya nahi, chhata le jaayein ya nahi, hourly aur 10 din ka forecast. Saath mein ${n} ka sunrise-sunset time aur mahine-war average temperature aur baarish.`,
     h1: (n) => `🌦️ ${n} ka Mausam Aaj`,
     lead: (n, st) => `${n} (${st}) ka abhi ka mausam, aaj aur kal ka haal, aur agle 10 din ka forecast — har ghante update.`,
     climH: (n) => `${n} ka mahine-war mausam (average)`,
@@ -97,7 +99,7 @@ export const WT = {
     search: 'Type a city name…', near: '📍 Weather where I am', nearWait: 'Finding your location…', nearErr: 'Could not find your location — pick your city below.',
     popular: 'Big cities', byState: 'Cities by state', tourH: 'Travel destinations',
     title: (n) => `${n} Weather Today — Tomorrow, Rain and 10-Day Forecast | NextGrade`,
-    desc: (n) => `${n} weather today: current temperature, will it rain today or tomorrow, do you need an umbrella, hourly and 10-day forecast — plus ${n}'s month-by-month average temperature and rainfall.`,
+    desc: (n) => `${n} weather today: current temperature, will it rain today or tomorrow, do you need an umbrella, hourly and 10-day forecast — plus sunrise and sunset times and ${n}'s month-by-month average temperature and rainfall.`,
     h1: (n) => `🌦️ ${n} Weather Today`,
     lead: (n, st) => `Current weather in ${n} (${st}), today and tomorrow, and the next 10 days — updated every hour.`,
     climH: (n) => `${n} weather by month (averages)`,
@@ -183,6 +185,12 @@ ${states.map((s) => `<div class="wx-state"><h3>${esc(stateName(code, s))}</h3><u
     scripts: ['/assets/weather.js'],
   }));
 
+  const sunTable = (c) => {
+    const S = SUN_T[code], y = new Date(Date.now() + 5.5 * 3600e3).getUTCFullYear();
+    const today = new Date(Date.now() + 5.5 * 3600e3).toISOString().slice(0, 10), tt = sunTimes(c.lat, c.lon, today);
+    const rows = [...Array(12)].map((_, m) => { const t = sunTimes(c.lat, c.lon, `${y}-${String(m + 1).padStart(2, '0')}-15`); return t ? `<tr data-m="${m}"><td>${esc(monthName(code, m))}</td><td>${hhmm(t[0])}</td><td>${hhmm(t[1])}</td><td>${((t[1] - t[0]) / 60).toFixed(1)} ${esc(S[6])}</td></tr>` : ''; }).join('');
+    return `<h2 id="sun">🌅 ${esc(cityName(code, c))}: ${esc(S[0])}</h2>${tt ? `<p class="lead" id="sun-today" data-lat="${c.lat}" data-lon="${c.lon}"><b>${esc(S[7])}:</b> ${esc(S[2])} ${hhmm(tt[0])} · ${esc(S[3])} ${hhmm(tt[1])}</p>` : ''}<div class="table-wrap"><table class="wx-clim"><tr><th>${esc(S[1])}</th><th>${esc(S[2])}</th><th>${esc(S[3])}</th><th>${esc(S[4])}</th></tr>${rows}</table></div><p class="note">${esc(S[5])}</p>`;
+  };
   // city pages
   for (const c of CITIES) {
     const path = `${hub}${c.slug}/`, n = name(c), st = stateName(code, c.state), cl = CLIMATE[c.slug];
@@ -215,6 +223,7 @@ ${states.map((s) => `<div class="wx-state"><h3>${esc(stateName(code, s))}</h3><u
 ${TRAVEL[c.slug] ? `<h2>🧳 ${esc(TRAVEL_T[code][0])}</h2><p>${esc(TRAVEL[c.slug][code])} <a href="${P(L, '/ghoomne-ki-jagah/')}">${esc(TRAVEL_T[code][1])}</a></p>` : ''}
 ${aboutP}
 ${climate}
+${sunTable(c)}
 <h2>${esc(W.nearH)}</h2>
 <p class="chips">${near.map((x) => `<a class="tag" href="${P(L, `${hub}${x.slug}/`)}">${esc(name(x))}</a>`).join(' ')} <a class="tag" href="${P(L, hub)}">${esc(W.allH)} →</a></p>
 ${faqList.length ? `<h2>${esc(W.faqH)}</h2>${faqList.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('\n')}` : ''}
