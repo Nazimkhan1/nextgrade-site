@@ -1905,6 +1905,21 @@ document.addEventListener('click',function(e){document.querySelectorAll('.ngc de
   ['tools', 'games', 'celebrate'].forEach((d) => { if (existsSync(join(OUT, d))) walk(join(OUT, d)); });
 }
 
+// Old language-prefixed URLs of single-URL apps (e.g. /en/games/patang/ — 404 in Search Console, 25 Nov):
+// a tiny redirect page to /games/patang/?lang=en (GitHub Pages has no server redirects), noindex + canonical.
+['games', 'celebrate', 'tools'].forEach((dir) => {
+  if (!existsSync(join(OUT, dir))) return;
+  readdirSync(join(OUT, dir), { withFileTypes: true }).filter((d) => d.isDirectory() && existsSync(join(OUT, dir, d.name, 'index.html'))).forEach((d) => {
+    LANGS.filter((L) => L.prefix).forEach((L) => {
+      const f = join(OUT, L.prefix.slice(1), dir, d.name, 'index.html');
+      if (existsSync(f)) return; // a real page lives there
+      const to = `/${dir}/${d.name}/?lang=${L.game}`;
+      mkdirSync(dirname(f), { recursive: true });
+      writeFileSync(f, `<!doctype html><html lang="${L.html}"><head><meta charset="utf-8"><title>NextGrade</title><meta name="robots" content="noindex"><link rel="canonical" href="${SITE}/${dir}/${d.name}/"><meta http-equiv="refresh" content="0; url=${to}"><script>location.replace(${JSON.stringify(to)}+location.hash)</script></head><body><a href="${to}">${SITE}${to}</a></body></html>\n`);
+    });
+  });
+});
+
 // Cloudflare Web Analytics beacon on every page (only when a token is set)
 if (CF_BEACON) {
   const tag = `<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "${CF_BEACON}"}'></script><!-- End Cloudflare Web Analytics -->`;
@@ -1913,7 +1928,7 @@ if (CF_BEACON) {
     if (d.isDirectory()) { walk(f); return; }
     if (!d.name.endsWith('.html')) return;
     const html = readFileSync(f, 'utf8');
-    if (!html.includes('cloudflareinsights.com') && html.includes('</head>')) writeFileSync(f, html.replace('</head>', `${tag}\n</head>`));
+    if (!html.includes('cloudflareinsights.com') && html.includes('</head>') && !html.includes('http-equiv="refresh"')) writeFileSync(f, html.replace('</head>', `${tag}\n</head>`));
   });
   walk(OUT);
 }
@@ -1928,7 +1943,7 @@ if (GA_ID) {
     if (d.isDirectory()) { walk(f); return; }
     if (!d.name.endsWith('.html')) return;
     const html = readFileSync(f, 'utf8');
-    if (!html.includes(`gtag/js?id=${GA_ID}`) && /<head[^>]*>/.test(html)) writeFileSync(f, html.replace(/<head[^>]*>/, (h) => `${h}\n${tag}`));
+    if (!html.includes(`gtag/js?id=${GA_ID}`) && !html.includes('http-equiv="refresh"') && /<head[^>]*>/.test(html)) writeFileSync(f, html.replace(/<head[^>]*>/, (h) => `${h}\n${tag}`));
   });
   walk(OUT);
 }
