@@ -293,7 +293,7 @@ export const CG = {
 
 export function buildCreatorGuide(L, { page, write, P, esc, T, breadcrumbLd }) {
   const code = L.code, X = CG[code], hub = '/creator-guide/';
-  const css = '<style>.cg-step{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin:14px 0;box-shadow:var(--shadow)}.cg-step h2{margin:0 0 6px;font-size:20px}.cg-step .n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;font-size:15px;margin-right:8px}.cg-step ul{margin:6px 0}.cg-change{background:#fff4e6;border-left:4px solid #e8590c;padding:12px 16px;border-radius:12px;color:#5c3b1a}</style>';
+  const css = '<style>section.cg-step{padding:16px 18px}.cg-step{background:var(--surface);border:1px solid var(--line);border-radius:16px;margin:14px 0;box-shadow:var(--shadow)}.cg-step h2{margin:0 0 6px;font-size:20px}.cg-step .n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;font-size:15px;margin-right:8px}.cg-step ul{margin:6px 0}.cg-change{background:#fff4e6;border-left:4px solid #e8590c;padding:12px 16px;border-radius:12px;color:#5c3b1a}</style>';
   write(L, hub, page(L, {
     path: hub, title: X.hubTitle, description: X.hubDesc,
     jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [X.nav, hub]])],

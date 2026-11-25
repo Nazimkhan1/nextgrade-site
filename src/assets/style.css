@@ -278,7 +278,7 @@ section > h2:first-child, .sec-h { display: flex; align-items: center; gap: 8px;
   h2 { font-size: 22px; }
 }
 .card .tag { justify-self: start; }
-main > .wrap > section { padding: 10px 0; }
+main > .wrap > section:not([class]) { padding: 10px 0; }
 main > .wrap > section > h2:first-child { margin-top: 22px; }
 /* utility-site look: one brand colour + 3 calm accents, SVG icons, search, footer columns */
 .tile i { color: var(--ic, var(--brand)); background: color-mix(in srgb, var(--ic, var(--brand)) 12%, var(--surface)); }
