@@ -1814,6 +1814,7 @@ const lastmodFor = (url) => {
   if (['/', '/games/', '/kahani/'].includes(path)) return [CONTENT_DATE, lastRelease].sort().pop();
   // sections added later: the date they first went live (25–26 Nov 2026); daily pages change every day
   if (['/aaj/', '/purnima/', '/amavasya/', '/ekadashi/'].includes(path)) return todayIST();
+  if (path.startsWith('/currency/')) return todayIST(); // rates change daily
   const sec = { '/mausam/': '2026-11-25', '/ghoomne-ki-jagah/': '2026-11-25', '/nuskhe/': '2026-11-25', '/surya-namaskar/': '2026-11-25', '/creator-guide/': '2026-11-25', '/calculator/youtube-earning/': '2026-11-25', '/sarkari-guide/': '2026-11-26', '/pranayam/': '2026-11-26', '/tools/photo-frame/': '2026-11-25' };
   for (const [pre, d] of Object.entries(sec)) if (path.startsWith(pre)) return d;
   if (/^\/wishes\/(marathi|gujarati|tamil|telugu|kannada|malayalam|punjabi|odia)\//.test(path)) return '2026-11-25';
