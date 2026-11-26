@@ -45,6 +45,7 @@ import { buildAaj, AAJ_NAV } from './src/aaj.mjs';
 import { GROUPS as BDAY, UI as BDAY_UI } from './src/birthday-pairs.mjs';
 import { buildNumberWords, browserScript as nwScript, NW_NAV } from './src/numwords.mjs';
 import { buildDesiNaap, DN_NAV } from './src/desi-naap.mjs';
+import { buildRto, RTO_NAV } from './src/rto.mjs';
 import { CAL_YEAR, MONTH_SLUGS as SLUG_M, NATIONAL, HOLIDAY_SLUGS, WDS, CT, hijriStarts } from './src/calendar.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
@@ -111,6 +112,7 @@ const firstSentence = (s) => (String(s).match(/^.*?[।.!?](\s|$)/) || [s])[0].t
 
 // Home: "New and trending" links (user 24 Nov: new pages should be linked from the home page for Google)
 const HOME_NEW = [
+  ['/rto/', '🚗', { hi: 'RTO कोड — गाड़ी नंबर कहाँ का', en: 'RTO codes — where is a number from', hinglish: 'RTO code — gaadi number kahan ka', bn: 'RTO কোড — গাড়ির নম্বর কোথাকার' }, true],
   ['/desi-naap/1-tola-in-gram/', '⚖️', { hi: '1 तोला कितने ग्राम', en: '1 tola in grams', hinglish: '1 tola kitne gram', bn: '১ ভরি কত গ্রাম' }, true],
   ['/number-in-words/', '🔢', { hi: 'नंबर शब्दों में (चेक)', en: 'Number to words (cheque)', hinglish: 'Number in words', bn: 'সংখ্যা কথায়' }, true],
   ['/aaj/', '☀️', { hi: 'आज का दिन + शुभ प्रभात इमेज', en: 'Today + Good Morning image', hinglish: 'Aaj ka din + Good Morning image', bn: 'আজকের দিন + শুভ সকাল ছবি' }, true],
@@ -250,7 +252,7 @@ const menuFor = (L) => {
     [M.fest, [['/festivals/', M.festivals], [`/festivals/${LIST_YEAR}/`, M.dates(LIST_YEAR)], [`/calendar/${CAL_YEAR}/`, CT[L.code].nav], ['/wishes/', M.wishes], ['/wish-card/', M.card], ...(SHAADI_LIVE ? [['/shaadi-card/', M.shaadiCard]] : []), ...(NAAM_LIVE ? [['/naam-wali-image/', M.naamImg]] : []), ['/islamic-calendar/', M.islamic]]],
     [M.games, [['/games/', M.allGames], ...(KHEL.length ? [['/khel/', M.khel]] : [])]],
     [M.kids, [['/kids/', M.kidsAll], ...KIDS_SETS.slice(0, 8).map((s) => [`/kids/${s.slug}/`, s.name[L.code] || s.name.en])]],
-    [M.tools, [...(tools.length ? [['/tools/', M.allTools]] : []), ...(CALCS.length ? [['/calculator/', M.calc]] : []), ['/mausam/', WT[L.code].nav], ['/sarkari-guide/', SARKARI_NAV[L.code]], ['/number-in-words/', NW_NAV[L.code]], ['/desi-naap/', DN_NAV[L.code]], ['/ghoomne-ki-jagah/', TT[L.code].nav], ['/nuskhe/', NUSKHE_UI[L.code].menu], ['/surya-namaskar/', { hi: 'सूर्य नमस्कार', en: 'Surya Namaskar', hinglish: 'Surya Namaskar', bn: 'সূর্য নমস্কার' }[L.code]], ['/pranayam/', PRANAYAM_NAV[L.code]], ['/apps/', M.apps]]],
+    [M.tools, [...(tools.length ? [['/tools/', M.allTools]] : []), ...(CALCS.length ? [['/calculator/', M.calc]] : []), ['/mausam/', WT[L.code].nav], ['/sarkari-guide/', SARKARI_NAV[L.code]], ['/number-in-words/', NW_NAV[L.code]], ['/desi-naap/', DN_NAV[L.code]], ['/rto/', RTO_NAV[L.code]], ['/ghoomne-ki-jagah/', TT[L.code].nav], ['/nuskhe/', NUSKHE_UI[L.code].menu], ['/surya-namaskar/', { hi: 'सूर्य नमस्कार', en: 'Surya Namaskar', hinglish: 'Surya Namaskar', bn: 'সূর্য নমস্কার' }[L.code]], ['/pranayam/', PRANAYAM_NAV[L.code]], ['/apps/', M.apps]]],
   ];
   return groups.filter(([, items]) => items.length);
 };
@@ -704,6 +706,7 @@ ${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('\n')}
   buildPranayam(L, { page, write, P, esc, T, breadcrumbLd });
   buildNumberWords(L, { page, write, P, esc, T, breadcrumbLd });
   buildDesiNaap(L, { page, write, P, esc, T, breadcrumbLd });
+  buildRto(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildAaj(L, { page, write, P, esc, T, breadcrumbLd, festName: (slug, LL) => { const f = allFestivals.find((z) => z.slug === slug); return f ? lf(f, LL).name : null; } });
   if (L.code === 'en') buildRegionalWishes(L, { page, write, esc, T, breadcrumbLd });
 
@@ -1821,7 +1824,7 @@ LANGS.forEach((L) => {
 const allUrls = [...urls, ...gameUrls, ...CELEBRATE.map((c) => `/celebrate/${c.slug}/`), ...tools.flatMap((tl) => [`/tools/${tl.slug}/`, ...(tl.pages || []).map((pg) => `/tools/${tl.slug}/${pg}/`)])];
 // Sitemap index (sitemap.xml) + one sitemap per section, so Search Console shows indexing per section (plan Q, 26 Nov)
 {
-  const GROUPS = [['mausam', ['mausam']], ['travel', ['ghoomne-ki-jagah']], ['kids', ['kids']], ['stories', ['kahani']], ['study', ['nibandh', 'speech', 'paheliyan', 'full-form', 'naam']], ['festivals', ['festivals', 'wishes', 'wish-card', 'calendar', 'celebrate', 'naam-wali-image', 'islamic-calendar', 'shaadi-card', 'aaj', 'purnima', 'amavasya', 'ekadashi']], ['tools', ['tools', 'calculator']], ['games', ['games', 'khel', 'apps']], ['guides', ['sarkari-guide', 'creator-guide', 'pranayam', 'surya-namaskar', 'nuskhe']]];
+  const GROUPS = [['mausam', ['mausam']], ['travel', ['ghoomne-ki-jagah']], ['kids', ['kids']], ['stories', ['kahani']], ['study', ['nibandh', 'speech', 'paheliyan', 'full-form', 'naam']], ['festivals', ['festivals', 'wishes', 'wish-card', 'calendar', 'celebrate', 'naam-wali-image', 'islamic-calendar', 'shaadi-card', 'aaj', 'purnima', 'amavasya', 'ekadashi']], ['games', ['games', 'khel', 'apps']], ['guides', ['sarkari-guide', 'creator-guide', 'pranayam', 'surya-namaskar', 'nuskhe']], ['rto', ['rto']], ['tools', ['tools', 'calculator', 'number-in-words', 'desi-naap']]];
   const groupOf = (u) => { const seg = u.replace(/^\/(en|hinglish|bn)(?=\/)/, '').split('/')[1] || ''; const g = GROUPS.find(([, segs]) => segs.includes(seg)); return g ? g[0] : 'pages'; };
   const by = {};
   allUrls.forEach((u) => (by[groupOf(u)] ||= []).push(u));
