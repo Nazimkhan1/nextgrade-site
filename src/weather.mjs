@@ -189,7 +189,7 @@ ${states.map((s) => `<div class="wx-state"><h3>${esc(stateName(code, s))}</h3><u
     const S = SUN_T[code], y = new Date(Date.now() + 5.5 * 3600e3).getUTCFullYear();
     const today = new Date(Date.now() + 5.5 * 3600e3).toISOString().slice(0, 10), tt = sunTimes(c.lat, c.lon, today);
     const rows = [...Array(12)].map((_, m) => { const t = sunTimes(c.lat, c.lon, `${y}-${String(m + 1).padStart(2, '0')}-15`); return t ? `<tr data-m="${m}"><td>${esc(monthName(code, m))}</td><td>${hhmm(t[0])}</td><td>${hhmm(t[1])}</td><td>${((t[1] - t[0]) / 60).toFixed(1)} ${esc(S[6])}</td></tr>` : ''; }).join('');
-    return `<h2 id="sun">🌅 ${esc(cityName(code, c))}: ${esc(S[0])}</h2>${tt ? `<p class="lead" id="sun-today" data-lat="${c.lat}" data-lon="${c.lon}"><b>${esc(S[7])}:</b> ${esc(S[2])} ${hhmm(tt[0])} · ${esc(S[3])} ${hhmm(tt[1])}</p>` : ''}<div class="table-wrap"><table class="wx-clim"><tr><th>${esc(S[1])}</th><th>${esc(S[2])}</th><th>${esc(S[3])}</th><th>${esc(S[4])}</th></tr>${rows}</table></div><p class="note">${esc(S[5])}</p>`;
+    return `<h2 id="sun">🌅 ${esc(cityName(code, c))}: ${esc(S[0])}</h2>${tt ? `<p class="lead" id="sun-today" data-lat="${c.lat}" data-lon="${c.lon}"><b>${esc(S[7])}:</b> ${esc(S[2])} ${hhmm(tt[0])} · ${esc(S[3])} ${hhmm(tt[1])}</p>` : ''}<div class="table-wrap"><table class="wx-clim"><tr><th>${esc(S[1])}</th><th>${esc(S[2])}</th><th>${esc(S[3])}</th><th>${esc(S[4])}</th></tr>${rows}</table></div><p class="note">${esc(S[5])} <a href="${P(L, '/sunrise-sunset/')}">🌅 ${esc({ hi: 'दूसरे शहरों से तुलना करें →', en: 'Compare with other cities →', hinglish: 'Doosre shehron se tulna karein →', bn: 'অন্য শহরের সঙ্গে তুলনা করুন →' }[code])}</a></p>`;
   };
   // city pages
   for (const c of CITIES) {
