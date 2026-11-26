@@ -293,6 +293,7 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [10 gram in tola](https://nextgrade.in/en/desi-naap/10-gram-in-tola/)
 - [House construction cost calculator (cement, steel, bricks)](https://nextgrade.in/en/ghar-banane-ka-kharcha/)
 - [Rooftop solar calculator — size, PM Surya Ghar subsidy, savings](https://nextgrade.in/en/solar-calculator/)
+- [Bangla (Bengali) date today — West Bengal panjika and Bangladesh calendar, converter](https://nextgrade.in/en/bangla-tarikh/)
 - [Inverter and battery size calculator](https://nextgrade.in/en/inverter-calculator/)
 - [YouTube / creator earning calculator](https://nextgrade.in/en/calculator/youtube-earning/)
 - [Sunrise and sunset — compare any two Indian cities](https://nextgrade.in/en/sunrise-sunset/)

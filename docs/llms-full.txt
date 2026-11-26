@@ -34,6 +34,32 @@
 - Cost per sq ft: basic ₹1600–1900, standard ₹1900–2400, premium ₹2500–3500 (without land/interiors) — https://nextgrade.in/en/ghar-banane-ka-kharcha/
 - Per sq ft of built-up area: cement 0.4 bag, steel 4 kg, bricks 8, sand 1.816 cft, aggregate 1.35 cft, paint 0.18 L, tiles 1.3 sq ft
 
+## Bengali calendar (Bangabda) — month start dates in West Bengal (day after sankranti, Lahiri)
+
+- Boishakh 1433: 2026-04-15
+- Joishtho 1433: 2026-05-16
+- Asharh 1433: 2026-06-16
+- Shrabon 1433: 2026-07-17
+- Bhadro 1433: 2026-08-18
+- Ashwin 1433: 2026-09-18
+- Kartik 1433: 2026-10-18
+- Agrahayan 1433: 2026-11-17
+- Poush 1433: 2026-12-17
+- Magh 1433: 2027-01-15
+- Falgun 1433: 2027-02-14
+- Chaitra 1433: 2027-03-16
+- Boishakh 1434: 2027-04-15
+- Joishtho 1434: 2027-05-16
+- Asharh 1434: 2027-06-16
+- Shrabon 1434: 2027-07-18
+- Bhadro 1434: 2027-08-18
+- Ashwin 1434: 2027-09-18
+- Kartik 1434: 2027-10-19
+- Agrahayan 1434: 2027-11-18
+- Poush 1434: 2027-12-17
+- Magh 1434: 2028-01-16
+- Bangladesh (revised 2019): 1 Boishakh = 14 April; Boishakh–Ashwin 31 days, Kartik–Magh 30, Falgun 29 (30 in leap year), Chaitra 30 — https://nextgrade.in/en/bangla-tarikh/
+
 ## Rooftop solar (PM Surya Ghar subsidy, checked 26 Nov 2026)
 
 - Central subsidy, residential: ₹30,000/kW for the first 2 kW + ₹18,000 for the 3rd kW → 1 kW ₹30,000, 2 kW ₹60,000, 3 kW+ ₹78,000 (cap); special category states ₹33,000 + ₹19,800 (max ₹85,800). Apply only at pmsuryaghar.gov.in — https://nextgrade.in/en/solar-calculator/
