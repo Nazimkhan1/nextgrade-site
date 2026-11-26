@@ -244,7 +244,7 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
     </div>
   </div>
 
-  <section class="info"><h2 data-t="pagesH">सीधे इस QR के लिए</h2><div class="sizes" id="pageLinks"><a href="./upi/?lang=hi">UPI QR कोड<small>दुकान या अपने लिए पेमेंट QR</small></a><a href="./whatsapp/?lang=hi">WhatsApp QR<small>स्कैन करते ही चैट खुले</small></a><a href="./../land-converter/?lang=hi">📐 Land unit converter<small>bigha · katha · acre · gaj</small></a></div></section>
+  <section class="info"><h2 data-t="pagesH">सीधे इस QR के लिए</h2><div class="sizes" id="pageLinks"><a href="./upi/?lang=hi">UPI QR कोड<small>दुकान या अपने लिए पेमेंट QR</small></a><a href="./whatsapp/?lang=hi">WhatsApp QR<small>स्कैन करते ही चैट खुले</small></a><a href=".//tools/land-converter/?lang=hi">📐 Land unit converter<small>bigha · katha · acre · gaj</small></a></div></section>
   <section class="info" id="article"><h2>QR कोड क्या होता है?</h2><p>QR कोड एक चौकोर काला-सफ़ेद निशान है जिसके अंदर थोड़ा सा टेक्स्ट छिपा होता है — कोई लिंक, UPI पेमेंट की जानकारी, फ़ोन नंबर या Wi-Fi का पासवर्ड। फ़ोन का कैमरा इसे स्कैन करते ही समझ जाता है कि क्या करना है: वेबसाइट खोलनी है, पेमेंट की स्क्रीन दिखानी है, या Wi-Fi से जुड़ना है। इससे लंबी चीज़ें टाइप करने की ज़रूरत नहीं पड़ती और ग़लती भी नहीं होती।</p>
 <h2>कैसे बनाएँ — एक-एक क़दम</h2><ol><li>ऊपर चुनें कि QR किस चीज़ का चाहिए: UPI पेमेंट, वेबसाइट लिंक, टेक्स्ट, फ़ोन, WhatsApp या Wi-Fi।</li><li>जानकारी भरें। ग़लत फ़ॉर्मेट होगा तो लाल रंग में तुरंत बता दिया जाता है।</li><li>साइज़ चुनें। प्रिंट के लिए 1024 या 2048 px अच्छा है; WhatsApp पर भेजने के लिए 512 काफ़ी है।</li><li>चाहें तो रंग बदलें और नीचे एक लाइन लिखें, जैसे "स्कैन करके पे करें" या दुकान का नाम।</li><li><b>PNG</b> डाउनलोड करें (फ़ोटो जैसा, हर जगह चलता है) या <b>SVG</b> (कितना भी बड़ा प्रिंट करें, धुँधला नहीं होगा)। <b>शेयर</b> से सीधे भेज भी सकते हैं।</li></ol>
 <h2>कहाँ काम आता है — उदाहरण</h2><ul><li><b>दुकान का काउंटर:</b> UPI QR प्रिंट करके लगाएँ। ग्राहक स्कैन करके सीधे आपके खाते में पैसे भेजेगा।</li><li><b>घर या दफ़्तर का Wi-Fi:</b> मेहमान को पासवर्ड बोलने की जगह Wi-Fi QR दीवार पर लगा दें; स्कैन करते ही फ़ोन जुड़ जाता है।</li><li><b>विज़िटिंग कार्ड या पोस्टर:</b> WhatsApp QR लगाएँ ताकि लोग एक स्कैन में आपसे चैट शुरू कर सकें।</li><li><b>कार्यक्रम या क्लास:</b> फ़ॉर्म, वीडियो या लोकेशन का लिंक QR में डालकर नोटिस बोर्ड पर लगाएँ।</li></ul>
@@ -588,7 +588,7 @@ const applyLang = () => {
   const lk = t('links');
   $('pageLinks').innerHTML = (PAGE ? `<a href="${BASE}?lang=${lang}">🔳 ${esc(lk.main[0])}<small>${esc(lk.main[1])}</small></a>` : '')
     + PAGES.map((p) => `<a href="${BASE}${p}/?lang=${lang}"${PAGE && PAGE.slug === p ? ' class="here"' : ''}>${esc(lk[p][0])}<small>${esc(lk[p][1])}</small></a>`).join('')
-    + `<a href="${BASE}../land-converter/?lang=${lang}">📐 Land unit converter<small>bigha · katha · acre · gaj</small></a>`;
+    + `<a href="${BASE}/tools/land-converter/?lang=${lang}">📐 Land unit converter<small>bigha · katha · acre · gaj</small></a>`;
   const art = PAGE && PAGE.T[lang] && PAGE.T[lang].info ? PAGE.T[lang] : ART[lang];
   $('article').innerHTML = art.info;
   $('faqList').innerHTML = art.faq.map(([q, a]) => `<details class="faq"><summary>${q}</summary><p>${a}</p></details>`).join('');
