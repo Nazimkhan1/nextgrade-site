@@ -1,0 +1,1464 @@
+# NextGrade — fact sheet
+
+> Plain facts from nextgrade.in pages, refreshed 2026-11-26. Each line names the page with details. Free to quote with a link.
+
+## Indian traditional units (1 tola = 180 grains = 11.6638 g)
+
+- 1 Tola = 11.6638 g — https://nextgrade.in/en/desi-naap/
+- 1 Bhori (Bhari) = 11.6638 g — https://nextgrade.in/en/desi-naap/
+- 1 Masha = 0.972 g — https://nextgrade.in/en/desi-naap/
+- 1 Ratti = 0.1215 g — https://nextgrade.in/en/desi-naap/
+- 1 Chhatank = 58.319 g — https://nextgrade.in/en/desi-naap/
+- 1 Pav (old) = 233.2761 g — https://nextgrade.in/en/desi-naap/
+- 1 Seer = 933.1043 g — https://nextgrade.in/en/desi-naap/
+- 1 Maund (Man) = 37324.1722 g — https://nextgrade.in/en/desi-naap/
+- 1 Asharfi = about 11.6638 g — https://nextgrade.in/en/desi-naap/
+- 1 Gaj (yard) = 3.00 ft (0.9144 m) — https://nextgrade.in/en/desi-naap/
+- 1 Haath = about 1.50 ft (0.4572 m) — https://nextgrade.in/en/desi-naap/
+- 1 Balisht / span = about 0.75 ft (0.2286 m) — https://nextgrade.in/en/desi-naap/
+- 1 Kos = about 3.2 km — https://nextgrade.in/en/desi-naap/
+
+## Government services (checked dates on each page)
+
+- How to change your address in Aadhaar (online): Where — myAadhaar portal (from uidai.gov.in); You need — Mobile number linked to Aadhaar (for OTP); Fee — Shown on the portal — ₹75 at present as per UIDAI; Time — Usually a few days, up to 30 days. Official site: https://myaadhaar.uidai.gov.in/ — https://nextgrade.in/en/sarkari-guide/aadhaar-address-change/
+- How to link PAN with Aadhaar: Where — Income Tax e-filing portal (incometax.gov.in); Fee — ₹1,000 (late linking fee) — paid first; You need — PAN, Aadhaar, mobile linked to Aadhaar; Why — An unlinked PAN can become inoperative. Official site: https://www.incometax.gov.in/iec/foportal/ — https://nextgrade.in/en/sarkari-guide/pan-aadhaar-link/
+- How to get a new PAN card: Easiest — Instant e-PAN with Aadhaar — on incometax.gov.in, free; You need — Aadhaar + the mobile linked to it; Physical card — From Protean (NSDL) or UTIITSL — fee shown on the portal; Time — e-PAN in minutes to hours; card by post in a few weeks. Official site: https://www.incometax.gov.in/iec/foportal/ — https://nextgrade.in/en/sarkari-guide/pan-card-apply/
+- How to get an Ayushman card (PM-JAY): Where — beneficiary.nha.gov.in or the Ayushman App; Fee — Making the card is free; You need — Aadhaar + mobile (OTP); Helpline — 14555. Official site: https://beneficiary.nha.gov.in/ — https://nextgrade.in/en/sarkari-guide/ayushman-card/
+- How to download e-Aadhaar (Aadhaar PDF): Where — myAadhaar portal (from uidai.gov.in); Fee — Free; You need — Mobile linked to Aadhaar (OTP); PDF password — First 4 letters of name (CAPITALS) + birth year. Official site: https://myaadhaar.uidai.gov.in/ — https://nextgrade.in/en/sarkari-guide/e-aadhaar-download/
+- How to get a new voter ID (Form 6): Where — voters.eci.gov.in or the Voter Helpline app; Fee — Free; Who — Indian citizens aged 18 or above; Form — New name: Form 6 (living abroad: 6A). Official site: https://voters.eci.gov.in/ — https://nextgrade.in/en/sarkari-guide/voter-id-apply/
+- How to apply for a passport (online): Where — Passport Seva portal (passportindia.gov.in) / mPassport Seva app; Fee (36 pages) — Normal ₹2,500 · Tatkaal ₹5,000 (from 1 July 2026); 60 pages — Normal ₹3,500 · Tatkaal ₹6,000; Under 18 — 36 pages normal ₹1,750. Official site: https://www.passportindia.gov.in/ — https://nextgrade.in/en/sarkari-guide/passport-apply/
+- How to use DigiLocker: Where — digilocker.gov.in or the DigiLocker app; Fee — Free; You need — Mobile number + Aadhaar; Why — Official documents on your phone, valid like originals. Official site: https://www.digilocker.gov.in/ — https://nextgrade.in/en/sarkari-guide/digilocker/
+
+## House construction (thumb rules, Nov 2026 estimate)
+
+- Cost per sq ft: basic ₹1600–1900, standard ₹1900–2400, premium ₹2500–3500 (without land/interiors) — https://nextgrade.in/en/ghar-banane-ka-kharcha/
+- Per sq ft of built-up area: cement 0.4 bag, steel 4 kg, bricks 8, sand 1.816 cft, aggregate 1.35 cft, paint 0.18 L, tiles 1.3 sq ft
+
+## Number system
+
+- Indian system: 1 lakh = 1,00,000 (100 thousand); 10 lakh = 1 million; 1 crore = 1,00,00,000 (10 million); 100 crore = 1 billion — https://nextgrade.in/en/number-in-words/
+
+## Currency in Indian rupees (rates of 2026-11-26, ExchangeRate-API)
+
+- 1 USD (US Dollar) = ₹92.34 — https://nextgrade.in/en/currency/usd-to-inr/
+- 1 AED (UAE Dirham) = ₹25.14 — https://nextgrade.in/en/currency/aed-to-inr/
+- 1 SAR (Saudi Riyal) = ₹24.62 — https://nextgrade.in/en/currency/sar-to-inr/
+- 1 QAR (Qatari Riyal) = ₹25.37 — https://nextgrade.in/en/currency/qar-to-inr/
+- 1 KWD (Kuwaiti Dinar) = ₹296.30 — https://nextgrade.in/en/currency/kwd-to-inr/
+- 1 OMR (Omani Rial) = ₹240.15 — https://nextgrade.in/en/currency/omr-to-inr/
+- 1 BHD (Bahraini Dinar) = ₹245.58 — https://nextgrade.in/en/currency/bhd-to-inr/
+- 1 GBP (British Pound) = ₹120.71 — https://nextgrade.in/en/currency/gbp-to-inr/
+- 1 EUR (Euro) = ₹101.07 — https://nextgrade.in/en/currency/eur-to-inr/
+- 1 CAD (Canadian Dollar) = ₹64.78 — https://nextgrade.in/en/currency/cad-to-inr/
+- 1 AUD (Australian Dollar) = ₹60.97 — https://nextgrade.in/en/currency/aud-to-inr/
+- 1 SGD (Singapore Dollar) = ₹71.43 — https://nextgrade.in/en/currency/sgd-to-inr/
+- 1 MYR (Malaysian Ringgit) = ₹22.39 — https://nextgrade.in/en/currency/myr-to-inr/
+- 1 NPR (Nepalese Rupee) = ₹0.6250 — https://nextgrade.in/en/currency/npr-to-inr/
+- 1 BDT (Bangladeshi Taka) = ₹0.7361 — https://nextgrade.in/en/currency/bdt-to-inr/
+- 1 JPY (Japanese Yen) = ₹0.5795 — https://nextgrade.in/en/currency/jpy-to-inr/
+
+## Time difference from India (IST, UTC+5:30), today
+
+- Dubai (UAE): India is 1h 30m ahead — https://nextgrade.in/en/time/dubai/
+- Abu Dhabi: India is 1h 30m ahead — https://nextgrade.in/en/time/abu-dhabi/
+- Saudi Arabia (Riyadh, Jeddah, Makkah): India is 2h 30m ahead — https://nextgrade.in/en/time/saudi-arabia/
+- Qatar (Doha): India is 2h 30m ahead — https://nextgrade.in/en/time/qatar/
+- Kuwait: India is 2h 30m ahead — https://nextgrade.in/en/time/kuwait/
+- Oman (Muscat): India is 1h 30m ahead — https://nextgrade.in/en/time/oman/
+- Bahrain: India is 2h 30m ahead — https://nextgrade.in/en/time/bahrain/
+- London (UK): India is 5h 30m ahead — https://nextgrade.in/en/time/london/
+- New York (USA): India is 10h 30m ahead — https://nextgrade.in/en/time/new-york/
+- California (USA): India is 13h 30m ahead — https://nextgrade.in/en/time/california/
+- Toronto (Canada): India is 10h 30m ahead — https://nextgrade.in/en/time/toronto/
+- Sydney (Australia): India is 5h 30m behind — https://nextgrade.in/en/time/sydney/
+- Singapore: India is 2h 30m behind — https://nextgrade.in/en/time/singapore/
+- Malaysia (Kuala Lumpur): India is 2h 30m behind — https://nextgrade.in/en/time/malaysia/
+- Nepal (Kathmandu): India is 0h 15m behind — https://nextgrade.in/en/time/nepal/
+- Bangladesh (Dhaka): India is 0h 30m behind — https://nextgrade.in/en/time/bangladesh/
+- Japan (Tokyo): India is 3h 30m behind — https://nextgrade.in/en/time/japan/
+
+## Ekadashi, Purnima and Amavasya — next 12 months (udaya date for New Delhi; check local panchang)
+
+- 2026-12-04: Utpanna Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2026-12-08: Margashirsha Amavasya — https://nextgrade.in/en/amavasya/
+- 2026-12-20: Mokshada Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2026-12-23: Margashirsha Purnima — https://nextgrade.in/en/purnima/
+- 2027-01-03: Saphala Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-01-07: Paush Amavasya — https://nextgrade.in/en/amavasya/
+- 2027-01-19: Pausha Putrada Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-01-22: Paush Purnima — https://nextgrade.in/en/purnima/
+- 2027-02-02: Shattila Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-02-06: Magh Amavasya — https://nextgrade.in/en/amavasya/
+- 2027-02-17: Jaya Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-02-20: Magh Purnima — https://nextgrade.in/en/purnima/
+- 2027-03-03: Vijaya Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-03-08: Phalguna Amavasya — https://nextgrade.in/en/amavasya/
+- 2027-03-18: Amalaki Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-03-22: Phalguna Purnima — https://nextgrade.in/en/purnima/
+- 2027-04-02: Papmochani Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-04-06: Chaitra Amavasya — https://nextgrade.in/en/amavasya/
+- 2027-04-17: Kamada Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-04-20: Chaitra Purnima — https://nextgrade.in/en/purnima/
+- 2027-05-02: Varuthini Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-05-06: Vaishakha Amavasya — https://nextgrade.in/en/amavasya/
+- 2027-05-16: Mohini Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-05-20: Vaishakha Purnima — https://nextgrade.in/en/purnima/
+- 2027-06-01: Apara Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-06-04: Jyeshtha Amavasya — https://nextgrade.in/en/amavasya/
+- 2027-06-14: Nirjala Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-06-18: Jyeshtha Purnima — https://nextgrade.in/en/purnima/
+- 2027-06-30: Yogini Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-07-04: Ashadha Amavasya — https://nextgrade.in/en/amavasya/
+- 2027-07-14: Devshayani Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-07-18: Ashadha Purnima — https://nextgrade.in/en/purnima/
+- 2027-07-29: Kamika Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-08-02: Shravana Amavasya — https://nextgrade.in/en/amavasya/
+- 2027-08-12: Shravana Putrada Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-08-17: Shravana Purnima — https://nextgrade.in/en/purnima/
+- 2027-08-28: Aja Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-08-31: Bhadrapada Amavasya — https://nextgrade.in/en/amavasya/
+- 2027-09-11: Parivartini Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-09-15: Bhadrapada Purnima — https://nextgrade.in/en/purnima/
+- 2027-09-26: Indira Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-09-30: Ashwin Amavasya — https://nextgrade.in/en/amavasya/
+- 2027-10-11: Papankusha Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-10-15: Ashwin Purnima — https://nextgrade.in/en/purnima/
+- 2027-10-25: Rama Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-10-29: Kartik Amavasya — https://nextgrade.in/en/amavasya/
+- 2027-11-10: Devutthana (Prabodhini) Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-11-14: Kartik Purnima — https://nextgrade.in/en/purnima/
+- 2027-11-24: Utpanna Ekadashi — https://nextgrade.in/en/ekadashi/
+- 2027-11-28: Margashirsha Amavasya — https://nextgrade.in/en/amavasya/
+
+## Festival dates
+
+- 2026-12-25: Christmas — https://nextgrade.in/en/festivals/christmas/
+- 2027-01-01: New Year — https://nextgrade.in/en/festivals/new-year/
+- 2027-01-14: Lohri — https://nextgrade.in/en/festivals/lohri/
+- 2027-01-15: Makar Sankranti — https://nextgrade.in/en/festivals/makar-sankranti/
+- 2027-01-15: Guru Gobind Singh Jayanti — https://nextgrade.in/en/festivals/guru-gobind-singh-jayanti/
+- 2027-01-15: Pongal — https://nextgrade.in/en/festivals/pongal/
+- 2027-01-26: Republic Day — https://nextgrade.in/en/festivals/republic-day/
+- 2027-02-11: Vasant Panchami — https://nextgrade.in/en/festivals/vasant-panchami/
+- 2027-03-06: Maha Shivratri — https://nextgrade.in/en/festivals/maha-shivratri/
+- 2027-03-10: Eid ul-Fitr — https://nextgrade.in/en/festivals/eid-ul-fitr/
+- 2027-03-22: Holi — https://nextgrade.in/en/festivals/holi/
+- 2027-04-14: Baisakhi (Vaisakhi) — https://nextgrade.in/en/festivals/baisakhi/
+- 2027-04-15: Ram Navami — https://nextgrade.in/en/festivals/ram-navami/
+- 2027-05-17: Eid ul-Adha (Bakrid) — https://nextgrade.in/en/festivals/eid-ul-adha/
+- 2027-08-17: Raksha Bandhan — https://nextgrade.in/en/festivals/raksha-bandhan/
+- 2027-08-24: Janmashtami — https://nextgrade.in/en/festivals/janmashtami/
+- 2027-09-04: Ganesh Chaturthi — https://nextgrade.in/en/festivals/ganesh-chaturthi/
+- 2027-09-12: Onam — https://nextgrade.in/en/festivals/onam/
+- 2027-09-30: Navratri — https://nextgrade.in/en/festivals/navratri/
+- 2027-10-09: Dussehra (Vijayadashami) — https://nextgrade.in/en/festivals/dussehra/
+- 2027-10-29: Diwali — https://nextgrade.in/en/festivals/diwali/
+- 2027-11-04: Chhath Puja — https://nextgrade.in/en/festivals/chhath-puja/
+- 2027-11-14: Guru Nanak Jayanti — https://nextgrade.in/en/festivals/guru-nanak-jayanti/
+- 2027-12-25: Christmas — https://nextgrade.in/en/festivals/christmas/
+- 2028-01-01: New Year — https://nextgrade.in/en/festivals/new-year/
+
+## Vehicle RTO codes (from the public Wikipedia list; check parivahan.gov.in)
+
+- AP-02: Ananthapuramu District, Andhra Pradesh
+- AP-03: Chittoor District, Andhra Pradesh
+- AP-04: YSR Kadapa District, Andhra Pradesh
+- AP-05: East Godavari District (RTO was located in Kakinada, former district headquarters of undivided East Godavari District), Andhra Pradesh
+- AP-07: Guntur district, Andhra Pradesh
+- AP-16: Krishna District (RTO was located in Vijayawada, former district headquarters of undivided Krishna District), Andhra Pradesh
+- AP-21: Kurnool District, Andhra Pradesh
+- AP-26: Nellore District, Andhra Pradesh
+- AP-27: Prakasam District, Andhra Pradesh
+- AP-30: Srikakulam District, Andhra Pradesh
+- AP-31: Vishakhapatnam District (AP 32, AP 33, and AP 34 were also reserved for Vishakhapatnam, with only few vehicles getting these registrations.), Andhra Pradesh
+- AP-35: Vizianagaram District, Andhra Pradesh
+- AP-37: West Godavari District (RTO was located in Eluru, former district headquarters of undivided West Godavari District), Andhra Pradesh
+- AR-03: Tawang (Tawang district), Arunachal Pradesh
+- AR-04: Bomdila (West Kameng district), Arunachal Pradesh
+- AR-05: Seppa (East Kameng district), Arunachal Pradesh
+- AR-06: Ziro (Lower Subansiri district), Arunachal Pradesh
+- AR-07: Daporijo (Upper Subansiri district), Arunachal Pradesh
+- AR-08: Along (West Siang district), Arunachal Pradesh
+- AR-09: Pasighat (East Siang district), Arunachal Pradesh
+- AR-10: Anini (Dibang Valley district), Arunachal Pradesh
+- AR-11: Tezu (Lohit district), Arunachal Pradesh
+- AR-12: Changlang (Changlang district), Arunachal Pradesh
+- AR-13: Khonsa (Tirap district), Arunachal Pradesh
+- AR-14: Yingkiong (Upper Siang district), Arunachal Pradesh
+- AR-15: Koloriang (Kurung Kumey district), Arunachal Pradesh
+- AR-16: Roing (Dibang Valley district), Arunachal Pradesh
+- AR-17: Hawai (Anjaw district), Arunachal Pradesh
+- AR-19: Palin (Kra Daadi district), Arunachal Pradesh
+- AR-20: Namsai (Namsai district), Arunachal Pradesh
+- AR-22: Siji (Lower Siang district), Arunachal Pradesh
+- AS-01: Guwahati (Kamrup district), Assam
+- AS-02: Nagaon (Nagaon district), Assam
+- AS-03: Jorhat (Jorhat district), Assam
+- AS-04: Sivasagar (Sivasagar district), Assam
+- AS-05: Golaghat (Golaghat district), Assam
+- AS-06: Dibrugarh (Dibrugarh district), Assam
+- AS-07: Lakhimpur (Lakhimpur district), Assam
+- AS-08: Haflong (Dima Hasao district), Assam
+- AS-09: Karbi Anglong (Karbi Anglong district), Assam
+- AS-10: Karimganj (Karimganj district), Assam
+- AS-11: Silchar (Cachar district), Assam
+- AS-12: Tezpur (Sonitpur district), Assam
+- AS-13: Darrang (Darrang district), Assam
+- AS-14: Nalbari (Nalbari district), Assam
+- AS-15: Barpeta (Barpeta district), Assam
+- AS-16: Kokrajhar (Kokrajhar district), Assam
+- AS-17: Dhubri (Dhubri district), Assam
+- AS-18: Goalpara (Goalpara district), Assam
+- AS-19: Bongaigaon (Bongaigaon district), Assam
+- AS-20:  (entire Assam State), Assam
+- AS-21: Morigaon (Morigaon district), Assam
+- AS-22: Dhemaji (Dhemaji district), Assam
+- AS-23: Tinsukia (Tinsukia district), Assam
+- AS-24: Hailakandi (Hailakandi district), Assam
+- AS-25: Kamrup (Kamrup district), Assam
+- AS-26: Kajalgaon (Chirang district), Assam
+- AS-27: Udalguri (Udalguri district), Assam
+- AS-29: Majuli (Majuli district), Assam
+- AS-30: Assam Police, Assam
+- AS-31: Hojai (Hojai district), Assam
+- AS-32: Biswanath Chariali (Biswanath district), Assam
+- AS-33: Charaideo (Charaideo district), Assam
+- AS-34: Hatsingimari (South Salmara-Mankachar district), Assam
+- BR-01: Patna (Patna district), Bihar
+- BR-02: Gaya (Gaya district), Bihar
+- BR-03: Arrah (Bhojpur district), Bihar
+- BR-04: Chhapra (Saran district), Bihar
+- BR-05: Motihari (East Champaran district), Bihar
+- BR-06: Muzaffarpur (Muzaffarpur district), Bihar
+- BR-07: Darbhanga (Darbhanga district), Bihar
+- BR-08: Munger (Munger district), Bihar
+- BR-09: Begusarai (Begusarai district), Bihar
+- BR-10: Bhagalpur (Bhagalpur district), Bihar
+- BR-11: Purnia (Purnia district), Bihar
+- BR-19: Saharsa (Saharsa district), Bihar
+- BR-21: Bihar Sharif (Nalanda district), Bihar
+- BR-22: Bettiah (West Champaran district), Bihar
+- BR-24: Dehri (Rohtas district), Bihar
+- BR-25: Jehanabad (Jehanabad district), Bihar
+- BR-26: Aurangabad (Aurangabad district), Bihar
+- BR-27: Nawada (Nawada district), Bihar
+- BR-28: Gopalganj (Gopalganj district), Bihar
+- BR-29: Siwan (Siwan district), Bihar
+- BR-30: Sitamarhi (Sitamarhi district), Bihar
+- BR-31: Hajipur (Vaishali district), Bihar
+- BR-32: Madhubani (Madhubani district), Bihar
+- BR-33: Samastipur (Samastipur district), Bihar
+- BR-34: Khagaria (Khagaria district), Bihar
+- BR-37: Kishanganj (Kishanganj district), Bihar
+- BR-38: Araria (Araria district), Bihar
+- BR-39: Katihar (Katihar district), Bihar
+- BR-43: Madhepura (Madhepura district), Bihar
+- BR-44: Buxar (Buxar district), Bihar
+- BR-45: Bhabua (Kaimur district), Bihar
+- BR-46: Jamui (Jamui district), Bihar
+- BR-50: Supaul (Supaul district), Bihar
+- BR-51: Banka (Banka district), Bihar
+- BR-52: Sheikhpura (Sheikhpura district), Bihar
+- BR-53: Lakhisarai (Lakhisarai district), Bihar
+- BR-55: Sheohar (Sheohar district), Bihar
+- BR-56: Arwal (Arwal district), Bihar
+- CG-01:  (entire Chhattisgarh), Chhattisgarh
+- CG-02:  (entire Chhattisgarh), Chhattisgarh
+- CG-03:  (entire Chhattisgarh), Chhattisgarh
+- CG-04: Raipur (Raipur district), Chhattisgarh
+- CG-05: Dhamtari (Dhamtari district), Chhattisgarh
+- CG-06: Mahasamund (Mahasamund district), Chhattisgarh
+- CG-07: Durg (Durg district), Chhattisgarh
+- CG-08: Rajnandgaon (Rajnandgaon district), Chhattisgarh
+- CG-09: Kawardha (Kabirdham district), Chhattisgarh
+- CG-10: Bilaspur (Bilaspur district), Chhattisgarh
+- CG-11: Janjgir (Janjgir–Champa district), Chhattisgarh
+- CG-12: Korba (Korba district), Chhattisgarh
+- CG-13: Raigarh (Raigarh district), Chhattisgarh
+- CG-14: Jashpur Nagar (Jashpur district), Chhattisgarh
+- CG-15: Ambikapur (Surguja district), Chhattisgarh
+- CG-16: Baikunthpur (Koriya district), Chhattisgarh
+- CG-17: Jagdalpur (Bastar district), Chhattisgarh
+- CG-18: Dantewada (Dantewada district), Chhattisgarh
+- CG-19: Kanker (Kanker district), Chhattisgarh
+- CG-20: Bijapur (Bijapur district), Chhattisgarh
+- CG-21: Narayanpur (Narayanpur district), Chhattisgarh
+- CG-22: Baloda Bazar (Baloda Bazar district), Chhattisgarh
+- CG-23: Gariaband (Gariaband district), Chhattisgarh
+- CG-24: Balod (Balod district), Chhattisgarh
+- CG-25: Bemetara (Bemetara district), Chhattisgarh
+- CG-26: Sukma (Sukma district), Chhattisgarh
+- CG-27: Kondagaon (Kondagaon district), Chhattisgarh
+- CG-28: Mungeli (Mungeli district), Chhattisgarh
+- CG-29: Surajpur (Surajpur district), Chhattisgarh
+- CG-30: Balrampur (Balrampur district), Chhattisgarh
+- DD-01: Silvassa (Dadra and Nagar Haveli district), Dadra and Nagar Haveli and Daman and Diu
+- DD-02: Diu (Diu district), Dadra and Nagar Haveli and Daman and Diu
+- DD-03: Daman (Daman district), Dadra and Nagar Haveli and Daman and Diu
+- DL-01: Mall Road, Vishwavidyalaya (North Delhi District:), Delhi
+- DL-02: Indraprastha Depot (New Delhi District:), Delhi
+- DL-03: DDA Market, Sheikh Sarai (South Delhi District:), Delhi
+- DL-04: Janakpuri (West Delhi District I:), Delhi
+- DL-05: Loni Road, Shahdara (North East Delhi District:), Delhi
+- DL-06: ISBT Sarai Kale Khan (Central Delhi District:), Delhi
+- DL-07: DTC Depot, Mayur Vihar (East Delhi District-I:), Delhi
+- DL-08: DTC Depot, Wazirpur (North West Delhi District-I:), Delhi
+- DL-09: Sector-10, Dwarka (South West Delhi District-I:), Delhi
+- DL-10: Raja Garden (West Delhi District-II:), Delhi
+- DL-11: DTC Depot, Rohini (North West Delhi District-II:), Delhi
+- DL-12: DTC Depot, Vasant Vihar (South West Delhi District-II:), Delhi
+- DL-13: CBD Ground, Surajmal Vihar (East Delhi District-II:), Delhi
+- GA-01: Panaji (North Goa district), Goa
+- GA-02: Margao (South Goa district), Goa
+- GA-03: Mapusa (Bardez taluka), Goa
+- GA-04: Bicholim (Bicholim taluka, Sattari taluka), Goa
+- GA-05: Ponda (Ponda taluka), Goa
+- GA-06: Vasco da Gama (Mormugao taluka), Goa
+- GA-07: Panaji (Tiswadi taluka), Goa
+- GA-08: Margao (Salcette taluka), Goa
+- GA-09: Quepem (Quepem taluka, Sanguem taluka), Goa
+- GA-10: Canacona (Canacona taluka), Goa
+- GA-11: Pernem (Pernem taluka), Goa
+- GA-12: Dharbandora (Dharbandora taluka), Goa
+- GJ-01: Ahmedabad (West), Subhash Bridge (Covers parts of Ahmedabad City on the western bank of the Sabarmati River, over Vejalpur, Sabarmati, Ghatlodiya and parts of Daskroi Taluks of Western Ahmedabad District), Gujarat
+- GJ-02: Mehsana (Covers entire Mehsana District), Gujarat
+- GJ-03: Rajkot (Covers entire Rajkot District), Gujarat
+- GJ-04: Bhavnagar (Covers entire Bhavnagar District), Gujarat
+- GJ-05: Surat (Covers Surat City, Olpad, Chorasi, Kamrej and Palsana Taluks of Western Surat District), Gujarat
+- GJ-06: Vadodara (Covers entire Vadodara District), Gujarat
+- GJ-07: Nadiad, Kheda District (Covers entire Kheda District), Gujarat
+- GJ-08: Palanpur, Banaskantha District (Covers Banaskantha District and Vav-Tharad District), Gujarat
+- GJ-09: Himmatnagar, Sabarkantha District (Covers entire Sabarkantha District), Gujarat
+- GJ-10: Jamnagar (Covers entire Jamnagar District), Gujarat
+- GJ-11: Junagadh (Covers entire Junagadh District), Gujarat
+- GJ-12: Bhuj, Kutch District (West) (Covers Bhuj, Mundra, Mandvi, Nakhtarana, Abdasa and Lakhpat Taluks of Western Kutch District), Gujarat
+- GJ-13: Surendranagar (Covers entire Surendranagar District), Gujarat
+- GJ-14: Amreli (Covers entire Amreli District), Gujarat
+- GJ-15: Valsad (Covers entire Valsad District), Gujarat
+- GJ-16: Bharuch (Covers entire Bharuch District), Gujarat
+- GJ-17: Godhra, Panchmahal District (Covers entire Panchmahal District), Gujarat
+- GJ-18: Gandhinagar (Covers entire Gandhinagar District), Gujarat
+- GJ-19: Bardoli, Surat District (East) (Covers Bardoli, Mahuva, Mandvi, Mangrol, Ambika, Areth and Umarpada Taluks of Eastern Surat District), Gujarat
+- GJ-20: Dahod (Covers entire Dahod District), Gujarat
+- GJ-21: Navsari (Covers entire Navsari District), Gujarat
+- GJ-22: Rajpipla, Narmada District (Covers entire Narmada District), Gujarat
+- GJ-23: Anand (Covers entire Anand District), Gujarat
+- GJ-24: Patan (Covers entire Patan District), Gujarat
+- GJ-25: Porbandar (Covers entire Porbandar District), Gujarat
+- GJ-26: Vyara, Tapi District (Covers entire Tapi District), Gujarat
+- GJ-27: Ahmedabad (East), Vastral (Covers parts of Ahmedabad City on the eastern bank of the Sabarmati River, over Maninagar, Asarwa, Vatva and parts of Daskroi Taluks of Eastern Ahmedabad District), Gujarat
+- GJ-28: Not Allocated (Reserved for Surat), Gujarat
+- GJ-29: Not Allocated (Reserved for Vadodara), Gujarat
+- GJ-30: Ahwa, Dang District (Covers entire Dang District), Gujarat
+- GJ-31: Modasa, Aravalli District (Covers entire Aravalli District), Gujarat
+- GJ-32: Veraval, Gir Somnath District (Covers entire Gir Somnath District), Gujarat
+- GJ-33: Botad (Covers entire Botad District), Gujarat
+- GJ-34: Chhota Udaipur (Covers entire Chhota Udaipur District), Gujarat
+- GJ-35: Lunawada, Mahisagar District (Covers entire Mahisagar District), Gujarat
+- GJ-36: Morbi (Covers entire Morbi District), Gujarat
+- GJ-37: Khambhaliya, Devbhoomi Dwarka District (Covers entire Devbhoomi Dwarka District), Gujarat
+- GJ-38: Bavla, Ahmedabad District (Rural) (Covers Bavla, Sanand, Viramgam, Detroj-Rampura, Mandal, Dholka, Dhandhuka, Dholera and parts of Daskroi Taluks of Rural Ahmedabad District), Gujarat
+- GJ-39: Anjar, Kutch District (East) (Covers Anjar, Gandhidham, Bhachau and Rapar Taluks of Eastern Kutch District), Gujarat
+- GJ-40: Tharad (Covers Vav-Tharad District, reviously under GJ-08 (Palanpur)), Gujarat
+- HP-03: Shimla (Urban), Himachal Pradesh
+- HP-04: Kangra, Dharamsala, Himachal Pradesh
+- HP-05: Mandi, Himachal Pradesh
+- HP-06: Rampur Bushahr, Himachal Pradesh
+- HP-07: Shimla (Urban), Himachal Pradesh
+- HP-08: Chaupal, Himachal Pradesh
+- HP-09: Theog, Himachal Pradesh
+- HP-10: Rohru, Himachal Pradesh
+- HP-11: Arki, Himachal Pradesh
+- HP-12: Nalagarh, Himachal Pradesh
+- HP-13: Kandaghat, Himachal Pradesh
+- HP-14: Solan, Himachal Pradesh
+- HP-15: Parwanoo, Himachal Pradesh
+- HP-16: Rajgarh, Himachal Pradesh
+- HP-17: Paonta Sahib, Himachal Pradesh
+- HP-18: Nahan, Himachal Pradesh
+- HP-19: Amb, Himachal Pradesh
+- HP-20: Una, Himachal Pradesh
+- HP-21: Barsar, Hamirpur, Himachal Pradesh
+- HP-22: Hamirpur, Himachal Pradesh
+- HP-23: Ghumarwin, Himachal Pradesh
+- HP-24: Bilaspur, Himachal Pradesh
+- HP-25: Kalpa, Himachal Pradesh
+- HP-26: Nichar, Bhaba Nagar, Himachal Pradesh
+- HP-27: Pooh, Himachal Pradesh
+- HP-28: Sarkaghat, Himachal Pradesh
+- HP-29: Jogindernagar, Himachal Pradesh
+- HP-30: Karsog, Himachal Pradesh
+- HP-31: Sundernagar, Himachal Pradesh
+- HP-32: Gohar, Mandi, Himachal Pradesh
+- HP-33: Mandi, Himachal Pradesh
+- HP-34: Kullu, Himachal Pradesh
+- HP-35: Anni, Kullu, Himachal Pradesh
+- HP-36: Dehra, Himachal Pradesh
+- HP-37: Palampur, Himachal Pradesh
+- HP-38: Nurpur, Himachal Pradesh
+- HP-39: Dharamshala, Himachal Pradesh
+- HP-40: Kangra, Himachal Pradesh
+- HP-41: Kaza, Himachal Pradesh
+- HP-42: Keylong, Himachal Pradesh
+- HP-43: Udaipur, Lahaul and Spiti, Himachal Pradesh
+- HP-44: Churah, Chamba, Himachal Pradesh
+- HP-45: Pangi, Himachal Pradesh
+- HP-46: Bharmour, Himachal Pradesh
+- HP-47: Dalhousie, Himachal Pradesh
+- HP-48: Chamba, Himachal Pradesh
+- HP-49: Banjar, Himachal Pradesh
+- HP-50: Shimla (Auto-rickshaws), Himachal Pradesh
+- HP-53: Baijnath, Himachal Pradesh
+- HP-54: Jawali, Himachal Pradesh
+- HP-55: Nadaun, Himachal Pradesh
+- HP-56: Jaisinghpur, Himachal Pradesh
+- HP-57: Chowari, Himachal Pradesh
+- HP-58: Manali, Himachal Pradesh
+- HP-59: Solan, Himachal Pradesh
+- HP-60: Hamirpur, Himachal Pradesh
+- HP-61: Kullu, Himachal Pradesh
+- HP-62: Shimla, Himachal Pradesh
+- HP-63: Shimla, Himachal Pradesh
+- HP-64: Solan, Himachal Pradesh
+- HP-65: Mandi, Himachal Pradesh
+- HP-66: Kullu, Himachal Pradesh
+- HP-67: Hamirpur, Himachal Pradesh
+- HP-68: Kangra, Dharmsala, Himachal Pradesh
+- HP-71: Nahan, Himachal Pradesh
+- HP-72: Una, Himachal Pradesh
+- HP-73: Chamba, Himachal Pradesh
+- HP-74: Bhoranj, Hamirpur, Himachal Pradesh
+- HP-75: Jubbal, Himachal Pradesh
+- HP-76: Paddhar, Mandi, Himachal Pradesh
+- HP-77: Dodra Kawar, Shimla, Himachal Pradesh
+- HP-78: Bangana, Una, Himachal Pradesh
+- HP-79: Sangrah, Sirmaur, Himachal Pradesh
+- HP-80: Haroli, Una, Himachal Pradesh
+- HP-81: Salooni, Himachal Pradesh
+- HP-82: Balh, Mandi, Himachal Pradesh
+- HP-83: Jawalaji, Kangra, Himachal Pradesh
+- HP-84: Sujanpur Tihra, Hamirpur, Himachal Pradesh
+- HP-85: Shillai, Sirmaur, Himachal Pradesh
+- HP-86: Dharampur, Mandi, Himachal Pradesh
+- HP-87: Janjehli, Mandi, Himachal Pradesh
+- HP-88: Fatehpur, Kangra, Himachal Pradesh
+- HP-89: Jhandutta, Bilaspur, Himachal Pradesh
+- HP-90: Shahpur, Kangra, Himachal Pradesh
+- HP-91: Naina Devi, Swarghat, Bilaspur, Himachal Pradesh
+- HP-92: Rampur Bushahr, Himachal Pradesh
+- HP-93: Nalagarh, Himachal Pradesh
+- HP-94: Nagrota Bagwan, Himachal Pradesh
+- HP-95: Kumarsain, Himachal Pradesh
+- HP-96: Dheera, Kangra, Himachal Pradesh
+- HP-97: Indora, Himachal Pradesh
+- HP-98: Kasauli, Himachal Pradesh
+- HP-99: Kotkhai, Himachal Pradesh
+- HR-01: Ambala, Haryana
+- HR-02: Jagadhari (Yamunanagar), Haryana
+- HR-03: Panchkula, Haryana
+- HR-04: Naraingarh, Haryana
+- HR-05: Karnal, Haryana
+- HR-06: Panipat, Haryana
+- HR-07: Thanesar, Haryana
+- HR-08: Kaithal, Haryana
+- HR-09: Guhla, Haryana
+- HR-10: Sonipat, Haryana
+- HR-11: Gohana, Haryana
+- HR-12: Rohtak, Haryana
+- HR-13: Bahadurgarh, Haryana
+- HR-14: Jhajjar, Haryana
+- HR-15: Meham, Haryana
+- HR-16: Bhiwani, Haryana
+- HR-17: Siwani, Haryana
+- HR-18: Loharu, Haryana
+- HR-19: Charkhi Dadri, Haryana
+- HR-20: Hisar, Haryana
+- HR-21: Hansi, Haryana
+- HR-22: Fatehabad, Haryana
+- HR-23: Tohana, Jakhal Mandi (Tohana), Haryana
+- HR-24: Sirsa, Haryana
+- HR-25: Mandi Dabwali, Haryana
+- HR-26: Gurugram (Gurugram North) (Old Gurgaon City (Northern Parts)), Haryana
+- HR-27: Nuh, Haryana
+- HR-28: Ferozepur Jhirka, Haryana
+- HR-29: Ballabgarh (Faridabad South) (Ballabgarh), Haryana
+- HR-30: Palwal, Haryana
+- HR-31: Jind, Haryana
+- HR-32: Narwana, Haryana
+- HR-33: Safidon, Haryana
+- HR-34: Mahendragarh, Haryana
+- HR-35: Narnaul, Haryana
+- HR-36: Rewari, Haryana
+- HR-37: Ambala, Haryana
+- HR-38: Faridabad (Faridabad district), Haryana
+- HR-39: Hisar (Hisar district), Haryana
+- HR-40: Assandh, Haryana
+- HR-41: Pehowa, Haryana
+- HR-42: Ganaur, Haryana
+- HR-43: Kosli, Haryana
+- HR-44: Ellenabad, Haryana
+- HR-45: Karnal (Karnal district), Haryana
+- HR-46: Rohtak (Rohtak district), Haryana
+- HR-47: Rewari (Rewari district), Haryana
+- HR-48: Tosham (Tosham, Bawani Khera), Haryana
+- HR-49: Kalka, Haryana
+- HR-50: Hodal, Haryana
+- HR-51: Faridabad (Faridabad North) (Faridabad), Haryana
+- HR-52: Hathin, Haryana
+- HR-53: Adampur, Haryana
+- HR-54: Barara, Haryana
+- HR-55: Gurugram (Gurugram district), Haryana
+- HR-56: Jind (Jind, Julana), Haryana
+- HR-57: Sirsa (Sirsa district), Haryana
+- HR-58: Yamunanagar (Yamunanagar district), Haryana
+- HR-59: Ratia, Haryana
+- HR-60: Samalkha, Haryana
+- HR-61: Bhiwani (Bhiwani district), Haryana
+- HR-62: Fatehabad (Fatehabad district), Haryana
+- HR-63: Jhajjar (Jhajjar, Bahadurgarh), Haryana
+- HR-64: Kaithal (Kaithal district), Haryana
+- HR-65: Kurukshetra (Kurukshetra district), Haryana
+- HR-66: Narnaul (Mahendragarh district), Haryana
+- HR-67: Panipat (Panipat district), Haryana
+- HR-68: Panchkula (Panchkula district), Haryana
+- HR-69: Sonipat (Sonipat district), Haryana
+- HR-70: Chandigarh, Haryana
+- HR-71: Bilaspur, Haryana
+- HR-72: Sohna, Haryana
+- HR-73: Palwal (Palwal district), Haryana
+- HR-74: Nuh (Mewat district), Haryana
+- HR-75: Indri, Haryana
+- HR-76: Pataudi (Pataudi, Farrukhnagar), Haryana
+- HR-77: Beri, Haryana
+- HR-78: Shahabad Markanda, Haryana
+- HR-79: Kharkhoda, Haryana
+- HR-80: Barwala, Haryana
+- HR-81: Bawal, Haryana
+- HR-82: Kanina, Haryana
+- HR-83: Kalayat, Haryana
+- HR-84: Charkhi Dadri (Charkhi Dadri district), Haryana
+- HR-85: Ambala Cantt, Haryana
+- HR-86: Narnaund, Haryana
+- HR-87: Badkhal (Faridabad West) (Badkhal Tehsil), Haryana
+- HR-88: Badhra, Haryana
+- HR-89: Badli, Haryana
+- HR-90: Uchana, Haryana
+- HR-91: Gharaunda, Haryana
+- HR-92: Radaur, Haryana
+- HR-93: Punhana, Haryana
+- HR-94: Kalanwali, Haryana
+- HR-95: Sampla, Haryana
+- HR-96: Taoru, Haryana
+- HR-97: Ladwa, Haryana
+- HR-98: Badshahpur (Gurugram South) (New Gurgaon City (southern parts) including Badshahpur & Wazirabad), Haryana
+- HR-99:  (entire Haryana), Haryana
+- JH-01: Ranchi (Ranchi district), Jharkhand
+- JH-02: Hazaribagh (Hazaribagh district), Jharkhand
+- JH-03: Daltonganj (Palamu district), Jharkhand
+- JH-04: Dumka (Dumka district), Jharkhand
+- JH-05: Jamshedpur (East Singhbhum district), Jharkhand
+- JH-06: Chaibasa (West Singhbhum district), Jharkhand
+- JH-07: Gumla (Gumla district), Jharkhand
+- JH-08: Lohardaga (Lohardaga district), Jharkhand
+- JH-09: Bokaro (Bokaro district), Jharkhand
+- JH-10: Dhanbad (Dhanbad district), Jharkhand
+- JH-11: Giridih (Giridih district), Jharkhand
+- JH-12: Koderma (Koderma district), Jharkhand
+- JH-13: Chatra (Chatra district), Jharkhand
+- JH-14: Garhwa (Garhwa district), Jharkhand
+- JH-15: Deoghar (Deoghar district), Jharkhand
+- JH-16: Pakur (Pakur district), Jharkhand
+- JH-17: Godda (Godda district), Jharkhand
+- JH-18: Sahibganj (Sahebganj district), Jharkhand
+- JH-19: Latehar (Latehar district), Jharkhand
+- JH-20: Simdega (Simdega district), Jharkhand
+- JH-21: Jamtara (Jamtara district), Jharkhand
+- JH-22: Seraikela Kharsawan (Seraikela Kharsawan district), Jharkhand
+- JH-23: Khunti (Khunti district), Jharkhand
+- JH-24: Ramgarh (Ramgarh district), Jharkhand
+- JK-01: Srinagar (Srinagar District), Jammu and Kashmir
+- JK-02: Jammu (Jammu District), Jammu and Kashmir
+- JK-03: Anantnag (Anantnag District), Jammu and Kashmir
+- JK-04: Budgam (Budgam District), Jammu and Kashmir
+- JK-05: Baramulla (Baramulla District), Jammu and Kashmir
+- JK-06: Doda (Doda District), Jammu and Kashmir
+- JK-08: Lakhanpur, Kathua (Kathua District), Jammu and Kashmir
+- JK-09: Kupwara (Kupwara District), Jammu and Kashmir
+- JK-11: Rajouri (Rajouri District), Jammu and Kashmir
+- JK-12: Poonch (Poonch district, India), Jammu and Kashmir
+- JK-13: Pulwama (Pulwama District), Jammu and Kashmir
+- JK-14: Udhampur (Udhampur District), Jammu and Kashmir
+- JK-15: Bandipora (Bandipora District), Jammu and Kashmir
+- JK-16: Ganderbal (Ganderbal District), Jammu and Kashmir
+- JK-17: Kishtwar (Kishtwar District), Jammu and Kashmir
+- JK-18: Kulgam (Kulgam District), Jammu and Kashmir
+- JK-19: Ramban (Ramban District), Jammu and Kashmir
+- JK-20: Reasi (Reasi District), Jammu and Kashmir
+- JK-21: Samba (Samba District), Jammu and Kashmir
+- JK-22: Shopian (Shopian District), Jammu and Kashmir
+- KA-01: Bengaluru Central, HSR Layout (Previously located in Koramangala), Karnataka
+- KA-02: Bengaluru West, Rajajinagar, Karnataka
+- KA-03: Bengaluru East, Kasturinagar (Previously located in Indiranagar), Karnataka
+- KA-04: Bengaluru North, Yeshwantpur, Karnataka
+- KA-05: Bengaluru South, Jayaprakash Nagara (Previously located in Jayanagar), Karnataka
+- KA-06: Tumakuru, Karnataka
+- KA-07: Kolar, Karnataka
+- KA-08: Kolar (KGF region), Karnataka
+- KA-09: Mysuru West, Karnataka
+- KA-10: Chamarajanagar, Karnataka
+- KA-11: Mandya, Karnataka
+- KA-12: Madikeri, Karnataka
+- KA-13: Hassan, Karnataka
+- KA-14: Shivamogga, Karnataka
+- KA-15: Sagara, Karnataka
+- KA-16: Chitradurga, Karnataka
+- KA-17: Davanagere, Karnataka
+- KA-18: Chikkamagaluru, Karnataka
+- KA-19: Mangaluru, Karnataka
+- KA-20: Udupi, Karnataka
+- KA-21: Puttur, Karnataka
+- KA-22: Belagavi, Karnataka
+- KA-23: Chikkodi, Karnataka
+- KA-24: Bailhongal, Karnataka
+- KA-25: Dharwad, Karnataka
+- KA-26: Gadag, Karnataka
+- KA-27: Haveri, Karnataka
+- KA-28: Vijayapura, Karnataka
+- KA-29: Bagalkote, Karnataka
+- KA-30: Karwar, Karnataka
+- KA-31: Sirsi, Karnataka
+- KA-32: Kalaburagi, Karnataka
+- KA-33: Yadgir, Karnataka
+- KA-34: Ballari, Karnataka
+- KA-35: Hosapete, Karnataka
+- KA-36: Raichur, Karnataka
+- KA-37: Koppal, Karnataka
+- KA-38: Bidar, Karnataka
+- KA-39: Bhalki, Karnataka
+- KA-40: Chikkaballapura, Karnataka
+- KA-41: Jnana Bharathi (Bengaluru Western Suburbs), Karnataka
+- KA-42: Ramanagara, Karnataka
+- KA-43: Devanahalli, Karnataka
+- KA-44: Tiptur, Karnataka
+- KA-45: Hunsur, Karnataka
+- KA-46: Sakleshpura, Hassan District, Karnataka
+- KA-47: Honnavar, Uttara Kannada District, Karnataka
+- KA-48: Jamkhandi, Bagalkote District, Karnataka
+- KA-49: Gokak, Belagavi District, Karnataka
+- KA-50: Yelahanka, Bengaluru (Bengaluru Northern Suburbs), Karnataka
+- KA-51: Electronic City, Bengaluru (Bengaluru Southern Suburbs), Karnataka
+- KA-52: Nelamangala, Bengaluru Rural District, Karnataka
+- KA-53: Krishnarajapuram, Bengaluru (Bengaluru Eastern Suburbs), Karnataka
+- KA-54: Nagamangala, Mandya District, Karnataka
+- KA-55: Mysuru East, Karnataka
+- KA-56: Basavakalyan, Bidar District, Karnataka
+- KA-57: Shantinagara, KSRTC and BMTC buses, Karnataka
+- KA-59: Chandapura, Bengaluru Urban District, Karnataka
+- KA-63: Dharwad East, Karnataka
+- KA-64: Madhugiri, Tumkur District, Karnataka
+- KA-65: Dandeli, Uttara Kannada District, Karnataka
+- KA-66: Tarikere, Chikkamagaluru District, Karnataka
+- KA-67: Chintamani, Chikkaballapura District, Karnataka
+- KA-68: Ranebennur, Haveri District, Karnataka
+- KA-69: Ramdurg, Belagavi District, Karnataka
+- KA-70: Bantwal, Dakshina Kannada District, Karnataka
+- KA-71: Athani, Belagavi District, Karnataka
+- KL-01: Thiruvananthapuram (Thiruvananthapuram Corporation wards 12-101, Kalliyoor), Kerala
+- KL-02: Kollam (Kollam Municipal Corporation, Paravur, Adichanalloor, Chathannoor, Chirakkara, Elampalloor, Kalluvathukkal, Kottamkara, Kundara, Mayyanad, Munroe Island, Nedumpana, Panayam, Perayam, Perinad, Poothakkulam, Thrikkaruva, Thrikkovilvattom), Kerala
+- KL-03: Pathanamthitta (Pathanamthitta Town, Kaipattoor, Omallur, Malayalapuzha, Mylapra, Naranganam, Sabarigiri, Aranmula, Kozhencherri), Kerala
+- KL-04: Alappuzha (Alappuzha Town, Ambalappuzha, Aryad, Komalapuram, Kommadi, Polathai, Thumboli, Punnapra, Kalavur, Ananthanarayanapuram), Kerala
+- KL-05: Kottayam (Kottayam Town, Kodimatha, Manarcaud, Pampady, Tirunnakara, Nattakom, Tiruvarppu, Tiruvathikkal, Sankranthi, Vijayapuram, Pallickathodu, Ettumanoor), Kerala
+- KL-06: Idukki (Idukki Twp, Painavu), Kerala
+- KL-07: Kochi, Ernakulam District. (Areas of Greater Kochi covered by the Kochi Municipal Corporation, Kalamassery Municipality, Infopark Phase 2, Thrikkakara Municipality, Cheranallur Grama Panchayat), Kerala
+- KL-08: Thrissur (Thrissur Corporation, Pananchery, Cherpu, Paralam, Kolazhy, Nadathara, Madakkathara, Adat, Avinissery, Avanur, Mulamkunnathukavu), Kerala
+- KL-09: Palakkad (Palakkad municipality,Parli,Pirayiri,Kongad,Mankara,Mundur,Malampuzha,Puduppariyaram,Keralasseri Grama Panchayat areas), Kerala
+- KL-10: Malappuram (part of Ernad, Perintalmanna & Tirur Taluks) (Malappuram, Manjeri, Anakkayam, Pookkoottor, Kavanur, Pulpetta, Edavanna, Pandikkad, Thrikkalangode, Koottilangadi, Kodur, Ponmala), Kerala
+- KL-11: Kozhikode (Kozhikode Municipal Corporation, Feroke, Ramanattukara, Chathamangalam, Chelannur, Kadalundi, Kakkodi, Kakkur, Karassery, Kunnamangalam, Kuruvattur, Mavoor, Mukkam, Nanmanda, Olavanna, Perumanna, Peruvayal, Thalakulathur,), Kerala
+- KL-12: Kalpetta, Wayanad District (Kalpetta Township, Chitragiri, Vythiri), Kerala
+- KL-13: Kannur (Kannur Municipal Corporation limits, Valapattanam, Papinnisheri, Kannapuram, Dharmadam, Parashinikadavu), Kerala
+- KL-14: Kasaragod (Kasaragod, Chandragiri, Manjeshwaram, Uppala, Mogral Puttur, Kumbla), Kerala
+- KL-15: Nationalised Sector I, Thiruvananthapuram (Used exclusively for KSRTC and KURTC buses), Kerala
+- KL-16: Attingal, Thiruvananthapuram District (Chirayinkeezhu Taluk), Kerala
+- KL-17: Muvattupuzha, Ernakulam District (Muvattupuzha, Vazhakulam, Koothattukulam, Piravom), Kerala
+- KL-18: Vadakara, Kozhikode District (Vadakara, Nadapuram), Kerala
+- KL-19: Parassala, Thiruvananthapuram District (Padmanabhapuram, Tiruvattar, Tiruparappu, Kulasekaram, Amaravilla, Dhanuvachapuram, Marthandam Poovaar), Kerala
+- KL-20: Neyyattinkara, Thiruvananthapuram District (Neyyattinkara, Balaramapuram, Vedivachankovil, Pravachambalam, Pallichal), Kerala
+- KL-21: Nedumangad, Thiruvananthapuram District (Nedumangad, Arruvikara, Bhartheeswaram, Palode, Vithura, Ponmudi, Karakulam, Perrorkada), Kerala
+- KL-22: Kazhakkoottam, Thiruvananthapuram (Thiruvananthapuram Corporation, Thiruvananthapuram Taluk Northern Areas (Andoorkonam, Kadinamkulam, Mangalapuram, Pothencode Panchayats)), Kerala
+- KL-23: Karunagappalli, Kollam District (Karunagapalli, Oachira, Mynagapalli, Chavara, Amrithapuri, Thazhava, Paavumba), Kerala
+- KL-24: Kottarakkara, Kollam District (Kottarakara, Malanada, Enathu, Pavitreeswaram, Chengamanad. Mavadi), Kerala
+- KL-25: Punalur, Kollam District (Punalur, Thenmala, Aryankavu, Bhagavathipuram, Anchal, Kulathuppuzha, Achankovil), Kerala
+- KL-26: Adoor, Pathanamthitta District (Adoor Taluk), Kerala
+- KL-27: Tiruvalla, Pathanamthitta District (Tiruvalla, Tirumoolapuram, Othera, Manjadi, Parumala, Valanjavattom), Kerala
+- KL-28: Mallappally, Pathanamthitta District (Mallappally, Kaviyoor), Kerala
+- KL-29: Kayamkulam, Alappuzha District (Karthikapalli, Kayankulam Town, Krishnapuram, Harippad, Shaktipuram, Karuvatta, Manarssala), Kerala
+- KL-30: Chengannur, Alappuzha District (Chengannur, Cheriyanad, Budhannur, Pandanad, Venmani-kalyathra), Kerala
+- KL-31: Mavelikkara, Alappuzha District (Mavelikara, Chettikulangara, Kattanam, Mannar, Charummod, Adhikattukulangara, Aakanattukara, Vallikonam, Vathukonam, Vettiyar), Kerala
+- KL-32: Cherthala, Alappuzha District (Cherthala, Tiruvizha, Pattanakkad, Vayalar, Turavur, Aroor, Eramalloor, Varanad, Mannancherry, Panavally, Varanam), Kerala
+- KL-33: Changanassery, Kottayam District (Changanassery, Nalukodi, Kurichi, Chingavanam, Karukachal, Perunna, Vazhoor, Kangazha, Vellavoor), Kerala
+- KL-34: Kanjirapalli, Kottayam District (Kanjirapalli, Erumelli, Mundakayam, Ponkunnam, Chirrakadavu, Anchillappa, Anakkal, Koottickal), Kerala
+- KL-35: Pala, Kottayam District (Meenachil, Erattupetta, Poonjar, Bharananganam, Kadanad, Kidangoor, Mutholi, Poovarani, Melukavu, Thalanad, Teekoi, Moonnilavu, Thalappulam, Thidanad), Kerala
+- KL-36: Vaikom, Kottayam District (Vaikom, Talayolaparambu, Udayanapuram, Vadayar, Kaduthuruthi, Vechoor), Kerala
+- KL-37: Vandiperiyar, Idukki District (Peerumed, Elappara, Kuttikanam, Vandiperiyar, Kumili, Kattappana, Kambammedu, Mangaladevi), Kerala
+- KL-38: Thodupuzha, Idukki District (Thodupuzha, Kumaramangalam .Vengannur, Muttum, Uravvappara, Malankara, Moolamattam), Kerala
+- KL-39: Thripunithura, Ernakulam District (Thripunithura, Udayamperoor, Cheppanam-Chattamma, Kanjiramattom, Mulanthuruthy, Chottanikkara), Kerala
+- KL-40: Perumbavoor, Ernakulam District (Kunnathunad, Nellad, Valayanchirangara, Chellamattom, Thottuva, Rayamangalam, Pattimattam), Kerala
+- KL-41: Aluva, Ernakulam District (Aluva Municipality limits, Edathala Grama Panchayat limits, Vazhakulam Grama Panchayat, Choornikkara Grama Panchayat), Kerala
+- KL-42: North Paravur, Ernakulam District (North Paravur, Munambam, Cherrai, Vypin, Puthuvype), Kerala
+- KL-43: Fort Kochi & Mattancherry, Ernakulam District (Kochi Corporation Area, Pallurthi, Kumbalangi), Kerala
+- KL-44: Kothamangalam, Ernakulam District (Kothamangalam Taluk, Odakkali, Neriyamangalam, Bhootathankettu), Kerala
+- KL-45: Irinjalakuda, Thrissur District (Mukundapuram Taluk, Ashtamichira, Annammanada, Mala, Cherppu, Kandassamkadavu), Kerala
+- KL-46: Guruvayur, Thrissur District (Guruvayur Taluk, Chhavakad, Chettuva, Pavaratti), Kerala
+- KL-47: Kodungallur, Thrissur District (Kodungallur, Methala, Sringapuram), Kerala
+- KL-48: Wadakkancherry, Thrissur District (Wadakkancherry, Thiruvilwamala, Pazhayannur, Chelakkara, Anthimahal, Uthralikavu, Mulangunathukavu, Deshamangalam, Chittada, Malakha, Akamalavaram), Kerala
+- KL-49: Alathur, Palakkad District (Alathur, Vadakkenchery, Kavassery, Kuzhalmannam, Thenkurissi, Kottayi, Mathur, Peringottukurissi), Kerala
+- KL-50: Mannarkkad, Palakkad District (Mannarkkad municipality, Attappady Taluk comprising Agali,Pudur and Sholaiyur Panchayats,Karimba, Kanhirappuzha,Thachampara,Kumarampathur,Kottopadam,Alanellur,Thachanattukara,Thenkara,Karakurissy Panchayats.), Kerala
+- KL-51: Ottapalam, Palakkad District (Ottapalam), Kerala
+- KL-52: Pattambi, Palakkad District (Pattambi Municipality, Thrithala, Nagalassery, Vallapuzha, Koppam,Vilayur,Tiruvegappura,Paruthur,Thirumittakode,Pattithara,Chalissery,Muthuthala,Kulukkallur and Ongallur Grama Panchayats.), Kerala
+- KL-53: Perinthalmanna, Malappuram District (Perinthalmanna, Edappatta, Keezhattur, Aliparamba, Elamkulam, Thazhekode, Vettathur, Pulamanthole, Melattur, Angadippuram, Kuruva, Mankada, Puzhakkattiri, Moorkkanad, Makkaraparamba), Kerala
+- KL-54: Ponnani, Malappuram District (Ponnani, Edappal, Alankode, Marancheri, Nannammukku, Perumpadappu, Veliynakode, Thavanur, Kaladi, Vattamkulam), Kerala
+- KL-55: Tirur, Malappuram District (Tirur, Tirunnavaya, Tanur, Valancheri, Kalapancheri, Valavannur, Vettam, Thalakkad, Athavanad, Ponmundam, Cheriyamundam, Ozhur, Nirmaruthur, Thanalur, Edayur, Irimbiliyma, Marakkara, Kuttippuram, Purathur, Mangalam, Thrippangode), Kerala
+- KL-56: Koyilandy, Kozhikode District (Koyilandy, Payyoli, Chemancheri), Kerala
+- KL-57: Koduvally, Kozhikode District (Mukkam, Kunnamangalam, Koduvally, Thamarasseri, Elettiyil, Vattoli, Mavoor, Thiruvambadi, Kattangal), Kerala
+- KL-58: Thalassery, Kannur District (Thalassery, Anjarakandy, Koothuparamba, Gopalpet, Chokli, Pinarayi, Pathirayad, Sivapuram), Kerala
+- KL-59: Taliparamba, Kannur District (Taliparamba, Sreekandapuram, Alakkode, Karthikapuram, Payyavoor, Irikkur, Chemperi, Mayyil), Kerala
+- KL-60: Kanhangad, Kasargod District (Hosdurg, Balla, Nileshwaram, Trikkarippur, Cheruvathur), Kerala
+- KL-61: Kunnathur, Kollam District (Sasthamkotta, Bharanikkavu, Kallada, Anayadi), Kerala
+- KL-62: Ranni, Pathanamthitta District (Ranni Perinad, Kuravamoozhi, Mandamaruthi), Kerala
+- KL-63: Angamaly, Ernakulam District (Angamaly, Karukutti, Tirumoozhikulam, Malayathur, Kodannad, Yordhanapuram), Kerala
+- KL-64: Chalakkudy, Thrissur District (Chalakkudy, Athirapalli, Malakkapara, Poringu, Potta, Kodakara), Kerala
+- KL-65: Tirurangadi, Malappuram District (Tirurangadi, Thenhipalam, Parappanangadi, Kottakkal, Edarikode, Parappur, Othukkungal, Oorakam, Vengara, Kannamangalam, Peruvalloore, AR Nagar, Perumanna Klari, Thennala, Nannambra, Moonniyur, Vallikkunnu), Kerala
+- KL-66: Kuttanad, Alappuzha District (Champakulam, Kainakari, Puthukari, Mithrakari, Ramankari, Champakulam, Thayankary, Nedumudi, Takazhi, Vezhapra, Edathua, Thalavadi, Mancompu, Pulincunnoo, Koduppunna, Kavalam, Neelamperoor, Veliyanad, Veeyapuram, Muttar, Chennamkary, Kidangara), Kerala
+- KL-67: Uzhavoor, Kottayam District (Uzhavur, Ramapuram, Njeezhoor, Kuravilangad, Monipalli, Aandoor, Kuruppanthara), Kerala
+- KL-68: Devikulam, Idukki District (Devikulam, Munnar, Marayur, Chinnar, Boddimettu, Mattupetti, Vatavada, Kanthaloor, Chinnakanal), Kerala
+- KL-69: Udumbanchola, Idukki District (Udumbancholla, Nedumkandam, Rajakumari, Rajakkad, Bison Valley, Chithirapuram, Vellathooval), Kerala
+- KL-70: Chittur, Palakkad District (Chittur-Thathamangalam Municipality,Meenakshipuram, Gopalapuram, Govindapuram, Kollengode, Koduvayur, Pudunagaram, Nenmara, Neliyampathy areas of Chittur Taluk), Kerala
+- KL-71: Nilambur, Malappuram District (Nilambur, Wandoor, Chaliyar, Vazhikkadavu, Edakakra, Pothukkallu, Chungathara, Mothedam, Amarambalam, Karulai, Thiruvali, Mampad, Porur, Kalikavu, Chokkad, Karuvarakundu, Thuvvoor), Kerala
+- KL-72: Mananthavady, Wayanad District (Manathawadi, Ambalavayal, Kottiyur, Tirunelli, Tholpetti, Bramhagiri), Kerala
+- KL-73: Sulthan Bathery, Wayanad District (Sulthan Bathery, Muthanga, Meenangadi), Kerala
+- KL-74: Kattakada, Thiruvananthapuram District (Kattakada, Malayankeezh, Vilappil, Otasekharamangalam, Amboori, Vellarda, Vilvoorkal), Kerala
+- KL-75: Thriprayar, Thrissur District (Thriprayyar, Vadannapalli, Valappad, Nattikka), Kerala
+- KL-76: Nanmanda, Kozhikode District (Balusseri, Atholli, Chelannur, Kakkodi, Kuruvattur), Kerala
+- KL-77: Perambra, Kozhikode District (Perambra, Kuttiyadi), Kerala
+- KL-78: Iritty, Kannur District (Iritty, Padiyoor, Ulikkal, Aralam, Payam, Ayyankunnu, Mattannur, Peravoor, Kottiyoor, Kelakam, Kanichar, Muzhakkunnu, Thillenkery), Kerala
+- KL-79: Vellarikundu, Kasargod District (Vellarikundu, Chittarikkal, Rajapuram, Ranipuram, Bandadukka, Cheruppuzha, Parappa, Konnakkad, Bovikanam), Kerala
+- KL-80: Pathanapuram, Kollam District (Pathanapuram, Manchaloor, Pattazhi, Pakalkuri, Avaneeswaram), Kerala
+- KL-81: Varkala, Thiruvananthapuram District (Varkala, Sivagiri, Anchuthengu, Edavai), Kerala
+- KL-82: Chadayamangalam, Kollam District (Chadayamangalam, Elamadu, Velinallur, Ittiva, Kottukkal, Nilamel, Kadakkal, Chithara, Mankode, Kummil), Kerala
+- KL-83: Konni, Pathanamthitta District (Konni, Koodal-Rajagiri, Gavi), Kerala
+- KL-84: Kondotty, Malappuram District (Karippur, Kondotty, Pallikkal, Chelembra, Kuzhimanna, Cherukavu, Muthuvallore, Vazhayur, Vazhakkad, Pulikkal, Chekkode, Morayur, Keezhuparmab, Areekode, Orgnatteeri), Kerala
+- KL-85: Ramanattukara-Feroke, Kozhikode District (Feroke, Ramanattukara, Kadalundi Beypore, Nallalam, Olavanna, Perumanna), Kerala
+- KL-86: Payyannur, Kannur District (Payyannur, Ramanthali, Cherupuzha, Peringome, Kankole, Kadannappally-Panapuzha, Eramam-Kuttoor, Karivellur), Kerala
+- KL-90: Nationalised Sector II (Used exclusively for Government Vehicle's), Kerala
+- KL-99: Thiruvananthapuram (Used exclusively for State Transport Authority vehicles), Kerala
+- LA-01: Kargil, Ladakh
+- LA-02: Leh, Ladakh
+- LD-01: Kavaratti, Lakshadweep
+- LD-02: Agatti, Lakshadweep
+- LD-03: Amini, Lakshadweep
+- LD-04: Androth, Lakshadweep
+- LD-05: Kadmat, Lakshadweep
+- LD-06: Kiltan, Lakshadweep
+- LD-07: Kalpeni, Lakshadweep
+- LD-08: Kalpeni, Lakshadweep
+- LD-09: Minicoy, Lakshadweep
+- MH-01: Mumbai Central (Tardeo) (Nariman Point, Colaba to Mahim, Sion, Wadala in Mumbai City district, Kurla (parts) in Mumbai Suburban district and Elephanta (Raigad district)), Maharashtra
+- MH-02: Mumbai West (Andheri) (Bandra to Jogeshwari in Mumbai Suburban district), Maharashtra
+- MH-03: Mumbai East (Wadala) (Kurla to Mulund, Mankhurd in Mumbai Suburban district), Maharashtra
+- MH-04: Thane (Talukas of Thane, Bhiwandi and Shahapur), Maharashtra
+- MH-05: Kalyan (Talukas of Kalyan (Kalyan-Dombivli), Murbad, Ulhasnagar (Town and Taluka), Ambernath (Town and Taluka, including Badlapur Town)), Maharashtra
+- MH-06: Raigad (Taluks of Pen, Alibag, Roha, Murud, Shrivardhan, Mangaon, Mhasala, Poladpur, Tala, Mahad, Sudhagad), Maharashtra
+- MH-07: Sindhudurg (Entire Sindhudurg district), Maharashtra
+- MH-08: Ratnagiri (Entire Ratnagiri district), Maharashtra
+- MH-09: Kolhapur (Entire Kolhapur district), Maharashtra
+- MH-10: Sangli (Entire Sangli district except Jat Taluka), Maharashtra
+- MH-11: Satara (Entire Satara district), Maharashtra
+- MH-12: Pune (Pune City and Talukas of Haveli, Bhor, Velhe, Purandar, Shirur. Parts of Mulshi Taluka are also covered by this RTO), Maharashtra
+- MH-13: Solapur (Talukas of North Solapur, Solapur South, Mangalwedha, Barshi, Mohol, Pandharpur, Akkalkot), Maharashtra
+- MH-14: Pimpri-Chinchwad (Pimpri-Chinchwad Municipal Corporation and Hinjawadi, parts of Mulshi Taluka, Talukas of Junnar, Khed, Maval, Ambegaon), Maharashtra
+- MH-15: Nashik (Talukas of Nashik, Dindori, Trimbakeshwar, Surgana, Yeola, Chandvad, Niphad, Sinnar, Peth, Igatpuri), Maharashtra
+- MH-16: Ahmednagar (Talukas of Nagar, Jamkhed, Shrigonda, Pathardi, Parner, Karjat, Shevgaon), Maharashtra
+- MH-17: Shrirampur (Talukas of Shrirampur, Nevasa, Rahuri, Rahta, Kopargaon, Sangamner, Akole), Maharashtra
+- MH-18: Dhule (Entire Dhule District), Maharashtra
+- MH-19: Jalgaon (Talukas of Jalgaon, Bhusawal, Jamner, Yaval, Bodwad, Muktainagar and Raver), Maharashtra
+- MH-20: Chhatrapati Sambhajinagar (Entire Chhatrapati Sambhajinagar district), Maharashtra
+- MH-21: Jalna (Entire Jalna District), Maharashtra
+- MH-22: Parbhani (Entire Parbhani District), Maharashtra
+- MH-23: Beed (Talukas of Beed, Ashti, Gevrai, Patoda, Shirur Kasar), Maharashtra
+- MH-24: Latur (Talukas of Latur, Ausa, Nilanga, Renapur and Chakur), Maharashtra
+- MH-25: Dharashiv (Entire Dharashiv District), Maharashtra
+- MH-26: Nanded (Entire Nanded District), Maharashtra
+- MH-27: Amravati (Entire Amaravati District), Maharashtra
+- MH-28: Buldhana (Tehsil including Buldhana, Motala, Chikhali, Mehkar, Lonar, Sindkhed Raja and Deulgaon Raja), Maharashtra
+- MH-29: Yavatmal (Entire Yavatmal District), Maharashtra
+- MH-30: Akola (Entire Akola District), Maharashtra
+- MH-31: Nagpur West (Western Suburbs of Nagpur City), Maharashtra
+- MH-32: Wardha (Entire Wardha District), Maharashtra
+- MH-33: Gadchiroli (Entire Gadchiroli District), Maharashtra
+- MH-34: Chandrapur (Entire Chandrapur District), Maharashtra
+- MH-35: Gondia (Entire Gondia District), Maharashtra
+- MH-36: Bhandara (Entire Bhandara District), Maharashtra
+- MH-37: Washim (Entire Washim District), Maharashtra
+- MH-38: Hingoli (Entire Hingoli District), Maharashtra
+- MH-39: Nandurbar (Entire Nandurbar District), Maharashtra
+- MH-40: Nagpur Rural (Entire Nagpur District except Nagpur Urban Taluka), Maharashtra
+- MH-41: Malegaon (Talukas of Malegaon, Satana, Kalwan, Deola, Nandgaon), Maharashtra
+- MH-42: Baramati (Talukas of Baramati, Indapur, Daund), Maharashtra
+- MH-43: Navi Mumbai (Airoli to CBD Belapur and surrounding areas in Thane Taluka), Maharashtra
+- MH-44: Ambajogai (Talukas of Ambajogai, Kaij, Vadvani, Majalgaon, Parli, Dharur), Maharashtra
+- MH-45: Akluj (Talukas of Malshiras, Madha, Sangola, Karmala), Maharashtra
+- MH-46: Panvel (Kharghar to Panvel suburbs in Navi Mumbai, Talukas of Panvel, Uran, Khalapur, Karjat), Maharashtra
+- MH-47: Mumbai North (Borivali) (Goregaon to Dahisar in Mumbai Suburban District), Maharashtra
+- MH-48: Vasai (Vasai-Virar City Limits and whole of Palghar District), Maharashtra
+- MH-49: Nagpur East (Eastern Suburbs of Nagpur City), Maharashtra
+- MH-50: Karad (Karad and Patan Talukas), Maharashtra
+- MH-51: Ichalkaranji (Ichalkaranji Town and Talukas of Hatkanangle and Shirol), Maharashtra
+- MH-52: Chalisgaon (Chalisgaon Taluka), Maharashtra
+- MH-53: Phaltan (Talukas of Phaltan and Man), Maharashtra
+- MH-54: Bhadgaon (Talukas of Bhadgaon, Pachora, Parola, Amalner, Chopada, Erandol, Dharangaon), Maharashtra
+- MH-55: Udgir (Talukas of Udgir, Deoni, Jalkot, Shirur Anantpal and Ahmadpur), Maharashtra
+- MH-56: Khamgaon (Talukas of Khamgaon, Nandura, Shegaon, Malkapur, Jalgaon Jamod and Sangrampur), Maharashtra
+- MH-57: Vaijapur (Talukas of Vaijapur and Gangapur), Maharashtra
+- MH-58: Mira-Bhayandar (Mira Road-Bhayandar Municipal Limits in Thane Taluka), Maharashtra
+- MH-59: Jat, Maharashtra
+- MH-60: Palghar (Entire Palghar District excluding Vasai Taluka (Speculative)), Maharashtra
+- MH-61: Pune (New) (Pune City and Talukas of Haveli, Bhor, Velha, Indapur, Purandar, Shirur. Parts of Mulshi Taluka are also covered by this RTO), Maharashtra
+- ML-01: Meghalaya Government vehicles (N/A), Meghalaya
+- ML-02: Meghalaya Police vehicles (N/A), Meghalaya
+- ML-04: Jowai (Jaintia Hills), Meghalaya
+- ML-05: Shillong, Meghalaya
+- ML-06: Nongstoin (West Khasi Hills), Meghalaya
+- ML-07: William Nagar (East Garo Hills), Meghalaya
+- ML-08: Tura (West Garo Hills), Meghalaya
+- ML-09: Baghmara (South Garo Hills), Meghalaya
+- ML-10: Nongpoh (Ri-Bhoi), Meghalaya
+- MN-01: Imphal West, Manipur
+- MN-02: Churachandpur, Manipur
+- MN-03: Kangpokpi, Manipur
+- MN-04: Thoubal, Manipur
+- MN-05: Bishnupur, Manipur
+- MN-06: Imphal East, Manipur
+- MN-07: Ukhrul, Manipur
+- MN-08: Senapati, Manipur
+- MP-01: Bhopal (entire Madhya Pradesh), Madhya Pradesh
+- MP-02: Bhopal (entire Madhya Pradesh), Madhya Pradesh
+- MP-03: Bhopal (entire Madhya Pradesh), Madhya Pradesh
+- MP-04: Bhopal, Madhya Pradesh
+- MP-06: Morena, Madhya Pradesh
+- MP-07: Gwalior, Madhya Pradesh
+- MP-08: Guna, Madhya Pradesh
+- MP-09: Indore, Madhya Pradesh
+- MP-10: Khargone, Madhya Pradesh
+- MP-11: Dhar, Madhya Pradesh
+- MP-12: Khandwa, Madhya Pradesh
+- MP-13: Ujjain, Madhya Pradesh
+- MP-14: Mandsaur, Madhya Pradesh
+- MP-15: Sagar, Madhya Pradesh
+- MP-16: Chhatarpur, Madhya Pradesh
+- MP-17: Rewa, Madhya Pradesh
+- MP-18: Shahdol, Madhya Pradesh
+- MP-19: Satna, Madhya Pradesh
+- MP-20: Jabalpur, Madhya Pradesh
+- MP-21: Katni, Madhya Pradesh
+- MP-22: Seoni, Madhya Pradesh
+- MP-28: Chhindwara, Madhya Pradesh
+- MP-30: Bhind, Madhya Pradesh
+- MP-31: Sheopur, Madhya Pradesh
+- MP-32: Datia, Madhya Pradesh
+- MP-33: Shivpuri, Madhya Pradesh
+- MP-34: Damoh, Madhya Pradesh
+- MP-35: Panna, Madhya Pradesh
+- MP-36: Tikamgarh, Madhya Pradesh
+- MP-37: Sehore, Madhya Pradesh
+- MP-38: Raisen, Madhya Pradesh
+- MP-39: Rajgarh, Madhya Pradesh
+- MP-40: Vidisha, Madhya Pradesh
+- MP-41: Dewas, Madhya Pradesh
+- MP-42: Shajapur, Madhya Pradesh
+- MP-43: Ratlam, Madhya Pradesh
+- MP-44: Neemuch, Madhya Pradesh
+- MP-45: Jhabua, Madhya Pradesh
+- MP-46: Barwani, Madhya Pradesh
+- MP-47: Harda, Madhya Pradesh
+- MP-48: Betul, Madhya Pradesh
+- MP-49: Narsinghpur, Madhya Pradesh
+- MP-50: Balaghat, Madhya Pradesh
+- MP-51: Mandla, Madhya Pradesh
+- MP-52: Dindori, Madhya Pradesh
+- MP-53: Sidhi, Madhya Pradesh
+- MP-54: Umaria, Madhya Pradesh
+- MP-65: Anuppur, Madhya Pradesh
+- MP-66: Singrauli (Waidhan), Madhya Pradesh
+- MP-67: Ashoknagar, Madhya Pradesh
+- MP-68: Burhanpur, Madhya Pradesh
+- MP-69: Alirajpur, Madhya Pradesh
+- MP-70: Agar (Agar Malwa), Madhya Pradesh
+- MP-71: Niwari, Madhya Pradesh
+- MP-79: Mauganj, Madhya Pradesh
+- MP-73: Maihar, Madhya Pradesh
+- MP-74: Pandhurna, Madhya Pradesh
+- MZ-01: Aizawl, Mizoram
+- MZ-02: Lunglei, Mizoram
+- MZ-03: Saiha, Mizoram
+- MZ-04: Champhai, Mizoram
+- MZ-05: Kolasib, Mizoram
+- MZ-06: Serchhip, Mizoram
+- MZ-07: Lawngtlai, Mizoram
+- MZ-08: Mamit, Mizoram
+- NL-01: Kohima (Kohima District), Nagaland
+- NL-02: Mokokchung District, Nagaland
+- NL-03: Tuensang District, Nagaland
+- NL-04: Mon District, Nagaland
+- NL-05: Wokha District, Nagaland
+- NL-06: Zünheboto District, Nagaland
+- NL-07: Chümoukedima DistrictDimapur DistrictNiuland District, Nagaland
+- NL-08: Phek District, Nagaland
+- NL-09: entire Nagaland, Nagaland
+- NL-10: entire Nagaland, Nagaland
+- OD-01: Balasore (Balasore district), Odisha
+- OD-02: Bhubaneswar (Khurda district), Odisha
+- OD-03: Bolangir (Bolangir district), Odisha
+- OD-04: Chandikhol (Jajpur district), Odisha
+- OD-05: Cuttack (Cuttack district), Odisha
+- OD-06: Dhenkanal (Dhenkanal district), Odisha
+- OD-07: Chatrapur (Ganjam district), Odisha
+- OD-08: Bhawanipatna (Kalahandi district), Odisha
+- OD-09: Keonjhar (Keonjhar district), Odisha
+- OD-10: Koraput (Koraput district), Odisha
+- OD-11: Baripada (Mayurbhanj district), Odisha
+- OD-12: Phulbani (Kandhamal district), Odisha
+- OD-13: Puri (Puri district), Odisha
+- OD-14: Rourkela (Sundargarh district), Odisha
+- OD-15: Sambalpur (Sambalpur district), Odisha
+- OD-16: Sundargarh (Sundargarh district), Odisha
+- OD-17: Bargarh (Bargarh district), Odisha
+- OD-18: Rayagada (Rayagada district), Odisha
+- OD-19: Angul (Angul district), Odisha
+- OD-20: Paralakhemundi (Gajapati district), Odisha
+- OD-21: Jagatsinghpur (Jagatsinghpur district), Odisha
+- OD-22: Bhadrak (Bhadrak district), Odisha
+- OD-23: Jharsuguda (Jharsuguda district), Odisha
+- OD-24: Nabarangpur (Nabarangpur district), Odisha
+- OD-25: Nayagarh (Nayagarh district), Odisha
+- OD-26: Nuapada (Nuapada district), Odisha
+- OD-27: Boudh (Boudh district), Odisha
+- OD-28: Debagarh (Debagarh district), Odisha
+- OD-29: Kendrapara (Kendrapara district), Odisha
+- OD-30: Malkangiri (Malkangiri district), Odisha
+- OD-31: Subarnapur (Subarnapur district), Odisha
+- OD-32: Bhanjanagar (Ganjam district), Odisha
+- OD-33: Bhubaneswar-II (Khurda district), Odisha
+- OD-34: Jajpur (Jajpur district), Odisha
+- OD-35: Talcher (Angul district), Odisha
+- PB-01: Rented cars, self drive cars in Chandigarh & taxi vehicles from Punjab, Punjab
+- PB-02: Amritsar (1), Punjab
+- PB-03: Bathinda, Punjab
+- PB-04: Faridkot, Punjab
+- PB-05: Ferozpur, Punjab
+- PB-06: Gurdaspur, Punjab
+- PB-07: Hoshiarpur, Punjab
+- PB-08: Jalandhar (1), Punjab
+- PB-09: Kapurthala, Punjab
+- PB-10: Ludhiana (West), Punjab
+- PB-11: Patiala, Punjab
+- PB-12: Rupnagar, Punjab
+- PB-13: Sangrur, Punjab
+- PB-14: Ajnala, Punjab
+- PB-15: Abohar, Punjab
+- PB-16: Anandpur Sahib, Punjab
+- PB-17: Baba Bakala, Punjab
+- PB-18: Batala, Punjab
+- PB-19: Barnala, Punjab
+- PB-20: Balachaur, Punjab
+- PB-21: Dasuya, Punjab
+- PB-22: Fazilka, Punjab
+- PB-23: Fatehgarh Sahib, Punjab
+- PB-24: Garhshankar, Punjab
+- PB-25: Jagraon, Punjab
+- PB-26: Khanna, Punjab
+- PB-27: Kharar, Punjab
+- PB-28: Malerkotla, Punjab
+- PB-29: Moga, Punjab
+- PB-30: Muktsar, Punjab
+- PB-31: Mansa, Punjab
+- PB-32: Nawanshahar, Punjab
+- PB-33: Nakodar, Punjab
+- PB-34: Nabha, Punjab
+- PB-35: Pathankot, Punjab
+- PB-36: Phagwara, Punjab
+- PB-37: Phillaur, Punjab
+- PB-38: Patti, Punjab
+- PB-39: Rajpura, Punjab
+- PB-40: Rampura Phul, Punjab
+- PB-41: Sultanpur Lodhi, Punjab
+- PB-42: Samana, Punjab
+- PB-43: Samrala, Punjab
+- PB-44: Sunam, Punjab
+- PB-45: Talwandi Sabo, Punjab
+- PB-46: Tarn Taran, Punjab
+- PB-47: Zira, Punjab
+- PB-48: Amloh, Punjab
+- PB-49: Khamanon, Punjab
+- PB-50: Budhlada, Punjab
+- PB-51: Sardulgarh, Punjab
+- PB-52: Bassi Pathana, Punjab
+- PB-53: Malout, Punjab
+- PB-54: Mukerian, Punjab
+- PB-55: Payal, Punjab
+- PB-56: Raikot, Punjab
+- PB-57: Bhulath, Punjab
+- PB-58: Dera Baba Nanak, Punjab
+- PB-59: Dhuri, Punjab
+- PB-60: Gidderbaha, Punjab
+- PB-61: Jalalabad, Punjab
+- PB-62: Jaitu, Punjab
+- PB-63: Khadoor Sahib, Punjab
+- PB-64: Moonak, Punjab
+- PB-65: Mohali, Punjab
+- PB-66: Nihal Singh Wala, Punjab
+- PB-67: Shahkot, Punjab
+- PB-68: Dhar Kalan, Punjab
+- PB-69: Bagha Purana, Punjab
+- PB-70: Dera Bassi, Punjab
+- PB-71: Chamkaur Sahib, Punjab
+- PB-72: Pattran, Punjab
+- PB-73: Tappa Mandi, Punjab
+- PB-74: Nangal, Punjab
+- PB-75: Lehragaga, Punjab
+- PB-76: Dharamkot, Punjab
+- PB-77: Guru Har Sahai, Punjab
+- PB-78: Banga, Punjab
+- PB-79: Kotkapura, Punjab
+- PB-80: Maur, Punjab
+- PB-81: Majitha, Punjab
+- PB-82: Ahmedgarh, Punjab
+- PB-83: Dudhan Sadhan, Punjab
+- PB-84: Bhawanigarh, Punjab
+- PB-85: Kalanaur, Punjab
+- PB-86: Dirba, Punjab
+- PB-87: Morinda, Punjab
+- PB-88: Bhikhiwind, Punjab
+- PB-89: Amritsar (2), Punjab
+- PB-90: Jalandhar (2), Punjab
+- PB-91: Ludhiana (East), Punjab
+- PB-92: Amargarh, Punjab
+- PB-93: Lopoke, Punjab
+- PB-99: Dinanagar, Punjab
+- PY-01: Puducherry, Puducherry
+- PY-02: Karaikal, Puducherry
+- PY-03: Mahe, Puducherry
+- PY-04: Yanam, Puducherry
+- PY-05: Oulgaret, Puducherry
+- RJ-01: Ajmer (Ajmer district), Rajasthan
+- RJ-02: Alwar (Alwar district), Rajasthan
+- RJ-03: Banswara (Banswara district), Rajasthan
+- RJ-04: Barmer (Barmer district), Rajasthan
+- RJ-05: Bharatpur (Bharatpur district), Rajasthan
+- RJ-06: Bhilwara (Bhilwara district), Rajasthan
+- RJ-07: Bikaner (Bikaner district), Rajasthan
+- RJ-08: Bundi (Bundi district), Rajasthan
+- RJ-09: Chittorgarh (Chittorgarh district), Rajasthan
+- RJ-10: Churu (Churu district), Rajasthan
+- RJ-11: Dholpur (Dholpur district), Rajasthan
+- RJ-12: Dungarpur (Dungarpur district), Rajasthan
+- RJ-13: Sri Ganganagar (Sri Ganganagar district), Rajasthan
+- RJ-14: Jaipur (South) (Jaipur district), Rajasthan
+- RJ-15: Jaisalmer (Jaisalmer district), Rajasthan
+- RJ-16: Jalore (Jalore district), Rajasthan
+- RJ-17: Jhalawar (Jhalawar district), Rajasthan
+- RJ-18: Jhunjhunu (Jhunjhunu district), Rajasthan
+- RJ-19: Jodhpur (Jodhpur district), Rajasthan
+- RJ-20: Kota (Kota district), Rajasthan
+- RJ-21: Nagaur (Nagaur district), Rajasthan
+- RJ-22: Pali (Pali district), Rajasthan
+- RJ-23: Sikar (Sikar district), Rajasthan
+- RJ-24: Sirohi (Sirohi district), Rajasthan
+- RJ-25: Sawai Madhopur (Sawai Madhopur district), Rajasthan
+- RJ-26: Tonk (Tonk district), Rajasthan
+- RJ-27: Udaipur (Udaipur district), Rajasthan
+- RJ-28: Baran (Baran district), Rajasthan
+- RJ-29: Dausa (Dausa district), Rajasthan
+- RJ-30: Rajsamand (Rajsamand district), Rajasthan
+- RJ-31: Hanumangarh (Hanumangarh district), Rajasthan
+- RJ-32: Kotputli (Kotputli-Behror district), Rajasthan
+- RJ-33: Ramganj Mandi (Kota district), Rajasthan
+- RJ-34: Karauli (Karauli district), Rajasthan
+- RJ-35: Pratapgarh (Pratapgarh district), Rajasthan
+- RJ-36: Beawar (Beawar District), Rajasthan
+- RJ-37: Didwana (Didwana-Kuchaman district), Rajasthan
+- RJ-38: Abu Road (Sirohi district), Rajasthan
+- RJ-39: Balotra (Balotra district), Rajasthan
+- RJ-40: Bhiwadi (Khairthal-Tijara district), Rajasthan
+- RJ-41: Chomu (Jaipur district), Rajasthan
+- RJ-42: Kishangarh (Ajmer district), Rajasthan
+- RJ-43: Phalodi (Phalodi district), Rajasthan
+- RJ-44: Sujangarh (Churu district), Rajasthan
+- RJ-45: Jaipur (North) (Jaipur district), Rajasthan
+- RJ-46: Bhinmal (Jalore district), Rajasthan
+- RJ-47: Dudu (Jaipur district), Rajasthan
+- RJ-48: Kekri (Ajmer district), Rajasthan
+- RJ-49: Nohar (Hanumangarh district), Rajasthan
+- RJ-50: Nokha (Bikaner district), Rajasthan
+- RJ-51: Shahpura (Bhilwara district), Rajasthan
+- RJ-52: Shahpura (Jaipur district), Rajasthan
+- RJ-53: Khetri (Jhunjhunu district), Rajasthan
+- RJ-54: Piparcity (Jodhpur district), Rajasthan
+- RJ-55: Pokhran (Jaisalmer district), Rajasthan
+- RJ-56: Sadulshahar (Sri Ganganagar district), Rajasthan
+- RJ-57: Sumerpur (Pali district), Rajasthan
+- RJ-58: Salumbar (Salumbar district), Rajasthan
+- RJ-59: Shahpura (Jaipur district), Rajasthan
+- RJ-60: Jaipur(Additional) (Jaipur district), Rajasthan
+- SK-01: Gangtok, Sikkim
+- SK-02: Gyalshing (Gyalshing district), Sikkim
+- SK-03: Mangan, Sikkim
+- SK-04: Jorethang (Namchi district), Sikkim
+- SK-05: Namchi (Namchi district), Sikkim
+- SK-06: Soreng (Soreng district), Sikkim
+- SK-07: Pakyong (Pakyong district), Sikkim
+- SK-08: Singtam, Sikkim
+- TG-01: Adilabad (Adilabad district), Telangana
+- TG-02: Karimnagar (Karimnagar district), Telangana
+- TG-03: Warangal (Hanamkonda district), Telangana
+- TG-04: Khammam (Khammam district), Telangana
+- TG-05: Nalgonda (Nalgonda district), Telangana
+- TG-06: Mahbubnagar (Mahbubnagar district), Telangana
+- TG-07: Attapur (Hyderabad)* (Ranga Reddy), Telangana
+- TG-08: Medchal (Hyderabad)* (Medchal-Malkajgiri District), Telangana
+- TG-09: Khairtabad (Hyderabad) (Hyderabad Central), Telangana
+- TG-10: Secunderabad (Hyderabad) (Hyderabad North), Telangana
+- TG-11: Malakpet (Hyderabad) (Hyderabad East), Telangana
+- TG-12: Kishanbagh (Hyderabad) (Hyderabad South), Telangana
+- TG-13: Tolichowki (Hyderabad) (Hyderabad West), Telangana
+- TG-14: Hyderabad (Reserved for Hyderabad), Telangana
+- TG-15: Sangareddy (Sangareddy district), Telangana
+- TG-16: Nizamabad (Nizamabad district), Telangana
+- TG-17: Kamareddy (Kamareddy district), Telangana
+- TG-18: Nirmal (Nirmal district), Telangana
+- TG-19: Mancherial (Mancherial district), Telangana
+- TG-20: Asifabad (Komaram Bheem district), Telangana
+- TG-21: Jagtial (Jagtial district), Telangana
+- TG-22: Peddapalli (Peddapalli district), Telangana
+- TG-23: Sircilla (Sircilla district), Telangana
+- TG-24: Warangal (Warangal district), Telangana
+- TG-25: Bhupalpalle (Jayashankar Bhupalpally district), Telangana
+- TG-26: Mahabubabad (Mahabubabad district), Telangana
+- TG-27: Jangaon (Jangaon district), Telangana
+- TG-28: Kothagudem (Bhadradri Kothagudem district), Telangana
+- TG-29: Suryapet (Suryapet district), Telangana
+- TG-30: Bhuvanagiri (Yadadri Bhuvanagiri district), Telangana
+- TG-31: Nagarkurnool (Nagarkurnool district), Telangana
+- TG-32: Wanaparthy (Wanaparthy district), Telangana
+- TG-33: Gadwal (Jogulamba Gadwal district), Telangana
+- TG-34: Vikarabad (Vikarabad district), Telangana
+- TG-35: Medak (Medak district), Telangana
+- TG-36: Siddipet (Siddipet district), Telangana
+- TG-37: Mulugu (Mulugu district), Telangana
+- TG-38: Narayanpet (Narayanpet district), Telangana
+- AP-01: Adilabad District, Telangana
+- AP-09: Hyderabad Central (Khairatabad), Telangana
+- AP-10: Hyderabad North (Secunderabad), Telangana
+- AP-11: Hyderabad East (Malakpet), Telangana
+- AP-12: Hyderabad South (Kishanbagh), Telangana
+- AP-13: Hyderabad West (Mehdipatnam), Telangana
+- AP-15: Karimnagar District, Telangana
+- AP-20: Khammam District, Telangana
+- AP-22: Mahabubnagar District, Telangana
+- AP-23: Medak District, Telangana
+- AP-24: Nalgonda District, Telangana
+- AP-25: Nizamabad District, Telangana
+- AP-28: Rangareddy District (Attapur, Hyderabad)*, Telangana
+- AP-29: Rangareddy District (Uppal, Hyderabad)*, Telangana
+- AP-36: Warangal District, Telangana
+- TN-01: Chennai (Central): Ayanavaram (Chennai), Tamil Nadu
+- TN-02: Chennai (North West): Anna Nagar (Chennai), Tamil Nadu
+- TN-03: Chennai (North East): Tondiarpet (Chennai), Tamil Nadu
+- TN-04: Chennai (East): Royapuram (Chennai), Tamil Nadu
+- TN-05: Chennai (North): Kolathur (Chennai), Tamil Nadu
+- TN-06: Chennai (South East): Mandavelli (Chennai), Tamil Nadu
+- TN-07: Chennai (South): Adyar (Chennai), Tamil Nadu
+- TN-09: Chennai (West): K. K. Nagar (Chennai), Tamil Nadu
+- TN-10: Chennai (South West): Virugambakkam (Chennai), Tamil Nadu
+- TN-11: Tambaram (Chengalpattu), Tamil Nadu
+- TN-12: Poonamallee (Tiruvallur), Tamil Nadu
+- TN-13: Ambattur (Chennai), Tamil Nadu
+- TN-14: Sholinganallur (Chengalpattu), Tamil Nadu
+- TN-15: Ulundurpet (Kallakurichi), Tamil Nadu
+- TN-16: Tindivanam (Villupuram), Tamil Nadu
+- TN-18: Red Hills (Tiruvallur), Tamil Nadu
+- TN-19: Chengalpattu, Tamil Nadu
+- TN-20: Tiruvallur, Tamil Nadu
+- TN-21: Kanchipuram, Tamil Nadu
+- TN-22: Meenambakkam (Chennai), Tamil Nadu
+- TN-23: Vellore, Tamil Nadu
+- TN-24: Krishnagiri, Tamil Nadu
+- TN-25: Thiruvannamalai, Tamil Nadu
+- TN-27: Salem, Tamil Nadu
+- TN-28: Namakkal (North) (Namakkal), Tamil Nadu
+- TN-29: Dharmapuri, Tamil Nadu
+- TN-30: Salem (West) (Salem), Tamil Nadu
+- TN-31: Cuddalore, Tamil Nadu
+- TN-32: Villupuram, Tamil Nadu
+- TN-33: Erode (East) (Erode), Tamil Nadu
+- TN-34: Tiruchengode (Namakkal), Tamil Nadu
+- TN-36: Gobichettipalayam (Erode), Tamil Nadu
+- TN-37: Coimbatore (South) (Coimbatore), Tamil Nadu
+- TN-38: Coimbatore (North) (Coimbatore), Tamil Nadu
+- TN-39: Tirupur (North) (Tirupur), Tamil Nadu
+- TN-40: Mettupalayam (Coimbatore), Tamil Nadu
+- TN-41: Pollachi (Coimbatore), Tamil Nadu
+- TN-42: Tirupur (South) (Tirupur), Tamil Nadu
+- TN-43: Ooty (Nilgiris), Tamil Nadu
+- TN-45: Tiruchirapalli (West) (Tiruchirapalli), Tamil Nadu
+- TN-46: Perambalur, Tamil Nadu
+- TN-47: Karur, Tamil Nadu
+- TN-48: Srirangam (Tiruchirapalli), Tamil Nadu
+- TN-49: Thanjavur, Tamil Nadu
+- TN-50: Tiruvarur, Tamil Nadu
+- TN-51: Nagapattinam, Tamil Nadu
+- TN-52: Sankagiri (Salem), Tamil Nadu
+- TN-54: Salem (East) (Salem), Tamil Nadu
+- TN-55: Pudukottai, Tamil Nadu
+- TN-56: Perundurai (Erode), Tamil Nadu
+- TN-57: Dindigul, Tamil Nadu
+- TN-58: Madurai (South) (Madurai), Tamil Nadu
+- TN-59: Madurai (North) (Madurai), Tamil Nadu
+- TN-60: Theni, Tamil Nadu
+- TN-61: Ariyalur, Tamil Nadu
+- TN-63: Sivaganga, Tamil Nadu
+- TN-64: Madurai (Central) (Madurai), Tamil Nadu
+- TN-65: Ramanathapuram, Tamil Nadu
+- TN-66: Coimbatore (Central) (Coimbatore), Tamil Nadu
+- TN-67: Virudhunagar, Tamil Nadu
+- TN-68: Kumbakonam (Thanjavur), Tamil Nadu
+- TN-69: Thoothukudi, Tamil Nadu
+- TN-70: Hosur (Krishnagiri), Tamil Nadu
+- TN-72: Tirunelveli, Tamil Nadu
+- TN-73: Ranipet, Tamil Nadu
+- TN-74: Nagercoil (Kanniyakumari), Tamil Nadu
+- TN-75: Marthandam (Kanniyakumari), Tamil Nadu
+- TN-76: Tenkasi, Tamil Nadu
+- TN-77: Attur (Salem), Tamil Nadu
+- TN-78: Dharapuram (Tirupur), Tamil Nadu
+- TN-79: Sankarankovil (Tenkasi), Tamil Nadu
+- TN-81: Tiruchirapalli (East) (Tiruchirapalli), Tamil Nadu
+- TN-82: Mayiladuthurai, Tamil Nadu
+- TN-83: Vaniyambadi (Thirupattur), Tamil Nadu
+- TN-84: Srivilliputhur (Virudhunagar), Tamil Nadu
+- TN-85: Kundrathur (Kanchipuram), Tamil Nadu
+- TN-86: Erode (West) (Erode), Tamil Nadu
+- TN-87: Sriperumbudur (Kanchipuram), Tamil Nadu
+- TN-88: Namakkal (South) (Namakkal), Tamil Nadu
+- TN-90: Salem (South) (Salem), Tamil Nadu
+- TN-91: Chidambaram (Cuddalore), Tamil Nadu
+- TN-92: Thiruchendur (Thoothukudi), Tamil Nadu
+- TN-93: Mettur (Salem), Tamil Nadu
+- TN-94: Palani (Dindigul), Tamil Nadu
+- TN-95: Sivakasi (Virudhunagar), Tamil Nadu
+- TN-96: Kovilpatti (Thoothukudi), Tamil Nadu
+- TN-97: Arani (Tiruvannamalai), Tamil Nadu
+- TN-99: Coimbatore (West) (Coimbatore), Tamil Nadu
+- TR-01: Agartala (West Tripura), Tripura
+- TR-02: Kailasahar (Unakoti), Tripura
+- TR-03: Udaipur (Gomati), Tripura
+- TR-04: Ambassa (Dhalai), Tripura
+- TR-05: Dharmanagar (North Tripura), Tripura
+- TR-06: Teliamura (Khowai), Tripura
+- TR-07: Bishramganj (Sipahijala), Tripura
+- TR-08: Santirbazar (South Tripura), Tripura
+- UK-01: Almora (Almora district), Uttarakhand
+- UK-02: Bageshwar (Bageshwar district), Uttarakhand
+- UK-03: Champawat (Champawat district), Uttarakhand
+- UK-04: Haldwani (Nainital district), Uttarakhand
+- UK-05: Pithoragarh (Pithoragarh district), Uttarakhand
+- UK-06: Rudrapur (Udham Singh Nagar district), Uttarakhand
+- UK-07: Dehradun (Dehradun district), Uttarakhand
+- UK-08: Haridwar (Haridwar district), Uttarakhand
+- UK-09: Tehri (Tehri Garhwal district), Uttarakhand
+- UK-10: Uttarkashi (Uttarkashi district), Uttarakhand
+- UK-11: Gopeshwar (Chamoli district), Uttarakhand
+- UK-12: Pauri (Pauri Garhwal district), Uttarakhand
+- UK-13: Rudraprayag (Rudraprayag district), Uttarakhand
+- UK-14: Rishikesh (Dehradun district), Uttarakhand
+- UK-15: Kotdwar (Pauri Garhwal district), Uttarakhand
+- UK-16: Vikasnagar (Dehradun district), Uttarakhand
+- UK-17: Roorkee (Haridwar district), Uttarakhand
+- UK-18: Kashipur (Udham Singh Nagar district), Uttarakhand
+- UK-19: Ramnagar (Nainital District), Uttarakhand
+- UK-20: Ranikhet (Almora District), Uttarakhand
+- UP-11: Saharanpur (Saharanpur district), Uttar Pradesh
+- UP-12: Muzaffarnagar (Muzaffarnagar district), Uttar Pradesh
+- UP-13: Bulandshahr (Bulandshahr district), Uttar Pradesh
+- UP-14: Ghaziabad (Ghaziabad district), Uttar Pradesh
+- UP-15: Meerut (Meerut district), Uttar Pradesh
+- UP-16: Noida (Gautam Buddha Nagar district), Uttar Pradesh
+- UP-17: Baghpat (Bagpat district), Uttar Pradesh
+- UP-19: Shamli (Shamli district), Uttar Pradesh
+- UP-20: Bijnor (Bijnor district), Uttar Pradesh
+- UP-21: Moradabad (Moradabad district), Uttar Pradesh
+- UP-22: Rampur (Rampur district), Uttar Pradesh
+- UP-23: Amroha (Amroha district), Uttar Pradesh
+- UP-24: Badaun (Badaun district), Uttar Pradesh
+- UP-25: Bareilly (Bareilly district), Uttar Pradesh
+- UP-26: Pilibhit (Pilibhit district), Uttar Pradesh
+- UP-27: Shahjahanpur (Shahjahanpur district), Uttar Pradesh
+- UP-30: Hardoi (Hardoi district), Uttar Pradesh
+- UP-31: Lakhimpur (Lakhimpur Kheri district), Uttar Pradesh
+- UP-32: Lucknow (Lucknow district), Uttar Pradesh
+- UP-33: Raebareli (Raebareli district), Uttar Pradesh
+- UP-34: Sitapur (Sitapur district), Uttar Pradesh
+- UP-35: Unnao (Unnao district), Uttar Pradesh
+- UP-36: Amethi (Amethi district), Uttar Pradesh
+- UP-37: Hapur (Hapur district), Uttar Pradesh
+- UP-38: Bahjoi (Sambhal district), Uttar Pradesh
+- UP-40: Bahraich (Bahraich district), Uttar Pradesh
+- UP-41: Barabanki (Barabanki district), Uttar Pradesh
+- UP-42: Ayodhya (Ayodhya district), Uttar Pradesh
+- UP-43: Gonda (Gonda district), Uttar Pradesh
+- UP-44: Sultanpur (Sultanpur district), Uttar Pradesh
+- UP-45: Akbarpur (Ambedkar Nagar), Uttar Pradesh
+- UP-46: Shravasti (Shravasti district), Uttar Pradesh
+- UP-47: Balrampur (Balrampur district), Uttar Pradesh
+- UP-50: Azamgarh (Azamgarh district), Uttar Pradesh
+- UP-51: Basti (Basti district), Uttar Pradesh
+- UP-52: Deoria (Deoria district), Uttar Pradesh
+- UP-53: Gorakhpur (Gorakhpur district), Uttar Pradesh
+- UP-54: Mau (Mau district), Uttar Pradesh
+- UP-55: Siddharthnagar (Siddharth Nagar), Uttar Pradesh
+- UP-56: Maharajganj (Maharajganj district), Uttar Pradesh
+- UP-57: Padrauna (Kushinagar district), Uttar Pradesh
+- UP-58: Khalilabad (Sant Kabir Nagar), Uttar Pradesh
+- UP-60: Ballia (Ballia district), Uttar Pradesh
+- UP-61: Ghazipur (Ghazipur district), Uttar Pradesh
+- UP-62: Jaunpur (Jaunpur district), Uttar Pradesh
+- UP-63: Mirzapur (Mirzapur district), Uttar Pradesh
+- UP-64: Robertsganj (Sonbhadra district), Uttar Pradesh
+- UP-65: Varanasi (Varanasi district), Uttar Pradesh
+- UP-66: Gyanpur (Bhadohi district), Uttar Pradesh
+- UP-67: Chandauli (Chandauli district), Uttar Pradesh
+- UP-70: Prayagraj (Prayagraj district), Uttar Pradesh
+- UP-71: Fatehpur (Fatehpur district), Uttar Pradesh
+- UP-72: Pratapgarh (Pratapgarh district), Uttar Pradesh
+- UP-73: Manjhanpur (Kaushambi), Uttar Pradesh
+- UP-74: Kannauj (Kannauj district), Uttar Pradesh
+- UP-75: Etawah (Etawah district), Uttar Pradesh
+- UP-76: Farrukhabad (Farrukhabad district), Uttar Pradesh
+- UP-77: Akbarpur (Kanpur Dehat district), Uttar Pradesh
+- UP-78: Kanpur (Kanpur Nagar district), Uttar Pradesh
+- UP-79: Auraiya (Auraiya district), Uttar Pradesh
+- UP-80: Agra (Agra district), Uttar Pradesh
+- UP-81: Aligarh (Aligarh district), Uttar Pradesh
+- UP-82: Etah (Etah district), Uttar Pradesh
+- UP-83: Firozabad (Firozabad district), Uttar Pradesh
+- UP-84: Mainpuri (Mainpuri district), Uttar Pradesh
+- UP-85: Mathura (Mathura district), Uttar Pradesh
+- UP-86: Hathras (Hathras district), Uttar Pradesh
+- UP-87: Kasganj (Kasganj district), Uttar Pradesh
+- UP-90: Banda (Banda district), Uttar Pradesh
+- UP-91: Hamirpur (Hamirpur district), Uttar Pradesh
+- UP-92: Jalaun (Jalaun district), Uttar Pradesh
+- UP-93: Jhansi (Jhansi district), Uttar Pradesh
+- UP-94: Lalitpur (Lalitpur district), Uttar Pradesh
+- UP-95: Mahoba (Mahoba district), Uttar Pradesh
+- UP-96: Chitrakoot Dham (Chitrakoot district), Uttar Pradesh
+- WB-01: Beltala (two Wheelers), West Bengal
+- WB-02: Beltala (four Wheelers private vehicles), West Bengal
+- WB-03: Beltala (commercial goods carriages), West Bengal
+- WB-04: Beltala (commercial passenger vehicles), West Bengal
+- WB-05: Kasba (commercial vehicles), West Bengal
+- WB-06: Kasba (private vehicles), West Bengal
+- WB-07: Salt Lake (commercial vehicles), West Bengal
+- WB-08: Salt Lake (private vehicles), West Bengal
+- WB-09: Behala (commercial vehicles), West Bengal
+- WB-10: Behala (private vehicles), West Bengal
+- WB-11: Howrah (commercial vehicles), West Bengal
+- WB-12: Howrah (private vehicles), West Bengal
+- WB-13: Uluberia (commercial vehicles), West Bengal
+- WB-14: Uluberia (private vehicles), West Bengal
+- WB-15: Chinsurah (commercial vehicles), West Bengal
+- WB-16: Chinsurah (private vehicles), West Bengal
+- WB-17: Serampore (commercial vehicles), West Bengal
+- WB-18: Serampore (private vehicles), West Bengal
+- WB-19: Alipore (commercial vehicles), West Bengal
+- WB-20: Alipore (private vehicles), West Bengal
+- WB-21: Basirhat (commercial vehicles), West Bengal
+- WB-22: Basirhat (private vehicles), West Bengal
+- WB-23: Barrackpore (commercial vehicles), West Bengal
+- WB-24: Barrackpore (private vehicles), West Bengal
+- WB-25: Barasat (commercial vehicles), West Bengal
+- WB-26: Barasat (private vehicles), West Bengal
+- WB-27: Bangaon (commercial vehicles), West Bengal
+- WB-28: Bangaon (private vehicles), West Bengal
+- WB-29: Tamluk (commercial vehicles), West Bengal
+- WB-30: Tamluk (private vehicles), West Bengal
+- WB-31: Contai (commercial vehicles), West Bengal
+- WB-32: Contai (private vehicles), West Bengal
+- WB-33: Medinipur (commercial vehicles), West Bengal
+- WB-34: Medinipur (private vehicles), West Bengal
+- WB-35: Kharagpur (commercial vehicles), West Bengal
+- WB-36: Kharagpur (private vehicles), West Bengal
+- WB-37: Asansol (commercial vehicles), West Bengal
+- WB-38: Asansol (private vehicles), West Bengal
+- WB-39: Durgapur (commercial vehicles), also SBSTC buses are registered here., West Bengal
+- WB-40: Durgapur (private vehicles), West Bengal
+- WB-41: Bardhaman (commercial vehicles), West Bengal
+- WB-42: Bardhaman (private vehicles), West Bengal
+- WB-43: Kalna (commercial vehicles), West Bengal
+- WB-44: Kalna (private vehicles), West Bengal
+- WB-45: Rampurhat (commercial vehicles), West Bengal
+- WB-46: Rampurhat (private vehicles), West Bengal
+- WB-47: Bolpur (commercial vehicles), West Bengal
+- WB-48: Bolpur (private vehicles), West Bengal
+- WB-49: Jhargram (commercial vehicles), West Bengal
+- WB-50: Jhargram (private vehicles), West Bengal
+- WB-51: Krishnanagar (commercial vehicles), West Bengal
+- WB-52: Krishnanagar (private vehicles), West Bengal
+- WB-53: Birbhum (commercial vehicles), West Bengal
+- WB-54: Birbhum (private vehicles), West Bengal
+- WB-55: Purulia (commercial vehicles), West Bengal
+- WB-56: Purulia (private vehicles), West Bengal
+- WB-57: Murshidabad (commercial vehicles), West Bengal
+- WB-58: Murshidabad (private vehicles), West Bengal
+- WB-59: Raiganj (commercial vehicles), West Bengal
+- WB-60: Raiganj (private vehicles), West Bengal
+- WB-61: Balurghat (commercial vehicles), West Bengal
+- WB-62: Balurghat (private vehicles), West Bengal
+- WB-63: Cooch Behar (commercial vehicles), also NBSTC buses are registered here., West Bengal
+- WB-64: Cooch Behar (private vehicles), West Bengal
+- WB-65: Malda City (commercial vehicles), West Bengal
+- WB-66: Malda City (private vehicles), West Bengal
+- WB-67: Bankura (commercial vehicles), West Bengal
+- WB-68: Bankura (private vehicles), West Bengal
+- WB-69: Alipurduar (commercial vehicles), West Bengal
+- WB-70: Alipurduar (private vehicles), West Bengal
+- WB-71: Jalpaiguri (commercial vehicles), West Bengal
+- WB-72: Jalpaiguri (private vehicles), West Bengal
+- WB-73: Siliguri (commercial vehicles), West Bengal
+- WB-74: Siliguri (private vehicles), West Bengal
+- WB-75: Katwa (private and commercial vehicles), West Bengal
+- WB-76: Darjeeling (commercial vehicles), West Bengal
+- WB-77: Darjeeling (private vehicles), West Bengal
+- WB-78: Kalimpong (commercial vehicles), West Bengal
+- WB-79: Kalimpong (private vehicles), West Bengal
+- WB-80: Manbazar (private and commercial vehicles), West Bengal
+- WB-81: Raghunathpur (commercial vehicles), West Bengal
+- WB-82: Raghunathpur (private vehicles), West Bengal
+- WB-83: Chanchal (commercial vehicles), West Bengal
+- WB-84: Chanchal (private vehicles), West Bengal
+- WB-85: Mathabhanga (commercial vehicles), West Bengal
+- WB-86: Mathabhanga (private vehicles), West Bengal
+- WB-87: Bishnupur (commercial vehicles), West Bengal
+- WB-88: Bishnupur (private vehicles), West Bengal
+- WB-89: Kalyani (commercial vehicles), West Bengal
+- WB-90: Kalyani (private vehicles), West Bengal
+- WB-91: Islampur (commercial vehicles), West Bengal
+- WB-92: Islampur (private vehicles), West Bengal
+- WB-93: Jangipur (commercial vehicles), West Bengal
+- WB-94: Jangipur (private vehicles), West Bengal
+- WB-95: Baruipur (commercial vehicles), West Bengal
+- WB-96: Baruipur (private vehicles), West Bengal
+- WB-97: Diamond Harbour (commercial vehicles), West Bengal
+- WB-98: Canning (All vehicles), West Bengal
+- WB-99: Kandi (Private and Commercial vehicles), West Bengal
+
+More: https://nextgrade.in/llms.txt · https://nextgrade.in/sitemap.xml

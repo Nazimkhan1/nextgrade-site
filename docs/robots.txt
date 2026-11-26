@@ -37,4 +37,25 @@ Allow: /
 User-agent: meta-externalagent
 Allow: /
 
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
 Sitemap: https://nextgrade.in/sitemap.xml

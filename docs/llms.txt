@@ -1,5 +1,7 @@
 # NextGrade
 
+Fact sheet for quoting: https://nextgrade.in/llms-full.txt
+
 > Free Indian festival wishes, festival dates, children's stories, kids learning (counting 1-100, tables, Hindi/Bengali/Urdu alphabets) with audio, desi games and small tools, in Hindi, English, Hinglish and Bengali. No sign-up, works on any phone. Every page exists in 4 languages: Hindi at https://nextgrade.in/, English at https://nextgrade.in/en/, Hinglish at https://nextgrade.in/hinglish/, Bengali at https://nextgrade.in/bn/.
 
 All text is written by NextGrade or is public domain (old folk tales retold in our own words).
@@ -255,6 +257,105 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 ## Travel
 
 - [Places to visit in India by month and season](https://nextgrade.in/en/ghoomne-ki-jagah/): 70+ places picked by each month’s average temperature and rain; one page per month, plus winter, snow, summer and monsoon lists
+
+## Daily (updated every morning)
+
+- [Today: date, tithi, festival, sunrise, thought of the day, Good Morning image maker](https://nextgrade.in/en/aaj/)
+- [Ekadashi dates (next 12 months) with names and tithi timings](https://nextgrade.in/en/ekadashi/)
+- [Purnima dates](https://nextgrade.in/en/purnima/)
+- [Amavasya dates](https://nextgrade.in/en/amavasya/)
+- [Currency to Indian rupee — today’s rates (16 currencies)](https://nextgrade.in/en/currency/)
+- [World time now — 17 places with difference from India](https://nextgrade.in/en/time/)
+
+## Government services, step by step (with official links)
+
+- [How to change your address in Aadhaar (online)](https://nextgrade.in/en/sarkari-guide/aadhaar-address-change/): Where: myAadhaar portal (from uidai.gov.in); You need: Mobile number linked to Aadhaar (for OTP); Fee: Shown on the portal — ₹75 at present as per UIDAI; Time: Usually a few days, up to 30 days
+- [How to link PAN with Aadhaar](https://nextgrade.in/en/sarkari-guide/pan-aadhaar-link/): Where: Income Tax e-filing portal (incometax.gov.in); Fee: ₹1,000 (late linking fee) — paid first; You need: PAN, Aadhaar, mobile linked to Aadhaar; Why: An unlinked PAN can become inoperative
+- [How to get a new PAN card](https://nextgrade.in/en/sarkari-guide/pan-card-apply/): Easiest: Instant e-PAN with Aadhaar — on incometax.gov.in, free; You need: Aadhaar + the mobile linked to it; Physical card: From Protean (NSDL) or UTIITSL — fee shown on the portal; Time: e-PAN in minutes to hours; card by post in a few weeks
+- [How to get an Ayushman card (PM-JAY)](https://nextgrade.in/en/sarkari-guide/ayushman-card/): Where: beneficiary.nha.gov.in or the Ayushman App; Fee: Making the card is free; You need: Aadhaar + mobile (OTP); Helpline: 14555
+- [How to download e-Aadhaar (Aadhaar PDF)](https://nextgrade.in/en/sarkari-guide/e-aadhaar-download/): Where: myAadhaar portal (from uidai.gov.in); Fee: Free; You need: Mobile linked to Aadhaar (OTP); PDF password: First 4 letters of name (CAPITALS) + birth year
+- [How to get a new voter ID (Form 6)](https://nextgrade.in/en/sarkari-guide/voter-id-apply/): Where: voters.eci.gov.in or the Voter Helpline app; Fee: Free; Who: Indian citizens aged 18 or above; Form: New name: Form 6 (living abroad: 6A)
+- [How to apply for a passport (online)](https://nextgrade.in/en/sarkari-guide/passport-apply/): Where: Passport Seva portal (passportindia.gov.in) / mPassport Seva app; Fee (36 pages): Normal ₹2,500 · Tatkaal ₹5,000 (from 1 July 2026); 60 pages: Normal ₹3,500 · Tatkaal ₹6,000; Under 18: 36 pages normal ₹1,750
+- [How to use DigiLocker](https://nextgrade.in/en/sarkari-guide/digilocker/): Where: digilocker.gov.in or the DigiLocker app; Fee: Free; You need: Mobile number + Aadhaar; Why: Official documents on your phone, valid like originals
+
+## Converters and calculators
+
+- [Number to words — Indian (lakh/crore) and international, Hindi, Bengali, cheque wording](https://nextgrade.in/en/number-in-words/)
+- [Indian traditional units — tola, bhori, ratti, masha, seer, maund, gaj, haath, kos](https://nextgrade.in/en/desi-naap/)
+- [1 tola in gram](https://nextgrade.in/en/desi-naap/1-tola-in-gram/)
+- [1 bhori in gram](https://nextgrade.in/en/desi-naap/1-bhori-in-gram/)
+- [1 asharfi in gram](https://nextgrade.in/en/desi-naap/1-asharfi-in-gram/)
+- [1 masha in gram](https://nextgrade.in/en/desi-naap/1-masha-in-gram/)
+- [1 ratti in gram](https://nextgrade.in/en/desi-naap/1-ratti-in-gram/)
+- [1 tola in masha](https://nextgrade.in/en/desi-naap/1-tola-in-masha/)
+- [1 masha in ratti](https://nextgrade.in/en/desi-naap/1-masha-in-ratti/)
+- [10 gram in tola](https://nextgrade.in/en/desi-naap/10-gram-in-tola/)
+- [House construction cost calculator (cement, steel, bricks)](https://nextgrade.in/en/ghar-banane-ka-kharcha/)
+- [YouTube / creator earning calculator](https://nextgrade.in/en/calculator/youtube-earning/)
+- [Sunrise and sunset — compare any two Indian cities](https://nextgrade.in/en/sunrise-sunset/)
+- [All calculators](https://nextgrade.in/en/calculator/)
+
+## Vehicle RTO codes (which district a number plate is from)
+
+- [RTO code search — all states](https://nextgrade.in/en/rto/)
+- [Andhra Pradesh RTO code list (AP)](https://nextgrade.in/en/rto/ap/)
+- [Arunachal Pradesh RTO code list (AR)](https://nextgrade.in/en/rto/ar/)
+- [Assam RTO code list (AS)](https://nextgrade.in/en/rto/as/)
+- [Bihar RTO code list (BR)](https://nextgrade.in/en/rto/br/)
+- [Chhattisgarh RTO code list (CG)](https://nextgrade.in/en/rto/cg/)
+- [Dadra and Nagar Haveli and Daman and Diu RTO code list (DD)](https://nextgrade.in/en/rto/dd/)
+- [Delhi RTO code list (DL)](https://nextgrade.in/en/rto/dl/)
+- [Goa RTO code list (GA)](https://nextgrade.in/en/rto/ga/)
+- [Gujarat RTO code list (GJ)](https://nextgrade.in/en/rto/gj/)
+- [Himachal Pradesh RTO code list (HP)](https://nextgrade.in/en/rto/hp/)
+- [Haryana RTO code list (HR)](https://nextgrade.in/en/rto/hr/)
+- [Jharkhand RTO code list (JH)](https://nextgrade.in/en/rto/jh/)
+- [Jammu and Kashmir RTO code list (JK)](https://nextgrade.in/en/rto/jk/)
+- [Karnataka RTO code list (KA)](https://nextgrade.in/en/rto/ka/)
+- [Kerala RTO code list (KL)](https://nextgrade.in/en/rto/kl/)
+- [Ladakh RTO code list (LA)](https://nextgrade.in/en/rto/la/)
+- [Lakshadweep RTO code list (LD)](https://nextgrade.in/en/rto/ld/)
+- [Maharashtra RTO code list (MH)](https://nextgrade.in/en/rto/mh/)
+- [Meghalaya RTO code list (ML)](https://nextgrade.in/en/rto/ml/)
+- [Manipur RTO code list (MN)](https://nextgrade.in/en/rto/mn/)
+- [Madhya Pradesh RTO code list (MP)](https://nextgrade.in/en/rto/mp/)
+- [Mizoram RTO code list (MZ)](https://nextgrade.in/en/rto/mz/)
+- [Nagaland RTO code list (NL)](https://nextgrade.in/en/rto/nl/)
+- [Odisha RTO code list (OD)](https://nextgrade.in/en/rto/od/)
+- [Punjab RTO code list (PB)](https://nextgrade.in/en/rto/pb/)
+- [Puducherry RTO code list (PY)](https://nextgrade.in/en/rto/py/)
+- [Rajasthan RTO code list (RJ)](https://nextgrade.in/en/rto/rj/)
+- [Sikkim RTO code list (SK)](https://nextgrade.in/en/rto/sk/)
+- [Telangana RTO code list (TG)](https://nextgrade.in/en/rto/tg/)
+- [Tamil Nadu RTO code list (TN)](https://nextgrade.in/en/rto/tn/)
+- [Tripura RTO code list (TR)](https://nextgrade.in/en/rto/tr/)
+- [Uttarakhand RTO code list (UK)](https://nextgrade.in/en/rto/uk/)
+- [Uttar Pradesh RTO code list (UP)](https://nextgrade.in/en/rto/up/)
+- [West Bengal RTO code list (WB)](https://nextgrade.in/en/rto/wb/)
+
+## Health and morning routine (general wellness, with precautions)
+
+- [Surya Namaskar — follow-along animated guide](https://nextgrade.in/en/surya-namaskar/)
+- [Pranayama — anulom-vilom, kapalbhati, bhramari, deep breathing (follow-along)](https://nextgrade.in/en/pranayam/)
+- [Winter home remedies (with cautions and when to see a doctor)](https://nextgrade.in/en/nuskhe/sardi/)
+
+## Creator guides
+
+- [How to start a YouTube channel and begin earning](https://nextgrade.in/en/creator-guide/youtube/)
+- [How to earn on Instagram as a creator](https://nextgrade.in/en/creator-guide/instagram/)
+- [How to start earning from videos on Facebook](https://nextgrade.in/en/creator-guide/facebook/)
+- [How to start a blog and begin earning](https://nextgrade.in/en/creator-guide/blog/)
+
+## Festival wishes in more Indian languages
+
+- [Marathi festival wishes](https://nextgrade.in/wishes/marathi/)
+- [Gujarati festival wishes](https://nextgrade.in/wishes/gujarati/)
+- [Tamil festival wishes](https://nextgrade.in/wishes/tamil/)
+- [Telugu festival wishes](https://nextgrade.in/wishes/telugu/)
+- [Kannada festival wishes](https://nextgrade.in/wishes/kannada/)
+- [Malayalam festival wishes](https://nextgrade.in/wishes/malayalam/)
+- [Punjabi festival wishes](https://nextgrade.in/wishes/punjabi/)
+- [Odia festival wishes](https://nextgrade.in/wishes/odia/)
 
 ## About
 
