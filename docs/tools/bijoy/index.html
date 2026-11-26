@@ -1,0 +1,342 @@
+<!doctype html>
+<html data-prerendered="hi" lang="bn">
+<head>
+<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bijoy to Unicode Converter (আর Unicode to Bijoy) — SutonnyMJ, Free | NextGrade</title>
+<meta name="description" content="Free Bijoy (SutonnyMJ) to Unicode and Unicode to Bijoy converter for Bangla: paste old Bijoy text from Word or PDF and get proper Unicode Bangla for Facebook, email, Google Docs and websites — or the other way round for Bijoy/SutonnyMJ files. Works in your browser; nothing is uploaded.">
+<link rel="canonical" href="https://nextgrade.in/tools/bijoy/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Bijoy ↔ Unicode Converter — বিজয় থেকে ইউনিকোড">
+<meta property="og:description" content="বিজয় (SutonnyMJ) লেখা পেস্ট করুন, ইউনিকোড বাংলা পান — উল্টোটাও। বিনামূল্যে, কিছুই আপলোড হয় না।">
+<meta property="og:url" content="https://nextgrade.in/tools/bijoy/">
+<meta property="og:image" content="https://nextgrade.in/og-image.jpg">
+<meta name="theme-color" content="#0b7285">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/fonts/css/ef020bc1c48c.css">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Bijoy ↔ Unicode Converter","url":"https://nextgrade.in/tools/bijoy/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":["bn","en","hi"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #062328; --gold: #ffd43b; --ink: #f8f9fa; --muted: #c3e7ec; --card: rgba(255,255,255,0.07); --line: rgba(255,255,255,0.16); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #0b5d6b, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.iconbtn { background: var(--card); border: 1px solid var(--line); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 16px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(26px, 6vw, 38px); line-height: 1.15; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 14px; }
+.seg { display: inline-grid; grid-template-columns: 1fr 1fr; gap: 6px; background: var(--card); padding: 4px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 12px; }
+.seg button { font: inherit; font-weight: 700; font-size: 14px; padding: 8px 12px; border-radius: 9px; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
+.seg button.on { background: #1098ad; }
+.panes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 760px) { .panes { grid-template-columns: 1fr; } }
+label.pane { display: grid; gap: 6px; font-size: 14px; color: var(--muted); font-weight: 600; }
+textarea { width: 100%; min-height: 220px; font-size: 18px; line-height: 1.6; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: rgba(0,0,0,0.3); color: var(--ink); resize: vertical; font-family: "Noto Sans Bengali", Inter, system-ui, sans-serif; }
+textarea.kd { font-family: "SutonnyMJ", "Sutonny MJ", ui-monospace, Menlo, Consolas, monospace; }
+textarea[readonly] { background: rgba(0,0,0,0.42); }
+.btns { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; }
+.btn { font: inherit; font-weight: 800; font-size: 15px; padding: 10px 14px; border-radius: 10px; border: 0; cursor: pointer; }
+.btn-main { background: #1098ad; color: #fff; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.warn { background: rgba(250,176,5,0.14); border: 1px solid rgba(250,176,5,0.5); color: #ffe8a3; border-radius: 10px; padding: 8px 12px; margin: 10px 0 0; font-size: 14px; }
+.info { color: var(--muted); font-size: 14px; margin: 8px 0 0; }
+section { margin: 32px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+.faq h3 { font-size: 16px; margin: 14px 0 2px; }
+.faq p { margin: 0 0 6px; color: var(--muted); }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid var(--line); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+.hidden { display: none !important; }
+</style>
+<style id="ngc-css">.ngc{font-family:"Inter","Noto Sans Devanagari","Noto Sans Bengali",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.7;color:var(--text);-webkit-text-size-adjust:100%}.ngc *{box-sizing:border-box}.ngc a{color:var(--brand)}.ngc[hidden]{display:none!important}.ngc-top{position:relative;z-index:1000}.ngc{width:100%;align-self:stretch;flex:0 0 auto;text-align:left}.ngc .site-head,.ngc .site-foot{display:block;margin:0;justify-content:initial;align-items:initial}.ngc .site-head{position:relative;background:var(--bg);padding:0}.ngc details{background:none;border:0;padding:0;margin:0;border-radius:0;box-shadow:none}.ngc summary{background:none;border:0;margin:0}.ngc ul,.ngc li{margin:0}.ngc h4{font-family:inherit;line-height:1.3}.ngc nav{background:none;border:0;padding:0}.ngc .site-foot{text-align:left}
+.ngc{
+  --bg: #fffaf3;
+  --surface: #ffffff;
+  --text: #2b2118;
+  --muted: #6f6257;
+  --line: #eadfce;
+  --brand: #d9480f;
+  --brand-ink: #ffffff;
+  --accent: #7048e8;
+  --soft: #fff0e3;
+  --radius: 14px;
+  --shadow: 0 6px 24px rgba(80, 40, 0, 0.08);
+  --max: 1080px;
+}
+@media (prefers-color-scheme: dark){.ngc{
+    --bg: #17120e;
+    --surface: #211a14;
+    --text: #f4ebe1;
+    --muted: #b9a998;
+    --line: #3a2f25;
+    --brand: #ff8a4c;
+    --brand-ink: #1b120b;
+    --accent: #b197fc;
+    --soft: #2b2017;
+    --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  }}
+.ngc .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+.ngc .site-head{ position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.ngc .site-head .wrap{ display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 60px; }
+.ngc .logo{ display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 20px; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+.ngc .logo-mark{ width: 34px; height: 34px; display: block; filter: drop-shadow(0 3px 6px rgba(217, 72, 15, 0.3)); }
+.ngc .logo b{ color: #e8590c; font-weight: 800; }
+.ngc .nav{ display: flex; gap: 2px; flex-wrap: wrap; align-items: center; }
+.ngc .nav > a,.ngc .nav-group > summary{ color: var(--text); text-decoration: none; font-weight: 600; font-size: 15px; padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+.ngc .nav-group > summary{ list-style: none; display: flex; align-items: center; gap: 4px; user-select: none; }
+.ngc .nav-group > summary::-webkit-details-marker{ display: none; }
+.ngc .nav-group > summary::after{ content: '▾'; font-size: 11px; color: var(--muted); transition: transform .15s; }
+.ngc .nav-group[open] > summary::after{ transform: rotate(180deg); }
+.ngc .nav > a:hover,.ngc .nav > a[aria-current="page"],.ngc .nav-group > summary:hover,.ngc .nav-group > summary[aria-current="page"],.ngc .nav-group[open] > summary{ background: var(--soft); color: var(--brand); }
+.ngc .nav-group{ position: relative; }
+.ngc .nav-group ul{ position: absolute; left: 0; top: calc(100% + 6px); z-index: 30; list-style: none; margin: 0; padding: 6px; min-width: 210px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); }
+.ngc .nav-group li a{ display: block; padding: 9px 12px; border-radius: 8px; color: var(--text); text-decoration: none; font-weight: 600; font-size: 15px; white-space: nowrap; }
+.ngc .nav-group li a:hover,.ngc .nav-group li a:focus-visible{ background: var(--soft); color: var(--brand); }
+.ngc .nav-group li a[aria-current="page"]{ color: var(--brand); }
+.ngc .nav-group li:first-child a{ border-bottom: 1px solid var(--line); border-radius: 8px 8px 0 0; margin-bottom: 4px; }
+@media (max-width: 640px){.ngc .site-head .wrap{ flex-direction: column; align-items: flex-start; padding-top: 8px; padding-bottom: 8px; gap: 4px; }.ngc .nav{ margin-left: -10px; }.ngc .nav > a,.ngc .nav-group > summary{ font-size: 14px; padding: 5px 8px; }.ngc .nav-group{ position: static; }.ngc .nav-group ul{ left: 16px; right: 16px; top: 100%; min-width: 0; }.ngc .nav-group li a{ white-space: normal; }}
+.ngc .site-foot{ border-top: 1px solid var(--line); margin-top: 40px; padding: 28px 0; font-size: 15px; color: var(--muted); }
+.ngc .site-foot .wrap{ display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+.ngc .site-foot nav{ display: flex; flex-wrap: wrap; gap: 14px; }
+.ngc .site-foot a{ color: var(--muted); }
+.ngc .head-right{ display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; }
+.ngc .lang-menu{ position: relative; }
+.ngc .lang-menu summary{ list-style: none; cursor: pointer; display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 14px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--text); white-space: nowrap; }
+.ngc .lang-menu summary::-webkit-details-marker{ display: none; }
+.ngc .lang-menu summary::after{ content: '▾'; font-size: 12px; color: var(--muted); }
+.ngc .lang-menu[open] summary{ border-color: var(--brand); }
+.ngc .lang-menu ul{ position: absolute; right: 0; top: calc(100% + 6px); z-index: 20; list-style: none; margin: 0; padding: 6px; min-width: 160px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); }
+.ngc .lang-menu li a{ display: block; padding: 8px 12px; border-radius: 8px; color: var(--text); text-decoration: none; font-weight: 600; }
+.ngc .lang-menu li a:hover{ background: var(--soft); }
+.ngc .lang-menu li a[aria-current="true"]{ color: var(--brand); }
+@media (max-width: 640px){.ngc .site-head .wrap{ position: relative; }.ngc .head-right{ width: 100%; }.ngc .lang-menu{ position: absolute; top: 8px; right: 16px; }}
+.ngc .menu-btn{ display: none; }
+.ngc .site-foot{ background: var(--surface); }
+@media (max-width: 640px){.ngc .site-head .wrap{ flex-direction: row; align-items: center; flex-wrap: nowrap; padding-top: 0; padding-bottom: 0; min-height: 56px; }.ngc .head-right{ width: auto; gap: 6px; }.ngc .lang-menu{ position: relative; top: auto; right: auto; }.ngc .menu-btn{ display: grid; place-items: center; width: 42px; height: 40px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: 20px; cursor: pointer; }.ngc .nav{ display: none; }.ngc.menu-open .nav{ display: flex; flex-direction: column; align-items: stretch; gap: 2px; position: absolute; left: 0; right: 0; top: 100%; margin: 0; padding: 10px 12px 16px; background: var(--surface); border-bottom: 1px solid var(--line); box-shadow: 0 16px 32px rgba(0, 0, 0, .12); max-height: calc(100vh - 56px); overflow-y: auto; }.ngc.menu-open .nav > a,.ngc.menu-open .nav-group > summary{ font-size: 16px; padding: 12px 12px; }.ngc.menu-open .nav-group ul{ position: static; box-shadow: none; border: 0; padding: 0 0 6px 12px; background: transparent; }.ngc.menu-open .nav-group li:first-child a{ border-bottom: 0; margin-bottom: 0; }}
+.ngc main > .wrap > section:not([class]){ padding: 10px 0; }
+.ngc main > .wrap > section > h2:first-child{ margin-top: 22px; }
+.ngc .site-foot{ padding: 36px 0 24px; }
+.ngc .site-foot .wrap{ display: block; }
+.ngc .foot-cols{ display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 24px; }
+.ngc .foot-cols h4{ margin: 0 0 10px; font-size: 14px; text-transform: uppercase; letter-spacing: .04em; color: var(--text); }
+.ngc .foot-cols nav{ display: flex; flex-direction: column; gap: 8px; }
+.ngc .foot-cols nav a{ text-decoration: none; }
+.ngc .foot-cols nav a:hover{ color: var(--brand); }
+.ngc .foot-brand .logo{ text-decoration: none; }
+.ngc .foot-brand p{ margin: 10px 0 0; font-size: 14px; line-height: 1.6; max-width: 280px; }
+.ngc .foot-bottom{ display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; }
+.ngc .foot-bottom nav{ display: flex; flex-wrap: wrap; gap: 14px; }
+@media (max-width: 900px){.ngc .foot-cols{ grid-template-columns: 1fr 1fr; }.ngc .foot-brand{ grid-column: 1 / -1; }}
+.ngc .foot-bottom a{ text-decoration: none; }
+.ngc .foot-bottom a:hover{ color: var(--brand); }</style>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="ngc ngc-top" data-ngc="hi"><header class="site-head"><div class="wrap">
+<a class="logo" href="/" aria-label="NextGrade"><img class="logo-mark" src="/favicon.svg" alt="" width="34" height="34"><span>Next<b>Grade</b></span></a>
+<div class="head-right"><nav class="nav" id="main-nav" aria-label="Main"><a href="/">Home</a><details class="nav-group"><summary>कहानियाँ</summary><ul><li><a href="/kahani/">सभी कहानियाँ</a></li><li><a href="/kahani/panchatantra/">पंचतंत्र</a></li><li><a href="/kahani/akbar-birbal/">अकबर-बीरबल</a></li><li><a href="/kahani/tenali-raman/">तेनाली राम</a></li><li><a href="/kahani/jataka/">जातक कथाएँ</a></li><li><a href="/kahani/aesop/">ईसप की कहानियाँ</a></li><li><a href="/kahani/lok-katha/">लोक कथाएँ</a></li></ul></details><details class="nav-group"><summary>पढ़ाई</summary><ul><li><a href="/nibandh/">निबंध</a></li><li><a href="/speech/">भाषण</a></li><li><a href="/paheliyan/">पहेलियाँ</a></li><li><a href="/full-form/">Full Forms</a></li><li><a href="/naam/">बच्चों के नाम</a></li></ul></details><details class="nav-group"><summary>त्योहार</summary><ul><li><a href="/festivals/">सभी त्योहार</a></li><li><a href="/festivals/2027/">त्योहार 2027 कब है</a></li><li><a href="/calendar/2027/">कैलेंडर 2027</a></li><li><a href="/wishes/">Wishes</a></li><li><a href="/wish-card/">Wish Card</a></li><li><a href="/shaadi-card/">शादी कार्ड</a></li><li><a href="/naam-wali-image/">नाम वाली इमेज</a></li><li><a href="/islamic-calendar/">इस्लामी कैलेंडर</a></li></ul></details><details class="nav-group"><summary>Games</summary><ul><li><a href="/games/">सभी गेम्स</a></li><li><a href="/khel/">देसी खेलों के नियम</a></li></ul></details><details class="nav-group"><summary>सीखो-खेलो</summary><ul><li><a href="/kids/">सभी विषय</a></li><li><a href="/kids/ginti/">गिनती 1 से 100</a></li><li><a href="/kids/pahade/">पहाड़े 2 से 20</a></li><li><a href="/kids/abc/">ABC — अंग्रेज़ी अक्षर</a></li><li><a href="/kids/hindi-varnamala/">क-ख-ग — हिंदी वर्णमाला</a></li><li><a href="/kids/barakhadi/">बारहखड़ी (क का कि की)</a></li><li><a href="/kids/matra/">मात्रा वाले शब्द</a></li><li><a href="/kids/bangla-bornomala/">बांग्ला वर्णमाला (অ-আ-ক-খ)</a></li><li><a href="/kids/urdu-haroof/">उर्दू हुरूफ़ (अलिफ़ बे पे)</a></li></ul></details><details class="nav-group"><summary>Tools</summary><ul><li><a href="/tools/">सभी टूल्स</a></li><li><a href="/calculator/">Calculators</a></li><li><a href="/mausam/">मौसम</a></li><li><a href="/sarkari-guide/">सरकारी गाइड</a></li><li><a href="/number-in-words/">नंबर शब्दों में</a></li><li><a href="/desi-naap/">देसी नाप-तोल</a></li><li><a href="/ghar-banane-ka-kharcha/">घर बनाने का ख़र्च</a></li><li><a href="/solar-calculator/">सोलर कैलकुलेटर</a></li><li><a href="/inverter-calculator/">इन्वर्टर कैलकुलेटर</a></li><li><a href="/rto/">RTO कोड</a></li><li><a href="/time/">दुनिया का समय</a></li><li><a href="/sunrise-sunset/">सूर्योदय-सूर्यास्त तुलना</a></li><li><a href="/currency/">विदेशी मुद्रा → रुपया</a></li><li><a href="/ghoomne-ki-jagah/">घूमने की जगहें</a></li><li><a href="/nuskhe/">घरेलू नुस्खे</a></li><li><a href="/surya-namaskar/">सूर्य नमस्कार</a></li><li><a href="/pranayam/">प्राणायाम</a></li><li><a href="/apps/">Apps</a></li></ul></details></nav><details class="lang-menu"><summary aria-label="भाषा">🌐 <span>हिंदी</span></summary><ul><li><a href="/tools/bijoy/?lang=hi" hreflang="hi" lang="hi" aria-current="true">हिंदी ✓</a></li><li><a href="/tools/bijoy/?lang=en" hreflang="en" lang="en">English</a></li><li><a href="/tools/bijoy/?lang=hinglish" hreflang="hi-Latn" lang="hi-Latn">Hinglish</a></li><li><a href="/tools/bijoy/?lang=bn" hreflang="bn" lang="bn">বাংলা</a></li></ul></details><button class="menu-btn" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="मेनू">☰</button></div>
+</div></header></div><div class="ngc ngc-top" data-ngc="en" hidden><header class="site-head"><div class="wrap">
+<a class="logo" href="/en/" aria-label="NextGrade"><img class="logo-mark" src="/favicon.svg" alt="" width="34" height="34"><span>Next<b>Grade</b></span></a>
+<div class="head-right"><nav class="nav" id="main-nav" aria-label="Main"><a href="/en/">Home</a><details class="nav-group"><summary>Stories</summary><ul><li><a href="/en/kahani/">All stories</a></li><li><a href="/en/kahani/panchatantra/">Panchatantra</a></li><li><a href="/en/kahani/akbar-birbal/">Akbar-Birbal</a></li><li><a href="/en/kahani/tenali-raman/">Tenali Raman</a></li><li><a href="/en/kahani/jataka/">Jataka Tales</a></li><li><a href="/en/kahani/aesop/">Aesop's Fables</a></li><li><a href="/en/kahani/lok-katha/">Folk Tales</a></li></ul></details><details class="nav-group"><summary>Study</summary><ul><li><a href="/en/nibandh/">Essays</a></li><li><a href="/en/speech/">Speeches</a></li><li><a href="/en/paheliyan/">Riddles</a></li><li><a href="/en/full-form/">Full Forms</a></li><li><a href="/en/naam/">Baby Names</a></li></ul></details><details class="nav-group"><summary>Festivals</summary><ul><li><a href="/en/festivals/">All festivals</a></li><li><a href="/en/festivals/2027/">Festival dates 2027</a></li><li><a href="/en/calendar/2027/">Calendar 2027</a></li><li><a href="/en/wishes/">Wishes</a></li><li><a href="/en/wish-card/">Wish Card</a></li><li><a href="/en/shaadi-card/">Shaadi Card</a></li><li><a href="/en/naam-wali-image/">Name on image</a></li><li><a href="/en/islamic-calendar/">Islamic calendar</a></li></ul></details><details class="nav-group"><summary>Games</summary><ul><li><a href="/en/games/">All games</a></li><li><a href="/en/khel/">Rules of desi games</a></li></ul></details><details class="nav-group"><summary>Learn &amp; Play</summary><ul><li><a href="/en/kids/">All topics</a></li><li><a href="/en/kids/ginti/">Numbers 1 to 100</a></li><li><a href="/en/kids/pahade/">Tables 2 to 20</a></li><li><a href="/en/kids/abc/">ABC — Alphabet</a></li><li><a href="/en/kids/hindi-varnamala/">Hindi Alphabet (Varnamala)</a></li><li><a href="/en/kids/barakhadi/">Hindi Barakhadi (Ka Kaa Ki Kee)</a></li><li><a href="/en/kids/matra/">Hindi Matra Words</a></li><li><a href="/en/kids/bangla-bornomala/">Bengali Alphabet (Bornomala)</a></li><li><a href="/en/kids/urdu-haroof/">Urdu Alphabet (Alif Be Pe)</a></li></ul></details><details class="nav-group"><summary>Tools</summary><ul><li><a href="/en/tools/">All tools</a></li><li><a href="/en/calculator/">Calculators</a></li><li><a href="/en/mausam/">Weather</a></li><li><a href="/en/sarkari-guide/">Government guides</a></li><li><a href="/en/number-in-words/">Number in words</a></li><li><a href="/en/desi-naap/">Desi units</a></li><li><a href="/en/ghar-banane-ka-kharcha/">House construction cost</a></li><li><a href="/en/solar-calculator/">Solar calculator</a></li><li><a href="/en/inverter-calculator/">Inverter calculator</a></li><li><a href="/en/rto/">RTO codes</a></li><li><a href="/en/time/">World time</a></li><li><a href="/en/sunrise-sunset/">Sunrise-sunset compare</a></li><li><a href="/en/currency/">Currency to rupee</a></li><li><a href="/en/ghoomne-ki-jagah/">Places to visit</a></li><li><a href="/en/nuskhe/">Home remedies</a></li><li><a href="/en/surya-namaskar/">Surya Namaskar</a></li><li><a href="/en/pranayam/">Pranayam</a></li><li><a href="/en/apps/">Apps</a></li></ul></details></nav><details class="lang-menu"><summary aria-label="Language">🌐 <span>English</span></summary><ul><li><a href="/tools/bijoy/?lang=hi" hreflang="hi" lang="hi">हिंदी</a></li><li><a href="/tools/bijoy/?lang=en" hreflang="en" lang="en" aria-current="true">English ✓</a></li><li><a href="/tools/bijoy/?lang=hinglish" hreflang="hi-Latn" lang="hi-Latn">Hinglish</a></li><li><a href="/tools/bijoy/?lang=bn" hreflang="bn" lang="bn">বাংলা</a></li></ul></details><button class="menu-btn" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Menu">☰</button></div>
+</div></header></div><div class="ngc ngc-top" data-ngc="hinglish" hidden><header class="site-head"><div class="wrap">
+<a class="logo" href="/hinglish/" aria-label="NextGrade"><img class="logo-mark" src="/favicon.svg" alt="" width="34" height="34"><span>Next<b>Grade</b></span></a>
+<div class="head-right"><nav class="nav" id="main-nav" aria-label="Main"><a href="/hinglish/">Home</a><details class="nav-group"><summary>Kahaniyan</summary><ul><li><a href="/hinglish/kahani/">Sabhi kahaniyan</a></li><li><a href="/hinglish/kahani/panchatantra/">Panchatantra</a></li><li><a href="/hinglish/kahani/akbar-birbal/">Akbar-Birbal</a></li><li><a href="/hinglish/kahani/tenali-raman/">Tenali Raman</a></li><li><a href="/hinglish/kahani/jataka/">Jataka Kathayein</a></li><li><a href="/hinglish/kahani/aesop/">Aesop ki Kahaniyan</a></li><li><a href="/hinglish/kahani/lok-katha/">Lok Kathayein</a></li></ul></details><details class="nav-group"><summary>Padhai</summary><ul><li><a href="/hinglish/nibandh/">Nibandh</a></li><li><a href="/hinglish/speech/">Bhashan</a></li><li><a href="/hinglish/paheliyan/">Paheliyan</a></li><li><a href="/hinglish/full-form/">Full Forms</a></li><li><a href="/hinglish/naam/">Baby Names</a></li></ul></details><details class="nav-group"><summary>Tyohaar</summary><ul><li><a href="/hinglish/festivals/">Sabhi tyohaar</a></li><li><a href="/hinglish/festivals/2027/">Tyohaar 2027 kab hai</a></li><li><a href="/hinglish/calendar/2027/">Calendar 2027</a></li><li><a href="/hinglish/wishes/">Wishes</a></li><li><a href="/hinglish/wish-card/">Wish Card</a></li><li><a href="/hinglish/shaadi-card/">Shaadi Card</a></li><li><a href="/hinglish/naam-wali-image/">Naam wali image</a></li><li><a href="/hinglish/islamic-calendar/">Islamic calendar</a></li></ul></details><details class="nav-group"><summary>Games</summary><ul><li><a href="/hinglish/games/">Sabhi games</a></li><li><a href="/hinglish/khel/">Desi khelon ke niyam</a></li></ul></details><details class="nav-group"><summary>Seekho-Khelo</summary><ul><li><a href="/hinglish/kids/">Sabhi topics</a></li><li><a href="/hinglish/kids/ginti/">Ginti 1 se 100</a></li><li><a href="/hinglish/kids/pahade/">Pahade 2 se 20</a></li><li><a href="/hinglish/kids/abc/">ABC Alphabet</a></li><li><a href="/hinglish/kids/hindi-varnamala/">Ka Kha Ga — Hindi Varnamala</a></li><li><a href="/hinglish/kids/barakhadi/">Barakhadi — Ka Kaa Ki Kee</a></li><li><a href="/hinglish/kids/matra/">Matra wale Shabd</a></li><li><a href="/hinglish/kids/bangla-bornomala/">Bangla Bornomala</a></li><li><a href="/hinglish/kids/urdu-haroof/">Urdu Haroof — Alif Be Pe</a></li></ul></details><details class="nav-group"><summary>Tools</summary><ul><li><a href="/hinglish/tools/">Sabhi tools</a></li><li><a href="/hinglish/calculator/">Calculators</a></li><li><a href="/hinglish/mausam/">Mausam</a></li><li><a href="/hinglish/sarkari-guide/">Sarkari guide</a></li><li><a href="/hinglish/number-in-words/">Number in words</a></li><li><a href="/hinglish/desi-naap/">Desi naap-tol</a></li><li><a href="/hinglish/ghar-banane-ka-kharcha/">Ghar banane ka kharcha</a></li><li><a href="/hinglish/solar-calculator/">Solar calculator</a></li><li><a href="/hinglish/inverter-calculator/">Inverter calculator</a></li><li><a href="/hinglish/rto/">RTO code</a></li><li><a href="/hinglish/time/">Duniya ka time</a></li><li><a href="/hinglish/sunrise-sunset/">Sunrise-sunset tulna</a></li><li><a href="/hinglish/currency/">Videshi currency → Rupaya</a></li><li><a href="/hinglish/ghoomne-ki-jagah/">Ghoomne ki jagah</a></li><li><a href="/hinglish/nuskhe/">Gharelu nuskhe</a></li><li><a href="/hinglish/surya-namaskar/">Surya Namaskar</a></li><li><a href="/hinglish/pranayam/">Pranayam</a></li><li><a href="/hinglish/apps/">Apps</a></li></ul></details></nav><details class="lang-menu"><summary aria-label="Bhasha">🌐 <span>Hinglish</span></summary><ul><li><a href="/tools/bijoy/?lang=hi" hreflang="hi" lang="hi">हिंदी</a></li><li><a href="/tools/bijoy/?lang=en" hreflang="en" lang="en">English</a></li><li><a href="/tools/bijoy/?lang=hinglish" hreflang="hi-Latn" lang="hi-Latn" aria-current="true">Hinglish ✓</a></li><li><a href="/tools/bijoy/?lang=bn" hreflang="bn" lang="bn">বাংলা</a></li></ul></details><button class="menu-btn" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Menu">☰</button></div>
+</div></header></div><div class="ngc ngc-top" data-ngc="bn" hidden><header class="site-head"><div class="wrap">
+<a class="logo" href="/bn/" aria-label="NextGrade"><img class="logo-mark" src="/favicon.svg" alt="" width="34" height="34"><span>Next<b>Grade</b></span></a>
+<div class="head-right"><nav class="nav" id="main-nav" aria-label="Main"><a href="/bn/">হোম</a><details class="nav-group"><summary>গল্প</summary><ul><li><a href="/bn/kahani/">সব গল্প</a></li><li><a href="/bn/kahani/panchatantra/">পঞ্চতন্ত্র</a></li><li><a href="/bn/kahani/akbar-birbal/">আকবর-বীরবল</a></li><li><a href="/bn/kahani/tenali-raman/">তেনালি রামন</a></li><li><a href="/bn/kahani/jataka/">জাতকের গল্প</a></li><li><a href="/bn/kahani/aesop/">ঈশপের গল্প</a></li><li><a href="/bn/kahani/lok-katha/">লোককথা</a></li></ul></details><details class="nav-group"><summary>পড়াশোনা</summary><ul><li><a href="/bn/nibandh/">রচনা</a></li><li><a href="/bn/speech/">বক্তৃতা</a></li><li><a href="/bn/paheliyan/">ধাঁধা</a></li><li><a href="/bn/full-form/">ফুল ফর্ম</a></li><li><a href="/bn/naam/">শিশুর নাম</a></li></ul></details><details class="nav-group"><summary>উৎসব</summary><ul><li><a href="/bn/festivals/">সব উৎসব</a></li><li><a href="/bn/festivals/2027/">উৎসবের তারিখ 2027</a></li><li><a href="/bn/calendar/2027/">ক্যালেন্ডার ২০২৭</a></li><li><a href="/bn/wishes/">শুভেচ্ছা</a></li><li><a href="/bn/wish-card/">উইশ কার্ড</a></li><li><a href="/bn/shaadi-card/">বিয়ের কার্ড</a></li><li><a href="/bn/naam-wali-image/">নামের ছবি</a></li><li><a href="/bn/islamic-calendar/">ইসলামি ক্যালেন্ডার</a></li></ul></details><details class="nav-group"><summary>গেম</summary><ul><li><a href="/bn/games/">সব গেম</a></li><li><a href="/bn/khel/">দেশি খেলার নিয়ম</a></li></ul></details><details class="nav-group"><summary>শেখো-খেলো</summary><ul><li><a href="/bn/kids/">সব বিষয়</a></li><li><a href="/bn/kids/ginti/">সংখ্যা ১ থেকে ১০০ (গণনা)</a></li><li><a href="/bn/kids/pahade/">নামতা ২ থেকে ২০</a></li><li><a href="/bn/kids/abc/">ABC — ইংরেজি বর্ণ</a></li><li><a href="/bn/kids/hindi-varnamala/">হিন্দি বর্ণমালা (ক-খ-গ)</a></li><li><a href="/bn/kids/barakhadi/">হিন্দি বারাখড়ি (ক কা কি কী)</a></li><li><a href="/bn/kids/matra/">হিন্দি মাত্রার শব্দ</a></li><li><a href="/bn/kids/bangla-bornomala/">বাংলা বর্ণমালা — অ আ ক খ</a></li><li><a href="/bn/kids/urdu-haroof/">উর্দু বর্ণমালা (আলিফ বে পে)</a></li></ul></details><details class="nav-group"><summary>টুলস</summary><ul><li><a href="/bn/tools/">সব টুলস</a></li><li><a href="/bn/calculator/">ক্যালকুলেটর</a></li><li><a href="/bn/mausam/">আবহাওয়া</a></li><li><a href="/bn/sarkari-guide/">সরকারি গাইড</a></li><li><a href="/bn/number-in-words/">সংখ্যা কথায়</a></li><li><a href="/bn/desi-naap/">দেশি মাপ-ওজন</a></li><li><a href="/bn/ghar-banane-ka-kharcha/">বাড়ি তৈরির খরচ</a></li><li><a href="/bn/solar-calculator/">সোলার ক্যালকুলেটর</a></li><li><a href="/bn/inverter-calculator/">ইনভার্টার ক্যালকুলেটর</a></li><li><a href="/bn/rto/">RTO কোড</a></li><li><a href="/bn/time/">বিশ্বের সময়</a></li><li><a href="/bn/sunrise-sunset/">সূর্যোদয়-সূর্যাস্ত তুলনা</a></li><li><a href="/bn/currency/">বিদেশি মুদ্রা → টাকা</a></li><li><a href="/bn/ghoomne-ki-jagah/">বেড়ানোর জায়গা</a></li><li><a href="/bn/nuskhe/">ঘরোয়া টোটকা</a></li><li><a href="/bn/surya-namaskar/">সূর্য নমস্কার</a></li><li><a href="/bn/pranayam/">প্রাণায়াম</a></li><li><a href="/bn/apps/">অ্যাপ</a></li></ul></details></nav><details class="lang-menu"><summary aria-label="ভাষা">🌐 <span>বাংলা</span></summary><ul><li><a href="/tools/bijoy/?lang=hi" hreflang="hi" lang="hi">हिंदी</a></li><li><a href="/tools/bijoy/?lang=en" hreflang="en" lang="en">English</a></li><li><a href="/tools/bijoy/?lang=hinglish" hreflang="hi-Latn" lang="hi-Latn">Hinglish</a></li><li><a href="/tools/bijoy/?lang=bn" hreflang="bn" lang="bn" aria-current="true">বাংলা ✓</a></li></ul></details><button class="menu-btn" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="মেনু">☰</button></div>
+</div></header></div>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">অ NextGrade<small>Bijoy ↔ Unicode</small></a>
+    <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="bn">বাংলা</option><option value="en">English</option><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option></select>
+  </header>
+
+  <h1 data-i18n="title">बिजॉय ↔ यूनिकोड कन्वर्टर (बांग्ला)</h1>
+  <p class="sub" data-i18n="sub">बिजॉय (SutonnyMJ) फ़ॉन्ट में लिखा पुराना बांग्ला टेक्स्ट पेस्ट करो और सही यूनिकोड बांग्ला पाओ — Facebook, ईमेल, Google Docs और वेबसाइट के लिए। या यूनिकोड बांग्ला को बिजॉय में बदलो। मुफ़्त, टेक्स्ट आपके डिवाइस से बाहर नहीं जाता।</p>
+
+  <div class="seg" id="dirSeg" role="group"><button type="button" data-d="k2u" data-i18n="k2u"></button><button type="button" data-d="u2k" data-i18n="u2k"></button></div>
+
+  <div class="panes">
+    <label class="pane"><span id="inLabel">बिजॉय (SutonnyMJ) टेक्स्ट यहाँ पेस्ट करो</span><textarea id="inp" spellcheck="false"></textarea></label>
+    <label class="pane"><span id="outLabel">यूनिकोड बांग्ला (कॉपी करके कहीं भी इस्तेमाल करो)</span><textarea id="out" readonly spellcheck="false"></textarea></label>
+  </div>
+  <div class="btns">
+    <button class="btn btn-main" id="copy" type="button" data-i18n="copy"></button>
+    <button class="btn btn-ghost" id="swap" type="button" data-i18n="swap"></button>
+    <button class="btn btn-ghost" id="sample" type="button" data-i18n="sample"></button>
+    <button class="btn btn-ghost" id="clear" type="button" data-i18n="clear"></button>
+  </div>
+  <p class="warn hidden" id="warn" role="status"></p>
+  <p class="info" id="fontNote">आउटपुट यूनिकोड है — हर फ़ोन और कंप्यूटर पर सही दिखेगा, Google में सर्च भी होगा।</p>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle">कैसे इस्तेमाल करें</h2>
+    <div class="card2"><ol id="howList"><li>ऊपर से दिशा चुनो: <b>बिजॉय → यूनिकोड</b> (पुराना टेक्स्ट बदलना) या <b>यूनिकोड → बिजॉय</b>।</li><li>बाएँ बॉक्स में टेक्स्ट पेस्ट करो — दाएँ बॉक्स में तुरंत बदला हुआ टेक्स्ट आ जाएगा।</li><li><b>कॉपी</b> दबाओ और जहाँ चाहिए पेस्ट करो। <b>उल्टा करो</b> से नतीजे को वापस दूसरी दिशा में बदलकर मिला सकते हो।</li><li>Word या PDF से SutonnyMJ वाला टेक्स्ट कॉपी करोगे तो वह "Avgvi" जैसा दिखेगा — वही यहाँ पेस्ट करो।</li></ol></div>
+  </section>
+  <section>
+    <h2 data-i18n="aboutTitle">बिजॉय और यूनिकोड में क्या फ़र्क़ है?</h2>
+    <p data-i18n="aboutText">बिजॉय (SutonnyMJ और दूसरे "MJ" फ़ॉन्ट) एक पुराना ASCII तरीक़ा है: अंग्रेज़ी अक्षर और निशान बांग्ला अक्षरों की शक्ल में दिखाए जाते हैं। फ़ॉन्ट न हो तो बिजॉय टेक्स्ट "Avgvi †mvbvi evsjv" जैसा दिखता है, और Google, Facebook या फ़ोन उसे बांग्ला नहीं मानते। यूनिकोड दुनिया भर का नियम है — हर बांग्ला अक्षर का अपना कोड होता है, इसलिए किसी भी फ़ॉन्ट, किसी भी डिवाइस पर सही दिखता है।</p>
+    <p data-i18n="aboutText2">बांग्लादेश और पश्चिम बंगाल के सरकारी दफ़्तर, प्रेस, कंपोज़ की दुकानें और कई स्कूल अब भी बिजॉय में टाइप करते हैं। वह टेक्स्ट ऑनलाइन डालना हो तो यूनिकोड में बदलना पड़ता है; पुरानी फ़ाइल में जोड़ना या प्रेस भेजना हो तो यूनिकोड से बिजॉय। यह टूल दोनों करता है। बिजॉय → यूनिकोड वाले हिस्से में MIT लाइसेंस वाली ओपन-सोर्स bijoy2unicode लाइब्रेरी इस्तेमाल हुई है; उल्टी दिशा हमारा अपना कोड है।</p>
+  </section>
+  <section class="faq">
+    <h2 data-i18n="faqTitle">सवाल-जवाब</h2>
+    <div class="card2" id="faqList"><h3>क्या बदला हुआ टेक्स्ट 100% सही होगा?</h3><p>आम बांग्ला — कार, फला, रेफ़ (র্), संयुक्त अक्षर, ো/ৌ — सही बदलता है। कोई बहुत कम इस्तेमाल वाला निशान न पहचाना जाए तो टूल उसे छुपाता नहीं, ऊपर अलग से दिखाता है। ज़रूरी काग़ज़ एक बार मिला लो।</p><h3>क्या मेरा टेक्स्ट कहीं भेजा जाता है?</h3><p>नहीं। पूरा बदलाव आपके ब्राउज़र में होता है — किसी सर्वर पर कुछ नहीं जाता, पेज खुला हो तो इंटरनेट के बिना भी चलता है।</p><h3>फ़ोन पर बिजॉय टेक्स्ट "Avgvi" जैसा क्यों दिखता है?</h3><p>क्योंकि फ़ोन में SutonnyMJ फ़ॉन्ट नहीं है। यहाँ बिजॉय → यूनिकोड कर लो, फिर किसी भी फ़ोन पर बांग्ला दिखेगा।</p><h3>यूनिकोड → बिजॉय कब चाहिए?</h3><p>जब प्रेस या दफ़्तर SutonnyMJ फ़ॉन्ट वाली फ़ाइल माँगे, या पुराने बिजॉय डॉक्यूमेंट में नया टेक्स्ट जोड़ना हो। नतीजा Word में पेस्ट करके फ़ॉन्ट SutonnyMJ कर दो।</p><h3>Avro और बिजॉय एक ही हैं?</h3><p>नहीं। Avro टाइप करने का तरीक़ा है जो सीधे यूनिकोड लिखता है। बिजॉय अपने कीबोर्ड और ASCII फ़ॉन्ट से लिखता है — यह टूल उसी ASCII टेक्स्ट को बदलता है।</p></div>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a>
+  </footer>
+</div>
+
+<script src="bj.js?v=1"></script>
+<script>
+(() => {
+  'use strict';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const SAMPLE = { k2u: 'Avgvi †mvbvi evsjv, Avwg †Zvgvq fv‡jvevwm| we`¨vj‡q QvÎQvÎxiv cixÿvi cÖ¯‘wZ wb‡”Q|', u2k: 'আমার সোনার বাংলা, আমি তোমায় ভালোবাসি। বিদ্যালয়ে ছাত্রছাত্রীরা পরীক্ষার প্রস্তুতি নিচ্ছে।' };
+  const T = {
+    bn: {
+      title: 'বিজয় ↔ ইউনিকোড কনভার্টার', sub: 'বিজয় (SutonnyMJ) ফন্টে লেখা পুরোনো বাংলা পেস্ট করুন আর সঠিক ইউনিকোড বাংলা পান — Facebook, ইমেল, Google Docs আর ওয়েবসাইটের জন্য। অথবা ইউনিকোড বাংলাকে বিজয়ে বদলান। বিনামূল্যে, লেখা আপনার ফোন/কম্পিউটারের বাইরে যায় না।',
+      k2u: 'বিজয় → ইউনিকোড', u2k: 'ইউনিকোড → বিজয়', inK: 'বিজয় (SutonnyMJ) লেখা এখানে পেস্ট করুন', inU: 'ইউনিকোড বাংলা এখানে লিখুন বা পেস্ট করুন', outU: 'ইউনিকোড বাংলা (কপি করে যেকোনো জায়গায় ব্যবহার করুন)', outK: 'বিজয় লেখা (Word-এ SutonnyMJ ফন্টে বাংলা দেখাবে)',
+      copy: '📋 কপি', copied: '✅ কপি হয়েছে', swap: '⇅ উল্টো করুন', sample: 'উদাহরণ', clear: 'মুছে দিন',
+      warn: (list) => `এই চিহ্নগুলো চেনা যায়নি, যেমন ছিল তেমনই রাখা হয়েছে: ${list} — জায়গাগুলো একবার দেখে নিন।`,
+      fontK2U: 'আউটপুট ইউনিকোড — সব ফোন আর কম্পিউটারে ঠিক দেখাবে, Google-এ খোঁজাও যাবে।', fontU2K: 'বিজয় আউটপুট ইংরেজি অক্ষর আর চিহ্নের মতো দেখাবে। Word-এ পেস্ট করে ফন্ট "SutonnyMJ" বাছলে বাংলা দেখা যাবে।',
+      howTitle: 'কীভাবে ব্যবহার করবেন', how: ['ওপর থেকে দিক বাছুন: <b>বিজয় → ইউনিকোড</b> (পুরোনো লেখা বদলানো) বা <b>ইউনিকোড → বিজয়</b>।', 'বাঁদিকের বাক্সে লেখা পেস্ট করুন — ডানদিকে সঙ্গে সঙ্গে বদলানো লেখা আসবে।', '<b>কপি</b> চেপে যেখানে দরকার সেখানে পেস্ট করুন। <b>উল্টো করুন</b> চাপলে ফলাফল আবার উল্টো দিকে বদলানো যায় — মিলিয়ে দেখার জন্য সুবিধা।', 'Word বা PDF থেকে বিজয় লেখা কপি করার সময় ফন্ট SutonnyMJ থাকলে লেখাটা "Avgvi" ধরনের দেখায় — সেটাই এখানে পেস্ট করুন।'],
+      aboutTitle: 'বিজয় আর ইউনিকোডের তফাত কী?', aboutText: 'বিজয় (SutonnyMJ, এবং "MJ" নামের অন্য ফন্ট) একটা পুরোনো ASCII পদ্ধতি: ইংরেজি অক্ষর আর চিহ্নকে বাংলা অক্ষরের মতো আঁকা হয়। তাই ফন্ট না থাকলে বিজয়ের লেখা "Avgvi †mvbvi evsjv" ধরনের দেখায়, আর Google, Facebook বা মোবাইল সেটা বাংলা হিসেবে চেনে না। ইউনিকোড হলো বিশ্বজুড়ে মানা নিয়ম — প্রতিটা বাংলা অক্ষরের নিজস্ব কোড আছে, তাই যেকোনো ফন্টে, যেকোনো ডিভাইসে ঠিক দেখায়।',
+      aboutText2: 'সরকারি অফিস, প্রেস, কম্পোজের দোকান আর অনেক স্কুলে এখনও বিজয়ে টাইপ হয়। সেই লেখা অনলাইনে দিতে গেলে ইউনিকোডে বদলাতে হয়; আবার পুরোনো ফাইলে কিছু জুড়তে বা প্রেসে পাঠাতে হলে ইউনিকোড থেকে বিজয়ে ফেরাতে হয়। এই টুল দুটোই করে। বিজয় → ইউনিকোড অংশে MIT লাইসেন্সের ওপেন-সোর্স bijoy2unicode লাইব্রেরি ব্যবহার করা হয়েছে; উল্টো দিকটা আমাদের নিজের লেখা।',
+      faqTitle: 'প্রশ্ন-উত্তর', faq: [['বদলানো লেখা কি ১০০% ঠিক হবে?', 'সাধারণ বাংলা — কার, ফলা, রেফ (র্), যুক্তাক্ষর, ো/ৌ — ঠিকঠাক বদলায়। খুব বিরল চিহ্ন চেনা না গেলে টুল সেগুলো লুকোয় না, ওপরে আলাদা করে দেখায়। জরুরি কাগজে একবার মিলিয়ে নিন।'], ['আমার লেখা কি কোথাও পাঠানো হয়?', 'না। পুরো রূপান্তর আপনার ব্রাউজারেই হয় — কোনো সার্ভারে কিছু যায় না, ইন্টারনেট ছাড়াও (পেজ খোলা থাকলে) কাজ করে।'], ['বিজয় লেখা ফোনে "Avgvi" ধরনের দেখাচ্ছে কেন?', 'কারণ ফোনে SutonnyMJ ফন্ট নেই। লেখাটা এখানে বিজয় → ইউনিকোড করে নিন, তাহলে যেকোনো ফোনে বাংলা দেখাবে।'], ['ইউনিকোড → বিজয় কখন লাগে?', 'যখন প্রেস বা অফিস SutonnyMJ ফন্টের ফাইল চায়, বা পুরোনো বিজয় ডকুমেন্টে নতুন লেখা জুড়তে হয়। ফলাফল Word-এ পেস্ট করে ফন্ট SutonnyMJ করুন।'], ['Avro আর বিজয় কি এক?', 'না। Avro একটা টাইপ করার পদ্ধতি যা সরাসরি ইউনিকোড লেখে। বিজয় নিজস্ব কি-বোর্ড আর ASCII ফন্টে লেখে — এই টুল সেই ASCII লেখা বদলায়।']],
+    },
+    en: {
+      title: 'Bijoy ↔ Unicode Converter', sub: 'Paste old Bangla text typed in Bijoy (SutonnyMJ) and get proper Unicode Bangla for Facebook, email, Google Docs and websites — or turn Unicode Bangla into Bijoy. Free, and your text never leaves your device.',
+      k2u: 'Bijoy → Unicode', u2k: 'Unicode → Bijoy', inK: 'Paste Bijoy (SutonnyMJ) text here', inU: 'Type or paste Unicode Bangla here', outU: 'Unicode Bangla (copy and use anywhere)', outK: 'Bijoy text (shows as Bangla in Word with the SutonnyMJ font)',
+      copy: '📋 Copy', copied: '✅ Copied', swap: '⇅ Swap', sample: 'Example', clear: 'Clear',
+      warn: (list) => `These characters were not recognised and were left as they are: ${list} — please check those places.`,
+      fontK2U: 'The output is Unicode — it shows correctly on every phone and computer and can be searched on Google.', fontU2K: 'Bijoy output looks like English letters and symbols. Paste it into Word and choose the "SutonnyMJ" font to see Bangla.',
+      howTitle: 'How to use it', how: ['Choose the direction at the top: <b>Bijoy → Unicode</b> (convert old text) or <b>Unicode → Bijoy</b>.', 'Paste text into the left box — the converted text appears in the right box straight away.', 'Press <b>Copy</b> and paste it wherever you need. <b>Swap</b> sends the result back the other way, which is handy for checking.', 'Text copied from a Word or PDF file in SutonnyMJ looks like "Avgvi" — that is exactly what you paste here.'],
+      aboutTitle: 'What is the difference between Bijoy and Unicode?', aboutText: 'Bijoy (SutonnyMJ and the other "MJ" fonts) is an old ASCII method: English letters and symbols are drawn as Bangla letters. Without the font, Bijoy text looks like "Avgvi †mvbvi evsjv", and Google, Facebook and phones do not recognise it as Bangla. Unicode is the worldwide standard — every Bangla letter has its own code, so it shows correctly in any font on any device.',
+      aboutText2: 'Government offices, presses, composing shops and many schools in Bangladesh and West Bengal still type in Bijoy. To publish that text online it must be converted to Unicode; to add to an old file or send to a press, Unicode must go back to Bijoy. This tool does both. The Bijoy → Unicode part uses the MIT-licensed open-source bijoy2unicode library; the reverse direction is our own code.',
+      faqTitle: 'Questions and answers', faq: [['Will the converted text be 100% correct?', 'Everyday Bangla — vowel signs, phola, reph (র্), conjuncts, ো/ৌ — converts correctly. If a rare symbol is not recognised, the tool shows it above instead of hiding it. Check important documents once.'], ['Is my text sent anywhere?', 'No. The conversion happens entirely in your browser — nothing goes to a server, and it keeps working offline once the page is open.'], ['Why does Bijoy text look like "Avgvi" on my phone?', 'Because the phone does not have the SutonnyMJ font. Convert it here with Bijoy → Unicode and it will show as Bangla on any phone.'], ['When do I need Unicode → Bijoy?', 'When a press or office wants a SutonnyMJ file, or you must add new text to an old Bijoy document. Paste the result into Word and set the font to SutonnyMJ.'], ['Are Avro and Bijoy the same?', 'No. Avro is a typing method that writes Unicode directly. Bijoy writes with its own keyboard and ASCII fonts — this tool converts that ASCII text.']],
+    },
+    hinglish: {
+      title: 'Bijoy ↔ Unicode Converter', sub: 'Bijoy (SutonnyMJ) font mein likha purana Bangla text paste karo aur sahi Unicode Bangla pao — Facebook, email, Google Docs aur website ke liye. Ya Unicode Bangla ko Bijoy mein badlo. Free, text aapke device se bahar nahi jaata.',
+      k2u: 'Bijoy → Unicode', u2k: 'Unicode → Bijoy', inK: 'Bijoy (SutonnyMJ) text yahan paste karo', inU: 'Unicode Bangla yahan likho ya paste karo', outU: 'Unicode Bangla (copy karke kahin bhi use karo)', outK: 'Bijoy text (Word mein SutonnyMJ font se Bangla dikhega)',
+      copy: '📋 Copy', copied: '✅ Copy ho gaya', swap: '⇅ Ulta karo', sample: 'Udaharan', clear: 'Saaf karo',
+      warn: (list) => `Yeh nishaan pehchaane nahi gaye aur waise hi chhod diye gaye: ${list} — in jagahon ko ek baar dekh lo.`,
+      fontK2U: 'Output Unicode hai — har phone aur computer pe sahi dikhega, Google mein search bhi hoga.', fontU2K: 'Bijoy output angrezi akshar aur nishaan jaisa dikhega. Word mein paste karke font "SutonnyMJ" chunoge to Bangla dikhega.',
+      howTitle: 'Kaise use karein', how: ['Upar se direction chuno: <b>Bijoy → Unicode</b> (purana text badalna) ya <b>Unicode → Bijoy</b>.', 'Baayein box mein text paste karo — dayein box mein turant badla hua text aa jaayega.', '<b>Copy</b> dabao aur jahan chahiye paste karo. <b>Ulta karo</b> se result ko wapas doosri direction mein badal kar mila sakte ho.', 'Word ya PDF se SutonnyMJ wala text copy karoge to woh "Avgvi" jaisa dikhega — wahi yahan paste karo.'],
+      aboutTitle: 'Bijoy aur Unicode mein kya farq hai?', aboutText: 'Bijoy (SutonnyMJ aur doosre "MJ" font) ek purana ASCII tareeka hai: angrezi akshar aur nishaan Bangla aksharon ki shakal mein dikhaye jaate hain. Font na ho to Bijoy text "Avgvi †mvbvi evsjv" jaisa dikhta hai, aur Google, Facebook ya phone use Bangla nahi maante. Unicode duniya bhar ka niyam hai — har Bangla akshar ka apna code hota hai, isliye kisi bhi font, kisi bhi device pe sahi dikhta hai.',
+      aboutText2: 'Bangladesh aur West Bengal ke sarkari office, press, compose ki dukaanein aur kai school ab bhi Bijoy mein type karte hain. Woh text online daalna ho to Unicode mein badalna padta hai; purani file mein jodna ya press bhejna ho to Unicode se Bijoy. Yeh tool dono karta hai. Bijoy → Unicode wale hisse mein MIT license wali open-source bijoy2unicode library use hui hai; ulti direction hamara apna code hai.',
+      faqTitle: 'Sawal-jawab', faq: [['Kya converted text 100% sahi hoga?', 'Aam Bangla — kar, phola, reph (র্), sanyukt akshar, ো/ৌ — sahi badalta hai. Koi bahut kam istemaal wala nishaan na pehchaana jaaye to tool use chhupata nahi, upar alag se dikhata hai. Zaroori kaagaz ek baar mila lo.'], ['Kya mera text kahin bheja jaata hai?', 'Nahi. Poora conversion aapke browser mein hota hai — kisi server pe kuch nahi jaata, page khula ho to internet ke bina bhi chalta hai.'], ['Phone pe Bijoy text "Avgvi" jaisa kyon dikhta hai?', 'Kyunki phone mein SutonnyMJ font nahi hai. Yahan Bijoy → Unicode kar lo, phir kisi bhi phone pe Bangla dikhega.'], ['Unicode → Bijoy kab chahiye?', 'Jab press ya office SutonnyMJ font wali file maange, ya purane Bijoy document mein naya text jodna ho. Result Word mein paste karke font SutonnyMJ kar do.'], ['Avro aur Bijoy ek hi hain?', 'Nahi. Avro type karne ka tareeka hai jo seedha Unicode likhta hai. Bijoy apne keyboard aur ASCII font se likhta hai — yeh tool usi ASCII text ko badalta hai.']],
+    },
+    hi: {
+      title: 'बिजॉय ↔ यूनिकोड कन्वर्टर (बांग्ला)', sub: 'बिजॉय (SutonnyMJ) फ़ॉन्ट में लिखा पुराना बांग्ला टेक्स्ट पेस्ट करो और सही यूनिकोड बांग्ला पाओ — Facebook, ईमेल, Google Docs और वेबसाइट के लिए। या यूनिकोड बांग्ला को बिजॉय में बदलो। मुफ़्त, टेक्स्ट आपके डिवाइस से बाहर नहीं जाता।',
+      k2u: 'बिजॉय → यूनिकोड', u2k: 'यूनिकोड → बिजॉय', inK: 'बिजॉय (SutonnyMJ) टेक्स्ट यहाँ पेस्ट करो', inU: 'यूनिकोड बांग्ला यहाँ लिखो या पेस्ट करो', outU: 'यूनिकोड बांग्ला (कॉपी करके कहीं भी इस्तेमाल करो)', outK: 'बिजॉय टेक्स्ट (Word में SutonnyMJ फ़ॉन्ट से बांग्ला दिखेगा)',
+      copy: '📋 कॉपी', copied: '✅ कॉपी हो गया', swap: '⇅ उल्टा करो', sample: 'उदाहरण', clear: 'साफ़ करो',
+      warn: (list) => `ये निशान पहचाने नहीं गए और वैसे ही छोड़ दिए गए: ${list} — इन जगहों को एक बार देख लो।`,
+      fontK2U: 'आउटपुट यूनिकोड है — हर फ़ोन और कंप्यूटर पर सही दिखेगा, Google में सर्च भी होगा।', fontU2K: 'बिजॉय आउटपुट अंग्रेज़ी अक्षर और निशान जैसा दिखेगा। Word में पेस्ट करके फ़ॉन्ट "SutonnyMJ" चुनोगे तो बांग्ला दिखेगा।',
+      howTitle: 'कैसे इस्तेमाल करें', how: ['ऊपर से दिशा चुनो: <b>बिजॉय → यूनिकोड</b> (पुराना टेक्स्ट बदलना) या <b>यूनिकोड → बिजॉय</b>।', 'बाएँ बॉक्स में टेक्स्ट पेस्ट करो — दाएँ बॉक्स में तुरंत बदला हुआ टेक्स्ट आ जाएगा।', '<b>कॉपी</b> दबाओ और जहाँ चाहिए पेस्ट करो। <b>उल्टा करो</b> से नतीजे को वापस दूसरी दिशा में बदलकर मिला सकते हो।', 'Word या PDF से SutonnyMJ वाला टेक्स्ट कॉपी करोगे तो वह "Avgvi" जैसा दिखेगा — वही यहाँ पेस्ट करो।'],
+      aboutTitle: 'बिजॉय और यूनिकोड में क्या फ़र्क़ है?', aboutText: 'बिजॉय (SutonnyMJ और दूसरे "MJ" फ़ॉन्ट) एक पुराना ASCII तरीक़ा है: अंग्रेज़ी अक्षर और निशान बांग्ला अक्षरों की शक्ल में दिखाए जाते हैं। फ़ॉन्ट न हो तो बिजॉय टेक्स्ट "Avgvi †mvbvi evsjv" जैसा दिखता है, और Google, Facebook या फ़ोन उसे बांग्ला नहीं मानते। यूनिकोड दुनिया भर का नियम है — हर बांग्ला अक्षर का अपना कोड होता है, इसलिए किसी भी फ़ॉन्ट, किसी भी डिवाइस पर सही दिखता है।',
+      aboutText2: 'बांग्लादेश और पश्चिम बंगाल के सरकारी दफ़्तर, प्रेस, कंपोज़ की दुकानें और कई स्कूल अब भी बिजॉय में टाइप करते हैं। वह टेक्स्ट ऑनलाइन डालना हो तो यूनिकोड में बदलना पड़ता है; पुरानी फ़ाइल में जोड़ना या प्रेस भेजना हो तो यूनिकोड से बिजॉय। यह टूल दोनों करता है। बिजॉय → यूनिकोड वाले हिस्से में MIT लाइसेंस वाली ओपन-सोर्स bijoy2unicode लाइब्रेरी इस्तेमाल हुई है; उल्टी दिशा हमारा अपना कोड है।',
+      faqTitle: 'सवाल-जवाब', faq: [['क्या बदला हुआ टेक्स्ट 100% सही होगा?', 'आम बांग्ला — कार, फला, रेफ़ (র্), संयुक्त अक्षर, ো/ৌ — सही बदलता है। कोई बहुत कम इस्तेमाल वाला निशान न पहचाना जाए तो टूल उसे छुपाता नहीं, ऊपर अलग से दिखाता है। ज़रूरी काग़ज़ एक बार मिला लो।'], ['क्या मेरा टेक्स्ट कहीं भेजा जाता है?', 'नहीं। पूरा बदलाव आपके ब्राउज़र में होता है — किसी सर्वर पर कुछ नहीं जाता, पेज खुला हो तो इंटरनेट के बिना भी चलता है।'], ['फ़ोन पर बिजॉय टेक्स्ट "Avgvi" जैसा क्यों दिखता है?', 'क्योंकि फ़ोन में SutonnyMJ फ़ॉन्ट नहीं है। यहाँ बिजॉय → यूनिकोड कर लो, फिर किसी भी फ़ोन पर बांग्ला दिखेगा।'], ['यूनिकोड → बिजॉय कब चाहिए?', 'जब प्रेस या दफ़्तर SutonnyMJ फ़ॉन्ट वाली फ़ाइल माँगे, या पुराने बिजॉय डॉक्यूमेंट में नया टेक्स्ट जोड़ना हो। नतीजा Word में पेस्ट करके फ़ॉन्ट SutonnyMJ कर दो।'], ['Avro और बिजॉय एक ही हैं?', 'नहीं। Avro टाइप करने का तरीक़ा है जो सीधे यूनिकोड लिखता है। बिजॉय अपने कीबोर्ड और ASCII फ़ॉन्ट से लिखता है — यह टूल उसी ASCII टेक्स्ट को बदलता है।']],
+    },
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private */ } } };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['bn', 'en', 'hinglish', 'hi'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'bn'; };
+  let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('bj-lang')) ? store.get('bj-lang') : deviceLang();
+  let dir = params.get('dir') === 'u2k' ? 'u2k' : (store.get('bj-dir') === 'u2k' ? 'u2k' : 'k2u');
+  const t = (k) => T[lang][k];
+
+  const convert = () => {
+    const v = $('inp').value;
+    const out = dir === 'k2u' ? window.BJ.toUnicode(v) : window.BJ.toBijoy(v);
+    $('out').value = out;
+    const unknown = dir === 'k2u' ? window.BJ.unknownGlyphs(out) : [];
+    $('warn').classList.toggle('hidden', !unknown.length);
+    if (unknown.length) $('warn').textContent = t('warn')(unknown.join(' '));
+  };
+  const applyDir = () => {
+    document.querySelectorAll('#dirSeg button').forEach((b) => b.classList.toggle('on', b.dataset.d === dir));
+    $('inLabel').textContent = dir === 'k2u' ? t('inK') : t('inU');
+    $('outLabel').textContent = dir === 'k2u' ? t('outU') : t('outK');
+    $('inp').classList.toggle('kd', dir === 'k2u'); $('out').classList.toggle('kd', dir === 'u2k');
+    $('fontNote').textContent = dir === 'k2u' ? t('fontK2U') : t('fontU2K');
+    convert();
+  };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { const v = t(el.dataset.i18n); if (typeof v === 'string') el.textContent = v; });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    $('faqList').innerHTML = t('faq').map(([q, a]) => `<h3>${q}</h3><p>${a}</p>`).join('');
+    $('home').href = `https://nextgrade.in${PREFIX[lang]}/`;
+    applyDir();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('bj-lang', lang); applyLang(); });
+  $('dirSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; dir = b.dataset.d; store.set('bj-dir', dir); applyDir(); });
+  $('inp').addEventListener('input', convert);
+  $('swap').addEventListener('click', () => { const o = $('out').value; dir = dir === 'k2u' ? 'u2k' : 'k2u'; store.set('bj-dir', dir); $('inp').value = o; applyDir(); });
+  $('sample').addEventListener('click', () => { $('inp').value = SAMPLE[dir]; convert(); });
+  $('clear').addEventListener('click', () => { $('inp').value = ''; convert(); $('inp').focus(); });
+  $('copy').addEventListener('click', () => {
+    const text = $('out').value; if (!text) return;
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(() => { $('copy').textContent = t('copied'); setTimeout(() => { $('copy').textContent = t('copy'); }, 1500); }).catch(() => { $('out').select(); });
+  });
+  $('year').textContent = new Date().getFullYear();
+  window.__bj = { get out() { return $('out').value; }, get warn() { return $('warn').classList.contains('hidden') ? '' : $('warn').textContent; } };
+  applyLang();
+  if (params.get('t')) { $('inp').value = params.get('t'); convert(); }
+})();
+</script>
+<nav class="ng-more-tools" aria-label="More free tools" style="max-width:1000px;margin:28px auto 18px;padding:14px 16px;border-top:1px solid rgba(128,128,128,.25);font:15px/1.5 system-ui,sans-serif"><h2 style="font-size:1.05rem;margin:0 0 10px">🧰 और फ़्री टूल्स · More free tools</h2><div style="display:flex;flex-wrap:wrap;gap:8px"><a href="/tools/typing-test/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">⌨️ Hindi &amp; English Typing Test</a><a href="/tools/krutidev/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">🔤 Krutidev to Unicode Converter (and back)</a><a href="/tools/passport-photo/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">🪪 Passport Size Photo Maker</a><a href="/tools/doc-scanner/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">📄 Document Scanner → PDF</a><a href="/tools/image-compress/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">🗜️ Image Compressor</a><a href="/tools/pdf-compress/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">📉 PDF Compressor</a><a href="/tools/jpg-to-pdf/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">🗂️ JPG / Photo to PDF</a><a href="/tools/pdf-merge/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">📎 PDF Merge &amp; Split</a><a href="/tools/" style="padding:7px 12px;border-radius:999px;background:#e8590c;color:#fff;text-decoration:none">सारे टूल्स →</a></div></nav>
+<div class="ngc ngc-bottom" data-ngc="hi"><footer class="site-foot"><div class="wrap">
+<div class="foot-cols">
+<div class="foot-brand"><a class="logo" href="/"><img class="logo-mark" src="/favicon.svg" alt="" width="30" height="30"><span>Next<b>Grade</b></span></a><p>त्योहारों की जानकारी, शुभकामनाएँ और छोटे काम के ऐप्स।</p></div>
+<nav aria-label="टूल्स"><h4>टूल्स</h4><a href="/tools/image-compress/">फ़ोटो KB कम करें</a><a href="/tools/pdf-compress/">PDF छोटा करें</a><a href="/tools/passport-photo/">पासपोर्ट फ़ोटो</a><a href="/calculator/">कैलकुलेटर</a><a href="/mausam/">आज का मौसम</a><a href="/ghoomne-ki-jagah/">घूमने की जगहें</a><a href="/creator-guide/">क्रिएटर गाइड</a><a href="/sarkari-guide/">सरकारी गाइड</a><a href="/tools/">सभी टूल्स →</a></nav><nav aria-label="पढ़ाई"><h4>पढ़ाई</h4><a href="/nibandh/">निबंध</a><a href="/speech/">भाषण</a><a href="/kahani/">कहानियाँ</a><a href="/kids/">बच्चों की पढ़ाई</a><a href="/nuskhe/">घरेलू नुस्खे</a><a href="/surya-namaskar/">सूर्य नमस्कार</a><a href="/pranayam/">प्राणायाम</a></nav><nav aria-label="त्योहार"><h4>त्योहार</h4><a href="/festivals/">सभी त्योहार</a><a href="/calendar/2027/">कैलेंडर 2027</a><a href="/wishes/">शुभकामनाएँ</a><a href="/wish-card/">बधाई कार्ड</a><a href="/aaj/">आज का दिन</a><a href="/ekadashi/">एकादशी कब है</a><a href="/purnima/">पूर्णिमा / अमावस्या</a></nav><nav aria-label="खेल और ऐप"><h4>खेल और ऐप</h4><a href="/games/">ऑनलाइन गेम्स</a><a href="https://desi-games.nextgrade.in/">देसी गेम्स ऐप</a><a href="/apps/">ऐप्स</a></nav>
+</div>
+<div class="foot-bottom"><span>© 2026 NextGrade · nextgrade.in</span><nav aria-label="Footer"><a href="/about/">हमारे बारे में</a><a href="/contact/">संपर्क करें</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="/sitemap.xml">Sitemap</a></nav></div>
+</div></footer></div><div class="ngc ngc-bottom" data-ngc="en" hidden><footer class="site-foot"><div class="wrap">
+<div class="foot-cols">
+<div class="foot-brand"><a class="logo" href="/en/"><img class="logo-mark" src="/favicon.svg" alt="" width="30" height="30"><span>Next<b>Grade</b></span></a><p>Indian festivals, wishes and small useful apps.</p></div>
+<nav aria-label="Tools"><h4>Tools</h4><a href="/tools/image-compress/">Compress photo to KB</a><a href="/tools/pdf-compress/">Compress PDF</a><a href="/tools/passport-photo/">Passport photo</a><a href="/en/calculator/">Calculators</a><a href="/en/mausam/">Weather today</a><a href="/en/ghoomne-ki-jagah/">Places to visit</a><a href="/en/creator-guide/">Creator guide</a><a href="/en/sarkari-guide/">Government guides</a><a href="/en/tools/">All tools →</a></nav><nav aria-label="Learning"><h4>Learning</h4><a href="/en/nibandh/">Essays</a><a href="/en/speech/">Speeches</a><a href="/en/kahani/">Stories</a><a href="/en/kids/">Kids learning</a><a href="/en/nuskhe/">Home remedies</a><a href="/en/surya-namaskar/">Surya Namaskar</a><a href="/en/pranayam/">Pranayama</a></nav><nav aria-label="Festivals"><h4>Festivals</h4><a href="/en/festivals/">All festivals</a><a href="/en/calendar/2027/">Calendar 2027</a><a href="/en/wishes/">Wishes</a><a href="/en/wish-card/">Wish card</a><a href="/en/aaj/">Today</a><a href="/en/ekadashi/">Ekadashi dates</a><a href="/en/purnima/">Purnima / Amavasya</a></nav><nav aria-label="Games and apps"><h4>Games and apps</h4><a href="/en/games/">Online games</a><a href="https://desi-games.nextgrade.in/">Desi Games app</a><a href="/en/apps/">Apps</a></nav>
+</div>
+<div class="foot-bottom"><span>© 2026 NextGrade · nextgrade.in</span><nav aria-label="Footer"><a href="/en/about/">About NextGrade</a><a href="/en/contact/">Contact us</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="/sitemap.xml">Sitemap</a></nav></div>
+</div></footer></div><div class="ngc ngc-bottom" data-ngc="hinglish" hidden><footer class="site-foot"><div class="wrap">
+<div class="foot-cols">
+<div class="foot-brand"><a class="logo" href="/hinglish/"><img class="logo-mark" src="/favicon.svg" alt="" width="30" height="30"><span>Next<b>Grade</b></span></a><p>Tyoharon ki jaankari, wishes aur chhote kaam ke apps.</p></div>
+<nav aria-label="Tools"><h4>Tools</h4><a href="/tools/image-compress/">Photo KB kam karo</a><a href="/tools/pdf-compress/">PDF chhota karo</a><a href="/tools/passport-photo/">Passport photo</a><a href="/hinglish/calculator/">Calculators</a><a href="/hinglish/mausam/">Aaj ka mausam</a><a href="/hinglish/ghoomne-ki-jagah/">Ghoomne ki jagah</a><a href="/hinglish/creator-guide/">Creator guide</a><a href="/hinglish/sarkari-guide/">Sarkari guide</a><a href="/hinglish/tools/">Sabhi tools →</a></nav><nav aria-label="Padhai"><h4>Padhai</h4><a href="/hinglish/nibandh/">Nibandh</a><a href="/hinglish/speech/">Bhashan</a><a href="/hinglish/kahani/">Kahaniyan</a><a href="/hinglish/kids/">Bachchon ki padhai</a><a href="/hinglish/nuskhe/">Gharelu nuskhe</a><a href="/hinglish/surya-namaskar/">Surya Namaskar</a><a href="/hinglish/pranayam/">Pranayam</a></nav><nav aria-label="Tyohaar"><h4>Tyohaar</h4><a href="/hinglish/festivals/">Sabhi tyohaar</a><a href="/hinglish/calendar/2027/">Calendar 2027</a><a href="/hinglish/wishes/">Wishes</a><a href="/hinglish/wish-card/">Wish card</a><a href="/hinglish/aaj/">Aaj ka din</a><a href="/hinglish/ekadashi/">Ekadashi kab hai</a><a href="/hinglish/purnima/">Purnima / Amavasya</a></nav><nav aria-label="Games aur apps"><h4>Games aur apps</h4><a href="/hinglish/games/">Online games</a><a href="https://desi-games.nextgrade.in/">Desi Games app</a><a href="/hinglish/apps/">Apps</a></nav>
+</div>
+<div class="foot-bottom"><span>© 2026 NextGrade · nextgrade.in</span><nav aria-label="Footer"><a href="/hinglish/about/">NextGrade ke baare mein</a><a href="/hinglish/contact/">Sampark karein</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="/sitemap.xml">Sitemap</a></nav></div>
+</div></footer></div><div class="ngc ngc-bottom" data-ngc="bn" hidden><footer class="site-foot"><div class="wrap">
+<div class="foot-cols">
+<div class="foot-brand"><a class="logo" href="/bn/"><img class="logo-mark" src="/favicon.svg" alt="" width="30" height="30"><span>Next<b>Grade</b></span></a><p>উৎসবের কথা, শুভেচ্ছা আর ছোট কাজের অ্যাপ।</p></div>
+<nav aria-label="টুলস"><h4>টুলস</h4><a href="/tools/image-compress/">ছবি KB কম</a><a href="/tools/pdf-compress/">PDF ছোট করুন</a><a href="/tools/passport-photo/">পাসপোর্ট ছবি</a><a href="/bn/calculator/">ক্যালকুলেটর</a><a href="/bn/mausam/">আজকের আবহাওয়া</a><a href="/bn/ghoomne-ki-jagah/">বেড়ানোর জায়গা</a><a href="/bn/creator-guide/">ক্রিয়েটর গাইড</a><a href="/bn/sarkari-guide/">সরকারি গাইড</a><a href="/bn/tools/">সব টুলস →</a></nav><nav aria-label="পড়াশোনা"><h4>পড়াশোনা</h4><a href="/bn/nibandh/">রচনা</a><a href="/bn/speech/">বক্তৃতা</a><a href="/bn/kahani/">গল্প</a><a href="/bn/kids/">ছোটদের পড়া</a><a href="/bn/nuskhe/">ঘরোয়া টোটকা</a><a href="/bn/surya-namaskar/">সূর্য নমস্কার</a><a href="/bn/pranayam/">প্রাণায়াম</a></nav><nav aria-label="উৎসব"><h4>উৎসব</h4><a href="/bn/festivals/">সব উৎসব</a><a href="/bn/calendar/2027/">ক্যালেন্ডার ২০২৭</a><a href="/bn/wishes/">শুভেচ্ছা</a><a href="/bn/wish-card/">শুভেচ্ছা কার্ড</a><a href="/bn/aaj/">আজকের দিন</a><a href="/bn/ekadashi/">একাদশী কবে</a><a href="/bn/purnima/">পূর্ণিমা / অমাবস্যা</a></nav><nav aria-label="গেম আর অ্যাপ"><h4>গেম আর অ্যাপ</h4><a href="/bn/games/">অনলাইন গেম</a><a href="https://desi-games.nextgrade.in/">দেশি গেমস অ্যাপ</a><a href="/bn/apps/">অ্যাপ</a></nav>
+</div>
+<div class="foot-bottom"><span>© 2026 NextGrade · nextgrade.in</span><nav aria-label="Footer"><a href="/bn/about/">আমাদের কথা</a><a href="/bn/contact/">যোগাযোগ</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="/sitemap.xml">Sitemap</a></nav></div>
+</div></footer></div>
+<script>(function(){var G={"hi":"hi","en":"en","hinglish":"hinglish","bn":"bn"};function cur(){var q=new URLSearchParams(location.search).get('lang'),h=(document.documentElement.lang||'hi').toLowerCase();if(h==='hi-latn'||q==='hinglish')return 'hinglish';if(h.indexOf('bn')===0)return 'bn';if(h.indexOf('en')===0)return 'en';if(h.indexOf('hi')===0)return 'hi';return G[q]?q:'hi';}
+function apply(){var L=cur();document.querySelectorAll('[data-ngc]').forEach(function(d){d.hidden=d.getAttribute('data-ngc')!==L;});}
+apply();new MutationObserver(apply).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});var sec=location.pathname.split('/')[1];document.querySelectorAll('.ngc .nav-group').forEach(function(g){if(g.querySelector('a[href$="/'+sec+'/"]'))g.querySelector('summary').setAttribute('aria-current','page');});
+document.querySelectorAll('.ngc .lang-menu a[hreflang]').forEach(function(a){var code={hi:'hi',en:'en','hi-Latn':'hinglish',bn:'bn'}[a.getAttribute('hreflang')];if(!code)return;a.addEventListener('click',function(e){e.preventDefault();var u=new URL(location.href);u.searchParams.set('lang',G[code]||code);location.href=u.toString();});});
+document.querySelectorAll('.ngc .menu-btn').forEach(function(b){var box=b.closest('.ngc');b.addEventListener('click',function(e){e.stopPropagation();var o=!box.classList.contains('menu-open');box.classList.toggle('menu-open',o);b.setAttribute('aria-expanded',String(o));b.textContent=o?'✕':'☰';});});
+document.addEventListener('click',function(e){document.querySelectorAll('.ngc details[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open');});document.querySelectorAll('.ngc.menu-open').forEach(function(box){if(!e.target.closest('.nav')){box.classList.remove('menu-open');var b=box.querySelector('.menu-btn');if(b){b.textContent='☰';b.setAttribute('aria-expanded','false');}}});});})();</script>
+</body>
+</html>
