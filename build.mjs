@@ -41,6 +41,7 @@ import { buildCreatorGuide } from './src/creator-guide.mjs';
 import { buildTithi } from './src/tithi-pages.mjs';
 import { buildSarkari, SARKARI_NAV } from './src/sarkari-guide.mjs';
 import { buildPranayam, PRANAYAM_NAV } from './src/pranayam.mjs';
+import { buildAaj, AAJ_NAV } from './src/aaj.mjs';
 import { CAL_YEAR, MONTH_SLUGS as SLUG_M, NATIONAL, HOLIDAY_SLUGS, WDS, CT, hijriStarts } from './src/calendar.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
@@ -107,6 +108,7 @@ const firstSentence = (s) => (String(s).match(/^.*?[।.!?](\s|$)/) || [s])[0].t
 
 // Home: "New and trending" links (user 24 Nov: new pages should be linked from the home page for Google)
 const HOME_NEW = [
+  ['/aaj/', '☀️', { hi: 'आज का दिन + शुभ प्रभात इमेज', en: 'Today + Good Morning image', hinglish: 'Aaj ka din + Good Morning image', bn: 'আজকের দিন + শুভ সকাল ছবি' }, true],
   ['/pranayam/', '🧘', { hi: 'प्राणायाम — साथ-साथ करें', en: 'Pranayama — breathe along', hinglish: 'Pranayam — saath karo', bn: 'প্রাণায়াম — সঙ্গে করুন' }, true],
   ['/sarkari-guide/', '🏛️', { hi: 'सरकारी गाइड: आधार, PAN, आयुष्मान', en: 'Govt guides: Aadhaar, PAN, Ayushman', hinglish: 'Sarkari guide: Aadhaar, PAN, Ayushman', bn: 'সরকারি গাইড: আধার, PAN, আয়ুষ্মান' }, true],
   ['/ekadashi/', '🙏', { hi: 'एकादशी कब है', en: 'Ekadashi dates', hinglish: 'Ekadashi kab hai', bn: 'একাদশী কবে' }, true],
@@ -151,7 +153,7 @@ const HOME_BADGES = { hi: ['✓ 100% फ़्री', '✓ बिना login',
 const FOOT_COLS = [
   [{ hi: 'टूल्स', en: 'Tools', hinglish: 'Tools', bn: 'টুলস' }, [['/tools/image-compress/', { hi: 'फ़ोटो KB कम करें', en: 'Compress photo to KB', hinglish: 'Photo KB kam karo', bn: 'ছবি KB কম' }, false], ['/tools/pdf-compress/', { hi: 'PDF छोटा करें', en: 'Compress PDF', hinglish: 'PDF chhota karo', bn: 'PDF ছোট করুন' }, false], ['/tools/passport-photo/', { hi: 'पासपोर्ट फ़ोटो', en: 'Passport photo', hinglish: 'Passport photo', bn: 'পাসপোর্ট ছবি' }, false], ['/calculator/', { hi: 'कैलकुलेटर', en: 'Calculators', hinglish: 'Calculators', bn: 'ক্যালকুলেটর' }], ['/mausam/', { hi: 'आज का मौसम', en: 'Weather today', hinglish: 'Aaj ka mausam', bn: 'আজকের আবহাওয়া' }], ['/ghoomne-ki-jagah/', { hi: 'घूमने की जगहें', en: 'Places to visit', hinglish: 'Ghoomne ki jagah', bn: 'বেড়ানোর জায়গা' }], ['/creator-guide/', { hi: 'क्रिएटर गाइड', en: 'Creator guide', hinglish: 'Creator guide', bn: 'ক্রিয়েটর গাইড' }], ['/sarkari-guide/', { hi: 'सरकारी गाइड', en: 'Government guides', hinglish: 'Sarkari guide', bn: 'সরকারি গাইড' }], ['/tools/', { hi: 'सभी टूल्स →', en: 'All tools →', hinglish: 'Sabhi tools →', bn: 'সব টুলস →' }]]],
   [{ hi: 'पढ़ाई', en: 'Learning', hinglish: 'Padhai', bn: 'পড়াশোনা' }, [['/nibandh/', { hi: 'निबंध', en: 'Essays', hinglish: 'Nibandh', bn: 'রচনা' }], ['/speech/', { hi: 'भाषण', en: 'Speeches', hinglish: 'Bhashan', bn: 'বক্তৃতা' }], ['/kahani/', { hi: 'कहानियाँ', en: 'Stories', hinglish: 'Kahaniyan', bn: 'গল্প' }], ['/kids/', { hi: 'बच्चों की पढ़ाई', en: 'Kids learning', hinglish: 'Bachchon ki padhai', bn: 'ছোটদের পড়া' }], ['/nuskhe/', { hi: 'घरेलू नुस्खे', en: 'Home remedies', hinglish: 'Gharelu nuskhe', bn: 'ঘরোয়া টোটকা' }], ['/surya-namaskar/', { hi: 'सूर्य नमस्कार', en: 'Surya Namaskar', hinglish: 'Surya Namaskar', bn: 'সূর্য নমস্কার' }], ['/pranayam/', { hi: 'प्राणायाम', en: 'Pranayama', hinglish: 'Pranayam', bn: 'প্রাণায়াম' }]]],
-  [{ hi: 'त्योहार', en: 'Festivals', hinglish: 'Tyohaar', bn: 'উৎসব' }, [['/festivals/', { hi: 'सभी त्योहार', en: 'All festivals', hinglish: 'Sabhi tyohaar', bn: 'সব উৎসব' }], ['/calendar/2027/', { hi: 'कैलेंडर 2027', en: 'Calendar 2027', hinglish: 'Calendar 2027', bn: 'ক্যালেন্ডার ২০২৭' }], ['/wishes/', { hi: 'शुभकामनाएँ', en: 'Wishes', hinglish: 'Wishes', bn: 'শুভেচ্ছা' }], ['/wish-card/', { hi: 'बधाई कार्ड', en: 'Wish card', hinglish: 'Wish card', bn: 'শুভেচ্ছা কার্ড' }], ['/ekadashi/', { hi: 'एकादशी कब है', en: 'Ekadashi dates', hinglish: 'Ekadashi kab hai', bn: 'একাদশী কবে' }], ['/purnima/', { hi: 'पूर्णिमा / अमावस्या', en: 'Purnima / Amavasya', hinglish: 'Purnima / Amavasya', bn: 'পূর্ণিমা / অমাবস্যা' }]]],
+  [{ hi: 'त्योहार', en: 'Festivals', hinglish: 'Tyohaar', bn: 'উৎসব' }, [['/festivals/', { hi: 'सभी त्योहार', en: 'All festivals', hinglish: 'Sabhi tyohaar', bn: 'সব উৎসব' }], ['/calendar/2027/', { hi: 'कैलेंडर 2027', en: 'Calendar 2027', hinglish: 'Calendar 2027', bn: 'ক্যালেন্ডার ২০২৭' }], ['/wishes/', { hi: 'शुभकामनाएँ', en: 'Wishes', hinglish: 'Wishes', bn: 'শুভেচ্ছা' }], ['/wish-card/', { hi: 'बधाई कार्ड', en: 'Wish card', hinglish: 'Wish card', bn: 'শুভেচ্ছা কার্ড' }], ['/aaj/', { hi: 'आज का दिन', en: 'Today', hinglish: 'Aaj ka din', bn: 'আজকের দিন' }], ['/ekadashi/', { hi: 'एकादशी कब है', en: 'Ekadashi dates', hinglish: 'Ekadashi kab hai', bn: 'একাদশী কবে' }], ['/purnima/', { hi: 'पूर्णिमा / अमावस्या', en: 'Purnima / Amavasya', hinglish: 'Purnima / Amavasya', bn: 'পূর্ণিমা / অমাবস্যা' }]]],
   [{ hi: 'खेल और ऐप', en: 'Games and apps', hinglish: 'Games aur apps', bn: 'গেম আর অ্যাপ' }, [['/games/', { hi: 'ऑनलाइन गेम्स', en: 'Online games', hinglish: 'Online games', bn: 'অনলাইন গেম' }], ['https://desi-games.nextgrade.in/', { hi: 'देसी गेम्स ऐप', en: 'Desi Games app', hinglish: 'Desi Games app', bn: 'দেশি গেমস অ্যাপ' }, false], ['/apps/', { hi: 'ऐप्स', en: 'Apps', hinglish: 'Apps', bn: 'অ্যাপ' }]]],
 ];
 const HOME_NEW_H = { hi: '🆕 नया और ट्रेंडिंग', en: '🆕 New and trending', hinglish: '🆕 Naya aur trending', bn: '🆕 নতুন আর ট্রেন্ডিং' };
@@ -695,6 +697,7 @@ ${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('\n')}
   buildTithi(L, { page, write, P, esc, T, breadcrumbLd });
   buildSarkari(L, { page, write, P, esc, T, breadcrumbLd });
   buildPranayam(L, { page, write, P, esc, T, breadcrumbLd });
+  buildAaj(L, { page, write, P, esc, T, breadcrumbLd, festName: (slug, LL) => { const f = allFestivals.find((z) => z.slug === slug); return f ? lf(f, LL).name : null; } });
   if (L.code === 'en') buildRegionalWishes(L, { page, write, esc, T, breadcrumbLd });
 
   // Festival pages

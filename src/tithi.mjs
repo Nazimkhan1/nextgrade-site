@@ -88,3 +88,19 @@ function sunriseDelhi(ymd) {
   const ha = Math.acos(Math.cos(90.833 * R) / (Math.cos(lat * R) * Math.cos(decl)) - Math.tan(lat * R) * Math.tan(decl)) / R;
   return Date.parse(`${ymd}T00:00:00Z`) + (720 - 4 * (lon + ha) - eqt) * 60e3; // UTC ms
 }
+
+/** Panchang at a moment: tithi number (1–30), paksha ('s'|'k'), purnimanta month index (0 = Chaitra). */
+export function panchangAt(ms) {
+  const e = elong(ms), n = Math.floor(e / 12) + 1;
+  let nm = when(0, ms - 32 * 864e5);
+  for (let i = 0; i < 3; i++) { const nx = when(0, nm + 20 * 864e5); if (nx > ms) break; nm = nx; }
+  const m = monthOf(nm), adhik = monthOf(when(0, nm + 20 * 864e5)) === m;
+  return { n, paksha: n <= 15 ? 's' : 'k', month: m, pmonth: n <= 15 ? m : (m + 1) % 12, adhik };
+}
+export { sunriseDelhi };
+export const TITHI_NAMES = {
+  hi: ['प्रतिपदा', 'द्वितीया', 'तृतीया', 'चतुर्थी', 'पंचमी', 'षष्ठी', 'सप्तमी', 'अष्टमी', 'नवमी', 'दशमी', 'एकादशी', 'द्वादशी', 'त्रयोदशी', 'चतुर्दशी', 'पूर्णिमा', 'अमावस्या'],
+  en: ['Pratipada', 'Dwitiya', 'Tritiya', 'Chaturthi', 'Panchami', 'Shashthi', 'Saptami', 'Ashtami', 'Navami', 'Dashami', 'Ekadashi', 'Dwadashi', 'Trayodashi', 'Chaturdashi', 'Purnima', 'Amavasya'],
+  bn: ['প্রতিপদ', 'দ্বিতীয়া', 'তৃতীয়া', 'চতুর্থী', 'পঞ্চমী', 'ষষ্ঠী', 'সপ্তমী', 'অষ্টমী', 'নবমী', 'দশমী', 'একাদশী', 'দ্বাদশী', 'ত্রয়োদশী', 'চতুর্দশী', 'পূর্ণিমা', 'অমাবস্যা'],
+};
+export const tithiName = (code, n) => { const T = TITHI_NAMES[code === 'bn' ? 'bn' : code === 'hi' ? 'hi' : 'en']; return n === 15 ? T[14] : n === 30 ? T[15] : T[(n - 1) % 15]; };
