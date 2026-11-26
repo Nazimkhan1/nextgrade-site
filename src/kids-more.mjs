@@ -20,6 +20,7 @@ const hiNum = (n) => (n <= 100 ? HI[n - 1] : n === 200 ? 'दो सौ' : 'ए�
 const bnNum = (n) => (n <= 100 ? BN[n - 1] : n === 200 ? 'দুশো' : 'একশো ' + BN[n - 101]);
 const bnDigits = (x) => String(x).replace(/\d/g, (d) => '০১২৩৪৫৬৭৮৯'[d]);
 if (HI.length !== 100 || BN.length !== 100) throw new Error('kids-more: number lists must have 100 words');
+export { HI as HI_WORDS, BN as BN_WORDS };
 
 const GINTI = {
   slug: 'ginti', emoji: '🔢', noCorner: true,
