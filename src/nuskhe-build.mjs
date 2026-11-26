@@ -1,4 +1,5 @@
 /** Pages for src/nuskhe.mjs: /nuskhe/ (hub) and /nuskhe/<season>/. Health content: see the rules at the top of nuskhe.mjs. */
+import { hubExtraHtml } from './hub-extra.mjs';
 import { SEASONS, NUSKHE_UI } from './nuskhe.mjs';
 
 export { NUSKHE_UI };
@@ -21,6 +22,7 @@ export function buildNuskhe(L, { page, write, P, esc, T, breadcrumbLd, articleLd
 <p class="lead">${esc(H.lead)}</p>
 <div class="grid">${SEASONS.map((s) => `<a class="card" href="${P(L, `${hub}${s.slug}/`)}"><span class="emoji" aria-hidden="true">${s.emoji}</span><h3>${esc(s[code].h1.replace(/^\S+\s/, ''))}</h3><p>${esc(s[code].desc)}</p></a>`).join('')}</div>
 <p class="note">${esc(H.soon)}</p>
+${hubExtraHtml('nuskhe', code, esc)}
 </div>`,
   }));
   for (const s of SEASONS) {

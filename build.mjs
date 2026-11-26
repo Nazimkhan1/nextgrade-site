@@ -58,6 +58,7 @@ const FX = await loadRates(); // daily currency rates (cached in src/fx-cache.js
 import { CAL_YEAR, MONTH_SLUGS as SLUG_M, NATIONAL, HOLIDAY_SLUGS, WDS, CT, hijriStarts } from './src/calendar.mjs';
 import { MONTH_MORE, MONTH_MORE_H } from './src/calendar-more.mjs';
 import { KIDS_EXTRA, KIDS_EXTRA_H } from './src/kids-extra.mjs';
+import { hubExtraHtml } from './src/hub-extra.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
 const games = allGames.filter((g) => isLive(`game:${g.slug}`));
@@ -1027,6 +1028,7 @@ ${NAAM_LIVE ? `<p><a class="btn btn-ghost" href="${P(L, '/naam-wali-image/')}">$
 <div class="ad" aria-hidden="true"></div>
 <h2>${esc(C.howH)}</h2>
 <ol>${C.how.map((li) => `<li>${li}</li>`).join('')}</ol>
+${hubExtraHtml('wish-card', L.code, esc)}
 </div>`,
     }),
   );
@@ -1281,6 +1283,7 @@ ${faqBlock(faq)}
 <h1>🎤 ${esc(U.hub)}</h1>
 <p class="lead">${esc(U.hubLead)}</p>
 <div class="grid">${SPEECHES.map(card).join('')}</div>
+${hubExtraHtml('speech', L.code, esc)}
 </div>`,
     }));
     SPEECHES.forEach((sp) => {
@@ -1846,6 +1849,7 @@ const lastmodFor = (url) => {
   // pages that got hand-written content after Search Console's "crawled, not indexed" list (plan Q, 26 Nov 2026)
   { const ff = path.match(/^\/full-form\/([^/]+)\/$/); if (ff && FF_MORE[ff[1]]) return '2026-11-26'; }
   if (/^\/calendar\/\d{4}\/[a-z]+\/$/.test(path)) return '2026-11-26';
+  if (['/speech/', '/wish-card/', '/nuskhe/'].includes(path) || /^\/naam\/(boy|girl)\//.test(path)) return '2026-11-26';
   { const kd = path.match(/^\/kids\/([^/]+)\/$/); if (kd && KIDS_EXTRA[kd[1]]) return '2026-11-26'; }
   if (['/aaj/', '/purnima/', '/amavasya/', '/ekadashi/'].includes(path)) return todayIST();
   if (path.startsWith('/currency/')) return todayIST(); // rates change daily
