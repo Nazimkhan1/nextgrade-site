@@ -50,6 +50,7 @@ import { buildRto, RTO_NAV } from './src/rto.mjs';
 import { buildWorld, loadRates, WORLD_NAV } from './src/world.mjs';
 import { buildSunCompare, SC_NAV } from './src/sun-compare.mjs';
 import { buildConstruction, CC_NAV } from './src/construction.mjs';
+import { buildSolar, SOLAR_NAV, INV_NAV } from './src/solar.mjs';
 import { llmsSections, llmsFull } from './src/llms-extra.mjs';
 const FX = await loadRates(); // daily currency rates (cached in src/fx-cache.json)
 import { CAL_YEAR, MONTH_SLUGS as SLUG_M, NATIONAL, HOLIDAY_SLUGS, WDS, CT, hijriStarts } from './src/calendar.mjs';
@@ -118,6 +119,7 @@ const firstSentence = (s) => (String(s).match(/^.*?[।.!?](\s|$)/) || [s])[0].t
 
 // Home: "New and trending" links (user 24 Nov: new pages should be linked from the home page for Google)
 const HOME_NEW = [
+  ['/solar-calculator/', '☀️', { hi: 'सोलर कैलकुलेटर + सब्सिडी', en: 'Solar calculator + subsidy', hinglish: 'Solar calculator + subsidy', bn: 'সোলার ক্যালকুলেটর + ভর্তুকি' }, true],
   ['/ghar-banane-ka-kharcha/', '🏠', { hi: 'घर बनाने का ख़र्च कैलकुलेटर', en: 'House construction cost', hinglish: 'Ghar banane ka kharcha', bn: 'বাড়ি তৈরির খরচ' }, true],
   ['/sunrise-sunset/', '🌅', { hi: 'किस शहर में सूरज पहले उगता है', en: 'Sunrise time: compare cities', hinglish: 'Kis sheher mein suraj pehle ugta', bn: 'কোন শহরে সূর্য আগে ওঠে' }, true],
   ['/currency/aed-to-inr/', '💱', { hi: 'आज का दिरहम/रियाल रेट', en: 'Dirham/Riyal to INR today', hinglish: 'Aaj ka Dirham/Riyal rate', bn: 'আজকের দিরহাম/রিয়াল রেট' }, true],
@@ -268,7 +270,7 @@ const menuFor = (L) => {
     [M.fest, [['/festivals/', M.festivals], [`/festivals/${LIST_YEAR}/`, M.dates(LIST_YEAR)], [`/calendar/${CAL_YEAR}/`, CT[L.code].nav], ['/wishes/', M.wishes], ['/wish-card/', M.card], ...(SHAADI_LIVE ? [['/shaadi-card/', M.shaadiCard]] : []), ...(NAAM_LIVE ? [['/naam-wali-image/', M.naamImg]] : []), ['/islamic-calendar/', M.islamic]]],
     [M.games, [['/games/', M.allGames], ...(KHEL.length ? [['/khel/', M.khel]] : [])]],
     [M.kids, [['/kids/', M.kidsAll], ...KIDS_SETS.slice(0, 8).map((s) => [`/kids/${s.slug}/`, s.name[L.code] || s.name.en])]],
-    [M.tools, [...(tools.length ? [['/tools/', M.allTools]] : []), ...(CALCS.length ? [['/calculator/', M.calc]] : []), ['/mausam/', WT[L.code].nav], ['/sarkari-guide/', SARKARI_NAV[L.code]], ['/number-in-words/', NW_NAV[L.code]], ['/desi-naap/', DN_NAV[L.code]], ['/ghar-banane-ka-kharcha/', CC_NAV[L.code]], ['/rto/', RTO_NAV[L.code]], ['/time/', WORLD_NAV[L.code][0]], ['/sunrise-sunset/', SC_NAV[L.code]], ['/currency/', WORLD_NAV[L.code][1]], ['/ghoomne-ki-jagah/', TT[L.code].nav], ['/nuskhe/', NUSKHE_UI[L.code].menu], ['/surya-namaskar/', { hi: 'सूर्य नमस्कार', en: 'Surya Namaskar', hinglish: 'Surya Namaskar', bn: 'সূর্য নমস্কার' }[L.code]], ['/pranayam/', PRANAYAM_NAV[L.code]], ['/apps/', M.apps]]],
+    [M.tools, [...(tools.length ? [['/tools/', M.allTools]] : []), ...(CALCS.length ? [['/calculator/', M.calc]] : []), ['/mausam/', WT[L.code].nav], ['/sarkari-guide/', SARKARI_NAV[L.code]], ['/number-in-words/', NW_NAV[L.code]], ['/desi-naap/', DN_NAV[L.code]], ['/ghar-banane-ka-kharcha/', CC_NAV[L.code]], ['/solar-calculator/', SOLAR_NAV[L.code]], ['/inverter-calculator/', INV_NAV[L.code]], ['/rto/', RTO_NAV[L.code]], ['/time/', WORLD_NAV[L.code][0]], ['/sunrise-sunset/', SC_NAV[L.code]], ['/currency/', WORLD_NAV[L.code][1]], ['/ghoomne-ki-jagah/', TT[L.code].nav], ['/nuskhe/', NUSKHE_UI[L.code].menu], ['/surya-namaskar/', { hi: 'सूर्य नमस्कार', en: 'Surya Namaskar', hinglish: 'Surya Namaskar', bn: 'সূর্য নমস্কার' }[L.code]], ['/pranayam/', PRANAYAM_NAV[L.code]], ['/apps/', M.apps]]],
   ];
   return groups.filter(([, items]) => items.length);
 };
@@ -726,6 +728,7 @@ ${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('\n')}
   buildWorld(L, { page, write, P, esc, T, breadcrumbLd, fx: FX });
   buildSunCompare(L, { page, write, P, esc, T, breadcrumbLd });
   buildConstruction(L, { page, write, P, esc, T, breadcrumbLd });
+  buildSolar(L, { page, write, P, esc, T, breadcrumbLd });
   buildAaj(L, { page, write, P, esc, T, breadcrumbLd, festName: (slug, LL) => { const f = allFestivals.find((z) => z.slug === slug); return f ? lf(f, LL).name : null; } });
   if (L.code === 'en') buildRegionalWishes(L, { page, write, esc, T, breadcrumbLd });
 
@@ -1845,7 +1848,7 @@ LANGS.forEach((L) => {
 const allUrls = [...urls, ...gameUrls, ...CELEBRATE.map((c) => `/celebrate/${c.slug}/`), ...tools.flatMap((tl) => [`/tools/${tl.slug}/`, ...(tl.pages || []).map((pg) => `/tools/${tl.slug}/${pg}/`)])];
 // Sitemap index (sitemap.xml) + one sitemap per section, so Search Console shows indexing per section (plan Q, 26 Nov)
 {
-  const GROUPS = [['mausam', ['mausam']], ['travel', ['ghoomne-ki-jagah']], ['kids', ['kids']], ['stories', ['kahani']], ['study', ['nibandh', 'speech', 'paheliyan', 'full-form', 'naam']], ['festivals', ['festivals', 'wishes', 'wish-card', 'calendar', 'celebrate', 'naam-wali-image', 'islamic-calendar', 'shaadi-card', 'aaj', 'purnima', 'amavasya', 'ekadashi']], ['games', ['games', 'khel', 'apps']], ['guides', ['sarkari-guide', 'creator-guide', 'pranayam', 'surya-namaskar', 'nuskhe']], ['rto', ['rto']], ['world', ['time', 'currency', 'sunrise-sunset']], ['tools', ['tools', 'calculator', 'number-in-words', 'desi-naap', 'ghar-banane-ka-kharcha']]];
+  const GROUPS = [['mausam', ['mausam']], ['travel', ['ghoomne-ki-jagah']], ['kids', ['kids']], ['stories', ['kahani']], ['study', ['nibandh', 'speech', 'paheliyan', 'full-form', 'naam']], ['festivals', ['festivals', 'wishes', 'wish-card', 'calendar', 'celebrate', 'naam-wali-image', 'islamic-calendar', 'shaadi-card', 'aaj', 'purnima', 'amavasya', 'ekadashi']], ['games', ['games', 'khel', 'apps']], ['guides', ['sarkari-guide', 'creator-guide', 'pranayam', 'surya-namaskar', 'nuskhe']], ['rto', ['rto']], ['world', ['time', 'currency', 'sunrise-sunset']], ['tools', ['tools', 'calculator', 'number-in-words', 'desi-naap', 'ghar-banane-ka-kharcha', 'solar-calculator', 'inverter-calculator']]];
   const groupOf = (u) => { const seg = u.replace(/^\/(en|hinglish|bn)(?=\/)/, '').split('/')[1] || ''; const g = GROUPS.find(([, segs]) => segs.includes(seg)); return g ? g[0] : 'pages'; };
   const by = {};
   allUrls.forEach((u) => (by[groupOf(u)] ||= []).push(u));
