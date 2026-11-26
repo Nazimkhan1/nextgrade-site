@@ -680,7 +680,7 @@ const applyLang = () => {
   const L = t('links'); const here = PAGE ? PAGE.slug : 'home';
   const card = (href, key, icon) => `<a href="${href}?lang=${lang}"${key === here ? ' class="here"' : ''}>${icon} ${esc(L[key][0])}<small>${esc(L[key][1])}</small></a>`;
   $('pageLinks').innerHTML = card(BASE, 'home', '📄') + SUBPAGES.map((p) => card(`${BASE}${p}/`, p, '📄')).join('')
-    + card(`${BASE}../image-compress/`, 'compress', '🗜️') + card(`${BASE}../doc-scanner/`, 'scanner', '📑');
+    + card(`${BASE}/tools/image-compress/`, 'compress', '🗜️') + card(`${BASE}/tools/doc-scanner/`, 'scanner', '📑');
   if (building) $('makeBtn').innerHTML = `<span class="spin"></span>${esc(t('making'))}`;
   applyChips(); renderList(); if (result) { $('outInfo').textContent = t('outInfo')(result.pages, fmtSize(result.blob.size)); $('outNote').textContent = resultNote(); }
 };

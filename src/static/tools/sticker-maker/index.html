@@ -796,7 +796,7 @@ const applyLang = () => {
   const slug = PAGE ? PAGE.slug : '';
   $('links').innerHTML = `<a href="${BASE}?lang=${lang}"${!slug ? ' class="here"' : ''}>${esc(t('linkPhoto'))}<small>${esc(t('linkPhotoSub'))}</small></a>`
     + `<a href="${BASE}text-sticker/?lang=${lang}"${slug === 'text-sticker' ? ' class="here"' : ''}>${esc(t('linkText'))}<small>${esc(t('linkTextSub'))}</small></a>`
-    + `<a href="${BASE}../bg-remover/?lang=${lang}">✂️ Background Remover<small>PNG / JPG</small></a>`;
+    + `<a href="${BASE}/tools/bg-remover/?lang=${lang}">✂️ Background Remover<small>PNG / JPG</small></a>`;
   if (!txtTouched) $('txt').value = t('defText');
   renderTray(); schedule();
 };

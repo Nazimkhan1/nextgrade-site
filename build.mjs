@@ -28,6 +28,7 @@ import { essays as allEssays, NIBANDH_UI } from './src/nibandh.mjs';
 import { calculators as allCalculators, CALC_UI } from './src/calculators.mjs';
 import { babyNames, BABY_UI } from './src/naam.mjs';
 import { FULLFORMS, FF_UI, ffSlug } from './src/fullforms.mjs';
+import { FF_MORE, FF_MORE_H } from './src/fullforms-more.mjs';
 import { whyFaq } from './src/festival-why.mjs';
 import { rules as allRules, KHEL_UI } from './src/khel.mjs';
 import { LIST_YEAR, DATES, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
@@ -55,6 +56,8 @@ import { buildBanglaTarikh, BT_NAV } from './src/bangla-tarikh.mjs';
 import { llmsSections, llmsFull } from './src/llms-extra.mjs';
 const FX = await loadRates(); // daily currency rates (cached in src/fx-cache.json)
 import { CAL_YEAR, MONTH_SLUGS as SLUG_M, NATIONAL, HOLIDAY_SLUGS, WDS, CT, hijriStarts } from './src/calendar.mjs';
+import { MONTH_MORE, MONTH_MORE_H } from './src/calendar-more.mjs';
+import { KIDS_EXTRA, KIDS_EXTRA_H } from './src/kids-extra.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
 const games = allGames.filter((g) => isLive(`game:${g.slug}`));
@@ -707,6 +710,10 @@ ${grid(m, true)}
 <h2>${esc(C.festH)}</h2>
 ${fs.filter((x) => !x.hijri).length ? `<ul>${fs.filter((x) => !x.hijri).map(li).join('')}</ul>` : `<p>${esc(C.none)}</p>`}
 ${fs.some((x) => x.hijri) ? `<h2>${esc(C.hijriH)}</h2><ul>${fs.filter((x) => x.hijri).map(li).join('')}</ul><p class="note">${esc(C.hijriNote)}</p>` : ''}
+<h2>${esc(MONTH_MORE_H.days[L.code])}</h2>
+<ul>${MONTH_MORE[m].days.map(([d, t]) => `<li><b>${esc(fmt(L.code, ymd(m, d)))}</b> — ${esc(t[L.code])}</li>`).join('')}</ul>
+<h2>${esc(MONTH_MORE_H.about[L.code])}</h2>
+<p>${esc(MONTH_MORE[m].about[L.code])}</p>
 <p class="note">${esc(C.panchang)}</p>
 <div class="ad" aria-hidden="true"></div>
 <h2>${esc(C.faqH)}</h2>
@@ -1113,6 +1120,7 @@ ${NAAM_LIVE ? `<p><a class="btn btn-ghost" href="${P(L, '/naam-wali-image/')}">$
 <table class="kids-list"><tbody>${listRows}</tbody></table>
 <h2>${esc(KU.howH)}</h2>
 <ol>${KU.how.map((li) => `<li>${esc(li)}</li>`).join('')}</ol>
+${KIDS_EXTRA[key] ? ((X, H) => `<h2>${esc(H[0])}</h2>\n<p>${esc(X.intro)}</p>\n<h3>${esc(H[1])}</h3>\n<ul>${X.acts.map((a) => `<li>${esc(a)}</li>`).join('')}</ul>\n<h3>${esc(H[2])}</h3>\n${X.faq.map(([q, a]) => `<p><b>${esc(q)}</b><br>${esc(a)}</p>`).join('')}`)(KIDS_EXTRA[key][L.code], KIDS_EXTRA_H[L.code]) : ''}
 ${siblings ? `<h2>${esc(parent[0])}</h2>
 <p class="kids-sibs">${siblings.map(([n, href]) => (href === path ? `<strong>${esc(n)}</strong>` : `<a href="${P(L, href)}">${esc(n)}</a>`)).join(' · ')}</p>` : ''}
 </div>`,
@@ -1577,7 +1585,7 @@ ${ffLetterNav(l)}
 <h1>${esc(U.termH1T(x.a))}</h1>
 <p class="lead">${esc(U.termLeadT(x.a, x.f))}</p>
 <div class="ff-def"><b>${esc(x.a)}</b> ${esc(U.stands)} <b>${esc(x.f)}</b>.<br>${esc(note(x))}</div>
-<div class="ad no-print" aria-hidden="true"></div>
+${FF_MORE[ffSlug(x)] ? `<h2>${esc(FF_MORE_H[L.code])}</h2>\n${FF_MORE[ffSlug(x)][L.code].map((t) => `<p>${esc(t)}</p>`).join('\n')}\n` : ''}<div class="ad no-print" aria-hidden="true"></div>
 <h2>${esc(U.faqH)}</h2>
 ${faqBlock(faq)}
 ${related.length ? `<h2 class="no-print">${esc(U.relH)}</h2>\n<ul class="ff-list no-print">${related.map(ffRow).join('')}</ul>` : ''}
@@ -1835,6 +1843,10 @@ const lastmodFor = (url) => {
   if (['/speech/', '/nibandh/'].includes(path)) { const ds = Object.entries(releases).filter(([k, d]) => k.startsWith(path === '/speech/' ? 'speech:' : 'nibandh:') && d <= todayIST()).map(([, d]) => d).sort(); if (ds.length) return ds.pop(); }
   if (['/', '/games/', '/kahani/'].includes(path)) return [CONTENT_DATE, lastRelease].sort().pop();
   // sections added later: the date they first went live (25–26 Nov 2026); daily pages change every day
+  // pages that got hand-written content after Search Console's "crawled, not indexed" list (plan Q, 26 Nov 2026)
+  { const ff = path.match(/^\/full-form\/([^/]+)\/$/); if (ff && FF_MORE[ff[1]]) return '2026-11-26'; }
+  if (/^\/calendar\/\d{4}\/[a-z]+\/$/.test(path)) return '2026-11-26';
+  { const kd = path.match(/^\/kids\/([^/]+)\/$/); if (kd && KIDS_EXTRA[kd[1]]) return '2026-11-26'; }
   if (['/aaj/', '/purnima/', '/amavasya/', '/ekadashi/'].includes(path)) return todayIST();
   if (path.startsWith('/currency/')) return todayIST(); // rates change daily
   const sec = { '/mausam/': '2026-11-25', '/ghoomne-ki-jagah/': '2026-11-25', '/nuskhe/': '2026-11-25', '/surya-namaskar/': '2026-11-25', '/creator-guide/': '2026-11-25', '/calculator/youtube-earning/': '2026-11-25', '/sarkari-guide/': '2026-11-26', '/pranayam/': '2026-11-26', '/tools/photo-frame/': '2026-11-25' };

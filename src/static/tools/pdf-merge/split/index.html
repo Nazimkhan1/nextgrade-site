@@ -771,7 +771,7 @@ const plain = (h) => String(h).replace(/<[^>]+>/g, '');
 const faqLd = (faq) => JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: plain(q), acceptedAnswer: { '@type': 'Answer', text: plain(a) } })) });
 // The HTML ships with the English FAQ as JSON-LD (written by build-pages.py); kept to check it in the self-test.
 const LD0 = document.getElementById('faqLd').textContent;
-const LINKS = [['lMerge', ''], ['lSplit', 'split/'], ['lDelete', 'delete-pages/'], ['lCompress', '../pdf-compress/'], ['lScan', '../doc-scanner/'], ['lImg', '../image-compress/']];
+const LINKS = [['lMerge', ''], ['lSplit', 'split/'], ['lDelete', 'delete-pages/'], ['lCompress', '/tools/pdf-compress/'], ['lScan', '/tools/doc-scanner/'], ['lImg', '/tools/image-compress/']];
 const applyLang = () => {
   document.documentElement.lang = lang === 'hinglish' ? 'hi-Latn' : lang;
   document.querySelectorAll('[data-t]').forEach((el) => { const v = t(el.dataset.t); if (typeof v === 'string') el.textContent = v; });

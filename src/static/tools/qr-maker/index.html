@@ -488,7 +488,7 @@ const applyLang = () => {
   const lk = t('links');
   $('pageLinks').innerHTML = (PAGE ? `<a href="${BASE}?lang=${lang}">🔳 ${esc(lk.main[0])}<small>${esc(lk.main[1])}</small></a>` : '')
     + PAGES.map((p) => `<a href="${BASE}${p}/?lang=${lang}"${PAGE && PAGE.slug === p ? ' class="here"' : ''}>${esc(lk[p][0])}<small>${esc(lk[p][1])}</small></a>`).join('')
-    + `<a href="${BASE}../land-converter/?lang=${lang}">📐 Land unit converter<small>bigha · katha · acre · gaj</small></a>`;
+    + `<a href="${BASE}/tools/land-converter/?lang=${lang}">📐 Land unit converter<small>bigha · katha · acre · gaj</small></a>`;
   const art = PAGE && PAGE.T[lang] && PAGE.T[lang].info ? PAGE.T[lang] : ART[lang];
   $('article').innerHTML = art.info;
   $('faqList').innerHTML = art.faq.map(([q, a]) => `<details class="faq"><summary>${q}</summary><p>${a}</p></details>`).join('');

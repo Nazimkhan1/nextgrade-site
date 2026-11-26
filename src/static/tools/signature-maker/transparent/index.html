@@ -155,7 +155,7 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
       <label><span class="hint" data-t="hL"></span><input class="inp" id="hIn" type="number" inputmode="numeric" min="20" max="3000" value="60"></label>
       <label><span class="hint" data-t="maxKbL"></span><input class="inp" id="kbIn" type="number" inputmode="numeric" min="2" max="2000" placeholder="—"></label>
     </div>
-    <a class="formlink" id="formLink" href="../form-helper/"><span data-t="formLink"></span><small data-t="formHint"></small></a>
+    <a class="formlink" id="formLink" href="/tools/form-helper/"><span data-t="formLink"></span><small data-t="formHint"></small></a>
     <div class="row" style="margin-top:12px">
       <button class="btn btn-ok" type="button" id="dlPng" data-t="dlPng"></button>
       <button class="btn btn-ok" type="button" id="dlJpg" data-t="dlJpg"></button>
@@ -566,8 +566,8 @@ const applyLang = () => {
   $('faqList').innerHTML = t('faq').map(([q, a]) => `<details class="faq"><summary>${q}</summary><p>${a}</p></details>`).join('');
   const L = (href, key, emoji, here) => `<a href="${href}?lang=${lang}"${here ? ' class="here"' : ''}>${emoji} ${esc(t(key)[0])}<small>${esc(t(key)[1])}</small></a>`;
   $('links').innerHTML = L(BASE, 'lMain', '✍️', !PAGE) + L(`${BASE}transparent/`, 'lTr', '🫥', PAGE && PAGE.id === 'transparent')
-    + L(`${BASE}../form-helper/`, 'lForm', '📝') + L(`${BASE}../image-crop/`, 'lCrop', '✂️') + L(`${BASE}../image-compress/`, 'lComp', '🗜️');
-  $('formLink').href = `${BASE}../form-helper/?lang=${lang}`;
+    + L(`${BASE}/tools/form-helper/`, 'lForm', '📝') + L(`${BASE}/tools/image-crop/`, 'lCrop', '✂️') + L(`${BASE}/tools/image-compress/`, 'lComp', '🗜️');
+  $('formLink').href = `${BASE}/tools/form-helper/?lang=${lang}`;
   const info = PAGE && PAGE.T[lang] && PAGE.T[lang].info;
   $('pageInfo').classList.toggle('hidden', !info); if (info) $('pageInfo').innerHTML = info;
   // a sub-page has its own long text instead of the main page's guide

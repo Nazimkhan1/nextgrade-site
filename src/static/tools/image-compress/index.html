@@ -527,7 +527,7 @@ const applyLang = () => {
   const home = `${BASE}?lang=${lang}`;
   $('sizeLinks').innerHTML = PAGES.map((kb) => `<a href="${BASE}${kb}kb/?lang=${lang}"${PAGE && PAGE.kb === kb ? ' class="here"' : ''}>${esc(t('sizeLink')(kb))}<small>${esc(t('sizeFor')[kb])}</small></a>`).join('')
     + (PAGE ? `<a href="${home}">🗜️ ${esc(t('custom').replace(':', ''))} KB<small>${esc(t('fmtJpg'))} / WebP</small></a>` : '')
-    + `<a href="${BASE}../form-helper/?lang=${lang}">📝 ${esc(t('formHelper'))}<small>SSC · UPSC · Bank · NEET</small></a>`;
+    + `<a href="${BASE}/tools/form-helper/?lang=${lang}">📝 ${esc(t('formHelper'))}<small>SSC · UPSC · Bank · NEET</small></a>`;
   const info = PAGE && PAGE.T[lang] && PAGE.T[lang].info;
   $('pageInfo').classList.toggle('hidden', !info); if (info) $('pageInfo').innerHTML = info;
   applyChips(); renderAll();

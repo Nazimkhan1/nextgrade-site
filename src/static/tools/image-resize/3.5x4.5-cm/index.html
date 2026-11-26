@@ -162,7 +162,7 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
         <label id="kbBox"><span class="lab" data-t="maxKbL"></span><input class="inp" id="kbIn" type="number" inputmode="numeric" min="1" max="20000" placeholder="—"></label>
       </div>
       <p class="hint" id="kbNote"></p>
-      <p class="hint"><a id="formLink" href="../form-helper/">📝 <span data-t="formNote"></span></a></p>
+      <p class="hint"><a id="formLink" href="/tools/form-helper/">📝 <span data-t="formNote"></span></a></p>
     </div>
 
     <div class="drop" id="drop" role="button" tabindex="0">
@@ -752,8 +752,8 @@ const applyLang = () => {
   const L = t('links'); const card = (href, [a, b], here) => `<a href="${href}"${here ? ' class="here"' : ''}>${esc(a)}<small>${esc(b)}</small></a>`;
   $('sizeLinks').innerHTML = PRESETS.filter((p) => p.page).map((p) => card(`${BASE}${p.page}/?lang=${lang}`, L[p.page], PAGE && PAGE.preset === p.id)).join('')
     + (PAGE ? card(`${BASE}?lang=${lang}`, t('ownSize')) : '')
-    + card(`${BASE}../form-helper/?lang=${lang}`, t('formHelper')) + card(`${BASE}../image-compress/?lang=${lang}`, t('compress'));
-  $('formLink').href = `${BASE}../form-helper/?lang=${lang}`;
+    + card(`${BASE}/tools/form-helper/?lang=${lang}`, t('formHelper')) + card(`${BASE}/tools/image-compress/?lang=${lang}`, t('compress'));
+  $('formLink').href = `${BASE}/tools/form-helper/?lang=${lang}`;
   const info = PAGE && PAGE.T[lang] && PAGE.T[lang].info;
   $('pageInfo').classList.toggle('hidden', !info); if (info) $('pageInfo').innerHTML = info;
   if (S) $('origLine').textContent = t('orig')(S.w, S.h, fmtSize(S.size));
