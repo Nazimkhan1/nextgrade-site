@@ -97,7 +97,7 @@ export function panchangAt(ms) {
   const m = monthOf(nm), adhik = monthOf(when(0, nm + 20 * 864e5)) === m;
   return { n, paksha: n <= 15 ? 's' : 'k', month: m, pmonth: n <= 15 ? m : (m + 1) % 12, adhik };
 }
-export { sunriseDelhi };
+export { sunriseDelhi, sunLon, jd };
 export const TITHI_NAMES = {
   hi: ['प्रतिपदा', 'द्वितीया', 'तृतीया', 'चतुर्थी', 'पंचमी', 'षष्ठी', 'सप्तमी', 'अष्टमी', 'नवमी', 'दशमी', 'एकादशी', 'द्वादशी', 'त्रयोदशी', 'चतुर्दशी', 'पूर्णिमा', 'अमावस्या'],
   en: ['Pratipada', 'Dwitiya', 'Tritiya', 'Chaturthi', 'Panchami', 'Shashthi', 'Saptami', 'Ashtami', 'Navami', 'Dashami', 'Ekadashi', 'Dwadashi', 'Trayodashi', 'Chaturdashi', 'Purnima', 'Amavasya'],
