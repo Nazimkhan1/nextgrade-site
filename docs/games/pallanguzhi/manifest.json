@@ -1,0 +1,16 @@
+{
+  "name": "Pallanguzhi — Gutte ka Khel",
+  "short_name": "Pallanguzhi",
+  "description": "Pallanguzhi (Ali Guli Mane, Vamana Guntalu): the old South Indian wooden-board seed game with 14 pits. Play the computer (easy, medium, hard) or a friend on one phone. 4 languages.",
+  "start_url": "/games/pallanguzhi/",
+  "scope": "/games/pallanguzhi/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1e130a",
+  "theme_color": "#7a4a1f",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
