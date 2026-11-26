@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bijoy to Unicode Converter (আর Unicode to Bijoy) — SutonnyMJ, Free | NextGrade</title>
+<meta name="description" content="Free Bijoy (SutonnyMJ) to Unicode and Unicode to Bijoy converter for Bangla: paste old Bijoy text from Word or PDF and get proper Unicode Bangla for Facebook, email, Google Docs and websites — or the other way round for Bijoy/SutonnyMJ files. Works in your browser; nothing is uploaded.">
+<link rel="canonical" href="https://nextgrade.in/tools/bijoy/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextGrade">
+<meta property="og:title" content="Bijoy ↔ Unicode Converter — বিজয় থেকে ইউনিকোড">
+<meta property="og:description" content="বিজয় (SutonnyMJ) লেখা পেস্ট করুন, ইউনিকোড বাংলা পান — উল্টোটাও। বিনামূল্যে, কিছুই আপলোড হয় না।">
+<meta property="og:url" content="https://nextgrade.in/tools/bijoy/">
+<meta property="og:image" content="https://nextgrade.in/og-image.jpg">
+<meta name="theme-color" content="#0b7285">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Baloo+Da+2:wght@600;800&display=swap" rel="stylesheet">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Bijoy ↔ Unicode Converter","url":"https://nextgrade.in/tools/bijoy/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":["bn","en","hi"],"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"NextGrade","url":"https://nextgrade.in/"}}</script>
+<style>
+:root { --bg: #062328; --gold: #ffd43b; --ink: #f8f9fa; --muted: #c3e7ec; --card: rgba(255,255,255,0.07); --line: rgba(255,255,255,0.16); }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: radial-gradient(1200px 600px at 50% -10%, #0b5d6b, var(--bg) 60%); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+.brand small { font-family: Inter, sans-serif; font-weight: 600; font-size: 12px; color: var(--muted); display: block; line-height: 1; }
+.iconbtn { background: var(--card); border: 1px solid var(--line); color: var(--ink); border-radius: 10px; padding: 6px 10px; font-size: 16px; cursor: pointer; }
+.langsel { font: inherit; font-size: 15px; }
+.langsel option { color: #111; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(26px, 6vw, 38px); line-height: 1.15; margin: 4px 0 6px; }
+:lang(bn) h1, :lang(bn) section h2 { font-family: "Baloo Da 2", "Noto Sans Bengali", sans-serif; }
+.sub { color: var(--muted); margin: 0 0 14px; }
+.seg { display: inline-grid; grid-template-columns: 1fr 1fr; gap: 6px; background: var(--card); padding: 4px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 12px; }
+.seg button { font: inherit; font-weight: 700; font-size: 14px; padding: 8px 12px; border-radius: 9px; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
+.seg button.on { background: #1098ad; }
+.panes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 760px) { .panes { grid-template-columns: 1fr; } }
+label.pane { display: grid; gap: 6px; font-size: 14px; color: var(--muted); font-weight: 600; }
+textarea { width: 100%; min-height: 220px; font-size: 18px; line-height: 1.6; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: rgba(0,0,0,0.3); color: var(--ink); resize: vertical; font-family: "Noto Sans Bengali", Inter, system-ui, sans-serif; }
+textarea.kd { font-family: "SutonnyMJ", "Sutonny MJ", ui-monospace, Menlo, Consolas, monospace; }
+textarea[readonly] { background: rgba(0,0,0,0.42); }
+.btns { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; }
+.btn { font: inherit; font-weight: 800; font-size: 15px; padding: 10px 14px; border-radius: 10px; border: 0; cursor: pointer; }
+.btn-main { background: #1098ad; color: #fff; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.warn { background: rgba(250,176,5,0.14); border: 1px solid rgba(250,176,5,0.5); color: #ffe8a3; border-radius: 10px; padding: 8px 12px; margin: 10px 0 0; font-size: 14px; }
+.info { color: var(--muted); font-size: 14px; margin: 8px 0 0; }
+section { margin: 32px 0; }
+section h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 24px; margin: 0 0 8px; }
+.card2 { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+.faq h3 { font-size: 16px; margin: 14px 0 2px; }
+.faq p { margin: 0 0 6px; color: var(--muted); }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid var(--line); }
+footer a { color: var(--muted); margin-right: 12px; }
+.ad { min-height: 100px; margin: 20px 0; }
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" id="home" href="https://nextgrade.in/">অ NextGrade<small>Bijoy ↔ Unicode</small></a>
+    <select class="iconbtn langsel" id="lang" aria-label="Language / भाषा / ভাষা"><option value="bn">বাংলা</option><option value="en">English</option><option value="hinglish">Hinglish</option><option value="hi">हिंदी</option></select>
+  </header>
+
+  <h1 data-i18n="title"></h1>
+  <p class="sub" data-i18n="sub"></p>
+
+  <div class="seg" id="dirSeg" role="group"><button type="button" data-d="k2u" data-i18n="k2u"></button><button type="button" data-d="u2k" data-i18n="u2k"></button></div>
+
+  <div class="panes">
+    <label class="pane"><span id="inLabel"></span><textarea id="inp" spellcheck="false"></textarea></label>
+    <label class="pane"><span id="outLabel"></span><textarea id="out" readonly spellcheck="false"></textarea></label>
+  </div>
+  <div class="btns">
+    <button class="btn btn-main" id="copy" type="button" data-i18n="copy"></button>
+    <button class="btn btn-ghost" id="swap" type="button" data-i18n="swap"></button>
+    <button class="btn btn-ghost" id="sample" type="button" data-i18n="sample"></button>
+    <button class="btn btn-ghost" id="clear" type="button" data-i18n="clear"></button>
+  </div>
+  <p class="warn hidden" id="warn" role="status"></p>
+  <p class="info" id="fontNote"></p>
+
+  <div class="ad" aria-hidden="true"></div>
+
+  <section>
+    <h2 data-i18n="howTitle"></h2>
+    <div class="card2"><ol id="howList"></ol></div>
+  </section>
+  <section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+    <p data-i18n="aboutText2"></p>
+  </section>
+  <section class="faq">
+    <h2 data-i18n="faqTitle"></h2>
+    <div class="card2" id="faqList"></div>
+  </section>
+
+  <footer>
+    © <span id="year">2026</span> NextGrade · <a href="https://nextgrade.in/">nextgrade.in</a><br>
+    <a href="https://nextgrade.in/about/">About</a><a href="https://nextgrade.in/contact/">Contact</a><a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a><a href="https://nextgrade.in/terms/">Terms</a>
+  </footer>
+</div>
+
+<script src="bj.js?v=1"></script>
+<script>
+(() => {
+  'use strict';
+  const PREFIX = { hi: '', en: '/en', hinglish: '/hinglish', bn: '/bn' };
+  const SAMPLE = { k2u: 'Avgvi †mvbvi evsjv, Avwg †Zvgvq fv‡jvevwm| we`¨vj‡q QvÎQvÎxiv cixÿvi cÖ¯‘wZ wb‡”Q|', u2k: 'আমার সোনার বাংলা, আমি তোমায় ভালোবাসি। বিদ্যালয়ে ছাত্রছাত্রীরা পরীক্ষার প্রস্তুতি নিচ্ছে।' };
+  const T = {
+    bn: {
+      title: 'বিজয় ↔ ইউনিকোড কনভার্টার', sub: 'বিজয় (SutonnyMJ) ফন্টে লেখা পুরোনো বাংলা পেস্ট করুন আর সঠিক ইউনিকোড বাংলা পান — Facebook, ইমেল, Google Docs আর ওয়েবসাইটের জন্য। অথবা ইউনিকোড বাংলাকে বিজয়ে বদলান। বিনামূল্যে, লেখা আপনার ফোন/কম্পিউটারের বাইরে যায় না।',
+      k2u: 'বিজয় → ইউনিকোড', u2k: 'ইউনিকোড → বিজয়', inK: 'বিজয় (SutonnyMJ) লেখা এখানে পেস্ট করুন', inU: 'ইউনিকোড বাংলা এখানে লিখুন বা পেস্ট করুন', outU: 'ইউনিকোড বাংলা (কপি করে যেকোনো জায়গায় ব্যবহার করুন)', outK: 'বিজয় লেখা (Word-এ SutonnyMJ ফন্টে বাংলা দেখাবে)',
+      copy: '📋 কপি', copied: '✅ কপি হয়েছে', swap: '⇅ উল্টো করুন', sample: 'উদাহরণ', clear: 'মুছে দিন',
+      warn: (list) => `এই চিহ্নগুলো চেনা যায়নি, যেমন ছিল তেমনই রাখা হয়েছে: ${list} — জায়গাগুলো একবার দেখে নিন।`,
+      fontK2U: 'আউটপুট ইউনিকোড — সব ফোন আর কম্পিউটারে ঠিক দেখাবে, Google-এ খোঁজাও যাবে।', fontU2K: 'বিজয় আউটপুট ইংরেজি অক্ষর আর চিহ্নের মতো দেখাবে। Word-এ পেস্ট করে ফন্ট "SutonnyMJ" বাছলে বাংলা দেখা যাবে।',
+      howTitle: 'কীভাবে ব্যবহার করবেন', how: ['ওপর থেকে দিক বাছুন: <b>বিজয় → ইউনিকোড</b> (পুরোনো লেখা বদলানো) বা <b>ইউনিকোড → বিজয়</b>।', 'বাঁদিকের বাক্সে লেখা পেস্ট করুন — ডানদিকে সঙ্গে সঙ্গে বদলানো লেখা আসবে।', '<b>কপি</b> চেপে যেখানে দরকার সেখানে পেস্ট করুন। <b>উল্টো করুন</b> চাপলে ফলাফল আবার উল্টো দিকে বদলানো যায় — মিলিয়ে দেখার জন্য সুবিধা।', 'Word বা PDF থেকে বিজয় লেখা কপি করার সময় ফন্ট SutonnyMJ থাকলে লেখাটা "Avgvi" ধরনের দেখায় — সেটাই এখানে পেস্ট করুন।'],
+      aboutTitle: 'বিজয় আর ইউনিকোডের তফাত কী?', aboutText: 'বিজয় (SutonnyMJ, এবং "MJ" নামের অন্য ফন্ট) একটা পুরোনো ASCII পদ্ধতি: ইংরেজি অক্ষর আর চিহ্নকে বাংলা অক্ষরের মতো আঁকা হয়। তাই ফন্ট না থাকলে বিজয়ের লেখা "Avgvi †mvbvi evsjv" ধরনের দেখায়, আর Google, Facebook বা মোবাইল সেটা বাংলা হিসেবে চেনে না। ইউনিকোড হলো বিশ্বজুড়ে মানা নিয়ম — প্রতিটা বাংলা অক্ষরের নিজস্ব কোড আছে, তাই যেকোনো ফন্টে, যেকোনো ডিভাইসে ঠিক দেখায়।',
+      aboutText2: 'সরকারি অফিস, প্রেস, কম্পোজের দোকান আর অনেক স্কুলে এখনও বিজয়ে টাইপ হয়। সেই লেখা অনলাইনে দিতে গেলে ইউনিকোডে বদলাতে হয়; আবার পুরোনো ফাইলে কিছু জুড়তে বা প্রেসে পাঠাতে হলে ইউনিকোড থেকে বিজয়ে ফেরাতে হয়। এই টুল দুটোই করে। বিজয় → ইউনিকোড অংশে MIT লাইসেন্সের ওপেন-সোর্স bijoy2unicode লাইব্রেরি ব্যবহার করা হয়েছে; উল্টো দিকটা আমাদের নিজের লেখা।',
+      faqTitle: 'প্রশ্ন-উত্তর', faq: [['বদলানো লেখা কি ১০০% ঠিক হবে?', 'সাধারণ বাংলা — কার, ফলা, রেফ (র্), যুক্তাক্ষর, ো/ৌ — ঠিকঠাক বদলায়। খুব বিরল চিহ্ন চেনা না গেলে টুল সেগুলো লুকোয় না, ওপরে আলাদা করে দেখায়। জরুরি কাগজে একবার মিলিয়ে নিন।'], ['আমার লেখা কি কোথাও পাঠানো হয়?', 'না। পুরো রূপান্তর আপনার ব্রাউজারেই হয় — কোনো সার্ভারে কিছু যায় না, ইন্টারনেট ছাড়াও (পেজ খোলা থাকলে) কাজ করে।'], ['বিজয় লেখা ফোনে "Avgvi" ধরনের দেখাচ্ছে কেন?', 'কারণ ফোনে SutonnyMJ ফন্ট নেই। লেখাটা এখানে বিজয় → ইউনিকোড করে নিন, তাহলে যেকোনো ফোনে বাংলা দেখাবে।'], ['ইউনিকোড → বিজয় কখন লাগে?', 'যখন প্রেস বা অফিস SutonnyMJ ফন্টের ফাইল চায়, বা পুরোনো বিজয় ডকুমেন্টে নতুন লেখা জুড়তে হয়। ফলাফল Word-এ পেস্ট করে ফন্ট SutonnyMJ করুন।'], ['Avro আর বিজয় কি এক?', 'না। Avro একটা টাইপ করার পদ্ধতি যা সরাসরি ইউনিকোড লেখে। বিজয় নিজস্ব কি-বোর্ড আর ASCII ফন্টে লেখে — এই টুল সেই ASCII লেখা বদলায়।']],
+    },
+    en: {
+      title: 'Bijoy ↔ Unicode Converter', sub: 'Paste old Bangla text typed in Bijoy (SutonnyMJ) and get proper Unicode Bangla for Facebook, email, Google Docs and websites — or turn Unicode Bangla into Bijoy. Free, and your text never leaves your device.',
+      k2u: 'Bijoy → Unicode', u2k: 'Unicode → Bijoy', inK: 'Paste Bijoy (SutonnyMJ) text here', inU: 'Type or paste Unicode Bangla here', outU: 'Unicode Bangla (copy and use anywhere)', outK: 'Bijoy text (shows as Bangla in Word with the SutonnyMJ font)',
+      copy: '📋 Copy', copied: '✅ Copied', swap: '⇅ Swap', sample: 'Example', clear: 'Clear',
+      warn: (list) => `These characters were not recognised and were left as they are: ${list} — please check those places.`,
+      fontK2U: 'The output is Unicode — it shows correctly on every phone and computer and can be searched on Google.', fontU2K: 'Bijoy output looks like English letters and symbols. Paste it into Word and choose the "SutonnyMJ" font to see Bangla.',
+      howTitle: 'How to use it', how: ['Choose the direction at the top: <b>Bijoy → Unicode</b> (convert old text) or <b>Unicode → Bijoy</b>.', 'Paste text into the left box — the converted text appears in the right box straight away.', 'Press <b>Copy</b> and paste it wherever you need. <b>Swap</b> sends the result back the other way, which is handy for checking.', 'Text copied from a Word or PDF file in SutonnyMJ looks like "Avgvi" — that is exactly what you paste here.'],
+      aboutTitle: 'What is the difference between Bijoy and Unicode?', aboutText: 'Bijoy (SutonnyMJ and the other "MJ" fonts) is an old ASCII method: English letters and symbols are drawn as Bangla letters. Without the font, Bijoy text looks like "Avgvi †mvbvi evsjv", and Google, Facebook and phones do not recognise it as Bangla. Unicode is the worldwide standard — every Bangla letter has its own code, so it shows correctly in any font on any device.',
+      aboutText2: 'Government offices, presses, composing shops and many schools in Bangladesh and West Bengal still type in Bijoy. To publish that text online it must be converted to Unicode; to add to an old file or send to a press, Unicode must go back to Bijoy. This tool does both. The Bijoy → Unicode part uses the MIT-licensed open-source bijoy2unicode library; the reverse direction is our own code.',
+      faqTitle: 'Questions and answers', faq: [['Will the converted text be 100% correct?', 'Everyday Bangla — vowel signs, phola, reph (র্), conjuncts, ো/ৌ — converts correctly. If a rare symbol is not recognised, the tool shows it above instead of hiding it. Check important documents once.'], ['Is my text sent anywhere?', 'No. The conversion happens entirely in your browser — nothing goes to a server, and it keeps working offline once the page is open.'], ['Why does Bijoy text look like "Avgvi" on my phone?', 'Because the phone does not have the SutonnyMJ font. Convert it here with Bijoy → Unicode and it will show as Bangla on any phone.'], ['When do I need Unicode → Bijoy?', 'When a press or office wants a SutonnyMJ file, or you must add new text to an old Bijoy document. Paste the result into Word and set the font to SutonnyMJ.'], ['Are Avro and Bijoy the same?', 'No. Avro is a typing method that writes Unicode directly. Bijoy writes with its own keyboard and ASCII fonts — this tool converts that ASCII text.']],
+    },
+    hinglish: {
+      title: 'Bijoy ↔ Unicode Converter', sub: 'Bijoy (SutonnyMJ) font mein likha purana Bangla text paste karo aur sahi Unicode Bangla pao — Facebook, email, Google Docs aur website ke liye. Ya Unicode Bangla ko Bijoy mein badlo. Free, text aapke device se bahar nahi jaata.',
+      k2u: 'Bijoy → Unicode', u2k: 'Unicode → Bijoy', inK: 'Bijoy (SutonnyMJ) text yahan paste karo', inU: 'Unicode Bangla yahan likho ya paste karo', outU: 'Unicode Bangla (copy karke kahin bhi use karo)', outK: 'Bijoy text (Word mein SutonnyMJ font se Bangla dikhega)',
+      copy: '📋 Copy', copied: '✅ Copy ho gaya', swap: '⇅ Ulta karo', sample: 'Udaharan', clear: 'Saaf karo',
+      warn: (list) => `Yeh nishaan pehchaane nahi gaye aur waise hi chhod diye gaye: ${list} — in jagahon ko ek baar dekh lo.`,
+      fontK2U: 'Output Unicode hai — har phone aur computer pe sahi dikhega, Google mein search bhi hoga.', fontU2K: 'Bijoy output angrezi akshar aur nishaan jaisa dikhega. Word mein paste karke font "SutonnyMJ" chunoge to Bangla dikhega.',
+      howTitle: 'Kaise use karein', how: ['Upar se direction chuno: <b>Bijoy → Unicode</b> (purana text badalna) ya <b>Unicode → Bijoy</b>.', 'Baayein box mein text paste karo — dayein box mein turant badla hua text aa jaayega.', '<b>Copy</b> dabao aur jahan chahiye paste karo. <b>Ulta karo</b> se result ko wapas doosri direction mein badal kar mila sakte ho.', 'Word ya PDF se SutonnyMJ wala text copy karoge to woh "Avgvi" jaisa dikhega — wahi yahan paste karo.'],
+      aboutTitle: 'Bijoy aur Unicode mein kya farq hai?', aboutText: 'Bijoy (SutonnyMJ aur doosre "MJ" font) ek purana ASCII tareeka hai: angrezi akshar aur nishaan Bangla aksharon ki shakal mein dikhaye jaate hain. Font na ho to Bijoy text "Avgvi †mvbvi evsjv" jaisa dikhta hai, aur Google, Facebook ya phone use Bangla nahi maante. Unicode duniya bhar ka niyam hai — har Bangla akshar ka apna code hota hai, isliye kisi bhi font, kisi bhi device pe sahi dikhta hai.',
+      aboutText2: 'Bangladesh aur West Bengal ke sarkari office, press, compose ki dukaanein aur kai school ab bhi Bijoy mein type karte hain. Woh text online daalna ho to Unicode mein badalna padta hai; purani file mein jodna ya press bhejna ho to Unicode se Bijoy. Yeh tool dono karta hai. Bijoy → Unicode wale hisse mein MIT license wali open-source bijoy2unicode library use hui hai; ulti direction hamara apna code hai.',
+      faqTitle: 'Sawal-jawab', faq: [['Kya converted text 100% sahi hoga?', 'Aam Bangla — kar, phola, reph (র্), sanyukt akshar, ো/ৌ — sahi badalta hai. Koi bahut kam istemaal wala nishaan na pehchaana jaaye to tool use chhupata nahi, upar alag se dikhata hai. Zaroori kaagaz ek baar mila lo.'], ['Kya mera text kahin bheja jaata hai?', 'Nahi. Poora conversion aapke browser mein hota hai — kisi server pe kuch nahi jaata, page khula ho to internet ke bina bhi chalta hai.'], ['Phone pe Bijoy text "Avgvi" jaisa kyon dikhta hai?', 'Kyunki phone mein SutonnyMJ font nahi hai. Yahan Bijoy → Unicode kar lo, phir kisi bhi phone pe Bangla dikhega.'], ['Unicode → Bijoy kab chahiye?', 'Jab press ya office SutonnyMJ font wali file maange, ya purane Bijoy document mein naya text jodna ho. Result Word mein paste karke font SutonnyMJ kar do.'], ['Avro aur Bijoy ek hi hain?', 'Nahi. Avro type karne ka tareeka hai jo seedha Unicode likhta hai. Bijoy apne keyboard aur ASCII font se likhta hai — yeh tool usi ASCII text ko badalta hai.']],
+    },
+    hi: {
+      title: 'बिजॉय ↔ यूनिकोड कन्वर्टर (बांग्ला)', sub: 'बिजॉय (SutonnyMJ) फ़ॉन्ट में लिखा पुराना बांग्ला टेक्स्ट पेस्ट करो और सही यूनिकोड बांग्ला पाओ — Facebook, ईमेल, Google Docs और वेबसाइट के लिए। या यूनिकोड बांग्ला को बिजॉय में बदलो। मुफ़्त, टेक्स्ट आपके डिवाइस से बाहर नहीं जाता।',
+      k2u: 'बिजॉय → यूनिकोड', u2k: 'यूनिकोड → बिजॉय', inK: 'बिजॉय (SutonnyMJ) टेक्स्ट यहाँ पेस्ट करो', inU: 'यूनिकोड बांग्ला यहाँ लिखो या पेस्ट करो', outU: 'यूनिकोड बांग्ला (कॉपी करके कहीं भी इस्तेमाल करो)', outK: 'बिजॉय टेक्स्ट (Word में SutonnyMJ फ़ॉन्ट से बांग्ला दिखेगा)',
+      copy: '📋 कॉपी', copied: '✅ कॉपी हो गया', swap: '⇅ उल्टा करो', sample: 'उदाहरण', clear: 'साफ़ करो',
+      warn: (list) => `ये निशान पहचाने नहीं गए और वैसे ही छोड़ दिए गए: ${list} — इन जगहों को एक बार देख लो।`,
+      fontK2U: 'आउटपुट यूनिकोड है — हर फ़ोन और कंप्यूटर पर सही दिखेगा, Google में सर्च भी होगा।', fontU2K: 'बिजॉय आउटपुट अंग्रेज़ी अक्षर और निशान जैसा दिखेगा। Word में पेस्ट करके फ़ॉन्ट "SutonnyMJ" चुनोगे तो बांग्ला दिखेगा।',
+      howTitle: 'कैसे इस्तेमाल करें', how: ['ऊपर से दिशा चुनो: <b>बिजॉय → यूनिकोड</b> (पुराना टेक्स्ट बदलना) या <b>यूनिकोड → बिजॉय</b>।', 'बाएँ बॉक्स में टेक्स्ट पेस्ट करो — दाएँ बॉक्स में तुरंत बदला हुआ टेक्स्ट आ जाएगा।', '<b>कॉपी</b> दबाओ और जहाँ चाहिए पेस्ट करो। <b>उल्टा करो</b> से नतीजे को वापस दूसरी दिशा में बदलकर मिला सकते हो।', 'Word या PDF से SutonnyMJ वाला टेक्स्ट कॉपी करोगे तो वह "Avgvi" जैसा दिखेगा — वही यहाँ पेस्ट करो।'],
+      aboutTitle: 'बिजॉय और यूनिकोड में क्या फ़र्क़ है?', aboutText: 'बिजॉय (SutonnyMJ और दूसरे "MJ" फ़ॉन्ट) एक पुराना ASCII तरीक़ा है: अंग्रेज़ी अक्षर और निशान बांग्ला अक्षरों की शक्ल में दिखाए जाते हैं। फ़ॉन्ट न हो तो बिजॉय टेक्स्ट "Avgvi †mvbvi evsjv" जैसा दिखता है, और Google, Facebook या फ़ोन उसे बांग्ला नहीं मानते। यूनिकोड दुनिया भर का नियम है — हर बांग्ला अक्षर का अपना कोड होता है, इसलिए किसी भी फ़ॉन्ट, किसी भी डिवाइस पर सही दिखता है।',
+      aboutText2: 'बांग्लादेश और पश्चिम बंगाल के सरकारी दफ़्तर, प्रेस, कंपोज़ की दुकानें और कई स्कूल अब भी बिजॉय में टाइप करते हैं। वह टेक्स्ट ऑनलाइन डालना हो तो यूनिकोड में बदलना पड़ता है; पुरानी फ़ाइल में जोड़ना या प्रेस भेजना हो तो यूनिकोड से बिजॉय। यह टूल दोनों करता है। बिजॉय → यूनिकोड वाले हिस्से में MIT लाइसेंस वाली ओपन-सोर्स bijoy2unicode लाइब्रेरी इस्तेमाल हुई है; उल्टी दिशा हमारा अपना कोड है।',
+      faqTitle: 'सवाल-जवाब', faq: [['क्या बदला हुआ टेक्स्ट 100% सही होगा?', 'आम बांग्ला — कार, फला, रेफ़ (র্), संयुक्त अक्षर, ো/ৌ — सही बदलता है। कोई बहुत कम इस्तेमाल वाला निशान न पहचाना जाए तो टूल उसे छुपाता नहीं, ऊपर अलग से दिखाता है। ज़रूरी काग़ज़ एक बार मिला लो।'], ['क्या मेरा टेक्स्ट कहीं भेजा जाता है?', 'नहीं। पूरा बदलाव आपके ब्राउज़र में होता है — किसी सर्वर पर कुछ नहीं जाता, पेज खुला हो तो इंटरनेट के बिना भी चलता है।'], ['फ़ोन पर बिजॉय टेक्स्ट "Avgvi" जैसा क्यों दिखता है?', 'क्योंकि फ़ोन में SutonnyMJ फ़ॉन्ट नहीं है। यहाँ बिजॉय → यूनिकोड कर लो, फिर किसी भी फ़ोन पर बांग्ला दिखेगा।'], ['यूनिकोड → बिजॉय कब चाहिए?', 'जब प्रेस या दफ़्तर SutonnyMJ फ़ॉन्ट वाली फ़ाइल माँगे, या पुराने बिजॉय डॉक्यूमेंट में नया टेक्स्ट जोड़ना हो। नतीजा Word में पेस्ट करके फ़ॉन्ट SutonnyMJ कर दो।'], ['Avro और बिजॉय एक ही हैं?', 'नहीं। Avro टाइप करने का तरीक़ा है जो सीधे यूनिकोड लिखता है। बिजॉय अपने कीबोर्ड और ASCII फ़ॉन्ट से लिखता है — यह टूल उसी ASCII टेक्स्ट को बदलता है।']],
+    },
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private */ } } };
+  const params = new URLSearchParams(location.search);
+  const LANGS = ['bn', 'en', 'hinglish', 'hi'];
+  const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'bn'; };
+  let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('bj-lang')) ? store.get('bj-lang') : deviceLang();
+  let dir = params.get('dir') === 'u2k' ? 'u2k' : (store.get('bj-dir') === 'u2k' ? 'u2k' : 'k2u');
+  const t = (k) => T[lang][k];
+
+  const convert = () => {
+    const v = $('inp').value;
+    const out = dir === 'k2u' ? window.BJ.toUnicode(v) : window.BJ.toBijoy(v);
+    $('out').value = out;
+    const unknown = dir === 'k2u' ? window.BJ.unknownGlyphs(out) : [];
+    $('warn').classList.toggle('hidden', !unknown.length);
+    if (unknown.length) $('warn').textContent = t('warn')(unknown.join(' '));
+  };
+  const applyDir = () => {
+    document.querySelectorAll('#dirSeg button').forEach((b) => b.classList.toggle('on', b.dataset.d === dir));
+    $('inLabel').textContent = dir === 'k2u' ? t('inK') : t('inU');
+    $('outLabel').textContent = dir === 'k2u' ? t('outU') : t('outK');
+    $('inp').classList.toggle('kd', dir === 'k2u'); $('out').classList.toggle('kd', dir === 'u2k');
+    $('fontNote').textContent = dir === 'k2u' ? t('fontK2U') : t('fontU2K');
+    convert();
+  };
+  const applyLang = () => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : lang;
+    $('lang').value = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { const v = t(el.dataset.i18n); if (typeof v === 'string') el.textContent = v; });
+    $('howList').innerHTML = t('how').map((li) => `<li>${li}</li>`).join('');
+    $('faqList').innerHTML = t('faq').map(([q, a]) => `<h3>${q}</h3><p>${a}</p>`).join('');
+    $('home').href = `https://nextgrade.in${PREFIX[lang]}/`;
+    applyDir();
+  };
+  $('lang').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'en'; store.set('bj-lang', lang); applyLang(); });
+  $('dirSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; dir = b.dataset.d; store.set('bj-dir', dir); applyDir(); });
+  $('inp').addEventListener('input', convert);
+  $('swap').addEventListener('click', () => { const o = $('out').value; dir = dir === 'k2u' ? 'u2k' : 'k2u'; store.set('bj-dir', dir); $('inp').value = o; applyDir(); });
+  $('sample').addEventListener('click', () => { $('inp').value = SAMPLE[dir]; convert(); });
+  $('clear').addEventListener('click', () => { $('inp').value = ''; convert(); $('inp').focus(); });
+  $('copy').addEventListener('click', () => {
+    const text = $('out').value; if (!text) return;
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(() => { $('copy').textContent = t('copied'); setTimeout(() => { $('copy').textContent = t('copy'); }, 1500); }).catch(() => { $('out').select(); });
+  });
+  $('year').textContent = new Date().getFullYear();
+  window.__bj = { get out() { return $('out').value; }, get warn() { return $('warn').classList.contains('hidden') ? '' : $('warn').textContent; } };
+  applyLang();
+  if (params.get('t')) { $('inp').value = params.get('t'); convert(); }
+})();
+</script>
+</body>
+</html>

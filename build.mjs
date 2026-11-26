@@ -145,6 +145,7 @@ const HOME_NEW = [
   ['/speech/republic-day/', '🇮🇳', { hi: '26 जनवरी भाषण', en: 'Republic Day Speech', hinglish: '26 January Speech', bn: 'প্রজাতন্ত্র দিবসের বক্তৃতা' }, true],
   ['/speech/christmas/', '🎄', { hi: 'क्रिसमस पर भाषण', en: 'Christmas Speech', hinglish: 'Christmas par Bhashan', bn: 'বড়দিনের বক্তৃতা' }, true],
   ['/nibandh/christmas/', '📝', { hi: 'क्रिसमस पर निबंध', en: 'Essay on Christmas', hinglish: 'Christmas par Nibandh', bn: 'বড়দিন রচনা' }, true],
+  ['/tools/bijoy/', '🔡', { hi: 'Bijoy ↔ Unicode (बांग्ला)', en: 'Bijoy ↔ Unicode (Bangla)', hinglish: 'Bijoy ↔ Unicode (Bangla)', bn: 'বিজয় ↔ ইউনিকোড' }, false],
   ['/tools/krutidev/', '🔤', { hi: 'Krutidev ↔ Unicode', en: 'Krutidev ↔ Unicode', hinglish: 'Krutidev ↔ Unicode', bn: 'Krutidev ↔ Unicode' }, false],
 ];
 // Home quick tiles (design refresh 25 Nov 2026): the most used things, app-launcher style
@@ -187,7 +188,7 @@ const HOME_NEW_H = { hi: '🆕 नया और ट्रेंडिंग', en
 const TOOL_CATS = [
   { id: 'pdf', emoji: '📄', name: { hi: 'PDF और डॉक्यूमेंट', en: 'PDF and documents', hinglish: 'PDF aur documents', bn: 'PDF আর ডকুমেন্ট' }, slugs: ['pdf-compress', 'pdf-merge', 'jpg-to-pdf', 'doc-scanner', 'form-helper'] },
   { id: 'photo', emoji: '🖼️', name: { hi: 'फ़ोटो टूल्स', en: 'Photo tools', hinglish: 'Photo tools', bn: 'ছবির টুলস' }, slugs: ['passport-photo', 'photo-frame', 'image-compress', 'image-resize', 'image-crop', 'bg-remover', 'signature-maker', 'sticker-maker', 'hair-tryon'] },
-  { id: 'hindi', emoji: '⌨️', name: { hi: 'हिंदी और टाइपिंग', en: 'Hindi and typing', hinglish: 'Hindi aur typing', bn: 'হিন্দি আর টাইপিং' }, slugs: ['krutidev', 'typing-test'] },
+  { id: 'hindi', emoji: '⌨️', name: { hi: 'हिंदी, बांग्ला और टाइपिंग', en: 'Hindi, Bangla and typing', hinglish: 'Hindi, Bangla aur typing', bn: 'হিন্দি, বাংলা আর টাইপিং' }, slugs: ['krutidev', 'bijoy', 'typing-test'] },
   { id: 'more', emoji: '🧩', name: { hi: 'और काम के टूल्स', en: 'More handy tools', hinglish: 'Aur kaam ke tools', bn: 'আরও কাজের টুলস' }, slugs: ['marriage-biodata', 'qr-maker', 'land-converter'] },
 ];
 const toolsIn = (cat) => { const known = TOOL_CATS.flatMap((c) => c.slugs); return tools.filter((t) => cat.slugs.includes(t.slug) || (cat.id === 'more' && !known.includes(t.slug))); };
