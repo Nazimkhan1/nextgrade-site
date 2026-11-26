@@ -73,10 +73,10 @@ const S = {
     a: (n, date, wd) => `${n} is on ${wd}, ${date}.`, aApprox: (n, date, wd) => `${n} is expected on ${wd}, ${date}.`,
     notes: { ggs: 'This is the panchang date (Paush Shukla Saptami); by the Nanakshahi calendar it is 5 January.', pongal: 'Bhogi is on 14 January; Thai Pongal on 15 January.', jan: 'Smarta tradition: 24 August; ISKCON/Vaishnava tradition: 25 August.', onam: 'This is Thiruvonam day; the ten days of Onam begin before it.', navr: 'This is the first day of Navratri; Dussehra is on 9 October.', moon: 'Eid depends on the sighting of the moon, so the date can move by a day.', msk: 'Most panchangs give 15 January; some panchangs and several state holiday lists give 14 January.', holi: 'Holika Dahan is the evening before, 21 March.', chhath: 'Nahay-Khay 2 Nov, Kharna 3 Nov, Sandhya Arghya 4 Nov, Usha Arghya 5 Nov.' },
     local: 'For festivals that follow the tithi, also check your city\'s panchang.',
-    listTitle: (y) => `Indian Festivals ${y} — Full List with Dates | NextGrade`, listH1: (y) => `📅 Indian festivals in ${y}, with dates`,
+    listTitle: (y) => `Indian Festivals ${y} List — Holiday Calendar with Dates (Holi, Diwali, Eid…) | NextGrade`, listH1: (y) => `📅 Indian festivals in ${y}, with dates`,
     listDesc: (y) => `When are Holi, Eid, Raksha Bandhan, Diwali, Chhath, Guru Nanak Jayanti and other big festivals in ${y} — date, day and all about each festival.`,
     listLead: (y) => `Dates of the major festivals in ${y}, month by month. Tap a festival to read its story, meaning and wishes.`,
-    titleY: (n, y) => `${n} ${y}: Date, Meaning and Wishes | NextGrade`,
+    titleY: (n, y) => `${n} ${y}: Date, Countdown, Wishes and Meaning | NextGrade`,
     th: ['Festival', 'Date', 'Day'], listLink: (y) => `📅 All ${y} festivals and dates`,
   },
   bn: {

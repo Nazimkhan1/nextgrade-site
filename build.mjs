@@ -42,6 +42,7 @@ import { buildTithi } from './src/tithi-pages.mjs';
 import { buildSarkari, SARKARI_NAV } from './src/sarkari-guide.mjs';
 import { buildPranayam, PRANAYAM_NAV } from './src/pranayam.mjs';
 import { buildAaj, AAJ_NAV } from './src/aaj.mjs';
+import { GROUPS as BDAY, UI as BDAY_UI } from './src/birthday-pairs.mjs';
 import { CAL_YEAR, MONTH_SLUGS as SLUG_M, NATIONAL, HOLIDAY_SLUGS, WDS, CT, hijriStarts } from './src/calendar.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
@@ -771,6 +772,10 @@ ${faqBlock(faq)}
     }),
   );
 
+  // Birthday: 50+ Hindi–English pairs by relation (Search Console 26 Nov: "birthday wishes in hindi english", pos ~9)
+  const bdayPairs = (LL) => { const B = BDAY_UI[LL.code]; return `<h2>${esc(B.h)}</h2><p>${esc(B.p)}</p><p class="chips">${BDAY.map(([k, h]) => `<a class="tag" href="#bd-${k}">${esc(h[LL.code])}</a>`).join(' ')}</p>${BDAY.map(([k, h, list]) => `<h3 id="bd-${k}">${esc(h[LL.code])}</h3><ul class="wish-list">${list.map(([a, b]) => `<li><span>${esc(a)}<br><i style="color:var(--muted)">${esc(b)}</i></span><button class="copy" type="button" data-copy="${esc(`${a}\n${b}`)}" data-done="${esc(ui[LL.code].copied)}">${esc(B.both)}</button></li>`).join('')}</ul>`).join('')}`; };
+  const BDAY_TITLE = { hi: 'जन्मदिन की शुभकामनाएँ हिंदी और English में — 50+ दिल छू लेने वाले बर्थडे विश | NextGrade', en: 'Happy Birthday Wishes in Hindi and English — 50+ Heart Touching Messages | NextGrade', hinglish: 'Birthday Wishes in Hindi English — 50+ Heart Touching Janamdin ki Shubhkamnayein | NextGrade', bn: 'জন্মদিনের শুভেচ্ছা — হিন্দি, English আর বাংলায় ৫০+ বার্তা | NextGrade' };
+  const BDAY_DESC = { hi: 'माँ, पापा, भाई, बहन, दोस्त, पति/पत्नी और बच्चों के लिए जन्मदिन की 50+ शुभकामनाएँ — हर एक हिंदी और English दोनों में। कॉपी करें या नाम के साथ WhatsApp पर भेजें।', en: '50+ birthday wishes in Hindi and English for mother, father, brother, sister, friend, husband/wife and kids — every wish in both languages. Copy, or send on WhatsApp with your name.', hinglish: 'Maa, papa, bhai, behen, dost, pati/patni aur bachchon ke liye 50+ birthday wishes — har ek Hindi aur English dono mein. Copy karein ya naam ke saath WhatsApp par bhejein.', bn: 'মা, বাবা, ভাই, বোন, বন্ধু, স্বামী/স্ত্রী আর ছোটদের জন্য ৫০+ জন্মদিনের শুভেচ্ছা — হিন্দি আর English দুটোতে, সঙ্গে বাংলা। কপি করুন বা নামসহ WhatsApp-এ পাঠান।' };
   // Wish pages
   wishes.forEach((w) => {
     const path = `/wishes/${w.slug}/`;
@@ -782,8 +787,8 @@ ${faqBlock(faq)}
       path,
       page(L, {
         path,
-        title: W.title(x.name, x.alt),
-        description: W.desc(x.name),
+        title: w.slug === 'birthday' ? BDAY_TITLE[L.code] : W.title(x.name, x.alt),
+        description: w.slug === 'birthday' ? BDAY_DESC[L.code] : W.desc(x.name),
         jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.wishes, '/wishes/'], [x.name, path]]), articleLd(L, `${x.name} (${x.alt})`, path), faqLd(x.faq)],
         body: `<article class="wrap narrow article">
 <p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/wishes/')}">${esc(T.nav.wishes)}</a> › ${esc(x.name)}</p>
@@ -794,6 +799,7 @@ ${celebrateButton(L, 'wish', w.slug)}
 <h2>${esc(W.wishesH(x.name))}</h2>
 <ul class="wish-list">${wishItems(L, x.wishes)}</ul>
 <div class="ad" aria-hidden="true"></div>
+${w.slug === 'birthday' ? bdayPairs(L) : ''}
 <h2>${esc(W.wishes2H(x.name))}</h2>
 <ul class="wish-list">${wishItems(L, x.wishes2)}</ul>
 ${shareBox(L, path, x.greet, x.wishes[0])}
