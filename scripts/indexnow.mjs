@@ -15,19 +15,26 @@ import { pathToFileURL } from 'node:url';
 export const INDEXNOW_KEY = 'cd1e4bf9a4c6afe2efb8f80621993dfe';
 const HOST = 'nextgrade.in';
 
-const parse = (xml) => new Map([...xml.matchAll(/<loc>([^<]+)<\/loc>(?:<lastmod>([^<]+)<\/lastmod>)?/g)].map((m) => [m[1], m[2] || '']));
+const parseOne = (xml) => new Map([...xml.matchAll(/<loc>([^<]+)<\/loc>(?:<lastmod>([^<]+)<\/lastmod>)?/g)].map((m) => [m[1], m[2] || '']));
+// sitemap.xml may be an index of per-section sitemaps (since 26 Nov 2026): read them through `read(name)`
+const parse = (xml, read) => {
+  if (!xml.includes('<sitemapindex')) return parseOne(xml);
+  const all = new Map();
+  for (const m of xml.matchAll(/<loc>https?:\/\/[^/]+\/(sitemap-[^<]+\.xml)<\/loc>/g)) { try { for (const [u, d] of parseOne(read(m[1]))) all.set(u, d); } catch { /* missing part */ } }
+  return all;
+};
 
 async function main() {
   const args = process.argv.slice(2);
   const dry = args.includes('--dry');
-  const now = parse(readFileSync('docs/sitemap.xml', 'utf8'));
+  const now = parse(readFileSync('docs/sitemap.xml', 'utf8'), (n) => readFileSync(`docs/${n}`, 'utf8'));
   let urls;
   if (args.includes('--all')) urls = [...now.keys()];
   else {
     const i = args.indexOf('--since');
     if (i < 0) { console.error('usage: --since <git-rev> | --all [--dry]'); process.exit(2); }
     let before = new Map();
-    try { before = parse(execFileSync('git', ['show', `${args[i + 1]}:docs/sitemap.xml`], { encoding: 'utf8', maxBuffer: 64 << 20 })); } catch { /* no old sitemap: everything is new */ }
+    try { const show = (f) => execFileSync('git', ['show', `${args[i + 1]}:docs/${f}`], { encoding: 'utf8', maxBuffer: 64 << 20 }); before = parse(show('sitemap.xml'), show); } catch { /* no old sitemap: everything is new */ }
     urls = [...now].filter(([u, d]) => before.get(u) !== d).map(([u]) => u);
   }
   console.log(`IndexNow: ${urls.length} URL(s)`);

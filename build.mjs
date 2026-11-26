@@ -1792,6 +1792,11 @@ const lastmodFor = (url) => {
   if (path === '/khel/') { const ds = allRules.map((r) => releases[`game:${r.slug}`]).filter((d) => d && d <= todayIST()).sort(); if (ds.length) return ds.pop(); }
   if (['/speech/', '/nibandh/'].includes(path)) { const ds = Object.entries(releases).filter(([k, d]) => k.startsWith(path === '/speech/' ? 'speech:' : 'nibandh:') && d <= todayIST()).map(([, d]) => d).sort(); if (ds.length) return ds.pop(); }
   if (['/', '/games/', '/kahani/'].includes(path)) return [CONTENT_DATE, lastRelease].sort().pop();
+  // sections added later: the date they first went live (25–26 Nov 2026); daily pages change every day
+  if (['/aaj/', '/purnima/', '/amavasya/', '/ekadashi/'].includes(path)) return todayIST();
+  const sec = { '/mausam/': '2026-11-25', '/ghoomne-ki-jagah/': '2026-11-25', '/nuskhe/': '2026-11-25', '/surya-namaskar/': '2026-11-25', '/creator-guide/': '2026-11-25', '/calculator/youtube-earning/': '2026-11-25', '/sarkari-guide/': '2026-11-26', '/pranayam/': '2026-11-26', '/tools/photo-frame/': '2026-11-25' };
+  for (const [pre, d] of Object.entries(sec)) if (path.startsWith(pre)) return d;
+  if (/^\/wishes\/(marathi|gujarati|tamil|telugu|kannada|malayalam|punjabi|odia)\//.test(path)) return '2026-11-25';
   return CONTENT_DATE;
 };
 const gameUrls = games.map((g) => `/games/${g.slug}/`);
@@ -1802,10 +1807,16 @@ LANGS.forEach((L) => {
   writeFileSync(join(OUT, 'assets', `search-${L.code}.json`), JSON.stringify(rows));
 });
 const allUrls = [...urls, ...gameUrls, ...CELEBRATE.map((c) => `/celebrate/${c.slug}/`), ...tools.flatMap((tl) => [`/tools/${tl.slug}/`, ...(tl.pages || []).map((pg) => `/tools/${tl.slug}/${pg}/`)])];
-writeFileSync(
-  join(OUT, 'sitemap.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${allUrls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${lastmodFor(u)}</lastmod></url>`).join('\n')}\n</urlset>\n`,
-);
+// Sitemap index (sitemap.xml) + one sitemap per section, so Search Console shows indexing per section (plan Q, 26 Nov)
+{
+  const GROUPS = [['mausam', ['mausam']], ['travel', ['ghoomne-ki-jagah']], ['kids', ['kids']], ['stories', ['kahani']], ['study', ['nibandh', 'speech', 'paheliyan', 'full-form', 'naam']], ['festivals', ['festivals', 'wishes', 'wish-card', 'calendar', 'celebrate', 'naam-wali-image', 'islamic-calendar', 'shaadi-card', 'aaj', 'purnima', 'amavasya', 'ekadashi']], ['tools', ['tools', 'calculator']], ['games', ['games', 'khel', 'apps']], ['guides', ['sarkari-guide', 'creator-guide', 'pranayam', 'surya-namaskar', 'nuskhe']]];
+  const groupOf = (u) => { const seg = u.replace(/^\/(en|hinglish|bn)(?=\/)/, '').split('/')[1] || ''; const g = GROUPS.find(([, segs]) => segs.includes(seg)); return g ? g[0] : 'pages'; };
+  const by = {};
+  allUrls.forEach((u) => (by[groupOf(u)] ||= []).push(u));
+  const names = Object.keys(by).sort();
+  names.forEach((n) => writeFileSync(join(OUT, `sitemap-${n}.xml`), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${by[n].map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${lastmodFor(u)}</lastmod></url>`).join('\n')}\n</urlset>\n`));
+  writeFileSync(join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${names.map((n) => `  <sitemap><loc>${SITE}/sitemap-${n}.xml</loc><lastmod>${by[n].map(lastmodFor).sort().pop()}</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`);
+}
 // robots.txt: everyone allowed; the AI search / assistant crawlers are named so it is clear they are welcome (user, 24 Nov 2026: "ai se v search karne par aana chahiye")
 writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\n${['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'Bingbot', 'meta-externalagent'].map((b) => `User-agent: ${b}\nAllow: /\n`).join('\n')}\nSitemap: ${SITE}/sitemap.xml\n`);
 // llms.txt: a plain map of the site for AI assistants (only live pages; rebuilt daily with the releases)
