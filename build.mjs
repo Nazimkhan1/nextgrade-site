@@ -49,6 +49,7 @@ import { buildRto, RTO_NAV } from './src/rto.mjs';
 import { buildWorld, loadRates, WORLD_NAV } from './src/world.mjs';
 import { buildSunCompare, SC_NAV } from './src/sun-compare.mjs';
 import { buildConstruction, CC_NAV } from './src/construction.mjs';
+import { llmsSections, llmsFull } from './src/llms-extra.mjs';
 const FX = await loadRates(); // daily currency rates (cached in src/fx-cache.json)
 import { CAL_YEAR, MONTH_SLUGS as SLUG_M, NATIONAL, HOLIDAY_SLUGS, WDS, CT, hijriStarts } from './src/calendar.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
@@ -1845,7 +1846,7 @@ const allUrls = [...urls, ...gameUrls, ...CELEBRATE.map((c) => `/celebrate/${c.s
   writeFileSync(join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${names.map((n) => `  <sitemap><loc>${SITE}/sitemap-${n}.xml</loc><lastmod>${by[n].map(lastmodFor).sort().pop()}</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`);
 }
 // robots.txt: everyone allowed; the AI search / assistant crawlers are named so it is clear they are welcome (user, 24 Nov 2026: "ai se v search karne par aana chahiye")
-writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\n${['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'Bingbot', 'meta-externalagent'].map((b) => `User-agent: ${b}\nAllow: /\n`).join('\n')}\nSitemap: ${SITE}/sitemap.xml\n`);
+writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\n${['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'Bingbot', 'meta-externalagent', 'DuckAssistBot', 'MistralAI-User', 'Amazonbot', 'CCBot', 'cohere-ai', 'YouBot', 'GoogleOther'].map((b) => `User-agent: ${b}\nAllow: /\n`).join('\n')}\nSitemap: ${SITE}/sitemap.xml\n`);
 // llms.txt: a plain map of the site for AI assistants (only live pages; rebuilt daily with the releases)
 {
   const en = (p) => `${SITE}/en${p}`;
@@ -1863,7 +1864,9 @@ ${sec('Festival dates and guides', [line(`Indian festival dates ${LIST_YEAR}`, e
 - [Contact](${en('/contact/')})
 - [Sitemap](${SITE}/sitemap.xml)
 `;
-  writeFileSync(join(OUT, 'llms.txt'), txt);
+  writeFileSync(join(OUT, 'llms.txt'), txt.replace('\n## About', `${llmsSections()}\n## About`).replace('# NextGrade\n', `# NextGrade\n\nFact sheet for quoting: ${SITE}/llms-full.txt\n`));
+  const festList = Object.entries(DATES).flatMap(([slug, l]) => { const f = allFestivals.find((z) => z.slug === slug); return f ? l.filter((x) => x.d >= todayIST()).map((x) => [f.nameEn, x.d, slug]) : []; }).sort((a, b) => a[1].localeCompare(b[1]));
+  writeFileSync(join(OUT, 'llms-full.txt'), llmsFull({ fx: FX, festivals: festList }));
 }
 // IndexNow key file (proves we own the site; scripts/indexnow.mjs pings Bing with new pages)
 { const { INDEXNOW_KEY } = await import('./scripts/indexnow.mjs'); writeFileSync(join(OUT, `${INDEXNOW_KEY}.txt`), INDEXNOW_KEY); }
