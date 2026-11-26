@@ -43,6 +43,7 @@ import { buildSarkari, SARKARI_NAV } from './src/sarkari-guide.mjs';
 import { buildPranayam, PRANAYAM_NAV } from './src/pranayam.mjs';
 import { buildAaj, AAJ_NAV } from './src/aaj.mjs';
 import { GROUPS as BDAY, UI as BDAY_UI } from './src/birthday-pairs.mjs';
+import { PAIRS, PAIR_UI, pairCount, WISH_TITLES } from './src/wish-pairs.mjs';
 import { buildNumberWords, browserScript as nwScript, NW_NAV } from './src/numwords.mjs';
 import { buildDesiNaap, DN_NAV } from './src/desi-naap.mjs';
 import { buildRto, RTO_NAV } from './src/rto.mjs';
@@ -172,6 +173,12 @@ const FOOT_COLS = [
   [{ hi: 'त्योहार', en: 'Festivals', hinglish: 'Tyohaar', bn: 'উৎসব' }, [['/festivals/', { hi: 'सभी त्योहार', en: 'All festivals', hinglish: 'Sabhi tyohaar', bn: 'সব উৎসব' }], ['/calendar/2027/', { hi: 'कैलेंडर 2027', en: 'Calendar 2027', hinglish: 'Calendar 2027', bn: 'ক্যালেন্ডার ২০২৭' }], ['/wishes/', { hi: 'शुभकामनाएँ', en: 'Wishes', hinglish: 'Wishes', bn: 'শুভেচ্ছা' }], ['/wish-card/', { hi: 'बधाई कार्ड', en: 'Wish card', hinglish: 'Wish card', bn: 'শুভেচ্ছা কার্ড' }], ['/aaj/', { hi: 'आज का दिन', en: 'Today', hinglish: 'Aaj ka din', bn: 'আজকের দিন' }], ['/ekadashi/', { hi: 'एकादशी कब है', en: 'Ekadashi dates', hinglish: 'Ekadashi kab hai', bn: 'একাদশী কবে' }], ['/purnima/', { hi: 'पूर्णिमा / अमावस्या', en: 'Purnima / Amavasya', hinglish: 'Purnima / Amavasya', bn: 'পূর্ণিমা / অমাবস্যা' }]]],
   [{ hi: 'खेल और ऐप', en: 'Games and apps', hinglish: 'Games aur apps', bn: 'গেম আর অ্যাপ' }, [['/games/', { hi: 'ऑनलाइन गेम्स', en: 'Online games', hinglish: 'Online games', bn: 'অনলাইন গেম' }], ['https://desi-games.nextgrade.in/', { hi: 'देसी गेम्स ऐप', en: 'Desi Games app', hinglish: 'Desi Games app', bn: 'দেশি গেমস অ্যাপ' }, false], ['/apps/', { hi: 'ऐप्स', en: 'Apps', hinglish: 'Apps', bn: 'অ্যাপ' }]]],
 ];
+// Hindi–English wish pairs block for wish and festival pages (src/wish-pairs.mjs)
+const pairsBlock = (L, slug, name) => {
+  const G = PAIRS[slug]; if (!G) return '';
+  const [h, p, both] = slug === 'birthday' ? [BDAY_UI[L.code].h, BDAY_UI[L.code].p, BDAY_UI[L.code].both] : PAIR_UI[L.code](name, pairCount(slug));
+  return `<h2>${esc(h)}</h2><p>${esc(p)}</p><p class="chips">${G.map(([k, hh]) => `<a class="tag" href="#wp-${k}">${esc(hh[L.code])}</a>`).join(' ')}</p>${G.map(([k, hh, list]) => `<h3 id="wp-${k}">${esc(hh[L.code])}</h3><ul class="wish-list">${list.map(([a, b]) => `<li><span>${esc(a)}<br><i style="color:var(--muted)">${esc(b)}</i></span><button class="copy" type="button" data-copy="${esc(`${a}\n${b}`)}" data-done="${esc(ui[L.code].copied)}">${esc(both)}</button></li>`).join('')}</ul>`).join('')}`;
+};
 const HOME_NEW_H = { hi: '🆕 नया और ट्रेंडिंग', en: '🆕 New and trending', hinglish: '🆕 Naya aur trending', bn: '🆕 নতুন আর ট্রেন্ডিং' };
 // Utility platform (user 24 Nov: "multi-purpose Indian utility platform — SEO accordingly"): tool categories,
 // used by the /tools/ directory, the home page and the "more tools" block on every tool page.
@@ -759,6 +766,7 @@ ${x.sections.map((s) => `<h2>${esc(s.h)}</h2>\n${paragraphs(s.p)}`).join('\n')}
 <ul class="wish-list">${wishItems(L, x.wishes)}</ul>
 <h2>${esc(F.wishes2H(x.name))}</h2>
 <ul class="wish-list">${wishItems(L, x.wishes2)}</ul>
+${pairsBlock(L, f.slug, x.name)}
 ${shareBox(L, path, F.shareTitle(x.name), x.wishes[0])}
 <div class="cta"><p>${esc(F.cta(x.name))}</p><a class="btn btn-primary" href="${P(L, `/wish-card/?f=${f.slug}`)}">${esc(T.home.btnCard)}</a></div>
 ${x.summary.length && F.summaryH ? `<h2>${esc(F.summaryH)}</h2>\n${paragraphs(x.summary)}` : ''}
@@ -808,7 +816,7 @@ ${faqBlock(faq)}
       path,
       page(L, {
         path,
-        title: w.slug === 'birthday' ? BDAY_TITLE[L.code] : W.title(x.name, x.alt),
+        title: w.slug === 'birthday' ? BDAY_TITLE[L.code] : WISH_TITLES[w.slug] ? WISH_TITLES[w.slug][L.code] : W.title(x.name, x.alt),
         description: w.slug === 'birthday' ? BDAY_DESC[L.code] : W.desc(x.name),
         jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [T.nav.wishes, '/wishes/'], [x.name, path]]), articleLd(L, `${x.name} (${x.alt})`, path), faqLd(x.faq)],
         body: `<article class="wrap narrow article">
@@ -820,7 +828,7 @@ ${celebrateButton(L, 'wish', w.slug)}
 <h2>${esc(W.wishesH(x.name))}</h2>
 <ul class="wish-list">${wishItems(L, x.wishes)}</ul>
 <div class="ad" aria-hidden="true"></div>
-${w.slug === 'birthday' ? bdayPairs(L) : ''}
+${pairsBlock(L, w.slug, x.name)}
 <h2>${esc(W.wishes2H(x.name))}</h2>
 <ul class="wish-list">${wishItems(L, x.wishes2)}</ul>
 ${shareBox(L, path, x.greet, x.wishes[0])}
