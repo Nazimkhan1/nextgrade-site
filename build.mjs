@@ -34,6 +34,7 @@ import { whyFaq } from './src/festival-why.mjs';
 import { rules as allRules, KHEL_UI } from './src/khel.mjs';
 import { LIST_YEAR, DATES, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
 import { buildWeather, WT } from './src/weather.mjs';
+import { buildTaxPages, SALARIES } from './src/tax-pages.mjs';
 import { icon } from './src/icons.mjs';
 import { buildTravel, TT } from './src/travel.mjs';
 import { buildNuskhe, NUSKHE_UI } from './src/nuskhe-build.mjs';
@@ -740,6 +741,7 @@ ${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('\n')}
   buildNumberWords(L, { page, write, P, esc, T, breadcrumbLd });
   buildDesiNaap(L, { page, write, P, esc, T, breadcrumbLd });
   buildRto(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
+  buildTaxPages(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildWorld(L, { page, write, P, esc, T, breadcrumbLd, fx: FX });
   buildSunCompare(L, { page, write, P, esc, T, breadcrumbLd });
   buildConstruction(L, { page, write, P, esc, T, breadcrumbLd });
@@ -1449,6 +1451,7 @@ ${c.fields.map((f) => field(c, f)).join('\n')}
 <button class="btn btn-primary" type="submit">${esc(x.btn)}</button>
 <div class="calc-result" hidden></div>
 </form>
+${c.slug === 'income-tax' && (L.code === 'hi' || L.code === 'en') ? `<p class="chips">${SALARIES.filter((v) => [5e5, 8e5, 10e5, 12e5, 12.75e5, 15e5, 18e5, 20e5, 25e5, 30e5, 50e5].includes(v)).map((v) => `<a class="tag" href="${P(L, `/income-tax/${String(v / 1e5).replace('.', '-')}-lakh-salary/`)}">₹${+(v / 1e5).toFixed(2)} ${L.code === 'hi' ? 'लाख सैलरी पर टैक्स' : 'lakh salary tax'}</a>`).join(' ')} <a class="tag" href="${P(L, '/income-tax/')}">${L.code === 'hi' ? 'सभी सैलरी →' : 'All salaries →'}</a></p>` : ''}
 <h2>${esc(x.introH)}</h2>
 ${paragraphs(x.intro)}
 <div class="ad no-print" aria-hidden="true"></div>
@@ -1876,7 +1879,7 @@ LANGS.forEach((L) => {
 const allUrls = [...urls, ...gameUrls, ...CELEBRATE.map((c) => `/celebrate/${c.slug}/`), ...tools.flatMap((tl) => [`/tools/${tl.slug}/`, ...(tl.pages || []).map((pg) => `/tools/${tl.slug}/${pg}/`)])];
 // Sitemap index (sitemap.xml) + one sitemap per section, so Search Console shows indexing per section (plan Q, 26 Nov)
 {
-  const GROUPS = [['mausam', ['mausam']], ['travel', ['ghoomne-ki-jagah']], ['kids', ['kids']], ['stories', ['kahani']], ['study', ['nibandh', 'speech', 'paheliyan', 'full-form', 'naam']], ['festivals', ['festivals', 'wishes', 'wish-card', 'calendar', 'bangla-tarikh', 'celebrate', 'naam-wali-image', 'islamic-calendar', 'shaadi-card', 'aaj', 'purnima', 'amavasya', 'ekadashi']], ['games', ['games', 'khel', 'apps']], ['guides', ['sarkari-guide', 'creator-guide', 'pranayam', 'surya-namaskar', 'nuskhe']], ['rto', ['rto']], ['world', ['time', 'currency', 'sunrise-sunset']], ['tools', ['tools', 'calculator', 'number-in-words', 'desi-naap', 'ghar-banane-ka-kharcha', 'solar-calculator', 'inverter-calculator']]];
+  const GROUPS = [['mausam', ['mausam']], ['travel', ['ghoomne-ki-jagah']], ['kids', ['kids']], ['stories', ['kahani']], ['study', ['nibandh', 'speech', 'paheliyan', 'full-form', 'naam']], ['festivals', ['festivals', 'wishes', 'wish-card', 'calendar', 'bangla-tarikh', 'celebrate', 'naam-wali-image', 'islamic-calendar', 'shaadi-card', 'aaj', 'purnima', 'amavasya', 'ekadashi']], ['games', ['games', 'khel', 'apps']], ['guides', ['sarkari-guide', 'creator-guide', 'pranayam', 'surya-namaskar', 'nuskhe']], ['rto', ['rto']], ['world', ['time', 'currency', 'sunrise-sunset']], ['tools', ['tools', 'calculator', 'income-tax', 'number-in-words', 'desi-naap', 'ghar-banane-ka-kharcha', 'solar-calculator', 'inverter-calculator']]];
   const groupOf = (u) => { const seg = u.replace(/^\/(en|hinglish|bn)(?=\/)/, '').split('/')[1] || ''; const g = GROUPS.find(([, segs]) => segs.includes(seg)); return g ? g[0] : 'pages'; };
   const by = {};
   allUrls.forEach((u) => (by[groupOf(u)] ||= []).push(u));
