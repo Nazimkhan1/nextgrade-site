@@ -7,6 +7,7 @@ const EXTRA = [
   { file: 'ramzan', path: '/ramzan/', emoji: '🌙', deco: '⭐🕌🤲', title: 'Sehri · Iftar 2027' },
   { file: 'namaz-time', path: '/namaz-time/', emoji: '🕌', deco: '🌅🕰🧭', title: 'नमाज़ का समय' },
   { file: 'board-exam', path: '/board-exam/', emoji: '📝', deco: '📚⏳✏', title: 'Board Exam 2027' },
+  { file: 'up-board-2027', path: '/board-exam/up-board-2027/', emoji: '🏫', deco: '📝⏳✏', title: 'UP Board 2027' },
   { file: 'income-tax', path: '/income-tax/', emoji: '💰', deco: '🧾📊🇮🇳', title: 'Income Tax 2026-27' },
 ];
 export const OG_CARDS = [...AARTI, ...VYAK, ...EXTRA];

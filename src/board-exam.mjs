@@ -106,7 +106,7 @@ export function buildBoardExam(L, { page, write, P, esc, T, breadcrumbLd, LANGS 
     path: hub, title: X.hubT, description: X.hubD, langs, jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [X.nav, hub]])],
     body: `${css}<div class="wrap narrow article">${crumbs([[X.nav]])}<h1>${esc(X.hubH)}</h1><p class="lead">${esc(X.hubL)}</p>
 <div class="cd no-print"><div><span>${esc(X.c10)}</span><b data-cd="${C10[0][0]}">—</b>${esc(X.left)} ${esc(X.firstPaper)}</div><div><span>${esc(X.c12)}</span><b data-cd="${C12[0][0]}">—</b>${esc(X.left)} ${esc(X.firstPaper)}</div></div>${CD_JS}
-<p class="chips no-print"><a class="tag" href="${P(L, ds(10))}">${esc(X.ds10)}</a> <a class="tag" href="${P(L, ds(12))}">${esc(X.ds12)}</a></p>
+<p class="chips no-print"><a class="tag" href="${P(L, ds(10))}">${esc(X.ds10)}</a> <a class="tag" href="${P(L, ds(12))}">${esc(X.ds12)}</a> <a class="tag" href="${P(L, `${hub}up-board-2027/`)}">${code === 'hi' ? 'UP बोर्ड टाइम टेबल 2027 →' : 'UP Board time table 2027 →'}</a></p>
 <h2>${esc(X.factsH)}</h2><ul>${X.facts.map((f) => `<li>${esc(f)}</li>`).join('')}</ul><div class="ad" aria-hidden="true"></div>
 <h2>${esc(X.planH)}</h2><p>${esc(X.planL)}</p>
 <form id="pl" class="pl-f no-print"><label>${esc(X.c10)} / ${esc(X.c12)} <select name="cls"><option value="10">${esc(X.c10)}</option><option value="12">${esc(X.c12)}</option></select></label><div id="pl-subj"></div><label>${esc(X.hours)} <input type="number" name="hrs" value="6" min="1" max="14"></label><button class="btn btn-primary" type="submit">${esc(X.make)}</button></form><div id="pl-out" hidden></div>${PLAN_JS(X, j(C10), j(C12))}

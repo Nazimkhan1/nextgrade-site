@@ -39,6 +39,7 @@ import { buildMoneyPages } from './src/money-pages.mjs';
 import { buildRamzan } from './src/ramzan.mjs';
 import { buildNamaz } from './src/namaz.mjs';
 import { buildBoardExam } from './src/board-exam.mjs';
+import { buildUpBoard } from './src/up-board.mjs';
 import { buildChalisa } from './src/hanuman-chalisa.mjs';
 import { buildAarti } from './src/aarti.mjs';
 import { buildVyakaran, VYAKARAN_NAV } from './src/vyakaran.mjs';
@@ -755,6 +756,7 @@ ${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('\n')}
   buildRamzan(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildNamaz(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildBoardExam(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
+  buildUpBoard(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildChalisa(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildAarti(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildVyakaran(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
