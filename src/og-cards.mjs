@@ -3,6 +3,7 @@
 import { OG_CARDS as AARTI } from './aarti.mjs';
 import { OG_CARDS as VYAK } from './vyakaran.mjs';
 import { OG_CARDS as APPS } from './application.mjs';
+import { OG_CARDS as MANTRA } from './mantra.mjs';
 const EXTRA = [
   { file: 'hanuman-chalisa', path: '/hanuman-chalisa/', emoji: '🙏', deco: '🚩🪔🌺', title: 'हनुमान चालीसा' },
   { file: 'ramzan', path: '/ramzan/', emoji: '🌙', deco: '⭐🕌🤲', title: 'Sehri · Iftar 2027' },
@@ -12,5 +13,5 @@ const EXTRA = [
   { file: 'kitne-din-baaki', path: '/kitne-din-baaki/', emoji: '⏳', deco: '🎉📅🪔', title: 'कितने दिन बाक़ी' },
   { file: 'income-tax', path: '/income-tax/', emoji: '💰', deco: '🧾📊🇮🇳', title: 'Income Tax 2026-27' },
 ];
-export const OG_CARDS = [...AARTI, ...VYAK, ...APPS, ...EXTRA];
+export const OG_CARDS = [...AARTI, ...MANTRA, ...VYAK, ...APPS, ...EXTRA];
 export const OG_BY_PATH = Object.fromEntries(OG_CARDS.map((c) => [c.path, `/og/${c.file}.jpg`]));
