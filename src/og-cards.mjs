@@ -9,6 +9,7 @@ const EXTRA = [
   { file: 'namaz-time', path: '/namaz-time/', emoji: '🕌', deco: '🌅🕰🧭', title: 'नमाज़ का समय' },
   { file: 'board-exam', path: '/board-exam/', emoji: '📝', deco: '📚⏳✏', title: 'Board Exam 2027' },
   { file: 'up-board-2027', path: '/board-exam/up-board-2027/', emoji: '🏫', deco: '📝⏳✏', title: 'UP Board 2027' },
+  { file: 'kitne-din-baaki', path: '/kitne-din-baaki/', emoji: '⏳', deco: '🎉📅🪔', title: 'कितने दिन बाक़ी' },
   { file: 'income-tax', path: '/income-tax/', emoji: '💰', deco: '🧾📊🇮🇳', title: 'Income Tax 2026-27' },
 ];
 export const OG_CARDS = [...AARTI, ...VYAK, ...APPS, ...EXTRA];

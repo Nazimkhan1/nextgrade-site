@@ -41,6 +41,7 @@ import { buildNamaz } from './src/namaz.mjs';
 import { buildBoardExam } from './src/board-exam.mjs';
 import { buildUpBoard } from './src/up-board.mjs';
 import { buildApplications, APP_NAV } from './src/application.mjs';
+import { buildCountdown, CD_NAV } from './src/countdown.mjs';
 import { buildChalisa } from './src/hanuman-chalisa.mjs';
 import { buildAarti } from './src/aarti.mjs';
 import { buildVyakaran, VYAKARAN_NAV } from './src/vyakaran.mjs';
@@ -289,7 +290,7 @@ const menuFor = (L) => {
   const groups = [
     [M.stories, [['/kahani/', M.allStories], ...['panchatantra', 'akbar-birbal', 'tenali-raman', 'jataka', 'aesop', 'lok-katha'].map((s) => [`/kahani/${s}/`, M[s]])]],
     [M.study, [...(ESSAYS.length ? [['/nibandh/', M.nibandh]] : []), ...(SPEECHES.length ? [['/speech/', M.speech]] : []), ...(PAHELI_LIVE ? [['/paheliyan/', M.paheli]] : []), ...(FF_LIVE ? [['/full-form/', M.ff]] : []), ...(BABY_LIVE ? [['/naam/', M.naam]] : []), ...Object.entries(VYAKARAN_NAV[L.code] || {}), ...(APP_NAV[L.code] ? [['/application/', APP_NAV[L.code]]] : [])]],
-    [M.fest, [['/festivals/', M.festivals], [`/festivals/${LIST_YEAR}/`, M.dates(LIST_YEAR)], [`/calendar/${CAL_YEAR}/`, CT[L.code].nav], ['/bangla-tarikh/', BT_NAV[L.code]], ['/wishes/', M.wishes], ['/wish-card/', M.card], ...(SHAADI_LIVE ? [['/shaadi-card/', M.shaadiCard]] : []), ...(NAAM_LIVE ? [['/naam-wali-image/', M.naamImg]] : []), ['/islamic-calendar/', M.islamic]]],
+    [M.fest, [['/festivals/', M.festivals], [`/festivals/${LIST_YEAR}/`, M.dates(LIST_YEAR)], ['/kitne-din-baaki/', CD_NAV[L.code]], [`/calendar/${CAL_YEAR}/`, CT[L.code].nav], ['/bangla-tarikh/', BT_NAV[L.code]], ['/wishes/', M.wishes], ['/wish-card/', M.card], ...(SHAADI_LIVE ? [['/shaadi-card/', M.shaadiCard]] : []), ...(NAAM_LIVE ? [['/naam-wali-image/', M.naamImg]] : []), ['/islamic-calendar/', M.islamic]]],
     [M.games, [['/games/', M.allGames], ...(KHEL.length ? [['/khel/', M.khel]] : [])]],
     [M.kids, [['/kids/', M.kidsAll], ...KIDS_SETS.slice(0, 8).map((s) => [`/kids/${s.slug}/`, s.name[L.code] || s.name.en])]],
     [M.tools, [...(tools.length ? [['/tools/', M.allTools]] : []), ...(CALCS.length ? [['/calculator/', M.calc]] : []), ['/mausam/', WT[L.code].nav], ['/sarkari-guide/', SARKARI_NAV[L.code]], ['/number-in-words/', NW_NAV[L.code]], ['/desi-naap/', DN_NAV[L.code]], ['/ghar-banane-ka-kharcha/', CC_NAV[L.code]], ['/solar-calculator/', SOLAR_NAV[L.code]], ['/inverter-calculator/', INV_NAV[L.code]], ['/rto/', RTO_NAV[L.code]], ['/time/', WORLD_NAV[L.code][0]], ['/sunrise-sunset/', SC_NAV[L.code]], ['/currency/', WORLD_NAV[L.code][1]], ['/ghoomne-ki-jagah/', TT[L.code].nav], ['/nuskhe/', NUSKHE_UI[L.code].menu], ['/surya-namaskar/', { hi: 'सूर्य नमस्कार', en: 'Surya Namaskar', hinglish: 'Surya Namaskar', bn: 'সূর্য নমস্কার' }[L.code]], ['/pranayam/', PRANAYAM_NAV[L.code]], ['/apps/', M.apps]]],
@@ -769,6 +770,9 @@ ${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('\n')}
   buildBanglaTarikh(L, { page, write, P, esc, T, breadcrumbLd, today: todayIST() });
   buildAaj(L, { page, write, P, esc, T, breadcrumbLd, festName: (slug, LL) => { const f = allFestivals.find((z) => z.slug === slug); return f ? lf(f, LL).name : null; } });
   if (L.code === 'en') buildRegionalWishes(L, { page, write, esc, T, breadcrumbLd });
+
+  // "Kitne din baaki" hub: every upcoming festival (same dates as the festival pages) + board exams, live counters
+  buildCountdown(L, { page, write, P, esc, T, breadcrumbLd, LANGS, today: todayIST(), fmtDate: fmt, wdName: weekday, events: festivals.map((f) => { const x = lf(f, L), nd = nextFestivalDate(f.slug, L.code, x.name, todayIST()); return nd && { name: x.name, emoji: f.emoji, ymd: nd.ymd, approx: nd.approx, path: `/festivals/${f.slug}/`, date: nd.date, weekday: nd.weekday }; }).filter(Boolean) });
 
   // Festival pages
   festivals.forEach((f, i) => {
@@ -1882,6 +1886,7 @@ const lastmodFor = (url) => {
   { const kd = path.match(/^\/kids\/([^/]+)\/$/); if (kd && KIDS_EXTRA[kd[1]]) return '2026-11-26'; }
   if (/^\/kids\/(barakhadi|matra|pahade)\/[^/]+\/$/.test(path)) return '2026-11-27';
   if (/^\/namaz-time\//.test(path)) return todayIST(); // tables move with the date
+  if (/^\/kitne-din-baaki\//.test(path)) return todayIST(); // day counts change daily
   { const ks = path.match(/^\/kahani\/([^/]+)\/$/); if (ks && STORY_MORE_SLUGS.includes(ks[1])) return '2026-11-27'; }
   if (['/aaj/', '/purnima/', '/amavasya/', '/ekadashi/'].includes(path)) return todayIST();
   if (path.startsWith('/currency/')) return todayIST(); // rates change daily
@@ -1900,7 +1905,7 @@ LANGS.forEach((L) => {
 const allUrls = [...urls, ...gameUrls, ...CELEBRATE.map((c) => `/celebrate/${c.slug}/`), ...tools.flatMap((tl) => [`/tools/${tl.slug}/`, ...(tl.pages || []).map((pg) => `/tools/${tl.slug}/${pg}/`)])];
 // Sitemap index (sitemap.xml) + one sitemap per section, so Search Console shows indexing per section (plan Q, 26 Nov)
 {
-  const GROUPS = [['mausam', ['mausam']], ['travel', ['ghoomne-ki-jagah']], ['kids', ['kids']], ['stories', ['kahani']], ['study', ['board-exam', 'nibandh', 'speech', 'paheliyan', 'full-form', 'naam', 'vilom-shabd', 'paryayvachi-shabd', 'muhavare', 'lokoktiyan', 'anekarthi-shabd', 'anek-shabdon-ke-liye-ek-shabd', 'application']], ['festivals', ['festivals', 'wishes', 'wish-card', 'calendar', 'bangla-tarikh', 'celebrate', 'naam-wali-image', 'islamic-calendar', 'shaadi-card', 'aaj', 'purnima', 'amavasya', 'ekadashi', 'ramzan', 'namaz-time']], ['games', ['games', 'khel', 'apps']], ['guides', ['hanuman-chalisa', 'aarti', 'sarkari-guide', 'creator-guide', 'pranayam', 'surya-namaskar', 'nuskhe']], ['rto', ['rto']], ['world', ['time', 'currency', 'sunrise-sunset']], ['tools', ['tools', 'calculator', 'income-tax', 'loan-emi', 'sip', 'number-in-words', 'desi-naap', 'ghar-banane-ka-kharcha', 'solar-calculator', 'inverter-calculator']]];
+  const GROUPS = [['mausam', ['mausam']], ['travel', ['ghoomne-ki-jagah']], ['kids', ['kids']], ['stories', ['kahani']], ['study', ['board-exam', 'nibandh', 'speech', 'paheliyan', 'full-form', 'naam', 'vilom-shabd', 'paryayvachi-shabd', 'muhavare', 'lokoktiyan', 'anekarthi-shabd', 'anek-shabdon-ke-liye-ek-shabd', 'application']], ['festivals', ['festivals', 'wishes', 'wish-card', 'calendar', 'bangla-tarikh', 'celebrate', 'naam-wali-image', 'islamic-calendar', 'shaadi-card', 'aaj', 'purnima', 'amavasya', 'ekadashi', 'ramzan', 'namaz-time', 'kitne-din-baaki']], ['games', ['games', 'khel', 'apps']], ['guides', ['hanuman-chalisa', 'aarti', 'sarkari-guide', 'creator-guide', 'pranayam', 'surya-namaskar', 'nuskhe']], ['rto', ['rto']], ['world', ['time', 'currency', 'sunrise-sunset']], ['tools', ['tools', 'calculator', 'income-tax', 'loan-emi', 'sip', 'number-in-words', 'desi-naap', 'ghar-banane-ka-kharcha', 'solar-calculator', 'inverter-calculator']]];
   const groupOf = (u) => { const seg = u.replace(/^\/(en|hinglish|bn)(?=\/)/, '').split('/')[1] || ''; const g = GROUPS.find(([, segs]) => segs.includes(seg)); return g ? g[0] : 'pages'; };
   const by = {};
   allUrls.forEach((u) => (by[groupOf(u)] ||= []).push(u));
