@@ -21,6 +21,35 @@
     var el = form.elements[name];
     return el ? el.value : '';
   }
+  // ---- Indian income tax, FY 2026-27 (new + old regime) ----
+  function slabTax(t, slabs) { var tax = 0, prev = 0; for (var i = 0; i < slabs.length; i++) { var lim = slabs[i][0], rate = slabs[i][1]; if (t > prev) tax += (Math.min(t, lim) - prev) * rate; prev = lim; } return tax; }
+  function surcharge(t, base, newR, slabs) {
+    var steps = newR ? [[2e7, .25], [1e7, .15], [5e6, .10]] : [[5e7, .37], [2e7, .25], [1e7, .15], [5e6, .10]];
+    for (var i = 0; i < steps.length; i++) if (t > steps[i][0]) {
+      var th = steps[i][0], sur = base * steps[i][1];
+      // marginal relief: tax + surcharge may not exceed (tax + surcharge at the threshold) + income above it
+      var atTh = slabTax(th, slabs), nextLower = steps[i + 1] ? steps[i + 1][1] : 0, cap = atTh * (1 + nextLower) + (t - th);
+      return Math.max(0, Math.min(sur, cap - base));
+    }
+    return 0;
+  }
+  function regime(t, newR, age) {
+    t = Math.max(0, t);
+    var slabs = newR ? [[4e5, 0], [8e5, .05], [12e5, .10], [16e5, .15], [20e5, .20], [24e5, .25], [Infinity, .30]]
+      : [[age === '80' ? 5e5 : age === '60' ? 3e5 : 2.5e5, 0], [5e5, .05], [10e5, .20], [Infinity, .30]];
+    if (!newR && age === '80') slabs = [[5e5, 0], [10e5, .20], [Infinity, .30]];
+    var slab = slabTax(t, slabs), reb = 0;
+    if (newR) { if (t <= 12e5) reb = Math.min(slab, 60000); else if (slab > t - 12e5) reb = slab - (t - 12e5); }
+    else if (t <= 5e5) reb = Math.min(slab, 12500);
+    var base = slab - reb, sur = surcharge(t, base, newR, slabs), cess = (base + sur) * 0.04;
+    return { taxable: t, slab: slab, reb: reb, sur: sur, cess: cess, total: Math.round(base + sur + cess) };
+  }
+  function itaxBoth(inc, sal, age, c80, d80, hra, home, oth, nps) {
+    var n = regime(inc - (sal ? 75000 : 0) - nps, true, age);
+    var o = regime(inc - (sal ? 50000 : 0) - Math.min(c80, 150000) - d80 - hra - Math.min(home, 200000) - oth - nps, false, age);
+    return { n: n, o: o };
+  }
+
   function fmt(n, dp) {
     if (!isFinite(n)) return '—';
     var s = Number(n).toFixed(dp == null ? 2 : dp);
@@ -121,6 +150,34 @@
         var base = amt * 100 / (100 + r), gg = amt - base;
         show(row(S('total', 'Total (with GST)'), '₹ ' + fmt(amt)) + row('GST (' + fmt(r) + '%)', '₹ ' + fmt(gg)) + row(S('base', 'Base amount'), '₹ ' + fmt(base), true));
       }
+    },
+    itax: function () {
+      // FY 2026-27 (rates unchanged by Budget 2026). Returns both regimes; see src/calc-money.mjs for sources.
+      var inc = num('inc'); if (isNaN(inc) || inc <= 0) return err(S('fill', 'Please enter your yearly income.'));
+      var sal = val('sal') !== 'no', age = val('age') || 'lt60';
+      var z = function (n) { n = num(n); return isNaN(n) || n < 0 ? 0 : n; };
+      var r = itaxBoth(inc, sal, age, z('c80'), z('d80'), z('hra'), z('home'), z('oth'), z('nps'));
+      var col = function (x, name, best) {
+        return '<div class="calc-col' + (best ? ' best' : '') + '"><h3>' + name + (best ? ' ✓' : '') + '</h3>' + row(S('taxable', 'Taxable income'), '₹ ' + fmt(x.taxable, 0)) + row(S('tax', 'Tax'), '₹ ' + fmt(x.slab, 0)) +
+          (x.reb ? row(S('reb', 'Rebate'), '− ₹ ' + fmt(x.reb, 0)) : '') + (x.sur ? row(S('sur', 'Surcharge'), '₹ ' + fmt(x.sur, 0)) : '') + row(S('cess', 'Cess 4%'), '₹ ' + fmt(x.cess, 0)) +
+          row(S('total', 'Total tax'), '₹ ' + fmt(x.total, 0), true) + row(S('month', 'Per month'), '₹ ' + fmt(x.total / 12, 0)) + row(S('eff', 'Effective rate'), fmt(inc ? x.total / inc * 100 : 0, 1) + '%') + '</div>';
+      };
+      var d = r.o.total - r.n.total, bn = d >= 0;
+      show('<p class="calc-verdict">' + (Math.abs(d) < 1 ? S('same', 'Same tax in both') : S('better', 'Cheaper for you') + ': <b>' + (bn ? S('newR', 'New regime') : S('oldR', 'Old regime')) + '</b> — ' + S('save', 'You save') + ' ₹ ' + fmt(Math.abs(d), 0)) + '</p><div class="calc-cols">' + col(r.n, S('newR', 'New regime'), bn && Math.abs(d) >= 1) + col(r.o, S('oldR', 'Old regime'), !bn) + '</div><p class="calc-note">' + S('note', '') + '</p>');
+    },
+    salary: function () {
+      var ctc = num('ctc'); if (isNaN(ctc) || ctc <= 0) return err(S('fill', 'Please enter your yearly CTC.'));
+      var bp = parseFloat(val('bp') || '40') / 100, pfm = val('pf') || 'cap', gr = val('gr') === 'yes', reg = val('reg') || 'new';
+      var pt = num('pt'); if (isNaN(pt) || pt < 0) pt = 200;
+      // basic is a share of CTC; employer PF and gratuity come out of CTC (solve: CTC = gross + erPF + grat)
+      var basic = ctc * bp, pf = pfm === 'none' ? 0 : pfm === 'cap' ? Math.min(basic * 0.12, 21600) : basic * 0.12, grat = gr ? basic * 0.0481 : 0;
+      var gross = ctc - pf - grat;
+      var r = reg === 'old' ? itaxBoth(gross, true, 'lt60', Math.min(pf, 150000), 0, 0, 0, 0, 0).o : itaxBoth(gross, true, 'lt60', 0, 0, 0, 0, 0, 0).n;
+      var inY = gross - pf - pt * 12 - r.total;
+      show(row(S('inhand', 'In hand every month'), '₹ ' + fmt(inY / 12, 0), true) + row(S('inhandY', 'In hand for the year'), '₹ ' + fmt(inY, 0)) +
+        row(S('gross', 'Gross salary (month)'), '₹ ' + fmt(gross / 12, 0)) + row(S('basic', 'Basic (month)'), '₹ ' + fmt(basic / 12, 0)) +
+        row(S('epf', 'Your PF (month)'), '− ₹ ' + fmt(pf / 12, 0)) + row(S('pt', 'Professional tax'), '− ₹ ' + fmt(pt, 0)) + row(S('tax', 'Income tax (month)'), '− ₹ ' + fmt(r.total / 12, 0)) +
+        row(S('erpf', 'Employer PF (from CTC)'), '₹ ' + fmt(pf / 12, 0)) + (gr ? row(S('grat', 'Gratuity (from CTC)'), '₹ ' + fmt(grat / 12, 0)) : '') + '<p class="calc-note">' + S('note', '') + '</p>');
     },
     paycomm: function () {
       // 8th Pay Commission estimate: new basic = current basic × fitment factor (factor not final yet)

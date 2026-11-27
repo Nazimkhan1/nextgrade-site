@@ -161,6 +161,8 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 ## Free online calculators (run in the browser)
 
 - [All calculators](https://nextgrade.in/en/calculator/)
+- [Income Tax Calculator (FY 2026-27)](https://nextgrade.in/en/calculator/income-tax/): Enter your yearly income and see how much tax you pay under the new and the old regime — and which one is cheaper for you.
+- [In-hand Salary Calculator](https://nextgrade.in/en/calculator/salary/): Enter your yearly CTC (cost to company) and see what reaches your bank account every month after PF, professional tax and income tax.
 - [Age Calculator](https://nextgrade.in/en/calculator/age/): Enter your date of birth to find how many years, months and days old you are — and how many days are left until your next birthday.
 - [Percentage Calculator](https://nextgrade.in/en/calculator/percentage/): Quickly find a percentage of any number — for example, "10% of 500 = 50".
 - [EMI Calculator](https://nextgrade.in/en/calculator/emi/): Enter the loan amount, interest rate and tenure to find your monthly instalment (EMI), total interest and total payment.
@@ -283,6 +285,8 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 
 ## Converters and calculators
 
+- [Income tax calculator FY 2026-27 — new vs old regime side by side (₹12 lakh rebate, surcharge, cess)](https://nextgrade.in/en/calculator/income-tax/)
+- [In-hand salary calculator — CTC to monthly take-home after PF, professional tax and income tax](https://nextgrade.in/en/calculator/salary/)
 - [Number to words — Indian (lakh/crore) and international, Hindi, Bengali, cheque wording](https://nextgrade.in/en/number-in-words/)
 - [Indian traditional units — tola, bhori, ratti, masha, seer, maund, gaj, haath, kos](https://nextgrade.in/en/desi-naap/)
 - [1 tola in gram](https://nextgrade.in/en/desi-naap/1-tola-in-gram/)

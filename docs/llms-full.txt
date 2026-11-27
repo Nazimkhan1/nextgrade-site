@@ -66,6 +66,13 @@
 - Thumb rules: 1 kW makes ~120 units/month (~4/day), needs ~100 sq ft roof, installed cost ~₹55000–70000 per kW (estimate). 300 units/month → ~3 kW — https://nextgrade.in/en/solar-calculator/3-kw/
 - Inverter: VA = load W ÷ 0.8; battery Ah = W × hours ÷ (V × 0.8); 12V 150Ah ≈ 1,800 Wh — https://nextgrade.in/en/inverter-calculator/
 
+## Income tax, India — FY 2026-27 (tax year 2026-27; Budget 2026 kept the FY 2025-26 slabs; checked 27 Nov 2026)
+
+- New regime (default): up to ₹4 lakh nil; ₹4–8 lakh 5%; ₹8–12 lakh 10%; ₹12–16 lakh 15%; ₹16–20 lakh 20%; ₹20–24 lakh 25%; above ₹24 lakh 30%. Standard deduction ₹75,000 (salary/pension). Rebate up to ₹60,000: no tax if taxable income ≤ ₹12 lakh (salary ≤ ₹12.75 lakh); marginal relief just above — https://nextgrade.in/en/calculator/income-tax/
+- Old regime: up to ₹2.5 lakh nil (₹3 lakh at 60+, ₹5 lakh at 80+); ₹2.5–5 lakh 5%; ₹5–10 lakh 20%; above ₹10 lakh 30%. Standard deduction ₹50,000; rebate up to ₹12,500 if taxable income ≤ ₹5 lakh; 80C max ₹1.5 lakh, home-loan interest max ₹2 lakh.
+- Surcharge 10% (>₹50 lakh), 15% (>₹1 crore), 25% (>₹2 crore; new regime cap), 37% (>₹5 crore, old regime); health and education cess 4%.
+- Examples (new regime): salary ₹12.75 lakh → tax ₹0; salary ₹15 lakh → ₹97,500; CTC ₹10 lakh (basic 40%, PF ₹1,800/month, PT ₹200) → in-hand ≈ ₹79,500/month — https://nextgrade.in/en/calculator/salary/
+
 ## Number system
 
 - Indian system: 1 lakh = 1,00,000 (100 thousand); 10 lakh = 1 million; 1 crore = 1,00,00,000 (10 million); 100 crore = 1 billion — https://nextgrade.in/en/number-in-words/
