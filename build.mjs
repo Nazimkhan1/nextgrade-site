@@ -284,7 +284,7 @@ const menuFor = (L) => {
 // Voice used by the browser to read stories aloud.
 const SPEECH = { hi: 'hi-IN', en: 'en-IN', hinglish: 'en-IN', bn: 'bn-IN' };
 
-function page(L, { path, title, description, body, jsonLd = [], scripts = [], langs = LANGS, extraFonts = '' }) {
+function page(L, { path, title, description, body, jsonLd = [], scripts = [], langs = LANGS, extraFonts = '', noindex = false, altLangs = langs }) {
   const T = ui[L.code];
   const url = `${SITE}${P(L, path)}`;
   const inSec = (href) => href !== '/' && path.startsWith(href);
@@ -296,7 +296,7 @@ function page(L, { path, title, description, body, jsonLd = [], scripts = [], la
   const switcher = langs.length > 1
     ? `<details class="lang-menu"><summary aria-label="${T.langLabel}">🌐 <span>${ui[L.code].langName}</span></summary><ul>${langs.map((l) => `<li><a href="${P(l, path)}" hreflang="${l.hreflang}" lang="${l.html}"${l.code === L.code ? ' aria-current="true"' : ''}>${ui[l.code].langName}${l.code === L.code ? ' ✓' : ''}</a></li>`).join('')}</ul></details>`
     : '';
-  const alternates = langs.length > 1 ? [...langs.map((l) => `<link rel="alternate" hreflang="${l.hreflang}" href="${SITE}${P(l, path)}">`), `<link rel="alternate" hreflang="x-default" href="${SITE}${path}">`].join('\n') : '';
+  const alternates = altLangs.length > 1 ? [...altLangs.map((l) => `<link rel="alternate" hreflang="${l.hreflang}" href="${SITE}${P(l, path)}">`), `<link rel="alternate" hreflang="x-default" href="${SITE}${path}">`].join('\n') : '';
   const ld = jsonLd.map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join('\n');
   const fonts = `family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700${L.code === 'bn' ? '&family=Noto+Sans+Bengali:wght@400;600;700' : ''}${extraFonts}&display=swap`;
   return `<!doctype html>
@@ -306,7 +306,7 @@ function page(L, { path, title, description, body, jsonLd = [], scripts = [], la
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
-<link rel="canonical" href="${url}">
+${noindex ? '<meta name="robots" content="noindex, follow">\n' : ''}<link rel="canonical" href="${url}">
 ${alternates}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${NAME}">
@@ -359,7 +359,7 @@ const write = (L, path, html) => {
   const file = join(OUT, full.endsWith('/') ? `${full}index.html` : full);
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, html);
-  if (full.endsWith('/')) urls.push(full);
+  if (full.endsWith('/') && !html.includes('<meta name="robots" content="noindex')) urls.push(full); // noindex pages stay out of the sitemap
   if (L && full.endsWith('/')) { const t = (html.match(/<title>([^<]*)<\/title>/) || [])[1]; if (t) (SEARCH[L.code] ||= []).push([t.replace(/\s*\|\s*NextGrade\s*$/, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"'), full]); }
 };
 const SEARCH = {};
@@ -725,7 +725,7 @@ ${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('\n')}
   }
 
   // Weather pages (/mausam/ + one page per city)
-  buildWeather(L, { page, write, P, esc, T, breadcrumbLd });
+  buildWeather(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildTravel(L, { page, write, P, esc, T, breadcrumbLd });
   buildNuskhe(L, { page, write, P, esc, T, breadcrumbLd, articleLd });
   buildSurya(L, { page, write, P, esc, T, breadcrumbLd, articleLd });

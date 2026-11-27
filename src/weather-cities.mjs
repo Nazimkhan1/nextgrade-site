@@ -407,7 +407,7 @@ export const CITIES = [
   {"slug": "mangalagiri", "en": "Mangalagiri", "hi": "मंगलगिरि", "bn": null, "state": "Andhra Pradesh", "lat": 16.431, "lon": 80.568, "pop": 107197},
   {"slug": "ranebennur", "en": "Ranebennur", "hi": "राणेबेन्नूर", "bn": "রাণীবেন্নুর", "state": "Karnataka", "lat": 14.622, "lon": 75.63, "pop": 106406},
   {"slug": "khurja", "en": "Khurja", "hi": "खुर्जा", "bn": null, "state": "Uttar Pradesh", "lat": 28.254, "lon": 77.855, "pop": 105909},
-  {"slug": "kishanganj-vidhan-sabha-constituency", "en": "Kishanganj Vidhan Sabha constituency", "hi": "किशनगंज", "bn": null, "state": "Bihar", "lat": 26.102, "lon": 87.955, "pop": 105782},
+  {"slug": "kishanganj-vidhan-sabha-constituency", "en": "Kishanganj", "hi": "किशनगंज", "bn": "কিশানগঞ্জ", "state": "Bihar", "lat": 26.102, "lon": 87.955, "pop": 105782},
   {"slug": "ponnani", "en": "Ponnani", "hi": "पोन्नानी", "bn": "পোন্নানি", "state": "Kerala", "lat": 10.767, "lon": 75.925, "pop": 105512},
   {"slug": "hindaun", "en": "Hindaun", "hi": "हिण्डौन सिटी", "bn": "হিন্দাউন", "state": "Rajasthan", "lat": 26.734, "lon": 77.035, "pop": 105452},
   {"slug": "jamalpur", "en": "Jamalpur", "hi": "जमालपुर", "bn": "জামালপুর", "state": "Bihar", "lat": 25.313, "lon": 86.489, "pop": 105434},

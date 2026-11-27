@@ -8,6 +8,7 @@
 import { CITIES, CLIMATE } from './weather-cities.mjs';
 import { PLACES } from './travel-places.mjs';
 import { sunTimes, hhmm } from './sun.mjs';
+import { cityExtra, indexLangs } from './weather-extra.mjs';
 const SUN_T = { hi: ['सूर्योदय और सूर्यास्त का समय', 'महीना (15 तारीख़)', 'सूर्योदय', 'सूर्यास्त', 'दिन की लंबाई', 'समय भारतीय मानक समय (IST) में, हिसाब से निकाला गया (पहाड़ों पर ±5 मिनट तक का अंतर हो सकता है)।', 'घंटे', 'आज'], en: ['Sunrise and sunset times', 'Month (15th)', 'Sunrise', 'Sunset', 'Day length', 'Times in IST, calculated (may differ by up to ±5 min, more in the hills).', 'h', 'Today'], hinglish: ['Sunrise aur sunset ka samay', 'Mahina (15 tareekh)', 'Sunrise', 'Sunset', 'Din ki lambaai', 'Samay IST mein, hisaab se nikaala gaya (pahaadon par ±5 minute tak ka antar ho sakta hai).', 'ghante', 'Aaj'], bn: ['সূর্যোদয় আর সূর্যাস্তের সময়', 'মাস (১৫ তারিখ)', 'সূর্যোদয়', 'সূর্যাস্ত', 'দিনের দৈর্ঘ্য', 'সময় ভারতীয় সময় (IST)-এ, হিসেব করে বের করা (পাহাড়ে ±৫ মিনিট পর্যন্ত তফাত হতে পারে)।', 'ঘণ্টা', 'আজ'] };
 const TRAVEL = Object.fromEntries(PLACES.map(([s, , text]) => [s, text]));
 const TRAVEL_T = { hi: ['घूमने के लिए', 'किस महीने कहाँ घूमें →'], en: ['For travellers', 'Where to go in which month →'], hinglish: ['Ghoomne ke liye', 'Kis mahine kahan ghoomein →'], bn: ['বেড়াতে গেলে', 'কোন মাসে কোথায় যাবেন →'] };
@@ -150,7 +151,7 @@ const km = (a, b) => { const p = Math.PI / 180, x = (b.lon - a.lon) * p * Math.c
 const BIG = ['delhi', 'mumbai', 'kolkata', 'bengaluru', 'chennai', 'hyderabad', 'pune', 'ahmedabad', 'jaipur', 'lucknow', 'patna', 'kanpur', 'varanasi', 'prayagraj', 'bhopal', 'indore', 'nagpur', 'ranchi', 'guwahati', 'bhubaneswar', 'chandigarh', 'dehradun', 'surat', 'siliguri'];
 
 /** Build every weather page. ctx = the helpers from build.mjs. */
-export function buildWeather(L, { page, write, P, esc, T, breadcrumbLd, V }) {
+export function buildWeather(L, { page, write, P, esc, T, breadcrumbLd, V, LANGS }) {
   const W = WT[L.code], code = L.code;
   const name = (c) => cityName(code, c);
   const byPop = [...CITIES].sort((a, b) => b.pop - a.pop);
@@ -209,6 +210,7 @@ ${states.map((s) => `<div class="wx-state"><h3>${esc(stateName(code, s))}</h3><u
     }
     write(L, path, page(L, {
       path, title: W.title(n, c.en), description: W.desc(n),
+      noindex: !indexLangs(c).includes(code), altLangs: LANGS.filter((l) => indexLangs(c).includes(l.code)),
       jsonLd: [
         breadcrumbLd(L, [[T.nav.home, '/'], [W.nav, hub], [n, path]]),
         { '@context': 'https://schema.org', '@type': 'Place', name: n, alternateName: c.en, address: { '@type': 'PostalAddress', addressRegion: c.state, addressCountry: 'IN' }, geo: { '@type': 'GeoCoordinates', latitude: c.lat, longitude: c.lon } },
@@ -222,6 +224,7 @@ ${states.map((s) => `<div class="wx-state"><h3>${esc(stateName(code, s))}</h3><u
 <div class="ad" aria-hidden="true"></div>
 ${TRAVEL[c.slug] ? `<h2>🧳 ${esc(TRAVEL_T[code][0])}</h2><p>${esc(TRAVEL[c.slug][code])} <a href="${P(L, '/ghoomne-ki-jagah/')}">${esc(TRAVEL_T[code][1])}</a></p>` : ''}
 ${aboutP}
+${cityExtra(c, { code, esc, name, monthName, stateName, link: (x, t) => `<a href="${P(L, `${hub}${x.slug}/`)}">${esc(t)}</a>` })}
 ${climate}
 ${sunTable(c)}
 <h2>${esc(W.nearH)}</h2>
