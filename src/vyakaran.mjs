@@ -290,8 +290,153 @@ const MUHAVARE = `अंगूठा दिखाना|साफ़ मना �
 हाथ पर हाथ धरे बैठना|कुछ न करना|हाथ पर हाथ धरे बैठने से नौकरी नहीं मिलेगी।|to sit idle
 हाथ-पाँव फूलना|घबरा जाना|मंच पर जाते ही उसके हाथ-पाँव फूल गए।|to panic`;
 
+const LOKOKTI = `अधजल गगरी छलकत जाय|कम जानने वाला ज़्यादा दिखावा करता है|मोहन ने दो दिन गिटार सीखा और सबको गुरु बनकर सिखाने लगा — अधजल गगरी छलकत जाय।|an empty vessel makes the most noise
+अंधों में काना राजा|मूर्खों के बीच थोड़ा जानने वाला भी बड़ा माना जाता है|गाँव में किसी को फ़ोन चलाना नहीं आता, तो थोड़ा जानने वाला राजू अंधों में काना राजा बन गया।|in the land of the blind the one-eyed man is king
+अकेला चना भाड़ नहीं फोड़ सकता|अकेला आदमी बड़ा काम नहीं कर सकता|गली की सफ़ाई सबको मिलकर करनी होगी, अकेला चना भाड़ नहीं फोड़ सकता।|one person alone cannot achieve much
+अब पछताए होत क्या जब चिड़िया चुग गई खेत|समय निकल जाने पर पछताने से कोई लाभ नहीं|साल भर पढ़ा नहीं, अब रोने से क्या — अब पछताए होत क्या जब चिड़िया चुग गई खेत।|no use crying over spilt milk
+आ बैल मुझे मार|जान-बूझकर मुसीबत मोल लेना|सोते कुत्ते को छेड़ना तो आ बैल मुझे मार वाली बात है।|to invite trouble
+आगे कुआँ पीछे खाई|दोनों तरफ़ मुसीबत|नौकरी छोड़ूँ तो पैसे नहीं, न छोड़ूँ तो सेहत नहीं — आगे कुआँ पीछे खाई।|between the devil and the deep sea
+आम के आम गुठलियों के दाम|एक चीज़ से दोहरा लाभ|पुरानी किताबें बेचीं तो पैसे भी मिले और कमरा भी खाली हुआ — आम के आम गुठलियों के दाम।|to kill two birds with one stone
+उल्टा चोर कोतवाल को डाँटे|दोषी ही उल्टा दूसरे पर दोष लगाए|ग़लती ख़ुद की और डाँट रहा है दुकानदार को — उल्टा चोर कोतवाल को डाँटे।|the guilty one accusing the innocent
+ऊँची दुकान फीका पकवान|नाम बड़ा पर गुण कम|इतना बड़ा होटल, पर खाना बेस्वाद — ऊँची दुकान फीका पकवान।|great show, little substance
+एक अनार सौ बीमार|चीज़ एक और चाहने वाले बहुत|एक नौकरी के लिए हज़ार अर्ज़ियाँ — एक अनार सौ बीमार।|too many seekers for one thing
+एक पंथ दो काज|एक काम से दो काम बन जाना|बाज़ार गया तो बिजली का बिल भी भर आया — एक पंथ दो काज।|two jobs done in one trip
+ओखली में सिर दिया तो मूसल से क्या डरना|कठिन काम शुरू किया तो मुश्किलों से क्या डरना|पहाड़ चढ़ने निकले हो तो थकान से क्या घबराना — ओखली में सिर दिया तो मूसल से क्या डरना।|once committed, don't fear the hardships
+कभी नाव गाड़ी पर कभी गाड़ी नाव पर|समय बदलता रहता है, सबको एक-दूसरे की ज़रूरत पड़ती है|आज तुम मदद करो, कल मैं करूँगा — कभी नाव गाड़ी पर कभी गाड़ी नाव पर।|everyone needs everyone at some time
+का बरखा जब कृषि सुखाने|मौका निकल जाने पर मदद बेकार|परीक्षा के बाद किताब लाकर दी तो क्या — का बरखा जब कृषि सुखाने।|help that comes too late is useless
+कोयले की दलाली में हाथ काले|बुरे काम में साथ देने से बदनामी मिलती है|चोरों के साथ घूमोगे तो बदनाम होगे ही — कोयले की दलाली में हाथ काले।|bad company brings a bad name
+खोदा पहाड़ निकली चुहिया|बहुत मेहनत पर फल बहुत थोड़ा|पूरा दिन लाइन में लगे और मिला एक फ़ॉर्म — खोदा पहाड़ निकली चुहिया।|much ado about nothing
+घर का भेदी लंका ढाए|घर का आदमी भेद खोले तो बड़ा नुकसान होता है|दुकान का राज़ कर्मचारी ने ही बता दिया — घर का भेदी लंका ढाए।|an insider's betrayal does the most harm
+घर की मुर्गी दाल बराबर|घर की चीज़ या आदमी की कद्र नहीं होती|माँ के हाथ का खाना रोज़ मिलता है, इसलिए घर की मुर्गी दाल बराबर लगता है।|familiarity breeds contempt
+चोर की दाढ़ी में तिनका|दोषी ख़ुद ही डरा-डरा रहता है|पैसों की बात छिड़ते ही वह घबरा गया — चोर की दाढ़ी में तिनका।|a guilty conscience gives itself away
+जल में रहकर मगर से बैर|जिसके साथ रहना है उससे दुश्मनी ठीक नहीं|अपने ही अफ़सर से रोज़ लड़ना जल में रहकर मगर से बैर है।|don't fight the one you depend on
+जहाँ चाह वहाँ राह|इच्छा पक्की हो तो रास्ता मिल ही जाता है|गरीबी में भी उसने पढ़ाई पूरी की — जहाँ चाह वहाँ राह।|where there's a will there's a way
+जितनी चादर उतने पैर पसारो|आमदनी के हिसाब से ख़र्च करो|उधार लेकर महँगा फ़ोन मत लो, जितनी चादर उतने पैर पसारो।|cut your coat according to your cloth
+जिसकी लाठी उसकी भैंस|ताकतवर की ही चलती है|कमज़ोर की कोई नहीं सुनता — जिसकी लाठी उसकी भैंस।|might is right
+जैसी करनी वैसी भरनी|जैसा काम वैसा फल|सबको धोखा दिया, आज ख़ुद धोखा खाया — जैसी करनी वैसी भरनी।|as you sow, so shall you reap
+थोथा चना बाजे घना|गुणहीन आदमी ज़्यादा शोर करता है|जो कुछ नहीं जानता वही सबसे ज़्यादा बोलता है — थोथा चना बाजे घना।|empty vessels make the most noise
+दीवार के भी कान होते हैं|गुप्त बात सावधानी से करनी चाहिए|धीरे बोलो, दीवार के भी कान होते हैं।|walls have ears
+दूध का दूध पानी का पानी|सच्चा और सही न्याय|पंचायत ने दोनों की सुनकर दूध का दूध पानी का पानी कर दिया।|fair and exact justice
+दूर के ढोल सुहावने|दूर की चीज़ें अच्छी लगती हैं|शहर की ज़िंदगी गाँव से अच्छी लगती थी, पर दूर के ढोल सुहावने होते हैं।|the grass is always greener on the other side
+नाच न जाने आँगन टेढ़ा|काम न आने पर बहाने बनाना|गेंद नहीं पकड़ पाया तो धूप को दोष दे रहा है — नाच न जाने आँगन टेढ़ा।|a bad workman blames his tools
+नौ नकद न तेरह उधार|नकद का थोड़ा, उधार के ज़्यादा से अच्छा|आज के सौ रुपये अगले साल के दो सौ से अच्छे — नौ नकद न तेरह उधार।|a bird in the hand is worth two in the bush
+न रहेगा बाँस न बजेगी बाँसुरी|झगड़े की जड़ ही ख़त्म कर देना|बच्चे टीवी के लिए लड़ते थे, पापा ने टीवी बंद कर दिया — न रहेगा बाँस न बजेगी बाँसुरी।|remove the root of the problem
+बंदर क्या जाने अदरक का स्वाद|मूर्ख अच्छी चीज़ की कद्र नहीं जानता|उसे पुरानी किताबों का मोल क्या पता — बंदर क्या जाने अदरक का स्वाद।|pearls before swine
+बूँद-बूँद से घड़ा भरता है|थोड़ा-थोड़ा जोड़ने से बहुत हो जाता है|रोज़ दस रुपये बचाए तो साल में बड़ी रकम बनी — बूँद-बूँद से घड़ा भरता है।|little drops make an ocean
+बोए पेड़ बबूल का तो आम कहाँ से होय|बुरे काम का अच्छा फल नहीं मिलता|साल भर खेलते रहे और अच्छे नंबर चाहिए — बोए पेड़ बबूल का तो आम कहाँ से होय।|bad deeds don't bring good results
+भैंस के आगे बीन बजाए भैंस खड़ी पगुराय|नासमझ को समझाना बेकार|उसे कितना भी समझाओ, भैंस के आगे बीन बजाने जैसा है।|casting pearls before swine
+मान न मान मैं तेरा मेहमान|ज़बरदस्ती गले पड़ना|बिना बुलाए शादी में आ गया — मान न मान मैं तेरा मेहमान।|an uninvited guest forcing himself in
+मुँह में राम बगल में छुरी|ऊपर से मीठा, अंदर से कपटी|उसकी मीठी बातों पर मत जाओ, मुँह में राम बगल में छुरी है।|a wolf in sheep's clothing
+सावन के अंधे को हरा ही हरा सूझता है|जो एक ही हालत में रहा, उसे सब वैसा ही दिखता है|अमीर को लगता है सब आराम में हैं — सावन के अंधे को हरा ही हरा सूझता है।|seeing everything through one's own situation
+साँप भी मर जाए और लाठी भी न टूटे|काम भी बन जाए और नुकसान भी न हो|ऐसा रास्ता निकालो कि साँप भी मर जाए और लाठी भी न टूटे।|to solve a problem without any loss
+सौ सुनार की एक लोहार की|कमज़ोर की सौ चोटों पर ताकतवर की एक भारी|सब बहस करते रहे, दादाजी की एक बात ने फ़ैसला कर दिया — सौ सुनार की एक लोहार की।|one strong blow outweighs many weak ones
+हाथ कंगन को आरसी क्या|जो सामने है उसे सबूत की ज़रूरत नहीं|तुम्हें यक़ीन नहीं तो ख़ुद चलकर देख लो — हाथ कंगन को आरसी क्या।|what is evident needs no proof
+होनहार बिरवान के होत चीकने पात|होनहार के गुण बचपन में ही दिख जाते हैं|पाँच साल की उम्र में ही वह शतरंज जीतने लगा — होनहार बिरवान के होत चीकने पात।|the child is father of the man
+घर में नहीं दाने अम्मा चली भुनाने|पास कुछ न होने पर भी दिखावा करना|तनख़्वाह मिली नहीं और पार्टी की तैयारी — घर में नहीं दाने अम्मा चली भुनाने।|showing off without the means`;
+
+const ANEKARTHI = `अंक|संख्या, गोद, नाटक का भाग, निशान|number, lap, act of a play, mark
+अंबर|आकाश, कपड़ा|sky, cloth
+अर्थ|मतलब, धन, कारण|meaning, wealth, purpose
+आम|एक फल, साधारण|mango, ordinary
+उत्तर|जवाब, एक दिशा|answer, north
+कर|हाथ, टैक्स, किरण, सूँड|hand, tax, ray, trunk
+कल|बीता हुआ दिन, आने वाला दिन, मशीन, चैन|yesterday, tomorrow, machine, peace
+काम|कार्य, इच्छा|work, desire
+काल|समय, मृत्यु, अकाल|time, death, famine
+कुल|वंश, सब मिलाकर|family line, total
+गुण|विशेषता, हुनर, धागा|quality, skill, thread
+घन|बादल, हथौड़ा, ठोस आकार|cloud, sledgehammer, cube
+जलज|कमल, मोती, शंख, मछली|lotus, pearl, conch, fish
+तात|पिता, भाई, प्यारा|father, brother, dear one
+तीर|बाण, किनारा|arrow, river bank
+दल|समूह, पत्ता, सेना|group, leaf, army
+द्विज|ब्राह्मण, पक्षी, दाँत|brahmin, bird, tooth
+धन|पैसा, जोड़ का चिह्न|wealth, plus sign
+पक्ष|तरफ़, पंख, पखवाड़ा|side, wing, fortnight
+पत्र|चिट्ठी, पत्ता, अख़बार|letter, leaf, newspaper
+पद|पैर, ओहदा, कविता का चरण|foot, post, verse
+पानी|जल, इज़्ज़त, चमक|water, honour, shine
+पृष्ठ|पन्ना, पीठ|page, back
+फल|खाने का फल, परिणाम, लाभ|fruit, result, gain
+बाल|केश, बच्चा|hair, child
+भाग|हिस्सा, भाग्य|part, fate
+मान|इज़्ज़त, माप, घमंड|honour, measure, pride
+मित्र|दोस्त, सूर्य|friend, sun
+रस|स्वाद, सार, जूस|taste, essence, juice
+लाल|एक रंग, बेटा, रत्न|red, son, gem
+वर|दूल्हा, वरदान, श्रेष्ठ|bridegroom, boon, best
+वर्ण|रंग, अक्षर, जाति|colour, letter, caste
+सारंग|मोर, हिरण, बादल, साँप, हाथी|peacock, deer, cloud, snake, elephant
+सोना|स्वर्ण, नींद लेना|gold, to sleep
+हरि|विष्णु, बंदर, सिंह, घोड़ा|Vishnu, monkey, lion, horse
+हल|खेत जोतने का औज़ार, समाधान|plough, solution
+हार|माला, पराजय|garland, defeat`;
+
+const EKSHABD = `जो ईश्वर में विश्वास रखे|आस्तिक|believer in God
+जो ईश्वर में विश्वास न रखे|नास्तिक|atheist
+जिसका कोई अंत न हो|अनंत|endless
+जो कभी न मरे|अमर|immortal
+जिसे जीता न जा सके|अजेय|invincible
+जो दिखाई न दे|अदृश्य|invisible
+जो पढ़ना-लिखना न जानता हो|निरक्षर|illiterate
+जिसके माता-पिता न हों|अनाथ|orphan
+जो दूसरों के अधीन हो|पराधीन|dependent
+जो किसी के अधीन न हो|स्वाधीन|independent
+जो किए उपकार को न माने|कृतघ्न|ungrateful
+जो किए उपकार को माने|कृतज्ञ|grateful
+जो बहुत बोलता हो|वाचाल|talkative
+जो कम बोलता हो|मितभाषी|of few words
+जो मीठा बोलता हो|मधुरभाषी|sweet-spoken
+जो सब कुछ जानता हो|सर्वज्ञ|all-knowing
+जो सब जगह मौजूद हो|सर्वव्यापी|omnipresent
+जिसकी तुलना न की जा सके|अतुलनीय|incomparable
+जिसका वर्णन न किया जा सके|अवर्णनीय|indescribable
+जो देखने योग्य हो|दर्शनीय|worth seeing
+जो पूजा के योग्य हो|पूजनीय|worthy of worship
+जो विश्वास के योग्य हो|विश्वसनीय|trustworthy
+जो आँखों के सामने हो|प्रत्यक्ष|visible, direct
+जो आँखों के सामने न हो|परोक्ष|indirect, hidden
+जो पहले कभी न हुआ हो|अभूतपूर्व|unprecedented
+जो पहले जन्मा हो (बड़ा भाई)|अग्रज|elder brother
+जो बाद में जन्मा हो (छोटा भाई)|अनुज|younger brother
+एक ही माँ से जन्मे|सहोदर|born of the same mother
+जो दूसरों की भलाई करे|परोपकारी|benevolent
+जो केवल अपना भला सोचे|स्वार्थी|selfish
+जो मांस खाता हो|मांसाहारी|non-vegetarian
+जो केवल शाकाहार करे|शाकाहारी|vegetarian
+जो गाँव में रहता हो|ग्रामीण|villager
+जो अपना देश छोड़कर दूसरी जगह बसा हो|प्रवासी|emigrant
+जो देश से प्रेम करे|देशभक्त|patriot
+जो देश से विश्वासघात करे|देशद्रोही|traitor
+जो दान करता हो|दानी|donor, charitable
+जिसने ऋण लिया हो|ऋणी|debtor
+जो कठिनाई से मिले|दुर्लभ|rare
+जो आसानी से मिल जाए|सुलभ|easily available
+जो सदा बना रहे|शाश्वत|eternal
+जो थोड़ी देर ही रहे|क्षणिक|momentary
+जिसकी आयु लंबी हो|दीर्घायु|long-lived
+जो सप्ताह में एक बार हो|साप्ताहिक|weekly
+जो महीने में एक बार हो|मासिक|monthly
+जो साल में एक बार हो|वार्षिक|yearly
+जो हर दिन हो|दैनिक|daily
+जो बिना वेतन के काम करे|अवैतनिक|unpaid, honorary
+जिसके पास कुछ भी न हो|अकिंचन|penniless
+जो पानी में रहे|जलचर|aquatic animal
+जो आकाश में उड़े|नभचर|creature of the sky
+जो ज़मीन पर रहे|थलचर|land animal
+जहाँ पहुँचना कठिन हो|दुर्गम|inaccessible
+जो कहा न जा सके|अकथनीय|unspeakable
+जिसकी कल्पना भी न की जा सके|अकल्पनीय|unimaginable
+जो नियम या क़ानून के विरुद्ध हो|अवैध|illegal
+जो किसी के बाद उसका अधिकार पाए|उत्तराधिकारी|successor, heir
+जो सबको प्रिय हो|लोकप्रिय|popular
+जो खाने योग्य हो|खाद्य|edible
+जो पीने योग्य हो|पेय|drinkable`;
+
+
 const rows = (s) => s.trim().split('\n').map((l) => l.split('|'));
 const V = rows(VILOM), PY = rows(PARYAY).map(([w, s, e]) => [w, s.split(', '), e]), MU = rows(MUHAVARE);
+const LK = rows(LOKOKTI), AN = rows(ANEKARTHI).map(([w, m, e]) => [w, m.split(', '), e]), ES = rows(EKSHABD);
 
 const TX = {
   vilom: {
@@ -327,15 +472,49 @@ const TX = {
       howH: 'Scoring well in exams', how: ['Write the meaning first, then a sentence that shows the meaning clearly.', 'Change the idiom’s verb to fit the tense (hona → ho gaya, ho gayi).', 'Build sentences from your own surroundings — they are easier to remember.'],
       faq: [['What is a muhavara?', 'A phrase that gives a special meaning instead of its literal one, e.g. “aankh ka taara” — the apple of one’s eye.'], ['Difference between muhavara and lokokti?', 'A lokokti is a full sentence with a lesson; a muhavara is a phrase that gives meaning only inside a sentence.'], ['Meaning of “nau do gyaarah hona”?', 'To run away.'], ['Meaning of “daal mein kaala hona”?', 'To suspect something is wrong — something fishy.']] },
   },
+  lokokti: {
+    path: '/lokoktiyan/', emoji: '📜',
+    hi: { nav: 'लोकोक्तियाँ', t: `लोकोक्तियाँ (कहावतें) और उनके अर्थ — ${LK.length} लोकोक्तियाँ, वाक्य प्रयोग सहित | NextGrade`, d: `${LK.length} प्रसिद्ध हिंदी लोकोक्तियाँ (कहावतें), उनका अर्थ और आसान वाक्य प्रयोग। लोकोक्ति और मुहावरे का फ़र्क, अभ्यास क्विज़।`, h1: '📜 लोकोक्तियाँ (कहावतें) और उनके अर्थ', lead: `${LK.length} प्रसिद्ध लोकोक्तियाँ — हर एक का सरल अर्थ और रोज़ की ज़िंदगी से बना वाक्य प्रयोग।`, th: ['लोकोक्ति', 'अर्थ', 'वाक्य प्रयोग'],
+      about: ['लोकोक्ति यानी "लोक की उक्ति" — लोगों के बीच चली आ रही ऐसी बात जिसमें किसी अनुभव का निचोड़ हो। इन्हें कहावत भी कहते हैं। "जैसी करनी वैसी भरनी" एक पूरा वाक्य है जो अपने-आप में सीख देता है। पीढ़ियों के अनुभव से बनी ये बातें छोटी होती हैं, पर बड़ी बात कह जाती हैं।', 'लोकोक्ति और मुहावरे में सबसे बड़ा फ़र्क यह है कि लोकोक्ति पूरा वाक्य होती है और अकेले भी अर्थ देती है, जबकि मुहावरा वाक्यांश होता है जो वाक्य में जुड़कर ही अर्थ देता है। लोकोक्ति के शब्द नहीं बदलते और उसे अक्सर वाक्य के अंत में, किसी बात को सिद्ध करने के लिए, जोड़ा जाता है — जैसे हमारे उदाहरणों में।', 'कई लोकोक्तियों में पुरानी बोलियों के शब्द हैं: "अधजल गगरी छलकत जाय" (आधी भरी मटकी छलकती है), "का बरखा जब कृषि सुखाने" (फ़सल सूखने के बाद बारिश का क्या लाभ) — यह तुलसीदास जी की रामचरितमानस से निकली पंक्ति है। अर्थ समझकर याद करें तो ये कभी नहीं भूलतीं।'],
+      howH: 'परीक्षा में कैसे लिखें', how: ['पहले अर्थ लिखें, फिर ऐसी स्थिति बताएँ जिसमें लोकोक्ति ठीक बैठे, और आख़िर में लोकोक्ति जोड़ें।', 'लोकोक्ति के शब्द न बदलें — "अधजल गगरी छलकत जाय" को "आधी गगरी छलकती है" न लिखें।', 'मिलती-जुलती लोकोक्तियाँ साथ याद करें: अधजल गगरी / थोथा चना बाजे घना।'],
+      faq: [['लोकोक्ति किसे कहते हैं?', 'लोगों में प्रचलित ऐसा पूरा वाक्य जो किसी अनुभव या सीख को थोड़े शब्दों में कहे, जैसे "जैसी करनी वैसी भरनी"।'], ['लोकोक्ति और मुहावरे में क्या अंतर है?', 'लोकोक्ति पूरा वाक्य है और अकेले अर्थ देती है; मुहावरा वाक्यांश है जो वाक्य में जुड़कर अर्थ देता है।'], ['"अधजल गगरी छलकत जाय" का अर्थ?', 'कम जानने वाला ज़्यादा दिखावा करता है।'], ['"नाच न जाने आँगन टेढ़ा" का अर्थ?', 'काम न आने पर बहाने बनाना।']] },
+    en: { nav: 'Lokoktiyan', t: `Hindi Lokoktiyan (Proverbs) with English Meaning — ${LK.length} Kahavat | NextGrade`, d: `${LK.length} popular Hindi lokoktiyan (proverbs, kahavat) with meaning in Hindi and English, an example sentence for each and a practice quiz.`, h1: '📜 Hindi Lokoktiyan — proverbs with meaning', lead: `${LK.length} popular Hindi proverbs (lokokti or kahavat), each with its meaning in Hindi and English, the nearest English proverb and an everyday example sentence.`, th: ['Lokokti', 'Meaning', 'Example sentence'],
+      about: ['Lokokti means “saying of the people” — a line handed down through generations that packs a lesson from experience. They are also called kahavat. “Jaisi karni waisi bharni” is a full sentence that teaches something on its own: as you sow, so shall you reap.', 'The key difference from a muhavara: a lokokti is a complete sentence and makes sense alone, while a muhavara is a phrase that only works inside a sentence. A lokokti’s words never change, and it is usually added at the end of a sentence to drive a point home — as in our examples.', 'Many proverbs keep old dialect words: “adhjal gagri chhalkat jaay” (a half-filled pot spills), “ka barkha jab krishi sukhaane” (what use is rain once the crop has dried) — a line from Tulsidas’s Ramcharitmanas. Learn the meaning and they stay with you.'],
+      howH: 'Writing them in exams', how: ['Write the meaning, describe a situation where it fits, and end with the proverb.', 'Never change a proverb’s words.', 'Learn similar proverbs together: adhjal gagri / thotha chana baaje ghana.'],
+      faq: [['What is a lokokti?', 'A popular complete saying that puts a lesson in a few words, e.g. “jaisi karni waisi bharni”.'], ['Lokokti vs muhavara?', 'A lokokti is a full sentence and stands alone; a muhavara is a phrase used inside a sentence.'], ['Meaning of “adhjal gagri chhalkat jaay”?', 'Those who know little show off the most — an empty vessel makes the most noise.'], ['Meaning of “naach na jaane aangan tedha”?', 'Making excuses when you can’t do something — a bad workman blames his tools.']] },
+  },
+  anekarthi: {
+    path: '/anekarthi-shabd/', emoji: '🔀',
+    hi: { nav: 'अनेकार्थी शब्द', t: `अनेकार्थी शब्द — ${AN.length} शब्द, हर एक के कई अर्थ (Anekarthi Shabd) | NextGrade`, d: `${AN.length} ज़रूरी अनेकार्थी शब्द — एक शब्द, कई अर्थ: कर, कल, अंबर, वर्ण, सारंग, हरि आदि। स्कूल परीक्षा के लिए सूची और अभ्यास क्विज़।`, h1: '🔀 अनेकार्थी शब्द', lead: `अनेकार्थी शब्द यानी ऐसे शब्द जिनके एक से ज़्यादा अर्थ होते हैं — जैसे "कल" बीता हुआ दिन भी है और आने वाला भी। यहाँ ${AN.length} ज़रूरी अनेकार्थी शब्द हैं।`, th: ['शब्द', 'अर्थ'],
+      about: ['"अनेक" यानी कई और "अर्थ" यानी मतलब। जिस शब्द के एक से ज़्यादा अर्थ हों, उसे अनेकार्थी शब्द कहते हैं। हिंदी में संस्कृत से आए बहुत से शब्द ऐसे हैं, इसलिए वाक्य पढ़कर ही पता चलता है कि यहाँ कौन सा अर्थ है।', 'उदाहरण देखिए: "किसान ने हल चलाया" में हल खेत जोतने का औज़ार है, पर "इस सवाल का हल निकालो" में हल का मतलब समाधान है। "माली ने हार बनाया" में हार माला है और "टीम की हार हुई" में पराजय। कविता में कवि जान-बूझकर ऐसे शब्द रखते हैं ताकि एक शब्द से दो अर्थ निकलें — इसे श्लेष अलंकार कहते हैं।', 'अनेकार्थी शब्द पर्यायवाची से अलग हैं। पर्यायवाची में कई शब्द और एक अर्थ होता है (सूर्य — रवि, भानु), अनेकार्थी में एक शब्द और कई अर्थ (कर — हाथ, टैक्स, किरण)। परीक्षा में आम तौर पर हर शब्द के दो अर्थ लिखने होते हैं, और कभी-कभी दोनों अर्थों के अलग वाक्य भी।'],
+      howH: 'याद करने के आसान तरीके', how: ['हर शब्द के दो अर्थों के छोटे वाक्य बनाएँ: "माँ की गोद (अंक) में बच्चा है; परीक्षा में अच्छे अंक आए।"', 'सारंग और हरि जैसे बहुत अर्थ वाले शब्दों की अलग सूची बनाकर दीवार पर लगाएँ।', 'नीचे वाला क्विज़ खेलें — हर बार अलग अर्थ पूछा जाता है।'],
+      faq: [['अनेकार्थी शब्द किसे कहते हैं?', 'जिस शब्द के एक से ज़्यादा अर्थ हों, जैसे "कर" — हाथ, टैक्स, किरण।'], ['"कल" के कितने अर्थ हैं?', 'बीता हुआ दिन, आने वाला दिन, मशीन और चैन।'], ['"सारंग" के अर्थ क्या हैं?', 'मोर, हिरण, बादल, साँप, हाथी — यह सबसे ज़्यादा अर्थों वाले शब्दों में गिना जाता है।'], ['अनेकार्थी और पर्यायवाची में क्या अंतर है?', 'अनेकार्थी में एक शब्द के कई अर्थ, पर्यायवाची में एक अर्थ के कई शब्द।']] },
+    en: { nav: 'Anekarthi Shabd', t: `Anekarthi Shabd — ${AN.length} Hindi Words with Many Meanings (English meanings) | NextGrade`, d: `${AN.length} important anekarthi shabd — Hindi words with more than one meaning (kar, kal, ambar, varn, saarang, hari…) with English meanings and a practice quiz.`, h1: '🔀 Anekarthi Shabd — one word, many meanings', lead: `Anekarthi shabd are Hindi words with more than one meaning — “kal” is both yesterday and tomorrow. Here are ${AN.length} important ones with English meanings.`, th: ['Word', 'Meanings', 'In English'],
+      about: ['“Anek” means many and “arth” means meaning: a word with several meanings is an anekarthi shabd. Many Sanskrit-origin Hindi words are like this, so only the sentence tells you which meaning is meant.', 'For example, in “kisaan ne hal chalaaya” hal is a plough, but in “is sawaal ka hal nikaalo” it means a solution. “Maali ne haar banaaya” — a garland; “team ki haar hui” — a defeat. Poets use such words on purpose so that one word carries two meanings; this figure of speech is called shlesh alankaar.', 'Anekarthi words are the reverse of synonyms. Paryayvachi means many words, one meaning (soorya — ravi, bhaanu); anekarthi means one word, many meanings (kar — hand, tax, ray). Exams usually ask for two meanings of each word, sometimes with a sentence for each.'],
+      howH: 'Easy ways to learn them', how: ['Make a short sentence for two meanings of each word.', 'Keep a separate list of words with many meanings, like saarang and hari.', 'Play the quiz below — it asks a different meaning each time.'],
+      faq: [['What is anekarthi shabd?', 'A word with more than one meaning, e.g. “kar” — hand, tax, ray of light.'], ['How many meanings does “kal” have?', 'Yesterday, tomorrow, machine and peace.'], ['Meanings of “saarang”?', 'Peacock, deer, cloud, snake, elephant.'], ['Anekarthi vs paryayvachi?', 'Anekarthi: one word, many meanings. Paryayvachi: one meaning, many words.']] },
+  },
+  ekshabd: {
+    path: '/anek-shabdon-ke-liye-ek-shabd/', emoji: '🎯',
+    hi: { nav: 'अनेक शब्दों के लिए एक शब्द', t: `अनेक शब्दों के लिए एक शब्द — ${ES.length} उदाहरण, अभ्यास के साथ | NextGrade`, d: `${ES.length} ज़रूरी "अनेक शब्दों के लिए एक शब्द" (वाक्यांश के लिए एक शब्द) — आस्तिक, अजेय, सर्वज्ञ, दुर्लभ आदि। नियम, सूची और अभ्यास क्विज़।`, h1: '🎯 अनेक शब्दों के लिए एक शब्द', lead: `लंबी बात को एक शब्द में कहना — जैसे "जो ईश्वर में विश्वास रखे" = आस्तिक। यहाँ ${ES.length} ज़रूरी उदाहरण हैं।`, th: ['वाक्यांश', 'एक शब्द'],
+      about: ['भाषा में कसावट लाने के लिए कई शब्दों की जगह एक शब्द रखा जाता है। "जो कभी न मरे" की जगह "अमर", "जिसे जीता न जा सके" की जगह "अजेय"। इसे वाक्यांश के लिए एक शब्द या शब्द-संक्षेप भी कहते हैं। अच्छे निबंध, पत्र और उत्तर में ये शब्द भाषा को छोटा और सुंदर बनाते हैं।', 'इनके पीछे कुछ नियम हैं जिन्हें समझ लें तो नए शब्द ख़ुद बना सकते हैं: "-नीय" यानी योग्य (दर्शनीय = देखने योग्य, पूजनीय, विश्वसनीय); "अ-" यानी नहीं (अजेय, अदृश्य, अमर); "सर्व-" यानी सब (सर्वज्ञ, सर्वव्यापी); "-चर" यानी चलने/रहने वाला (जलचर, नभचर, थलचर); "-इक" समय के साथ (दैनिक, मासिक, वार्षिक)।', 'ध्यान दें कि एक शब्द वाक्यांश का पूरा अर्थ दे। "जो पढ़ना-लिखना न जानता हो" के लिए "निरक्षर" या "अनपढ़" दोनों चलते हैं, पर "अज्ञानी" नहीं, क्योंकि अज्ञानी का मतलब ज्ञान न होना है, पढ़ाई न होना नहीं। कई वाक्यांश जोड़ों में आते हैं (आस्तिक/नास्तिक, कृतज्ञ/कृतघ्न) — इन्हें साथ याद करें।'],
+      howH: 'याद करने के आसान तरीके', how: ['ऊपर दिए नियम (-नीय, अ-, सर्व-, -चर, -इक) पहले पक्के करें — आधे शब्द ख़ुद समझ आ जाएँगे।', 'जोड़े साथ याद करें: अग्रज-अनुज, सुलभ-दुर्लभ, पराधीन-स्वाधीन।', 'नीचे वाला क्विज़ रोज़ खेलें।'],
+      faq: [['"जो ईश्वर में विश्वास रखे" के लिए एक शब्द?', 'आस्तिक। उल्टा — नास्तिक।'], ['"जिसका कोई अंत न हो" के लिए एक शब्द?', 'अनंत।'], ['"जो सब कुछ जानता हो" के लिए एक शब्द?', 'सर्वज्ञ।'], ['"जो उपकार न माने" के लिए एक शब्द?', 'कृतघ्न। जो उपकार माने — कृतज्ञ।']] },
+    en: { nav: 'One Word Substitution (Hindi)', t: `Anek Shabdon Ke Liye Ek Shabd — ${ES.length} Hindi One-Word Substitutions | NextGrade`, d: `${ES.length} Hindi one-word substitutions (anek shabdon ke liye ek shabd) with English meanings — aastik, ajey, sarvagya, durlabh and more — with rules and a practice quiz.`, h1: '🎯 Anek shabdon ke liye ek shabd — Hindi one-word substitution', lead: `Saying a long phrase in one word — “jo Ishwar mein vishwaas rakhe” (one who believes in God) = aastik. Here are ${ES.length} important examples with English meanings.`, th: ['Phrase', 'One word', 'In English'],
+      about: ['To make language tight, one word replaces a whole phrase: “jo kabhi na mare” (one who never dies) becomes “amar”, “jise jeeta na ja sake” becomes “ajey” (invincible). Good essays, letters and answers use these to sound short and polished.', 'A few patterns make many of them easy: “-neey” means worthy of (darshaneey = worth seeing, poojaneey, vishwasaneey); “a-” means not (ajey, adrishya, amar); “sarva-” means all (sarvagya, sarvavyaapi); “-char” means one that moves or lives (jalchar, nabhchar, thalchar); “-ik” for time (dainik, maasik, vaarshik).', 'The one word must carry the full meaning. For “one who cannot read or write”, “niraksar” or “anpadh” is right but “agyaani” is not — agyaani means lacking knowledge, not lacking schooling. Many come in pairs (aastik/naastik, kritagya/kritaghn); learn them together.'],
+      howH: 'Easy ways to learn them', how: ['Master the patterns (-neey, a-, sarva-, -char, -ik) first.', 'Learn pairs together: agraj–anuj, sulabh–durlabh, paraadheen–swaadheen.', 'Play the quiz below every day.'],
+      faq: [['One word for “one who believes in God”?', 'Aastik; the opposite is naastik.'], ['One word for “that which has no end”?', 'Anant.'], ['One word for “one who knows everything”?', 'Sarvagya.'], ['One word for “one who does not acknowledge a favour”?', 'Kritaghn; one who does is kritagya.']] },
+  },
 };
 const UI = {
-  hi: { quizH: 'अभ्यास करें — 10 सवाल', quizQ: { vilom: (w) => `"${w}" का विलोम शब्द क्या है?`, paryay: (w) => `"${w}" का पर्यायवाची कौन सा है?`, muhavare: (w) => `"${w}" का अर्थ क्या है?` }, start: 'क्विज़ शुरू करें', again: 'फिर से खेलें', score: 'आपके अंक', right: 'सही!', wrong: 'सही जवाब:', faqH: 'अक्सर पूछे जाने वाले सवाल', listH: 'पूरी सूची', more: 'हिंदी व्याकरण' },
-  en: { quizH: 'Practice — 10 questions', quizQ: { vilom: (w) => `What is the vilom (opposite) of “${w}”?`, paryay: (w) => `Which is a paryayvachi (synonym) of “${w}”?`, muhavare: (w) => `What does “${w}” mean?` }, start: 'Start quiz', again: 'Play again', score: 'Your score', right: 'Correct!', wrong: 'Correct answer:', faqH: 'Frequently asked questions', listH: 'Full list', more: 'Hindi grammar' },
+  hi: { quizH: 'अभ्यास करें — 10 सवाल', quizQ: { vilom: (w) => `"${w}" का विलोम शब्द क्या है?`, paryay: (w) => `"${w}" का पर्यायवाची कौन सा है?`, muhavare: (w) => `"${w}" का अर्थ क्या है?`, lokokti: (w) => `"${w}" का अर्थ क्या है?`, anekarthi: (w) => `"${w}" का एक अर्थ कौन सा है?`, ekshabd: (w) => `"${w}" — इसके लिए एक शब्द?` }, start: 'क्विज़ शुरू करें', again: 'फिर से खेलें', score: 'आपके अंक', right: 'सही!', wrong: 'सही जवाब:', faqH: 'अक्सर पूछे जाने वाले सवाल', listH: 'पूरी सूची', more: 'हिंदी व्याकरण' },
+  en: { quizH: 'Practice — 10 questions', quizQ: { vilom: (w) => `What is the vilom (opposite) of “${w}”?`, paryay: (w) => `Which is a paryayvachi (synonym) of “${w}”?`, muhavare: (w) => `What does “${w}” mean?`, lokokti: (w) => `What does “${w}” mean?`, anekarthi: (w) => `Which is one meaning of “${w}”?`, ekshabd: (w) => `One word for: “${w}”?` }, start: 'Start quiz', again: 'Play again', score: 'Your score', right: 'Correct!', wrong: 'Correct answer:', faqH: 'Frequently asked questions', listH: 'Full list', more: 'Hindi grammar' },
 };
 const CSS = '<style>.vy-t{width:100%;border-collapse:collapse;font-size:1rem}.vy-t th,.vy-t td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}.vy-t th{background:var(--soft,#f5f5f5)}.vy-t small{color:var(--muted)}.vy-q{border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}.vy-q button.opt{display:block;width:100%;text-align:left;margin:6px 0}.vy-q .ok{outline:2px solid #2f9e44}.vy-q .no{outline:2px solid #e03131}@media print{header,footer,.no-print,.ad{display:none!important}}</style>';
 
-export const VYAKARAN_NAV = { hi: Object.fromEntries(Object.values(TX).map((x) => [x.path, x.hi.nav])), en: Object.fromEntries(Object.values(TX).map((x) => [x.path, x.en.nav])) };
-export const VYAKARAN_COUNTS = { vilom: V.length, paryay: PY.length, muhavare: MU.length };
+const MENU_KEYS = ['vilom', 'paryay', 'muhavare']; // header dropdown stays short; the other pages are linked from every grammar page
+export const VYAKARAN_NAV = Object.fromEntries(['hi', 'en'].map((c) => [c, Object.fromEntries(MENU_KEYS.map((k) => [TX[k].path, TX[k][c].nav]))]));
+export const VYAKARAN_COUNTS = { vilom: V.length, paryay: PY.length, muhavare: MU.length, lokokti: LK.length, anekarthi: AN.length, ekshabd: ES.length };
 
 export function buildVyakaran(L, { page, write, P, esc, T, breadcrumbLd, LANGS }) {
   const code = L.code, U = UI[code]; if (!U) return;
@@ -350,6 +529,15 @@ export function buildVyakaran(L, { page, write, P, esc, T, breadcrumbLd, LANGS }
     } else if (key === 'paryay') {
       table = `<table class="vy-t"><thead><tr>${Y.th.map((h) => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${PY.map(([w, s, e]) => `<tr><td><b>${esc(w)}</b></td><td>${esc(s.join(', '))}</td>${code === 'en' ? `<td><small>${esc(e)}</small></td>` : ''}</tr>`).join('')}</tbody></table>`;
       quiz = PY.flatMap(([w, s]) => s.map((x) => [w, x]));
+    } else if (key === 'lokokti') {
+      table = `<table class="vy-t"><thead><tr>${Y.th.map((h) => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${LK.map(([m, a, s, e], i) => `<tr><td><b>${i + 1}. ${esc(m)}</b></td><td>${esc(a)}${code === 'en' ? `<br><small>${esc(e)}</small>` : ''}</td><td>${esc(s)}</td></tr>`).join('')}</tbody></table>`;
+      quiz = LK.map(([m, a, , e]) => [m, code === 'en' ? e : a]);
+    } else if (key === 'anekarthi') {
+      table = `<table class="vy-t"><thead><tr>${Y.th.map((h) => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${AN.map(([w, m, e]) => `<tr><td><b>${esc(w)}</b></td><td>${esc(m.join(', '))}</td>${code === 'en' ? `<td><small>${esc(e)}</small></td>` : ''}</tr>`).join('')}</tbody></table>`;
+      quiz = AN.flatMap(([w, m]) => m.map((x) => [w, x]));
+    } else if (key === 'ekshabd') {
+      table = `<table class="vy-t"><thead><tr>${Y.th.map((h) => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${ES.map(([ph, w, e]) => `<tr><td>${esc(ph)}</td><td><b>${esc(w)}</b></td>${code === 'en' ? `<td><small>${esc(e)}</small></td>` : ''}</tr>`).join('')}</tbody></table>`;
+      quiz = ES.map(([ph, w]) => [ph, w]);
     } else {
       table = `<table class="vy-t"><thead><tr>${Y.th.map((h) => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${MU.map(([m, a, s, e], i) => `<tr><td><b>${i + 1}. ${esc(m)}</b></td><td>${esc(a)}${code === 'en' ? `<br><small>${esc(e)}</small>` : ''}</td><td>${esc(s)}</td></tr>`).join('')}</tbody></table>`;
       quiz = MU.map(([m, a, , e]) => [m, code === 'en' ? e : a]);
