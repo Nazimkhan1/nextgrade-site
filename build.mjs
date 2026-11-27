@@ -19,6 +19,7 @@ import { games as allGames } from './src/games.mjs';
 import { stories as allStories } from './src/stories.mjs';
 import { tools as allTools } from './src/tools.mjs';
 import { storyExtras, SOURCE_INFO, COLLECTIONS, collectionOf, srcKey } from './src/story-info.mjs';
+import { storyMore, STORY_MORE_SLUGS } from './src/story-more.mjs';
 import { NAAM_OCCASIONS, NAAM_UI } from './src/naam-image.mjs';
 import { PAHELI, PAHELI_UI } from './src/paheliyan.mjs';
 import { KIDS_SETS, KIDS_UI, KIDS_NATIVE } from './src/kids.mjs';
@@ -974,6 +975,7 @@ ${paragraphs(about)}
 ${paragraphs(x.paras)}
 </div>
 <div class="seekh"><b>${esc(S.seekh)}</b><p>${esc(x.seekh)}</p></div>
+${storyMore(st.slug, L.code, esc)}
 <div class="story-nav"><a class="btn btn-ghost" href="${P(L, `/kahani/${prev.slug}/`)}">${esc(S.prev)}</a><a class="btn btn-primary" href="${P(L, `/kahani/${next.slug}/`)}">${esc(S.next)}</a></div>
 <p><a class="btn btn-wa" href="https://wa.me/?text=${encodeURIComponent(S.shareText(x.title, `${SITE}${P(L, path)}`))}" target="_blank" rel="noopener">${esc(S.share)}</a></p>
 ${ex.about ? `<h2>${esc(ex.aboutH)}</h2>
@@ -1854,6 +1856,7 @@ const lastmodFor = (url) => {
   if (['/speech/', '/wish-card/', '/nuskhe/'].includes(path) || /^\/naam\/(boy|girl)\//.test(path)) return '2026-11-26';
   { const kd = path.match(/^\/kids\/([^/]+)\/$/); if (kd && KIDS_EXTRA[kd[1]]) return '2026-11-26'; }
   if (/^\/kids\/(barakhadi|matra|pahade)\/[^/]+\/$/.test(path)) return '2026-11-27';
+  { const ks = path.match(/^\/kahani\/([^/]+)\/$/); if (ks && STORY_MORE_SLUGS.includes(ks[1])) return '2026-11-27'; }
   if (['/aaj/', '/purnima/', '/amavasya/', '/ekadashi/'].includes(path)) return todayIST();
   if (path.startsWith('/currency/')) return todayIST(); // rates change daily
   const sec = { '/mausam/': '2026-11-25', '/ghoomne-ki-jagah/': '2026-11-25', '/nuskhe/': '2026-11-25', '/surya-namaskar/': '2026-11-25', '/creator-guide/': '2026-11-25', '/calculator/youtube-earning/': '2026-11-25', '/sarkari-guide/': '2026-11-26', '/pranayam/': '2026-11-26', '/tools/photo-frame/': '2026-11-25' };
