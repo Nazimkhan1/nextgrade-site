@@ -266,6 +266,9 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 ## Daily (updated every morning)
 
 - [Today: date, tithi, festival, sunrise, thought of the day, Good Morning image maker](https://nextgrade.in/en/aaj/)
+- [Namaz (prayer) times today for 200 Indian cities — Fajr, Zuhr, Asr Hanafi/Shafi, Maghrib, Isha + Qibla direction](https://nextgrade.in/en/namaz-time/)
+- [Ramzan 2027 Sehri and Iftar time table for 200 Indian cities (calculated: Fajr 18°, sunset; from ~9 Feb 2027)](https://nextgrade.in/en/ramzan/)
+- [CBSE board exams 2027 — days left, Class 10 and 12 date sheets (main subjects), study timetable maker](https://nextgrade.in/en/board-exam/)
 - [Ekadashi dates (next 12 months) with names and tithi timings](https://nextgrade.in/en/ekadashi/)
 - [Purnima dates](https://nextgrade.in/en/purnima/)
 - [Amavasya dates](https://nextgrade.in/en/amavasya/)
@@ -286,6 +289,9 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 ## Converters and calculators
 
 - [Income tax calculator FY 2026-27 — new vs old regime side by side (₹12 lakh rebate, surcharge, cess)](https://nextgrade.in/en/calculator/income-tax/)
+- [Tax on every salary from ₹5 lakh to ₹1 crore (FY 2026-27, new vs old regime, slab-wise)](https://nextgrade.in/en/income-tax/)
+- [Loan EMI tables per amount — home loan ₹5 lakh–₹1 crore, personal loan ₹1–10 lakh, by rate and tenure](https://nextgrade.in/en/loan-emi/)
+- [SIP growth per monthly amount — ₹500 to ₹50,000 a month, 5–30 years, 8–15% returns](https://nextgrade.in/en/sip/)
 - [In-hand salary calculator — CTC to monthly take-home after PF, professional tax and income tax](https://nextgrade.in/en/calculator/salary/)
 - [Number to words — Indian (lakh/crore) and international, Hindi, Bengali, cheque wording](https://nextgrade.in/en/number-in-words/)
 - [Indian traditional units — tola, bhori, ratti, masha, seer, maund, gaj, haath, kos](https://nextgrade.in/en/desi-naap/)
