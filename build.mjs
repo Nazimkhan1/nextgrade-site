@@ -58,6 +58,7 @@ const FX = await loadRates(); // daily currency rates (cached in src/fx-cache.js
 import { CAL_YEAR, MONTH_SLUGS as SLUG_M, NATIONAL, HOLIDAY_SLUGS, WDS, CT, hijriStarts } from './src/calendar.mjs';
 import { MONTH_MORE, MONTH_MORE_H } from './src/calendar-more.mjs';
 import { KIDS_EXTRA, KIDS_EXTRA_H } from './src/kids-extra.mjs';
+import { kidsChildExtra } from './src/kids-letters.mjs';
 import { hubExtraHtml } from './src/hub-extra.mjs';
 import { releases, isLive, todayIST } from './src/releases.mjs';
 // Scheduled pages (src/releases.mjs) stay out of the build until their day
@@ -1123,6 +1124,7 @@ ${hubExtraHtml('wish-card', L.code, esc)}
 <h2>${esc(KU.howH)}</h2>
 <ol>${KU.how.map((li) => `<li>${esc(li)}</li>`).join('')}</ol>
 ${KIDS_EXTRA[key] ? ((X, H) => `<h2>${esc(H[0])}</h2>\n<p>${esc(X.intro)}</p>\n<h3>${esc(H[1])}</h3>\n<ul>${X.acts.map((a) => `<li>${esc(a)}</li>`).join('')}</ul>\n<h3>${esc(H[2])}</h3>\n${X.faq.map(([q, a]) => `<p><b>${esc(q)}</b><br>${esc(a)}</p>`).join('')}`)(KIDS_EXTRA[key][L.code], KIDS_EXTRA_H[L.code]) : ''}
+${kidsChildExtra(key, L.code, esc)}
 ${siblings ? `<h2>${esc(parent[0])}</h2>
 <p class="kids-sibs">${siblings.map(([n, href]) => (href === path ? `<strong>${esc(n)}</strong>` : `<a href="${P(L, href)}">${esc(n)}</a>`)).join(' · ')}</p>` : ''}
 </div>`,
@@ -1851,6 +1853,7 @@ const lastmodFor = (url) => {
   if (/^\/calendar\/\d{4}\/[a-z]+\/$/.test(path)) return '2026-11-26';
   if (['/speech/', '/wish-card/', '/nuskhe/'].includes(path) || /^\/naam\/(boy|girl)\//.test(path)) return '2026-11-26';
   { const kd = path.match(/^\/kids\/([^/]+)\/$/); if (kd && KIDS_EXTRA[kd[1]]) return '2026-11-26'; }
+  if (/^\/kids\/(barakhadi|matra|pahade)\/[^/]+\/$/.test(path)) return '2026-11-27';
   if (['/aaj/', '/purnima/', '/amavasya/', '/ekadashi/'].includes(path)) return todayIST();
   if (path.startsWith('/currency/')) return todayIST(); // rates change daily
   const sec = { '/mausam/': '2026-11-25', '/ghoomne-ki-jagah/': '2026-11-25', '/nuskhe/': '2026-11-25', '/surya-namaskar/': '2026-11-25', '/creator-guide/': '2026-11-25', '/calculator/youtube-earning/': '2026-11-25', '/sarkari-guide/': '2026-11-26', '/pranayam/': '2026-11-26', '/tools/photo-frame/': '2026-11-25' };
