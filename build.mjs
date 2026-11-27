@@ -42,6 +42,7 @@ import { buildBoardExam } from './src/board-exam.mjs';
 import { buildChalisa } from './src/hanuman-chalisa.mjs';
 import { buildAarti } from './src/aarti.mjs';
 import { buildVyakaran, VYAKARAN_NAV } from './src/vyakaran.mjs';
+import { OG_BY_PATH } from './src/og-cards.mjs';
 import { icon } from './src/icons.mjs';
 import { buildTravel, TT } from './src/travel.mjs';
 import { buildNuskhe, NUSKHE_UI } from './src/nuskhe-build.mjs';
@@ -296,8 +297,9 @@ const menuFor = (L) => {
 // Voice used by the browser to read stories aloud.
 const SPEECH = { hi: 'hi-IN', en: 'en-IN', hinglish: 'en-IN', bn: 'bn-IN' };
 
-function page(L, { path, title, description, body, jsonLd = [], scripts = [], langs = LANGS, extraFonts = '', noindex = false, altLangs = langs }) {
+function page(L, { path, title, description, body, jsonLd = [], scripts = [], langs = LANGS, extraFonts = '', noindex = false, altLangs = langs, ogImage = OG_BY_PATH[path] }) {
   const T = ui[L.code];
+  const img = ogImage ? `${SITE}${ogImage}` : 'https://nextgrade.in/og-image.jpg', imgH = ogImage ? 675 : 630; // own 16:9 image where we have one (src/og-cards.mjs)
   const url = `${SITE}${P(L, path)}`;
   const inSec = (href) => href !== '/' && path.startsWith(href);
   const nav = `<a href="${P(L, '/')}"${path === '/' ? ' aria-current="page"' : ''}>${esc(T.nav.home)}</a>` + menuFor(L).map(([label, items]) => {
@@ -309,7 +311,7 @@ function page(L, { path, title, description, body, jsonLd = [], scripts = [], la
     ? `<details class="lang-menu"><summary aria-label="${T.langLabel}">🌐 <span>${ui[L.code].langName}</span></summary><ul>${langs.map((l) => `<li><a href="${P(l, path)}" hreflang="${l.hreflang}" lang="${l.html}"${l.code === L.code ? ' aria-current="true"' : ''}>${ui[l.code].langName}${l.code === L.code ? ' ✓' : ''}</a></li>`).join('')}</ul></details>`
     : '';
   const alternates = altLangs.length > 1 ? [...altLangs.map((l) => `<link rel="alternate" hreflang="${l.hreflang}" href="${SITE}${P(l, path)}">`), `<link rel="alternate" hreflang="x-default" href="${SITE}${path}">`].join('\n') : '';
-  const ld = jsonLd.map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join('\n');
+  const ld = [...jsonLd, ...(ogImage ? [{ '@context': 'https://schema.org', '@type': 'WebPage', name: title, url, image: { '@type': 'ImageObject', url: img, width: 1200, height: 675 } }] : [])].map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join('\n');
   const fonts = `family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700${L.code === 'bn' ? '&family=Noto+Sans+Bengali:wght@400;600;700' : ''}${extraFonts}&display=swap`;
   return `<!doctype html>
 <html lang="${L.html}">
@@ -318,18 +320,18 @@ function page(L, { path, title, description, body, jsonLd = [], scripts = [], la
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
-${noindex ? '<meta name="robots" content="noindex, follow">\n' : ''}<link rel="canonical" href="${url}">
+${noindex ? '<meta name="robots" content="noindex, follow">\n' : '<meta name="robots" content="max-image-preview:large">\n'}<link rel="canonical" href="${url}">
 ${alternates}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${NAME}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="https://nextgrade.in/og-image.jpg">
+<meta property="og:image" content="${img}">
 <meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image:height" content="${imgH}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://nextgrade.in/og-image.jpg">
+<meta name="twitter:image" content="${img}">
 <meta name="theme-color" content="#e8590c">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">

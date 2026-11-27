@@ -239,3 +239,8 @@ ${tools}
 }
 
 export const AARTI_LIST = A.map((a) => ({ slug: a.slug, en: a.name.en, god: a.god.en }));
+// 1200×630 share/Discover images (scripts/og-cards.mjs renders them into src/static/og/)
+export const OG_CARDS = [
+  { file: 'aarti', path: '/aarti/', emoji: '🪔', deco: '🌺🔔🙏', title: 'आरती संग्रह' },
+  ...A.map((a) => ({ file: `aarti-${a.slug}`, path: `/aarti/${a.slug}/`, emoji: a.emoji, deco: '🪔🌺🔔', title: a.name.hi.split(' (')[0] })),
+];

@@ -571,3 +571,5 @@ ${Y.about.slice(1).map((p) => `<p>${esc(p)}</p>`).join('')}
     }));
   });
 }
+// 1200×630 share/Discover images (scripts/og-cards.mjs renders them into src/static/og/)
+export const OG_CARDS = Object.values(TX).map((x) => ({ file: x.path.replace(/\//g, ''), path: x.path, emoji: x.emoji, deco: '📖✏️🧠', title: x.hi.nav }));
