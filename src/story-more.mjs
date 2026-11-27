@@ -5,6 +5,7 @@
  * Languages: hi, en, bn. Hinglish pages show the Hindi block.
  * Format per language: 'q1?|a1 ;; q2?|a2 ;; q3?|a3 ## word=meaning ;; word=meaning ;; word=meaning ## life text'
  */
+import { S2 } from './story-more2.mjs';
 const S = {
   'sone-ka-hiran': {
     hi: 'रुरु ने नदी में किसकी जान बचाई?|डूबते हुए एक आदमी की, जिसे वह पीठ पर बिठाकर किनारे लाया। ;; आदमी ने अपना वादा क्यों तोड़ा?|राजा ने इनाम में एक गाँव देने की घोषणा की थी — लालच में आकर। ;; राजा ने आख़िर में क्या आदेश दिया?|कि उस जंगल के जानवरों का कोई शिकार नहीं करेगा। ## धारा=पानी का तेज़ बहाव ;; घोषणा=सबके सामने कही गई बात ;; एहसान=किसी की की हुई भलाई ## जब कोई मुसीबत में हमारी मदद करे, तो उसे याद रखना और उसका भरोसा न तोड़ना ही असली शुक्रिया है। किसी दोस्त की छुपाने वाली बात को इनाम या तारीफ़ के लिए कभी न बताएँ।',
@@ -131,4 +132,5 @@ export function storyMore(slug, code, esc) {
 <h3>${esc(U[2])}</h3><ul>${W.map(([w, m]) => `<li><b>${esc(w)}</b> — ${esc(m)}</li>`).join('')}</ul>
 <h3>${esc(U[3])}</h3><p>${esc(life)}</p>`;
 }
+Object.assign(S, S2);
 export const STORY_MORE_SLUGS = Object.keys(S);
