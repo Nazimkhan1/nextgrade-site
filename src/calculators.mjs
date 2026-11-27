@@ -1624,4 +1624,6 @@ const CALC_UI = {
   bn: { hub: 'ক্যালকুলেটর', hubTitle: 'ফ্রি অনলাইন ক্যালকুলেটর — বয়স, শতাংশ, EMI, BMI | NextGrade', hubLead: 'রোজকার কাজে লাগা ফ্রি ক্যালকুলেটর — সব আপনার ফোনেই চলে, কোনো তথ্য কোথাও পাঠানো হয় না। প্রতিটির সঙ্গে সূত্র, উদাহরণ আর প্রশ্ন-উত্তরও আছে।', resultH: 'ফলাফল', formulaH: 'সূত্র', faqH: 'প্রায়ই জিজ্ঞাসিত প্রশ্ন', more: 'আরও ক্যালকুলেটর' },
 };
 
+import { moneyCalcs } from './calc-money.mjs';
+calculators.unshift(...moneyCalcs);
 export { calculators, CALC_UI };
