@@ -349,6 +349,48 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [Uttar Pradesh RTO code list (UP)](https://nextgrade.in/en/rto/up/)
 - [West Bengal RTO code list (WB)](https://nextgrade.in/en/rto/wb/)
 
+## Application / letter formats (fill in, get a ready letter in English or Hindi)
+
+- [All application formats](https://nextgrade.in/en/application/)
+- [School leave application](https://nextgrade.in/en/application/school-leave-application/)
+- [Sick leave application (office)](https://nextgrade.in/en/application/sick-leave-application-office/)
+- [Bank mobile number change application](https://nextgrade.in/en/application/bank-mobile-number-change-application/)
+- [ATM card block application](https://nextgrade.in/en/application/atm-card-block-application/)
+- [Bank account closing application](https://nextgrade.in/en/application/bank-account-close-application/)
+- [TC (transfer certificate) application](https://nextgrade.in/en/application/tc-application/)
+- [Fee concession application](https://nextgrade.in/en/application/fee-maafi-application/)
+- [Mobile lost application (police)](https://nextgrade.in/en/application/mobile-lost-application/)
+
+## Countdowns
+
+- [How many days left — live countdown to every upcoming Indian festival and the CBSE/UP Board 2027 exams](https://nextgrade.in/en/kitne-din-baaki/)
+
+## Board exams 2027
+
+- [UP Board (UPMSP) 2027 time table — High School and Intermediate, 5–24 Feb 2027, shifts 8:30–11:45 and 2:00–5:15 (official notice 12 Oct 2026)](https://nextgrade.in/en/board-exam/up-board-2027/)
+
+## Hindi grammar for school (with English meanings and practice quiz)
+
+- [Vilom shabd — 140 Hindi antonym pairs with English meaning](https://nextgrade.in/en/vilom-shabd/)
+- [Paryayvachi shabd — Hindi synonyms of 63 words](https://nextgrade.in/en/paryayvachi-shabd/)
+- [Hindi muhavare — 79 idioms with meaning and example sentence](https://nextgrade.in/en/muhavare/)
+- [Hindi lokoktiyan (proverbs) — 43 with meaning, nearest English proverb and example](https://nextgrade.in/en/lokoktiyan/)
+- [Anekarthi shabd — 37 Hindi words with many meanings](https://nextgrade.in/en/anekarthi-shabd/)
+- [Anek shabdon ke liye ek shabd — 60 Hindi one-word substitutions](https://nextgrade.in/en/anek-shabdon-ke-liye-ek-shabd/)
+
+## Devotional texts with meaning (Hindi, English letters + meaning, Bengali script)
+
+- [Hanuman Chalisa — full text, 40 chaupais, meaning of every verse](https://nextgrade.in/en/hanuman-chalisa/)
+- [Aarti collection — 8 famous aartis with meaning, how to do aarti](https://nextgrade.in/en/aarti/)
+- [Om Jai Jagdish Hare — aarti of Lord Vishnu, lyrics with meaning](https://nextgrade.in/en/aarti/om-jai-jagdish-hare/)
+- [Ganesh Ji Ki Aarti (Jai Ganesh Deva) — aarti of Lord Ganesh, lyrics with meaning](https://nextgrade.in/en/aarti/ganesh-ji-ki-aarti/)
+- [Hanuman Ji Ki Aarti (Aarti Kije Hanuman Lala Ki) — aarti of Lord Hanuman, lyrics with meaning](https://nextgrade.in/en/aarti/hanuman-ji-ki-aarti/)
+- [Shiv Ji Ki Aarti (Om Jai Shiv Omkara) — aarti of Lord Shiva, lyrics with meaning](https://nextgrade.in/en/aarti/shiv-ji-ki-aarti/)
+- [Lakshmi Ji Ki Aarti (Om Jai Lakshmi Mata) — aarti of Goddess Lakshmi, lyrics with meaning](https://nextgrade.in/en/aarti/lakshmi-ji-ki-aarti/)
+- [Durga Ji Ki Aarti (Jai Ambe Gauri) — aarti of Goddess Durga, lyrics with meaning](https://nextgrade.in/en/aarti/durga-ji-ki-aarti/)
+- [Saraswati Ji Ki Aarti (Jai Saraswati Mata) — aarti of Goddess Saraswati, lyrics with meaning](https://nextgrade.in/en/aarti/saraswati-ji-ki-aarti/)
+- [Aarti Kunj Bihari Ki (Shri Krishna Aarti) — aarti of Lord Krishna, lyrics with meaning](https://nextgrade.in/en/aarti/kunj-bihari-ki-aarti/)
+
 ## Health and morning routine (general wellness, with precautions)
 
 - [Surya Namaskar — follow-along animated guide](https://nextgrade.in/en/surya-namaskar/)
