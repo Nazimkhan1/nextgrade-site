@@ -4,6 +4,7 @@
  * PAIRS[slug] = [[key, {hi,en,hinglish,bn} heading, [[hindi, english], ...]], ...]
  */
 import { GROUPS as BIRTHDAY } from './birthday-pairs.mjs';
+import { PAIRS2 } from './wish-pairs2.mjs';
 
 const H = (hi, en, hinglish, bn) => ({ hi, en, hinglish, bn });
 export const PAIRS = {
@@ -147,6 +148,7 @@ export const PAIRS = {
     ]],
   ],
 };
+Object.assign(PAIRS, PAIRS2);
 const COUNT = (slug) => PAIRS[slug].reduce((n, g) => n + g[2].length, 0);
 export const PAIR_UI = {
   hi: (name, n) => [`${name} — हिंदी और English में (${n}+)`, 'हर शुभकामना हिंदी और English दोनों में — जो भाषा पसंद हो वही कॉपी करें:', 'दोनों कॉपी करें'],
