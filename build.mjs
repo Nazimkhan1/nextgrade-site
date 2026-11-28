@@ -1100,10 +1100,10 @@ ${(() => { const G = { hi: ['🏃 अक्षर दौड़ — खेलो 
     }));
     // One flashcard page. key = file/audio key (set slug, or "<set>-<child>" for sub-pages); parent = [name, path] for sub-pages.
     const kidsPage = (s, key, path, nm, h1Emoji, parent, siblings, seo) => {
-      // each page plays a recorded female voice in its own language: hi→Hindi (Lekha), bn→Bengali (Piya), en→English (Samantha); hinglish→Hindi
-      const SPK = ({ hi: { say: 'hi', sub: 'en', lang: 'hi-IN', al: 'hi' }, hinglish: { say: 'hi', sub: 'en', lang: 'hi-IN', al: 'hi' }, bn: { say: 'bn', sub: 'en', lang: 'bn-IN', al: 'bn' }, en: { say: 'en', sub: 'hi', lang: 'en-US', al: 'en' } })[L.code];
+      // each page plays a recorded female voice in its own language: hi→Hindi (Lekha), bn→Bengali (Piya), en→Indian English (Tara, since 28 Nov 2026); hinglish→Hindi
+      const SPK = ({ hi: { say: 'hi', sub: 'en', lang: 'hi-IN', al: 'hi' }, hinglish: { say: 'hi', sub: 'en', lang: 'hi-IN', al: 'hi' }, bn: { say: 'bn', sub: 'en', lang: 'bn-IN', al: 'bn' }, en: { say: 'en', sub: 'hi', lang: 'en-IN', al: 'en' } })[L.code];
       const kslug = (x) => x.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-      const FLANG = { en: 'en-US', hi: 'hi-IN', bn: 'bn-IN', ur: 'hi-IN' }; // Urdu letter names are spoken with the Hindi voice
+      const FLANG = { en: 'en-IN', hi: 'hi-IN', bn: 'bn-IN', ur: 'hi-IN' }; // Urdu letter names are spoken with the Hindi voice
       const isBn = L.code === 'bn';
       const items = s.fixedLang
         ? s.items.map((it, i) => ({ emoji: it.emoji, big: it.letter, sub: it.word || '', say: it.speak || it.letter, en: it.word || it.letter, lang: FLANG[s.fixedLang], audio: `/assets/kids-audio/${s.fixedLang}/${key}-${i}.mp3` }))
