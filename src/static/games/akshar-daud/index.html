@@ -34,12 +34,13 @@ canvas { display: block; width: 100%; height: auto; }
 .say.on { opacity: 1; }
 .panel { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(15, 40, 70, .45); padding: 12px; }
 .panel[hidden] { display: none; }
-.box { background: #fff; border-radius: 20px; padding: 18px 18px 14px; width: 100%; max-width: 420px; text-align: center; box-shadow: 0 16px 50px rgba(0,0,0,.25); max-height: 100%; overflow: auto; }
-.box h1, .box h2 { margin: 0 0 6px; font-size: 1.5rem; line-height: 1.2; }
-.box p { margin: 4px 0 10px; color: var(--muted); }
-.box input[type=text] { width: 100%; font: inherit; font-size: 1.15rem; padding: 10px 12px; border: 2px solid var(--line); border-radius: 12px; text-align: center; }
-.sets { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0; }
-.sets button { font: inherit; font-weight: 700; padding: 10px 6px; border-radius: 14px; border: 2px solid var(--line); background: #fff; cursor: pointer; line-height: 1.2; }
+.box { background: #fff; border-radius: 20px; padding: 12px 14px 10px; width: 100%; max-width: 420px; text-align: center; box-shadow: 0 16px 50px rgba(0,0,0,.25); max-height: 100%; overflow: auto; }
+.box h1, .box h2 { margin: 0 0 4px; font-size: 1.35rem; line-height: 1.2; }
+.box p { margin: 2px 0 8px; color: var(--muted); font-size: .95rem; line-height: 1.35; }
+.box input[type=text] { width: 100%; font: inherit; font-size: 1.1rem; padding: 7px 12px; border: 2px solid var(--line); border-radius: 12px; text-align: center; }
+.sets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 8px 0; }
+@media (max-width: 480px) { .sets { grid-template-columns: 1fr 1fr; } }
+.sets button { font: inherit; font-weight: 700; padding: 6px 4px; border-radius: 14px; border: 2px solid var(--line); background: #fff; cursor: pointer; line-height: 1.2; }
 .sets button.on { border-color: var(--brand); background: #ebfbee; }
 .sets button small { display: block; font-weight: 600; color: var(--muted); font-size: .8rem; }
 .go { font: inherit; font-weight: 800; font-size: 1.2rem; padding: 10px 26px; border: 0; border-radius: 14px; background: var(--brand); color: #fff; cursor: pointer; }
@@ -49,6 +50,10 @@ canvas { display: block; width: 100%; height: auto; }
 .hint { text-align: center; color: var(--muted); font-size: .95rem; margin: 8px 0 0; }
 .info { margin-top: 22px; background: #fff; border-radius: 16px; padding: 4px 18px 10px; font-family: "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; }
 .info h2 { font-size: 1.2rem; margin: 16px 0 6px; }
+.rel { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin: 8px 0 12px; }
+.rel a { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border: 2px solid var(--line); border-radius: 14px; text-decoration: none; color: var(--ink); font-weight: 700; background: #fff; }
+.rel a:hover { border-color: var(--brand); }
+.rel b { font-size: 1.4rem; }
 .info p, .info li { color: #343a40; }
 footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 10px; }
 footer a { color: var(--brand); }
@@ -74,6 +79,7 @@ footer a { color: var(--brand); }
     </div></div>
   </div>
   <p class="hint" data-t="keys"></p>
+  <section class="info" id="rel"></section>
   <section class="info" id="info"></section>
 </div>
 <footer>© NextGrade · <a href="/kids/">Seekho-Khelo</a> · <a href="/games/">Games</a> · <a href="/privacy-policy/">Privacy</a></footer>
@@ -274,6 +280,27 @@ function win() {
   draw(performance.now());
 }
 
+
+// related pages at the bottom: start another set here, open the flashcards, or another kids game
+const REL = {
+  hinglish: { h1: '🎯 Isi game mein doosra set', h2: '📚 Awaaz wale flashcards', h3: '🎮 Aur games', all: 'Saari padhai (Seekho-Khelo)', p: '/hinglish',
+    cards: [['🔢', 'Ginti 1–100', 'ginti'], ['🔤', 'ABC', 'abc'], ['🅰️', 'Varnamala', 'hindi-varnamala'], ['✖️', 'Pahade', 'pahade'], ['🍎', 'Phal', 'fruits'], ['🐘', 'Jaanwar', 'animals']] },
+  hi: { h1: '🎯 इसी गेम में दूसरा सेट', h2: '📚 आवाज़ वाले फ़्लैशकार्ड', h3: '🎮 और गेम', all: 'सारी पढ़ाई (सीखो-खेलो)', p: '',
+    cards: [['🔢', 'गिनती 1–100', 'ginti'], ['🔤', 'ABC', 'abc'], ['🅰️', 'वर्णमाला', 'hindi-varnamala'], ['✖️', 'पहाड़े', 'pahade'], ['🍎', 'फल', 'fruits'], ['🐘', 'जानवर', 'animals']] },
+  en: { h1: '🎯 Another set in this game', h2: '📚 Flashcards with sound', h3: '🎮 More games', all: 'All kids learning', p: '/en',
+    cards: [['🔢', 'Numbers 1–100', 'ginti'], ['🔤', 'ABC', 'abc'], ['🅰️', 'Hindi letters', 'hindi-varnamala'], ['✖️', 'Tables', 'pahade'], ['🍎', 'Fruits', 'fruits'], ['🐘', 'Animals', 'animals']] },
+  bn: { h1: '🎯 এই খেলায় অন্য সেট', h2: '📚 আওয়াজসহ ফ্ল্যাশকার্ড', h3: '🎮 আরও খেলা', all: 'সব পড়া (শেখো-খেলো)', p: '/bn',
+    cards: [['🔢', 'গোনা ১–১০০', 'ginti'], ['🔤', 'ABC', 'abc'], ['অ', 'বর্ণমালা', 'bangla-bornomala'], ['✖️', 'নামতা', 'pahade'], ['🍎', 'ফল', 'fruits'], ['🐘', 'জন্তু', 'animals']] },
+};
+const GAMES = [['🐦', 'chidiya-udd', { hi: 'चिड़िया उड़', en: 'Chidiya Udd', hinglish: 'Chidiya Udd', bn: 'চিড়িয়া উড়' }], ['🌼', 'basant-sargam', { hi: 'बसंत की सरगम', en: 'Basant ki Sargam', hinglish: 'Basant ki Sargam', bn: 'বসন্তের সরগম' }], ['🐍', 'saanp-seedhi', { hi: 'साँप-सीढ़ी', en: 'Snakes & Ladders', hinglish: 'Saanp-Seedhi', bn: 'সাপ-লুডো' }], ['❓', 'quiz', { hi: 'क्विज़', en: 'Quiz', hinglish: 'Quiz', bn: 'কুইজ' }]];
+function renderRel() {
+  const R = REL[lang];
+  const setBtns = SET_IDS.filter((id) => id !== setId).map((id) => `<a href="#" data-goset="${id}"><b>▶</b>${t('sets')[id][0]}</a>`).join('');
+  $('rel').innerHTML = `<h2>${R.h1}</h2><div class="rel">${setBtns}</div>`
+    + `<h2>${R.h2}</h2><div class="rel">${R.cards.map(([e, n, slug]) => `<a href="${R.p}/kids/${slug}/"><b>${e}</b>${n}</a>`).join('')}<a href="${R.p}/kids/"><b>🧒</b>${R.all}</a></div>`
+    + `<h2>${R.h3}</h2><div class="rel">${GAMES.map(([e, slug, n]) => `<a href="/games/${slug}/?lang=${lang}"><b>${e}</b>${n[lang]}</a>`).join('')}<a href="/games/"><b>🎮</b>${lang === 'en' ? 'All games' : lang === 'bn' ? 'সব খেলা' : lang === 'hi' ? 'सभी गेम्स' : 'Sabhi games'}</a></div>`;
+}
+$('rel').addEventListener('click', (e) => { const a = e.target.closest('[data-goset]'); if (!a) return; e.preventDefault(); setId = a.dataset.goset; running = false; renderSetup(); $('end').hidden = true; $('start').hidden = false; $('stage').scrollIntoView({ behavior: 'smooth', block: 'start' }); });
 // ---------- setup UI
 function renderSetup() {
   document.documentElement.lang = lang === 'hinglish' ? 'hi-Latn' : lang;
@@ -281,6 +308,7 @@ function renderSetup() {
   $('name').placeholder = t('ph');
   $('sets').innerHTML = SET_IDS.map((id) => `<button type="button" data-set="${id}"${id === setId ? ' class="on"' : ''}>${t('sets')[id][0]}<small>${t('sets')[id][1]}</small></button>`).join('');
   $('info').innerHTML = t('info'); $('lang').value = lang;
+  renderRel();
 }
 $('sets').addEventListener('click', (e) => { const b = e.target.closest('[data-set]'); if (!b) return; setId = b.dataset.set; renderSetup(); });
 $('lang').addEventListener('change', (e) => { lang = e.target.value; store.set('ad-lang', lang); renderSetup(); });
