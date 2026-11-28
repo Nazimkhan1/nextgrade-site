@@ -187,6 +187,7 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 ## Free online games (desi and puzzle, play in the browser)
 
 - [All games](https://nextgrade.in/en/games/)
+- [Akshar Daud (Run & Learn)](https://nextgrade.in/games/akshar-daud/?lang=en)
 - [River Crossing Puzzle](https://nextgrade.in/games/nadi-paar/?lang=en)
 - [Tower of Hanoi](https://nextgrade.in/games/meenar/?lang=en)
 - [Water Jug Puzzle](https://nextgrade.in/games/matke/?lang=en)
