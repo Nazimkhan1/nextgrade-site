@@ -76,7 +76,7 @@ document.getElementById('ms-wa').onclick=function(){location.href='https://wa.me
   // what crawlers and no-JS readers see: the script with the sample programme and blanks for names
   const s0 = S[code];
   const sample = [s0.open, s0.flag, s0.lamp, s0.welcome, s0.progH + SAMPLE[code].split('\n').map((it, i) => `\n\n${i + 1}. ${s0.intro[i % s0.intro.length].replace('{item}', it)}\n(${it})\n${s0.after}`).join(''), s0.guestTalk, s0.prize, s0.thanks].map((p) => p.replace(/\{(\w+)\}/g, U.blank)).join('\n\n— — —\n\n');
-  const links = `<p class="chips"><a class="tag" href="${P(L, '/speech/republic-day/')}">🎤 ${code === 'en' ? 'Republic Day speech' : '26 जनवरी भाषण'}</a> <a class="tag" href="${P(L, '/rashtragan/jana-gana-mana/')}">🇮🇳 ${code === 'en' ? 'Jana Gana Mana with meaning' : 'जन गण मन अर्थ सहित'}</a> <a class="tag" href="${P(L, '/festivals/republic-day/')}">📅 26 January</a></p>`;
+  const links = `<p class="chips"><a class="tag" href="${P(L, '/speech/republic-day/')}">🎤 ${code === 'en' ? 'Republic Day speech' : '26 जनवरी भाषण'}</a> <a class="tag" href="${P(L, '/rashtragan/jana-gana-mana/')}">🇮🇳 ${code === 'en' ? 'Jana Gana Mana with meaning' : 'जन गण मन अर्थ सहित'}</a> <a class="tag" href="${P(L, '/festivals/republic-day/')}">📅 26 January</a> <a class="tag" href="${P(L, '/tiranga-niyam/')}">🏳️ ${code === 'en' ? 'Flag rules' : 'तिरंगे के नियम'}</a></p>`;
   write(L, path, page(L, {
     path, title: U.t, description: U.d, langs, jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.h1.replace(/^\S+\s/, ''), path]]), faqLd],
     body: `${CSS}<div class="wrap narrow article"><p class="crumbs no-print"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(U.h1.replace(/^\S+\s/, ''))}</p><h1>${esc(U.h1)}</h1><p class="lead">${esc(U.lead)}</p>

@@ -50,6 +50,7 @@ import { buildMantras } from './src/mantra.mjs';
 import { buildDuas } from './src/dua.mjs';
 import { buildRashtragan } from './src/rashtragan.mjs';
 import { buildManch } from './src/manch.mjs';
+import { buildTiranga } from './src/tiranga.mjs';
 import { buildNavratri, NAVRATRI_FEST_LINK } from './src/navratri.mjs';
 import { buildVyakaran, VYAKARAN_NAV } from './src/vyakaran.mjs';
 import { OG_BY_PATH } from './src/og-cards.mjs';
@@ -775,6 +776,7 @@ ${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('\n')}
   buildDuas(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildRashtragan(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildManch(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
+  buildTiranga(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildNavratri(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildVyakaran(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildWorld(L, { page, write, P, esc, T, breadcrumbLd, fx: FX });
@@ -1934,7 +1936,7 @@ LANGS.forEach((L) => {
 const allUrls = [...urls, ...gameUrls, ...CELEBRATE.map((c) => `/celebrate/${c.slug}/`), ...tools.flatMap((tl) => [`/tools/${tl.slug}/`, ...(tl.pages || []).map((pg) => `/tools/${tl.slug}/${pg}/`)])];
 // Sitemap index (sitemap.xml) + one sitemap per section, so Search Console shows indexing per section (plan Q, 26 Nov)
 {
-  const GROUPS = [['mausam', ['mausam']], ['travel', ['ghoomne-ki-jagah']], ['kids', ['kids']], ['stories', ['kahani']], ['study', ['board-exam', 'nibandh', 'speech', 'paheliyan', 'full-form', 'naam', 'vilom-shabd', 'paryayvachi-shabd', 'muhavare', 'lokoktiyan', 'anekarthi-shabd', 'anek-shabdon-ke-liye-ek-shabd', 'application', 'manch-sanchalan']], ['festivals', ['festivals', 'wishes', 'wish-card', 'calendar', 'bangla-tarikh', 'celebrate', 'naam-wali-image', 'islamic-calendar', 'shaadi-card', 'aaj', 'purnima', 'amavasya', 'ekadashi', 'ramzan', 'namaz-time', 'kitne-din-baaki']], ['games', ['games', 'khel', 'apps']], ['guides', ['hanuman-chalisa', 'aarti', 'mantra', 'dua', 'rashtragan', 'navratri', 'sarkari-guide', 'creator-guide', 'pranayam', 'surya-namaskar', 'nuskhe']], ['rto', ['rto']], ['world', ['time', 'currency', 'sunrise-sunset']], ['tools', ['tools', 'calculator', 'income-tax', 'loan-emi', 'sip', 'number-in-words', 'desi-naap', 'ghar-banane-ka-kharcha', 'solar-calculator', 'inverter-calculator']]];
+  const GROUPS = [['mausam', ['mausam']], ['travel', ['ghoomne-ki-jagah']], ['kids', ['kids']], ['stories', ['kahani']], ['study', ['board-exam', 'nibandh', 'speech', 'paheliyan', 'full-form', 'naam', 'vilom-shabd', 'paryayvachi-shabd', 'muhavare', 'lokoktiyan', 'anekarthi-shabd', 'anek-shabdon-ke-liye-ek-shabd', 'application', 'manch-sanchalan']], ['festivals', ['festivals', 'wishes', 'wish-card', 'calendar', 'bangla-tarikh', 'celebrate', 'naam-wali-image', 'islamic-calendar', 'shaadi-card', 'aaj', 'purnima', 'amavasya', 'ekadashi', 'ramzan', 'namaz-time', 'kitne-din-baaki']], ['games', ['games', 'khel', 'apps']], ['guides', ['hanuman-chalisa', 'aarti', 'mantra', 'dua', 'rashtragan', 'tiranga-niyam', 'navratri', 'sarkari-guide', 'creator-guide', 'pranayam', 'surya-namaskar', 'nuskhe']], ['rto', ['rto']], ['world', ['time', 'currency', 'sunrise-sunset']], ['tools', ['tools', 'calculator', 'income-tax', 'loan-emi', 'sip', 'number-in-words', 'desi-naap', 'ghar-banane-ka-kharcha', 'solar-calculator', 'inverter-calculator']]];
   const groupOf = (u) => { const seg = u.replace(/^\/(en|hinglish|bn)(?=\/)/, '').split('/')[1] || ''; const g = GROUPS.find(([, segs]) => segs.includes(seg)); return g ? g[0] : 'pages'; };
   const by = {};
   allUrls.forEach((u) => (by[groupOf(u)] ||= []).push(u));

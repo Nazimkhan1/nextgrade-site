@@ -83,7 +83,7 @@ export function buildRashtragan(L, { page, write, P, esc, T, breadcrumbLd, LANGS
   const langs = LANGS.filter((l) => UI[l.code]), hub = '/rashtragan/';
   const faqLd = (faq) => ({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) });
   const crumbs = (x) => `<p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${x}</p>`;
-  const links = `<p class="chips"><a class="tag" href="${P(L, '/speech/republic-day/')}">🎤 ${esc(U.rd)}</a> <a class="tag" href="${P(L, '/festivals/republic-day/')}">🇮🇳 26 January</a></p>`;
+  const links = `<p class="chips"><a class="tag" href="${P(L, '/speech/republic-day/')}">🎤 ${esc(U.rd)}</a> <a class="tag" href="${P(L, '/festivals/republic-day/')}">🇮🇳 26 January</a> <a class="tag" href="${P(L, '/tiranga-niyam/')}">🏳️ ${code === 'en' ? 'Flag rules' : code === 'bn' ? 'পতাকার নিয়ম' : 'तिरंगे के नियम'}</a></p>`;
   const hubFaq = SONGS.flatMap((s) => s.faq[code].slice(0, 2));
   write(L, hub, page(L, {
     path: hub, title: U.hubT, description: U.hubD, langs, jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.hub, hub]]), faqLd(hubFaq)],
