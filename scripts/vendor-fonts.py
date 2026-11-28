@@ -22,7 +22,7 @@ def queries():
     # build.mjs builds its query from a template: add the real combinations used per language
     base = 'family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700'
     for extra in ('', '&family=Noto+Sans+Bengali:wght@400;600;700'):
-        for ef in ('', '&family=Baloo+2:wght@800&family=Baloo+Da+2:wght@800'):
+        for ef in ('', '&family=Baloo+2:wght@800&family=Baloo+Da+2:wght@800', '&family=Noto+Naskh+Arabic:wght@500;700'):
             qs.add(base + extra + ef + '&display=swap')
     return sorted(qs)
 

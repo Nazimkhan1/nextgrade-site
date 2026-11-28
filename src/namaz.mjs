@@ -86,7 +86,7 @@ export function buildNamaz(L, { page, write, P, esc, T, breadcrumbLd, LANGS }) {
     body: `${css}<div class="wrap narrow article"><p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(X.nav)}</p><h1>${esc(X.hubH)}</h1><p class="lead">${esc(X.hubL)}</p>
 <div class="rz-s"><input id="nz-q" type="search" list="nz-dl" placeholder="${esc(X.search)}" aria-label="${esc(X.search)}"></div><datalist id="nz-dl">${cities.map((c) => `<option value="${esc(nm(c))}">`).join('')}</datalist>
 <script>(function(){var m=${JSON.stringify(Object.fromEntries(cities.map((c) => [nm(c), P(L, `${hub}${c.slug}/`)])))},q=document.getElementById('nz-q');q.addEventListener('change',function(){if(m[q.value])location.href=m[q.value];});})();</script>
-<p class="chips">${cities.filter((c) => BIG.includes(c.slug)).map((c) => `<a class="tag" href="${P(L, `${hub}${c.slug}/`)}">${esc(nm(c))}</a>`).join(' ')}</p><div class="ad" aria-hidden="true"></div>
+<p class="chips">${cities.filter((c) => BIG.includes(c.slug)).map((c) => `<a class="tag" href="${P(L, `${hub}${c.slug}/`)}">${esc(nm(c))}</a>`).join(' ')}</p><p class="chips"><a class="tag" href="${P(L, '/dua/')}">🤲 ${esc({ hi: 'दुआएँ — आयतुल कुर्सी, सफ़र, सोने की दुआ', en: 'Duas — Ayatul Kursi, travel, sleeping', bn: 'দোয়া — আয়াতুল কুরসি, সফর, ঘুমের দোয়া' }[code])}</a></p><div class="ad" aria-hidden="true"></div>
 <h2>${esc(X.byState)}</h2>${states.map((s) => `<h3>${esc(stateName(code, s))}</h3><p class="chips">${cities.filter((c) => c.state === s).map((c) => `<a class="tag" href="${P(L, `${hub}${c.slug}/`)}">${esc(nm(c))}</a>`).join(' ')}</p>`).join('')}
 <p class="note">${esc(X.note)}</p><p><a href="${P(L, '/ramzan/')}">${esc(X.rz)}</a></p></div>`,
   }));
@@ -111,7 +111,7 @@ var row=document.querySelector('tr[data-d="'+y+'"]');if(row)row.className='today
 <h2>${esc(X.jH)}</h2><p>${esc(X.j(hm(t0.zuhr)))}</p>
 <h2>${esc(X.hH)}</h2><p>${esc(X.h)}</p>
 <p><a class="btn btn-primary" href="${P(L, `/ramzan/${c.slug}/`)}">${esc(X.rz)}</a></p>
-<h2>${esc(X.near)}</h2><p class="chips">${near.map((o) => `<a class="tag" href="${P(L, `${hub}${o.slug}/`)}">${esc(nm(o))}</a>`).join(' ')} <a class="tag" href="${P(L, hub)}">${esc(X.nav)} →</a></p></div>`,
+<h2>${esc(X.near)}</h2><p class="chips">${near.map((o) => `<a class="tag" href="${P(L, `${hub}${o.slug}/`)}">${esc(nm(o))}</a>`).join(' ')} <a class="tag" href="${P(L, hub)}">${esc(X.nav)} →</a> <a class="tag" href="${P(L, '/dua/')}">🤲 ${esc({ hi: 'दुआएँ अर्थ सहित', en: 'Duas with meaning', bn: 'দোয়া অর্থসহ' }[code])}</a></p></div>`,
     }));
   }
 }

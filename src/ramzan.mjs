@@ -100,7 +100,7 @@ export function buildRamzan(L, { page, write, P, esc, T, breadcrumbLd, LANGS }) 
     body: `${css}<div class="wrap narrow article"><p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(X.nav)}</p><h1>${esc(X.hubH)}</h1><p class="lead">${esc(X.hubL)}</p>
 <div class="rz-s"><input id="rz-q" type="search" list="rz-dl" placeholder="${esc(X.search)}" aria-label="${esc(X.search)}"></div><datalist id="rz-dl">${cities.map((c) => `<option value="${esc(nm(c))}">`).join('')}</datalist>
 <script>(function(){var m=${JSON.stringify(Object.fromEntries(cities.map((c) => [nm(c), P(L, `${hub}${c.slug}/`)])))},q=document.getElementById('rz-q');q.addEventListener('change',function(){if(m[q.value])location.href=m[q.value];});})();</script>
-<p class="chips">${cities.filter((c) => BIG.includes(c.slug)).map((c) => `<a class="tag" href="${P(L, `${hub}${c.slug}/`)}">${esc(nm(c))}</a>`).join(' ')}</p>
+<p class="chips">${cities.filter((c) => BIG.includes(c.slug)).map((c) => `<a class="tag" href="${P(L, `${hub}${c.slug}/`)}">${esc(nm(c))}</a>`).join(' ')}</p><p class="chips"><a class="tag" href="${P(L, '/dua/roza-ki-dua/')}">🤲 ${esc({ hi: 'रोज़े की नीयत और इफ़्तार की दुआ', en: 'Roza niyat and iftar dua', bn: 'রোজার নিয়ত ও ইফতারের দোয়া' }[code])}</a> <a class="tag" href="${P(L, '/dua/')}">📖 ${esc({ hi: 'सभी दुआएँ', en: 'All duas', bn: 'সব দোয়া' }[code])}</a></p>
 <div class="ad" aria-hidden="true"></div>
 <h2>${esc(X.byState)}</h2>${states.map((s) => `<h3>${esc(stateName(code, s))}</h3><p class="chips">${cities.filter((c) => c.state === s).map((c) => `<a class="tag" href="${P(L, `${hub}${c.slug}/`)}">${esc(nm(c))}</a>`).join(' ')}</p>`).join('')}
 <p class="note">${esc(X.noteT)}</p><h2>${esc(X.eidH)}</h2><p>${esc(X.eid)}</p></div>`,
@@ -124,7 +124,7 @@ export function buildRamzan(L, { page, write, P, esc, T, breadcrumbLd, LANGS }) 
 <h2>${esc(X.duaH)}</h2><p>${esc(X.duaS)}</p><p>${esc(X.duaI)}</p>
 <h2>${esc(X.tipsH)}</h2><ul>${X.tips.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
 <h2>${esc(X.eidH)}</h2><p>${esc(X.eid)} <a href="${P(L, '/islamic-calendar/')}">${esc(X.cal)}</a></p>
-<h2>${esc(X.near)}</h2><p class="chips">${near.map((o) => `<a class="tag" href="${P(L, `${hub}${o.slug}/`)}">${esc(nm(o))}</a>`).join(' ')} <a class="tag" href="${P(L, hub)}">${esc(X.nav)} →</a></p></div>`,
+<h2>${esc(X.near)}</h2><p class="chips">${near.map((o) => `<a class="tag" href="${P(L, `${hub}${o.slug}/`)}">${esc(nm(o))}</a>`).join(' ')} <a class="tag" href="${P(L, hub)}">${esc(X.nav)} →</a> <a class="tag" href="${P(L, '/dua/roza-ki-dua/')}">🤲 ${esc({ hi: 'सेहरी-इफ़्तार की दुआ', en: 'Sehri & iftar dua', bn: 'সেহরি-ইফতারের দোয়া' }[code])}</a></p></div>`,
     }));
   }
 }
