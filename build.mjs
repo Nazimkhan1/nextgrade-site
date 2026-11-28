@@ -29,7 +29,7 @@ import { essays as allEssays, NIBANDH_UI } from './src/nibandh.mjs';
 import { calculators as allCalculators, CALC_UI } from './src/calculators.mjs';
 import { babyNames, BABY_UI } from './src/naam.mjs';
 import { FULLFORMS, FF_UI, ffSlug } from './src/fullforms.mjs';
-import { FF_MORE, FF_MORE_H } from './src/fullforms-more.mjs';
+import { FF_MORE, FF_MORE_H, ffMoreDate } from './src/fullforms-more.mjs';
 import { whyFaq } from './src/festival-why.mjs';
 import { rules as allRules, KHEL_UI } from './src/khel.mjs';
 import { LIST_YEAR, DATES, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
@@ -1888,7 +1888,7 @@ const lastmodFor = (url) => {
   if (['/', '/games/', '/kahani/'].includes(path)) return [CONTENT_DATE, lastRelease].sort().pop();
   // sections added later: the date they first went live (25–26 Nov 2026); daily pages change every day
   // pages that got hand-written content after Search Console's "crawled, not indexed" list (plan Q, 26 Nov 2026)
-  { const ff = path.match(/^\/full-form\/([^/]+)\/$/); if (ff && FF_MORE[ff[1]]) return '2026-11-26'; }
+  { const ff = path.match(/^\/full-form\/([^/]+)\/$/); if (ff && FF_MORE[ff[1]]) return ffMoreDate(ff[1]); }
   if (/^\/calendar\/\d{4}\/[a-z]+\/$/.test(path)) return '2026-11-26';
   if (['/speech/', '/wish-card/', '/nuskhe/'].includes(path) || /^\/naam\/(boy|girl)\//.test(path)) return '2026-11-26';
   { const kd = path.match(/^\/kids\/([^/]+)\/$/); if (kd && KIDS_EXTRA[kd[1]]) return '2026-11-26'; }
