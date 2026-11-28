@@ -20,6 +20,7 @@
 
 ## Government services (checked dates on each page)
 
+- How to change the mobile number in Aadhaar: Where — UIDAI's new Aadhaar App (Android/iPhone) — or an Aadhaar centre; You need — Old number working (OTP) + face authentication; Fee — Shown in the app — reported as ₹75; Helpline — 1947 (UIDAI). Official site: https://uidai.gov.in/ — https://nextgrade.in/en/sarkari-guide/aadhaar-mobile-number-update/
 - How to change your address in Aadhaar (online): Where — myAadhaar portal (from uidai.gov.in); You need — Mobile number linked to Aadhaar (for OTP); Fee — Shown on the portal — ₹75 at present as per UIDAI; Time — Usually a few days, up to 30 days. Official site: https://myaadhaar.uidai.gov.in/ — https://nextgrade.in/en/sarkari-guide/aadhaar-address-change/
 - How to link PAN with Aadhaar: Where — Income Tax e-filing portal (incometax.gov.in); Fee — ₹1,000 (late linking fee) — paid first; You need — PAN, Aadhaar, mobile linked to Aadhaar; Why — An unlinked PAN can become inoperative. Official site: https://www.incometax.gov.in/iec/foportal/ — https://nextgrade.in/en/sarkari-guide/pan-aadhaar-link/
 - How to get a new PAN card: Easiest — Instant e-PAN with Aadhaar — on incometax.gov.in, free; You need — Aadhaar + the mobile linked to it; Physical card — From Protean (NSDL) or UTIITSL — fee shown on the portal; Time — e-PAN in minutes to hours; card by post in a few weeks. Official site: https://www.incometax.gov.in/iec/foportal/ — https://nextgrade.in/en/sarkari-guide/pan-card-apply/

@@ -106,6 +106,7 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [Essay on Yoga](https://nextgrade.in/en/nibandh/yoga/)
 - [Essay on Pollution](https://nextgrade.in/en/nibandh/pradushan/)
 - [Essay on Christmas](https://nextgrade.in/en/nibandh/christmas/)
+- [Essay on Republic Day](https://nextgrade.in/en/nibandh/gantantra-diwas/)
 
 ## Kids learning with pictures and audio (Hindi, English, Bengali, Urdu)
 
@@ -176,6 +177,7 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [FD (Fixed Deposit) Calculator](https://nextgrade.in/en/calculator/fd/): Enter the deposit, interest rate and time to find how much interest your FD earns and the total at maturity.
 - [Mileage Calculator](https://nextgrade.in/en/calculator/mileage/): Enter the distance you travelled and the fuel used to find your mileage — and the trip cost too, if you add the fuel price.
 - [Marks Percentage Calculator](https://nextgrade.in/en/calculator/marks-percentage/): Enter your marks obtained and the total marks to instantly find your percentage and grade.
+- [CGPA to Percentage Calculator](https://nextgrade.in/en/calculator/cgpa-to-percentage/): Enter your CGPA — see the approximate percentage by the CBSE formula (CGPA × 9.5) instantly.
 - [RD (Recurring Deposit) Calculator](https://nextgrade.in/en/calculator/rd/): Enter how much you deposit each month, for how many months and the interest rate, to find the total at maturity.
 - [Loan Eligibility Calculator](https://nextgrade.in/en/calculator/loan-eligibility/): Enter the EMI you can comfortably pay each month, the interest rate and tenure, to find how much loan that EMI can get you.
 - [8th Pay Commission Salary Calculator](https://nextgrade.in/en/calculator/8th-pay-commission/): Enter your 7th Pay Commission basic pay, pick a fitment factor and see roughly what your new basic pay could be under the 8th Pay Commission.
@@ -277,6 +279,7 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 
 ## Government services, step by step (with official links)
 
+- [How to change the mobile number in Aadhaar](https://nextgrade.in/en/sarkari-guide/aadhaar-mobile-number-update/): Where: UIDAI's new Aadhaar App (Android/iPhone) — or an Aadhaar centre; You need: Old number working (OTP) + face authentication; Fee: Shown in the app — reported as ₹75; Helpline: 1947 (UIDAI)
 - [How to change your address in Aadhaar (online)](https://nextgrade.in/en/sarkari-guide/aadhaar-address-change/): Where: myAadhaar portal (from uidai.gov.in); You need: Mobile number linked to Aadhaar (for OTP); Fee: Shown on the portal — ₹75 at present as per UIDAI; Time: Usually a few days, up to 30 days
 - [How to link PAN with Aadhaar](https://nextgrade.in/en/sarkari-guide/pan-aadhaar-link/): Where: Income Tax e-filing portal (incometax.gov.in); Fee: ₹1,000 (late linking fee) — paid first; You need: PAN, Aadhaar, mobile linked to Aadhaar; Why: An unlinked PAN can become inoperative
 - [How to get a new PAN card](https://nextgrade.in/en/sarkari-guide/pan-card-apply/): Easiest: Instant e-PAN with Aadhaar — on incometax.gov.in, free; You need: Aadhaar + the mobile linked to it; Physical card: From Protean (NSDL) or UTIITSL — fee shown on the portal; Time: e-PAN in minutes to hours; card by post in a few weeks

@@ -264,6 +264,12 @@
       var grade = pct >= 90 ? 'A+' : pct >= 80 ? 'A' : pct >= 70 ? 'B+' : pct >= 60 ? 'B' : pct >= 50 ? 'C' : pct >= 33 ? 'D' : 'F';
       show(row(S('percentage', 'Percentage'), '<b>' + fmt(pct, 2) + '%</b>', true) + row(S('obtained', 'Marks'), fmt(got) + ' / ' + fmt(total)) + row(S('grade', 'Grade'), grade));
     },
+    cgpa: function () {
+      var c = num('cgpa');
+      if (isNaN(c) || c < 0 || c > 10) return err(S('fill', 'Please enter a CGPA between 0 and 10.'));
+      var pct = c * 9.5;
+      show(row(S('percentage', 'Approximate percentage'), '<b>' + fmt(pct, 2) + '%</b>', true) + row(S('formula', 'Working'), fmt(c, 2) + ' × 9.5 = ' + fmt(pct, 2) + '%'));
+    },
     rd: function () {
       var m = num('m'), r = num('r'), months = num('n');
       if (isNaN(m) || isNaN(r) || isNaN(months) || m <= 0 || months <= 0) return err(S('fill', 'Please fill the monthly deposit, rate and months.'));
