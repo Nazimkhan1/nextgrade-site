@@ -13,6 +13,7 @@ const EXTRA = [
   { file: 'board-exam', path: '/board-exam/', emoji: '📝', deco: '📚⏳✏', title: 'Board Exam 2027' },
   { file: 'up-board-2027', path: '/board-exam/up-board-2027/', emoji: '🏫', deco: '📝⏳✏', title: 'UP Board 2027' },
   { file: 'kitne-din-baaki', path: '/kitne-din-baaki/', emoji: '⏳', deco: '🎉📅🪔', title: 'कितने दिन बाक़ी' },
+  { file: 'akshar-daud', path: '/games/akshar-daud/', emoji: '🏃', deco: '🔢🔤✏', title: 'अक्षर दौड़ — Daudo aur Seekho' },
   { file: 'income-tax', path: '/income-tax/', emoji: '💰', deco: '🧾📊🇮🇳', title: 'Income Tax 2026-27' },
 ];
 export const OG_CARDS = [...AARTI, ...MANTRA, ...DUA, ...NAVR, ...VYAK, ...APPS, ...EXTRA];

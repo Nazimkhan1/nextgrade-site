@@ -49,6 +49,7 @@ const LINES = [
   // User (19 Nov 2026): games were sitting unreleased until Feb, bringing no traffic — release one every 1–2 days,
   // the most-searched games first ("carrom game", "saanp seedhi"…), festival games still well before their day.
   { prefix: 'game', start: '2026-11-20', gap: [0, 0], seed: 7, slugs: [ // user 21 Nov: all evergreen games live now
+    'akshar-daud', // user 28 Nov: kids run-and-learn game
     'carrom', 'saanp-seedhi', 'kanche', 'bagh-bakri', 'kattam-katti',
     'parade-ki-taal', // Republic Day, 26 Jan
     'raja-mantri-chor-sipahi', 'gilli-danda', 'pitthu', 'aam-todo', 'chidiya-udd',

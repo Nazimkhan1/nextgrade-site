@@ -5,6 +5,14 @@
  */
 const games = [
   {
+    slug: 'akshar-daud',
+    emoji: '🏃',
+    name: 'अक्षर दौड़',
+    nameEn: 'Akshar Daud (Run & Learn)',
+    tag: 'Kids',
+    desc: 'छोटे बच्चों का दौड़ वाला गेम: अपना नाम लिखो, दौड़ो और सामने से आते 1 2 3, A B C, क ख ग या অ আ ই पकड़ो — हर अक्षर आवाज़ में बोला जाता है (क से कबूतर)। छूटा अक्षर फिर आता है।',
+  },
+  {
     slug: 'nadi-paar',
     emoji: '🛶',
     name: 'नदी पार',

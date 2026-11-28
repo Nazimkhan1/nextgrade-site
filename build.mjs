@@ -1094,6 +1094,7 @@ ${hubExtraHtml('wish-card', L.code, esc)}
 <p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › ${esc(kidsName)}</p>
 <h1>${esc(KU.hubH1)}</h1>
 <p class="lead">${esc(KU.hubLead)}</p>
+${(() => { const G = { hi: ['🏃 अक्षर दौड़ — खेलो और सीखो', 'अपना नाम लिखो, दौड़ो और 1 2 3, A B C, क ख ग पकड़ो — हर अक्षर बोलकर सुनाएगा।'], en: ['🏃 Akshar Daud — run and learn', 'Type your name, run and catch 1 2 3, A B C, क ख ग — each one is read out aloud.'], hinglish: ['🏃 Akshar Daud — khelo aur seekho', 'Apna naam likho, daudo aur 1 2 3, A B C, क ख ग pakdo — har akshar bolkar sunayega.'], bn: ['🏃 অক্ষর দৌড় — খেলো আর শেখো', 'নিজের নাম লেখো, দৌড়াও আর ধরো ১ ২ ৩, A B C, অ আ ক খ — প্রতিটি অক্ষর বলে শোনাবে।'] }[L.code]; const gl = { hi: 'hi', en: 'en', hinglish: 'hinglish', bn: 'bn' }[L.code]; return `<a class="card" style="display:block;margin:0 0 16px;border:2px solid var(--brand)" href="/games/akshar-daud/?lang=${gl}"><h3 style="margin:0 0 4px">${esc(G[0])}</h3><p style="margin:0">${esc(G[1])}</p></a>`; })()}
 <div class="grid">${KIDS_SETS.map((s) => `<a class="card" href="${P(L, `/kids/${s.slug}/`)}"><span class="emoji" aria-hidden="true">${s.emoji}</span><h3>${esc(s.name[L.code] || s.name.en)}</h3></a>`).join('')}</div>
 </div>`,
     }));
