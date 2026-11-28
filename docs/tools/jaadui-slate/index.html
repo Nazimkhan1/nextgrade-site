@@ -1,0 +1,408 @@
+<!doctype html>
+<html data-prerendered="hi" lang="hi">
+<head>
+<!-- Google Analytics: counts visitors only --><script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ43J91EBJ"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-NJ43J91EBJ');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>जादुई स्लेट — बच्चों की ऑनलाइन LCD राइटिंग टैबलेट, उंगली से लिखो, एक टैप में साफ़ | NextGrade</title>
+<meta name="description" content="बच्चों के लिए फ़्री जादुई स्लेट: फ़ोन पर उंगली से लिखो और ड्रॉ करो, चमकती लाइन, एक बटन से साफ़, ऑन/ऑफ़ स्विच, रंग, अक्षर देखकर लिखने की प्रैक्टिस (अ, A, 1)। बिना ऐप, बिना लॉग-इन।">
+<meta name="theme-color" content="#1c7ed6">
+<link rel="canonical" href="https://nextgrade.in/tools/jaadui-slate/">
+<meta property="og:title" content="जादुई स्लेट — उंगली से लिखो, एक टैप में साफ़">
+<meta property="og:description" content="बच्चों की LCD राइटिंग टैबलेट जैसी स्लेट, फ़ोन में — फ़्री, बिना ऐप।">
+<meta property="og:image" content="https://nextgrade.in/og-image.jpg">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/css/6a45250a9a38.css">
+<style>
+:root { --bg: #eaf4ff; --card: #fff; --ink: #14243a; --muted: #52627a; --brand: #1c7ed6; --line: #cfe2f7; --soft: #f3f9ff; --frame: #1c7ed6; --frame2: #1971c2; --pen: #7ff3ff; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; }
+.wrap { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 8px; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 21px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand small { display: block; font-family: Inter, sans-serif; font-size: 12px; font-weight: 600; color: var(--muted); }
+select, button { font: inherit; }
+.langsel { padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(24px, 6vw, 34px); line-height: 1.15; margin: 6px 0 4px; }
+.lead { color: var(--muted); margin: 0 0 14px; }
+
+/* the slate: an LCD writing tablet */
+.slate { position: relative; margin: 0 auto; width: min(100%, 560px); background: linear-gradient(160deg, var(--frame), var(--frame2)); border-radius: 26px; padding: 14px 14px 46px; box-shadow: 0 14px 34px rgba(20, 50, 90, .28), inset 0 2px 0 rgba(255,255,255,.25); user-select: none; -webkit-user-select: none; }
+.slate.full { position: fixed; inset: 0; width: auto; border-radius: 0; z-index: 50; display: flex; flex-direction: column; padding: max(10px, env(safe-area-inset-top)) 10px calc(40px + env(safe-area-inset-bottom)); }
+.topbar { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 10px; }
+.pill { width: 54px; height: 30px; border-radius: 15px; border: 2px solid rgba(255,255,255,.75); background: rgba(0,0,0,.25); color: #fff; font-size: 16px; display: grid; place-items: center; cursor: pointer; }
+.pill:active { transform: scale(.94); }
+.pill.clear { width: 64px; }
+.power { position: relative; width: 54px; height: 30px; border-radius: 15px; border: 2px solid rgba(255,255,255,.75); background: rgba(0,0,0,.35); cursor: pointer; padding: 0; }
+.power::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #9aa5b1; transition: left .18s, background .18s; }
+.power[aria-pressed="true"]::after { left: 27px; background: #8ce99a; box-shadow: 0 0 8px #8ce99a; }
+.screen { position: relative; background: #050607; border-radius: 12px; overflow: hidden; aspect-ratio: 3 / 4; max-height: 62vh; width: 100%; box-shadow: inset 0 0 0 3px #0a0c0f, inset 0 0 30px rgba(0,0,0,.9); }
+.slate.full .screen { aspect-ratio: auto; max-height: none; flex: 1; }
+canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair; }
+.guide { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; font-family: "Noto Sans Devanagari", "Noto Sans Bengali", "Baloo 2", sans-serif; font-weight: 700; color: rgba(127, 243, 255, .16); font-size: min(52vw, 260px); line-height: 1; }
+.slate.full .guide { font-size: min(60vh, 70vw); }
+.off { position: absolute; inset: 0; display: none; place-items: center; color: #3a4048; font-weight: 700; letter-spacing: 2px; background: #020203; }
+.slate.is-off .off { display: grid; }
+.wipe { position: absolute; inset: 0; background: #050607; transform: translateY(-101%); pointer-events: none; }
+.wipe.go { animation: wipe .45s ease-in; }
+@keyframes wipe { from { transform: translateY(-101%); } to { transform: translateY(101%); } }
+.slots { position: absolute; left: 0; right: 0; bottom: 12px; display: flex; justify-content: space-between; padding: 0 22px; pointer-events: none; }
+.slots i { width: 14px; height: 22px; border-radius: 7px; background: rgba(0,0,0,.25); }
+.slots b { flex: 1; margin: 0 14px; height: 22px; border-radius: 11px; background: rgba(0,0,0,.18); }
+.slate.full .slots { bottom: calc(10px + env(safe-area-inset-bottom)); }
+
+.tools { width: min(100%, 560px); margin: 12px auto 0; display: grid; gap: 10px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.row .lbl { font-weight: 700; font-size: 14px; color: var(--muted); min-width: 64px; }
+.sw { width: 34px; height: 34px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1px var(--line); cursor: pointer; }
+.sw.on { box-shadow: 0 0 0 3px var(--brand); }
+.sw.rainbow { background: conic-gradient(#ff6b6b, #ffd43b, #69db7c, #4dabf7, #b197fc, #ff6b6b); }
+.chip { border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 7px 13px; cursor: pointer; font-weight: 600; font-size: 14px; }
+.chip.on { background: var(--brand); color: #fff; border-color: var(--brand); }
+.btn { border: 0; background: var(--brand); color: #fff; border-radius: 12px; padding: 10px 14px; font-weight: 700; cursor: pointer; }
+.btn.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; margin: 18px 0; }
+.card h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 22px; margin: 0 0 6px; }
+.card p, .card li { color: #2b3b52; }
+details { border-top: 1px solid var(--line); padding: 10px 0; } details:first-of-type { border-top: 0; }
+summary { font-weight: 700; cursor: pointer; }
+footer { color: var(--muted); font-size: 13px; text-align: center; padding: 24px 0 40px; }
+footer a { color: var(--muted); }
+.more { display: flex; flex-wrap: wrap; gap: 8px; }
+.more a { text-decoration: none; }
+@media (prefers-color-scheme: dark) { :root { --bg: #0d1520; --card: #142030; --ink: #e8f1fb; --muted: #9fb2c8; --line: #24364d; --soft: #111b28; } .langsel, .chip, .btn.ghost { background: #142030; color: var(--ink); } .card p, .card li { color: #c9d6e5; } }
+</style>
+<style id="ngc-css">.ngc{font-family:"Inter","Noto Sans Devanagari","Noto Sans Bengali",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.7;color:var(--text);-webkit-text-size-adjust:100%}.ngc *{box-sizing:border-box}.ngc a{color:var(--brand)}.ngc[hidden]{display:none!important}.ngc-top{position:relative;z-index:1000}.ngc{width:100%;align-self:stretch;flex:0 0 auto;text-align:left}.ngc .site-head,.ngc .site-foot{display:block;margin:0;justify-content:initial;align-items:initial}.ngc .site-head{position:relative;background:var(--bg);padding:0}.ngc details{background:none;border:0;padding:0;margin:0;border-radius:0;box-shadow:none}.ngc summary{background:none;border:0;margin:0}.ngc ul,.ngc li{margin:0}.ngc h4{font-family:inherit;line-height:1.3}.ngc nav{background:none;border:0;padding:0}.ngc .site-foot{text-align:left}.ngc .theme-btn{display:none}
+.ngc{
+  --bg: #fffaf3;
+  --surface: #ffffff;
+  --text: #2b2118;
+  --muted: #6f6257;
+  --line: #eadfce;
+  --brand: #d9480f;
+  --brand-ink: #ffffff;
+  --accent: #7048e8;
+  --soft: #fff0e3;
+  --radius: 14px;
+  --shadow: 0 6px 24px rgba(80, 40, 0, 0.08);
+  --max: 1080px;
+}
+@media (prefers-color-scheme: dark){.ngc{
+    --bg: #17120e;
+    --surface: #211a14;
+    --text: #f4ebe1;
+    --muted: #b9a998;
+    --line: #3a2f25;
+    --brand: #ff8a4c;
+    --brand-ink: #1b120b;
+    --accent: #b197fc;
+    --soft: #2b2017;
+    --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  }}
+.ngc .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+.ngc .site-head{ position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.ngc .site-head .wrap{ display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 60px; }
+.ngc .logo{ display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 20px; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+.ngc .logo-mark{ width: 34px; height: 34px; display: block; filter: drop-shadow(0 3px 6px rgba(217, 72, 15, 0.3)); }
+.ngc .logo b{ color: #e8590c; font-weight: 800; }
+.ngc .nav{ display: flex; gap: 2px; flex-wrap: wrap; align-items: center; }
+.ngc .nav > a,.ngc .nav-group > summary{ color: var(--text); text-decoration: none; font-weight: 600; font-size: 15px; padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+.ngc .nav-group > summary{ list-style: none; display: flex; align-items: center; gap: 4px; user-select: none; }
+.ngc .nav-group > summary::-webkit-details-marker{ display: none; }
+.ngc .nav-group > summary::after{ content: '▾'; font-size: 11px; color: var(--muted); transition: transform .15s; }
+.ngc .nav-group[open] > summary::after{ transform: rotate(180deg); }
+.ngc .nav > a:hover,.ngc .nav > a[aria-current="page"],.ngc .nav-group > summary:hover,.ngc .nav-group > summary[aria-current="page"],.ngc .nav-group[open] > summary{ background: var(--soft); color: var(--brand); }
+.ngc .nav-group{ position: relative; }
+.ngc .nav-group ul{ position: absolute; left: 0; top: calc(100% + 6px); z-index: 30; list-style: none; margin: 0; padding: 6px; min-width: 210px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow);; max-height: calc(100vh - 90px); overflow-y: auto; overscroll-behavior: contain; }
+.ngc .nav-group li a{ display: block; padding: 9px 12px; border-radius: 8px; color: var(--text); text-decoration: none; font-weight: 600; font-size: 15px; white-space: nowrap; }
+.ngc .nav-group li a:hover,.ngc .nav-group li a:focus-visible{ background: var(--soft); color: var(--brand); }
+.ngc .nav-group li a[aria-current="page"]{ color: var(--brand); }
+.ngc .nav-group li:first-child a{ border-bottom: 1px solid var(--line); border-radius: 8px 8px 0 0; margin-bottom: 4px; }
+@media (max-width: 640px){.ngc .site-head .wrap{ flex-direction: column; align-items: flex-start; padding-top: 8px; padding-bottom: 8px; gap: 4px; }.ngc .nav{ margin-left: -10px; }.ngc .nav > a,.ngc .nav-group > summary{ font-size: 14px; padding: 5px 8px; }.ngc .nav-group{ position: static; }.ngc .nav-group ul{ left: 16px; right: 16px; top: 100%; min-width: 0; }.ngc .nav-group li a{ white-space: normal; }}
+.ngc .site-foot{ border-top: 1px solid var(--line); margin-top: 40px; padding: 28px 0; font-size: 15px; color: var(--muted); }
+.ngc .site-foot .wrap{ display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+.ngc .site-foot nav{ display: flex; flex-wrap: wrap; gap: 14px; }
+.ngc .site-foot a{ color: var(--muted); }
+.ngc .head-right{ display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; }
+.ngc .lang-menu{ position: relative; }
+.ngc .lang-menu summary{ list-style: none; cursor: pointer; display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 14px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--text); white-space: nowrap; }
+.ngc .lang-menu summary::-webkit-details-marker{ display: none; }
+.ngc .lang-menu summary::after{ content: '▾'; font-size: 12px; color: var(--muted); }
+.ngc .lang-menu[open] summary{ border-color: var(--brand); }
+.ngc .lang-menu ul{ position: absolute; right: 0; top: calc(100% + 6px); z-index: 20; list-style: none; margin: 0; padding: 6px; min-width: 160px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); }
+.ngc .lang-menu li a{ display: block; padding: 8px 12px; border-radius: 8px; color: var(--text); text-decoration: none; font-weight: 600; }
+.ngc .lang-menu li a:hover{ background: var(--soft); }
+.ngc .lang-menu li a[aria-current="true"]{ color: var(--brand); }
+@media (max-width: 640px){.ngc .site-head .wrap{ position: relative; }.ngc .head-right{ width: 100%; }.ngc .lang-menu{ position: absolute; top: 8px; right: 16px; }}
+.ngc .menu-btn{ display: none; }
+.ngc .site-foot{ background: var(--surface); }
+@media (max-width: 640px){.ngc .site-head .wrap{ flex-direction: row; align-items: center; flex-wrap: nowrap; padding-top: 0; padding-bottom: 0; min-height: 56px; }.ngc .head-right{ width: auto; gap: 6px; }.ngc .lang-menu{ position: relative; top: auto; right: auto; }.ngc .menu-btn{ display: grid; place-items: center; width: 42px; height: 40px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: 20px; cursor: pointer; }.ngc .nav{ display: none; }.ngc.menu-open .nav{ display: flex; flex-direction: column; align-items: stretch; gap: 2px; position: absolute; left: 0; right: 0; top: 100%; margin: 0; padding: 10px 12px 16px; background: var(--surface); border-bottom: 1px solid var(--line); box-shadow: 0 16px 32px rgba(0, 0, 0, .12); max-height: calc(100vh - 56px); overflow-y: auto; }.ngc.menu-open .nav > a,.ngc.menu-open .nav-group > summary{ font-size: 16px; padding: 12px 12px; }.ngc.menu-open .nav-group ul{ position: static; box-shadow: none; border: 0; padding: 0 0 6px 12px; background: transparent;; max-height: none; overflow: visible; }.ngc.menu-open .nav-group li:first-child a{ border-bottom: 0; margin-bottom: 0; }}
+.ngc main > .wrap > section:not([class]){ padding: 10px 0; }
+.ngc main > .wrap > section > h2:first-child{ margin-top: 22px; }
+.ngc .site-foot{ padding: 36px 0 24px; }
+.ngc .site-foot .wrap{ display: block; }
+.ngc .foot-cols{ display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 24px; }
+.ngc .foot-cols h4{ margin: 0 0 10px; font-size: 14px; text-transform: uppercase; letter-spacing: .04em; color: var(--text); }
+.ngc .foot-cols nav{ display: flex; flex-direction: column; gap: 8px; }
+.ngc .foot-cols nav a{ text-decoration: none; }
+.ngc .foot-cols nav a:hover{ color: var(--brand); }
+.ngc .foot-brand .logo{ text-decoration: none; }
+.ngc .foot-brand p{ margin: 10px 0 0; font-size: 14px; line-height: 1.6; max-width: 280px; }
+.ngc .foot-bottom{ display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; }
+.ngc .foot-bottom nav{ display: flex; flex-wrap: wrap; gap: 14px; }
+@media (max-width: 900px){.ngc .foot-cols{ grid-template-columns: 1fr 1fr; }.ngc .foot-brand{ grid-column: 1 / -1; }}
+.ngc .foot-bottom a{ text-decoration: none; }
+.ngc .foot-bottom a:hover{ color: var(--brand); }</style>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c79c0e96af3466f826210eb91f124a0"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="ngc ngc-top" data-ngc="hi"><header class="site-head"><div class="wrap">
+<a class="logo" href="/" aria-label="NextGrade"><img class="logo-mark" src="/favicon.svg" alt="" width="34" height="34"><span>Next<b>Grade</b></span></a>
+<div class="head-right"><nav class="nav" id="main-nav" aria-label="Main"><a href="/">Home</a><details class="nav-group"><summary>कहानियाँ</summary><ul><li><a href="/kahani/">सभी कहानियाँ</a></li><li><a href="/kahani/panchatantra/">पंचतंत्र</a></li><li><a href="/kahani/akbar-birbal/">अकबर-बीरबल</a></li><li><a href="/kahani/tenali-raman/">तेनाली राम</a></li><li><a href="/kahani/jataka/">जातक कथाएँ</a></li><li><a href="/kahani/aesop/">ईसप की कहानियाँ</a></li><li><a href="/kahani/lok-katha/">लोक कथाएँ</a></li></ul></details><details class="nav-group"><summary>पढ़ाई</summary><ul><li><a href="/nibandh/">निबंध</a></li><li><a href="/speech/">भाषण</a></li><li><a href="/paheliyan/">पहेलियाँ</a></li><li><a href="/full-form/">Full Forms</a></li><li><a href="/naam/">बच्चों के नाम</a></li><li><a href="/vilom-shabd/">विलोम शब्द</a></li><li><a href="/paryayvachi-shabd/">पर्यायवाची शब्द</a></li><li><a href="/muhavare/">मुहावरे</a></li><li><a href="/application/">एप्लीकेशन फ़ॉर्मेट</a></li></ul></details><details class="nav-group"><summary>त्योहार</summary><ul><li><a href="/festivals/">सभी त्योहार</a></li><li><a href="/festivals/2027/">त्योहार 2027 कब है</a></li><li><a href="/kitne-din-baaki/">कितने दिन बाक़ी</a></li><li><a href="/calendar/2027/">कैलेंडर 2027</a></li><li><a href="/bangla-tarikh/">आज की बांग्ला तारीख़</a></li><li><a href="/wishes/">Wishes</a></li><li><a href="/wish-card/">Wish Card</a></li><li><a href="/shaadi-card/">शादी कार्ड</a></li><li><a href="/naam-wali-image/">नाम वाली इमेज</a></li><li><a href="/islamic-calendar/">इस्लामी कैलेंडर</a></li></ul></details><details class="nav-group"><summary>Games</summary><ul><li><a href="/games/">सभी गेम्स</a></li><li><a href="/khel/">देसी खेलों के नियम</a></li></ul></details><details class="nav-group"><summary>सीखो-खेलो</summary><ul><li><a href="/kids/">सभी विषय</a></li><li><a href="/kids/ginti/">गिनती 1 से 100</a></li><li><a href="/kids/pahade/">पहाड़े 2 से 20</a></li><li><a href="/kids/abc/">ABC — अंग्रेज़ी अक्षर</a></li><li><a href="/kids/hindi-varnamala/">क-ख-ग — हिंदी वर्णमाला</a></li><li><a href="/kids/barakhadi/">बारहखड़ी (क का कि की)</a></li><li><a href="/kids/matra/">मात्रा वाले शब्द</a></li><li><a href="/kids/bangla-bornomala/">बांग्ला वर्णमाला (অ-আ-ক-খ)</a></li><li><a href="/kids/urdu-haroof/">उर्दू हुरूफ़ (अलिफ़ बे पे)</a></li></ul></details><details class="nav-group"><summary>Tools</summary><ul><li><a href="/tools/">सभी टूल्स</a></li><li><a href="/calculator/">Calculators</a></li><li><a href="/mausam/">मौसम</a></li><li><a href="/sarkari-guide/">सरकारी गाइड</a></li><li><a href="/number-in-words/">नंबर शब्दों में</a></li><li><a href="/desi-naap/">देसी नाप-तोल</a></li><li><a href="/ghar-banane-ka-kharcha/">घर बनाने का ख़र्च</a></li><li><a href="/solar-calculator/">सोलर कैलकुलेटर</a></li><li><a href="/inverter-calculator/">इन्वर्टर कैलकुलेटर</a></li><li><a href="/rto/">RTO कोड</a></li><li><a href="/time/">दुनिया का समय</a></li><li><a href="/sunrise-sunset/">सूर्योदय-सूर्यास्त तुलना</a></li><li><a href="/currency/">विदेशी मुद्रा → रुपया</a></li><li><a href="/ghoomne-ki-jagah/">घूमने की जगहें</a></li><li><a href="/nuskhe/">घरेलू नुस्खे</a></li><li><a href="/surya-namaskar/">सूर्य नमस्कार</a></li><li><a href="/pranayam/">प्राणायाम</a></li><li><a href="/apps/">Apps</a></li></ul></details></nav><details class="lang-menu"><summary aria-label="भाषा">🌐 <span>हिंदी</span></summary><ul><li><a href="/tools/jaadui-slate/?lang=hi" hreflang="hi" lang="hi" aria-current="true">हिंदी ✓</a></li><li><a href="/tools/jaadui-slate/?lang=en" hreflang="en" lang="en">English</a></li><li><a href="/tools/jaadui-slate/?lang=hinglish" hreflang="hi-Latn" lang="hi-Latn">Hinglish</a></li><li><a href="/tools/jaadui-slate/?lang=bn" hreflang="bn" lang="bn">বাংলা</a></li></ul></details><button class="theme-btn" type="button" aria-label="डार्क / लाइट मोड" title="डार्क / लाइट मोड"><span class="t-moon" aria-hidden="true">🌙</span><span class="t-sun" aria-hidden="true">☀️</span></button><button class="menu-btn" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="मेनू">☰</button></div>
+</div></header></div><div class="ngc ngc-top" data-ngc="en" hidden><header class="site-head"><div class="wrap">
+<a class="logo" href="/en/" aria-label="NextGrade"><img class="logo-mark" src="/favicon.svg" alt="" width="34" height="34"><span>Next<b>Grade</b></span></a>
+<div class="head-right"><nav class="nav" id="main-nav" aria-label="Main"><a href="/en/">Home</a><details class="nav-group"><summary>Stories</summary><ul><li><a href="/en/kahani/">All stories</a></li><li><a href="/en/kahani/panchatantra/">Panchatantra</a></li><li><a href="/en/kahani/akbar-birbal/">Akbar-Birbal</a></li><li><a href="/en/kahani/tenali-raman/">Tenali Raman</a></li><li><a href="/en/kahani/jataka/">Jataka Tales</a></li><li><a href="/en/kahani/aesop/">Aesop's Fables</a></li><li><a href="/en/kahani/lok-katha/">Folk Tales</a></li></ul></details><details class="nav-group"><summary>Study</summary><ul><li><a href="/en/nibandh/">Essays</a></li><li><a href="/en/speech/">Speeches</a></li><li><a href="/en/paheliyan/">Riddles</a></li><li><a href="/en/full-form/">Full Forms</a></li><li><a href="/en/naam/">Baby Names</a></li><li><a href="/en/vilom-shabd/">Vilom Shabd</a></li><li><a href="/en/paryayvachi-shabd/">Paryayvachi Shabd</a></li><li><a href="/en/muhavare/">Muhavare</a></li><li><a href="/en/application/">Application formats</a></li></ul></details><details class="nav-group"><summary>Festivals</summary><ul><li><a href="/en/festivals/">All festivals</a></li><li><a href="/en/festivals/2027/">Festival dates 2027</a></li><li><a href="/en/kitne-din-baaki/">Days left</a></li><li><a href="/en/calendar/2027/">Calendar 2027</a></li><li><a href="/en/bangla-tarikh/">Bangla date today</a></li><li><a href="/en/wishes/">Wishes</a></li><li><a href="/en/wish-card/">Wish Card</a></li><li><a href="/en/shaadi-card/">Shaadi Card</a></li><li><a href="/en/naam-wali-image/">Name on image</a></li><li><a href="/en/islamic-calendar/">Islamic calendar</a></li></ul></details><details class="nav-group"><summary>Games</summary><ul><li><a href="/en/games/">All games</a></li><li><a href="/en/khel/">Rules of desi games</a></li></ul></details><details class="nav-group"><summary>Learn &amp; Play</summary><ul><li><a href="/en/kids/">All topics</a></li><li><a href="/en/kids/ginti/">Numbers 1 to 100</a></li><li><a href="/en/kids/pahade/">Tables 2 to 20</a></li><li><a href="/en/kids/abc/">ABC — Alphabet</a></li><li><a href="/en/kids/hindi-varnamala/">Hindi Alphabet (Varnamala)</a></li><li><a href="/en/kids/barakhadi/">Hindi Barakhadi (Ka Kaa Ki Kee)</a></li><li><a href="/en/kids/matra/">Hindi Matra Words</a></li><li><a href="/en/kids/bangla-bornomala/">Bengali Alphabet (Bornomala)</a></li><li><a href="/en/kids/urdu-haroof/">Urdu Alphabet (Alif Be Pe)</a></li></ul></details><details class="nav-group"><summary>Tools</summary><ul><li><a href="/en/tools/">All tools</a></li><li><a href="/en/calculator/">Calculators</a></li><li><a href="/en/mausam/">Weather</a></li><li><a href="/en/sarkari-guide/">Government guides</a></li><li><a href="/en/number-in-words/">Number in words</a></li><li><a href="/en/desi-naap/">Desi units</a></li><li><a href="/en/ghar-banane-ka-kharcha/">House construction cost</a></li><li><a href="/en/solar-calculator/">Solar calculator</a></li><li><a href="/en/inverter-calculator/">Inverter calculator</a></li><li><a href="/en/rto/">RTO codes</a></li><li><a href="/en/time/">World time</a></li><li><a href="/en/sunrise-sunset/">Sunrise-sunset compare</a></li><li><a href="/en/currency/">Currency to rupee</a></li><li><a href="/en/ghoomne-ki-jagah/">Places to visit</a></li><li><a href="/en/nuskhe/">Home remedies</a></li><li><a href="/en/surya-namaskar/">Surya Namaskar</a></li><li><a href="/en/pranayam/">Pranayam</a></li><li><a href="/en/apps/">Apps</a></li></ul></details></nav><details class="lang-menu"><summary aria-label="Language">🌐 <span>English</span></summary><ul><li><a href="/tools/jaadui-slate/?lang=hi" hreflang="hi" lang="hi">हिंदी</a></li><li><a href="/tools/jaadui-slate/?lang=en" hreflang="en" lang="en" aria-current="true">English ✓</a></li><li><a href="/tools/jaadui-slate/?lang=hinglish" hreflang="hi-Latn" lang="hi-Latn">Hinglish</a></li><li><a href="/tools/jaadui-slate/?lang=bn" hreflang="bn" lang="bn">বাংলা</a></li></ul></details><button class="theme-btn" type="button" aria-label="Dark / light mode" title="Dark / light mode"><span class="t-moon" aria-hidden="true">🌙</span><span class="t-sun" aria-hidden="true">☀️</span></button><button class="menu-btn" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Menu">☰</button></div>
+</div></header></div><div class="ngc ngc-top" data-ngc="hinglish" hidden><header class="site-head"><div class="wrap">
+<a class="logo" href="/hinglish/" aria-label="NextGrade"><img class="logo-mark" src="/favicon.svg" alt="" width="34" height="34"><span>Next<b>Grade</b></span></a>
+<div class="head-right"><nav class="nav" id="main-nav" aria-label="Main"><a href="/hinglish/">Home</a><details class="nav-group"><summary>Kahaniyan</summary><ul><li><a href="/hinglish/kahani/">Sabhi kahaniyan</a></li><li><a href="/hinglish/kahani/panchatantra/">Panchatantra</a></li><li><a href="/hinglish/kahani/akbar-birbal/">Akbar-Birbal</a></li><li><a href="/hinglish/kahani/tenali-raman/">Tenali Raman</a></li><li><a href="/hinglish/kahani/jataka/">Jataka Kathayein</a></li><li><a href="/hinglish/kahani/aesop/">Aesop ki Kahaniyan</a></li><li><a href="/hinglish/kahani/lok-katha/">Lok Kathayein</a></li></ul></details><details class="nav-group"><summary>Padhai</summary><ul><li><a href="/hinglish/nibandh/">Nibandh</a></li><li><a href="/hinglish/speech/">Bhashan</a></li><li><a href="/hinglish/paheliyan/">Paheliyan</a></li><li><a href="/hinglish/full-form/">Full Forms</a></li><li><a href="/hinglish/naam/">Baby Names</a></li></ul></details><details class="nav-group"><summary>Tyohaar</summary><ul><li><a href="/hinglish/festivals/">Sabhi tyohaar</a></li><li><a href="/hinglish/festivals/2027/">Tyohaar 2027 kab hai</a></li><li><a href="/hinglish/kitne-din-baaki/">Kitne din baaki</a></li><li><a href="/hinglish/calendar/2027/">Calendar 2027</a></li><li><a href="/hinglish/bangla-tarikh/">Aaj ki Bangla tarikh</a></li><li><a href="/hinglish/wishes/">Wishes</a></li><li><a href="/hinglish/wish-card/">Wish Card</a></li><li><a href="/hinglish/shaadi-card/">Shaadi Card</a></li><li><a href="/hinglish/naam-wali-image/">Naam wali image</a></li><li><a href="/hinglish/islamic-calendar/">Islamic calendar</a></li></ul></details><details class="nav-group"><summary>Games</summary><ul><li><a href="/hinglish/games/">Sabhi games</a></li><li><a href="/hinglish/khel/">Desi khelon ke niyam</a></li></ul></details><details class="nav-group"><summary>Seekho-Khelo</summary><ul><li><a href="/hinglish/kids/">Sabhi topics</a></li><li><a href="/hinglish/kids/ginti/">Ginti 1 se 100</a></li><li><a href="/hinglish/kids/pahade/">Pahade 2 se 20</a></li><li><a href="/hinglish/kids/abc/">ABC Alphabet</a></li><li><a href="/hinglish/kids/hindi-varnamala/">Ka Kha Ga — Hindi Varnamala</a></li><li><a href="/hinglish/kids/barakhadi/">Barakhadi — Ka Kaa Ki Kee</a></li><li><a href="/hinglish/kids/matra/">Matra wale Shabd</a></li><li><a href="/hinglish/kids/bangla-bornomala/">Bangla Bornomala</a></li><li><a href="/hinglish/kids/urdu-haroof/">Urdu Haroof — Alif Be Pe</a></li></ul></details><details class="nav-group"><summary>Tools</summary><ul><li><a href="/hinglish/tools/">Sabhi tools</a></li><li><a href="/hinglish/calculator/">Calculators</a></li><li><a href="/hinglish/mausam/">Mausam</a></li><li><a href="/hinglish/sarkari-guide/">Sarkari guide</a></li><li><a href="/hinglish/number-in-words/">Number in words</a></li><li><a href="/hinglish/desi-naap/">Desi naap-tol</a></li><li><a href="/hinglish/ghar-banane-ka-kharcha/">Ghar banane ka kharcha</a></li><li><a href="/hinglish/solar-calculator/">Solar calculator</a></li><li><a href="/hinglish/inverter-calculator/">Inverter calculator</a></li><li><a href="/hinglish/rto/">RTO code</a></li><li><a href="/hinglish/time/">Duniya ka time</a></li><li><a href="/hinglish/sunrise-sunset/">Sunrise-sunset tulna</a></li><li><a href="/hinglish/currency/">Videshi currency → Rupaya</a></li><li><a href="/hinglish/ghoomne-ki-jagah/">Ghoomne ki jagah</a></li><li><a href="/hinglish/nuskhe/">Gharelu nuskhe</a></li><li><a href="/hinglish/surya-namaskar/">Surya Namaskar</a></li><li><a href="/hinglish/pranayam/">Pranayam</a></li><li><a href="/hinglish/apps/">Apps</a></li></ul></details></nav><details class="lang-menu"><summary aria-label="Bhasha">🌐 <span>Hinglish</span></summary><ul><li><a href="/tools/jaadui-slate/?lang=hi" hreflang="hi" lang="hi">हिंदी</a></li><li><a href="/tools/jaadui-slate/?lang=en" hreflang="en" lang="en">English</a></li><li><a href="/tools/jaadui-slate/?lang=hinglish" hreflang="hi-Latn" lang="hi-Latn" aria-current="true">Hinglish ✓</a></li><li><a href="/tools/jaadui-slate/?lang=bn" hreflang="bn" lang="bn">বাংলা</a></li></ul></details><button class="theme-btn" type="button" aria-label="Dark / light mode" title="Dark / light mode"><span class="t-moon" aria-hidden="true">🌙</span><span class="t-sun" aria-hidden="true">☀️</span></button><button class="menu-btn" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Menu">☰</button></div>
+</div></header></div><div class="ngc ngc-top" data-ngc="bn" hidden><header class="site-head"><div class="wrap">
+<a class="logo" href="/bn/" aria-label="NextGrade"><img class="logo-mark" src="/favicon.svg" alt="" width="34" height="34"><span>Next<b>Grade</b></span></a>
+<div class="head-right"><nav class="nav" id="main-nav" aria-label="Main"><a href="/bn/">হোম</a><details class="nav-group"><summary>গল্প</summary><ul><li><a href="/bn/kahani/">সব গল্প</a></li><li><a href="/bn/kahani/panchatantra/">পঞ্চতন্ত্র</a></li><li><a href="/bn/kahani/akbar-birbal/">আকবর-বীরবল</a></li><li><a href="/bn/kahani/tenali-raman/">তেনালি রামন</a></li><li><a href="/bn/kahani/jataka/">জাতকের গল্প</a></li><li><a href="/bn/kahani/aesop/">ঈশপের গল্প</a></li><li><a href="/bn/kahani/lok-katha/">লোককথা</a></li></ul></details><details class="nav-group"><summary>পড়াশোনা</summary><ul><li><a href="/bn/nibandh/">রচনা</a></li><li><a href="/bn/speech/">বক্তৃতা</a></li><li><a href="/bn/paheliyan/">ধাঁধা</a></li><li><a href="/bn/full-form/">ফুল ফর্ম</a></li><li><a href="/bn/naam/">শিশুর নাম</a></li></ul></details><details class="nav-group"><summary>উৎসব</summary><ul><li><a href="/bn/festivals/">সব উৎসব</a></li><li><a href="/bn/festivals/2027/">উৎসবের তারিখ 2027</a></li><li><a href="/bn/kitne-din-baaki/">আর কত দিন</a></li><li><a href="/bn/calendar/2027/">ক্যালেন্ডার ২০২৭</a></li><li><a href="/bn/bangla-tarikh/">আজকের বাংলা তারিখ</a></li><li><a href="/bn/wishes/">শুভেচ্ছা</a></li><li><a href="/bn/wish-card/">উইশ কার্ড</a></li><li><a href="/bn/shaadi-card/">বিয়ের কার্ড</a></li><li><a href="/bn/naam-wali-image/">নামের ছবি</a></li><li><a href="/bn/islamic-calendar/">ইসলামি ক্যালেন্ডার</a></li></ul></details><details class="nav-group"><summary>গেম</summary><ul><li><a href="/bn/games/">সব গেম</a></li><li><a href="/bn/khel/">দেশি খেলার নিয়ম</a></li></ul></details><details class="nav-group"><summary>শেখো-খেলো</summary><ul><li><a href="/bn/kids/">সব বিষয়</a></li><li><a href="/bn/kids/ginti/">সংখ্যা ১ থেকে ১০০ (গণনা)</a></li><li><a href="/bn/kids/pahade/">নামতা ২ থেকে ২০</a></li><li><a href="/bn/kids/abc/">ABC — ইংরেজি বর্ণ</a></li><li><a href="/bn/kids/hindi-varnamala/">হিন্দি বর্ণমালা (ক-খ-গ)</a></li><li><a href="/bn/kids/barakhadi/">হিন্দি বারাখড়ি (ক কা কি কী)</a></li><li><a href="/bn/kids/matra/">হিন্দি মাত্রার শব্দ</a></li><li><a href="/bn/kids/bangla-bornomala/">বাংলা বর্ণমালা — অ আ ক খ</a></li><li><a href="/bn/kids/urdu-haroof/">উর্দু বর্ণমালা (আলিফ বে পে)</a></li></ul></details><details class="nav-group"><summary>টুলস</summary><ul><li><a href="/bn/tools/">সব টুলস</a></li><li><a href="/bn/calculator/">ক্যালকুলেটর</a></li><li><a href="/bn/mausam/">আবহাওয়া</a></li><li><a href="/bn/sarkari-guide/">সরকারি গাইড</a></li><li><a href="/bn/number-in-words/">সংখ্যা কথায়</a></li><li><a href="/bn/desi-naap/">দেশি মাপ-ওজন</a></li><li><a href="/bn/ghar-banane-ka-kharcha/">বাড়ি তৈরির খরচ</a></li><li><a href="/bn/solar-calculator/">সোলার ক্যালকুলেটর</a></li><li><a href="/bn/inverter-calculator/">ইনভার্টার ক্যালকুলেটর</a></li><li><a href="/bn/rto/">RTO কোড</a></li><li><a href="/bn/time/">বিশ্বের সময়</a></li><li><a href="/bn/sunrise-sunset/">সূর্যোদয়-সূর্যাস্ত তুলনা</a></li><li><a href="/bn/currency/">বিদেশি মুদ্রা → টাকা</a></li><li><a href="/bn/ghoomne-ki-jagah/">বেড়ানোর জায়গা</a></li><li><a href="/bn/nuskhe/">ঘরোয়া টোটকা</a></li><li><a href="/bn/surya-namaskar/">সূর্য নমস্কার</a></li><li><a href="/bn/pranayam/">প্রাণায়াম</a></li><li><a href="/bn/apps/">অ্যাপ</a></li></ul></details></nav><details class="lang-menu"><summary aria-label="ভাষা">🌐 <span>বাংলা</span></summary><ul><li><a href="/tools/jaadui-slate/?lang=hi" hreflang="hi" lang="hi">हिंदी</a></li><li><a href="/tools/jaadui-slate/?lang=en" hreflang="en" lang="en">English</a></li><li><a href="/tools/jaadui-slate/?lang=hinglish" hreflang="hi-Latn" lang="hi-Latn">Hinglish</a></li><li><a href="/tools/jaadui-slate/?lang=bn" hreflang="bn" lang="bn" aria-current="true">বাংলা ✓</a></li></ul></details><button class="theme-btn" type="button" aria-label="ডার্ক / লাইট মোড" title="ডার্ক / লাইট মোড"><span class="t-moon" aria-hidden="true">🌙</span><span class="t-sun" aria-hidden="true">☀️</span></button><button class="menu-btn" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="মেনু">☰</button></div>
+</div></header></div>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://nextgrade.in/">NextGrade<small data-t="brandSub">बच्चों के टूल्स</small></a>
+    <select class="langsel" id="langSel" aria-label="Language">
+      <option value="hi">हिंदी</option><option value="en">English</option><option value="hinglish">Hinglish</option><option value="bn">বাংলা</option>
+    </select>
+  </header>
+  <h1 data-t="title">✍️ जादुई स्लेट — उंगली से लिखो, एक टैप में साफ़</h1>
+  <p class="lead" data-t="sub">LCD राइटिंग टैबलेट जैसी स्लेट, आपके फ़ोन में: चमकती लाइन, 🗑️ से पूरा साफ़, ऑन/ऑफ़ स्विच। फ़्री, बिना ऐप।</p>
+
+  <div class="slate" id="slate">
+    <div class="topbar">
+      <button type="button" class="power" id="power" aria-pressed="true" data-ta="power"></button>
+      <button type="button" class="pill clear" id="clear" data-ta="clear">🗑️</button>
+      <button type="button" class="pill" id="undo" data-ta="undo">↩︎</button>
+      <button type="button" class="pill" id="fs" data-ta="full">⛶</button>
+    </div>
+    <div class="screen" id="screen">
+      <div class="guide" id="guide" aria-hidden="true"></div>
+      <canvas id="cv"></canvas>
+      <div class="wipe" id="wipe"></div>
+      <div class="off" data-t="offTxt">स्लेट बंद है — ऊपर स्विच दबाओ</div>
+    </div>
+    <div class="slots" aria-hidden="true"><i></i><b></b><i></i></div>
+  </div>
+
+  <div class="tools">
+    <div class="row"><span class="lbl" data-t="colourL">रंग</span><span id="colours" class="row"></span></div>
+    <div class="row"><span class="lbl" data-t="sizeL">मोटाई</span><span id="sizes" class="row"><button type="button" class="chip" data-s="4">पतली</button><button type="button" class="chip on" data-s="8">मध्यम</button><button type="button" class="chip" data-s="14">मोटी</button></span></div>
+    <div class="row"><span class="lbl" data-t="frameL">फ़्रेम</span><span id="frames" class="row"></span></div>
+    <div class="row"><span class="lbl" data-t="guideL">अक्षर</span><span id="sets" class="row"><button type="button" class="chip on" data-g="">कोई नहीं</button><button type="button" class="chip" data-g="hi">अ</button><button type="button" class="chip" data-g="en">A</button><button type="button" class="chip" data-g="num">1</button><button type="button" class="chip" data-g="bn">অ</button></span>
+      <button type="button" class="chip" id="prevL">◀</button><button type="button" class="chip" id="nextL">▶</button></div>
+    <div class="row"><button type="button" class="btn" id="save" data-t="save"></button><button type="button" class="btn ghost" id="sound" aria-pressed="true"></button></div>
+  </div>
+
+  <section class="card"><h2 data-t="aboutH">जादुई स्लेट क्या है?</h2><p data-t="about1">यह बाज़ार में मिलने वाली LCD राइटिंग टैबलेट (मैजिक स्लेट) जैसी है — काली स्क्रीन पर उंगली से लिखो तो चमकती लाइन बनती है, और ऊपर का 🗑️ बटन दबाते ही सब एक झटके में साफ़। न चॉक, न कागज़, न बैटरी।</p><p data-t="about2">छोटे बच्चे इस पर अक्षर, गिनती, चित्र और नाम लिखना सीख सकते हैं। "अक्षर" चुनो तो स्क्रीन पर हल्का अक्षर दिखेगा — उसके ऊपर लिखकर बनाना सीखो।</p></section>
+  <section class="card"><h2 data-t="howH"></h2><ol id="how"><li>ऊपर का स्विच हरा हो तो स्लेट चालू है — उंगली से लिखो या ड्रॉ करो।</li><li>🗑️ दबाओ — पूरी स्लेट साफ़। ↩︎ से सिर्फ़ आख़िरी लाइन हटती है।</li><li>रंग, लाइन की मोटाई और फ़्रेम का रंग नीचे से बदलो। 🌈 से हर लाइन अलग रंग की।</li><li>"अक्षर" में अ, A या 1 चुनो — हल्के अक्षर के ऊपर लिखो, ▶ से अगला अक्षर।</li><li>⛶ से पूरी स्क्रीन; बच्चे के हाथ में देने से पहले यही अच्छा है। पसंद आए तो 💾 से फ़ोटो सेव करो।</li></ol></section>
+  <section class="card"><h2 data-t="ideasH"></h2><ul id="ideas"><li>अपना नाम लिखना सीखो</li><li>अ से ज्ञ और A से Z — एक-एक करके</li><li>1 से 20 तक गिनती</li><li>सूरज, घर, पेड़, फूल बनाओ</li><li>टिक-टैक-टो (कट्टम-कट्टी) दोस्त के साथ</li><li>माँ-पापा कोई चित्र बनाएँ, बच्चा पहचाने</li></ul></section>
+  <section class="card"><h2 data-t="faqH">अक्सर पूछे जाने वाले सवाल</h2><div id="faq"><details><summary>क्या इसके लिए ऐप डाउनलोड करना होगा?</summary><p>नहीं। यह वेबसाइट पर ही चलती है — फ़ोन, टैबलेट या कंप्यूटर के ब्राउज़र में। चाहें तो होम स्क्रीन पर जोड़ लें।</p></details><details><summary>क्या बच्चे का बनाया चित्र कहीं जाता है?</summary><p>नहीं। सब कुछ आपके फ़ोन में ही रहता है; "फ़ोटो सेव करो" दबाने पर ही फ़ोन में एक फ़ाइल बनती है।</p></details><details><summary>ऑन/ऑफ़ स्विच क्यों है?</summary><p>असली LCD स्लेट की तरह — बंद करने पर गलती से छूने पर कुछ नहीं लिखा जाता और चित्र वहीं सुरक्षित रहता है।</p></details><details><summary>क्या स्टाइलस (पेन) से भी लिख सकते हैं?</summary><p>हाँ, उंगली, स्टाइलस या माउस — तीनों से चलता है।</p></details></div></section>
+  <section class="card"><h2 data-t="moreH">और भी देखो</h2><div class="more" id="more"><a class="chip" href="/kids/">🧒 बच्चों की पढ़ाई — फ़्लैशकार्ड</a><a class="chip" href="/kids/hindi-varnamala/">अ आ हिंदी वर्णमाला</a><a class="chip" href="/kids/abc/">🔤 ABC</a><a class="chip" href="/kids/ginti/">🔢 गिनती 1–100</a><a class="chip" href="/games/">🎮 गेम्स</a></div></section>
+  <footer>© 2026 NextGrade · <span data-t="privacy">सब कुछ आपके फ़ोन में ही, कुछ अपलोड नहीं होता</span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/kids/">Kids</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a></footer>
+</div>
+<script type="application/ld+json" id="faq-ld">{}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Jaadui Slate — NextGrade","url":"https://nextgrade.in/tools/jaadui-slate/","applicationCategory":"EducationalApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"inLanguage":["hi","en","bn"]}</script>
+<script>
+const I18N = {
+  hi: { brandSub: 'बच्चों के टूल्स', title: '✍️ जादुई स्लेट — उंगली से लिखो, एक टैप में साफ़', sub: 'LCD राइटिंग टैबलेट जैसी स्लेट, आपके फ़ोन में: चमकती लाइन, 🗑️ से पूरा साफ़, ऑन/ऑफ़ स्विच। फ़्री, बिना ऐप।', offTxt: 'स्लेट बंद है — ऊपर स्विच दबाओ', colourL: 'रंग', sizeL: 'मोटाई', frameL: 'फ़्रेम', guideL: 'अक्षर', save: '💾 फ़ोटो सेव करो', soundOn: '🔊 आवाज़', soundOff: '🔇 आवाज़ बंद', none: 'कोई नहीं', power: 'स्लेट चालू/बंद', clear: 'सब साफ़ करो', undo: 'पिछली लाइन हटाओ', full: 'पूरी स्क्रीन', sizes: ['पतली', 'मध्यम', 'मोटी'],
+    aboutH: 'जादुई स्लेट क्या है?', about1: 'यह बाज़ार में मिलने वाली LCD राइटिंग टैबलेट (मैजिक स्लेट) जैसी है — काली स्क्रीन पर उंगली से लिखो तो चमकती लाइन बनती है, और ऊपर का 🗑️ बटन दबाते ही सब एक झटके में साफ़। न चॉक, न कागज़, न बैटरी।', about2: 'छोटे बच्चे इस पर अक्षर, गिनती, चित्र और नाम लिखना सीख सकते हैं। "अक्षर" चुनो तो स्क्रीन पर हल्का अक्षर दिखेगा — उसके ऊपर लिखकर बनाना सीखो।',
+    how: ['ऊपर का स्विच हरा हो तो स्लेट चालू है — उंगली से लिखो या ड्रॉ करो।', '🗑️ दबाओ — पूरी स्लेट साफ़। ↩︎ से सिर्फ़ आख़िरी लाइन हटती है।', 'रंग, लाइन की मोटाई और फ़्रेम का रंग नीचे से बदलो। 🌈 से हर लाइन अलग रंग की।', '"अक्षर" में अ, A या 1 चुनो — हल्के अक्षर के ऊपर लिखो, ▶ से अगला अक्षर।', '⛶ से पूरी स्क्रीन; बच्चे के हाथ में देने से पहले यही अच्छा है। पसंद आए तो 💾 से फ़ोटो सेव करो।'],
+    ideas: ['अपना नाम लिखना सीखो', 'अ से ज्ञ और A से Z — एक-एक करके', '1 से 20 तक गिनती', 'सूरज, घर, पेड़, फूल बनाओ', 'टिक-टैक-टो (कट्टम-कट्टी) दोस्त के साथ', 'माँ-पापा कोई चित्र बनाएँ, बच्चा पहचाने'],
+    faqH: 'अक्सर पूछे जाने वाले सवाल', faq: [['क्या इसके लिए ऐप डाउनलोड करना होगा?', 'नहीं। यह वेबसाइट पर ही चलती है — फ़ोन, टैबलेट या कंप्यूटर के ब्राउज़र में। चाहें तो होम स्क्रीन पर जोड़ लें।'], ['क्या बच्चे का बनाया चित्र कहीं जाता है?', 'नहीं। सब कुछ आपके फ़ोन में ही रहता है; "फ़ोटो सेव करो" दबाने पर ही फ़ोन में एक फ़ाइल बनती है।'], ['ऑन/ऑफ़ स्विच क्यों है?', 'असली LCD स्लेट की तरह — बंद करने पर गलती से छूने पर कुछ नहीं लिखा जाता और चित्र वहीं सुरक्षित रहता है।'], ['क्या स्टाइलस (पेन) से भी लिख सकते हैं?', 'हाँ, उंगली, स्टाइलस या माउस — तीनों से चलता है।']],
+    moreH: 'और भी देखो', privacy: 'सब कुछ आपके फ़ोन में ही, कुछ अपलोड नहीं होता' },
+  en: { brandSub: 'Tools for kids', title: '✍️ Magic Slate — write with your finger, clear in one tap', sub: 'Like an LCD writing tablet, on your phone: glowing lines, 🗑️ clears it all, an on/off switch. Free, no app.', offTxt: 'The slate is off — tap the switch above', colourL: 'Colour', sizeL: 'Size', frameL: 'Frame', guideL: 'Letter', save: '💾 Save picture', soundOn: '🔊 Sound', soundOff: '🔇 Sound off', none: 'None', power: 'Slate on/off', clear: 'Clear everything', undo: 'Remove last line', full: 'Full screen', sizes: ['Thin', 'Medium', 'Thick'],
+    aboutH: 'What is the Magic Slate?', about1: 'It works like the LCD writing tablets sold in shops: write on the black screen and a glowing line appears; press 🗑️ and everything is gone in one go. No chalk, no paper, no batteries.', about2: 'Small children can practise letters, numbers, drawings and their name. Pick a "Letter" and a faint letter shows on the screen — trace over it to learn how it is written.',
+    how: ['When the switch at the top is green, the slate is on — write or draw with your finger.', 'Press 🗑️ to clear the whole slate. ↩︎ removes only the last line.', 'Change the colour, line size and frame colour below. 🌈 gives every line a new colour.', 'Under "Letter" pick अ, A or 1 — write over the faint letter, ▶ for the next one.', '⛶ for full screen — best before handing the phone to a child. 💾 saves the picture.'],
+    ideas: ['Learn to write your name', 'A to Z and अ to ज्ञ, one by one', 'Count 1 to 20', 'Draw the sun, a house, a tree, a flower', 'Play tic-tac-toe with a friend', 'A parent draws, the child guesses'],
+    faqH: 'Frequently asked questions', faq: [['Do I need to download an app?', 'No. It runs on the website in any phone, tablet or computer browser. You can add it to your home screen if you like.'], ['Does my child\'s drawing go anywhere?', 'No. Everything stays on your phone; a file is made only when you press "Save picture".'], ['Why an on/off switch?', 'Like a real LCD slate — when it is off, accidental touches don\'t draw and the picture stays as it is.'], ['Can I use a stylus?', 'Yes — finger, stylus or mouse all work.']],
+    moreH: 'See also', privacy: 'Everything stays on your phone; nothing is uploaded' },
+  hinglish: { brandSub: 'Bachchon ke tools', title: '✍️ Jaadui Slate — ungli se likho, ek tap mein saaf', sub: 'LCD writing tablet jaisi slate, aapke phone mein: chamakti line, 🗑️ se poora saaf, on/off switch. Free, bina app.', offTxt: 'Slate band hai — upar switch dabao', colourL: 'Rang', sizeL: 'Motai', frameL: 'Frame', guideL: 'Akshar', save: '💾 Photo save karo', soundOn: '🔊 Awaaz', soundOff: '🔇 Awaaz band', none: 'Koi nahi', power: 'Slate chalu/band', clear: 'Sab saaf karo', undo: 'Pichhli line hatao', full: 'Poori screen', sizes: ['Patli', 'Madhyam', 'Moti'],
+    aboutH: 'Jaadui Slate kya hai?', about1: 'Yeh bazaar mein milne wali LCD writing tablet (magic slate) jaisi hai — kaali screen par ungli se likho to chamakti line banti hai, aur upar ka 🗑️ button dabate hi sab ek jhatke mein saaf. Na chalk, na kagaz, na battery.', about2: 'Chhote bachche is par akshar, ginti, chitra aur naam likhna seekh sakte hain. "Akshar" chuno to screen par halka akshar dikhega — uske upar likh kar banana seekho.',
+    how: ['Upar ka switch hara ho to slate chalu hai — ungli se likho ya draw karo.', '🗑️ dabao — poori slate saaf. ↩︎ se sirf aakhri line hatti hai.', 'Rang, line ki motai aur frame ka rang neeche se badlo. 🌈 se har line alag rang ki.', '"Akshar" mein अ, A ya 1 chuno — halke akshar ke upar likho, ▶ se agla akshar.', '⛶ se poori screen; bachche ke haath mein dene se pehle yahi achha hai. Pasand aaye to 💾 se photo save karo.'],
+    ideas: ['Apna naam likhna seekho', 'अ se ज्ञ aur A se Z — ek-ek karke', '1 se 20 tak ginti', 'Suraj, ghar, ped, phool banao', 'Kattam-Katti dost ke saath', 'Mummy-Papa chitra banayein, bachcha pehchane'],
+    faqH: 'Aksar poochhe jaane wale sawaal', faq: [['Kya iske liye app download karna hoga?', 'Nahi. Yeh website par hi chalti hai — phone, tablet ya computer ke browser mein. Chahein to home screen par jod lein.'], ['Kya bachche ka banaya chitra kahin jaata hai?', 'Nahi. Sab kuchh aapke phone mein hi rehta hai; "Photo save karo" dabane par hi phone mein ek file banti hai.'], ['On/off switch kyun hai?', 'Asli LCD slate ki tarah — band karne par galti se chhoone par kuchh nahi likha jaata aur chitra wahin surakshit rehta hai.'], ['Kya stylus (pen) se bhi likh sakte hain?', 'Haan, ungli, stylus ya mouse — teeno se chalta hai.']],
+    moreH: 'Aur bhi dekho', privacy: 'Sab kuchh aapke phone mein hi, kuchh upload nahi hota' },
+  bn: { brandSub: 'ছোটদের টুলস', title: '✍️ জাদু স্লেট — আঙুল দিয়ে লেখো, এক ট্যাপে মুছে ফেলো', sub: 'LCD রাইটিং ট্যাবলেটের মতো স্লেট, তোমার ফোনে: উজ্জ্বল লাইন, 🗑️ দিয়ে সব মুছে যায়, অন/অফ সুইচ। ফ্রি, অ্যাপ ছাড়া।', offTxt: 'স্লেট বন্ধ — ওপরের সুইচ টেপো', colourL: 'রং', sizeL: 'মোটা', frameL: 'ফ্রেম', guideL: 'অক্ষর', save: '💾 ছবি সেভ করো', soundOn: '🔊 আওয়াজ', soundOff: '🔇 আওয়াজ বন্ধ', none: 'নেই', power: 'স্লেট চালু/বন্ধ', clear: 'সব মুছে ফেলো', undo: 'শেষ লাইন মোছো', full: 'পুরো স্ক্রিন', sizes: ['সরু', 'মাঝারি', 'মোটা'],
+    aboutH: 'জাদু স্লেট কী?', about1: 'দোকানে যে LCD রাইটিং ট্যাবলেট (ম্যাজিক স্লেট) পাওয়া যায়, এটা তেমনই — কালো স্ক্রিনে আঙুল দিয়ে লিখলে উজ্জ্বল লাইন হয়, আর ওপরের 🗑️ টিপলেই সব এক ঝটকায় মুছে যায়। চক, কাগজ, ব্যাটারি — কিছুই লাগে না।', about2: 'ছোটরা এতে অক্ষর, সংখ্যা, ছবি আর নিজের নাম লিখতে শিখতে পারে। "অক্ষর" বাছলে স্ক্রিনে হালকা অক্ষর দেখাবে — তার ওপর লিখে শেখো।',
+    how: ['ওপরের সুইচ সবুজ হলে স্লেট চালু — আঙুল দিয়ে লেখো বা আঁকো।', '🗑️ টিপলে পুরো স্লেট পরিষ্কার। ↩︎ শুধু শেষ লাইন মোছে।', 'নিচ থেকে রং, লাইনের মোটা আর ফ্রেমের রং বদলাও। 🌈 দিলে প্রতিটা লাইন নতুন রঙের।', '"অক্ষর"-এ অ, A বা 1 বাছো — হালকা অক্ষরের ওপর লেখো, ▶ দিয়ে পরেরটা।', '⛶ দিয়ে পুরো স্ক্রিন — বাচ্চার হাতে দেওয়ার আগে এটাই ভালো। পছন্দ হলে 💾 দিয়ে ছবি সেভ করো।'],
+    ideas: ['নিজের নাম লিখতে শেখো', 'অ থেকে ঁ আর A থেকে Z — একটা একটা করে', '১ থেকে ২০ গোনা', 'সূর্য, বাড়ি, গাছ, ফুল আঁকো', 'বন্ধুর সঙ্গে কাটাকুটি খেলো', 'মা-বাবা ছবি আঁকবেন, বাচ্চা চিনবে'],
+    faqH: 'প্রায়ই জিজ্ঞাসিত প্রশ্ন', faq: [['এর জন্য কি অ্যাপ নামাতে হবে?', 'না। ওয়েবসাইটেই চলে — ফোন, ট্যাবলেট বা কম্পিউটারের ব্রাউজারে। চাইলে হোম স্ক্রিনে যোগ করে নাও।'], ['বাচ্চার আঁকা ছবি কি কোথাও যায়?', 'না। সব তোমার ফোনেই থাকে; "ছবি সেভ করো" টিপলে তবেই ফোনে একটা ফাইল তৈরি হয়।'], ['অন/অফ সুইচ কেন?', 'আসল LCD স্লেটের মতো — বন্ধ থাকলে ভুল করে ছুঁলেও কিছু লেখা হয় না, ছবি যেমন ছিল তেমনই থাকে।'], ['স্টাইলাস দিয়ে লেখা যায়?', 'হ্যাঁ — আঙুল, স্টাইলাস বা মাউস, সবেতেই চলে।']],
+    moreH: 'আরও দেখো', privacy: 'সব তোমার ফোনেই থাকে, কিছু আপলোড হয় না' },
+};
+const SETS = {
+  hi: 'अ आ इ ई उ ऊ ऋ ए ऐ ओ औ अं अः क ख ग घ ङ च छ ज झ ञ ट ठ ड ढ ण त थ द ध न प फ ब भ म य र ल व श ष स ह क्ष त्र ज्ञ'.split(' '),
+  en: [...'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'],
+  num: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+  bn: 'অ আ ই ঈ উ ঊ ঋ এ ঐ ও ঔ ক খ গ ঘ ঙ চ ছ জ ঝ ঞ ট ঠ ড ঢ ণ ত থ দ ধ ন প ফ ব ভ ম য র ল শ ষ স হ'.split(' '),
+};
+const COLOURS = ['#7ff3ff', '#ffffff', '#8ce99a', '#ffe066', '#ff8787', '#da77f2', 'rainbow'];
+const FRAMES = [['#1c7ed6', '#1971c2'], ['#f06595', '#d6336c'], ['#37b24d', '#2b8a3e'], ['#f59f00', '#e67700'], ['#7048e8', '#5f3dc4'], ['#343a40', '#212529']];
+const SIZES = [4, 8, 14];
+
+const $ = (id) => document.getElementById(id);
+const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+const LANGS = ['hi', 'en', 'hinglish', 'bn'];
+const params = new URLSearchParams(location.search);
+const deviceLang = () => { const n = (navigator.language || 'hi').toLowerCase(); return n.startsWith('bn') ? 'bn' : n.startsWith('en') ? 'en' : 'hi'; };
+let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('slate-lang')) ? store.get('slate-lang') : deviceLang();
+const t = (k) => (I18N[lang] || I18N.hi)[k];
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+// ---------- drawing ----------
+const cv = $('cv'), ctx = cv.getContext('2d'), slate = $('slate');
+let strokes = [], cur = null, colour = store.get('slate-colour') || COLOURS[0], size = +(store.get('slate-size') || SIZES[1]), on = true, hue = 180, soundOn = store.get('slate-sound') !== '0';
+let guideSet = null, guideIdx = 0;
+const fit = () => {
+  const r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2.5);
+  cv.width = Math.round(r.width * d); cv.height = Math.round(r.height * d);
+  ctx.setTransform(d, 0, 0, d, 0, 0); redraw();
+};
+const style = (s) => { ctx.strokeStyle = s.c; ctx.lineWidth = s.w; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.shadowColor = s.c; ctx.shadowBlur = s.w * 1.2; };
+const drawStroke = (s) => {
+  style(s); const p = s.p, W = cv.getBoundingClientRect().width, H = cv.getBoundingClientRect().height;
+  ctx.beginPath(); ctx.moveTo(p[0][0] * W, p[0][1] * H);
+  if (p.length === 1) ctx.lineTo(p[0][0] * W + .1, p[0][1] * H);
+  for (let i = 1; i < p.length; i++) { const mx = (p[i - 1][0] + p[i][0]) / 2, my = (p[i - 1][1] + p[i][1]) / 2; ctx.quadraticCurveTo(p[i - 1][0] * W, p[i - 1][1] * H, mx * W, my * H); }
+  ctx.stroke();
+};
+const redraw = () => { const r = cv.getBoundingClientRect(); ctx.clearRect(0, 0, r.width, r.height); strokes.forEach(drawStroke); };
+const pt = (e) => { const r = cv.getBoundingClientRect(); return [(e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height]; };
+cv.addEventListener('pointerdown', (e) => {
+  if (!on) return;
+  cv.setPointerCapture(e.pointerId);
+  const c = colour === 'rainbow' ? `hsl(${(hue = (hue + 47) % 360)}, 95%, 70%)` : colour;
+  cur = { c, w: size * (e.pointerType === 'pen' && e.pressure ? .6 + e.pressure : 1), p: [pt(e)] };
+  strokes.push(cur); drawStroke(cur);
+});
+cv.addEventListener('pointermove', (e) => { if (!cur) return; (e.getCoalescedEvents ? e.getCoalescedEvents() : [e]).forEach((ev) => cur.p.push(pt(ev))); redraw(); });
+const end = () => { cur = null; };
+cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end); cv.addEventListener('pointerleave', end);
+
+// sound: a soft "shhh" when clearing, like the real slate
+let ac = null;
+const whoosh = () => {
+  if (!soundOn) return;
+  try {
+    ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+    const len = ac.sampleRate * 0.35, buf = ac.createBuffer(1, len, ac.sampleRate), d = buf.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2) * 0.35;
+    const src = ac.createBufferSource(), f = ac.createBiquadFilter(); f.type = 'bandpass'; f.frequency.value = 1800;
+    src.buffer = buf; src.connect(f).connect(ac.destination); src.start();
+  } catch (e) { /* no audio */ }
+};
+$('clear').addEventListener('click', () => {
+  if (!on) return;
+  const w = $('wipe'); w.classList.remove('go'); void w.offsetWidth; w.classList.add('go');
+  whoosh(); if (navigator.vibrate) navigator.vibrate(30);
+  setTimeout(() => { strokes = []; redraw(); }, 200);
+});
+$('undo').addEventListener('click', () => { if (on) { strokes.pop(); redraw(); } });
+$('power').addEventListener('click', () => {
+  on = !on; $('power').setAttribute('aria-pressed', String(on)); slate.classList.toggle('is-off', !on);
+  if (navigator.vibrate) navigator.vibrate(15);
+});
+$('fs').addEventListener('click', async () => {
+  const goFull = !slate.classList.contains('full');
+  slate.classList.toggle('full', goFull);
+  document.body.style.overflow = goFull ? 'hidden' : '';
+  try { if (goFull && document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen(); else if (!goFull && document.fullscreenElement) await document.exitFullscreen(); } catch (e) { /* not allowed */ }
+  setTimeout(fit, 60);
+});
+document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && slate.classList.contains('full')) { slate.classList.remove('full'); document.body.style.overflow = ''; setTimeout(fit, 60); } });
+$('save').addEventListener('click', () => {
+  const out = document.createElement('canvas'); out.width = cv.width; out.height = cv.height;
+  const o = out.getContext('2d'); o.fillStyle = '#050607'; o.fillRect(0, 0, out.width, out.height); o.drawImage(cv, 0, 0);
+  const a = document.createElement('a'); a.download = 'jaadui-slate.png'; a.href = out.toDataURL('image/png'); a.click();
+});
+$('sound').addEventListener('click', () => { soundOn = !soundOn; store.set('slate-sound', soundOn ? '1' : '0'); paintSound(); });
+const paintSound = () => { $('sound').textContent = soundOn ? t('soundOn') : t('soundOff'); $('sound').setAttribute('aria-pressed', String(soundOn)); };
+
+// pickers
+const paintPickers = () => {
+  $('colours').innerHTML = COLOURS.map((c) => `<button type="button" class="sw${c === 'rainbow' ? ' rainbow' : ''}${c === colour ? ' on' : ''}" data-c="${c}" style="${c === 'rainbow' ? '' : `background:${c}`}" aria-label="${c === 'rainbow' ? 'rainbow' : c}"></button>`).join('');
+  $('sizes').innerHTML = SIZES.map((s, i) => `<button type="button" class="chip${s === size ? ' on' : ''}" data-s="${s}">${esc(t('sizes')[i])}</button>`).join('');
+  $('frames').innerHTML = FRAMES.map(([a, b], i) => `<button type="button" class="sw" data-f="${i}" style="background:linear-gradient(160deg,${a},${b})" aria-label="frame ${i + 1}"></button>`).join('');
+  const sets = [[null, t('none')], ['hi', 'अ'], ['en', 'A'], ['num', '1'], ['bn', 'অ']];
+  $('sets').innerHTML = sets.map(([k, n]) => `<button type="button" class="chip${k === guideSet ? ' on' : ''}" data-g="${k || ''}">${esc(n)}</button>`).join('');
+};
+document.addEventListener('click', (e) => {
+  const c = e.target.closest('[data-c]'); if (c) { colour = c.dataset.c; store.set('slate-colour', colour); paintPickers(); }
+  const s = e.target.closest('[data-s]'); if (s) { size = +s.dataset.s; store.set('slate-size', String(size)); paintPickers(); }
+  const f = e.target.closest('[data-f]'); if (f) { const [a, b] = FRAMES[+f.dataset.f]; document.documentElement.style.setProperty('--frame', a); document.documentElement.style.setProperty('--frame2', b); store.set('slate-frame', f.dataset.f); }
+  const g = e.target.closest('[data-g]'); if (g) { guideSet = g.dataset.g || null; guideIdx = 0; paintGuide(); paintPickers(); }
+});
+const paintGuide = () => { $('guide').textContent = guideSet ? SETS[guideSet][guideIdx] : ''; };
+$('nextL').addEventListener('click', () => { if (!guideSet) return; guideIdx = (guideIdx + 1) % SETS[guideSet].length; paintGuide(); strokes = []; redraw(); });
+$('prevL').addEventListener('click', () => { if (!guideSet) return; guideIdx = (guideIdx - 1 + SETS[guideSet].length) % SETS[guideSet].length; paintGuide(); strokes = []; redraw(); });
+const fr = store.get('slate-frame'); if (fr && FRAMES[+fr]) { document.documentElement.style.setProperty('--frame', FRAMES[+fr][0]); document.documentElement.style.setProperty('--frame2', FRAMES[+fr][1]); }
+
+// language
+const applyLang = () => {
+  document.documentElement.lang = lang === 'hinglish' ? 'hi-Latn' : lang;
+  document.querySelectorAll('[data-t]').forEach((el) => { const v = t(el.dataset.t); if (typeof v === 'string') el.textContent = v; });
+  document.querySelectorAll('[data-ta]').forEach((el) => { el.setAttribute('aria-label', t(el.dataset.ta)); el.title = t(el.dataset.ta); });
+  $('langSel').value = lang;
+  $('how').innerHTML = t('how').map((x) => `<li>${esc(x)}</li>`).join('');
+  $('ideas').innerHTML = t('ideas').map((x) => `<li>${esc(x)}</li>`).join('');
+  $('faq').innerHTML = t('faq').map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('');
+  $('faq-ld').textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: t('faq').map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) });
+  const L = lang === 'hi' ? '' : `/${lang}`;
+  const more = { hi: [['/kids/', '🧒 बच्चों की पढ़ाई — फ़्लैशकार्ड'], ['/kids/hindi-varnamala/', 'अ आ हिंदी वर्णमाला'], ['/kids/abc/', '🔤 ABC'], ['/kids/ginti/', '🔢 गिनती 1–100'], ['/games/', '🎮 गेम्स']], en: [['/kids/', '🧒 Kids learning — flashcards'], ['/kids/hindi-varnamala/', 'Hindi alphabet'], ['/kids/abc/', '🔤 ABC'], ['/kids/ginti/', '🔢 Counting 1–100'], ['/games/', '🎮 Games']], hinglish: [['/kids/', '🧒 Bachchon ki padhai — flashcards'], ['/kids/hindi-varnamala/', 'Hindi varnamala'], ['/kids/abc/', '🔤 ABC'], ['/kids/ginti/', '🔢 Ginti 1–100'], ['/games/', '🎮 Games']], bn: [['/kids/', '🧒 ছোটদের পড়া — ফ্ল্যাশকার্ড'], ['/kids/bangla-bornomala/', 'অ আ বাংলা বর্ণমালা'], ['/kids/abc/', '🔤 ABC'], ['/kids/ginti/', '🔢 গোনা ১–১০০'], ['/games/', '🎮 গেম']] }[lang];
+  $('more').innerHTML = more.map(([h, n]) => `<a class="chip" href="${h.startsWith('/games/') ? h : L + h}">${esc(n)}</a>`).join('');
+  paintPickers(); paintSound();
+};
+$('langSel').addEventListener('change', () => { lang = $('langSel').value; store.set('slate-lang', lang); applyLang(); });
+
+applyLang();
+addEventListener('resize', fit);
+fit();
+</script>
+<nav class="ng-more-tools" aria-label="More free tools" style="max-width:1000px;margin:28px auto 18px;padding:14px 16px;border-top:1px solid rgba(128,128,128,.25);font:15px/1.5 system-ui,sans-serif"><h2 style="font-size:1.05rem;margin:0 0 10px">🧰 और फ़्री टूल्स · More free tools</h2><div style="display:flex;flex-wrap:wrap;gap:8px"><a href="/tools/land-converter/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">🌾 Land Unit Converter</a><a href="/tools/qr-maker/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">🔳 QR Code Maker</a><a href="/tools/stylish-name/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">✨ Stylish Name Maker</a><a href="/tools/marriage-biodata/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">💍 Marriage Biodata Maker</a><a href="/tools/passport-photo/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">🪪 Passport Size Photo Maker</a><a href="/tools/doc-scanner/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">📄 Document Scanner → PDF</a><a href="/tools/image-compress/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">🗜️ Image Compressor</a><a href="/tools/pdf-compress/" style="padding:7px 12px;border-radius:999px;border:1px solid rgba(128,128,128,.35);text-decoration:none;color:inherit">📉 PDF Compressor</a><a href="/tools/" style="padding:7px 12px;border-radius:999px;background:#e8590c;color:#fff;text-decoration:none">सारे टूल्स →</a></div></nav>
+<div class="ngc ngc-bottom" data-ngc="hi"><footer class="site-foot"><div class="wrap">
+<div class="foot-cols">
+<div class="foot-brand"><a class="logo" href="/"><img class="logo-mark" src="/favicon.svg" alt="" width="30" height="30"><span>Next<b>Grade</b></span></a><p>त्योहारों की जानकारी, शुभकामनाएँ और छोटे काम के ऐप्स।</p></div>
+<nav aria-label="टूल्स"><h4>टूल्स</h4><a href="/tools/image-compress/">फ़ोटो KB कम करें</a><a href="/tools/pdf-compress/">PDF छोटा करें</a><a href="/tools/passport-photo/">पासपोर्ट फ़ोटो</a><a href="/calculator/">कैलकुलेटर</a><a href="/mausam/">आज का मौसम</a><a href="/ghoomne-ki-jagah/">घूमने की जगहें</a><a href="/creator-guide/">क्रिएटर गाइड</a><a href="/sarkari-guide/">सरकारी गाइड</a><a href="/tools/">सभी टूल्स →</a></nav><nav aria-label="पढ़ाई"><h4>पढ़ाई</h4><a href="/nibandh/">निबंध</a><a href="/speech/">भाषण</a><a href="/kahani/">कहानियाँ</a><a href="/kids/">बच्चों की पढ़ाई</a><a href="/nuskhe/">घरेलू नुस्खे</a><a href="/surya-namaskar/">सूर्य नमस्कार</a><a href="/pranayam/">प्राणायाम</a></nav><nav aria-label="त्योहार"><h4>त्योहार</h4><a href="/festivals/">सभी त्योहार</a><a href="/calendar/2027/">कैलेंडर 2027</a><a href="/wishes/">शुभकामनाएँ</a><a href="/wish-card/">बधाई कार्ड</a><a href="/aaj/">आज का दिन</a><a href="/ekadashi/">एकादशी कब है</a><a href="/purnima/">पूर्णिमा / अमावस्या</a></nav><nav aria-label="खेल और ऐप"><h4>खेल और ऐप</h4><a href="/games/">ऑनलाइन गेम्स</a><a href="https://desi-games.nextgrade.in/">देसी गेम्स ऐप</a><a href="/apps/">ऐप्स</a></nav>
+</div>
+<div class="foot-bottom"><span>© 2026 NextGrade · nextgrade.in</span><nav aria-label="Footer"><a href="/about/">हमारे बारे में</a><a href="/contact/">संपर्क करें</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="/sitemap.xml">Sitemap</a></nav></div>
+</div></footer></div><div class="ngc ngc-bottom" data-ngc="en" hidden><footer class="site-foot"><div class="wrap">
+<div class="foot-cols">
+<div class="foot-brand"><a class="logo" href="/en/"><img class="logo-mark" src="/favicon.svg" alt="" width="30" height="30"><span>Next<b>Grade</b></span></a><p>Indian festivals, wishes and small useful apps.</p></div>
+<nav aria-label="Tools"><h4>Tools</h4><a href="/tools/image-compress/">Compress photo to KB</a><a href="/tools/pdf-compress/">Compress PDF</a><a href="/tools/passport-photo/">Passport photo</a><a href="/en/calculator/">Calculators</a><a href="/en/mausam/">Weather today</a><a href="/en/ghoomne-ki-jagah/">Places to visit</a><a href="/en/creator-guide/">Creator guide</a><a href="/en/sarkari-guide/">Government guides</a><a href="/en/tools/">All tools →</a></nav><nav aria-label="Learning"><h4>Learning</h4><a href="/en/nibandh/">Essays</a><a href="/en/speech/">Speeches</a><a href="/en/kahani/">Stories</a><a href="/en/kids/">Kids learning</a><a href="/en/nuskhe/">Home remedies</a><a href="/en/surya-namaskar/">Surya Namaskar</a><a href="/en/pranayam/">Pranayama</a></nav><nav aria-label="Festivals"><h4>Festivals</h4><a href="/en/festivals/">All festivals</a><a href="/en/calendar/2027/">Calendar 2027</a><a href="/en/wishes/">Wishes</a><a href="/en/wish-card/">Wish card</a><a href="/en/aaj/">Today</a><a href="/en/ekadashi/">Ekadashi dates</a><a href="/en/purnima/">Purnima / Amavasya</a></nav><nav aria-label="Games and apps"><h4>Games and apps</h4><a href="/en/games/">Online games</a><a href="https://desi-games.nextgrade.in/">Desi Games app</a><a href="/en/apps/">Apps</a></nav>
+</div>
+<div class="foot-bottom"><span>© 2026 NextGrade · nextgrade.in</span><nav aria-label="Footer"><a href="/en/about/">About NextGrade</a><a href="/en/contact/">Contact us</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="/sitemap.xml">Sitemap</a></nav></div>
+</div></footer></div><div class="ngc ngc-bottom" data-ngc="hinglish" hidden><footer class="site-foot"><div class="wrap">
+<div class="foot-cols">
+<div class="foot-brand"><a class="logo" href="/hinglish/"><img class="logo-mark" src="/favicon.svg" alt="" width="30" height="30"><span>Next<b>Grade</b></span></a><p>Tyoharon ki jaankari, wishes aur chhote kaam ke apps.</p></div>
+<nav aria-label="Tools"><h4>Tools</h4><a href="/tools/image-compress/">Photo KB kam karo</a><a href="/tools/pdf-compress/">PDF chhota karo</a><a href="/tools/passport-photo/">Passport photo</a><a href="/hinglish/calculator/">Calculators</a><a href="/hinglish/mausam/">Aaj ka mausam</a><a href="/hinglish/ghoomne-ki-jagah/">Ghoomne ki jagah</a><a href="/hinglish/creator-guide/">Creator guide</a><a href="/hinglish/sarkari-guide/">Sarkari guide</a><a href="/hinglish/tools/">Sabhi tools →</a></nav><nav aria-label="Padhai"><h4>Padhai</h4><a href="/hinglish/nibandh/">Nibandh</a><a href="/hinglish/speech/">Bhashan</a><a href="/hinglish/kahani/">Kahaniyan</a><a href="/hinglish/kids/">Bachchon ki padhai</a><a href="/hinglish/nuskhe/">Gharelu nuskhe</a><a href="/hinglish/surya-namaskar/">Surya Namaskar</a><a href="/hinglish/pranayam/">Pranayam</a></nav><nav aria-label="Tyohaar"><h4>Tyohaar</h4><a href="/hinglish/festivals/">Sabhi tyohaar</a><a href="/hinglish/calendar/2027/">Calendar 2027</a><a href="/hinglish/wishes/">Wishes</a><a href="/hinglish/wish-card/">Wish card</a><a href="/hinglish/aaj/">Aaj ka din</a><a href="/hinglish/ekadashi/">Ekadashi kab hai</a><a href="/hinglish/purnima/">Purnima / Amavasya</a></nav><nav aria-label="Games aur apps"><h4>Games aur apps</h4><a href="/hinglish/games/">Online games</a><a href="https://desi-games.nextgrade.in/">Desi Games app</a><a href="/hinglish/apps/">Apps</a></nav>
+</div>
+<div class="foot-bottom"><span>© 2026 NextGrade · nextgrade.in</span><nav aria-label="Footer"><a href="/hinglish/about/">NextGrade ke baare mein</a><a href="/hinglish/contact/">Sampark karein</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="/sitemap.xml">Sitemap</a></nav></div>
+</div></footer></div><div class="ngc ngc-bottom" data-ngc="bn" hidden><footer class="site-foot"><div class="wrap">
+<div class="foot-cols">
+<div class="foot-brand"><a class="logo" href="/bn/"><img class="logo-mark" src="/favicon.svg" alt="" width="30" height="30"><span>Next<b>Grade</b></span></a><p>উৎসবের কথা, শুভেচ্ছা আর ছোট কাজের অ্যাপ।</p></div>
+<nav aria-label="টুলস"><h4>টুলস</h4><a href="/tools/image-compress/">ছবি KB কম</a><a href="/tools/pdf-compress/">PDF ছোট করুন</a><a href="/tools/passport-photo/">পাসপোর্ট ছবি</a><a href="/bn/calculator/">ক্যালকুলেটর</a><a href="/bn/mausam/">আজকের আবহাওয়া</a><a href="/bn/ghoomne-ki-jagah/">বেড়ানোর জায়গা</a><a href="/bn/creator-guide/">ক্রিয়েটর গাইড</a><a href="/bn/sarkari-guide/">সরকারি গাইড</a><a href="/bn/tools/">সব টুলস →</a></nav><nav aria-label="পড়াশোনা"><h4>পড়াশোনা</h4><a href="/bn/nibandh/">রচনা</a><a href="/bn/speech/">বক্তৃতা</a><a href="/bn/kahani/">গল্প</a><a href="/bn/kids/">ছোটদের পড়া</a><a href="/bn/nuskhe/">ঘরোয়া টোটকা</a><a href="/bn/surya-namaskar/">সূর্য নমস্কার</a><a href="/bn/pranayam/">প্রাণায়াম</a></nav><nav aria-label="উৎসব"><h4>উৎসব</h4><a href="/bn/festivals/">সব উৎসব</a><a href="/bn/calendar/2027/">ক্যালেন্ডার ২০২৭</a><a href="/bn/wishes/">শুভেচ্ছা</a><a href="/bn/wish-card/">শুভেচ্ছা কার্ড</a><a href="/bn/aaj/">আজকের দিন</a><a href="/bn/ekadashi/">একাদশী কবে</a><a href="/bn/purnima/">পূর্ণিমা / অমাবস্যা</a></nav><nav aria-label="গেম আর অ্যাপ"><h4>গেম আর অ্যাপ</h4><a href="/bn/games/">অনলাইন গেম</a><a href="https://desi-games.nextgrade.in/">দেশি গেমস অ্যাপ</a><a href="/bn/apps/">অ্যাপ</a></nav>
+</div>
+<div class="foot-bottom"><span>© 2026 NextGrade · nextgrade.in</span><nav aria-label="Footer"><a href="/bn/about/">আমাদের কথা</a><a href="/bn/contact/">যোগাযোগ</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="/sitemap.xml">Sitemap</a></nav></div>
+</div></footer></div>
+<script>(function(){var G={"hi":"hi","en":"en","hinglish":"hinglish","bn":"bn"};function cur(){var q=new URLSearchParams(location.search).get('lang'),h=(document.documentElement.lang||'hi').toLowerCase();if(h==='hi-latn'||q==='hinglish')return 'hinglish';if(h.indexOf('bn')===0)return 'bn';if(h.indexOf('en')===0)return 'en';if(h.indexOf('hi')===0)return 'hi';return G[q]?q:'hi';}
+function apply(){var L=cur();document.querySelectorAll('[data-ngc]').forEach(function(d){d.hidden=d.getAttribute('data-ngc')!==L;});}
+apply();new MutationObserver(apply).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});var sec=location.pathname.split('/')[1];document.querySelectorAll('.ngc .nav-group').forEach(function(g){if(g.querySelector('a[href$="/'+sec+'/"]'))g.querySelector('summary').setAttribute('aria-current','page');});
+document.querySelectorAll('.ngc .lang-menu a[hreflang]').forEach(function(a){var code={hi:'hi',en:'en','hi-Latn':'hinglish',bn:'bn'}[a.getAttribute('hreflang')];if(!code)return;a.addEventListener('click',function(e){e.preventDefault();var u=new URL(location.href);u.searchParams.set('lang',G[code]||code);location.href=u.toString();});});
+document.querySelectorAll('.ngc .menu-btn').forEach(function(b){var box=b.closest('.ngc');b.addEventListener('click',function(e){e.stopPropagation();var o=!box.classList.contains('menu-open');box.classList.toggle('menu-open',o);b.setAttribute('aria-expanded',String(o));b.textContent=o?'✕':'☰';});});
+document.addEventListener('click',function(e){document.querySelectorAll('.ngc details[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open');});document.querySelectorAll('.ngc.menu-open').forEach(function(box){if(!e.target.closest('.nav')){box.classList.remove('menu-open');var b=box.querySelector('.menu-btn');if(b){b.textContent='☰';b.setAttribute('aria-expanded','false');}}});});})();</script>
+</body>
+</html>

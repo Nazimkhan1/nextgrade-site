@@ -249,6 +249,7 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [Signature Maker](https://nextgrade.in/tools/signature-maker/): Sign on the screen or clean up a photo of a signature on paper — transparent PNG or white JPG, at form size and KB.
 - [Hindi & English Typing Test](https://nextgrade.in/tools/typing-test/): 1 to 15 minute typing test: WPM, accuracy and wrong words. Practise for SSC-style tests, backspace on/off.
 - [Land Unit Converter — Bigha, Katha, Acre](https://nextgrade.in/tools/land-converter/): Bigha, katha, biswa, kanal, acre, hectare, gaj and sq ft — by state.
+- [Magic Slate — writing tablet for kids](https://nextgrade.in/tools/jaadui-slate/): Like an LCD writing tablet: write with a finger, glowing lines, 🗑️ clears in one tap, on/off switch, trace letters to practise.
 - [QR Code Maker — UPI, Link, WhatsApp](https://nextgrade.in/tools/qr-maker/): UPI payment QR (with amount), link, text, phone, WhatsApp and Wi-Fi QR codes — download PNG or SVG.
 - [Sticker Maker](https://nextgrade.in/tools/sticker-maker/): Turn a photo into a sticker: background removed, white outline, top/bottom text — 512×512 WebP. Text stickers too.
 - [Exam Form Photo & Signature Resizer](https://nextgrade.in/tools/form-helper/): Photo, signature, thumb and declaration at the exact px and KB that SSC, Railway (RRB), UP Police, UPSC, IBPS / SBI, NEET, JEE, CUET and CTET forms ask for. Cleans up a signature on paper.
@@ -289,6 +290,9 @@ All text is written by NextGrade or is public domain (old folk tales retold in o
 - [How to get a new voter ID (Form 6)](https://nextgrade.in/en/sarkari-guide/voter-id-apply/): Where: voters.eci.gov.in or the Voter Helpline app; Fee: Free; Who: Indian citizens aged 18 or above; Form: New name: Form 6 (living abroad: 6A)
 - [How to apply for a passport (online)](https://nextgrade.in/en/sarkari-guide/passport-apply/): Where: Passport Seva portal (passportindia.gov.in) / mPassport Seva app; Fee (36 pages): Normal ₹2,500 · Tatkaal ₹5,000 (from 1 July 2026); 60 pages: Normal ₹3,500 · Tatkaal ₹6,000; Under 18: 36 pages normal ₹1,750
 - [How to use DigiLocker](https://nextgrade.in/en/sarkari-guide/digilocker/): Where: digilocker.gov.in or the DigiLocker app; Fee: Free; You need: Mobile number + Aadhaar; Why: Official documents on your phone, valid like originals
+- [How to check PM Kisan status and do eKYC](https://nextgrade.in/en/sarkari-guide/pm-kisan-status-ekyc/): Where: pmkisan.gov.in → Farmers Corner, or the PM-KISAN mobile app; Money: ₹6,000 a year — three instalments of ₹2,000 into an Aadhaar-seeded bank account; You need: eKYC done + bank account seeded with Aadhaar + land records on the portal; Next instalment: Dates are announced on pmkisan.gov.in — don't trust guesswork in the news
+- [How to withdraw PF online](https://nextgrade.in/en/sarkari-guide/pf-withdrawal-online/): Where: EPFO member portal (unifiedportal-mem.epfindia.gov.in) — with UAN and password; You need: Active UAN + Aadhaar, PAN and an Aadhaar-seeded bank account (KYC); Fee: None — EPFO's online service is free; Helpline: 14470 / 1800-118-005 (EPFO)
+- [How to apply for a learner licence (LL) online](https://nextgrade.in/en/sarkari-guide/learner-licence-apply/): Where: sarathi.parivahan.gov.in (via parivahan.gov.in) — choose your state; Age: Gearless two-wheeler up to 50cc: 16 (with parent consent); other vehicles: 18 — as shown on the portal; Fee: Shown on the portal for your state; Validity: LL valid 6 months; permanent DL test after 30 days and before the LL expires
 
 ## Converters and calculators
 
