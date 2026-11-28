@@ -5,8 +5,8 @@
  * days/hours/minutes counter that runs in the browser, sorted by date. Festival pages keep their own "X din baaki" line.
  */
 const EXAMS = [
-  { ymd: '2027-02-05', time: '08:30', emoji: '📝', path: '/board-exam/up-board-2027/', name: { hi: 'UP बोर्ड परीक्षा 2027', hinglish: 'UP Board pariksha 2027', en: 'UP Board exams 2027', bn: 'ইউপি বোর্ড পরীক্ষা ২০২৭' } },
-  { ymd: '2027-02-16', time: '10:30', emoji: '📚', path: '/board-exam/', name: { hi: 'CBSE बोर्ड परीक्षा 2027', hinglish: 'CBSE Board pariksha 2027', en: 'CBSE board exams 2027', bn: 'সিবিএসই বোর্ড পরীক্ষা ২০২৭' } },
+  { ymd: '2027-02-05', time: '08:30', emoji: '📝', path: '/board-exam/up-board-2027/', only: ['hi', 'en'], name: { hi: 'UP बोर्ड परीक्षा 2027', hinglish: 'UP Board pariksha 2027', en: 'UP Board exams 2027', bn: 'ইউপি বোর্ড পরীক্ষা ২০২৭' } },
+  { ymd: '2027-02-16', time: '10:30', emoji: '📚', path: '/board-exam/', only: ['hi', 'en'], name: { hi: 'CBSE बोर्ड परीक्षा 2027', hinglish: 'CBSE Board pariksha 2027', en: 'CBSE board exams 2027', bn: 'সিবিএসই বোর্ড পরীক্ষা ২০২৭' } },
 ];
 const TX = {
   hi: { nav: 'कितने दिन बाक़ी', t: 'कितने दिन बाक़ी? होली, ईद, बोर्ड परीक्षा, नया साल — लाइव काउंटडाउन | NextGrade', d: 'होली, ईद, शिवरात्रि, नया साल, लोहड़ी, CBSE और UP बोर्ड परीक्षा — हर आने वाले दिन के लिए लाइव काउंटडाउन: कितने दिन, घंटे और मिनट बाक़ी।', h1: '⏳ कितने दिन बाक़ी — लाइव काउंटडाउन', lead: 'आने वाले हर बड़े त्योहार और बोर्ड परीक्षा तक कितने दिन, घंटे और मिनट बचे हैं — सब एक जगह, तारीख़ के क्रम में।', d_: 'दिन', h_: 'घंटे', m_: 'मिनट', today: 'आज है! 🎉', approx: 'अनुमानित', from: 'शुरू',
@@ -31,13 +31,15 @@ export function buildCountdown(L, { page, write, P, esc, T, breadcrumbLd, LANGS,
   const X = TX[L.code]; if (!X) return;
   const path = '/kitne-din-baaki/';
   const all = [...events.map((e) => ({ ...e, at: `${e.ymd}T00:00:00+05:30` })),
-    ...EXAMS.filter((e) => e.ymd >= today).map((e) => ({ name: e.name[L.code], emoji: e.emoji, ymd: e.ymd, path: e.path, date: fmtDate(L.code, e.ymd), weekday: wdName(L.code, e.ymd), at: `${e.ymd}T${e.time}:00+05:30`, time: e.time }))]
+    ...EXAMS.filter((e) => e.ymd >= today).map((e) => ({ name: e.name[L.code], emoji: e.emoji, ymd: e.ymd, path: e.path, only: e.only, date: fmtDate(L.code, e.ymd), weekday: wdName(L.code, e.ymd), at: `${e.ymd}T${e.time}:00+05:30`, time: e.time }))]
     .sort((a, b) => a.at.localeCompare(b.at))
     .map((e) => ({ ...e, days: Math.round((Date.parse(`${e.ymd}T00:00:00Z`) - Date.parse(`${today}T00:00:00Z`)) / 864e5) }));
   if (!all.length) return;
   const faq = X.faq(all);
   const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
-  const cards = all.map((e) => `<li><a href="${P(L, e.path)}"><b>${e.emoji} ${esc(e.name)}</b><small>${esc(e.date)}, ${esc(e.weekday)}${e.time ? ` · ${e.time} ${esc(X.from)}` : ''}${e.approx ? ` (${esc(X.approx)})` : ''}</small><div class="n" data-at="${e.at}"><span>${e.days}<i>${esc(X.d_)}</i></span></div></a></li>`);
+  // Board exam pages exist only in hi + en: Hinglish readers get the Hindi page, Bangla readers the English one.
+  const href = (e) => (e.only && !e.only.includes(L.code) ? P(LANGS.find((l) => l.code === (L.code === 'bn' ? 'en' : 'hi')), e.path) : P(L, e.path));
+  const cards = all.map((e) => `<li><a href="${href(e)}"><b>${e.emoji} ${esc(e.name)}</b><small>${esc(e.date)}, ${esc(e.weekday)}${e.time ? ` · ${e.time} ${esc(X.from)}` : ''}${e.approx ? ` (${esc(X.approx)})` : ''}</small><div class="n" data-at="${e.at}"><span>${e.days}<i>${esc(X.d_)}</i></span></div></a></li>`);
   write(L, path, page(L, {
     path, title: X.t, description: X.d, langs: LANGS.filter((l) => TX[l.code]),
     jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [X.nav, path]]), faqLd],
