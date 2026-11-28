@@ -1,7 +1,7 @@
 // Offline support: the whole app is one page plus icons, cached on install. Pictures the user picks are read
 // from the device and never fetched from a server, so nothing personal goes through here.
-const CACHE = 'ng-form-helper-v2';
-const SHELL = ['./', './index.html', './ssc/', './upsc/', './bank/', './neet/', './manifest.json', './icons/icon-192.png', './icons/icon-512.png'];
+const CACHE = 'ng-form-helper-v3';
+const SHELL = ['./', './index.html', './ssc/', './upsc/', './bank/', './neet/', './jee-main/', './cuet/', './ctet/', './rrb/', './up-police/', './manifest.json', './icons/icon-192.png', './icons/icon-512.png'];
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
 });

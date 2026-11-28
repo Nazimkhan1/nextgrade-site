@@ -173,7 +173,7 @@
 
 - 2026-12-25: Christmas — https://nextgrade.in/en/festivals/christmas/
 - 2027-01-01: New Year — https://nextgrade.in/en/festivals/new-year/
-- 2027-01-14: Lohri — https://nextgrade.in/en/festivals/lohri/
+- 2027-01-13: Lohri — https://nextgrade.in/en/festivals/lohri/
 - 2027-01-15: Makar Sankranti — https://nextgrade.in/en/festivals/makar-sankranti/
 - 2027-01-15: Guru Gobind Singh Jayanti — https://nextgrade.in/en/festivals/guru-gobind-singh-jayanti/
 - 2027-01-15: Pongal — https://nextgrade.in/en/festivals/pongal/

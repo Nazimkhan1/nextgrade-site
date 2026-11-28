@@ -304,7 +304,7 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
     <div class="tray" id="tray"></div>
   </div>
 
-  <section class="info"><h2 data-t="linksH">सीधे यहाँ जाएँ</h2><div class="links" id="links"><a href="./?lang=hi" class="here">📷 फ़ोटो से स्टिकर<small>बैकग्राउंड हटाएँ + सफ़ेद किनारा</small></a><a href="./text-sticker/?lang=hi">🔤 टेक्स्ट स्टिकर<small>सुप्रभात, धन्यवाद, हा हा…</small></a><a href=".//tools/bg-remover/?lang=hi">✂️ Background Remover<small>PNG / JPG</small></a></div></section>
+  <section class="info"><h2 data-t="linksH">सीधे यहाँ जाएँ</h2><div class="links" id="links"><a href="./?lang=hi" class="here">📷 फ़ोटो से स्टिकर<small>बैकग्राउंड हटाएँ + सफ़ेद किनारा</small></a><a href="./text-sticker/?lang=hi">🔤 टेक्स्ट स्टिकर<small>सुप्रभात, धन्यवाद, हा हा…</small></a><a href="/tools/passport-photo/?lang=hi">🪪 Passport Photo<small>JPG</small></a></div></section>
   <article id="art"><h2>यह स्टिकर मेकर क्या है?</h2>
 <p>यह एक फ़्री टूल है जो आपकी अपनी फ़ोटो या कुछ शब्दों को चैट स्टिकर बना देता है। स्टिकर एक छोटी तस्वीर होती है जिसका बैकग्राउंड पारदर्शी (transparent) होता है, इसलिए वह चैट में किसी डिब्बे के अंदर नहीं, सीधे स्क्रीन पर तैरती हुई दिखती है। टूल आपकी फ़ोटो से इंसान, पालतू जानवर या किसी चीज़ को काटकर अलग करता है, उसके चारों ओर असली काग़ज़ के स्टिकर जैसा सफ़ेद किनारा लगाता है, और उसे 512 × 512 पिक्सेल, WebP फ़ॉर्मेट और 100 KB से कम में सेव करता है — वही साइज़ और फ़ॉर्मेट जो WhatsApp के स्टिकर पैक माँगते हैं। "सुप्रभात" या "धन्यवाद" जैसी लाइन लिखकर हिंदी, हिंग्लिश, बांग्ला या अंग्रेज़ी में टेक्स्ट स्टिकर भी बना सकते हैं।</p>
 <h2>फ़ोटो से स्टिकर कैसे बनाएँ — एक-एक क़दम</h2>
@@ -900,7 +900,7 @@ const applyLang = () => {
   const slug = PAGE ? PAGE.slug : '';
   $('links').innerHTML = `<a href="${BASE}?lang=${lang}"${!slug ? ' class="here"' : ''}>${esc(t('linkPhoto'))}<small>${esc(t('linkPhotoSub'))}</small></a>`
     + `<a href="${BASE}text-sticker/?lang=${lang}"${slug === 'text-sticker' ? ' class="here"' : ''}>${esc(t('linkText'))}<small>${esc(t('linkTextSub'))}</small></a>`
-    + `<a href="${BASE}/tools/bg-remover/?lang=${lang}">✂️ Background Remover<small>PNG / JPG</small></a>`;
+    + `<a href="/tools/passport-photo/?lang=${lang}">🪪 Passport Photo<small>JPG</small></a>`;
   if (!txtTouched) $('txt').value = t('defText');
   renderTray(); schedule();
 };

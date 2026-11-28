@@ -303,7 +303,7 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
     <div class="tray" id="tray"></div>
   </div>
 
-  <section class="info"><h2 data-t="linksH">सीधे यहाँ जाएँ</h2><div class="links" id="links"><a href="../?lang=hi">📷 फ़ोटो से स्टिकर<small>बैकग्राउंड हटाएँ + सफ़ेद किनारा</small></a><a href="../text-sticker/?lang=hi" class="here">🔤 टेक्स्ट स्टिकर<small>सुप्रभात, धन्यवाद, हा हा…</small></a><a href="..//tools/bg-remover/?lang=hi">✂️ Background Remover<small>PNG / JPG</small></a></div></section>
+  <section class="info"><h2 data-t="linksH">सीधे यहाँ जाएँ</h2><div class="links" id="links"><a href="../?lang=hi">📷 फ़ोटो से स्टिकर<small>बैकग्राउंड हटाएँ + सफ़ेद किनारा</small></a><a href="../text-sticker/?lang=hi" class="here">🔤 टेक्स्ट स्टिकर<small>सुप्रभात, धन्यवाद, हा हा…</small></a><a href="/tools/passport-photo/?lang=hi">🪪 Passport Photo<small>JPG</small></a></div></section>
   <article id="art"><h2>अपनी भाषा में टेक्स्ट स्टिकर</h2>
 <p>कभी-कभी फ़ोटो से ज़्यादा काम दो शब्द कर देते हैं: परिवार के ग्रुप में एक "सुप्रभात", दोस्त को एक "धन्यवाद", या किसी मज़ाक पर ज़ोर से "हा हा हा"। यह पेज सीधे टेक्स्ट मोड में खुलता है। कोई भी छोटी लाइन लिखें, फ़ॉन्ट और रंग चुनें, और टूल उसे सफ़ेद किनारे वाला स्टिकर बना देता है — 512 × 512 पिक्सेल, WebP, 100 KB से कम। रोमन अक्षर (हिंग्लिश और अंग्रेज़ी), देवनागरी (हिंदी, मराठी) और बांग्ला लिपि, तीनों चलती हैं। फ़ॉन्ट टूल के अंदर ही रखे हैं, इसलिए हर फ़ोन पर अक्षर एक जैसे दिखते हैं, चाहे फ़ोन में वह फ़ॉन्ट हो या न हो।</p>
 <h2>टेक्स्ट स्टिकर बनाने के क़दम</h2>
@@ -902,7 +902,7 @@ const applyLang = () => {
   const slug = PAGE ? PAGE.slug : '';
   $('links').innerHTML = `<a href="${BASE}?lang=${lang}"${!slug ? ' class="here"' : ''}>${esc(t('linkPhoto'))}<small>${esc(t('linkPhotoSub'))}</small></a>`
     + `<a href="${BASE}text-sticker/?lang=${lang}"${slug === 'text-sticker' ? ' class="here"' : ''}>${esc(t('linkText'))}<small>${esc(t('linkTextSub'))}</small></a>`
-    + `<a href="${BASE}/tools/bg-remover/?lang=${lang}">✂️ Background Remover<small>PNG / JPG</small></a>`;
+    + `<a href="/tools/passport-photo/?lang=${lang}">🪪 Passport Photo<small>JPG</small></a>`;
   if (!txtTouched) $('txt').value = t('defText');
   renderTray(); schedule();
 };
