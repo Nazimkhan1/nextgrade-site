@@ -110,3 +110,40 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') openMenus(
   });
   document.addEventListener('click', (e) => { if (!e.target.closest('.site-search')) box.hidden = true; });
 })();
+
+// First visit: a language chooser (user 28 Nov 2026). The choice is kept in localStorage 'ng-lang' (hreflang code);
+// picking another language opens this same page in that language (its <link rel="alternate" hreflang>). Picking in
+// the header's language menu counts as a choice too. Not shown to crawlers or when storage is blocked.
+(() => {
+  const KEY = 'ng-lang';
+  const get = () => { try { return localStorage.getItem(KEY); } catch (e) { return 'blocked'; } };
+  const set = (v) => { try { localStorage.setItem(KEY, v); } catch (e) { /* private mode */ } };
+  document.querySelectorAll('.lang-menu a[hreflang]').forEach((a) => a.addEventListener('click', () => set(a.getAttribute('hreflang'))));
+  if (get() !== null || /bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent) || navigator.webdriver) return;
+  const alt = {};
+  document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((l) => { alt[l.getAttribute('hreflang')] = l.href; });
+  const here = document.documentElement.lang || 'hi';
+  const opts = [['en', 'English', 'Read in English'], ['hi', 'हिंदी', 'हिंदी में पढ़ें'], ['hi-Latn', 'Hinglish', 'Roman Hindi mein padho'], ['bn', 'বাংলা', 'বাংলায় পড়ুন']];
+  const box = document.createElement('div');
+  box.className = 'lang-modal';
+  box.setAttribute('role', 'dialog');
+  box.setAttribute('aria-modal', 'true');
+  box.setAttribute('aria-labelledby', 'lm-h');
+  box.innerHTML = `<div class="lm-card"><button type="button" class="lm-x" aria-label="Close">✕</button><p class="lm-icon" aria-hidden="true">🌐</p><h2 id="lm-h">Choose your language</h2><p class="lm-sub">भाषा चुनें · Bhasha chuno · ভাষা বেছে নিন</p><div class="lm-opts">${opts.map(([c, n, s]) => `<button type="button" data-l="${c}"${c === here ? ' class="on"' : ''}><b>${n}</b><small>${s}</small></button>`).join('')}</div><p class="lm-note">You can change it any time from 🌐 at the top.</p></div>`;
+  const close = (lang) => {
+    set(lang);
+    box.remove();
+    document.documentElement.classList.remove('lm-open');
+    if (lang !== here && alt[lang]) location.href = alt[lang] + location.search + location.hash;
+  };
+  box.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-l]');
+    if (b) close(b.dataset.l);
+    else if (e.target.closest('.lm-x') || e.target === box) close(here);
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && box.isConnected) close(here); });
+  document.body.appendChild(box);
+  document.documentElement.classList.add('lm-open');
+  box.querySelector('.lm-card').setAttribute('tabindex', '-1');
+  box.querySelector('.lm-card').focus({ preventScroll: true });
+})();
