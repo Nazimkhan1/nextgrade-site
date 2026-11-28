@@ -111,39 +111,101 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') openMenus(
   document.addEventListener('click', (e) => { if (!e.target.closest('.site-search')) box.hidden = true; });
 })();
 
-// First visit: a language chooser (user 28 Nov 2026). The choice is kept in localStorage 'ng-lang' (hreflang code);
-// picking another language opens this same page in that language (its <link rel="alternate" hreflang>). Picking in
-// the header's language menu counts as a choice too. Not shown to crawlers or when storage is blocked.
+// Bottom cards (user 28 Nov 2026: "pura page nhi, pwa jaisa", like hisab.nextgrade.in's install sheet).
+// 1) First visit: a small language card slides up from the bottom after a few seconds or the first scroll —
+//    no overlay, the page stays usable. Choice (or ✕) is kept in localStorage 'ng-lang'; the header 🌐 menu still works.
+// 2) Later visits, on daily-use pages: an "install NextGrade" card (Android/desktop: the browser's install prompt;
+//    iPhone: Share → Add to Home Screen steps). "Later" hides it for 14 days. Never both cards at once.
 (() => {
-  const KEY = 'ng-lang';
-  const get = () => { try { return localStorage.getItem(KEY); } catch (e) { return 'blocked'; } };
-  const set = (v) => { try { localStorage.setItem(KEY, v); } catch (e) { /* private mode */ } };
-  document.querySelectorAll('.lang-menu a[hreflang]').forEach((a) => a.addEventListener('click', () => set(a.getAttribute('hreflang'))));
-  if (get() !== null || /bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent) || navigator.webdriver) return;
-  const alt = {};
-  document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((l) => { alt[l.getAttribute('hreflang')] = l.href; });
-  const here = document.documentElement.lang || 'hi';
-  const opts = [['en', 'English', 'Read in English'], ['hi', 'हिंदी', 'हिंदी में पढ़ें'], ['hi-Latn', 'Hinglish', 'Roman Hindi mein padho'], ['bn', 'বাংলা', 'বাংলায় পড়ুন']];
-  const box = document.createElement('div');
-  box.className = 'lang-modal';
-  box.setAttribute('role', 'dialog');
-  box.setAttribute('aria-modal', 'true');
-  box.setAttribute('aria-labelledby', 'lm-h');
-  box.innerHTML = `<div class="lm-card"><button type="button" class="lm-x" aria-label="Close">✕</button><p class="lm-icon" aria-hidden="true">🌐</p><h2 id="lm-h">Choose your language</h2><p class="lm-sub">भाषा चुनें · Bhasha chuno · ভাষা বেছে নিন</p><div class="lm-opts">${opts.map(([c, n, s]) => `<button type="button" data-l="${c}"${c === here ? ' class="on"' : ''}><b>${n}</b><small>${s}</small></button>`).join('')}</div><p class="lm-note">You can change it any time from 🌐 at the top.</p></div>`;
-  const close = (lang) => {
-    set(lang);
-    box.remove();
-    document.documentElement.classList.remove('lm-open');
-    if (lang !== here && alt[lang]) location.href = alt[lang] + location.search + location.hash;
+  const ls = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return 'blocked'; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
   };
-  box.addEventListener('click', (e) => {
-    const b = e.target.closest('[data-l]');
-    if (b) close(b.dataset.l);
-    else if (e.target.closest('.lm-x') || e.target === box) close(here);
-  });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && box.isConnected) close(here); });
-  document.body.appendChild(box);
-  document.documentElement.classList.add('lm-open');
-  box.querySelector('.lm-card').setAttribute('tabindex', '-1');
-  box.querySelector('.lm-card').focus({ preventScroll: true });
+  const LANG_KEY = 'ng-lang';
+  document.querySelectorAll('.lang-menu a[hreflang]').forEach((a) => a.addEventListener('click', () => ls.set(LANG_KEY, a.getAttribute('hreflang'))));
+  // Not during our own prerender (headless Chrome), so the card never ends up inside saved HTML.
+  if (navigator.webdriver || /HeadlessChrome|Lighthouse/i.test(navigator.userAgent)) return;
+  const here = document.documentElement.lang || 'hi';
+  const L = { hi: 'hi', en: 'en', 'hi-Latn': 'hinglish', bn: 'bn' }[here] || 'hi';
+  const T = {
+    hi: { lang: 'अपनी भाषा चुनें', langSub: 'यही पेज आपकी भाषा में खुलेगा — बाद में 🌐 से बदल सकते हैं', close: 'बंद करें', inst: 'NextGrade को फ़ोन में जोड़ें', instSub: 'ऐप की तरह एक टैप में खुलेगा — आज का दिन, नमाज़ टाइम, मौसम, कैलकुलेटर', go: 'इंस्टॉल करें', later: 'बाद में', ok: 'ठीक है', ios: ['नीचे <b>Share</b> (⬆️) बटन दबाएँ', '<b>Add to Home Screen</b> चुनें', 'ऊपर <b>Add</b> दबाएँ'] },
+    en: { lang: 'Choose your language', langSub: 'This page opens in your language — change it any time from 🌐', close: 'Close', inst: 'Add NextGrade to your phone', instSub: 'Opens in one tap like an app — today, prayer times, weather, calculators', go: 'Install', later: 'Later', ok: 'OK', ios: ['Tap the <b>Share</b> (⬆️) button below', 'Choose <b>Add to Home Screen</b>', 'Tap <b>Add</b> at the top'] },
+    hinglish: { lang: 'Apni bhasha chuno', langSub: 'Yahi page aapki bhasha mein khulega — baad mein 🌐 se badal sakte ho', close: 'Band karo', inst: 'NextGrade ko phone mein jodo', instSub: 'App ki tarah ek tap mein khulega — aaj ka din, namaz time, mausam, calculator', go: 'Install karo', later: 'Baad mein', ok: 'Theek hai', ios: ['Neeche <b>Share</b> (⬆️) button dabao', '<b>Add to Home Screen</b> chuno', 'Upar <b>Add</b> dabao'] },
+    bn: { lang: 'তোমার ভাষা বেছে নাও', langSub: 'এই পেজটাই তোমার ভাষায় খুলবে — পরে 🌐 থেকে বদলাতে পারো', close: 'বন্ধ করো', inst: 'NextGrade ফোনে যোগ করো', instSub: 'অ্যাপের মতো এক ট্যাপে খুলবে — আজকের দিন, নামাজের সময়, আবহাওয়া, ক্যালকুলেটর', go: 'ইনস্টল করো', later: 'পরে', ok: 'ঠিক আছে', ios: ['নিচে <b>Share</b> (⬆️) বোতাম চাপো', '<b>Add to Home Screen</b> বেছে নাও', 'ওপরে <b>Add</b> চাপো'] },
+  }[L];
+  let open = null;
+  const sheet = (id, html) => {
+    const box = document.createElement('div');
+    box.className = 'ng-sheet';
+    box.id = id;
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-labelledby', `${id}-h`);
+    box.innerHTML = `<div class="in">${html}</div>`;
+    document.body.appendChild(box);
+    open = box;
+    return box;
+  };
+  const shut = (box) => { if (box && box.isConnected) box.remove(); if (open === box) open = null; };
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && open) open.querySelector('.ng-x, [data-later]')?.click(); });
+
+  // 1) language card
+  const langPending = ls.get(LANG_KEY) === null;
+  if (langPending) {
+    const alt = {};
+    document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((l) => { alt[l.getAttribute('hreflang')] = l.href; });
+    const opts = [['hi', 'हिंदी'], ['en', 'English'], ['bn', 'বাংলা'], ['hi-Latn', 'Hinglish']].filter(([c]) => c === here || alt[c]);
+    let shown = false;
+    const show = () => {
+      if (shown || open) return;
+      shown = true;
+      removeEventListener('scroll', onScroll);
+      const box = sheet('ng-lang', `<span class="ico" aria-hidden="true">🌐</span><b id="ng-lang-h">${T.lang}</b><p>${T.langSub}</p><button type="button" class="ng-x" aria-label="${T.close}">✕</button><div class="acts langs">${opts.map(([c, n]) => `<button type="button" data-l="${c}"${c === here ? ' class="on"' : ''}>${n}</button>`).join('')}</div>`);
+      box.addEventListener('click', (e) => {
+        const b = e.target.closest('[data-l]');
+        if (b) {
+          ls.set(LANG_KEY, b.dataset.l);
+          shut(box);
+          if (b.dataset.l !== here && alt[b.dataset.l]) location.href = alt[b.dataset.l] + location.search + location.hash;
+        } else if (e.target.closest('.ng-x')) { ls.set(LANG_KEY, here); shut(box); }
+      });
+    };
+    const onScroll = () => { if (scrollY > 120) show(); };
+    addEventListener('scroll', onScroll, { passive: true });
+    setTimeout(show, 4000);
+    if (opts.length < 2) ls.set(LANG_KEY, here);
+  }
+
+  // 2) install card (later visits, daily-use pages)
+  const standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+  if (standalone) { ls.set('ng-installed', '1'); return; }
+  try {
+    if (!sessionStorage.getItem('ng-seen')) { sessionStorage.setItem('ng-seen', '1'); ls.set('ng-visits', String((+ls.get('ng-visits') || 0) + 1)); }
+  } catch (e) { /* storage blocked */ }
+  const daily = /^\/(?:(?:en|bn|hinglish)\/)?(?:aaj|namaz-time|mausam|calculator|kitne-din-baaki|income-tax|ramzan|currency|sunrise-sunset|calendar|islamic-calendar|loan-emi|sip)(?:\/|$)/.test(location.pathname) || location.pathname === '/' || /^\/(en|bn|hinglish)\/$/.test(location.pathname);
+  const later = +ls.get('ng-install-later') || 0;
+  const canAsk = daily && !langPending && ls.get('ng-installed') !== '1' && (+ls.get('ng-visits') || 0) >= 2 && Date.now() - later > 14 * 864e5;
+  const ios = /iPhone|iPad|iPod/.test(navigator.userAgent) && !/CriOS|FxiOS|EdgiOS/.test(navigator.userAgent);
+  let evt = null;
+  const showInstall = () => {
+    if (!canAsk || open || (!evt && !ios)) return;
+    const box = sheet('ng-inst', `<img src="/icons/icon-192.png" alt="" width="56" height="56"><b id="ng-inst-h">${T.inst}</b><p>${T.instSub}</p>${evt ? '' : `<ol>${T.ios.map((x) => `<li>${x}</li>`).join('')}</ol>`}<div class="acts"><button type="button" data-later>${evt ? T.later : T.ok}</button>${evt ? `<button type="button" class="go" data-go>${T.go}</button>` : ''}</div>`);
+    box.addEventListener('click', async (e) => {
+      if (e.target.closest('[data-later]')) { ls.set('ng-install-later', String(Date.now())); shut(box); }
+      if (e.target.closest('[data-go]') && evt) {
+        evt.prompt();
+        const r = await evt.userChoice.catch(() => ({}));
+        if (r.outcome === 'accepted') ls.set('ng-installed', '1'); else ls.set('ng-install-later', String(Date.now()));
+        evt = null;
+        shut(box);
+      }
+    });
+  };
+  addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); evt = e; setTimeout(showInstall, 6000); });
+  addEventListener('appinstalled', () => { ls.set('ng-installed', '1'); if (open && open.id === 'ng-inst') shut(open); if (window.gtag) gtag('event', 'pwa_install'); });
+  if (ios) setTimeout(showInstall, 6000);
 })();
+
+// Offline support + installable app: one service worker for the main site (games and tools keep their own).
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  addEventListener('load', () => navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {}));
+}

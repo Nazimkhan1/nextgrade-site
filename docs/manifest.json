@@ -1,7 +1,7 @@
 {
   "name": "NextGrade — Festivals, Wishes & Apps",
   "short_name": "NextGrade",
-  "start_url": "/",
+  "start_url": "/?source=pwa",
   "display": "standalone",
   "background_color": "#fffaf3",
   "theme_color": "#e8590c",
@@ -29,6 +29,27 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "scope": "/",
+  "id": "/",
+  "description": "Festivals, wishes, prayer times, weather, calculators and free tools — Hindi, English, Bangla.",
+  "shortcuts": [
+    {
+      "name": "आज का दिन · Today",
+      "url": "/aaj/?source=pwa"
+    },
+    {
+      "name": "नमाज़ टाइम · Prayer times",
+      "url": "/namaz-time/?source=pwa"
+    },
+    {
+      "name": "मौसम · Weather",
+      "url": "/mausam/?source=pwa"
+    },
+    {
+      "name": "कैलकुलेटर · Calculators",
+      "url": "/calculator/?source=pwa"
     }
   ]
 }
