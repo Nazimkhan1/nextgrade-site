@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>जादुई स्लेट — बच्चों की ऑनलाइन LCD राइटिंग टैबलेट, उंगली से लिखो, एक टैप में साफ़ | NextGrade</title>
+<meta name="description" content="बच्चों के लिए फ़्री जादुई स्लेट: फ़ोन पर उंगली से लिखो और ड्रॉ करो, चमकती लाइन, एक बटन से साफ़, ऑन/ऑफ़ स्विच, रंग, अक्षर देखकर लिखने की प्रैक्टिस (अ, A, 1)। बिना ऐप, बिना लॉग-इन।">
+<meta name="theme-color" content="#1c7ed6">
+<link rel="canonical" href="https://nextgrade.in/tools/jaadui-slate/">
+<meta property="og:title" content="जादुई स्लेट — उंगली से लिखो, एक टैप में साफ़">
+<meta property="og:description" content="बच्चों की LCD राइटिंग टैबलेट जैसी स्लेट, फ़ोन में — फ़्री, बिना ऐप।">
+<meta property="og:image" content="https://nextgrade.in/og-image.jpg">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #eaf4ff; --card: #fff; --ink: #14243a; --muted: #52627a; --brand: #1c7ed6; --line: #cfe2f7; --soft: #f3f9ff; --frame: #1c7ed6; --frame2: #1971c2; --pen: #7ff3ff; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; }
+.wrap { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 8px; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 21px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand small { display: block; font-family: Inter, sans-serif; font-size: 12px; font-weight: 600; color: var(--muted); }
+select, button { font: inherit; }
+.langsel { padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(24px, 6vw, 34px); line-height: 1.15; margin: 6px 0 4px; }
+.lead { color: var(--muted); margin: 0 0 14px; }
+
+/* the slate: an LCD writing tablet */
+.slate { position: relative; margin: 0 auto; width: min(100%, 560px); background: linear-gradient(160deg, var(--frame), var(--frame2)); border-radius: 26px; padding: 14px 14px 46px; box-shadow: 0 14px 34px rgba(20, 50, 90, .28), inset 0 2px 0 rgba(255,255,255,.25); user-select: none; -webkit-user-select: none; }
+.slate.full { position: fixed; inset: 0; width: auto; border-radius: 0; z-index: 50; display: flex; flex-direction: column; padding: max(10px, env(safe-area-inset-top)) 10px calc(40px + env(safe-area-inset-bottom)); }
+.topbar { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 10px; }
+.pill { width: 54px; height: 30px; border-radius: 15px; border: 2px solid rgba(255,255,255,.75); background: rgba(0,0,0,.25); color: #fff; font-size: 16px; display: grid; place-items: center; cursor: pointer; }
+.pill:active { transform: scale(.94); }
+.pill.clear { width: 64px; }
+.power { position: relative; width: 54px; height: 30px; border-radius: 15px; border: 2px solid rgba(255,255,255,.75); background: rgba(0,0,0,.35); cursor: pointer; padding: 0; }
+.power::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #9aa5b1; transition: left .18s, background .18s; }
+.power[aria-pressed="true"]::after { left: 27px; background: #8ce99a; box-shadow: 0 0 8px #8ce99a; }
+.screen { position: relative; background: #050607; border-radius: 12px; overflow: hidden; aspect-ratio: 3 / 4; max-height: 62vh; width: 100%; box-shadow: inset 0 0 0 3px #0a0c0f, inset 0 0 30px rgba(0,0,0,.9); }
+.slate.full .screen { aspect-ratio: auto; max-height: none; flex: 1; }
+canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair; }
+.guide { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; font-family: "Noto Sans Devanagari", "Noto Sans Bengali", "Baloo 2", sans-serif; font-weight: 700; color: rgba(127, 243, 255, .16); font-size: min(52vw, 260px); line-height: 1; }
+.slate.full .guide { font-size: min(60vh, 70vw); }
+.off { position: absolute; inset: 0; display: none; place-items: center; color: #3a4048; font-weight: 700; letter-spacing: 2px; background: #020203; }
+.slate.is-off .off { display: grid; }
+.wipe { position: absolute; inset: 0; background: #050607; transform: translateY(-101%); pointer-events: none; }
+.wipe.go { animation: wipe .45s ease-in; }
+@keyframes wipe { from { transform: translateY(-101%); } to { transform: translateY(101%); } }
+.slots { position: absolute; left: 0; right: 0; bottom: 12px; display: flex; justify-content: space-between; padding: 0 22px; pointer-events: none; }
+.slots i { width: 14px; height: 22px; border-radius: 7px; background: rgba(0,0,0,.25); }
+.slots b { flex: 1; margin: 0 14px; height: 22px; border-radius: 11px; background: rgba(0,0,0,.18); }
+.slate.full .slots { bottom: calc(10px + env(safe-area-inset-bottom)); }
+
+.tools { width: min(100%, 560px); margin: 12px auto 0; display: grid; gap: 10px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.row .lbl { font-weight: 700; font-size: 14px; color: var(--muted); min-width: 64px; }
+.sw { width: 34px; height: 34px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1px var(--line); cursor: pointer; }
+.sw.on { box-shadow: 0 0 0 3px var(--brand); }
+.sw.rainbow { background: conic-gradient(#ff6b6b, #ffd43b, #69db7c, #4dabf7, #b197fc, #ff6b6b); }
+.chip { border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 7px 13px; cursor: pointer; font-weight: 600; font-size: 14px; }
+.chip.on { background: var(--brand); color: #fff; border-color: var(--brand); }
+.btn { border: 0; background: var(--brand); color: #fff; border-radius: 12px; padding: 10px 14px; font-weight: 700; cursor: pointer; }
+.btn.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; margin: 18px 0; }
+.card h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 22px; margin: 0 0 6px; }
+.card p, .card li { color: #2b3b52; }
+details { border-top: 1px solid var(--line); padding: 10px 0; } details:first-of-type { border-top: 0; }
+summary { font-weight: 700; cursor: pointer; }
+footer { color: var(--muted); font-size: 13px; text-align: center; padding: 24px 0 40px; }
+footer a { color: var(--muted); }
+.more { display: flex; flex-wrap: wrap; gap: 8px; }
+.more a { text-decoration: none; }
+@media (prefers-color-scheme: dark) { :root { --bg: #0d1520; --card: #142030; --ink: #e8f1fb; --muted: #9fb2c8; --line: #24364d; --soft: #111b28; } .langsel, .chip, .btn.ghost { background: #142030; color: var(--ink); } .card p, .card li { color: #c9d6e5; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://nextgrade.in/">NextGrade<small data-t="brandSub"></small></a>
+    <select class="langsel" id="langSel" aria-label="Language">
+      <option value="hi">हिंदी</option><option value="en">English</option><option value="hinglish">Hinglish</option><option value="bn">বাংলা</option>
+    </select>
+  </header>
+  <h1 data-t="title"></h1>
+  <p class="lead" data-t="sub"></p>
+
+  <div class="slate" id="slate">
+    <div class="topbar">
+      <button type="button" class="power" id="power" aria-pressed="true" data-ta="power"></button>
+      <button type="button" class="pill clear" id="clear" data-ta="clear">🗑️</button>
+      <button type="button" class="pill" id="undo" data-ta="undo">↩︎</button>
+      <button type="button" class="pill" id="fs" data-ta="full">⛶</button>
+    </div>
+    <div class="screen" id="screen">
+      <div class="guide" id="guide" aria-hidden="true"></div>
+      <canvas id="cv"></canvas>
+      <div class="wipe" id="wipe"></div>
+      <div class="off" data-t="offTxt"></div>
+    </div>
+    <div class="slots" aria-hidden="true"><i></i><b></b><i></i></div>
+  </div>
+
+  <div class="tools">
+    <div class="row"><span class="lbl" data-t="colourL"></span><span id="colours" class="row"></span></div>
+    <div class="row"><span class="lbl" data-t="sizeL"></span><span id="sizes" class="row"></span></div>
+    <div class="row"><span class="lbl" data-t="frameL"></span><span id="frames" class="row"></span></div>
+    <div class="row"><span class="lbl" data-t="guideL"></span><span id="sets" class="row"></span>
+      <button type="button" class="chip" id="prevL">◀</button><button type="button" class="chip" id="nextL">▶</button></div>
+    <div class="row"><button type="button" class="btn" id="save" data-t="save"></button><button type="button" class="btn ghost" id="sound" aria-pressed="true"></button></div>
+  </div>
+
+  <section class="card"><h2 data-t="aboutH"></h2><p data-t="about1"></p><p data-t="about2"></p></section>
+  <section class="card"><h2 data-t="howH"></h2><ol id="how"></ol></section>
+  <section class="card"><h2 data-t="ideasH"></h2><ul id="ideas"></ul></section>
+  <section class="card"><h2 data-t="faqH"></h2><div id="faq"></div></section>
+  <section class="card"><h2 data-t="moreH"></h2><div class="more" id="more"></div></section>
+  <footer>© 2026 NextGrade · <span data-t="privacy"></span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/kids/">Kids</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a></footer>
+</div>
+<script type="application/ld+json" id="faq-ld">{}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Jaadui Slate — NextGrade","url":"https://nextgrade.in/tools/jaadui-slate/","applicationCategory":"EducationalApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"inLanguage":["hi","en","bn"]}</script>
+<script>
+const I18N = {
+  hi: { brandSub: 'बच्चों के टूल्स', title: '✍️ जादुई स्लेट — उंगली से लिखो, एक टैप में साफ़', sub: 'LCD राइटिंग टैबलेट जैसी स्लेट, आपके फ़ोन में: चमकती लाइन, 🗑️ से पूरा साफ़, ऑन/ऑफ़ स्विच। फ़्री, बिना ऐप।', offTxt: 'स्लेट बंद है — ऊपर स्विच दबाओ', colourL: 'रंग', sizeL: 'मोटाई', frameL: 'फ़्रेम', guideL: 'अक्षर', save: '💾 फ़ोटो सेव करो', soundOn: '🔊 आवाज़', soundOff: '🔇 आवाज़ बंद', none: 'कोई नहीं', power: 'स्लेट चालू/बंद', clear: 'सब साफ़ करो', undo: 'पिछली लाइन हटाओ', full: 'पूरी स्क्रीन', sizes: ['पतली', 'मध्यम', 'मोटी'],
+    aboutH: 'जादुई स्लेट क्या है?', about1: 'यह बाज़ार में मिलने वाली LCD राइटिंग टैबलेट (मैजिक स्लेट) जैसी है — काली स्क्रीन पर उंगली से लिखो तो चमकती लाइन बनती है, और ऊपर का 🗑️ बटन दबाते ही सब एक झटके में साफ़। न चॉक, न कागज़, न बैटरी।', about2: 'छोटे बच्चे इस पर अक्षर, गिनती, चित्र और नाम लिखना सीख सकते हैं। "अक्षर" चुनो तो स्क्रीन पर हल्का अक्षर दिखेगा — उसके ऊपर लिखकर बनाना सीखो।',
+    how: ['ऊपर का स्विच हरा हो तो स्लेट चालू है — उंगली से लिखो या ड्रॉ करो।', '🗑️ दबाओ — पूरी स्लेट साफ़। ↩︎ से सिर्फ़ आख़िरी लाइन हटती है।', 'रंग, लाइन की मोटाई और फ़्रेम का रंग नीचे से बदलो। 🌈 से हर लाइन अलग रंग की।', '"अक्षर" में अ, A या 1 चुनो — हल्के अक्षर के ऊपर लिखो, ▶ से अगला अक्षर।', '⛶ से पूरी स्क्रीन; बच्चे के हाथ में देने से पहले यही अच्छा है। पसंद आए तो 💾 से फ़ोटो सेव करो।'],
+    ideas: ['अपना नाम लिखना सीखो', 'अ से ज्ञ और A से Z — एक-एक करके', '1 से 20 तक गिनती', 'सूरज, घर, पेड़, फूल बनाओ', 'टिक-टैक-टो (कट्टम-कट्टी) दोस्त के साथ', 'माँ-पापा कोई चित्र बनाएँ, बच्चा पहचाने'],
+    faqH: 'अक्सर पूछे जाने वाले सवाल', faq: [['क्या इसके लिए ऐप डाउनलोड करना होगा?', 'नहीं। यह वेबसाइट पर ही चलती है — फ़ोन, टैबलेट या कंप्यूटर के ब्राउज़र में। चाहें तो होम स्क्रीन पर जोड़ लें।'], ['क्या बच्चे का बनाया चित्र कहीं जाता है?', 'नहीं। सब कुछ आपके फ़ोन में ही रहता है; "फ़ोटो सेव करो" दबाने पर ही फ़ोन में एक फ़ाइल बनती है।'], ['ऑन/ऑफ़ स्विच क्यों है?', 'असली LCD स्लेट की तरह — बंद करने पर गलती से छूने पर कुछ नहीं लिखा जाता और चित्र वहीं सुरक्षित रहता है।'], ['क्या स्टाइलस (पेन) से भी लिख सकते हैं?', 'हाँ, उंगली, स्टाइलस या माउस — तीनों से चलता है।']],
+    moreH: 'और भी देखो', privacy: 'सब कुछ आपके फ़ोन में ही, कुछ अपलोड नहीं होता' },
+  en: { brandSub: 'Tools for kids', title: '✍️ Magic Slate — write with your finger, clear in one tap', sub: 'Like an LCD writing tablet, on your phone: glowing lines, 🗑️ clears it all, an on/off switch. Free, no app.', offTxt: 'The slate is off — tap the switch above', colourL: 'Colour', sizeL: 'Size', frameL: 'Frame', guideL: 'Letter', save: '💾 Save picture', soundOn: '🔊 Sound', soundOff: '🔇 Sound off', none: 'None', power: 'Slate on/off', clear: 'Clear everything', undo: 'Remove last line', full: 'Full screen', sizes: ['Thin', 'Medium', 'Thick'],
+    aboutH: 'What is the Magic Slate?', about1: 'It works like the LCD writing tablets sold in shops: write on the black screen and a glowing line appears; press 🗑️ and everything is gone in one go. No chalk, no paper, no batteries.', about2: 'Small children can practise letters, numbers, drawings and their name. Pick a "Letter" and a faint letter shows on the screen — trace over it to learn how it is written.',
+    how: ['When the switch at the top is green, the slate is on — write or draw with your finger.', 'Press 🗑️ to clear the whole slate. ↩︎ removes only the last line.', 'Change the colour, line size and frame colour below. 🌈 gives every line a new colour.', 'Under "Letter" pick अ, A or 1 — write over the faint letter, ▶ for the next one.', '⛶ for full screen — best before handing the phone to a child. 💾 saves the picture.'],
+    ideas: ['Learn to write your name', 'A to Z and अ to ज्ञ, one by one', 'Count 1 to 20', 'Draw the sun, a house, a tree, a flower', 'Play tic-tac-toe with a friend', 'A parent draws, the child guesses'],
+    faqH: 'Frequently asked questions', faq: [['Do I need to download an app?', 'No. It runs on the website in any phone, tablet or computer browser. You can add it to your home screen if you like.'], ['Does my child\'s drawing go anywhere?', 'No. Everything stays on your phone; a file is made only when you press "Save picture".'], ['Why an on/off switch?', 'Like a real LCD slate — when it is off, accidental touches don\'t draw and the picture stays as it is.'], ['Can I use a stylus?', 'Yes — finger, stylus or mouse all work.']],
+    moreH: 'See also', privacy: 'Everything stays on your phone; nothing is uploaded' },
+  hinglish: { brandSub: 'Bachchon ke tools', title: '✍️ Jaadui Slate — ungli se likho, ek tap mein saaf', sub: 'LCD writing tablet jaisi slate, aapke phone mein: chamakti line, 🗑️ se poora saaf, on/off switch. Free, bina app.', offTxt: 'Slate band hai — upar switch dabao', colourL: 'Rang', sizeL: 'Motai', frameL: 'Frame', guideL: 'Akshar', save: '💾 Photo save karo', soundOn: '🔊 Awaaz', soundOff: '🔇 Awaaz band', none: 'Koi nahi', power: 'Slate chalu/band', clear: 'Sab saaf karo', undo: 'Pichhli line hatao', full: 'Poori screen', sizes: ['Patli', 'Madhyam', 'Moti'],
+    aboutH: 'Jaadui Slate kya hai?', about1: 'Yeh bazaar mein milne wali LCD writing tablet (magic slate) jaisi hai — kaali screen par ungli se likho to chamakti line banti hai, aur upar ka 🗑️ button dabate hi sab ek jhatke mein saaf. Na chalk, na kagaz, na battery.', about2: 'Chhote bachche is par akshar, ginti, chitra aur naam likhna seekh sakte hain. "Akshar" chuno to screen par halka akshar dikhega — uske upar likh kar banana seekho.',
+    how: ['Upar ka switch hara ho to slate chalu hai — ungli se likho ya draw karo.', '🗑️ dabao — poori slate saaf. ↩︎ se sirf aakhri line hatti hai.', 'Rang, line ki motai aur frame ka rang neeche se badlo. 🌈 se har line alag rang ki.', '"Akshar" mein अ, A ya 1 chuno — halke akshar ke upar likho, ▶ se agla akshar.', '⛶ se poori screen; bachche ke haath mein dene se pehle yahi achha hai. Pasand aaye to 💾 se photo save karo.'],
+    ideas: ['Apna naam likhna seekho', 'अ se ज्ञ aur A se Z — ek-ek karke', '1 se 20 tak ginti', 'Suraj, ghar, ped, phool banao', 'Kattam-Katti dost ke saath', 'Mummy-Papa chitra banayein, bachcha pehchane'],
+    faqH: 'Aksar poochhe jaane wale sawaal', faq: [['Kya iske liye app download karna hoga?', 'Nahi. Yeh website par hi chalti hai — phone, tablet ya computer ke browser mein. Chahein to home screen par jod lein.'], ['Kya bachche ka banaya chitra kahin jaata hai?', 'Nahi. Sab kuchh aapke phone mein hi rehta hai; "Photo save karo" dabane par hi phone mein ek file banti hai.'], ['On/off switch kyun hai?', 'Asli LCD slate ki tarah — band karne par galti se chhoone par kuchh nahi likha jaata aur chitra wahin surakshit rehta hai.'], ['Kya stylus (pen) se bhi likh sakte hain?', 'Haan, ungli, stylus ya mouse — teeno se chalta hai.']],
+    moreH: 'Aur bhi dekho', privacy: 'Sab kuchh aapke phone mein hi, kuchh upload nahi hota' },
+  bn: { brandSub: 'ছোটদের টুলস', title: '✍️ জাদু স্লেট — আঙুল দিয়ে লেখো, এক ট্যাপে মুছে ফেলো', sub: 'LCD রাইটিং ট্যাবলেটের মতো স্লেট, তোমার ফোনে: উজ্জ্বল লাইন, 🗑️ দিয়ে সব মুছে যায়, অন/অফ সুইচ। ফ্রি, অ্যাপ ছাড়া।', offTxt: 'স্লেট বন্ধ — ওপরের সুইচ টেপো', colourL: 'রং', sizeL: 'মোটা', frameL: 'ফ্রেম', guideL: 'অক্ষর', save: '💾 ছবি সেভ করো', soundOn: '🔊 আওয়াজ', soundOff: '🔇 আওয়াজ বন্ধ', none: 'নেই', power: 'স্লেট চালু/বন্ধ', clear: 'সব মুছে ফেলো', undo: 'শেষ লাইন মোছো', full: 'পুরো স্ক্রিন', sizes: ['সরু', 'মাঝারি', 'মোটা'],
+    aboutH: 'জাদু স্লেট কী?', about1: 'দোকানে যে LCD রাইটিং ট্যাবলেট (ম্যাজিক স্লেট) পাওয়া যায়, এটা তেমনই — কালো স্ক্রিনে আঙুল দিয়ে লিখলে উজ্জ্বল লাইন হয়, আর ওপরের 🗑️ টিপলেই সব এক ঝটকায় মুছে যায়। চক, কাগজ, ব্যাটারি — কিছুই লাগে না।', about2: 'ছোটরা এতে অক্ষর, সংখ্যা, ছবি আর নিজের নাম লিখতে শিখতে পারে। "অক্ষর" বাছলে স্ক্রিনে হালকা অক্ষর দেখাবে — তার ওপর লিখে শেখো।',
+    how: ['ওপরের সুইচ সবুজ হলে স্লেট চালু — আঙুল দিয়ে লেখো বা আঁকো।', '🗑️ টিপলে পুরো স্লেট পরিষ্কার। ↩︎ শুধু শেষ লাইন মোছে।', 'নিচ থেকে রং, লাইনের মোটা আর ফ্রেমের রং বদলাও। 🌈 দিলে প্রতিটা লাইন নতুন রঙের।', '"অক্ষর"-এ অ, A বা 1 বাছো — হালকা অক্ষরের ওপর লেখো, ▶ দিয়ে পরেরটা।', '⛶ দিয়ে পুরো স্ক্রিন — বাচ্চার হাতে দেওয়ার আগে এটাই ভালো। পছন্দ হলে 💾 দিয়ে ছবি সেভ করো।'],
+    ideas: ['নিজের নাম লিখতে শেখো', 'অ থেকে ঁ আর A থেকে Z — একটা একটা করে', '১ থেকে ২০ গোনা', 'সূর্য, বাড়ি, গাছ, ফুল আঁকো', 'বন্ধুর সঙ্গে কাটাকুটি খেলো', 'মা-বাবা ছবি আঁকবেন, বাচ্চা চিনবে'],
+    faqH: 'প্রায়ই জিজ্ঞাসিত প্রশ্ন', faq: [['এর জন্য কি অ্যাপ নামাতে হবে?', 'না। ওয়েবসাইটেই চলে — ফোন, ট্যাবলেট বা কম্পিউটারের ব্রাউজারে। চাইলে হোম স্ক্রিনে যোগ করে নাও।'], ['বাচ্চার আঁকা ছবি কি কোথাও যায়?', 'না। সব তোমার ফোনেই থাকে; "ছবি সেভ করো" টিপলে তবেই ফোনে একটা ফাইল তৈরি হয়।'], ['অন/অফ সুইচ কেন?', 'আসল LCD স্লেটের মতো — বন্ধ থাকলে ভুল করে ছুঁলেও কিছু লেখা হয় না, ছবি যেমন ছিল তেমনই থাকে।'], ['স্টাইলাস দিয়ে লেখা যায়?', 'হ্যাঁ — আঙুল, স্টাইলাস বা মাউস, সবেতেই চলে।']],
+    moreH: 'আরও দেখো', privacy: 'সব তোমার ফোনেই থাকে, কিছু আপলোড হয় না' },
+};
+const SETS = {
+  hi: 'अ आ इ ई उ ऊ ऋ ए ऐ ओ औ अं अः क ख ग घ ङ च छ ज झ ञ ट ठ ड ढ ण त थ द ध न प फ ब भ म य र ल व श ष स ह क्ष त्र ज्ञ'.split(' '),
+  en: [...'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'],
+  num: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+  bn: 'অ আ ই ঈ উ ঊ ঋ এ ঐ ও ঔ ক খ গ ঘ ঙ চ ছ জ ঝ ঞ ট ঠ ড ঢ ণ ত থ দ ধ ন প ফ ব ভ ম য র ল শ ষ স হ'.split(' '),
+};
+const COLOURS = ['#7ff3ff', '#ffffff', '#8ce99a', '#ffe066', '#ff8787', '#da77f2', 'rainbow'];
+const FRAMES = [['#1c7ed6', '#1971c2'], ['#f06595', '#d6336c'], ['#37b24d', '#2b8a3e'], ['#f59f00', '#e67700'], ['#7048e8', '#5f3dc4'], ['#343a40', '#212529']];
+const SIZES = [4, 8, 14];
+
+const $ = (id) => document.getElementById(id);
+const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+const LANGS = ['hi', 'en', 'hinglish', 'bn'];
+const params = new URLSearchParams(location.search);
+const deviceLang = () => { const n = (navigator.language || 'hi').toLowerCase(); return n.startsWith('bn') ? 'bn' : n.startsWith('en') ? 'en' : 'hi'; };
+let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('slate-lang')) ? store.get('slate-lang') : deviceLang();
+const t = (k) => (I18N[lang] || I18N.hi)[k];
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+// ---------- drawing ----------
+const cv = $('cv'), ctx = cv.getContext('2d'), slate = $('slate');
+let strokes = [], cur = null, colour = store.get('slate-colour') || COLOURS[0], size = +(store.get('slate-size') || SIZES[1]), on = true, hue = 180, soundOn = store.get('slate-sound') !== '0';
+let guideSet = null, guideIdx = 0;
+const fit = () => {
+  const r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2.5);
+  cv.width = Math.round(r.width * d); cv.height = Math.round(r.height * d);
+  ctx.setTransform(d, 0, 0, d, 0, 0); redraw();
+};
+const style = (s) => { ctx.strokeStyle = s.c; ctx.lineWidth = s.w; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.shadowColor = s.c; ctx.shadowBlur = s.w * 1.2; };
+const drawStroke = (s) => {
+  style(s); const p = s.p, W = cv.getBoundingClientRect().width, H = cv.getBoundingClientRect().height;
+  ctx.beginPath(); ctx.moveTo(p[0][0] * W, p[0][1] * H);
+  if (p.length === 1) ctx.lineTo(p[0][0] * W + .1, p[0][1] * H);
+  for (let i = 1; i < p.length; i++) { const mx = (p[i - 1][0] + p[i][0]) / 2, my = (p[i - 1][1] + p[i][1]) / 2; ctx.quadraticCurveTo(p[i - 1][0] * W, p[i - 1][1] * H, mx * W, my * H); }
+  ctx.stroke();
+};
+const redraw = () => { const r = cv.getBoundingClientRect(); ctx.clearRect(0, 0, r.width, r.height); strokes.forEach(drawStroke); };
+const pt = (e) => { const r = cv.getBoundingClientRect(); return [(e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height]; };
+cv.addEventListener('pointerdown', (e) => {
+  if (!on) return;
+  cv.setPointerCapture(e.pointerId);
+  const c = colour === 'rainbow' ? `hsl(${(hue = (hue + 47) % 360)}, 95%, 70%)` : colour;
+  cur = { c, w: size * (e.pointerType === 'pen' && e.pressure ? .6 + e.pressure : 1), p: [pt(e)] };
+  strokes.push(cur); drawStroke(cur);
+});
+cv.addEventListener('pointermove', (e) => { if (!cur) return; (e.getCoalescedEvents ? e.getCoalescedEvents() : [e]).forEach((ev) => cur.p.push(pt(ev))); redraw(); });
+const end = () => { cur = null; };
+cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end); cv.addEventListener('pointerleave', end);
+
+// sound: a soft "shhh" when clearing, like the real slate
+let ac = null;
+const whoosh = () => {
+  if (!soundOn) return;
+  try {
+    ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+    const len = ac.sampleRate * 0.35, buf = ac.createBuffer(1, len, ac.sampleRate), d = buf.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2) * 0.35;
+    const src = ac.createBufferSource(), f = ac.createBiquadFilter(); f.type = 'bandpass'; f.frequency.value = 1800;
+    src.buffer = buf; src.connect(f).connect(ac.destination); src.start();
+  } catch (e) { /* no audio */ }
+};
+$('clear').addEventListener('click', () => {
+  if (!on) return;
+  const w = $('wipe'); w.classList.remove('go'); void w.offsetWidth; w.classList.add('go');
+  whoosh(); if (navigator.vibrate) navigator.vibrate(30);
+  setTimeout(() => { strokes = []; redraw(); }, 200);
+});
+$('undo').addEventListener('click', () => { if (on) { strokes.pop(); redraw(); } });
+$('power').addEventListener('click', () => {
+  on = !on; $('power').setAttribute('aria-pressed', String(on)); slate.classList.toggle('is-off', !on);
+  if (navigator.vibrate) navigator.vibrate(15);
+});
+$('fs').addEventListener('click', async () => {
+  const goFull = !slate.classList.contains('full');
+  slate.classList.toggle('full', goFull);
+  document.body.style.overflow = goFull ? 'hidden' : '';
+  try { if (goFull && document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen(); else if (!goFull && document.fullscreenElement) await document.exitFullscreen(); } catch (e) { /* not allowed */ }
+  setTimeout(fit, 60);
+});
+document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && slate.classList.contains('full')) { slate.classList.remove('full'); document.body.style.overflow = ''; setTimeout(fit, 60); } });
+$('save').addEventListener('click', () => {
+  const out = document.createElement('canvas'); out.width = cv.width; out.height = cv.height;
+  const o = out.getContext('2d'); o.fillStyle = '#050607'; o.fillRect(0, 0, out.width, out.height); o.drawImage(cv, 0, 0);
+  const a = document.createElement('a'); a.download = 'jaadui-slate.png'; a.href = out.toDataURL('image/png'); a.click();
+});
+$('sound').addEventListener('click', () => { soundOn = !soundOn; store.set('slate-sound', soundOn ? '1' : '0'); paintSound(); });
+const paintSound = () => { $('sound').textContent = soundOn ? t('soundOn') : t('soundOff'); $('sound').setAttribute('aria-pressed', String(soundOn)); };
+
+// pickers
+const paintPickers = () => {
+  $('colours').innerHTML = COLOURS.map((c) => `<button type="button" class="sw${c === 'rainbow' ? ' rainbow' : ''}${c === colour ? ' on' : ''}" data-c="${c}" style="${c === 'rainbow' ? '' : `background:${c}`}" aria-label="${c === 'rainbow' ? 'rainbow' : c}"></button>`).join('');
+  $('sizes').innerHTML = SIZES.map((s, i) => `<button type="button" class="chip${s === size ? ' on' : ''}" data-s="${s}">${esc(t('sizes')[i])}</button>`).join('');
+  $('frames').innerHTML = FRAMES.map(([a, b], i) => `<button type="button" class="sw" data-f="${i}" style="background:linear-gradient(160deg,${a},${b})" aria-label="frame ${i + 1}"></button>`).join('');
+  const sets = [[null, t('none')], ['hi', 'अ'], ['en', 'A'], ['num', '1'], ['bn', 'অ']];
+  $('sets').innerHTML = sets.map(([k, n]) => `<button type="button" class="chip${k === guideSet ? ' on' : ''}" data-g="${k || ''}">${esc(n)}</button>`).join('');
+};
+document.addEventListener('click', (e) => {
+  const c = e.target.closest('[data-c]'); if (c) { colour = c.dataset.c; store.set('slate-colour', colour); paintPickers(); }
+  const s = e.target.closest('[data-s]'); if (s) { size = +s.dataset.s; store.set('slate-size', String(size)); paintPickers(); }
+  const f = e.target.closest('[data-f]'); if (f) { const [a, b] = FRAMES[+f.dataset.f]; document.documentElement.style.setProperty('--frame', a); document.documentElement.style.setProperty('--frame2', b); store.set('slate-frame', f.dataset.f); }
+  const g = e.target.closest('[data-g]'); if (g) { guideSet = g.dataset.g || null; guideIdx = 0; paintGuide(); paintPickers(); }
+});
+const paintGuide = () => { $('guide').textContent = guideSet ? SETS[guideSet][guideIdx] : ''; };
+$('nextL').addEventListener('click', () => { if (!guideSet) return; guideIdx = (guideIdx + 1) % SETS[guideSet].length; paintGuide(); strokes = []; redraw(); });
+$('prevL').addEventListener('click', () => { if (!guideSet) return; guideIdx = (guideIdx - 1 + SETS[guideSet].length) % SETS[guideSet].length; paintGuide(); strokes = []; redraw(); });
+const fr = store.get('slate-frame'); if (fr && FRAMES[+fr]) { document.documentElement.style.setProperty('--frame', FRAMES[+fr][0]); document.documentElement.style.setProperty('--frame2', FRAMES[+fr][1]); }
+
+// language
+const applyLang = () => {
+  document.documentElement.lang = lang === 'hinglish' ? 'hi-Latn' : lang;
+  document.querySelectorAll('[data-t]').forEach((el) => { const v = t(el.dataset.t); if (typeof v === 'string') el.textContent = v; });
+  document.querySelectorAll('[data-ta]').forEach((el) => { el.setAttribute('aria-label', t(el.dataset.ta)); el.title = t(el.dataset.ta); });
+  $('langSel').value = lang;
+  $('how').innerHTML = t('how').map((x) => `<li>${esc(x)}</li>`).join('');
+  $('ideas').innerHTML = t('ideas').map((x) => `<li>${esc(x)}</li>`).join('');
+  $('faq').innerHTML = t('faq').map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('');
+  $('faq-ld').textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: t('faq').map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) });
+  const L = lang === 'hi' ? '' : `/${lang}`;
+  const more = { hi: [['/kids/', '🧒 बच्चों की पढ़ाई — फ़्लैशकार्ड'], ['/kids/hindi-varnamala/', 'अ आ हिंदी वर्णमाला'], ['/kids/abc/', '🔤 ABC'], ['/kids/ginti/', '🔢 गिनती 1–100'], ['/games/', '🎮 गेम्स']], en: [['/kids/', '🧒 Kids learning — flashcards'], ['/kids/hindi-varnamala/', 'Hindi alphabet'], ['/kids/abc/', '🔤 ABC'], ['/kids/ginti/', '🔢 Counting 1–100'], ['/games/', '🎮 Games']], hinglish: [['/kids/', '🧒 Bachchon ki padhai — flashcards'], ['/kids/hindi-varnamala/', 'Hindi varnamala'], ['/kids/abc/', '🔤 ABC'], ['/kids/ginti/', '🔢 Ginti 1–100'], ['/games/', '🎮 Games']], bn: [['/kids/', '🧒 ছোটদের পড়া — ফ্ল্যাশকার্ড'], ['/kids/bangla-bornomala/', 'অ আ বাংলা বর্ণমালা'], ['/kids/abc/', '🔤 ABC'], ['/kids/ginti/', '🔢 গোনা ১–১০০'], ['/games/', '🎮 গেম']] }[lang];
+  $('more').innerHTML = more.map(([h, n]) => `<a class="chip" href="${h.startsWith('/games/') ? h : L + h}">${esc(n)}</a>`).join('');
+  paintPickers(); paintSound();
+};
+$('langSel').addEventListener('change', () => { lang = $('langSel').value; store.set('slate-lang', lang); applyLang(); });
+
+applyLang();
+addEventListener('resize', fit);
+fit();
+</script>
+</body>
+</html>
