@@ -27,7 +27,9 @@ import { KIDS_SEO, KIDS_SEO_CHILD, KIDS_LIST_H } from './src/kids-seo.mjs';
 import { speeches as allSpeeches, SPEECH_UI } from './src/speeches.mjs';
 import { essays as allEssays, NIBANDH_UI } from './src/nibandh.mjs';
 import { calculators as allCalculators, CALC_UI } from './src/calculators.mjs';
-import { babyNames, BABY_UI } from './src/naam.mjs';
+import { babyNames as babyNamesBase, BABY_UI } from './src/naam.mjs';
+import { NAAM_EXTRA, naamLetterMore } from './src/naam-more.mjs';
+const babyNames = [...babyNamesBase, ...NAAM_EXTRA];
 import { FULLFORMS, FF_UI, ffSlug } from './src/fullforms.mjs';
 import { FF_MORE, FF_MORE_H, ffMoreDate } from './src/fullforms-more.mjs';
 import { whyFaq } from './src/festival-why.mjs';
@@ -1502,7 +1504,7 @@ ${others.length ? `<h2 class="no-print">${esc(U.more)}</h2>\n<div class="grid no
   // Baby names (/naam/, /naam/boy|girl/, /naam/boy|girl/<letter>/), scheduled 'page:naam'
   if (BABY_LIVE) {
     const U = BABY_UI[L.code];
-    const mean = (x) => (L.code === 'hi' ? x.mHi : x.mEn);
+    const mean = (x) => (L.code === 'hi' ? x.mHi : L.code === 'bn' && x.mBn ? x.mBn : x.mEn);
     const boys = babyNames.filter((x) => x.g === 'b');
     const girls = babyNames.filter((x) => x.g === 'g');
     const lettersOf = (list) => [...new Set(list.map((x) => x.r[0].toUpperCase()))].sort();
@@ -1555,15 +1557,18 @@ ${letterNav(g)}
         const title = g === 'b' ? U.boyTitleT(l) : U.girlTitleT(l);
         const h1 = g === 'b' ? U.boyH1T(l) : U.girlH1T(l);
         const lead = U.letterLeadT(l, g === 'b' ? U.boyKind : U.girlKind);
+        const more = naamLetterMore(L.code, g, l, sub, esc, mean);
         write(L, path, page(L, {
           path, title, description: lead,
-          jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.hub, '/naam/'], [titleOf(g), hubPath], [l, path]]), articleLd(L, h1, path)],
+          jsonLd: [breadcrumbLd(L, [[T.nav.home, '/'], [U.hub, '/naam/'], [titleOf(g), hubPath], [l, path]]), articleLd(L, h1, path), faqLd(more.faq)],
           body: `<article class="wrap narrow article">${naamStyle}
 <p class="crumbs"><a href="${P(L, '/')}">${esc(T.nav.home)}</a> › <a href="${P(L, '/naam/')}">${esc(U.hub)}</a> › <a href="${P(L, hubPath)}">${esc(titleOf(g))}</a> › ${esc(l)}</p>
 <h1>${esc(h1)}</h1>
 <p class="lead">${esc(lead)} · ${esc(U.countT(sub.length))}</p>
 <ul class="naam-list">${sub.map(row).join('')}</ul>
 <div class="ad no-print" aria-hidden="true"></div>
+${more.html}<h2>${esc(U.faqH)}</h2>
+${faqBlock(more.faq)}
 <h2 class="no-print">${esc(U.otherLetters)}</h2>
 ${letterNav(g, l)}
 <p class="no-print"><a href="${P(L, hubPath)}">← ${esc(titleOf(g))}</a> · <a href="${P(L, '/naam/')}">${esc(U.backHub)}</a></p>
@@ -1890,6 +1895,7 @@ const lastmodFor = (url) => {
   // pages that got hand-written content after Search Console's "crawled, not indexed" list (plan Q, 26 Nov 2026)
   { const ff = path.match(/^\/full-form\/([^/]+)\/$/); if (ff && FF_MORE[ff[1]]) return ffMoreDate(ff[1]); }
   if (/^\/calendar\/\d{4}\/[a-z]+\/$/.test(path)) return '2026-11-26';
+  if (/^\/naam\/(boy|girl)\/[a-z]\/$/.test(path)) return '2026-11-28'; // more names + per-letter block (src/naam-more.mjs)
   if (['/speech/', '/wish-card/', '/nuskhe/'].includes(path) || /^\/naam\/(boy|girl)\//.test(path)) return '2026-11-26';
   { const kd = path.match(/^\/kids\/([^/]+)\/$/); if (kd && KIDS_EXTRA[kd[1]]) return '2026-11-26'; }
   if (/^\/kids\/(barakhadi|matra|pahade)\/[^/]+\/$/.test(path)) return '2026-11-27';
