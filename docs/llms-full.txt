@@ -1,6 +1,6 @@
 # NextGrade — fact sheet
 
-> Plain facts from nextgrade.in pages, refreshed 2026-11-27. Each line names the page with details. Free to quote with a link.
+> Plain facts from nextgrade.in pages, refreshed 2026-11-28. Each line names the page with details. Free to quote with a link.
 
 ## Indian traditional units (1 tola = 180 grains = 11.6638 g)
 
@@ -77,24 +77,24 @@
 
 - Indian system: 1 lakh = 1,00,000 (100 thousand); 10 lakh = 1 million; 1 crore = 1,00,00,000 (10 million); 100 crore = 1 billion — https://nextgrade.in/en/number-in-words/
 
-## Currency in Indian rupees (rates of 2026-11-27, ExchangeRate-API)
+## Currency in Indian rupees (rates of 2026-11-28, ExchangeRate-API)
 
-- 1 USD (US Dollar) = ₹92.52 — https://nextgrade.in/en/currency/usd-to-inr/
-- 1 AED (UAE Dirham) = ₹25.19 — https://nextgrade.in/en/currency/aed-to-inr/
-- 1 SAR (Saudi Riyal) = ₹24.67 — https://nextgrade.in/en/currency/sar-to-inr/
-- 1 QAR (Qatari Riyal) = ₹25.42 — https://nextgrade.in/en/currency/qar-to-inr/
-- 1 KWD (Kuwaiti Dinar) = ₹296.56 — https://nextgrade.in/en/currency/kwd-to-inr/
-- 1 OMR (Omani Rial) = ₹240.62 — https://nextgrade.in/en/currency/omr-to-inr/
-- 1 BHD (Bahraini Dinar) = ₹246.06 — https://nextgrade.in/en/currency/bhd-to-inr/
-- 1 GBP (British Pound) = ₹121.14 — https://nextgrade.in/en/currency/gbp-to-inr/
-- 1 EUR (Euro) = ₹101.42 — https://nextgrade.in/en/currency/eur-to-inr/
-- 1 CAD (Canadian Dollar) = ₹64.92 — https://nextgrade.in/en/currency/cad-to-inr/
-- 1 AUD (Australian Dollar) = ₹61.36 — https://nextgrade.in/en/currency/aud-to-inr/
-- 1 SGD (Singapore Dollar) = ₹71.63 — https://nextgrade.in/en/currency/sgd-to-inr/
-- 1 MYR (Malaysian Ringgit) = ₹22.45 — https://nextgrade.in/en/currency/myr-to-inr/
+- 1 USD (US Dollar) = ₹92.96 — https://nextgrade.in/en/currency/usd-to-inr/
+- 1 AED (UAE Dirham) = ₹25.32 — https://nextgrade.in/en/currency/aed-to-inr/
+- 1 SAR (Saudi Riyal) = ₹24.79 — https://nextgrade.in/en/currency/sar-to-inr/
+- 1 QAR (Qatari Riyal) = ₹25.54 — https://nextgrade.in/en/currency/qar-to-inr/
+- 1 KWD (Kuwaiti Dinar) = ₹297.80 — https://nextgrade.in/en/currency/kwd-to-inr/
+- 1 OMR (Omani Rial) = ₹241.84 — https://nextgrade.in/en/currency/omr-to-inr/
+- 1 BHD (Bahraini Dinar) = ₹247.28 — https://nextgrade.in/en/currency/bhd-to-inr/
+- 1 GBP (British Pound) = ₹121.70 — https://nextgrade.in/en/currency/gbp-to-inr/
+- 1 EUR (Euro) = ₹101.79 — https://nextgrade.in/en/currency/eur-to-inr/
+- 1 CAD (Canadian Dollar) = ₹65.16 — https://nextgrade.in/en/currency/cad-to-inr/
+- 1 AUD (Australian Dollar) = ₹61.85 — https://nextgrade.in/en/currency/aud-to-inr/
+- 1 SGD (Singapore Dollar) = ₹71.95 — https://nextgrade.in/en/currency/sgd-to-inr/
+- 1 MYR (Malaysian Ringgit) = ₹22.54 — https://nextgrade.in/en/currency/myr-to-inr/
 - 1 NPR (Nepalese Rupee) = ₹0.6250 — https://nextgrade.in/en/currency/npr-to-inr/
-- 1 BDT (Bangladeshi Taka) = ₹0.7373 — https://nextgrade.in/en/currency/bdt-to-inr/
-- 1 JPY (Japanese Yen) = ₹0.5804 — https://nextgrade.in/en/currency/jpy-to-inr/
+- 1 BDT (Bangladeshi Taka) = ₹0.7386 — https://nextgrade.in/en/currency/bdt-to-inr/
+- 1 JPY (Japanese Yen) = ₹0.5819 — https://nextgrade.in/en/currency/jpy-to-inr/
 
 ## Time difference from India (IST, UTC+5:30), today
 
