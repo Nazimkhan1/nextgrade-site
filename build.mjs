@@ -46,6 +46,7 @@ import { buildChalisa } from './src/hanuman-chalisa.mjs';
 import { buildAarti } from './src/aarti.mjs';
 import { buildMantras } from './src/mantra.mjs';
 import { buildDuas } from './src/dua.mjs';
+import { buildNavratri, NAVRATRI_FEST_LINK } from './src/navratri.mjs';
 import { buildVyakaran, VYAKARAN_NAV } from './src/vyakaran.mjs';
 import { OG_BY_PATH } from './src/og-cards.mjs';
 import { icon } from './src/icons.mjs';
@@ -766,6 +767,7 @@ ${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('\n')}
   buildAarti(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildMantras(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildDuas(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
+  buildNavratri(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildVyakaran(L, { page, write, P, esc, T, breadcrumbLd, LANGS });
   buildWorld(L, { page, write, P, esc, T, breadcrumbLd, fx: FX });
   buildSunCompare(L, { page, write, P, esc, T, breadcrumbLd });
@@ -803,6 +805,7 @@ ${fromBanner(L, F.greet(x.name), f.emoji)}
 ${nd ? `<div class="when-box"><p class="when-q">📅 ${esc(nd.q)}</p><p class="when-a"><b>${esc(nd.date)}</b>, ${esc(nd.weekday)}${nd.approx ? ` (${esc(DT.approx)})` : ''} · <span class="when-left">${esc(nd.left)}</span></p><p class="when-note">${esc(nd.a)} <a href="${P(L, `/festivals/${LIST_YEAR}/`)}">${esc(DT.listLink(LIST_YEAR))}</a></p></div>` : ''}
 <p class="lead">${esc(x.intro)}</p>
 ${celebrateButton(L, 'festival', f.slug)}
+${NAVRATRI_FEST_LINK[f.slug] && ['hi', 'en', 'bn'].includes(L.code) ? `<div class="btns"><a class="btn btn-ghost" href="${P(L, '/navratri/')}">🪔 ${esc({ hi: 'नवरात्रि 2027 — किस दिन कौन सी देवी', en: 'Navratri 2027 — which goddess on which day', bn: 'নবরাত্রি ২০২৭ — কোন দিন কোন দেবী' }[L.code])}</a></div>` : ''}
 ${SPEECHES.some((sp) => sp.festival === f.slug) ? `<div class="btns"><a class="btn btn-ghost" href="${P(L, `/speech/${SPEECHES.find((sp) => sp.festival === f.slug).slug}/`)}">🎤 ${esc(SPEECHES.find((sp) => sp.festival === f.slug)[L.code].h1.replace(/^\S+\s/, ''))}</a></div>` : ''}
 ${NAAM_LIVE && NAAM_OCCASIONS.some((o) => o.slug === f.slug) ? `<div class="btns"><a class="btn btn-ghost" href="${P(L, `/naam-wali-image/${f.slug}/`)}">🖼️ ${esc(NAAM_OCCASIONS.find((o) => o.slug === f.slug)[L.code][0])}</a></div>` : ''}
 <div class="facts">
@@ -1909,7 +1912,7 @@ LANGS.forEach((L) => {
 const allUrls = [...urls, ...gameUrls, ...CELEBRATE.map((c) => `/celebrate/${c.slug}/`), ...tools.flatMap((tl) => [`/tools/${tl.slug}/`, ...(tl.pages || []).map((pg) => `/tools/${tl.slug}/${pg}/`)])];
 // Sitemap index (sitemap.xml) + one sitemap per section, so Search Console shows indexing per section (plan Q, 26 Nov)
 {
-  const GROUPS = [['mausam', ['mausam']], ['travel', ['ghoomne-ki-jagah']], ['kids', ['kids']], ['stories', ['kahani']], ['study', ['board-exam', 'nibandh', 'speech', 'paheliyan', 'full-form', 'naam', 'vilom-shabd', 'paryayvachi-shabd', 'muhavare', 'lokoktiyan', 'anekarthi-shabd', 'anek-shabdon-ke-liye-ek-shabd', 'application']], ['festivals', ['festivals', 'wishes', 'wish-card', 'calendar', 'bangla-tarikh', 'celebrate', 'naam-wali-image', 'islamic-calendar', 'shaadi-card', 'aaj', 'purnima', 'amavasya', 'ekadashi', 'ramzan', 'namaz-time', 'kitne-din-baaki']], ['games', ['games', 'khel', 'apps']], ['guides', ['hanuman-chalisa', 'aarti', 'mantra', 'dua', 'sarkari-guide', 'creator-guide', 'pranayam', 'surya-namaskar', 'nuskhe']], ['rto', ['rto']], ['world', ['time', 'currency', 'sunrise-sunset']], ['tools', ['tools', 'calculator', 'income-tax', 'loan-emi', 'sip', 'number-in-words', 'desi-naap', 'ghar-banane-ka-kharcha', 'solar-calculator', 'inverter-calculator']]];
+  const GROUPS = [['mausam', ['mausam']], ['travel', ['ghoomne-ki-jagah']], ['kids', ['kids']], ['stories', ['kahani']], ['study', ['board-exam', 'nibandh', 'speech', 'paheliyan', 'full-form', 'naam', 'vilom-shabd', 'paryayvachi-shabd', 'muhavare', 'lokoktiyan', 'anekarthi-shabd', 'anek-shabdon-ke-liye-ek-shabd', 'application']], ['festivals', ['festivals', 'wishes', 'wish-card', 'calendar', 'bangla-tarikh', 'celebrate', 'naam-wali-image', 'islamic-calendar', 'shaadi-card', 'aaj', 'purnima', 'amavasya', 'ekadashi', 'ramzan', 'namaz-time', 'kitne-din-baaki']], ['games', ['games', 'khel', 'apps']], ['guides', ['hanuman-chalisa', 'aarti', 'mantra', 'dua', 'navratri', 'sarkari-guide', 'creator-guide', 'pranayam', 'surya-namaskar', 'nuskhe']], ['rto', ['rto']], ['world', ['time', 'currency', 'sunrise-sunset']], ['tools', ['tools', 'calculator', 'income-tax', 'loan-emi', 'sip', 'number-in-words', 'desi-naap', 'ghar-banane-ka-kharcha', 'solar-calculator', 'inverter-calculator']]];
   const groupOf = (u) => { const seg = u.replace(/^\/(en|hinglish|bn)(?=\/)/, '').split('/')[1] || ''; const g = GROUPS.find(([, segs]) => segs.includes(seg)); return g ? g[0] : 'pages'; };
   const by = {};
   allUrls.forEach((u) => (by[groupOf(u)] ||= []).push(u));
