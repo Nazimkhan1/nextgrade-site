@@ -39,7 +39,9 @@ const FIXED = {
   'page:paheliyan': '2026-11-20', // riddles with answers — live now (user 21 Nov)
   // school speeches and essays (about 3–4 weeks before the day)
   'speech:republic-day': '2026-11-24', // 26 Jan — user 24 Nov: live now (teachers and students prepare early)
+  'speech:yuva-diwas': '2026-12-05', // 12 Jan National Youth Day (Vivekananda) — school prep starts early
   'speech:netaji-jayanti': '2027-01-02', // 23 Jan (Parakram Diwas)
+  'speech:shaheed-diwas': '2027-01-06', // 30 Jan Martyrs' Day
   'speech:saraswati-puja': '2027-01-15', // Vasant Panchami, 11 Feb 2027
 };
 
