@@ -93,7 +93,7 @@ img { max-width: 100%; height: auto; }
 .nav-group[open] > summary::after { transform: rotate(180deg); }
 .nav > a:hover, .nav > a[aria-current="page"], .nav-group > summary:hover, .nav-group > summary[aria-current="page"], .nav-group[open] > summary { background: var(--soft); color: var(--brand); }
 .nav-group { position: relative; }
-.nav-group ul { position: absolute; left: 0; top: calc(100% + 6px); z-index: 30; list-style: none; margin: 0; padding: 6px; min-width: 210px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); }
+.nav-group ul { position: absolute; left: 0; top: calc(100% + 6px); z-index: 30; list-style: none; margin: 0; padding: 6px; min-width: 210px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow);; max-height: calc(100vh - 90px); overflow-y: auto; overscroll-behavior: contain; }
 .nav-group li a { display: block; padding: 9px 12px; border-radius: 8px; color: var(--text); text-decoration: none; font-weight: 600; font-size: 15px; white-space: nowrap; }
 .nav-group li a:hover, .nav-group li a:focus-visible { background: var(--soft); color: var(--brand); }
 .nav-group li a[aria-current="page"] { color: var(--brand); }
@@ -295,7 +295,7 @@ section > h2:first-child, .sec-h { display: flex; align-items: center; gap: 8px;
   .nav { display: none; }
   body.menu-open .nav { display: flex; flex-direction: column; align-items: stretch; gap: 2px; position: absolute; left: 0; right: 0; top: 100%; margin: 0; padding: 10px 12px 16px; background: var(--surface); border-bottom: 1px solid var(--line); box-shadow: 0 16px 32px rgba(0, 0, 0, .12); max-height: calc(100vh - 56px); overflow-y: auto; }
   body.menu-open .nav > a, body.menu-open .nav-group > summary { font-size: 16px; padding: 12px 12px; }
-  body.menu-open .nav-group ul { position: static; box-shadow: none; border: 0; padding: 0 0 6px 12px; background: transparent; }
+  body.menu-open .nav-group ul { position: static; box-shadow: none; border: 0; padding: 0 0 6px 12px; background: transparent;; max-height: none; overflow: visible; }
   body.menu-open .nav-group li:first-child a { border-bottom: 0; margin-bottom: 0; }
   .hero-box { padding: 26px 18px 18px; border-radius: 22px; margin-top: 12px; }
   .hero h1 { font-size: 28px; }
@@ -345,3 +345,19 @@ main > .wrap > section > h2:first-child { margin-top: 22px; }
 @media (max-width: 900px) { .foot-cols { grid-template-columns: 1fr 1fr; } .foot-brand { grid-column: 1 / -1; } }
 @media (max-width: 640px) { .site-search input { font-size: 15px; padding: 14px 14px 14px 46px; } .ss-ico { left: 15px; top: 15px; } }
 .foot-bottom a { text-decoration: none; } .foot-bottom a:hover { color: var(--brand); }
+
+/* First-visit language chooser (site.js) */
+.lm-open { overflow: hidden; }
+.lang-modal { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 16px; background: rgba(20, 12, 4, .55); backdrop-filter: blur(3px); }
+.lm-card { outline: none; position: relative; width: 100%; max-width: 420px; background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: 20px; padding: 26px 22px 18px; box-shadow: 0 20px 60px rgba(0, 0, 0, .3); text-align: center; }
+.lm-card h2 { margin: 0 0 2px; font-size: 1.35rem; }
+.lm-icon { margin: 0; font-size: 2rem; line-height: 1; }
+.lm-sub { margin: 0 0 16px; color: var(--muted); font-size: .95rem; }
+.lm-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.lm-opts button { font: inherit; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 8px; border: 1.5px solid var(--line); border-radius: 14px; background: var(--bg); color: var(--text); cursor: pointer; }
+.lm-opts button b { font-size: 1.15rem; }
+.lm-opts button small { color: var(--muted); font-size: .78rem; }
+.lm-opts button:hover, .lm-opts button:focus-visible { border-color: var(--brand); outline: none; }
+.lm-opts button.on { border-color: var(--brand); background: var(--soft); }
+.lm-x { position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; border: 0; border-radius: 50%; background: transparent; color: var(--muted); font-size: 1rem; cursor: pointer; }
+.lm-note { margin: 14px 0 0; color: var(--muted); font-size: .8rem; }
