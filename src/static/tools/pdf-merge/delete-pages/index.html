@@ -786,7 +786,7 @@ const applyLang = () => {
   $('faqList').innerHTML = faqNow().map(([q, a]) => `<details class="faq"><summary>${q}</summary><p>${a}</p></details>`).join('');
   $('faqLd').textContent = faqLd(faqNow());
   const here = PAGE ? PAGE.slug : '';
-  $('links').innerHTML = LINKS.map(([k, path]) => `<a href="${BASE}${path}?lang=${lang}"${path === here || (!PAGE && !path) ? ' class="here"' : ''}>${esc(t(k)[0])}<small>${esc(t(k)[1])}</small></a>`).join('');
+  $('links').innerHTML = LINKS.map(([k, path]) => `<a href="${path.startsWith('/') ? path : BASE + path}?lang=${lang}"${path === here || (!PAGE && !path) ? ' class="here"' : ''}>${esc(t(k)[0])}<small>${esc(t(k)[1])}</small></a>`).join('');
   const info = PAGE && PAGE.T[lang] && PAGE.T[lang].info;
   $('pageInfo').classList.toggle('hidden', !info); if (info) $('pageInfo').innerHTML = info;
   renderMerge(); if (S.n) { syncSel(); $('sMeta').textContent = `${t('pagesN')(S.n)} · ${fmtSize(S.file.size)}`; } else syncSel();

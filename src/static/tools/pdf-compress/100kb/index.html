@@ -627,8 +627,8 @@ const applyLang = () => {
   $('useTable').innerHTML = `<tr><th>${t('thUse')}</th><th>${t('thKb')}</th><th>${t('thTip')}</th></tr>` + t('uses').map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('');
   $('sizeLinks').innerHTML = PAGES.map(([kb, slug]) => `<a href="${BASE}${slug}/?lang=${lang}"${PAGE && PAGE.kb === kb ? ' class="here"' : ''}>${esc(t('sizeLink')(kbLabel(kb)))}<small>${esc(t('sizeFor')[kb])}</small></a>`).join('')
     + (PAGE ? `<a href="${BASE}?lang=${lang}">📄 ${esc(t('custom').replace(':', ''))} KB<small>${esc(t('smaller').replace('✨ ', ''))}</small></a>` : '')
-    + `<a href="${BASE}/tools/image-compress/?lang=${lang}">🗜️ ${esc(t('imageTool'))}<small>JPG · WebP</small></a>`
-    + `<a href="${BASE}/tools/doc-scanner/?lang=${lang}">📷 ${esc(t('docTool'))}<small>PDF</small></a>`;
+    + `<a href="/tools/image-compress/?lang=${lang}">🗜️ ${esc(t('imageTool'))}<small>JPG · WebP</small></a>`
+    + `<a href="/tools/doc-scanner/?lang=${lang}">📷 ${esc(t('docTool'))}<small>PDF</small></a>`;
   $('aboutBox').innerHTML = t('about').map((s) => `<p>${s}</p>`).join('');
   $('probList').innerHTML = `<dl class="probs">${t('probs').map(([q, a]) => `<dt>${q}</dt><dd>${a}</dd>`).join('')}</dl>`;
   const info = PAGE && PAGE.T[lang] && PAGE.T[lang].info;
