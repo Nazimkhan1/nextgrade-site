@@ -9,7 +9,7 @@ const LIST_YEAR = '2027'; // the year shown on /festivals/<year>/
 const DATES = {
   christmas: [{ d: '2026-12-25' }, { d: '2027-12-25' }],
   'new-year': [{ d: '2027-01-01' }, { d: '2028-01-01' }],
-  lohri: [{ d: '2027-01-14' }],
+  lohri: [{ d: '2027-01-13' }], // 13 Jan: Drik Panchang (eve of the Sankranti transit day 14 Jan); fixed 28 Nov 2026
   'makar-sankranti': [{ d: '2027-01-15', note: 'msk' }],
   'republic-day': [{ d: '2027-01-26' }],
   'vasant-panchami': [{ d: '2027-02-11' }],
@@ -111,3 +111,7 @@ const nextFestivalDate = (slug, code, name, today) => {
 const festivalsInYear = (year) => Object.entries(DATES).flatMap(([slug, list]) => list.filter((x) => x.d.startsWith(`${year}-`)).map((x) => ({ slug, ...x }))).sort((a, b) => a.d.localeCompare(b.d));
 
 export { LIST_YEAR, DATES, nextFestivalDate, festivalsInYear, fmt, weekday, S as DATE_TEXT };
+
+// Dates corrected after a page went live: slug → day of the fix (sitemap lastmod of the festival page and the
+// year/month lists that show the date, so Google re-reads them).
+export const DATE_FIXED = { lohri: { day: '2026-11-28', months: ['2027/january'] } };

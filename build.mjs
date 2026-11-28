@@ -34,7 +34,7 @@ import { FULLFORMS, FF_UI, ffSlug } from './src/fullforms.mjs';
 import { FF_MORE, FF_MORE_H, ffMoreDate } from './src/fullforms-more.mjs';
 import { whyFaq } from './src/festival-why.mjs';
 import { rules as allRules, KHEL_UI } from './src/khel.mjs';
-import { LIST_YEAR, DATES, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT } from './src/festival-dates.mjs';
+import { LIST_YEAR, DATES, nextFestivalDate, festivalsInYear, fmt, weekday, DATE_TEXT, DATE_FIXED } from './src/festival-dates.mjs';
 import { buildWeather, WT } from './src/weather.mjs';
 import { buildTaxPages, SALARIES } from './src/tax-pages.mjs';
 import { buildMoneyPages } from './src/money-pages.mjs';
@@ -1877,7 +1877,17 @@ write(
 // Bump CONTENT_DATE when existing pages get real content changes.
 const CONTENT_DATE = '2026-11-15';
 const lastRelease = Object.values(releases).filter((d) => d <= todayIST()).sort().pop() || CONTENT_DATE;
+// a festival date corrected later: the festival page and the lists showing that date get the fix day (if newer)
+const dateFixFor = (path) => {
+  const days = Object.entries(DATE_FIXED).filter(([slug, f]) => path === `/festivals/${slug}/` || ['/festivals/', '/festivals/2027/', '/calendar/2027/'].includes(path) || f.months.some((m) => path === `/calendar/${m}/`)).map(([, f]) => f.day);
+  return days.sort().pop();
+};
 const lastmodFor = (url) => {
+  const base = lastmodBase(url);
+  const fix = dateFixFor(url.replace(/^\/(en|hinglish|bn)(?=\/)/, ''));
+  return fix && fix > base ? fix : base;
+};
+const lastmodBase = (url) => {
   const path = url.replace(/^\/(en|hinglish|bn)(?=\/)/, '');
   const m = path.match(/^\/(games|kahani|celebrate|tools|festivals)\/([^/]+)\/$/);
   const rel = m && releases[`${{ games: 'game', kahani: 'story', celebrate: 'celebrate', tools: 'tool', festivals: 'festival' }[m[1]]}:${m[2]}`];
