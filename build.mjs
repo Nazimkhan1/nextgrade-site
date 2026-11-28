@@ -662,6 +662,7 @@ ${rows.map((r) => `<tr><td>${r.f.emoji} <a href="${P(L, `/festivals/${r.f.slug}/
 </table></div>
 ${notes.length ? `<ul class="note">${notes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>` : ''}
 <p class="note">${esc(DT.local)}</p>
+<p class="note">✅ ${esc(DT.checked)}</p>
 <div class="ad" aria-hidden="true"></div>
 <h2>${esc(T.festival.moreH)}</h2>
 <div class="grid">${upcoming().slice(0, 6).map(festivalCard(L)).join('')}</div>
