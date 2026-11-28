@@ -68,6 +68,20 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') openMenus(
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
 })();
 
+// Dark/light toggle (☀️/🌙): flips from what is showing now (saved choice, else the device setting) and remembers it.
+(() => {
+  const btn = document.querySelector('.site-head .theme-btn');
+  if (!btn) return;
+  const root = document.documentElement;
+  btn.addEventListener('click', () => {
+    const t = root.getAttribute('data-theme');
+    const dark = t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    const next = dark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('ng-theme', next); } catch (e) { /* private mode: works for this page only */ }
+  });
+})();
+
 // Home search: loads /assets/search-<lang>.json on first focus, matches every word (accents/case ignored).
 (() => {
   const q = document.getElementById('ss-q'), box = document.getElementById('ss-r');

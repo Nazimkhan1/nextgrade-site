@@ -27,6 +27,43 @@
     --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
   }
 }
+/* Theme toggle (☀️/🌙 in the header): the choice is kept in localStorage 'ng-theme' and set as data-theme on <html>
+   by a tiny script in <head>; without a choice the device setting above applies. */
+:root[data-theme="light"] {
+  --bg: #fffaf3;
+  --surface: #ffffff;
+  --text: #2b2118;
+  --muted: #6f6257;
+  --line: #eadfce;
+  --brand: #d9480f;
+  --brand-ink: #ffffff;
+  --accent: #7048e8;
+  --soft: #fff0e3;
+  --shadow: 0 6px 24px rgba(80, 40, 0, 0.08);
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #17120e;
+  --surface: #211a14;
+  --text: #f4ebe1;
+  --muted: #b9a998;
+  --line: #3a2f25;
+  --brand: #ff8a4c;
+  --brand-ink: #1b120b;
+  --accent: #b197fc;
+  --soft: #2b2017;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+.theme-btn { display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: 18px; line-height: 1; cursor: pointer; flex: 0 0 auto; }
+.theme-btn:hover { border-color: var(--brand); }
+.theme-btn .t-sun { display: none; }
+:root[data-theme="dark"] .theme-btn .t-sun { display: inline; }
+:root[data-theme="dark"] .theme-btn .t-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-btn .t-sun { display: inline; }
+  :root:not([data-theme="light"]) .theme-btn .t-moon { display: none; }
+}
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
