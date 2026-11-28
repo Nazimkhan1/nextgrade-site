@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CUET UG Photo (10–200 KB) &amp; Signature (10–50 KB) Size — Resize Online | NextGrade Tools</title>
+<meta name="description" content="Photo and signature for the CUET UG form: photo JPG 10–200 KB with white background and 80% face, signature JPG 10–50 KB, plus a live photo. Resize free on your phone; nothing is uploaded.">
+<meta name="theme-color" content="#5f3dc4">
+<link rel="canonical" href="https://nextgrade.in/tools/form-helper/cuet/">
+<meta name="google-adsense-account" content="ca-pub-4135041725422483">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4135041725422483" crossorigin="anonymous"></script>
+<link rel="manifest" href="../manifest.json">
+<link rel="icon" href="../icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #f3f0ff; --card: #fff; --ink: #1d1638; --muted: #5f5a78; --brand: #5f3dc4; --brand2: #845ef7; --line: #e0d9fb; --ok: #2b8a3e; --warn: #c92a2a; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", system-ui, sans-serif; line-height: 1.55; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 8px; }
+.brand { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 21px; color: var(--ink); text-decoration: none; line-height: 1.1; }
+.brand small { display: block; font-family: Inter, sans-serif; font-size: 12px; font-weight: 600; color: var(--muted); }
+select, button, input { font: inherit; }
+.langsel, .inp { padding: 7px 9px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+.inp { width: 100%; }
+h1 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: clamp(26px, 6vw, 36px); line-height: 1.15; margin: 4px 0; }
+.sub { color: var(--muted); margin: 0 0 10px; }
+.privacy { background: #ebfbee; border: 1px solid #b2f2bb; color: #1b5e20; border-radius: 12px; padding: 8px 12px; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 4px 18px rgba(95, 61, 196, 0.07); }
+.tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 12px; }
+.tab { padding: 9px 6px; border-radius: 12px; border: 1px solid var(--line); background: #fff; font-weight: 700; cursor: pointer; font-size: 14px; color: var(--ink); }
+.tab.on { background: linear-gradient(90deg, var(--brand), var(--brand2)); color: #fff; border-color: transparent; }
+.tab:disabled { opacity: 0.4; cursor: not-allowed; }
+@media (max-width: 480px) { .tab { font-size: 12.5px; padding: 8px 4px; } }
+.drop { border: 2px dashed #b197fc; border-radius: 16px; padding: 26px 16px; text-align: center; background: #f8f6ff; cursor: pointer; }
+.drop b { display: block; font-size: 18px; margin-bottom: 6px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 700; cursor: pointer; }
+.btn-main { background: linear-gradient(90deg, var(--brand), var(--brand2)); color: #fff; border: 0; }
+.btn-ok { background: var(--ok); color: #fff; border: 0; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.editor { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 14px; margin-top: 12px; }
+@media (max-width: 760px) { .editor { grid-template-columns: 1fr; } }
+.stagebox { position: relative; border-radius: 14px; background: #e5dffa; display: flex; align-items: center; justify-content: center; padding: 14px; min-height: 240px; touch-action: none; user-select: none; -webkit-user-select: none; }
+#view { display: block; max-width: 100%; max-height: 60vh; box-shadow: 0 6px 20px rgba(0,0,0,.18); cursor: grab; background: #fff; }
+.side h3 { margin: 12px 0 6px; font-size: 15px; } .side h3:first-child { margin-top: 0; }
+label.sl { display: block; font-size: 13px; color: var(--muted); margin-top: 8px; }
+input[type=range] { width: 100%; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.hint { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+.warnmsg { font-size: 13px; color: var(--warn); font-weight: 600; margin: 6px 0 0; }
+.result { font-weight: 700; font-size: 14px; margin-top: 8px; color: var(--ok); }
+.result.bad { color: var(--warn); }
+.out { margin-top: 10px; display: flex; gap: 10px; align-items: center; }
+.out img { max-width: 120px; max-height: 120px; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+.chk { display: flex; gap: 8px; align-items: center; font-size: 14px; margin-top: 8px; }
+.hidden { display: none !important; }
+section.info { margin: 26px 0; }
+section.info h2 { font-family: "Baloo 2", "Noto Sans Devanagari", sans-serif; font-size: 22px; margin: 0 0 6px; }
+.tbl { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; border-radius: 12px; overflow: hidden; }
+.tbl th, .tbl td { border: 1px solid var(--line); padding: 6px 8px; text-align: start; vertical-align: top; }
+.tbl th { background: #f3f0ff; }
+.tblwrap { overflow-x: auto; }
+details { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin: 8px 0; }
+details summary { font-weight: 700; cursor: pointer; }
+footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top: 1px solid var(--line); margin-top: 24px; }
+.toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: #1d1638; color: #fff; padding: 10px 16px; border-radius: 12px; font-weight: 600; z-index: 20; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://nextgrade.in/tools/">📝 NextGrade Tools<small data-t="brandSub"></small></a>
+    <select class="langsel" id="langSel" aria-label="Language">
+      <option value="hinglish">Hinglish</option><option value="hi">हिंदी</option><option value="en">English</option><option value="bn">বাংলা</option>
+    </select>
+  </header>
+  <h1 data-t="title"></h1>
+  <p class="sub" data-t="sub"></p>
+  <div class="privacy">🔒 <span data-t="privacy"></span></div>
+
+  <div class="card">
+    <label class="sl" for="exam" data-t="examLabel" style="margin-top:0"></label>
+    <select class="inp" id="exam"></select>
+    <div class="tabs" id="tabs" style="margin-top:10px">
+      <button class="tab" type="button" data-kind="photo" data-t="kPhoto"></button>
+      <button class="tab" type="button" data-kind="sign" data-t="kSign"></button>
+      <button class="tab" type="button" data-kind="thumb" data-t="kThumb"></button>
+      <button class="tab" type="button" data-kind="decl" data-t="kDecl"></button>
+    </div>
+    <p class="hint" id="needLine"></p>
+
+    <div id="pick" style="margin-top:10px">
+      <div class="drop" id="drop">
+        <b data-t="pickTitle"></b>
+        <span class="hint" id="pickHint"></span>
+        <div class="row" style="justify-content:center;margin-top:12px">
+          <button class="btn btn-main" id="pickBtn" type="button" data-t="pickBtn"></button>
+          <button class="btn" id="camBtn" type="button" data-t="camBtn"></button>
+        </div>
+      </div>
+      <input type="file" id="file" accept="image/*" hidden>
+      <input type="file" id="cam" accept="image/*" capture="environment" hidden>
+    </div>
+
+    <div class="editor hidden" id="editor">
+      <div>
+        <div class="stagebox" id="stage"><canvas id="view"></canvas></div>
+        <p class="hint" data-t="dragHint"></p>
+        <label class="sl"><span data-t="zoom"></span></label>
+        <input type="range" id="zoom" min="0.5" max="4" step="0.01" value="1">
+        <div class="row" style="margin-top:8px">
+          <button class="btn" id="newBtn" type="button" data-t="newPic"></button>
+          <button class="btn" id="rotBtn" type="button" data-t="rotate"></button>
+          <button class="btn" id="fitBtn" type="button" data-t="refit"></button>
+        </div>
+      </div>
+      <div class="side">
+        <div id="photoOpts">
+          <h3 data-t="lookH"></h3>
+          <label class="sl"><span data-t="bright"></span></label>
+          <input type="range" id="bright" min="-40" max="40" step="1" value="0">
+          <label class="chk"><input type="checkbox" id="stampOn"> <span data-t="stampOn"></span></label>
+          <div id="stampBox" class="hidden">
+            <div class="grid2">
+              <label><span class="hint" data-t="nameL"></span><input class="inp" id="stName" maxlength="40" autocomplete="name"></label>
+              <label><span class="hint" data-t="dateL"></span><input class="inp" id="stDate" maxlength="12"></label>
+            </div>
+          </div>
+        </div>
+        <div id="inkOpts" class="hidden">
+          <h3 data-t="cleanH"></h3>
+          <label class="chk"><input type="checkbox" id="cleanOn" checked> <span data-t="cleanOn"></span></label>
+          <label class="sl"><span data-t="ink"></span></label>
+          <input type="range" id="inkLvl" min="0" max="100" step="1" value="50">
+          <label class="sl" for="inkCol" data-t="inkCol"></label>
+          <select class="inp" id="inkCol"><option value="black" data-t="colBlack"></option><option value="blue" data-t="colBlue"></option><option value="orig" data-t="colOrig"></option></select>
+        </div>
+        <h3 data-t="sizeH"></h3>
+        <div class="grid2">
+          <label><span class="hint" data-t="wPx"></span><input class="inp" id="ow" type="number" min="50" max="3000"></label>
+          <label><span class="hint" data-t="hPx"></span><input class="inp" id="oh" type="number" min="50" max="3000"></label>
+          <label><span class="hint" data-t="kbMin"></span><input class="inp" id="kmin" type="number" min="0" max="5000"></label>
+          <label><span class="hint" data-t="kbMax"></span><input class="inp" id="kmax" type="number" min="1" max="5000"></label>
+        </div>
+        <p class="hint" data-t="editNote"></p>
+        <div class="row" style="margin-top:10px">
+          <button class="btn btn-ok" id="dlBtn" type="button" data-t="dl"></button>
+          <button class="btn" id="shareBtn" type="button" data-t="share"></button>
+        </div>
+        <div class="out hidden" id="outBox"><img id="outImg" alt=""><div><div class="result" id="result"></div><p class="hint" id="resultHint"></p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="info hidden" id="examInfo"></section>
+  <section class="info"><h2 data-t="howH"></h2><ol id="howList"></ol></section>
+  <section class="info"><h2 data-t="tableH"></h2><p class="hint" data-t="tableNote"></p><div class="tblwrap"><table class="tbl" id="sizeTable"></table></div></section>
+  <section class="info"><h2 data-t="tipsH"></h2><ul id="tipList"></ul></section>
+  <section class="info"><h2 data-t="faqH"></h2><div id="faqList"></div></section>
+  <section class="info"><h2 data-t="privH"></h2><p data-t="privText"></p></section>
+  <footer>© <span id="year">2026</span> NextGrade Tools · <span data-t="footer"></span><br><a href="https://nextgrade.in/tools/">More free tools</a> · <a href="https://nextgrade.in/about/">About</a> · <a href="https://nextgrade.in/contact/">Contact</a> · <a href="https://nextgrade.in/privacy-policy/">Privacy Policy</a> · <a href="https://nextgrade.in/terms/">Terms</a></footer>
+</div>
+
+<script>window.FH_PAGE = {"exam": "cuet", "base": "../", "T": {"hinglish": {"title": "CUET UG photo aur signature resize — free", "sub": "CUET UG form ke liye: photo 10–200 KB, signature 10–50 KB, JPG. Sab phone par, kuch upload nahi hota.", "info": "<h2>CUET UG form mein photo aur signature</h2><ul><li><b>Photo:</b> JPG/JPEG, <b>10–200 KB</b>, rangeen, <b>safed background</b>, chehra photo ka lagbhag <b>80%</b> (kaan dikhen), mask nahi. Polaroid ya computer se bani photo nahi.</li><li><b>Signature:</b> JPG/JPEG, <b>10–50 KB</b>, safed kaagaz par saaf sign.</li><li><b>Live photo bhi:</b> upload ke saath form webcam ya QR code (phone) se live photo leta hai.</li><li>Dhyan do: CUET ka signature <b>10–50 KB</b> hai — JEE/NEET (10–100 KB) se chhota.</li></ul><p>Upar exam chuna hai: <b>Photo</b> aur <b>Signature</b> tab se dono banao aur <b>Download JPG</b> dabao. Live photo ke liye: saada/halka background, achhi roshni, chehra aur kaan saaf, mask nahi.</p><p><small>Official notice: NTA CUET (UG) 2026 Information Bulletin — cuet.nta.nic.in · 28 Nov 2026 ko milaaya gaya.</small></p>"}, "hi": {"title": "CUET UG फ़ोटो और सिग्नेचर रीसाइज़ — फ़्री", "sub": "CUET UG फ़ॉर्म के लिए: फ़ोटो 10–200 KB, सिग्नेचर 10–50 KB, JPG। सब फ़ोन पर, कुछ अपलोड नहीं होता।", "info": "<h2>CUET UG फ़ॉर्म में फ़ोटो और सिग्नेचर</h2><ul><li><b>फ़ोटो:</b> JPG/JPEG, <b>10–200 KB</b>, रंगीन, <b>सफ़ेद बैकग्राउंड</b>, चेहरा फ़ोटो का लगभग <b>80%</b> (कान दिखें), मास्क नहीं। पोलरॉइड या कंप्यूटर से बनी फ़ोटो नहीं।</li><li><b>सिग्नेचर:</b> JPG/JPEG, <b>10–50 KB</b>, सफ़ेद काग़ज़ पर साफ़ हस्ताक्षर।</li><li><b>लाइव फ़ोटो भी:</b> अपलोड के साथ फ़ॉर्म वेबकैम या QR कोड (फ़ोन) से लाइव फ़ोटो लेता है।</li><li>ध्यान दें: CUET का सिग्नेचर <b>10–50 KB</b> है — JEE/NEET (10–100 KB) से छोटा।</li></ul><p>ऊपर परीक्षा चुनी है: <b>फ़ोटो</b> और <b>सिग्नेचर</b> टैब से दोनों बनाएँ और <b>JPG डाउनलोड</b> दबाएँ। लाइव फ़ोटो के लिए: सादा/हल्का बैकग्राउंड, अच्छी रोशनी, चेहरा और कान साफ़, मास्क नहीं।</p><p><small>आधिकारिक नोटिस: NTA CUET (UG) 2026 Information Bulletin — cuet.nta.nic.in · 28 नवंबर 2026 को मिलाया गया।</small></p>"}, "en": {"title": "CUET UG photo & signature resizer — free", "sub": "For the CUET UG form: photo 10–200 KB, signature 10–50 KB, JPG. All on your phone; nothing is uploaded.", "info": "<h2>Photo and signature for the CUET UG form</h2><ul><li><b>Photo:</b> JPG/JPEG, <b>10–200 KB</b>, colour, <b>white background</b>, face about <b>80%</b> of the picture (ears visible), no mask. No Polaroid or computer-made photos.</li><li><b>Signature:</b> JPG/JPEG, <b>10–50 KB</b>, a clear signature on white paper.</li><li><b>Live photo too:</b> besides the upload, the form takes a live photo by webcam or QR code (phone).</li><li>Note: the CUET signature limit is <b>10–50 KB</b> — smaller than JEE/NEET (10–100 KB).</li></ul><p>The exam is selected above: make both from the <b>Photo</b> and <b>Signature</b> tabs and tap <b>Download JPG</b>. For the live photo: plain light background, good light, face and ears clear, no mask.</p><p><small>Official notice: NTA CUET (UG) 2026 Information Bulletin — cuet.nta.nic.in · checked on 28 Nov 2026.</small></p>"}, "bn": {"title": "CUET UG ছবি ও সই রিসাইজ — ফ্রি", "sub": "CUET UG ফর্মের জন্য: ছবি 10–200 KB, সই 10–50 KB, JPG। সব ফোনেই, কিছু আপলোড হয় না।", "info": "<h2>CUET UG ফর্মে ছবি ও সই</h2><ul><li><b>ছবি:</b> JPG/JPEG, <b>10–200 KB</b>, রঙিন, <b>সাদা ব্যাকগ্রাউন্ড</b>, মুখ ছবির প্রায় <b>80%</b> (কান দেখা যাবে), মাস্ক নয়। পোলারয়েড বা কম্পিউটারে বানানো ছবি নয়।</li><li><b>সই:</b> JPG/JPEG, <b>10–50 KB</b>, সাদা কাগজে পরিষ্কার সই।</li><li><b>লাইভ ছবিও:</b> আপলোডের সঙ্গে ফর্ম ওয়েবক্যাম বা QR কোডে (ফোনে) লাইভ ছবি নেয়।</li><li>খেয়াল করুন: CUET-এর সই <b>10–50 KB</b> — JEE/NEET (10–100 KB)-এর চেয়ে ছোট।</li></ul><p>ওপরে পরীক্ষা বাছা আছে: <b>ছবি</b> আর <b>সই</b> ট্যাব থেকে দুটোই বানান, <b>JPG ডাউনলোড</b> চাপুন। লাইভ ছবির জন্য: সাদামাটা হালকা ব্যাকগ্রাউন্ড, ভালো আলো, মুখ ও কান পরিষ্কার, মাস্ক নয়।</p><p><small>সরকারি নোটিস: NTA CUET (UG) 2026 Information Bulletin — cuet.nta.nic.in · ২৮ নভেম্বর ২০২৬-এ মেলানো হয়েছে।</small></p>"}}};</script>
+<script>
+'use strict';
+// Exam presets: pixel size and KB range as the forms usually ask for them. Each one can be edited, because notices change.
+// photo/sign/thumb/decl = [width px, height px, min KB, max KB, note]
+const EXAMS = [
+  // Specs from the official notices, checked 28 Nov 2026 (MY-PLANS EXAM-PHOTO-SPECS-2026-11-28.md). live: the form takes the photo
+  // with the camera itself (no photo upload), so only the signature preset is offered.
+  { id: 'ssc', page: 'ssc', name: 'SSC — CGL, CHSL, MTS, GD, CPO, Steno', live: true, sign: [709, 236, 10, 20, '6.0 × 2.0 cm'] },
+  { id: 'rrb', page: 'rrb', name: 'Railway (RRB) — NTPC, Group D', live: true, sign: [280, 160, 30, 49, '35 × 20 mm'] },
+  { id: 'uppolice', page: 'up-police', name: 'UP Police — Constable', live: true, sign: [400, 160, 30, 50, '50 × 20 mm'] },
+  { id: 'upsc', page: 'upsc', name: 'UPSC — CSE, NDA, CDS, CAPF, ESE', photo: [550, 700, 20, 200, ''], sign: [450, 450, 20, 100, '3 signatures'] },
+  { id: 'ibps', page: 'bank', name: 'IBPS / SBI — Bank PO, Clerk', photo: [200, 230, 20, 50, '200 × 230 px'], sign: [140, 60, 10, 20, '140 × 60 px'], thumb: [240, 240, 20, 50, '240 × 240 px'], decl: [800, 400, 50, 100, '800 × 400 px'] },
+  { id: 'nta', page: 'neet', name: 'NEET UG (NTA)', photo: [413, 531, 10, 200, ''], sign: [500, 200, 10, 100, ''], thumb: [400, 400, 50, 200, ''] },
+  { id: 'jee', page: 'jee-main', name: 'JEE Main (NTA)', photo: [413, 531, 10, 200, ''], sign: [500, 200, 10, 100, ''] },
+  { id: 'cuet', page: 'cuet', name: 'CUET UG (NTA)', photo: [413, 531, 10, 200, ''], sign: [500, 200, 10, 50, ''] },
+  { id: 'ctet', page: 'ctet', name: 'CTET (CBSE)', photo: [413, 531, 10, 100, '3.5 × 4.5 cm'], sign: [413, 177, 3, 30, '3.5 × 1.5 cm'] },
+  { id: 'custom', name: '', photo: [413, 531, 20, 50, ''], sign: [600, 200, 10, 20, ''], thumb: [300, 300, 20, 50, ''], decl: [800, 400, 50, 100, ''] },
+];
+const KINDS = ['photo', 'sign', 'thumb', 'decl'];
+
+const T = {
+  hinglish: {
+    brandSub: 'Free · photo phone se bahar nahi jaati', title: 'Form ke liye photo aur signature resize karo — free',
+    sub: 'SSC, UPSC, IBPS / SBI, NEET, JEE ke form jo size aur KB maangte hain, wahi bana do. Kaagaz par kiya signature saaf bhi ho jaata hai.',
+    privacy: 'Aapki photo aur signature kahin upload nahi hote. Saara kaam phone/browser mein hota hai, download bhi phone mein hi.',
+    examLabel: 'Kis exam ka form hai?', custom: 'Apna size (koi aur form)', kPhoto: '📷 Photo', kSign: '✍️ Signature', kThumb: '👍 Angootha', kDecl: '📄 Declaration',
+    need: (n, w, h, a, b) => `Form maangta hai: ${n ? n + ' · ' : ''}${w}×${h} px · ${a}–${b} KB · JPG`,
+    pickTitle: 'Photo chuno', pickBtn: '🖼️ Gallery se chuno', camBtn: '📸 Camera se lo',
+    hintPhoto: 'Seedha chehra, saada (safed/halka) background, achhi roshni.', hintInk: 'Safed kaagaz par kaale/neele pen se, upar se seedhi photo lo. Parchhai na ho.',
+    dragHint: 'Photo ko ungli se khiskao; neeche slider se chhota-bada karo.', zoom: 'Chhota / bada', newPic: '↺ Nayi photo', rotate: '⟳ Ghumao', refit: '🎯 Phir se set karo',
+    lookH: 'Photo', bright: 'Roshni', stampOn: 'Photo ke neeche naam aur tareekh likho', nameL: 'Naam', dateL: 'Tareekh',
+    cleanH: 'Saaf karo', cleanOn: 'Kaagaz safed, ink gehri (apne aap)', ink: 'Ink kitni gehri', inkCol: 'Ink ka rang', colBlack: 'Kaala', colBlue: 'Neela', colOrig: 'Jaisa hai',
+    sizeH: 'Size aur KB', wPx: 'Chaudai (px)', hPx: 'Lambai (px)', kbMin: 'Kam se kam KB', kbMax: 'Zyada se zyada KB',
+    editNote: 'Notification mein alag likha ho to yahan badal do.', dl: '⬇️ Download JPG', share: '📲 Share',
+    made: (w, h, kb, a, b) => `✅ ${w}×${h} px · ${kb} KB (${a}–${b} KB ke andar)`, tooBig: (kb, b) => `⚠️ ${kb} KB — ${b} KB se kam nahi ho payi. Size (px) chhota karo.`,
+    padded: 'Photo bahut halki thi, isliye file ko form ki kam-se-kam KB tak bhara gaya. Photo wahi hai.',
+    failed: 'Yeh photo nahi khul payi. Doosri try karo.', saved: '✅ Phone mein save ho gaya', badSize: 'Chaudai aur lambai 50 se 3000 px ke beech rakho.',
+    howH: 'Kaise karein', how: ['Upar <b>exam</b> chuno, phir <b>Photo / Signature / Angootha / Declaration</b>.', '<b>Gallery se chuno</b> ya <b>camera se lo</b>. Signature ke liye safed kaagaz par sign karke photo lo.', 'Photo ko khiskao aur chhota-bada karo taaki sahi hissa dikhe. Signature apne aap saaf aur beech mein ho jaata hai.', '<b>Download JPG</b> dabao — file sahi px aur KB mein ban jaati hai. Upar size aur KB likha dikhega.', 'Yahi file form mein upload karo.'],
+    tableH: 'Exam ke hisaab se size', tableNote: 'Yeh size 28 Nov 2026 ko naye official notice se milaaye gaye (SSC CGL/CHSL 2026, RRB 2025–26, UP Police 2025, UPSC 2026, IBPS XVI, SBI 2026, NEET/CUET 2026, JEE Main 2027, CTET Sept 2026). Har saal notice badal sakta hai — form bharne se pehle notice zaroor dekho.',
+    thExam: 'Exam', thPhoto: 'Photo', thSign: 'Signature', thOther: 'Aur', liveCell: 'Live (form mein camera se)', liveNote: 'Is exam mein photo form bharte waqt camera se live li jaati hai — upload sirf signature ka.',
+    tipsH: 'Dhyan rakhne wali baatein', tips: ['Photo haal ki ho (aksar 3 mahine se purani nahi). Kuch exam photo par naam aur tareekh maangte hain — tab "naam aur tareekh likho" chalu karo.', 'Chashma, topi, dark chashma na ho; chehra saaf dikhe, kaan dikhein to aur achha.', 'Signature apne haath se, kaale ya neele pen se. CAPITAL letters mein naam likhna aksar mana hota hai.', 'Har photo/signature JPG/JPEG mein hi upload karo jab tak form kuch aur na kahe.'],
+    faqH: 'Aksar pooche jaane wale sawaal',
+    faq: [['Kya meri photo kisi server par jaati hai?', 'Nahi. Yeh page aapke phone/browser mein hi photo badalta hai. Internet band karke bhi chalta hai.'], ['Photo ka KB kam kaise hota hai?', 'Tool JPG quality ko dheere-dheere kam karke dekhta hai jab tak file aapki di hui KB range mein na aa jaaye. Size (px) wahi rehta hai jo form maangta hai.'], ['File form ki kam-se-kam KB se chhoti aa rahi thi, ab kaise theek hui?', 'Bahut saaf ya chhoti signature ki file kabhi minimum KB se bhi chhoti ban jaati hai. Tab tool file ke andar khaali jagah jod deta hai; photo bilkul wahi rehti hai, bas file ka size minimum tak pahunch jaata hai.'], ['Signature saaf kaise hota hai?', '"Kaagaz safed, ink gehri" chalu ho to tool kaagaz ka mail-dhool hata kar use safed karta hai aur ink ko gehra karta hai. Slider se ink kam-zyada gehri kar sakte ho.']],
+    privH: 'Aapki photo, aapke paas', privText: 'Yeh tool bina kisi server ke aapke phone/browser mein chalta hai. Aapki photo, signature ya angootha kahin upload nahi hota, kahin save nahi hota, aur hum use dekh bhi nahi sakte. Page band karte hi sab mit jaata hai.',
+    footer: 'Free tool · kuch bhi upload nahi hota',
+  },
+  hi: {
+    brandSub: 'फ़्री · फ़ोटो फ़ोन से बाहर नहीं जाती', title: 'फ़ॉर्म के लिए फ़ोटो और सिग्नेचर रीसाइज़ करें — फ़्री',
+    sub: 'SSC, UPSC, IBPS / SBI, NEET, JEE के फ़ॉर्म जो साइज़ और KB माँगते हैं, वही बनाएँ। काग़ज़ पर किया सिग्नेचर साफ़ भी हो जाता है।',
+    privacy: 'आपकी फ़ोटो और सिग्नेचर कहीं अपलोड नहीं होते। सारा काम फ़ोन/ब्राउज़र में होता है, डाउनलोड भी फ़ोन में ही।',
+    examLabel: 'किस परीक्षा का फ़ॉर्म है?', custom: 'अपना साइज़ (कोई और फ़ॉर्म)', kPhoto: '📷 फ़ोटो', kSign: '✍️ सिग्नेचर', kThumb: '👍 अँगूठा', kDecl: '📄 डिक्लेरेशन',
+    need: (n, w, h, a, b) => `फ़ॉर्म माँगता है: ${n ? n + ' · ' : ''}${w}×${h} px · ${a}–${b} KB · JPG`,
+    pickTitle: 'फ़ोटो चुनें', pickBtn: '🖼️ गैलरी से चुनें', camBtn: '📸 कैमरा से लें',
+    hintPhoto: 'सीधा चेहरा, सादा (सफ़ेद/हल्का) बैकग्राउंड, अच्छी रोशनी।', hintInk: 'सफ़ेद काग़ज़ पर काले/नीले पेन से, ऊपर से सीधी फ़ोटो लें। परछाईं न हो।',
+    dragHint: 'फ़ोटो को उँगली से खिसकाएँ; नीचे स्लाइडर से छोटा-बड़ा करें।', zoom: 'छोटा / बड़ा', newPic: '↺ नई फ़ोटो', rotate: '⟳ घुमाएँ', refit: '🎯 फिर से सेट करें',
+    lookH: 'फ़ोटो', bright: 'रोशनी', stampOn: 'फ़ोटो के नीचे नाम और तारीख़ लिखें', nameL: 'नाम', dateL: 'तारीख़',
+    cleanH: 'साफ़ करें', cleanOn: 'काग़ज़ सफ़ेद, स्याही गहरी (अपने आप)', ink: 'स्याही कितनी गहरी', inkCol: 'स्याही का रंग', colBlack: 'काला', colBlue: 'नीला', colOrig: 'जैसा है',
+    sizeH: 'साइज़ और KB', wPx: 'चौड़ाई (px)', hPx: 'लंबाई (px)', kbMin: 'कम से कम KB', kbMax: 'ज़्यादा से ज़्यादा KB',
+    editNote: 'नोटिफ़िकेशन में अलग लिखा हो तो यहाँ बदल दें।', dl: '⬇️ JPG डाउनलोड', share: '📲 शेयर',
+    made: (w, h, kb, a, b) => `✅ ${w}×${h} px · ${kb} KB (${a}–${b} KB के अंदर)`, tooBig: (kb, b) => `⚠️ ${kb} KB — ${b} KB से कम नहीं हो पाई। साइज़ (px) छोटा करें।`,
+    padded: 'फ़ोटो बहुत हल्की थी, इसलिए फ़ाइल को फ़ॉर्म की न्यूनतम KB तक भरा गया। फ़ोटो वही है।',
+    failed: 'यह फ़ोटो नहीं खुल पाई। दूसरी आज़माएँ।', saved: '✅ फ़ोन में सेव हो गया', badSize: 'चौड़ाई और लंबाई 50 से 3000 px के बीच रखें।',
+    howH: 'कैसे करें', how: ['ऊपर <b>परीक्षा</b> चुनें, फिर <b>फ़ोटो / सिग्नेचर / अँगूठा / डिक्लेरेशन</b>।', '<b>गैलरी से चुनें</b> या <b>कैमरा से लें</b>। सिग्नेचर के लिए सफ़ेद काग़ज़ पर साइन करके फ़ोटो लें।', 'फ़ोटो को खिसकाएँ और छोटा-बड़ा करें ताकि सही हिस्सा दिखे। सिग्नेचर अपने आप साफ़ और बीच में हो जाता है।', '<b>JPG डाउनलोड</b> दबाएँ — फ़ाइल सही px और KB में बन जाती है।', 'यही फ़ाइल फ़ॉर्म में अपलोड करें।'],
+    tableH: 'परीक्षा के हिसाब से साइज़', tableNote: 'ये साइज़ 28 नवंबर 2026 को नए आधिकारिक नोटिस से मिलाए गए (SSC CGL/CHSL 2026, RRB 2025–26, UP Police 2025, UPSC 2026, IBPS XVI, SBI 2026, NEET/CUET 2026, JEE Main 2027, CTET सितंबर 2026)। हर साल नोटिस बदल सकता है — फ़ॉर्म भरने से पहले नोटिस ज़रूर देखें।',
+    thExam: 'परीक्षा', thPhoto: 'फ़ोटो', thSign: 'सिग्नेचर', thOther: 'और', liveCell: 'लाइव (फ़ॉर्म में कैमरे से)', liveNote: 'इस परीक्षा में फ़ोटो फ़ॉर्म भरते समय कैमरे से लाइव ली जाती है — अपलोड सिर्फ़ सिग्नेचर का।',
+    tipsH: 'ध्यान रखने वाली बातें', tips: ['फ़ोटो हाल की हो (अक्सर 3 महीने से पुरानी नहीं)। कुछ परीक्षाएँ फ़ोटो पर नाम और तारीख़ माँगती हैं — तब "नाम और तारीख़ लिखें" चालू करें।', 'चश्मा, टोपी न हो; चेहरा साफ़ दिखे।', 'सिग्नेचर अपने हाथ से, काले या नीले पेन से। CAPITAL अक्षरों में नाम लिखना अक्सर मना होता है।', 'हर फ़ाइल JPG/JPEG में ही अपलोड करें जब तक फ़ॉर्म कुछ और न कहे।'],
+    faqH: 'अक्सर पूछे जाने वाले सवाल',
+    faq: [['क्या मेरी फ़ोटो किसी सर्वर पर जाती है?', 'नहीं। यह पेज आपके फ़ोन/ब्राउज़र में ही फ़ोटो बदलता है। इंटरनेट बंद करके भी चलता है।'], ['फ़ोटो का KB कम कैसे होता है?', 'टूल JPG क्वालिटी को धीरे-धीरे कम करके देखता है जब तक फ़ाइल आपकी दी हुई KB रेंज में न आ जाए। साइज़ (px) वही रहता है।'], ['फ़ाइल न्यूनतम KB से छोटी आ रही थी, अब कैसे ठीक हुई?', 'बहुत साफ़ या छोटी सिग्नेचर की फ़ाइल कभी न्यूनतम KB से भी छोटी बनती है। तब टूल फ़ाइल के अंदर ख़ाली जगह जोड़ देता है; फ़ोटो बिल्कुल वही रहती है।'], ['सिग्नेचर साफ़ कैसे होता है?', '"काग़ज़ सफ़ेद, स्याही गहरी" चालू हो तो टूल काग़ज़ को सफ़ेद और स्याही को गहरा करता है। स्लाइडर से स्याही कम-ज़्यादा गहरी कर सकते हैं।']],
+    privH: 'आपकी फ़ोटो, आपके पास', privText: 'यह टूल बिना किसी सर्वर के आपके फ़ोन/ब्राउज़र में चलता है। आपकी फ़ोटो, सिग्नेचर या अँगूठा कहीं अपलोड नहीं होता, कहीं सेव नहीं होता, और हम उसे देख भी नहीं सकते।',
+    footer: 'फ़्री टूल · कुछ भी अपलोड नहीं होता',
+  },
+  en: {
+    brandSub: 'Free · your photo never leaves your phone', title: 'Resize photo & signature for exam forms — free',
+    sub: 'Get the exact size and KB that SSC, UPSC, IBPS / SBI, NEET and JEE forms ask for. A signature photographed on paper is cleaned up too.',
+    privacy: 'Your photo and signature are never uploaded. Everything runs on your phone/browser, and the file is saved to your phone.',
+    examLabel: 'Which exam form?', custom: 'Custom size (any other form)', kPhoto: '📷 Photo', kSign: '✍️ Signature', kThumb: '👍 Thumb', kDecl: '📄 Declaration',
+    need: (n, w, h, a, b) => `The form asks for: ${n ? n + ' · ' : ''}${w}×${h} px · ${a}–${b} KB · JPG`,
+    pickTitle: 'Choose a picture', pickBtn: '🖼️ From gallery', camBtn: '📸 Use camera',
+    hintPhoto: 'Face straight, plain (white/light) background, good light.', hintInk: 'Sign with a black/blue pen on white paper and take the photo straight from above, without shadows.',
+    dragHint: 'Drag the picture with your finger; use the slider to zoom.', zoom: 'Smaller / bigger', newPic: '↺ New picture', rotate: '⟳ Rotate', refit: '🎯 Re-fit',
+    lookH: 'Photo', bright: 'Brightness', stampOn: 'Print name and date below the photo', nameL: 'Name', dateL: 'Date',
+    cleanH: 'Clean up', cleanOn: 'White paper, dark ink (automatic)', ink: 'Ink darkness', inkCol: 'Ink colour', colBlack: 'Black', colBlue: 'Blue', colOrig: 'As it is',
+    sizeH: 'Size and KB', wPx: 'Width (px)', hPx: 'Height (px)', kbMin: 'Min KB', kbMax: 'Max KB',
+    editNote: 'If the notice says something different, change it here.', dl: '⬇️ Download JPG', share: '📲 Share',
+    made: (w, h, kb, a, b) => `✅ ${w}×${h} px · ${kb} KB (within ${a}–${b} KB)`, tooBig: (kb, b) => `⚠️ ${kb} KB — could not get under ${b} KB. Make the size (px) smaller.`,
+    padded: 'The picture was very light, so the file was filled up to the form\'s minimum KB. The picture itself is unchanged.',
+    failed: 'Could not open this picture. Try another one.', saved: '✅ Saved to your phone', badSize: 'Keep width and height between 50 and 3000 px.',
+    howH: 'How to use', how: ['Choose the <b>exam</b>, then <b>Photo / Signature / Thumb / Declaration</b>.', '<b>Pick from gallery</b> or <b>use the camera</b>. For a signature, sign on white paper and photograph it.', 'Drag and zoom so the right part shows. A signature is cleaned and centred automatically.', 'Tap <b>Download JPG</b>: the file comes out at the right px and KB, shown under the button.', 'Upload that file to the form.'],
+    tableH: 'Sizes by exam', tableNote: 'Sizes checked against the latest official notices on 28 Nov 2026 (SSC CGL/CHSL 2026, RRB 2025–26, UP Police 2025, UPSC 2026, IBPS XVI, SBI 2026, NEET/CUET 2026, JEE Main 2027, CTET Sept 2026). Notices can change every year, so always check the official notice before you apply.',
+    thExam: 'Exam', thPhoto: 'Photo', thSign: 'Signature', thOther: 'Other', liveCell: 'Live (camera, in the form)', liveNote: 'This exam takes your photo live with the camera while you fill the form — you upload only the signature.',
+    tipsH: 'Things to keep in mind', tips: ['Use a recent photo (often not older than 3 months). Some exams want the name and date printed on the photo: turn on "Print name and date".', 'No glasses or cap; the face should be clearly visible.', 'Sign by hand with a black or blue pen. Writing your name in CAPITAL letters is usually not accepted.', 'Upload JPG/JPEG unless the form says otherwise.'],
+    faqH: 'Frequently asked questions',
+    faq: [['Does my photo go to any server?', 'No. This page changes the picture inside your phone/browser. It even works with the internet switched off.'], ['How is the KB reduced?', 'The tool lowers the JPG quality step by step until the file fits the KB range. The size in pixels stays what the form asks for.'], ['The file was smaller than the minimum KB. How is that fixed?', 'A very clean or small signature can come out below the minimum KB. The tool then adds empty space inside the file; the picture stays exactly the same, only the file size reaches the minimum.'], ['How is the signature cleaned?', 'With "White paper, dark ink" on, the tool turns the paper white and darkens the ink. Use the slider to make the ink lighter or darker.']],
+    privH: 'Your photo stays with you', privText: 'This tool runs inside your phone/browser without any server. Your photo, signature or thumb impression is never uploaded or stored, and we cannot see it. Closing the page clears everything.',
+    footer: 'Free tool · nothing is uploaded',
+  },
+  bn: {
+    brandSub: 'ফ্রি · ছবি ফোনের বাইরে যায় না', title: 'ফর্মের জন্য ছবি ও সই রিসাইজ করুন — ফ্রি',
+    sub: 'SSC, UPSC, IBPS / SBI, NEET, JEE ফর্ম যে মাপ আর KB চায়, ঠিক তাই বানান। কাগজে করা সই পরিষ্কারও হয়ে যায়।',
+    privacy: 'আপনার ছবি ও সই কোথাও আপলোড হয় না। সব কাজ ফোন/ব্রাউজারেই হয়, ডাউনলোডও ফোনেই।',
+    examLabel: 'কোন পরীক্ষার ফর্ম?', custom: 'নিজের মাপ (অন্য ফর্ম)', kPhoto: '📷 ছবি', kSign: '✍️ সই', kThumb: '👍 বুড়ো আঙুল', kDecl: '📄 ডিক্লারেশন',
+    need: (n, w, h, a, b) => `ফর্ম চায়: ${n ? n + ' · ' : ''}${w}×${h} px · ${a}–${b} KB · JPG`,
+    pickTitle: 'ছবি বাছুন', pickBtn: '🖼️ গ্যালারি থেকে', camBtn: '📸 ক্যামেরায় তুলুন',
+    hintPhoto: 'সোজা মুখ, সাদা/হালকা ব্যাকগ্রাউন্ড, ভালো আলো।', hintInk: 'সাদা কাগজে কালো/নীল কলমে সই করে ওপর থেকে সোজা ছবি তুলুন, ছায়া ছাড়া।',
+    dragHint: 'আঙুল দিয়ে ছবি সরান; স্লাইডারে ছোট-বড় করুন।', zoom: 'ছোট / বড়', newPic: '↺ নতুন ছবি', rotate: '⟳ ঘোরান', refit: '🎯 আবার বসান',
+    lookH: 'ছবি', bright: 'আলো', stampOn: 'ছবির নিচে নাম ও তারিখ লিখুন', nameL: 'নাম', dateL: 'তারিখ',
+    cleanH: 'পরিষ্কার', cleanOn: 'কাগজ সাদা, কালি গাঢ় (নিজে থেকে)', ink: 'কালি কতটা গাঢ়', inkCol: 'কালির রং', colBlack: 'কালো', colBlue: 'নীল', colOrig: 'যেমন আছে',
+    sizeH: 'মাপ ও KB', wPx: 'চওড়া (px)', hPx: 'লম্বা (px)', kbMin: 'কমপক্ষে KB', kbMax: 'সর্বোচ্চ KB',
+    editNote: 'নোটিফিকেশনে অন্য কিছু লেখা থাকলে এখানে বদলান।', dl: '⬇️ JPG ডাউনলোড', share: '📲 শেয়ার',
+    made: (w, h, kb, a, b) => `✅ ${w}×${h} px · ${kb} KB (${a}–${b} KB-র মধ্যে)`, tooBig: (kb, b) => `⚠️ ${kb} KB — ${b} KB-র নিচে নামানো গেল না। মাপ (px) ছোট করুন।`,
+    padded: 'ছবিটি খুব হালকা ছিল, তাই ফাইলটি ফর্মের ন্যূনতম KB পর্যন্ত ভরা হয়েছে। ছবি একই আছে।',
+    failed: 'এই ছবি খোলা গেল না। অন্যটি চেষ্টা করুন।', saved: '✅ ফোনে সেভ হয়েছে', badSize: 'চওড়া ও লম্বা 50 থেকে 3000 px-এর মধ্যে রাখুন।',
+    howH: 'কীভাবে করবেন', how: ['ওপরে <b>পরীক্ষা</b> বাছুন, তারপর <b>ছবি / সই / বুড়ো আঙুল / ডিক্লারেশন</b>।', '<b>গ্যালারি থেকে</b> বাছুন বা <b>ক্যামেরায় তুলুন</b>। সইয়ের জন্য সাদা কাগজে সই করে ছবি তুলুন।', 'ঠিক অংশ দেখাতে ছবি সরান ও ছোট-বড় করুন। সই নিজে থেকেই পরিষ্কার হয়ে মাঝখানে বসে।', '<b>JPG ডাউনলোড</b> চাপুন — ফাইল ঠিক px ও KB-তে তৈরি হয়।', 'এই ফাইলটিই ফর্মে আপলোড করুন।'],
+    tableH: 'পরীক্ষা অনুযায়ী মাপ', tableNote: 'মাপগুলো ২৮ নভেম্বর ২০২৬-এ সর্বশেষ সরকারি নোটিসের সঙ্গে মেলানো হয়েছে (SSC CGL/CHSL 2026, RRB 2025–26, UP Police 2025, UPSC 2026, IBPS XVI, SBI 2026, NEET/CUET 2026, JEE Main 2027, CTET Sept 2026)। প্রতি বছর নোটিস বদলাতে পারে — ফর্ম ভরার আগে অবশ্যই নোটিস দেখুন।',
+    thExam: 'পরীক্ষা', thPhoto: 'ছবি', thSign: 'সই', thOther: 'অন্যান্য', liveCell: 'লাইভ (ফর্মে ক্যামেরায়)', liveNote: 'এই পরীক্ষায় ফর্ম ভরার সময় ক্যামেরায় লাইভ ছবি তোলা হয় — আপলোড শুধু সইয়ের।',
+    tipsH: 'মনে রাখার কথা', tips: ['সাম্প্রতিক ছবি দিন (প্রায়ই ৩ মাসের বেশি পুরনো নয়)। কিছু পরীক্ষা ছবিতে নাম ও তারিখ চায় — তখন "নাম ও তারিখ লিখুন" চালু করুন।', 'চশমা বা টুপি নয়; মুখ পরিষ্কার দেখা যাক।', 'নিজের হাতে কালো বা নীল কলমে সই করুন। CAPITAL অক্ষরে নাম লেখা সাধারণত চলে না।', 'ফর্ম অন্য কিছু না বললে JPG/JPEG-ই আপলোড করুন।'],
+    faqH: 'সাধারণ প্রশ্ন',
+    faq: [['আমার ছবি কি কোনো সার্ভারে যায়?', 'না। এই পেজ আপনার ফোন/ব্রাউজারেই ছবি বদলায়। ইন্টারনেট বন্ধ রেখেও চলে।'], ['KB কীভাবে কমে?', 'টুল ধাপে ধাপে JPG কোয়ালিটি কমিয়ে দেখে, যতক্ষণ না ফাইল আপনার দেওয়া KB-র মধ্যে আসে। মাপ (px) একই থাকে।'], ['ফাইল ন্যূনতম KB-র চেয়ে ছোট আসছিল, এখন কীভাবে ঠিক হল?', 'খুব পরিষ্কার বা ছোট সইয়ের ফাইল কখনো ন্যূনতম KB-র চেয়েও ছোট হয়। তখন টুল ফাইলের ভিতরে ফাঁকা জায়গা যোগ করে; ছবি একই থাকে।'], ['সই কীভাবে পরিষ্কার হয়?', '"কাগজ সাদা, কালি গাঢ়" চালু থাকলে টুল কাগজ সাদা আর কালি গাঢ় করে। স্লাইডারে কালি কম-বেশি গাঢ় করা যায়।']],
+    privH: 'আপনার ছবি আপনার কাছেই', privText: 'এই টুল কোনো সার্ভার ছাড়াই আপনার ফোন/ব্রাউজারে চলে। আপনার ছবি, সই বা আঙুলের ছাপ কোথাও আপলোড বা সেভ হয় না, আমরা দেখতেও পাই না।',
+    footer: 'ফ্রি টুল · কিছুই আপলোড হয় না',
+  },
+};
+
+// ---------- helpers
+const $ = (id) => document.getElementById(id);
+const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
+const params = new URLSearchParams(location.search);
+const LANGS = ['hinglish', 'hi', 'en', 'bn'];
+const deviceLang = () => { const l = (navigator.language || '').toLowerCase(); if (l.startsWith('bn')) return 'bn'; if (l.startsWith('hi')) return 'hi'; return l.endsWith('-in') ? 'hinglish' : 'en'; };
+let lang = LANGS.includes(params.get('lang')) ? params.get('lang') : LANGS.includes(store.get('fh-lang')) ? store.get('fh-lang') : deviceLang();
+const t = (k) => T[lang][k];
+const mk = (w, h) => { const c = document.createElement('canvas'); c.width = Math.max(1, Math.round(w)); c.height = Math.max(1, Math.round(h)); return c; };
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+let toastTimer = 0;
+const toast = (msg) => { let el = document.querySelector('.toast'); if (!el) { el = document.createElement('div'); el.className = 'toast'; document.body.appendChild(el); } el.textContent = msg; el.classList.remove('hidden'); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.add('hidden'), 2600); };
+const today = () => { const d = new Date(); return `${String(d.getDate()).padStart(2, '0')}-${String(d.getMonth() + 1).padStart(2, '0')}-${d.getFullYear()}`; };
+
+// ---------- state
+// Exam pages (e.g. ./ssc/) set window.FH_PAGE = { exam, base, T: { lang: { title, sub, info } } } before this script.
+const PAGE = window.FH_PAGE || null;
+const BASE = PAGE ? PAGE.base || '../' : './';
+if (PAGE) for (const l in PAGE.T) { if (T[l]) { if (PAGE.T[l].title) T[l].title = PAGE.T[l].title; if (PAGE.T[l].sub) T[l].sub = PAGE.T[l].sub; } }
+let examId = PAGE ? PAGE.exam : store.get('fh-exam') || 'ssc';
+if (!EXAMS.some((e) => e.id === examId)) examId = 'ssc';
+let kind = 'photo';
+let raw = null;      // decoded picture, downscaled, as a canvas
+let src = null;      // raw after rotation + processing (brightness or ink clean-up / crop)
+let rot = 0, zoom = 1, offX = 0, offY = 0;
+let lastOut = null;
+const exam = () => EXAMS.find((e) => e.id === examId);
+const isInk = () => kind !== 'photo';
+const spec = () => ({ w: Number($('ow').value) || 0, h: Number($('oh').value) || 0, min: Math.max(0, Number($('kmin').value) || 0), max: Math.max(1, Number($('kmax').value) || 1) });
+
+// ---------- UI text
+const applyLang = () => {
+  document.documentElement.lang = lang === 'hinglish' ? 'hi-Latn' : lang;
+  document.querySelectorAll('[data-t]').forEach((el) => { const v = t(el.dataset.t); if (typeof v === 'string') el.textContent = v; });
+  $('langSel').value = lang;
+  $('howList').innerHTML = t('how').map((s) => `<li>${s}</li>`).join('');
+  $('tipList').innerHTML = t('tips').map((s) => `<li>${s}</li>`).join('');
+  $('faqList').innerHTML = t('faq').map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+  const sel = $('exam'); sel.innerHTML = EXAMS.map((e) => `<option value="${e.id}">${e.id === 'custom' ? t('custom') : e.name}</option>`).join(''); sel.value = examId;
+  const cell = (p) => (p ? `${p[0]}×${p[1]} px<br>${p[2]}–${p[3]} KB` : '—');
+  const info = PAGE && PAGE.T[lang] && PAGE.T[lang].info;
+  $('examInfo').classList.toggle('hidden', !info); if (info) $('examInfo').innerHTML = info;
+  $('sizeTable').innerHTML = `<tr><th>${t('thExam')}</th><th>${t('thPhoto')}</th><th>${t('thSign')}</th><th>${t('thOther')}</th></tr>` + EXAMS.filter((e) => e.id !== 'custom').map((e) => `<tr><td>${e.page ? `<a href="${BASE}${e.page}/?lang=${lang}">${e.name}</a>` : e.name}</td><td>${e.photo ? cell(e.photo) : t('liveCell')}</td><td>${cell(e.sign)}</td><td>${e.thumb ? `${t('kThumb')}: ${cell(e.thumb)}<br>` : ''}${e.decl ? `${t('kDecl')}: ${cell(e.decl)}` : ''}</td></tr>`).join('');
+  refreshKind();
+};
+
+const refreshKind = () => {
+  const e = exam();
+  if (!e[kind]) kind = e.photo ? 'photo' : 'sign';
+  document.querySelectorAll('.tab').forEach((b) => { b.classList.toggle('on', b.dataset.kind === kind); b.disabled = !e[b.dataset.kind]; });
+  const p = e[kind];
+  $('needLine').textContent = e.id === 'custom' ? '' : t('need')(p[4] && p[4] !== '—' ? p[4] : '', p[0], p[1], p[2], p[3]) + (e.live ? ` · ${t('liveNote')}` : '');
+  $('pickHint').textContent = isInk() ? t('hintInk') : t('hintPhoto');
+  $('photoOpts').classList.toggle('hidden', isInk());
+  $('inkOpts').classList.toggle('hidden', !isInk());
+};
+
+const setPreset = () => {
+  const p = exam()[kind];
+  $('ow').value = p[0]; $('oh').value = p[1]; $('kmin').value = p[2]; $('kmax').value = p[3];
+  $('stampOn').checked = kind === 'photo' && !!p[5];
+  $('stampBox').classList.toggle('hidden', !$('stampOn').checked);
+};
+
+// ---------- loading a picture
+const MAX_SIDE = 2000;
+const loadFile = async (file) => {
+  if (!file) return;
+  try {
+    let bmp;
+    try { bmp = await createImageBitmap(file, { imageOrientation: 'from-image' }); } catch (e) {
+      bmp = await new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = URL.createObjectURL(file); });
+    }
+    const w = bmp.width || bmp.naturalWidth, h = bmp.height || bmp.naturalHeight;
+    const s = Math.min(1, MAX_SIDE / Math.max(w, h));
+    raw = mk(w * s, h * s); const rx = raw.getContext('2d'); rx.imageSmoothingQuality = 'high'; rx.drawImage(bmp, 0, 0, raw.width, raw.height);
+    rot = 0;
+    $('pick').classList.add('hidden'); $('editor').classList.remove('hidden');
+    rebuild(true);
+  } catch (e) { toast(t('failed')); }
+};
+
+// ---------- processing
+const rotated = () => {
+  if (rot % 180 === 0 && rot === 0) return raw;
+  const c = rot % 180 === 0 ? mk(raw.width, raw.height) : mk(raw.height, raw.width);
+  const x = c.getContext('2d'); x.translate(c.width / 2, c.height / 2); x.rotate((rot * Math.PI) / 180); x.drawImage(raw, -raw.width / 2, -raw.height / 2);
+  return c;
+};
+
+const brighten = (c, b) => {
+  if (!b) return c;
+  const o = mk(c.width, c.height), x = o.getContext('2d'); x.drawImage(c, 0, 0);
+  const d = x.getImageData(0, 0, o.width, o.height), p = d.data, k = b * 2.2;
+  for (let i = 0; i < p.length; i += 4) { p[i] = clamp(p[i] + k, 0, 255); p[i + 1] = clamp(p[i + 1] + k, 0, 255); p[i + 2] = clamp(p[i + 2] + k, 0, 255); }
+  x.putImageData(d, 0, 0); return o;
+};
+
+// Signature / thumb / declaration: make the paper white and the ink dark, then crop to the ink with a margin.
+const inkClean = (c) => {
+  const w = c.width, h = c.height, x0 = c.getContext('2d'), d = x0.getImageData(0, 0, w, h), p = d.data;
+  const n = w * h, lum = new Float32Array(n);
+  for (let i = 0; i < n; i += 1) lum[i] = 0.299 * p[i * 4] + 0.587 * p[i * 4 + 1] + 0.114 * p[i * 4 + 2];
+  // uneven light: estimate the local paper brightness on a coarse grid (max filter) and divide it out
+  const G = 24, gw = Math.ceil(w / G), gh = Math.ceil(h / G), grid = new Float32Array(gw * gh);
+  for (let gy = 0; gy < gh; gy += 1) for (let gx = 0; gx < gw; gx += 1) {
+    const vals = [];
+    for (let y = gy * G; y < Math.min(h, gy * G + G); y += 3) for (let x = gx * G; x < Math.min(w, gx * G + G); x += 3) vals.push(lum[y * w + x]);
+    vals.sort((a, b) => a - b); grid[gy * gw + gx] = vals[Math.floor(vals.length * 0.9)] || 255;
+  }
+  const g2 = new Float32Array(gw * gh); // spread the paper estimate so ink strokes do not pull it down
+  for (let gy = 0; gy < gh; gy += 1) for (let gx = 0; gx < gw; gx += 1) {
+    let m = 0; for (let yy = Math.max(0, gy - 1); yy <= Math.min(gh - 1, gy + 1); yy += 1) for (let xx = Math.max(0, gx - 1); xx <= Math.min(gw - 1, gx + 1); xx += 1) m = Math.max(m, grid[yy * gw + xx]);
+    g2[gy * gw + gx] = Math.max(40, m);
+  }
+  const paperAt = (x, y) => { // bilinear
+    const fx = clamp(x / G - 0.5, 0, gw - 1), fy = clamp(y / G - 0.5, 0, gh - 1), x1 = Math.floor(fx), y1 = Math.floor(fy), x2 = Math.min(gw - 1, x1 + 1), y2 = Math.min(gh - 1, y1 + 1), ax = fx - x1, ay = fy - y1;
+    return (g2[y1 * gw + x1] * (1 - ax) + g2[y1 * gw + x2] * ax) * (1 - ay) + (g2[y2 * gw + x1] * (1 - ax) + g2[y2 * gw + x2] * ax) * ay;
+  };
+  const lvl = Number($('inkLvl').value) / 100; // 0 = light, 1 = very dark
+  const white = 0.88 - lvl * 0.18, black = 0.35 + lvl * 0.3; // ratio above `white` -> paper, below `black` -> full ink
+  const col = $('inkCol').value, inkRGB = col === 'blue' ? [16, 42, 140] : [12, 12, 16];
+  const A = new Float32Array(n); // ink amount 0..1
+  for (let y = 0; y < h; y += 1) for (let x = 0; x < w; x += 1) {
+    const i = y * w + x, r = lum[i] / paperAt(x, y);
+    const a = r >= white ? 0 : r <= black ? 1 : (white - r) / (white - black);
+    A[i] = a * a * (3 - 2 * a);
+  }
+  // drop specks and dirt: ink blobs that are tiny and far away from the main writing
+  const f = Math.max(1, Math.ceil(Math.max(w, h) / 500)), cw = Math.ceil(w / f), ch = Math.ceil(h / f), cell = new Uint8Array(cw * ch);
+  for (let y = 0; y < h; y += 1) for (let x = 0; x < w; x += 1) if (A[y * w + x] > 0.5) cell[Math.floor(y / f) * cw + Math.floor(x / f)] = 1;
+  const lab = new Int32Array(cw * ch).fill(-1), comps = [];
+  for (let s0 = 0; s0 < cw * ch; s0 += 1) {
+    if (!cell[s0] || lab[s0] >= 0) continue;
+    const c = { area: 0, x0: cw, y0: ch, x1: 0, y1: 0, keep: false }, st = [s0]; lab[s0] = comps.length;
+    while (st.length) {
+      const i = st.pop(), x = i % cw, y = (i - x) / cw; c.area += 1; c.x0 = Math.min(c.x0, x); c.x1 = Math.max(c.x1, x); c.y0 = Math.min(c.y0, y); c.y1 = Math.max(c.y1, y);
+      for (let dy = -2; dy <= 2; dy += 1) for (let dx = -2; dx <= 2; dx += 1) { const xx = x + dx, yy = y + dy; if (xx < 0 || yy < 0 || xx >= cw || yy >= ch) continue; const j = yy * cw + xx; if (cell[j] && lab[j] < 0) { lab[j] = comps.length; st.push(j); } }
+    }
+    comps.push(c);
+  }
+  if (comps.length) {
+    const big = Math.max(...comps.map((c) => c.area));
+    const box = { x0: cw, y0: ch, x1: 0, y1: 0 };
+    comps.forEach((c) => { if (c.area >= big * 0.08) { c.keep = true; box.x0 = Math.min(box.x0, c.x0); box.y0 = Math.min(box.y0, c.y0); box.x1 = Math.max(box.x1, c.x1); box.y1 = Math.max(box.y1, c.y1); } });
+    const m = Math.max(box.x1 - box.x0, box.y1 - box.y0) * 0.12 + 2; // small marks (dots of i, full stops) close to the writing stay
+    comps.forEach((c) => { if (!c.keep && c.x1 >= box.x0 - m && c.x0 <= box.x1 + m && c.y1 >= box.y0 - m && c.y0 <= box.y1 + m) c.keep = true; });
+  }
+  const dropped = (x, y) => { // a cell (or its neighbour) that belongs to a dropped speck
+    const cx = Math.floor(x / f), cy = Math.floor(y / f);
+    for (let dy = -1; dy <= 1; dy += 1) for (let dx = -1; dx <= 1; dx += 1) { const xx = cx + dx, yy = cy + dy; if (xx < 0 || yy < 0 || xx >= cw || yy >= ch) continue; const l = lab[yy * cw + xx]; if (l >= 0) return !comps[l].keep; }
+    return false;
+  };
+  const out = x0.createImageData(w, h), q = out.data;
+  let minX = w, minY = h, maxX = -1, maxY = -1;
+  for (let y = 0; y < h; y += 1) for (let x = 0; x < w; x += 1) {
+    const i = y * w + x;
+    let a = A[i];
+    if (a > 0.02 && dropped(x, y)) a = 0;
+    const j = i * 4;
+    if (col === 'orig') { const k = 1 - a; q[j] = 255 * k + p[j] * a * 0.7; q[j + 1] = 255 * k + p[j + 1] * a * 0.7; q[j + 2] = 255 * k + p[j + 2] * a * 0.7; } else { q[j] = 255 + (inkRGB[0] - 255) * a; q[j + 1] = 255 + (inkRGB[1] - 255) * a; q[j + 2] = 255 + (inkRGB[2] - 255) * a; }
+    q[j + 3] = 255;
+    if (a > 0.5) { if (x < minX) minX = x; if (x > maxX) maxX = x; if (y < minY) minY = y; if (y > maxY) maxY = y; }
+  }
+  const o = mk(w, h); o.getContext('2d').putImageData(out, 0, 0);
+  if (maxX < 0) return o;
+  // ignore specks: shrink the box to where 99% of the ink is
+  const pad = Math.round(Math.max(maxX - minX, maxY - minY) * 0.06) + 6;
+  const bx = clamp(minX - pad, 0, w - 1), by = clamp(minY - pad, 0, h - 1), bw = clamp(maxX - minX + pad * 2, 1, w - bx), bh = clamp(maxY - minY + pad * 2, 1, h - by);
+  const crop = mk(bw, bh); crop.getContext('2d').drawImage(o, bx, by, bw, bh, 0, 0, bw, bh);
+  return crop;
+};
+
+const rebuild = (refit) => {
+  if (!raw) return;
+  const r = rotated();
+  if (isInk()) src = $('cleanOn').checked ? inkClean(r) : r;
+  else src = brighten(r, Number($('bright').value));
+  if (refit) { zoom = 1; offX = 0; offY = 0; $('zoom').value = '1'; }
+  draw();
+};
+
+// ---------- drawing: picture placed into the output frame. Photo: cover; ink: contain (whole signature visible).
+const stampH = (h) => ($('stampOn').checked && kind === 'photo' ? Math.round(h * 0.16) : 0);
+const render = (ctx, w, h) => {
+  ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, w, h);
+  if (!src) return;
+  const sh = stampH(h), ah = h - sh;
+  const base = isInk() ? Math.min(w / src.width, ah / src.height) * 0.94 : Math.max(w / src.width, ah / src.height);
+  const s = base * zoom;
+  ctx.save(); ctx.beginPath(); ctx.rect(0, 0, w, ah); ctx.clip();
+  ctx.imageSmoothingQuality = 'high';
+  const dx = w / 2 - (src.width * s) / 2 + offX * w, dy = ah / 2 - (src.height * s) / 2 + offY * ah;
+  if (isInk() && s < 0.4) {
+    // big shrink makes thin pen strokes break up: thicken them by about one output pixel
+    const tmp = mk(w, ah), tx = tmp.getContext('2d'); tx.fillStyle = '#fff'; tx.fillRect(0, 0, w, ah); tx.imageSmoothingQuality = 'high';
+    tx.drawImage(src, dx, dy, src.width * s, src.height * s);
+    tx.globalCompositeOperation = 'darken'; tx.globalAlpha = 0.8; tx.drawImage(tmp, 0.7, 0); tx.drawImage(tmp, 0, 0.7);
+    ctx.drawImage(tmp, 0, 0);
+  } else ctx.drawImage(src, dx, dy, src.width * s, src.height * s);
+  ctx.restore();
+  if (sh) {
+    ctx.fillStyle = '#ffffff'; ctx.fillRect(0, ah, w, sh);
+    ctx.fillStyle = '#000000'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    const name = ($('stName').value || '').trim().toUpperCase(), date = ($('stDate').value || '').trim();
+    const lines = [name, date].filter(Boolean);
+    let fs = Math.max(8, Math.floor((sh / Math.max(1, lines.length)) * 0.72));
+    ctx.font = `700 ${fs}px Inter, Arial, sans-serif`;
+    while (fs > 8 && lines.some((l) => ctx.measureText(l).width > w * 0.94)) { fs -= 1; ctx.font = `700 ${fs}px Inter, Arial, sans-serif`; }
+    lines.forEach((l, i) => ctx.fillText(l, w / 2, ah + (sh / lines.length) * (i + 0.5)));
+  }
+};
+
+const draw = () => {
+  const sp = spec(); if (sp.w < 10 || sp.h < 10) return;
+  const v = $('view'), k = Math.min(1, 700 / Math.max(sp.w, sp.h)) * (Math.max(sp.w, sp.h) < 300 ? 2 : 1);
+  v.width = Math.round(sp.w * k); v.height = Math.round(sp.h * k);
+  render(v.getContext('2d'), v.width, v.height);
+  $('outBox').classList.add('hidden');
+};
+
+// ---------- JPEG within a KB range
+const toBlob = (c, q) => new Promise((r) => c.toBlob(r, 'image/jpeg', q));
+// Adds a JPEG comment (COM) segment right after the start marker, to reach a minimum file size. The picture is unchanged.
+const padJpeg = async (blob, target) => {
+  const buf = new Uint8Array(await blob.arrayBuffer());
+  let need = target - buf.length; if (need <= 0) return blob;
+  const parts = [buf.slice(0, 2)];
+  while (need > 0) { const n = Math.min(65533, Math.max(1, need - 4)); const seg = new Uint8Array(n + 4); seg[0] = 0xff; seg[1] = 0xfe; seg[2] = ((n + 2) >> 8) & 0xff; seg[3] = (n + 2) & 0xff; seg.fill(0x20, 4); parts.push(seg); need -= n + 4; }
+  parts.push(buf.slice(2));
+  return new Blob(parts, { type: 'image/jpeg' });
+};
+const makeOut = async () => {
+  const sp = spec();
+  if (sp.w < 50 || sp.h < 50 || sp.w > 3000 || sp.h > 3000) { toast(t('badSize')); return null; }
+  const c = mk(sp.w, sp.h); render(c.getContext('2d'), sp.w, sp.h);
+  const maxB = sp.max * 1024 - 512, minB = sp.min * 1024 + 512;
+  let lo = 0.05, hi = 0.97, best = null, bestQ = 0;
+  let b = await toBlob(c, hi);
+  if (b.size <= maxB) { best = b; bestQ = hi; } else {
+    for (let i = 0; i < 9; i += 1) { const q = (lo + hi) / 2; b = await toBlob(c, q); if (b.size <= maxB) { best = b; bestQ = q; lo = q; } else hi = q; }
+    if (!best) { best = await toBlob(c, 0.05); bestQ = 0.05; }
+  }
+  let padded = false;
+  if (best.size < minB && best.size <= maxB) { const p = await padJpeg(best, Math.min(minB, maxB)); padded = p.size !== best.size; best = p; }
+  return { b: best, w: sp.w, h: sp.h, q: bestQ, padded, ok: best.size <= sp.max * 1024 && best.size >= sp.min * 1024 };
+};
+const fileName = () => `${examId}-${kind}-${spec().w}x${spec().h}.jpg`;
+const showOut = (r) => {
+  const kb = Math.round(r.b.size / 1024), sp = spec();
+  if (lastOut) URL.revokeObjectURL(lastOut);
+  lastOut = URL.createObjectURL(r.b); $('outImg').src = lastOut;
+  $('result').textContent = r.b.size <= sp.max * 1024 ? t('made')(r.w, r.h, kb, sp.min, sp.max) : t('tooBig')(kb, sp.max);
+  $('result').classList.toggle('bad', r.b.size > sp.max * 1024);
+  $('resultHint').textContent = r.padded ? t('padded') : '';
+  $('outBox').classList.remove('hidden');
+};
+const download = (blob, name) => { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); toast(t('saved')); };
+
+// ---------- events
+$('langSel').addEventListener('change', (e) => { lang = e.target.value; store.set('fh-lang', lang); applyLang(); });
+$('exam').addEventListener('change', (e) => { examId = e.target.value; if (!PAGE) store.set('fh-exam', examId); refreshKind(); setPreset(); rebuild(true); });
+$('tabs').addEventListener('click', (e) => { const b = e.target.closest('.tab'); if (!b || b.disabled) return; kind = b.dataset.kind; refreshKind(); setPreset(); rebuild(true); });
+$('pickBtn').addEventListener('click', (e) => { e.stopPropagation(); $('file').click(); });
+$('camBtn').addEventListener('click', (e) => { e.stopPropagation(); $('cam').click(); });
+$('drop').addEventListener('click', () => $('file').click());
+$('drop').addEventListener('dragover', (e) => e.preventDefault());
+$('drop').addEventListener('drop', (e) => { e.preventDefault(); loadFile(e.dataTransfer.files[0]); });
+$('file').addEventListener('change', (e) => { loadFile(e.target.files[0]); e.target.value = ''; });
+$('cam').addEventListener('change', (e) => { loadFile(e.target.files[0]); e.target.value = ''; });
+$('newBtn').addEventListener('click', () => { raw = null; src = null; $('editor').classList.add('hidden'); $('pick').classList.remove('hidden'); });
+$('rotBtn').addEventListener('click', () => { rot = (rot + 90) % 360; rebuild(true); });
+$('fitBtn').addEventListener('click', () => rebuild(true));
+$('zoom').addEventListener('input', (e) => { zoom = Number(e.target.value); draw(); });
+let bt = 0; const later = (fn) => { clearTimeout(bt); bt = setTimeout(fn, 120); };
+$('bright').addEventListener('input', () => later(() => rebuild(false)));
+$('inkLvl').addEventListener('input', () => later(() => rebuild(false)));
+$('cleanOn').addEventListener('change', () => rebuild(true));
+$('inkCol').addEventListener('change', () => rebuild(false));
+$('stampOn').addEventListener('change', () => { $('stampBox').classList.toggle('hidden', !$('stampOn').checked); if (!$('stDate').value) $('stDate').value = today(); draw(); });
+['stName', 'stDate', 'ow', 'oh', 'kmin', 'kmax'].forEach((id) => $(id).addEventListener('input', () => later(draw)));
+$('dlBtn').addEventListener('click', async () => { const r = await makeOut(); if (!r) return; showOut(r); download(r.b, fileName()); });
+$('shareBtn').addEventListener('click', async () => {
+  const r = await makeOut(); if (!r) return; showOut(r);
+  const file = new File([r.b], fileName(), { type: 'image/jpeg' });
+  if (navigator.canShare && navigator.canShare({ files: [file] })) navigator.share({ files: [file] }).catch(() => {}); else download(r.b, file.name);
+});
+
+// drag + pinch on the preview
+const pts = new Map(); let pinch0 = 0, zoom0 = 1;
+const view = $('view');
+view.addEventListener('pointerdown', (e) => { view.setPointerCapture(e.pointerId); pts.set(e.pointerId, { x: e.clientX, y: e.clientY }); if (pts.size === 2) { const [a, b] = [...pts.values()]; pinch0 = Math.hypot(a.x - b.x, a.y - b.y); zoom0 = zoom; } });
+view.addEventListener('pointermove', (e) => {
+  if (!pts.has(e.pointerId)) return;
+  const prev = pts.get(e.pointerId); pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  const r = view.getBoundingClientRect();
+  if (pts.size === 2) { const [a, b] = [...pts.values()]; const dd = Math.hypot(a.x - b.x, a.y - b.y); if (pinch0) { zoom = clamp(zoom0 * (dd / pinch0), 0.5, 4); $('zoom').value = String(zoom); } }
+  else { offX += (e.clientX - prev.x) / r.width; offY += (e.clientY - prev.y) / r.height; }
+  draw();
+});
+const up = (e) => { pts.delete(e.pointerId); if (pts.size < 2) pinch0 = 0; };
+view.addEventListener('pointerup', up); view.addEventListener('pointercancel', up);
+view.addEventListener('wheel', (e) => { e.preventDefault(); zoom = clamp(zoom * (e.deltaY < 0 ? 1.06 : 0.94), 0.5, 4); $('zoom').value = String(zoom); draw(); }, { passive: false });
+
+// ---------- start
+$('year').textContent = new Date().getFullYear();
+$('stDate').value = today();
+applyLang(); setPreset();
+
+// test hook (used by local headless tests only)
+window.__fh = {
+  load: async (url) => { const b = await (await fetch(url)).blob(); await loadFile(b); },
+  set: (o) => { if (o.exam) { examId = o.exam; $('exam').value = o.exam; refreshKind(); } if (o.kind) { kind = o.kind; refreshKind(); } setPreset(); if (o.stamp !== undefined) { $('stampOn').checked = o.stamp; } if (o.name) $('stName').value = o.name; rebuild(true); },
+  out: async () => { const r = await makeOut(); showOut(r); const fr = new FileReader(); const url = await new Promise((res) => { fr.onload = () => res(fr.result); fr.readAsDataURL(r.b); }); return { w: r.w, h: r.h, kb: +(r.b.size / 1024).toFixed(1), q: +r.q.toFixed(2), padded: r.padded, ok: r.ok, url }; },
+  state: () => ({ examId, kind, w: spec().w, h: spec().h, min: spec().min, max: spec().max, loaded: !!raw }),
+};
+
+if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register(`${BASE}sw.js`).catch(() => {});
+</script>
+</body>
+</html>

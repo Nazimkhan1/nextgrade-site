@@ -170,10 +170,17 @@ footer { color: var(--muted); font-size: 13px; padding: 20px 0 36px; border-top:
 // Exam presets: pixel size and KB range as the forms usually ask for them. Each one can be edited, because notices change.
 // photo/sign/thumb/decl = [width px, height px, min KB, max KB, note]
 const EXAMS = [
-  { id: 'ssc', page: 'ssc', name: 'SSC — CGL, CHSL, MTS, GD, CPO, Steno', photo: [413, 531, 20, 50, '3.5 × 4.5 cm'], sign: [709, 236, 10, 20, '6.0 × 2.0 cm'] },
-  { id: 'upsc', page: 'upsc', name: 'UPSC — CSE, NDA, CDS, CAPF, ESE', photo: [550, 700, 20, 300, '350–1000 px', true], sign: [700, 350, 20, 300, '350–1000 px'] },
-  { id: 'ibps', page: 'bank', name: 'IBPS / SBI / RBI — Bank PO, Clerk', photo: [200, 230, 20, 50, '200 × 230 px'], sign: [140, 60, 10, 20, '140 × 60 px'], thumb: [240, 240, 20, 50, '240 × 240 px'], decl: [800, 400, 50, 100, '800 × 400 px'] },
-  { id: 'nta', page: 'neet', name: 'NTA — NEET, JEE Main, CUET', photo: [413, 531, 10, 200, '3.5 × 4.5 cm'], sign: [500, 200, 4, 30, '—'] },
+  // Specs from the official notices, checked 28 Nov 2026 (MY-PLANS EXAM-PHOTO-SPECS-2026-11-28.md). live: the form takes the photo
+  // with the camera itself (no photo upload), so only the signature preset is offered.
+  { id: 'ssc', page: 'ssc', name: 'SSC — CGL, CHSL, MTS, GD, CPO, Steno', live: true, sign: [709, 236, 10, 20, '6.0 × 2.0 cm'] },
+  { id: 'rrb', page: 'rrb', name: 'Railway (RRB) — NTPC, Group D', live: true, sign: [280, 160, 30, 49, '35 × 20 mm'] },
+  { id: 'uppolice', page: 'up-police', name: 'UP Police — Constable', live: true, sign: [400, 160, 30, 50, '50 × 20 mm'] },
+  { id: 'upsc', page: 'upsc', name: 'UPSC — CSE, NDA, CDS, CAPF, ESE', photo: [550, 700, 20, 200, ''], sign: [450, 450, 20, 100, '3 signatures'] },
+  { id: 'ibps', page: 'bank', name: 'IBPS / SBI — Bank PO, Clerk', photo: [200, 230, 20, 50, '200 × 230 px'], sign: [140, 60, 10, 20, '140 × 60 px'], thumb: [240, 240, 20, 50, '240 × 240 px'], decl: [800, 400, 50, 100, '800 × 400 px'] },
+  { id: 'nta', page: 'neet', name: 'NEET UG (NTA)', photo: [413, 531, 10, 200, ''], sign: [500, 200, 10, 100, ''], thumb: [400, 400, 50, 200, ''] },
+  { id: 'jee', page: 'jee-main', name: 'JEE Main (NTA)', photo: [413, 531, 10, 200, ''], sign: [500, 200, 10, 100, ''] },
+  { id: 'cuet', page: 'cuet', name: 'CUET UG (NTA)', photo: [413, 531, 10, 200, ''], sign: [500, 200, 10, 50, ''] },
+  { id: 'ctet', page: 'ctet', name: 'CTET (CBSE)', photo: [413, 531, 10, 100, '3.5 × 4.5 cm'], sign: [413, 177, 3, 30, '3.5 × 1.5 cm'] },
   { id: 'custom', name: '', photo: [413, 531, 20, 50, ''], sign: [600, 200, 10, 20, ''], thumb: [300, 300, 20, 50, ''], decl: [800, 400, 50, 100, ''] },
 ];
 const KINDS = ['photo', 'sign', 'thumb', 'decl'];
@@ -196,8 +203,8 @@ const T = {
     padded: 'Photo bahut halki thi, isliye file ko form ki kam-se-kam KB tak bhara gaya. Photo wahi hai.',
     failed: 'Yeh photo nahi khul payi. Doosri try karo.', saved: '✅ Phone mein save ho gaya', badSize: 'Chaudai aur lambai 50 se 3000 px ke beech rakho.',
     howH: 'Kaise karein', how: ['Upar <b>exam</b> chuno, phir <b>Photo / Signature / Angootha / Declaration</b>.', '<b>Gallery se chuno</b> ya <b>camera se lo</b>. Signature ke liye safed kaagaz par sign karke photo lo.', 'Photo ko khiskao aur chhota-bada karo taaki sahi hissa dikhe. Signature apne aap saaf aur beech mein ho jaata hai.', '<b>Download JPG</b> dabao — file sahi px aur KB mein ban jaati hai. Upar size aur KB likha dikhega.', 'Yahi file form mein upload karo.'],
-    tableH: 'Exam ke hisaab se size', tableNote: 'Yeh aam taur par maange jaane wale size hain. Har saal notification badal sakta hai — form bharne se pehle notification zaroor dekho.',
-    thExam: 'Exam', thPhoto: 'Photo', thSign: 'Signature', thOther: 'Aur',
+    tableH: 'Exam ke hisaab se size', tableNote: 'Yeh size 28 Nov 2026 ko naye official notice se milaaye gaye (SSC CGL/CHSL 2026, RRB 2025–26, UP Police 2025, UPSC 2026, IBPS XVI, SBI 2026, NEET/CUET 2026, JEE Main 2027, CTET Sept 2026). Har saal notice badal sakta hai — form bharne se pehle notice zaroor dekho.',
+    thExam: 'Exam', thPhoto: 'Photo', thSign: 'Signature', thOther: 'Aur', liveCell: 'Live (form mein camera se)', liveNote: 'Is exam mein photo form bharte waqt camera se live li jaati hai — upload sirf signature ka.',
     tipsH: 'Dhyan rakhne wali baatein', tips: ['Photo haal ki ho (aksar 3 mahine se purani nahi). Kuch exam photo par naam aur tareekh maangte hain — tab "naam aur tareekh likho" chalu karo.', 'Chashma, topi, dark chashma na ho; chehra saaf dikhe, kaan dikhein to aur achha.', 'Signature apne haath se, kaale ya neele pen se. CAPITAL letters mein naam likhna aksar mana hota hai.', 'Har photo/signature JPG/JPEG mein hi upload karo jab tak form kuch aur na kahe.'],
     faqH: 'Aksar pooche jaane wale sawaal',
     faq: [['Kya meri photo kisi server par jaati hai?', 'Nahi. Yeh page aapke phone/browser mein hi photo badalta hai. Internet band karke bhi chalta hai.'], ['Photo ka KB kam kaise hota hai?', 'Tool JPG quality ko dheere-dheere kam karke dekhta hai jab tak file aapki di hui KB range mein na aa jaaye. Size (px) wahi rehta hai jo form maangta hai.'], ['File form ki kam-se-kam KB se chhoti aa rahi thi, ab kaise theek hui?', 'Bahut saaf ya chhoti signature ki file kabhi minimum KB se bhi chhoti ban jaati hai. Tab tool file ke andar khaali jagah jod deta hai; photo bilkul wahi rehti hai, bas file ka size minimum tak pahunch jaata hai.'], ['Signature saaf kaise hota hai?', '"Kaagaz safed, ink gehri" chalu ho to tool kaagaz ka mail-dhool hata kar use safed karta hai aur ink ko gehra karta hai. Slider se ink kam-zyada gehri kar sakte ho.']],
@@ -221,8 +228,8 @@ const T = {
     padded: 'फ़ोटो बहुत हल्की थी, इसलिए फ़ाइल को फ़ॉर्म की न्यूनतम KB तक भरा गया। फ़ोटो वही है।',
     failed: 'यह फ़ोटो नहीं खुल पाई। दूसरी आज़माएँ।', saved: '✅ फ़ोन में सेव हो गया', badSize: 'चौड़ाई और लंबाई 50 से 3000 px के बीच रखें।',
     howH: 'कैसे करें', how: ['ऊपर <b>परीक्षा</b> चुनें, फिर <b>फ़ोटो / सिग्नेचर / अँगूठा / डिक्लेरेशन</b>।', '<b>गैलरी से चुनें</b> या <b>कैमरा से लें</b>। सिग्नेचर के लिए सफ़ेद काग़ज़ पर साइन करके फ़ोटो लें।', 'फ़ोटो को खिसकाएँ और छोटा-बड़ा करें ताकि सही हिस्सा दिखे। सिग्नेचर अपने आप साफ़ और बीच में हो जाता है।', '<b>JPG डाउनलोड</b> दबाएँ — फ़ाइल सही px और KB में बन जाती है।', 'यही फ़ाइल फ़ॉर्म में अपलोड करें।'],
-    tableH: 'परीक्षा के हिसाब से साइज़', tableNote: 'ये आम तौर पर माँगे जाने वाले साइज़ हैं। हर साल नोटिफ़िकेशन बदल सकता है — फ़ॉर्म भरने से पहले नोटिफ़िकेशन ज़रूर देखें।',
-    thExam: 'परीक्षा', thPhoto: 'फ़ोटो', thSign: 'सिग्नेचर', thOther: 'और',
+    tableH: 'परीक्षा के हिसाब से साइज़', tableNote: 'ये साइज़ 28 नवंबर 2026 को नए आधिकारिक नोटिस से मिलाए गए (SSC CGL/CHSL 2026, RRB 2025–26, UP Police 2025, UPSC 2026, IBPS XVI, SBI 2026, NEET/CUET 2026, JEE Main 2027, CTET सितंबर 2026)। हर साल नोटिस बदल सकता है — फ़ॉर्म भरने से पहले नोटिस ज़रूर देखें।',
+    thExam: 'परीक्षा', thPhoto: 'फ़ोटो', thSign: 'सिग्नेचर', thOther: 'और', liveCell: 'लाइव (फ़ॉर्म में कैमरे से)', liveNote: 'इस परीक्षा में फ़ोटो फ़ॉर्म भरते समय कैमरे से लाइव ली जाती है — अपलोड सिर्फ़ सिग्नेचर का।',
     tipsH: 'ध्यान रखने वाली बातें', tips: ['फ़ोटो हाल की हो (अक्सर 3 महीने से पुरानी नहीं)। कुछ परीक्षाएँ फ़ोटो पर नाम और तारीख़ माँगती हैं — तब "नाम और तारीख़ लिखें" चालू करें।', 'चश्मा, टोपी न हो; चेहरा साफ़ दिखे।', 'सिग्नेचर अपने हाथ से, काले या नीले पेन से। CAPITAL अक्षरों में नाम लिखना अक्सर मना होता है।', 'हर फ़ाइल JPG/JPEG में ही अपलोड करें जब तक फ़ॉर्म कुछ और न कहे।'],
     faqH: 'अक्सर पूछे जाने वाले सवाल',
     faq: [['क्या मेरी फ़ोटो किसी सर्वर पर जाती है?', 'नहीं। यह पेज आपके फ़ोन/ब्राउज़र में ही फ़ोटो बदलता है। इंटरनेट बंद करके भी चलता है।'], ['फ़ोटो का KB कम कैसे होता है?', 'टूल JPG क्वालिटी को धीरे-धीरे कम करके देखता है जब तक फ़ाइल आपकी दी हुई KB रेंज में न आ जाए। साइज़ (px) वही रहता है।'], ['फ़ाइल न्यूनतम KB से छोटी आ रही थी, अब कैसे ठीक हुई?', 'बहुत साफ़ या छोटी सिग्नेचर की फ़ाइल कभी न्यूनतम KB से भी छोटी बनती है। तब टूल फ़ाइल के अंदर ख़ाली जगह जोड़ देता है; फ़ोटो बिल्कुल वही रहती है।'], ['सिग्नेचर साफ़ कैसे होता है?', '"काग़ज़ सफ़ेद, स्याही गहरी" चालू हो तो टूल काग़ज़ को सफ़ेद और स्याही को गहरा करता है। स्लाइडर से स्याही कम-ज़्यादा गहरी कर सकते हैं।']],
@@ -246,8 +253,8 @@ const T = {
     padded: 'The picture was very light, so the file was filled up to the form\'s minimum KB. The picture itself is unchanged.',
     failed: 'Could not open this picture. Try another one.', saved: '✅ Saved to your phone', badSize: 'Keep width and height between 50 and 3000 px.',
     howH: 'How to use', how: ['Choose the <b>exam</b>, then <b>Photo / Signature / Thumb / Declaration</b>.', '<b>Pick from gallery</b> or <b>use the camera</b>. For a signature, sign on white paper and photograph it.', 'Drag and zoom so the right part shows. A signature is cleaned and centred automatically.', 'Tap <b>Download JPG</b>: the file comes out at the right px and KB, shown under the button.', 'Upload that file to the form.'],
-    tableH: 'Sizes by exam', tableNote: 'These are the sizes usually asked for. Notices can change every year, so always check the official notice before you apply.',
-    thExam: 'Exam', thPhoto: 'Photo', thSign: 'Signature', thOther: 'Other',
+    tableH: 'Sizes by exam', tableNote: 'Sizes checked against the latest official notices on 28 Nov 2026 (SSC CGL/CHSL 2026, RRB 2025–26, UP Police 2025, UPSC 2026, IBPS XVI, SBI 2026, NEET/CUET 2026, JEE Main 2027, CTET Sept 2026). Notices can change every year, so always check the official notice before you apply.',
+    thExam: 'Exam', thPhoto: 'Photo', thSign: 'Signature', thOther: 'Other', liveCell: 'Live (camera, in the form)', liveNote: 'This exam takes your photo live with the camera while you fill the form — you upload only the signature.',
     tipsH: 'Things to keep in mind', tips: ['Use a recent photo (often not older than 3 months). Some exams want the name and date printed on the photo: turn on "Print name and date".', 'No glasses or cap; the face should be clearly visible.', 'Sign by hand with a black or blue pen. Writing your name in CAPITAL letters is usually not accepted.', 'Upload JPG/JPEG unless the form says otherwise.'],
     faqH: 'Frequently asked questions',
     faq: [['Does my photo go to any server?', 'No. This page changes the picture inside your phone/browser. It even works with the internet switched off.'], ['How is the KB reduced?', 'The tool lowers the JPG quality step by step until the file fits the KB range. The size in pixels stays what the form asks for.'], ['The file was smaller than the minimum KB. How is that fixed?', 'A very clean or small signature can come out below the minimum KB. The tool then adds empty space inside the file; the picture stays exactly the same, only the file size reaches the minimum.'], ['How is the signature cleaned?', 'With "White paper, dark ink" on, the tool turns the paper white and darkens the ink. Use the slider to make the ink lighter or darker.']],
@@ -271,8 +278,8 @@ const T = {
     padded: 'ছবিটি খুব হালকা ছিল, তাই ফাইলটি ফর্মের ন্যূনতম KB পর্যন্ত ভরা হয়েছে। ছবি একই আছে।',
     failed: 'এই ছবি খোলা গেল না। অন্যটি চেষ্টা করুন।', saved: '✅ ফোনে সেভ হয়েছে', badSize: 'চওড়া ও লম্বা 50 থেকে 3000 px-এর মধ্যে রাখুন।',
     howH: 'কীভাবে করবেন', how: ['ওপরে <b>পরীক্ষা</b> বাছুন, তারপর <b>ছবি / সই / বুড়ো আঙুল / ডিক্লারেশন</b>।', '<b>গ্যালারি থেকে</b> বাছুন বা <b>ক্যামেরায় তুলুন</b>। সইয়ের জন্য সাদা কাগজে সই করে ছবি তুলুন।', 'ঠিক অংশ দেখাতে ছবি সরান ও ছোট-বড় করুন। সই নিজে থেকেই পরিষ্কার হয়ে মাঝখানে বসে।', '<b>JPG ডাউনলোড</b> চাপুন — ফাইল ঠিক px ও KB-তে তৈরি হয়।', 'এই ফাইলটিই ফর্মে আপলোড করুন।'],
-    tableH: 'পরীক্ষা অনুযায়ী মাপ', tableNote: 'এগুলো সাধারণত চাওয়া মাপ। প্রতি বছর নোটিফিকেশন বদলাতে পারে — ফর্ম ভরার আগে অবশ্যই নোটিফিকেশন দেখুন।',
-    thExam: 'পরীক্ষা', thPhoto: 'ছবি', thSign: 'সই', thOther: 'অন্যান্য',
+    tableH: 'পরীক্ষা অনুযায়ী মাপ', tableNote: 'মাপগুলো ২৮ নভেম্বর ২০২৬-এ সর্বশেষ সরকারি নোটিসের সঙ্গে মেলানো হয়েছে (SSC CGL/CHSL 2026, RRB 2025–26, UP Police 2025, UPSC 2026, IBPS XVI, SBI 2026, NEET/CUET 2026, JEE Main 2027, CTET Sept 2026)। প্রতি বছর নোটিস বদলাতে পারে — ফর্ম ভরার আগে অবশ্যই নোটিস দেখুন।',
+    thExam: 'পরীক্ষা', thPhoto: 'ছবি', thSign: 'সই', thOther: 'অন্যান্য', liveCell: 'লাইভ (ফর্মে ক্যামেরায়)', liveNote: 'এই পরীক্ষায় ফর্ম ভরার সময় ক্যামেরায় লাইভ ছবি তোলা হয় — আপলোড শুধু সইয়ের।',
     tipsH: 'মনে রাখার কথা', tips: ['সাম্প্রতিক ছবি দিন (প্রায়ই ৩ মাসের বেশি পুরনো নয়)। কিছু পরীক্ষা ছবিতে নাম ও তারিখ চায় — তখন "নাম ও তারিখ লিখুন" চালু করুন।', 'চশমা বা টুপি নয়; মুখ পরিষ্কার দেখা যাক।', 'নিজের হাতে কালো বা নীল কলমে সই করুন। CAPITAL অক্ষরে নাম লেখা সাধারণত চলে না।', 'ফর্ম অন্য কিছু না বললে JPG/JPEG-ই আপলোড করুন।'],
     faqH: 'সাধারণ প্রশ্ন',
     faq: [['আমার ছবি কি কোনো সার্ভারে যায়?', 'না। এই পেজ আপনার ফোন/ব্রাউজারেই ছবি বদলায়। ইন্টারনেট বন্ধ রেখেও চলে।'], ['KB কীভাবে কমে?', 'টুল ধাপে ধাপে JPG কোয়ালিটি কমিয়ে দেখে, যতক্ষণ না ফাইল আপনার দেওয়া KB-র মধ্যে আসে। মাপ (px) একই থাকে।'], ['ফাইল ন্যূনতম KB-র চেয়ে ছোট আসছিল, এখন কীভাবে ঠিক হল?', 'খুব পরিষ্কার বা ছোট সইয়ের ফাইল কখনো ন্যূনতম KB-র চেয়েও ছোট হয়। তখন টুল ফাইলের ভিতরে ফাঁকা জায়গা যোগ করে; ছবি একই থাকে।'], ['সই কীভাবে পরিষ্কার হয়?', '"কাগজ সাদা, কালি গাঢ়" চালু থাকলে টুল কাগজ সাদা আর কালি গাঢ় করে। স্লাইডারে কালি কম-বেশি গাঢ় করা যায়।']],
@@ -323,16 +330,16 @@ const applyLang = () => {
   const cell = (p) => (p ? `${p[0]}×${p[1]} px<br>${p[2]}–${p[3]} KB` : '—');
   const info = PAGE && PAGE.T[lang] && PAGE.T[lang].info;
   $('examInfo').classList.toggle('hidden', !info); if (info) $('examInfo').innerHTML = info;
-  $('sizeTable').innerHTML = `<tr><th>${t('thExam')}</th><th>${t('thPhoto')}</th><th>${t('thSign')}</th><th>${t('thOther')}</th></tr>` + EXAMS.filter((e) => e.id !== 'custom').map((e) => `<tr><td>${e.page ? `<a href="${BASE}${e.page}/?lang=${lang}">${e.name}</a>` : e.name}</td><td>${cell(e.photo)}</td><td>${cell(e.sign)}</td><td>${e.thumb ? `${t('kThumb')}: ${cell(e.thumb)}<br>` : ''}${e.decl ? `${t('kDecl')}: ${cell(e.decl)}` : ''}</td></tr>`).join('');
+  $('sizeTable').innerHTML = `<tr><th>${t('thExam')}</th><th>${t('thPhoto')}</th><th>${t('thSign')}</th><th>${t('thOther')}</th></tr>` + EXAMS.filter((e) => e.id !== 'custom').map((e) => `<tr><td>${e.page ? `<a href="${BASE}${e.page}/?lang=${lang}">${e.name}</a>` : e.name}</td><td>${e.photo ? cell(e.photo) : t('liveCell')}</td><td>${cell(e.sign)}</td><td>${e.thumb ? `${t('kThumb')}: ${cell(e.thumb)}<br>` : ''}${e.decl ? `${t('kDecl')}: ${cell(e.decl)}` : ''}</td></tr>`).join('');
   refreshKind();
 };
 
 const refreshKind = () => {
   const e = exam();
-  if (!e[kind]) kind = 'photo';
+  if (!e[kind]) kind = e.photo ? 'photo' : 'sign';
   document.querySelectorAll('.tab').forEach((b) => { b.classList.toggle('on', b.dataset.kind === kind); b.disabled = !e[b.dataset.kind]; });
   const p = e[kind];
-  $('needLine').textContent = e.id === 'custom' ? '' : t('need')(p[4] && p[4] !== '—' ? p[4] : '', p[0], p[1], p[2], p[3]);
+  $('needLine').textContent = e.id === 'custom' ? '' : t('need')(p[4] && p[4] !== '—' ? p[4] : '', p[0], p[1], p[2], p[3]) + (e.live ? ` · ${t('liveNote')}` : '');
   $('pickHint').textContent = isInk() ? t('hintInk') : t('hintPhoto');
   $('photoOpts').classList.toggle('hidden', isInk());
   $('inkOpts').classList.toggle('hidden', !isInk());
